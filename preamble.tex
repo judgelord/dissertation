@@ -31,7 +31,7 @@
 % ---------------------------------------
 \usepackage{graphicx} % input graphics
 \graphicspath{ {./Figs/} }
-%  \graphicspath{{./../output/graphics/}} % global path to graphics folderhttps://www.overleaf.com/project/5ba2c9ade40c883bfbc15f62
+
 \usepackage{float} % float parameters
 \usepackage{placeins} % \FloatBarrier: prevent floats spilling across sections
 \usepackage{subcaption} % subfloats with individual captions
@@ -76,3 +76,13 @@
 \usepackage{enumitem} % allows [nosep] option for lists
 
 \usepackage{endnotes}
+\makeatletter
+\renewcommand\@makeenmark{%
+  \textsuperscript{\normalfont\textcolor{blue}{\@theenmark}}%
+}
+\newcommand{\uncolormarkers}{%
+  \renewcommand\@makeenmark{%
+    \textsuperscript{\normalfont\@theenmark}%
+  }%
+}
+\makeatother
