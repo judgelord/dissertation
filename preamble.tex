@@ -1,0 +1,78 @@
+
+
+% \usepackage[round, sort, comma]{natbib}
+% \setcitestyle{notesep={, },round,aysep={},yysep={,}}
+
+%\setlength{\parindent}{0pt}
+
+% \usepackage[authordate,strict,backend=bibtex8,babel=other, doi=false, url=false, isbn=false, uniquename=false, maxcitenames = 2, uniquelist=false,%
+% bibencoding=inputenc, natbib]{biblatex-chicago}
+%\usepackage[authordate, backend=biber, doi=false, url=false, isbn=false, uniquename=false, maxcitenames = 2, uniquelist=false, natbib]{biblatex-chicago}
+
+
+
+% ---------------------------------------
+%   REFERENCES
+% ---------------------------------------
+\usepackage{natbib} %[round, sort, comma]{natbib}
+  \bibpunct[: ]{(}{)}{;}{a}{}{,}
+%\usepackage[nottoc,numbib]{tocbibind} % numbers bib. in table of contents
+
+
+% ---------------------------------------
+%   MARGINS AND SPACING
+% ---------------------------------------
+\usepackage[margin=1in]{geometry} 
+\usepackage{setspace} % line spacing
+
+
+% ---------------------------------------
+%   TABLES AND FIGURES
+% ---------------------------------------
+\usepackage{graphicx} % input graphics
+\graphicspath{ {./Figs/} }
+%  \graphicspath{{./../output/graphics/}} % global path to graphics folderhttps://www.overleaf.com/project/5ba2c9ade40c883bfbc15f62
+\usepackage{float} % float parameters
+\usepackage{placeins} % \FloatBarrier: prevent floats spilling across sections
+\usepackage{subcaption} % subfloats with individual captions
+\usepackage{multirow} % multicolumn and multirow
+\usepackage{booktabs} %? for toprule, midrule etc
+\usepackage{dcolumn} % decimal-aligned columns
+
+
+% ---------------------------------------
+%   MATH
+% ---------------------------------------
+\usepackage{amsmath}
+%  Math symbols (depends on whether you customize typeface)
+%  \usepackage{amsfonts}
+%  \usepackage{mathrsfs}
+\usepackage{amssymb}
+  %  \newcommand{\E}{\mathrm{E}}
+  %  \newcommand{\Var}{\mathrm{Var}}
+  %  \newcommand{\Cov}{\mathrm{Cov}}
+  %  \newcommand{\plim}{\mathrm{plim}}
+  %  \renewcommand{\L}{\mathcal{L}}
+  %  \renewcommand{\d}{\mathrm{d}}
+  %  \newcommand{\R}{\mathbb{R}}
+
+
+% ---------------------------------------
+%   TYPEFACE AND TEXT STYLES
+% ---------------------------------------
+% \usepackage{fontenc} 
+% advisable to include for nitty-gritty details
+% (ligatures, kerning & other typographical things)
+
+% \usepackage[usenames, dvipsnames]{xcolor} % extra colors
+\usepackage{hyperref} % hyperlinks
+   \hypersetup{
+     colorlinks = true, 
+     citecolor = black, 
+     linkcolor = blue,
+     urlcolor = blue}
+
+\usepackage{comment} % provides {comment} environment
+\usepackage{enumitem} % allows [nosep] option for lists
+
+\usepackage{endnotes}
