@@ -1,4 +1,4 @@
-
+\date{\today} 
 
 % \usepackage[round, sort, comma]{natbib}
 % \setcitestyle{notesep={, },round,aysep={},yysep={,}}
@@ -76,6 +76,7 @@
 \usepackage{enumitem} % allows [nosep] option for lists
 
 \usepackage{endnotes}
+
 \makeatletter
 \renewcommand\@makeenmark{%
   \textsuperscript{\normalfont\textcolor{blue}{\@theenmark}}%
@@ -86,3 +87,8 @@
   }%
 }
 \makeatother
+
+
+\newcommand{\exclude}[1]{\StopSearching ##1\StartSearching}
+
+\usepackage{ragged2e}

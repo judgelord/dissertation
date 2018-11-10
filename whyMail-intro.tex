@@ -1,0 +1,81 @@
+\paragraph{Step 1: Why do agencies (occasionally) get so much mail?} 
+%: Lobbying coalitions, mass comments, and political information in bureaucratic policymaking
+
+% Scholars of bureaucratic policymaking have focused on the sophisticated lobbying efforts of powerful interest groups. Yet agencies occasionally receive thousands or even millions of comments from ordinary people. Why? Why do individuals comment when they seemingly have no new information to offer and no power to influence decisions? Who inspires them and to what end? How, if at all, should scholars incorporate mass commenting into models of bureaucratic policymaking? I argue that mass commenting produces political information about the coalition that mobilized it. 
+
+
+% QUESTION 1\textbf{Puzzle:} 
+Why do people comment on draft policies when they seem to have no new information to offer and no power to influence decisions? Who inspires them and to what end? 
+% THEORY AND METHODS 1
+Answering these questions requires a method to link comments to coalitions and a theory explaining variation in mass engagement.  
+To link individual comments to the more sophisticated lobbying efforts they support, I use text reuse and topic models to identify clusters of similar comments, reflecting formal and informal coalitions.
+
+Mass-comment campaigns have wildly different results. Some gather a clean 10,000 copies of (or, more accurately, signatures on) the same comment and call their work done. Others ``go viral''---inspiring a mess of further engagement where the original messages are translated through social media posts and news stories.
+
+%Using new measures of public engagement in agency rulemaking, I identify the conditions under which it occurs and produces different politically-relevant information. 
+% The dependent variable is the number of people engaged.
+I argue that activists' opportunities and strategies explain variation in engagement. %, which I measure in several ways. 
+
+
+\textbf{Dependent Variables:} 
+
+Model 1) Total comments $\sim$ zero-inflated negative binomial; 
+
+Model 2) Comments per coalition $\sim$ negative binomial; 
+
+Model 3) Effort per comment $\sim$ truncated normal; 
+
+Model 4) Type of campaign $\sim$ multinomial. 
+
+The dependent 2-4 are built using text reuse and topic models\footnote{
+Ultimately something similar to the correlated topic model \citep{Blei2005}, possibly with lexical priors \citep{Fong2016}
+},
+one observation per coalition per rule. Explanatory variables include agency alignment with Congress and the president (models 1-4), coalition unity and alignment (models 2-4), and coding coalitions as driven more by public or private interests (models 2-3).%, part of the DV in model 4).
+
+% TYPES OF CAMPAIGNS AND COALITIONS
+\paragraph{Types of campaigns:} The mix of types of supporters depends, in part, on the aims of a campaign. Campaigns may have one of three distinct aims: (1) to win concessions by going public, (2) to disrupt a perceived consensus, or (3) to go down fighting. 
+
+Coalitions ``go public'' when they believe that expanding the scope of conflict gives them an advantage.\footnote{
+Going public (or an ``outside strategy'') is used by Presidents \citep{Kernell2007}, Members of Congress \citep{Malecha2012}, interest groups \citep{Walker1991, Dur2013}, Lawyers, and Judges (Davis 2011). 
+% Sophisticated organizations also use phone banks, targeting strategies, and direct-mail techniques to drum-up and channel public support (see Cooper 1985:2036).
+This strategy is likely to be used by those disadvantaged (those \citet{Schattschneider1975} calls the `losers') with less public attention.
+Rulemaking with little public attention is the norm. Nearly all scholarship on rulemaking in political science thus focuses on interest-group and inter-branch bargaining, ignoring public opinion and social movements. 
+}
+As these are the coalitions that believe they have more intense public support, many people may be inspired indirectly and to engage with more effort. In these cases, mass engagement will likely skew heavily toward this side. This is important because a perceived consensus may be especially influential political information.\footnote{
+For example, consensus among interest groups \citep{Golden1998, Yackee2006JPART}, especially business unity \citep{Yackee2006JOP, Haeder2015}, predicts policy change, though it is not clear if this is a result of strategic calculation, a perceived obligation due to the normative power of consensus (e.g. following a majoritarian \citep{Mendelson2011}), or simply that the information is easier to process.
+}
+
+Second, because the perception of consensus is powerful, when a coalition goes public, an opposing coalition may countermobilize. As this is likely a coalition with less intense public support and its aim is merely to break a perceived consensus, I expect such campaigns to engage fewer people, less effort per person, and yield a smaller portion of indirect engagement. 
+
+Finally, campaigns may target supporters rather than policymakers. Sometimes organizations ``go down fighting'' to fulfill supporters' expectations.\footnote{
+I use ``going down fighting'' as shorthand for campaigns aimed at only at fulfilling supporter (e.g. donor, membership) expectations and related logics that are internal to the organization (e.g. fundraising, member retention or recruitment, or satisfying a board of directors).} While such campaigns may engage many people, they are unlikely to affect policy or to inspire countermobilization. I expect such campaigns to occur on rules that have high partisan salience (e.g. rules following major legislation passed on a narrow vote), propose large shifts on policy issues dear to well-funded public interest groups, and occur after presidential transitions when executive-branch agendas shift more quickly than public opinion.
+
+While the coalitions may form around various material and ideological conflicts, those most likely to be advantaged by going public or going down fighting are public interest groups---organizations primarily serving an idea of the public good rather than the material interests of their members.\footnote{
+One exception may be the few types of membership organizations that are both broad and focused on material outcomes such as labor unions.} Thus, I theorize that mass mobilization is most likely to occur in conflicts of public versus private interests or public versus public interests (i.e. between coalitions led by groups with distinct ideas of the public good), but only ones with sufficient resources to run a campaign.\footnote{
+If true, one implication is that mass mobilization will systematically run counter to concentrated business interests where they conflict with the values of organized, privileged groups.
+}
+To assess these propositions, I classify coalitions as primarily driven by public or private interests and roughly estimate each coalition's resources. 
+
+
+
+% We do not really know who engages in mass commenting. Some assume that people who engage in mass commenting belong to membership organizations. Others imply that they are people who happen to have an opinion. RAUCH discusses both "members" and  _______
+% % The people who engage in mass commenting are often assumed to be 
+
+% Engaging a broader audience and thus changing the scope of conflict is a basic political strategy. Presidents, supreme court justices, and others "go public" when doing so alters their opponents' calculations. 
+
+% Which campaigns engage a broader audience and which do not? 
+
+
+\paragraph{Types of engagement:} I classify supporters into three types using the texts of their comment to infer how they were mobilized.  Comments that are exact copies of a form letter are akin to petition signatures from supporters who were engaged by a campaign to comment with minimal effort. Commenters that repeat text but also take time to add their own text indicate more intense preferences. Finally, commenters who express solidarity in similar but distinct phrases indicate they were engaged indirectly
+%, perhaps by a news story or a social media post about the campaign, 
+as campaign messages spread beyond those originally targeted. The size of each of each group thus offers political information to policymakers, including coalition resources, intensity of sentiment, and potential for conflict to spread.\footnote{
+The first two types signal two kinds of intensity or resolve. First, they show the mobilizers' willingness to commit resources to the issue. Second, costly actions show the intensity of opinions among the mobilized segment of the public \citep{Dunleavy1991}. The number of people engaged by a campaign is not strictly proportional to an organizations investment. The less people care, the more it costs to mobilize them. If agency staff do not trust organizations' representational claims, engaging actual people may be one of the few credible signals of a broad base of support. The third type indicates potential contagion. Indications that messages spread beyond those originally targeted be especially effective \citep{Kollman1998}. Information about organizational resolve, intensity of preference, and contagiousness are thus produced, but will only influence decisions if mass comments are processed in a way that captures this information and relays it to decisionmakers. These organizational processes may vary significantly across agencies.
+}
+
+
+# METHODS 
+\paragraph{Methods:} In addition to mapping text re-use, I adapt several statistical models (Bayesian classifiers) of text to classify comments into coalitions\footnote{
+The aim is to discover latent coalitions by textual similarity (having removed all sentences quoting the agency's draft rule and call for comments). I start by modeling all comments on each rule (collapsing exactly identical comments to one document) with three topics, which I verify by inspecting how the comments of named organizations and those claiming affiliations were classified and, if $k=3$ appears to be correct, tag them as ``pro, con, other.'' Within each coalition, I then look for text re-use, identifying strings longer than 10 words that are repeated to identify the share of unique comments that resulted from direct mobilization versus indirect engagement.
+}, parse policy demands, and estimate relative probabilities that a policy change favors a given coalition. I then model the relationship between my measures of policy success and coalition size, intensity, and contagion and assess mechanisms
+%---indirect-strategic, direct-normative, indirect-normative---
+by which political information may influence agency decisions.
