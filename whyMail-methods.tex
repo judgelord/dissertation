@@ -1,0 +1,22 @@
+
+\subsection{Measuring Coalitions}
+
+\subsubsection{Identifying participants}
+Previous studies of rulemaking stress the importance of coalitions \citep{Yackee2006a}. Scholars have measured coalitions of organized groups but have yet to be able to attribute citizen comments to the coalition that mobilized them.
+Metadata on participants in rulemaking including the date and author of comments (including the type of author, i.e. business, business group, citizen, public interest group, etc.)% and briefs
+allows me to track and compare relative alignment  across venues and over time to assess whose ideas and interests are reflected at each stage of policymaking and in policy processes over time. % and review, for example from a statute or executive order, to the agency rule(s), to review by the White House, to court opinions. 
+Unfortunately, metadata regarding the authors of comments and court briefs are often inconsistent and incomplete. As this information is key to assessing who influential actors are, improving these data is a significant data-organization task. After cleaning the corpus of comment texts, simple text search matching organization and individual names across texts, especially those named as comment authors will help systematically link individuals and groups who may participate in different coalitions and under different names over time. This help to identify formal coalitions of organizations that sign onto the same comment as well as experts and citizens mobilized by advocacy campaigns to submit separate comments.
+
+\subsubsection{Identifying coalitions }
+
+Having identified who is participating in rulemaking over time, the next step is to identify who is lobbying together. 
+
+When actors sign onto the same comment, it is clear that they are lobbying together. This generally takes two forms. Businesses and groups representing allied industries often co-sign carefully crafted suggestions that reflect their common interest. We expect this to occur when the benefits of coordination outweigh the costs (Yackee and Yackee 2006). The other form this take is public campaigns that ask citizens to submit a form letter, often alongside other actions such as protests. These occasional bursts of civic participation may affect rulemaking (Coglianese 2001), but this is yet to be tested. %In the first form, many of the businesses are repeat players and I record them individually. In the second form, the advocacy groups are repeat players, and I recorded their participation, but it would be citizens who participate are likely not and I record the number of these comments as an amplitude parameter for the text they signed and I attribute form-letter texts to the advocacy groups promoting them.
+
+Various businesses, advocacy groups, and citizens often comment separately even when they aligned. The comment process is open to anyone and it is often not worthwhile for all actors to coordinate their messages. There may be many dimensions of demands and it is unclear to which coalition many comments belong.
+
+Classifying comments into common groups is a task well suited for a single membership topic model.\footnote{This is in contrast to the mixture model I use to estimate the distribution of multiple topics in each document and each coalition} This model clusters documents by the frequency they use different words. Being classified together does not mean that the documents all address exactly the same distribution of substantive issues, just that how issues are discussed is similar relative to the full set of documents.
+
+% Identifying when commenters change coalitions is key for testing policy feedback theories about how policies reorganize political coalitions. I do this by indexing rules over time and adding a parameter for the probability that an actor switches from one coalition to another at each point in time. This allows the model to achieve a better fit by reclassifying an actor after some point in time. These actor- and coalition- specific points in time are a key output of this approach required to test theories of how policies reorganize political coalitions. 
+
+Bounding the scope of this model (i.e. the policy system) is a challenge. On the one hand, each agency deals with many issues of interest to different coalitions. On the other hand, many lobby across multiple agencies. I opt to model coalition advocacy at a fine scale based on Office of Management and Budget agency sub-function codes, but I may try to link across related issues and agencies. 
