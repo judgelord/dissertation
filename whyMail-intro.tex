@@ -77,7 +77,6 @@ The first two types signal two kinds of intensity or resolve. First, they show t
 }
 
 
-# METHODS 
 \paragraph{Methods:} In addition to mapping text re-use, I adapt several statistical models (Bayesian classifiers) of text to classify comments into coalitions\footnote{
 The aim is to discover latent coalitions by textual similarity (having removed all sentences quoting the agency's draft rule and call for comments). I start by modeling all comments on each rule (collapsing exactly identical comments to one document) with three topics, which I verify by inspecting how the comments of named organizations and those claiming affiliations were classified and, if $k=3$ appears to be correct, tag them as ``pro, con, other.'' Within each coalition, I then look for text re-use, identifying strings longer than 10 words that are repeated to identify the share of unique comments that resulted from direct mobilization versus indirect engagement.
 }, parse policy demands, and estimate relative probabilities that a policy change favors a given coalition. I then model the relationship between my measures of policy success and coalition size, intensity, and contagion and assess mechanisms
