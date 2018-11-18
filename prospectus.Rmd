@@ -5,11 +5,14 @@ date: TRUE
 header-includes:
    - \input{preamble.tex}
 output: pdf_document
-
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{asis, include = FALSE} 
+R -e "rmarkdown::render('prospectus.Rmd',output_file='test.pdf')"
 ```
 
 ```{asis, include = FALSE}
