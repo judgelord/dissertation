@@ -1,6 +1,6 @@
 
 % MEASUREMENT  2
-To assess the hypothesis that mass engagement affects the engagement of political principals, I examine the relationship between mass commenting and the behavior of Members of Congress, while attempting to control for other reasons that Members of Congress may comment on a proposed rule.
+To assess the hypothesis that mass engagement affects the engagement of political principals, I examine the relationship between mass commenting and the behavior of Members of Congress, while attempting to control for other reasons that Members of Congress may comment on a proposed rule. The bold arrow in figure \ref{fig:causal-principals-test} indicates the key relationship in this step.
 
 \input{causal-principals-test.tex}
 
@@ -9,14 +9,15 @@ Next, I use text analysis to compare the sentiment and rhetoric used by legislat
 Using texts has several major advantages over other measures of congressional attention and sentiment such as partisanship \citep{Yaver2016,Lewis2008}, changes in budget size, or the length of appropriations reports \citep{Bolton2015}. Unlike partisanship, it is issue-specific and does not require assumptions about agency partisanship. While budget changes may reflect real costs, the many reasons that budgets change make it difficult to attribute changes to particular agency actions. The length of appropriations subcommittee reports may indicate the amount of attention committees pay to an agency but they do not vary significantly over time and do not indicate whether committee attention is positive or negative.
 
 Specifically, dependent variables include:
+
 % Similarly, I asses the involvement of presidential appointees and the President's Office of Management and Budget before and after public comment, again comparing rules that were and were not targeted by a campaign (a difference-in-difference). 
 % As a validity check, I also look for remarks by elected officials and judges on the level of public engagement.\footnote{
 % I expect courts to be more likely to cite the procedural legitimacy of notice comment rulemaking when ruling in favor of public interest group that went public, and less likely to do so when ruling against them, compared to cases where rules received few comments. For example, citing the procedural legitimacy of rulemaking in Vermont Yankee v. NRDC (1978), Justice Rehnquist noted ``More than 40 individuals and organizations representing a wide variety of interests submitted written comments.'' I have collected data, including mentions of public comments, on all Supreme Court cases reviewing agency rules since 1984 and will do the same for a sample of D.C. circuit cases. While I focus on elected officials because they are more likely to respond to mass engagement, courts are also important political principals who explicitly review the legitimacy of rulemaking processes.
-1) Comments from Members of Congress on the rule (total, those mentioning mass comments, and those mentioning organizations in the coalition), All  $\sim$ zero-inflated negative binomial. 
+Model 1) Comments from Members of Congress on the rule (total, those mentioning mass comments, and those mentioning organizations in the coalition), Each  $\sim$ zero-inflated negative binomial. 
 
-2) Share of mentions supporting the coalition,  $\sim$  beta. 
+Model 2) Share of mentions supporting the coalition,  $\sim$  beta. 
 
-3) Rhetorical similarity between comments from the coalition and Members of Congress. 
+Model 3) Rhetorical similarity between comments from the coalition and Members of Congress. 
 
 Dependent variables 1-2 are one observation per coalition per rule. Model 3 is one observation per comment from a Member of Congress. The key explanatory variables of interest are the measures of mass engagement created in step 1 (how many and what types of comments). One challenge will be controlling for rule salience, which may affect both public and legislator attention (indeed, both are endogenous to rule salience). Another challenge will be controlling for latent public opinion, which may often, but not exclusively, be revealed to legislators through mass engagement.% In addition to cross sectional analysis, I use a difference-in-difference design within members on rules where groups do and do not go public.
 

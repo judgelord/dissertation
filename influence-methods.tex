@@ -1,7 +1,25 @@
-Measuring Policy Change}
+% MEASUREMENT 3 % FIX THIS 
+% it is difficult
+The main dependent variable here is changes in rule text. However assessing policy change is difficult. Thus, I also use other measures of agency responses to lobbying efforts. 
+%Different inputs may yield different results: 
+Agencies may or may not change draft policies or may speed up or delay finalizing them. They write lengthy justifications of their decisions in response to some demands but not others. They may or may not extend the comment period. Measuring actual changes in policy text is more difficult. I aim to use automated methods to systemically identify changes between draft and final rules, parse these textual differences to identify meaningful policy changes, and compare them to demands raised in comments to measure which coalition got their way.
+Observing policy influence, especially in the final stages of policymaking is difficult. Given the momentum of political agendas and the fact that much is determined before draft rules are made public, changes are often on the margins. But such marginal victories are also the aim of business and other interest groups. 
+Additionally, my theory suggests that influence is likely only in cases where mass mobilization is (1) aimed at influencing policy and (2) not accurately anticipated by policymakers. Measuring these will also be difficult.
+
+\input{causal-influence-test.tex}
+
+Observational studies of policy decisions are almost always frustrated by the fact that decisionmakers rationally anticipate the actions of those who would influence them, rendering this influence difficult to observe. Thus I expect to observe larger effects in cases where mobilization or the level of engagement achieved was not anticipated by agency staff. However, as long as rulewriters do not perfectly anticipate mass engagement, it should have observable, if depressed, effects. 
+
+My method of identifying whether a rule seems to move in the direction requested is similar to leading existing methods---\citet{Yackee2006JOP} measure whether commenters requested for more or less regulation---and superior to self-reported influence \citep{Furlong1997}.
+
+As most rules address long-defined problems. They are next steps advancing a policy agenda \citep{West2013} or the first steps in a new, often reverse, policy direction, it is possible that effects of ``going public'' are cumulative in a policy area over time, starting out small, but gaining agenda-setting power with sustained public attention. This may not be possible to measure with my rule-focused research design. However, if sequential rules can be linked to distinct policy agendas, my strategy could be extended to model dynamics over time following \citet{Brookhart2015}.
+
+
+
+% Measuring Policy Change}
 Policies may shape and be shaped by many forces, including the collective action of citizens, expert opinions, and businesses interests. Yet the drivers and consequences of policymaking are difficult to disentangle. Business groups may fund scientists or advocacy campaigns to preempt or undo costly regulations. Experts and policymakers may inspire broader civic mobilization, and citizen mobilization may, in turn, shape the priorities of experts and policymakers. Some policy debates divide along lines of citizen and corporate interest or expert and popular opinion, but many entail various clusters of claims regarding the public interest, expertise, and business interests: claims about the public good, scientific truths, and the proper role of government. Inferring policy demands from identity alone and assuming static coalitions may miss much of the story. 
 
-\subsubsection{Text as Data}
+\paragraph{Text as Data}
 Existing measures of who gets their way in rulemaking are blunt---hand-coding texts on a few pre-defined and simplified categories such as ``pro- or anti-regulation.'' This is well motivated by theory, but in practice, it is often unclear whether a policy, on its face, increases or decreases government regulation, is liberal or conservative, or maps on to any other such latent dimension. 
 
 Another drawback of the hand-coding approach is that one must often read each comment and compare it to the rule change to identify influential groups. If groups get their way when they lobby in many venues over time or on obscure or uncontested rules, studies focusing on highly visible and contested policy processes may miss much. Conversely, if mass mobilization in high-profile and hotly-contested rules matters, studies of rulemaking that discard the hundreds of thousands of form letters and other evidence of occasional bursts of civic engagement are unable to assess if mass participation matters. Legal scholarship suggests that mass mobilization may be important (Coglianese 2001). This limited and potentially biased empirical focus is largely due to the cost of hand-coding methods.
@@ -22,7 +40,7 @@ I use computational text-analysis tools to address these concerns. Political sci
 
 
 
-\subsection{Measuring Policy Change}
+\paragraph{Measuring Policy Change}
 %\subsection{What Policy Texts Do?}
 
 As described below, I measure the extent to which the text of a policy becomes more similar or less similar to the text of each public comment. 
@@ -40,7 +58,7 @@ Importantly, few observers would see any final rule as the final word. Rules are
 % One way to think about the kind of political influence I aim to study is to ...
 
 %Recognizing this, I try to ....
-\subsubsection{Measuring change in policy texts}
+\paragraph{Measuring change in policy texts}
 
 If available and reliably reflecting what actors want, policy positions expressed as texts have great advantages over those expressed in votes.
 
@@ -56,9 +74,9 @@ If the primary aim is to identify policy actors' ideological proximity to each o
 
 This is one great advantage of textual data compared to votes. Each observation is far richer in content and analysis requires fewer assumptions to say where actors really stand on a proposed policy. A finding that the words one actor suggested be added to a policy were twice as likely to appear in the final policy as average is a powerful and intuitive description of where power to shape policy resides.\footnote{This is, perhaps, even more powerful than saying that the policy tended to shift toward their ideal point on some latent dimension, where the exact content anchoring the ideal point and the dimension are at least slightly ambiguous.}
 
-\subsubsection{Measuring the extent commenters got what they asked for}
+\paragraph{Measuring the extent commenters got what they asked for}
 
-Participants may ask for two general kinds of things: they ask for specific changes to identified parts of the text or they may ask for a broad shift in emphasis, what Jones and Baumgartner (2005) call a policy image. For example, on the same Clean Power Plan rule, some may ask the Environmental Protection Agency to make specific changes to two sentences having to do with the classification of power plants and the division of federal and state enforcement authority. Others may ask for broad reframing to focus less on economic costs and more on environmental equity and the effects of pollution on children. Many commenters do both. 
+Participants may ask for two general kinds of things: they ask for specific changes to identified parts of the text or they may ask for a broad shift in emphasis, what \citet{Jones2005} call a policy image. For example, on the same Clean Power Plan rule, some may ask the Environmental Protection Agency to make specific changes to two sentences having to do with the classification of power plants and the division of federal and state enforcement authority. Others may ask for broad reframing to focus less on economic costs and more on environmental equity and the effects of pollution on children. Many commenters do both. 
 
 I thus collect two key pieces of information from the rulemaking record: the text comments and the change from the draft rule to the final. I use each type of information in a different kind of analysis, one targeting specific demands and one targeting broad demands. Both approaches require the same initial steps. To identify how exactly the rule changed from draft to final, I use text reuse methods to identify what is the same and has been added or subtracted. Similarly, I identify text in comments that is not copied from the draft rule.\footnote{I may also need to exclude other kinds of text such as narratives introducing the commenter which commonly precede policy demands.} The result of these two steps is the changes requested by commenters and textual change in the rule. 
 
@@ -68,7 +86,7 @@ To identify the adoption of demands for broader shifts in policy image and empha
 
 Some rulemaking processes also have a commenting period before the draft policy is published. In these cases, commenters respond to an Advanced Notice of Proposed Rulemaking (ANPRM). A similar approach can be used in these processes with the key difference that similarities between comments and the draft rule (now the outcome text), either in specific text fragments or general topic distribution, take on a different meaning. Instead of representing changes to a policy text, it may represent common understandings of what policy already was or had to be on this topic. Changes in the final rule more plausibly represent differences in what policy could be. With respect to the ANPRM and proposed rule, it is more difficult to infer that the same result would not have occurred without their comments. While such counterfactual inference is not my purpose and both measure the same core phenomena of the words actors want becoming policy, interpretation of what this means must attend to this difference. 
 
-\subsubsection{A Model Relating Comments to Rule Changes}
+\Paragraph{Relating Comments to Rule Changes}
 
 My methodological contribution is to combine topic modeling approaches with text reuse methods, allowing scholars to better understand not just what is discussed but the topic distributions of what is being added, cut, copied from others, or otherwise receiving special attention. I call this a relational topic modeling approach. Of course, all topic models focus on the relationship between text, but by making some of the text units themselves a relationship between texts with text reuse methods, the topic model takes a ``difference in difference'' (e.g. what was added or deleted) or ``difference in similarity'' (e.g. what was copied) form. Much of the rule content is retained from one version to the next, but some content often changes. We want to know how these changes relate to the changes proposed by participants. 
 
@@ -139,8 +157,8 @@ is the distribution over $w$ words in each topic $\tau$, i.e. the probability of
 
 The result is a quantitative measure of the alignment between suggestions made in comments and text added or subtracted from the draft to final rule. A similar approach can estimate the relationship between ANPRM comments and the draft rule text, omitting the draft-to-final text reuse step. Credible intervals for these comment and topic-specific alignment scores can be calculated from posterior distributions. 
 
-\subsection{Measuring the Role of Agency Missions and Reputations in Decisionmaking}
+% \subsection{Measuring the Role of Agency Missions and Reputations in Decision making}
 
-\subsubsection{Measuring agency reputations}
+% \subsubsection{Measuring agency reputations}
 
-\subsubsection{Linking comments and reputations
+% \subsubsection{Linking comments and reputations

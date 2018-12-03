@@ -11,70 +11,72 @@
 \begin{document}
 % FOR DAVE: %%%%%%%%%%%%%%%%%%%%%%%%%%
 % \large
-% \doublespace
+\doublespace
 % \RaggedRight
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \maketitle
-\abstract{\include{abstract.tex}}
+\abstract{\input{abstract.tex}}
+
+TO DO: 
+
+mass comments per year figure 
+--Yackee Annual Review 
+--democratic rulemaking 
+--Dave's Book
+--Discuss causal models 
+
+
+\newpage
 \tableofcontents
 
-% \includegraphics[height = .5cm]{spam}
-\newpage
-
+\section*{Overview}
 \input{summary.tex}
-% \end{document}
+% \end{document} % NO SOURCES BEFORE THIS POINT
 
-
-\section{Introduction}
+\section{Introduction} \label{intro}
 \input{intro.tex}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Theory} 
 
-\section{Theory}
-% why mail theory
+\subsection{Step 1: Why do agencies (occasionally) get so much mail?} \label{whymail-intro}
 \input{whyMail-intro.tex}
 
-% principals theory 
+\subsection{Step 2: Does mass engagement affect political oversight?} \label{principals-intro}
 \input{principals-intro.tex}
 
-% putting it all together
+\subsection{Step 3: Does mass engagement affect policy?} \label{influence-intro}
+\input{influence-intro.tex}
 \input{mechanisms.tex}
-
 \input{model.tex}
 
-\bibliographystyle{apsr.bst} 
-\bibliography{Mendeley.bib}
-\end{document}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methods}
 
 \subsection{Measuring mass engagement and political information}
 \input{whyMail-methods.tex}
 
-\subsection{Assessing effects on elected officials' attention to rulemaking}
+\subsection{Assessing effects on elected officials' oversight behavior}
 \input{principals-methods.tex}
 
 \subsection{Assessing effects on rulemaking and rules}
 \input{influence-methods.tex}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RESULTS
+% \section{Why So Much Mail?}
 
 
+% \section{Influence on Principals}
 
 
-% SUBSTANTIVE CHAPTERS
-\section{Why So Much Mail?}
+% \section{Influence on Agency Policymaking}
 
+\section{Supplemental case study: The environmental justice movement} \label{ej}
+\input{ej.tex}
 
-\section{Influence on Principals}
-
-
-\section{Influence on Agency Policymaking}
-
-
-\section{The environmental justice movement}
-% \include{ej.tex}
-
-\section{Field experiments}
+% \section{Field experiments}
 
 
 \section{Conclusion}
