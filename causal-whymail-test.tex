@@ -33,14 +33,15 @@ title/.style={rectangle, align=center, aspect=1, minimum size=2cm},
 \node[text centered]      (mobilizing) [below=of groupdecides] {Mass\\ Mobilization};
 
 % political info
-\node[rectangle, minimum width =2cm, minimum height = 3cm, draw=red!60, fill=red!5,  thick]      (politicalinfo) [below=of groupinfo] {};
+% \node[rectangle, minimum width =2cm, minimum height = 3cm, draw=red!60, fill=red!5,  thick]      (politicalinfo) [below=of groupinfo] {};
 
-\node[text centered]      (politicalinfotext) [below=of groupinfo] {Political Information};
+% \node[text centered]      (politicalinfotext) [below=of groupinfo] {Political Information};
 
 \node[text centered]      (mobilizing) [below=of groupdecides] {Mass\\ Mobilization};
 
-\node[squarednode]      (publicinfo) [below=of politicalinfotext] {Perceived Public Opinion};
-\node[dnode]      (publicdecides) [left=of publicinfo] {Mass\\ Engagement};
+%\node[squarednode]      (publicinfo) [below=of politicalinfotext] {Perceived Public Opinion};
+
+\node[dnode]      (publicdecides) [below=of mobilizing] {Mass\\ Engagement};
 \node[pnode]        (publicdemands) [left=of publicdecides] {Latent Public Demands};
 
 
@@ -49,7 +50,7 @@ title/.style={rectangle, align=center, aspect=1, minimum size=2cm},
 \draw[->, line width=2] (publicdemands.north east) -- (groupdecides.south west);
 \draw[-, line width=2] (groupdecides.south) -- (mobilizing.north);
 \draw[->, line width=2] (mobilizing.south) -- (publicdecides.north);
-\draw[->] (publicdecides.east) -- (publicinfo.west);
+%\draw[->] (publicdecides.east) -- (publicinfo.west);
 
 
 

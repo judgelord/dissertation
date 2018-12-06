@@ -1,5 +1,6 @@
 \pagestyle{headings}
 \date{\today} 
+
  %\setlength{\parskip}{1em}
 % \usepackage[round, sort, comma]{natbib}
 % \setcitestyle{notesep={, },round,aysep={},yysep={,}}
@@ -23,7 +24,7 @@
 % ---------------------------------------
 %   MARGINS AND SPACING
 % ---------------------------------------
-\usepackage[margin=1in]{geometry} 
+\usepackage[letterpaper, margin=1in]{geometry} 
 \usepackage{setspace} % line spacing
 
 
@@ -61,11 +62,32 @@
   %  \renewcommand{\d}{\mathrm{d}}
   %  \newcommand{\R}{\mathbb{R}}
 
-
 % ---------------------------------------
 %   TYPEFACE AND TEXT STYLES
 % ---------------------------------------
 
+% Hypotheses
+\usepackage{ntheorem}
+\theoremseparator{:}
+\newtheorem{hyp}{Hypothesis}
+
+\makeatletter
+\newcounter{subhyp} 
+\let\savedc@hyp\c@hyp
+\newenvironment{subhyp}
+ {%
+  \setcounter{subhyp}{0}%
+  \stepcounter{hyp}%
+  \edef\saved@hyp{\thehyp}% Save the current value of hyp
+  \let\c@hyp\c@subhyp     % Now hyp is subhyp
+  \renewcommand{\thehyp}{\saved@hyp\alph{hyp}}%
+ }
+ {}
+\newcommand{\normhyp}{%
+  \let\c@hyp\savedc@hyp % revert to the old one
+  \renewcommand\thehyp{\arabic{hyp}}%
+} 
+\makeatother
 
 % \usepackage{fontenc} 
 % advisable to include for nitty-gritty details

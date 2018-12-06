@@ -1,4 +1,4 @@
-\begin{figure}[h!]
+\begin{figure}
     \centering
     \caption{Incorporating Mass Engagement and Political Information into Models of Political Oversight}
     \label{fig:causal-principals}
@@ -39,11 +39,11 @@ title/.style={rectangle, align=center, aspect=1, minimum size=2cm}
 \node[dnode]      (publicdecides) [right=of publicdemands] {Mass\\ Engagement};
 
 % political info
-\node[text centered]      (mobilization) [above=of publicdecides] {Mass\\Mobilization};
+\node[text centered]      (mobilization) [above=of publicdecides] {};
 
 \node[text centered]      (mobilization2) [right=of mobilization] {};
 
-\node[rectangle, minimum width =3cm, minimum height = 6.8cm, draw=red!60, fill=red!5, very thick]      (politicalinfo) [below=of mobilization2] {};
+\node[rectangle, minimum width =3cm, minimum height = 6.5cm, draw=red!60, fill=red!5, very thick]      (politicalinfo) [below=of mobilization2] {};
 
 \node[text centered]      (politicalinfotext) [below=of mobilization2] {Political Information};
 
@@ -53,7 +53,7 @@ title/.style={rectangle, align=center, aspect=1, minimum size=2cm}
 \node[squarednode]      (principalinfo2) [below=of principalinfo] {Perceived Principal Opinion};
 
 
-\draw[->] (mobilization.south) -- (publicdecides.north);
+%\draw[->] (mobilization.south) -- (publicdecides.north);
 
 
 % public Lines

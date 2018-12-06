@@ -19,11 +19,11 @@ title/.style={rectangle, align=center, aspect=1, minimum size=2cm}
 
 % Group Nodes
 \node[pnode]      (groupdemands) [right=of draft] {Group Demands};
-\node[dnode]        (groupdecides) [right=of groupdemands] {Lobbying Strategy};
-\node[squarednode]      (groupinfo) [right=of groupdecides] {Technical Information};
+\node[dnode]        (groupdecides) [right=of groupdemands] {Lobbying Strategy\\(H1)};
+\node[squarednode]      (groupinfo) [right=of groupdecides] {Technical Information (H3a)};
 
 % policy 
-\node[dnode]      (policy)       [right=of groupinfo] {Policy Response};
+\node[dnode]      (policy)       [right=of groupinfo] {Policy Response\\(H3 DV)};
 \draw[->] (groupinfo.east) -- (policy.west);
 % \draw[->] (publicinfo.east) -- (policy.west);
 % \draw[->] (principalinfo.east) -- (policy.south);
@@ -48,8 +48,8 @@ title/.style={rectangle, align=center, aspect=1, minimum size=2cm}
 \draw[->] (politicalinfo.north east) -- (policy.south west);
 
 % public Nodes
-\node[squarednode]      (publicinfo) [below=of politicalinfotext] {Perceived Public Opinion};
-\node[dnode]      (publicdecides) [left=of publicinfo] {Mass\\ Engagement};
+\node[squarednode]      (publicinfo) [below=of politicalinfotext] {Perceived Public Opinion\\(H2, H3b)};
+\node[dnode]      (publicdecides) [left=of publicinfo] {Mass\\ Engagement\\(H1 DV)};
 \node[pnode]        (publicdemands) [left=of publicdecides] {Latent Public Demands};
 
 % public Lines
@@ -62,10 +62,10 @@ title/.style={rectangle, align=center, aspect=1, minimum size=2cm}
 
 
 % principal Nodes
-\node[squarednode]      (principalinfo) [below=of publicinfo] {Perceived Political Consequences};
-\node[dnode]      (principaldecides) [left=of principalinfo] {Principal Comments};
+\node[squarednode]      (principalinfo) [below=of publicinfo] {Perceived Political Consequences\\(H3c)};
+\node[dnode]      (principaldecides) [left=of principalinfo] {Principal Comments\\(H2 DV)};
 \node[pnode]        (principaldemands) [left=of principaldecides] {Principal Demands};
-\node[squarednode]      (principalinfo2) [below=of principalinfo] {Perceived Principal Opinion};
+\node[squarednode]      (principalinfo2) [below=of principalinfo] {Perceived Principal Opinion\\(H3d)};
 
 
 % principal Lines

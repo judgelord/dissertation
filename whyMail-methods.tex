@@ -1,6 +1,40 @@
 In this section, I develop methods to attribute mass comments to the campaigns that mobilized them and measure the intensity of preferences expressed. 
-To link individual comments to the more sophisticated lobbying efforts they support, I use text reuse and topic models to identify clusters of similar comments, reflecting formal and informal coalitions. Comments that share text indicate which groups and coalitions also chose to run a mass comment campaign. Within each campaign, I measure the intensity and potential for the movement to grow. To measure intensity, I examine the ratio of high-effort and low-effort comments. To measure potential to grow, I measure the ratio of those inspired indirectly versus directly by the campaign.
-The result is several new measures that paint a picture of mass commenting.  
+To link individual comments to the more sophisticated lobbying efforts they support, I use text reuse and topic models to identify clusters of similar comments, reflecting formal and informal coalitions. Comments with identical text indicate which groups and coalitions also chose to run a mass comment campaign. Within each campaign, I measure the intensity and potential for the movement to grow. To measure intensity, I examine the ratio of high-effort and low-effort comments. To measure potential to grow, I measure the number of comments mobilized indirectly by the campaign.
+The result is several new measures that paint a picture of mass commenting. Using these new measures of public engagement in agency rulemaking, I identify the conditions under which it occurs and produces different politically-relevant information. 
+
+\subsubsection{Who lobbies?}
+Previous studies of rulemaking stress the importance of coalitions \citep{Yackee2006a}. Scholars have measured coalitions of organized groups but have yet to be able to attribute citizen comments to the coalition that mobilized them.
+% Metadata on participants in rulemaking including the date and author of comments (often including the type of author, i.e. business, business group, citizen, public interest group, etc.)% and briefs
+% allows me to track and compare relative alignment across venues and over time to assess whose ideas and interests are reflected at each stage of policymaking and in policy processes over time. % and review, for example from a statute or executive order, to the agency rule(s), to review by the White House, to court opinions. 
+Unfortunately, metadata on the authors of comments are often inconsistent and incomplete. As this information is key to identifying influential actors, improving these data is a significant data-organization task. I have collected a corpus of over 70 million comments on over 300,000 proposed rules. The first task will be linking these comments to other data on the rules. 
+
+Text search matching organization and individual names across texts, especially those named as comment authors will help systematically link individuals to the groups that mobilized them.% who may participate in different coalitions and under different names over time. 
+This helps to identify formal coalitions of organizations that sign onto the same comment as well as experts and citizens mobilized by advocacy campaigns to submit separate comments.
+
+Having identified who is participating in rulemaking, the next step is to identify who is lobbying together.
+
+\subsubsection{Who lobbies together?}
+% political information example 
+The Oceana coalition framed its mass mobilization effort to curb the  Bureau of Ocean Energy Management's 2017 Proposed Offshore Oil and Gas Leasing Program as a ``petition signed by 67,275 self-proclaimed United States residents,'' suggesting that organizations consider these efforts as akin to petitions. In the same statement, Oceana also claimed the support of ``more than 110 East Coast municipalities, 100 Members of Congress, 750 state and local elected officials, and 1,100 business interests, all of whom oppose offshore drilling,'' suggesting that claims of public and elected official support aim to provide similar kinds of political information. 
+
+% lobbying together - cosigning 
+When actors sign onto the same comment, it is clear that they are lobbying together. This generally takes two forms. Businesses and groups representing allied industries often co-sign carefully crafted suggestions that reflect their common interest. We expect this to occur when the benefits of coordination outweigh the costs \citep{Yackee2006JOP}. The other form this take is public campaigns that ask citizens to submit a form letter, often alongside other actions such as protests. These occasional bursts of civic participation may affect rulemaking \citep{Coglianese2001}, but this is yet to be tested. In the first form, many of the businesses are repeat players and I record them individually. In the second form, the advocacy groups are repeat players, and I recorded their participation, but it would be citizens who participate are likely not and I record the number of these comments as an amplitude parameter for the text they signed and I attribute form-letter texts to the advocacy groups promoting them.
+
+Various businesses, advocacy groups, and citizens often comment separately even when they aligned. The comment process is open to anyone and it is often not worthwhile for all actors to coordinate their messages. There may be many dimensions of demands and it is unclear to which coalition many comments belong.
+
+% Identifying when commenters change coalitions is key for testing policy feedback theories about how policies reorganize political coalitions. I do this by indexing rules over time and adding a parameter for the probability that an actor switches from one coalition to another at each point in time. This allows the model to achieve a better fit by reclassifying an actor after some point in time. These actor-specific and coalition-specific points in time are a key output of this approach required to test theories of how policies reorganize political coalitions. 
+
+% Bounding the scope of this model (i.e. the policy system) is a challenge. On the one hand, each agency deals with many issues of interest to different coalitions. On the other hand, many lobby across multiple agencies. I opt to model coalition advocacy at a fine scale based on Office of Management and Budget agency sub-function codes, but I may try to link across related issues and agencies. 
+
+In addition to mapping text re-use, I adapt several statistical models (Bayesian classifiers) of text to classify comments into coalitions. Classifying comments into common groups is a task well suited for a single membership topic model.\footnote{
+This is in contrast to the mixture model I use to estimate the distribution of multiple topics in each document and each coalition in section \ref{principals-methods}
+}. 
+This model clusters documents by the frequency with which they use different words. Being classified together does not mean that the documents all address exactly the same distribution of substantive issues, just that how issues are discussed is similar relative to the full set of documents.
+I start by modeling all comments on each rule (collapsing exactly identical comments to one document) with three topics, which I will then inspect to see how well the comments of named organizations were classified. If three topics appear to sensibly describe the conflict, I tag these topics as ``pro, con, other.'' 
+
+
+
+
 
 In terms of the causal process theorized above, this section focuses on measuring and explaining organizations' lobbying choices (i.e. to only provide technical information or to also mobilize) and public response to mobilization campaigns (the frequency and effort with which people engage). The key explanatory variable is public support for the campaign. The bold arrows in figure \ref{fig:causal-whymail-test} indicate the relationships of interest for this step.
 
@@ -8,13 +42,26 @@ In terms of the causal process theorized above, this section focuses on measurin
 
 % OUTCOMES OF A CAMPAIGN
 
-Mass-comment campaigns have wildly different results. Some gather a clean 10,000 copies of (or, more accurately, signatures on) the same comment and call their work done. Others ``go viral''---inspiring a mess of further engagement where the original messages are translated through social media posts and news stories.
 
-Using new measures of public engagement in agency rulemaking, I identify the conditions under which it occurs and produces different politically-relevant information. 
+
+
+\subsubsection{Measure the level, intensity, and potential contagion of public engagement.}
+
+%\textbf{Level of engagement.} 
 Dependent variables include the number of people engaged and the effort per comment.
 I argue that activists' opportunities and strategies explain variation in engagement, which I measure in several ways. 
+First, I measure the total number of comments on the rule. As commenting are the results of two processes: deciding to lobby at all and then deciding to mobilize, the distribution contains many cases where groups may have had success mobilizing but never reach the choice of whether to mobilize or not (perhaps they were unaware of the rule). Once the decision to mobilize has been reached and made, the result of mobilizing is a count process. Thus, the count of comments fits a zero-inflated negative binomial distribution. When focusing on coalitions, we have already subset to cases where mobilization occurred and thus commenting can now be considered a regular count process. 
 
-\paragraph{Dependent Variables:} 
+\textbf{Effort.} Effort per comment is a continuous measure of the of the number of words people write, omitting any to text longer than 10 words provided by a mobilizing organization. % effort example 
+For example, using the form shown in \ref{fig:sierra}, the Sierra Club mobilized more than 47,710 people to submit exactly the same text on the delay of the methane pollution rule, but 7,452 people also took the time to write a personalized comment in addition to the form letter text. However, we may not observe people who have low levels of passion for the issue because they either do not cross the effort threshold required to comment or opt to write nothing more than the form letter. Thus the low end of the distribution of words is truncated.
+
+% contagion
+\textbf{Contagion.} Mass-comment campaigns have wildly different results. Some gather a clean 10,000 copies of (or, more accurately, signatures on) the same comment and call their work done. Others ``go viral''---inspiring a mess of further engagement where the original messages are translated through social media posts and news stories.
+%Within each coalition, I look for text re-use, identifying strings longer than 10 words that are repeated to identify the share of unique comments that likely resulted from direct mobilization versus indirect engagement. 
+Finally, I count the number of people who use fewer than 10 words matching an organizational comment, plausibly those who were mobilized indirectly, another regular count process.
+
+\begin{quote}
+\textbf{Dependent Variables:} 
 
 Model 1) Total comments $\sim$ zero-inflated negative binomial; 
 
@@ -22,51 +69,36 @@ Model 2) Comments per coalition $\sim$ negative binomial;
 
 Model 3) Effort per comment $\sim$ truncated normal; 
 
-Model 4) Type of campaign $\sim$ multinomial. 
+Model 4) Contagion $\sim$ negative binomial. 
 
-The dependent 2-4 are built using text reuse and beyesian classifiers\footnote{
+% Model 4) Type of campaign $\sim$ multinomial. 
+\end{quote}
+
+The dependent 2-4 are built using text reuse and bayesian classifiers\footnote{
 Ultimately something similar to the correlated topic model \citep{Blei2005}, possibly with lexical priors \citep{Fong2016} based on organizational comments
 },
 one observation per coalition per rule. Explanatory variables include agency alignment with Congress and the president (models 1-4), coalition unity and alignment (models 2-4), and coding coalitions as driven more by public or private interests (models 2-3).%, part of the DV in model 4).
 
 
-\subsubsection{Who lobbies?}
-Previous studies of rulemaking stress the importance of coalitions \citep{Yackee2006a}. Scholars have measured coalitions of organized groups but have yet to be able to attribute citizen comments to the coalition that mobilized them.
-% Metadata on participants in rulemaking including the date and author of comments (often including the type of author, i.e. business, business group, citizen, public interest group, etc.)% and briefs
-% allows me to track and compare relative alignment across venues and over time to assess whose ideas and interests are reflected at each stage of policymaking and in policy processes over time. % and review, for example from a statute or executive order, to the agency rule(s), to review by the White House, to court opinions. 
-Unfortunately, metadata on the authors of comments are often inconsistent and incomplete. As this information is key to identifying influential actors, improving these data is a significant data-organization task. I have collected a corpus of over 70 million comments. The first task will be linking these comments to other data on the rules. 
-
-Text search matching organization and individual names across texts, especially those named as comment authors will help systematically link individuals to the groups that mobilized them.% who may participate in different coalitions and under different names over time. 
-This help to identify formal coalitions of organizations that sign onto the same comment as well as experts and citizens mobilized by advocacy campaigns to submit separate comments.
-
-\subsubsection{Who lobbies together?}
-
-Having identified who is participating in rulemaking, the next step is to identify who is lobbying together.
 
 
-% political information example 
-The Oceana coalition framed its mass mobilization effort to curb the  Bureau of Ocean Energy Management’ 2017 Proposed Offshore Oil and Gas Leasing Program. as a ``petition signed by 67,275 self-proclaimed United States residents,'' suggesting that organizations consider these efforts as akin to petitions. In the same statement, Oceana also claimed the support of ``more than 110 East Coast municipalities, 100 Members of Congress, 750 state and local elected officials, and 1,100 business interestsall of whom oppose offshore drilling,'' suggesting that claims of public and elected official support aim to provide similar kinds of political information. 
 
-% public opinion example 
-The World Wildlife Federation's campaign provided language explicitly claiming to have public opinion on their side, their model comment reading``Along with 80\% of the American people, I strongly support ending commercial trade in elephant ivory in the US.''
+%Political scientists have thus far focused on sophisticated lobbying efforts. However, as 
+\paragraph{Data.}
+In his case-study of several rules, \citet{Cuellar2005} finds that ``contrary to conventional wisdom, comments from the lay public make up the vast majority of total comments about some regulations. This shows at least some potential demand among the mass public for a seat at the table in the regulatory process.'' 
+Having collected over 70 million comments on over 300,000 proposed rules, I am able to offer a much more systematic analysis. Figure \ref{fig:comments-mass} shows all comments posted on regulations.gov over time by whether they are exact copies of another comment or not. This highly restrictive definition of what counts as mass engagement captures comments that were certainly mobilized by a campaign. As \ref{fig:comments-mass} shows, not only are most comments are from ordinary people, but the vast majority of comments are mobilized by mass commenting campaigns.
+
+\begin{figure}[h!]
+    \centering
+        \caption{Unique vs Form-letter Comments Posted to Regulations.gov 2006-2018}
+    \includegraphics[height =2in]{Figs/comments-mass-vs-unique-1.png}
+    \includegraphics[height =2in]{Figs/comments-mass-support-vs-oppose-1.png}
+
+    \label{fig:comments-mass}
+\end{figure}
+
+The right pane of \ref{fig:comments-mass} shows results from a sample of several million comments for which I have digitized the texts. Many of these comments are in support proposed agency rules, as was the case with both the do not call and mercury rule examples. A rough measure of support (whether the comment text includes the word `` support '' or `` oppose '') shows that many more comments mention support, until 2018, when there is a fairly dramatic reversal in the share of comments mentioning `` support '' compared to those mentioning ` `oppose '' (figure \ref{fig:comments-mass}). 
 
 
-% effort example 
-The Sierra Club mobilized more than 47,710 to submit exactly the same text, but 7,452 people also took the time to write a personalized comment in addition to the form letter text below.
 
-% lobbying together - cosigning 
-When actors sign onto the same comment, it is clear that they are lobbying together. This generally takes two forms. Businesses and groups representing allied industries often co-sign carefully crafted suggestions that reflect their common interest. We expect this to occur when the benefits of coordination outweigh the costs (Yackee and Yackee 2006). The other form this take is public campaigns that ask citizens to submit a form letter, often alongside other actions such as protests. These occasional bursts of civic participation may affect rulemaking (Coglianese 2001), but this is yet to be tested. In the first form, many of the businesses are repeat players and I record them individually. In the second form, the advocacy groups are repeat players, and I recorded their participation, but it would be citizens who participate are likely not and I record the number of these comments as an amplitude parameter for the text they signed and I attribute form-letter texts to the advocacy groups promoting them.
 
-Various businesses, advocacy groups, and citizens often comment separately even when they aligned. The comment process is open to anyone and it is often not worthwhile for all actors to coordinate their messages. There may be many dimensions of demands and it is unclear to which coalition many comments belong.
-
-Classifying comments into common groups is a task well suited for a single membership topic model.\footnote{This is in contrast to the mixture model I use to estimate the distribution of multiple topics in each document and each coalition} This model clusters documents by the frequency they use different words. Being classified together does not mean that the documents all address exactly the same distribution of substantive issues, just that how issues are discussed is similar relative to the full set of documents.
-
-% Identifying when commenters change coalitions is key for testing policy feedback theories about how policies reorganize political coalitions. I do this by indexing rules over time and adding a parameter for the probability that an actor switches from one coalition to another at each point in time. This allows the model to achieve a better fit by reclassifying an actor after some point in time. These actor- and coalition- specific points in time are a key output of this approach required to test theories of how policies reorganize political coalitions. 
-
-Bounding the scope of this model (i.e. the policy system) is a challenge. On the one hand, each agency deals with many issues of interest to different coalitions. On the other hand, many lobby across multiple agencies. I opt to model coalition advocacy at a fine scale based on Office of Management and Budget agency sub-function codes, but I may try to link across related issues and agencies. 
-
-\paragraph{Methods:} In addition to mapping text re-use, I adapt several statistical models (Bayesian classifiers) of text to classify comments into coalitions\footnote{
-The aim is to discover latent coalitions by textual similarity (having removed all sentences quoting the agency's draft rule and call for comments). I start by modeling all comments on each rule (collapsing exactly identical comments to one document) with three topics, which I verify by inspecting how the comments of named organizations and those claiming affiliations were classified and, if $k=3$ appears to be correct, tag them as ``pro, con, other.'' Within each coalition, I then look for text re-use, identifying strings longer than 10 words that are repeated to identify the share of unique comments that resulted from direct mobilization versus indirect engagement.
-}, parse policy demands, and estimate relative probabilities that a policy change favors a given coalition. I then model the relationship between my measures of policy success and coalition size, intensity, and contagion and assess mechanisms
-%---indirect-strategic, direct-normative, indirect-normative---
-by which political information may influence agency decisions.
