@@ -1,36 +1,14 @@
 
-%\paragraph{Summary:} 
-% This dissertation is about ordinary people's input on policies made by bureaucrats. 
-% % People may believe that their voices matter, but it is unclear if they do. % or ought to. 
-% I make three main contributions. First, drawing on scholarship on interest group behavior, social movements, and lobbying, I suggest three distinct reasons for groups to mobilize ordinary people. Each logic suggests a different pattern of mass engagement, and I analyze millions of public comments on thousands of agency rules to develop the first systematic measures of mass engagement in bureaucratic policymaking. Second, building on theories of political oversight, I theorize that mass public engagement in bureaucratic policymaking may alert elected officials to political opportunities and risks. I assess this argument by analyzing correspondence between Members of Congress and bureaucrats on proposed rules. Third, I integrate these contributions on interest group lobbying and oversight into a broader theory of the potential for mass mobilization to affect policy. I argue that there are four broad causal mechanisms by which lobbying may affect bureaucrats' decisions. Political scientists have thus far focused on the power of technical information where insider lobbying is most likely to matter and outside lobbying is least likely to matter and have thus largely overlooked mass engagement. This gap suggests that incorporating theories of social movement influence may advance bureaucratic politics scholarship and that bureaucratic politics may be a fruitful empirical ground for exploring social movement theories. I use my new measures of mass engagement to assess the effect of political information on bureaucratic policymaking. Finally, two chapters examine the four causal mechanisms I suggest through a case study of the environmental justice movement and a study of rules where organizations randomly select lobbying strategies.
-
-%I theorize that mass engagement may, in limited circumstances, influence bureaucrats by shifting their incentives or evoking powerful norms. Using my new measures to assess these mechanisms, 
-%I show how various parts of the U.S. government respond to public input.  %aims to understand the effects of public attention on executive-branch policymaking.
-
-\paragraph{Motivation:} Leading models of influence in bureaucratic policymaking focus on two key political forces: sophisticated interest group lobbying and political oversight. 
-As bureaucrats learn about policy problems and balance interest-group demands, public comment processes allow lobbying organizations to provide useful technical information and inform decisionmakers of their preferences on draft policies. 
-Agencies may then update policy positions within constraints imposed by their political principals.
-
-While this may describe most cases of bureaucratic policymaking, these models do not explain or account for the contentious politics that occasionally inspire millions of ordinary people to respond to calls for public input on draft agency policies. Mass engagement in bureaucratic policymaking has thus largely been ignored by political scientists, leaving a weak empirical base for normative and prescriptive work. 
-Like other forms of mass political participation, such as protests and letter writing campaigns, 
-mass public comments on draft agency rules provide no new technical information. %In this sense, they are not useful. 
-Nor do they wield any formal authority to reward or sanction bureaucrats, as comments from a Members of Congress might. 
-The number on each side, be it ten or ten million, has no legal import for an agency's response. 
-% Policymakers may very well pay no attention to them. 
-%Instead, scholars focus on the sophisticated lobbying efforts of powerful interest groups, whose role in shaping policy has been theoretically developed and empirically tested.
-% If our models and conventional wisdom is correct, why do
-Yet agencies occasionally receive input from a large number of ordinary people. %Why? 
-How, if at all, should scholars incorporate mass engagement into models of bureaucratic policymaking? 
-
-I argue that mass engagement results from interest groups' strategic choices. When lobbying organizations have an opportunity to shape policy, resources to mobilize, and broader support than their opposition, outside lobbying (``going public'') may produce valuable, politically-relevant information. Depending on how agencies process political information, outside lobbying may %be a plausible strategy for organizations to 
+Thank you so much for reading this draft dissertation chapter. For context, this is the first chapter developing a measure of public engagement in agency rulemaking that will be used in the following empirical chapters. In the dissertation, I argue that mass engagement results from interest groups' strategic choices. When lobbying organizations have an opportunity to shape policy, resources to mobilize, and broader support than their opposition, outside lobbying (``going public'') may produce valuable, politically-relevant information. Depending on how agencies process political information, outside lobbying may %be a plausible strategy for organizations to 
 influence policy, both directly and indirectly.
 For example, those lobbying in rulemaking often make suspect claims to represent broad segments of the public. Mobilizing a large number of people may directly support such claims.
 Indirectly, it may alert elected officials to political risks and opportunities, affecting oversight behavior. % and thus shifting bureaucrats' relationships with their political principals. % It remains to be seen if conditions under which this is plausible ever occur and, if so, if mass engagement does indeed influence policy. 
+\section*{Outline of the broader project}
 
 Does mass engagement in bureaucratic policymaking affect policy? This question drives my project. However, two questions must be answered first: (1) Why does it occur? and (2) How does it affect the oversight behaviors of agencies' political principals? These questions drive two initial empirical chapters.
 I then use my new measures of the political information that lobbying coalitions create by going public to test whether mass engagement explains variation agency rulemaking and rules.% But first, I must develop a measure of ``going public.'' % and why it occurs.
 
-\paragraph{Step 1. Why do agencies (occasionally) get so much mail?} %: Lobbying coalitions, mass comments, and political information in bureaucratic policymaking
+\paragraph{Part 1. Why do agencies (occasionally) get so much mail?} %: Lobbying coalitions, mass comments, and political information in bureaucratic policymaking
 % Scholars of bureaucratic policymaking have focused on the sophisticated lobbying efforts of powerful interest groups. Yet agencies occasionally receive thousands or even millions of comments from ordinary people. Why? Why do individuals comment when they seemingly have no new information to offer and no power to influence decisions? Who inspires them and to what end? How, if at all, should scholars incorporate mass commenting into models of bureaucratic policymaking? I argue that mass commenting produces political information about the coalition that mobilized it. 
 % QUESTION 1\textbf{Puzzle:} 
 Why do people comment on draft policies when they seem to have no new information to offer and no power to influence decisions? Who inspires them and to what end? 
@@ -39,9 +17,10 @@ Answering these questions requires a theory explaining variation in mass engagem
 To link individual comments to the more sophisticated lobbying efforts they support, I use text reuse and Bayesian classifiers to identify clusters of similar comments, reflecting formal and informal coalitions.
 %Using new measures of public engagement in agency rulemaking, I identify the conditions under which it occurs and produces different politically-relevant information. 
 % The dependent variable is the number of people engaged.
-I argue that activists' resources, opportunities, and public support explain variation in mass engagement. %, which I measure in several ways. 
-Coalitions will go public when they are disadvantaged in insider politics but have more support than opposing coalitions. More public support yields more engagement, more effort per comment, and contagion beyond those mobilized directly. Coalitions with less support may counter-mobilize with smaller effects.
-Specifically, dependent variables include 
+I argue that activists' resources, opportunities, and public support explain variation in mass engagement %, which I measure in several ways. 
+and that it will fit one of three patterns:
+(1) Coalitions will ``go public'' when they are disadvantaged in insider politics but have more support than opposing coalitions. More public support yields more engagement, more effort per comment, and contagion beyond those mobilized directly. (2) Coalitions with less support may ``counter-mobilize'' with smaller effects. (3) Finally, coalitions may mobilize for reasons unrelated to the policy at hand, yielding similar mass engagement but with little sophisticated lobbying. 
+Measures of mass engagement include 
 %(1) total public comments, % $\sim$ zero-inflated negative binomial; 
 (1) comments per coalition, % $\sim$ negative binomial; 
 (2) effort per comment, % $\sim$ truncated normal; 
@@ -51,7 +30,7 @@ Next, I test whether variation in engagement explains variation in oversight beh
 %Model 1 is one observation per rule. Models 2-4 are one observation per coalition per rule. Explanatory variables include agency alignment with Congress and the president (models 1-4), coalition alignment and unity (models 2-4), whether a coalition is driven more by public or private interests (models 2-3).%, part of the DV in model 4).
 
 %\paragraph{Step 2. Are elected officials more or less likely to engage after mass public engagement?} 
-\paragraph{Step 2. Does mass engagement affect political oversight?} The political information signaled by mass engagement may serve as a ``fire alarm,'' altering principals to oversight opportunities or a ``warning signs'' altering them to political risks.
+\paragraph{Part 2. Does mass engagement affect political oversight?} The political information signaled by mass engagement may serve as a ``fire alarm,'' altering principals to oversight opportunities or a ``warning signs'' altering them to political risks.
 When a coalition goes public, %especially if it generates a perceived consensus in expressed public sentiments, 
 principals ought to be more likely to engage on their behalf and less likely to engage against them.
 % This suggests an addendum to Hall and Miler's (2008) finding that members are more likely to engage in rulemaking when they have been lobbied by a like-minded interest group.
@@ -65,54 +44,9 @@ Dependent variables include
 (1) the number of comments from Members of Congress on the rule %(total, those mentioning mass comments, and those mentioning organizations in the coalition), %All  $\sim$ zero-inflated negative binomial. 
 (2) the share of supportive congressional comments, %  $\sim$  beta. 
 (3) the similarity of words in comments from the coalition and Members of Congress. 
-% Models 1 and 2 are one observation per coalition per rule. Model 3 is one observation per comment from a Member of Congress. Explanatory variables of interest are the dependent variables from step 1 (how many and what types of comments--i.e. variation in political information).% In addition to cross-sectional analysis, I use a difference-in-difference design within members on rules where groups do and do not go public.
 
-%I examine the relationship between mass engagement and another key variable in agency decisions, political oversight. % other key features of agencies' decisionmaking environments. 
-% Do mass comment campaigns indicate that elected officials will be more involved in a rulemaking? 
-% Do they indicate a greater chance of a rule being challenged or overturned in court?
-% Dependent variables include political principals' attention, positions, and rhetoric, which I measure several ways across rules and within policy areas before and after mobilization campaigns.
-% THEORY 2
-% Accountability to Congress, the president, and courts have long been central concerns for bureaucracy scholars \citep{Wilson1989}. 
- % Elected officials, political appointees, and judges may also see it as their job to hold agencies accountable to the public will. On the other hand, elected officials often serve private interests,  such as campaign donors, especially when there is little risk of being held publicly accountable themselves.
-
-
-
-
-
-
-% QUESTION 3 
-% Are changes in rulemaking and rules more likely after mass engagement?
-\paragraph{Step 3. Does mass engagement affect rulemaking and rules?} I theorize that the effects of political information on policy depend on the extent to which the strategic environment allows change and how political information is processed, both directly within agencies and indirectly through other actors (e.g. Members of Congress) whose appraisals matter to bureaucrats.
+\paragraph{Part 3. Does mass engagement affect rulemaking and rules?} 
+I theorize that the effects of political information on policy depend on the extent to which the strategic environment allows change and how political information is processed, both directly within agencies and indirectly through other actors (e.g. Members of Congress) whose appraisals matter to bureaucrats.
 The main dependent variable is change in the rule text.
 %Different inputs may yield different results: 
-I will systemically identify changes between draft and final rules, parse these differences to identify meaningful policy changes, and compare them to demands raised in comments to measure which coalition got their way. However, assessing policy change is difficult. Thus, I will also use other measures of agency responses to lobbying efforts. %For example, agencies may speed up or delay finalizing rules. They write lengthy justifications of their decisions in response to some demands but not others. They may or may not extend the comment period.
-
-
-% \paragraph{Step 4. Causal mechanisms:} How might mass engagement matter?
-% A lobbying effort can generate new information, re-frame information, or reshape the political context of a decision. Agency staff may update their beliefs in response to new information or framing. Activists can also reshape agency policymakers’ strategic environment by drawing in or scaring off other actors, especially elected officials. 
-
-% \textbf{Strategic calculations:} 
-% New information may affect bureaucrats' decisions directly or indirectly. New scientific or legal information spurs revision of calculations about cost and benefits or the likelihood of being reversed in court. New political information spurs bureaucrats to update their beliefs about levels of support among segments of the public or their elected representatives and thus about the likely political consequences of a decision.
-% % Reshaping strategic incentives may shift how rulewriters weigh commenter demands.
-
-% % NORMATIVE FRAMING / INFO PROCESSING 
-% \textbf{Information processing and normative evaluations:} 
-% In addition to strategic calculations, mass engagement may shift how information is processed and evaluated, both institutionally and cognitively.
-% Institutionally, higher comment volume may engage a larger and more politically-oriented set of staff and consultants. Cognitively, expanding the scope of conflict highlights the political aspects of a decision, perhaps mobilizing cognition focused more on norms of public service or partisan ideology than on strategic or technical rationality. In both cases, campaigns re-frame decisions as political and provide information that is especially relevant if processed through such a frame.
-% The effects of political information on bureaucrats' normative evaluations may be
-% direct---the weight that norms of direct democracy give to limited public input---or 
-% indirect---the weight that norms of accountability give to elected officials' input.
-
-% %\textbf{Indirect influence through elected officials:} 
-% %Campaigns  do more than reveal latent political information; they mobilize both members of the public and elected officials to take positions on issues they may have never previously considered, thus creating new relevant political information for bureaucrats. 
-% %Movements help to shape the political space in which they operate’ (Gamson and Meyer 1996, p. 289).
-% %The result of thinking differently about a decision may be a shift in how the agency evaluates or weights commenter demands.
-
-\textbf{Assessing causal mechanisms:} While it may be impossible to causally identify or attribute effects to normative or strategic mechanisms, 
-a focus on political information suggests places to look for influence in rulemaking. For example, if Members of Congress are not more likely to voice support for a coalition that goes public, this would be evidence against any indirect mechanism via congressional oversight.
-
-To supplement the core design above, the two additional chapters explore historical and experimental case studies. My historical case is the environmental justice movement, relying on all rules where ``environmental justice'' is raised in the comments and quantitative and qualitative assessment of agency responses. I find that responsiveness varies across agencies. My experimental cases will be rules selected by organizations that have agreed to randomly assign specific targets of their mass comment campaigns. In exchange, I will use the methods outlined above to estimate the effects of their interventions. 
-
-% \paragraph{Conclusion:} This research will add to our understanding of how bureaucratic policymaking fits with the practice of democracy.
-% If input solicited from ordinary people has little effect on policy outcomes, directly or indirectly, it may be best understood as providing a veneer of democratic legitimacy on an essentially technocratic and/or elite-driven process.
-% If public input does shape agency decisions, a new research program will be needed to investigate who exactly these campaigns mobilize and represent.
+I systemically identify changes between draft and final rules, parse these differences to identify meaningful policy changes, and compare them to demands raised in comments to measure which coalition got their way. However, assessing policy change is difficult. Thus, I also use other measures of agency responses to lobbying efforts. 
