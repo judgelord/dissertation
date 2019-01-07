@@ -62,44 +62,30 @@ For example, using the form shown in \ref{fig:sierra}, the Sierra Club mobilized
 %Within each coalition, I look for text re-use, identifying strings longer than 10 words that are repeated to identify the share of unique comments that likely resulted from direct mobilization versus indirect engagement. 
 Finally, I count the number of people who use fewer than 10 words matching an organizational comment, plausibly those who were mobilized indirectly, another regular count process.
 
-\begin{quote}
-\textbf{Dependent Variables:} 
+% \begin{quote}
+% \textbf{Dependent Variables:} 
 
-Model 1) Total comments $\sim$ zero-inflated negative binomial; 
+% Model 1) Total comments $\sim$ zero-inflated negative binomial; 
 
-Model 2) Comments per coalition $\sim$ negative binomial; 
+% Model 2) Comments per coalition $\sim$ negative binomial; 
 
-Model 3) Effort per comment $\sim$ truncated normal; 
+% Model 3) Effort per comment $\sim$ truncated normal; 
 
-Model 4) Contagion $\sim$ negative binomial. 
+% Model 4) Contagion $\sim$ negative binomial. 
 
-% Model 4) Type of campaign $\sim$ multinomial. 
-\end{quote}
+% % Model 4) Type of campaign $\sim$ multinomial. 
+% \end{quote}
 
-The dependent 2-4 are built using text reuse and bayesian classifiers\footnote{
-Ultimately something similar to the correlated topic model \citep{Blei2005}, possibly with lexical priors \citep{Fong2016} based on organizational comments
-},
-one observation per coalition per rule. Explanatory variables include agency alignment with Congress and the president (models 1-4), coalition unity and alignment (models 2-4), and coding coalitions as driven more by public or private interests (models 2-3).%, part of the DV in model 4).
-
-
+% The dependent 2-4 are built using text reuse and bayesian classifiers\footnote{
+% Ultimately something similar to the correlated topic model \citep{Blei2005}, possibly with lexical priors \citep{Fong2016} based on organizational comments
+% },
+% one observation per coalition per rule. Explanatory variables include agency alignment with Congress and the president (models 1-4), coalition unity and alignment (models 2-4), and coding coalitions as driven more by public or private interests (models 2-3).%, part of the DV in model 4).
 
 
 
-%Political scientists have thus far focused on sophisticated lobbying efforts. However, as 
-\paragraph{Data.}
-In his case-study of several rules, \citet{Cuellar2005} finds that ``contrary to conventional wisdom, comments from the lay public make up the vast majority of total comments about some regulations. This shows at least some potential demand among the mass public for a seat at the table in the regulatory process.'' 
-Having collected over 70 million comments on over 300,000 proposed rules, I am able to offer a much more systematic analysis. Figure \ref{fig:comments-mass} shows all comments posted on regulations.gov over time by whether they are exact copies of another comment or not. This highly restrictive definition of what counts as mass engagement captures comments that were certainly mobilized by a campaign. As \ref{fig:comments-mass} shows, not only are most comments are from ordinary people, but the vast majority of comments are mobilized by mass commenting campaigns.
 
-\begin{figure}[h!]
-    \centering
-        \caption{Unique vs Form-letter Comments Posted to Regulations.gov 2006-2018}
-    \includegraphics[height =2in]{Figs/comments-mass-vs-unique-1.png}
-    \includegraphics[height =2in]{Figs/comments-mass-support-vs-oppose-1.png}
 
-    \label{fig:comments-mass}
-\end{figure}
 
-The right pane of \ref{fig:comments-mass} shows results from a sample of several million comments for which I have digitized the texts. Many of these comments are in support proposed agency rules, as was the case with both the do not call and mercury rule examples. A rough measure of support (whether the comment text includes the word `` support '' or `` oppose '') shows that many more comments mention support, until 2018, when there is a fairly dramatic reversal in the share of comments mentioning `` support '' compared to those mentioning ` `oppose '' (figure \ref{fig:comments-mass}). 
 
 
 
