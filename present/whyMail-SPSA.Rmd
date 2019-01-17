@@ -14,11 +14,6 @@ output:
       countIncrementalSlides: false
 ---
 
-class: center, inverse, middle
-
-## This slideshow was created using R Markdown
-
-
 ```{r setup, include = FALSE, cache = TRUE, echo = FALSE}
 # chunks options:
 # hide code and messages by default (warning, message)
@@ -31,6 +26,13 @@ knitr::opts_chunk$set(eval = TRUE,
 # Xaringan settings
 library("xaringan")
 library("xaringanthemer")
+library("here")
+
+
+```
+
+```{r, eval = FALSE, include= FALSE}
+# extra 
 mono_light(base_color = "#002b36",
           link_color = "#2aa198",
           header_font_google = google_font("Vollkorn"), 
@@ -44,33 +46,95 @@ mono_light(base_color = "#002b36",
                                                 #e7e8e2; /* darker */
                                               "border-radius" = "3px", 
                                               "padding" = "4px")))
-```
-
-
----
-
-Question
---
-
-
----
-
-class: center, middle, inverse
-
-## 
-
-
----
-
-class: middle, center
-
-```{r, eval = FALSE}
+# setup
 devtools::install_github("yihui/xaringan")
-```
+devtools::install_github("gadenbuie/xaringanthemer")
+install.packages("webshot")
+library(webshot)
+install_phantomjs()
+
+# export to pdf
+file <- here("present/whyMail-SPSA.html")
+webshot(file, "whyMail-SPSA.pdf")
 
 ### Read the documentation
 
 <https://slides.yihui.name/xaringan/>
+```
+
+## Public comment periods:
+### Usually an insiders' game, but occassionally not. 
+
+--
+
+## Does it matter? 
+![](tweet-lind.png) 
+### But first: who, when, why?
+1. Selection effects? 
+2. How do we measures it? 
+
+---
+
+### Who mobilizes?
+- Public interest groups / "advocacy" groups (Shapiro 2008; Potter 2017) / "societal constituencies" (Balla n.d.)
+<!-- Tricky concepts! -->
+
+### Who is mobilized? 
+- Earnist, not so nieve (Yackee 2015)
+- "Like-minded" 
+<!-- Discusts some law professors, but collective action among like minded is the bread and butter of polticis  -->
+
+### Who's interests do they represent? 
+- "Second-order"" participation/representation (Seifter 2016)
+
+---
+### Which rules? 
+- Ones people dislike? (negativity bias)
+- Controversial, salient? (both endogenous) <!-- indeed, we often measure salience this way --> 
+
+
+### Which agencies? 
+- Less expert, more controversial (Moore 2017)
+---
+# Why mobilize people?
+
+## Outside lobbying
+### 1. Expand the scope of conflict (Schattschneider 1975)
+vs.
+### 2. Leverage resources into an impression of public support
+
+## 3. Not lobbying
+### Recruitment
+### Member expectations
+---
+
+
+
+## Who is engaged?
+
+### Sample of 300 people who signed their names:
+
+---
+# 1st cut: When does mass engagment occur?
+
+### Asymetric mobilization swamps negativity bias
+![](.png) 
+
+---
+
+class: center
+
+![](spam.png) 
+
+Regulations.gov, Unified Agenda, ORIA reports:
+
+GitHub.com/JudgeLord/Rulemaking
+
+or
+
+JudgeWord@Wisc.edu
+
+
 
 
 ---
