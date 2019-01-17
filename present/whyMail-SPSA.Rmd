@@ -12,6 +12,8 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include = FALSE, cache = TRUE, echo = FALSE}
@@ -98,32 +100,56 @@ webshot(file, "whyMail-SPSA.pdf")
 ---
 # Why mobilize people?
 
-## Outside lobbying
-### 1. Expand the scope of conflict (Schattschneider 1975)
+### Outside lobbying
+#### 1. Expand the scope of conflict (Schattschneider 1975)
 vs.
-### 2. Leverage resources into an impression of public support
+#### 2. Leverage resources into an impression of public support
 
-## 3. Not lobbying
-### Recruitment
-### Member expectations
+### 3. Not lobbying
+#### Recruitment
+#### Member expectations
 ---
+## Political Information 
+
+###“Coalition lobbying can generate new information and new actors—beyond simply the ‘usual suspects’—relevant to policy decision makers. Thus, we theorize **consensus**, coalition **size**, and **composition** matter to policy change." (Nelson and Yackee 2012)
+---
+## Measuring Political Information 
+
+### 1. Text reuse 
+
+### 2. Classifiers
+
+
+---
+class: inverse center middle 
+
+# First cut
+
+---
+class: center
+
+## When does mass engagment occur?
 
 
 
+---
+class: center
+
+## When does mass engagment occur?
+
+
+### Asymetric mobilization swamps negativity bias
+<img src="https://github.com/judgelord/dissertation/raw/master/Figs/comments-mass-support-vs-oppose-1.png" width = 500 />
+
+---
 ## Who is engaged?
 
 ### Sample of 300 people who signed their names:
 
 ---
-# 1st cut: When does mass engagment occur?
-
-### Asymetric mobilization swamps negativity bias
-![](.png) 
-
----
 
 class: center
-
+# Thanks!
 ![](spam.png) 
 
 Regulations.gov, Unified Agenda, ORIA reports:
