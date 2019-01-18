@@ -74,11 +74,12 @@ webshot(file, "whyMail-SPSA.pdf")
 
 <!-- 
 Hi, my name is Devin Judge-Lord, I'm a Ph.D. candidate at Wisconsin
-This paper is the first bit of writing I've done for my dissertation on mass comment campaigns.
+This paper is the first bit of writing I've done for my dissertation on mass engament in bureaucratic plicymaking, for example mass comment campaigns.
+
 It sets out concepts and measures for these occasional bursts of civic participation,
 which I will then use to assess it matters. 
 
-I am still workshopping these concepts and measures, so your comments will be decisive for where I'll be taking this in the next few years. 
+I am still workshopping these concepts and measures, so your comments will be decisive for where I take this in the next few years. 
 
 SLIDE 
 
@@ -98,13 +99,15 @@ For many reasons, Rulemaking is usually an insiders' game--people here and other
 
 --
 
-<!-- before we can assess effects, however, we need to know what exactly we are assessing the effects OF and when we expect to see these effects. This is my present task.
+<!-- before we can assess effects, however, we need to know what exactly we are assessing the effects OF and WHEN we expect to see these effects. This is my present task.
 -->
 
-### But first:
-1. What is it? 
-2. How do we measure it? 
-3. Why does it occur? -> Selection problems.
+---
+class: inverse center middle 
+## But first:
+### 1. What is it? 
+### 2. How do we measure it? 
+### 3. Why does it occur? (selection problems)
 
 ---
 ## Selection process 
@@ -175,19 +178,12 @@ class: inverse center middle
 
 # Tasks
 
-### 1. Identifying coalitions
+## 1. Identifying coalitions
 
 ## 2. Measuring mass engagement
 
-### 3. Which campaigns ought to matter
+## 3. Which campaigns ought to matter
 
-
-
----
-
-## Political Information 
-
-###“ Coalition lobbying can generate new information and new actors—beyond simply the ‘usual suspects’—relevant to policy decision makers. Thus, we theorize _**consensus**_, coalition _**size**_, and _**composition**_ matter to policy change." (Nelson and Yackee 2012)
 ---
 
 ## Identifying Coalitions
@@ -206,6 +202,14 @@ class: inverse center middle
 <!-- EPA has contractors do this by hand! --> 
 
 ---
+<!-- Second, we need to measures what campings are doing that might be influential. I call this political information, following Nelson and Yackee  --> 
+
+## Political Information 
+
+###“ Coalition lobbying can generate new information and new actors—beyond simply the ‘usual suspects’—relevant to policy decision makers. Thus, we theorize _**consensus**_, coalition _**size**_, and _**composition**_ matter to policy change." (Nelson and Yackee 2012)
+---
+
+
 ## Measuring Political Information*
 
 ### Number/share per coalition
