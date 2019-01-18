@@ -146,18 +146,6 @@ class: inverse center middle
 
 ## -> Coalitions
 
----
-
-### Who is mobilized? 
-- Earnest, not so naïve (Yackee 2015) <!-- to think that businesses don't dominate, but most probably have no understanding of their probability of success. The same people who do other kinds of engagement-->
-
-- "Like-minded" 
-
-<!-- Bothers some law professors, but collective action among like-minded is the bread and butter of politics  -->
-
-### Whose interests are represented? 
-- "Second-order"" participation/representation (Seifter 2016)
-
 
 
 ---
@@ -245,6 +233,15 @@ class: inverse center middle
 
 
 ---
+## Who mobilizes?
+### A few public interest groups.
+
+<img src="https://github.com/judgelord/rulemaking/raw/master/Figs/toporgs-1.png" width = 900 />
+
+### 100 organizations mobilized 38.7m of 48.2m regulations.gov comments on proposed rules
+### ~87 lobby in public interest coalitions 
+
+---
 class: center
 
 ## Most comments are mass comments
@@ -257,33 +254,6 @@ class: center
 
 ### Asymetric mobilization > negativity bias
 <img src="https://github.com/judgelord/dissertation/raw/master/Figs/comments-mass-support-vs-oppose-1.png" width = 700 />
-
----
-class: center
-
-## Who mobilizes?
-### A few public interest groups.
-
-<img src="https://github.com/judgelord/rulemaking/raw/master/Figs/toporgs-1.png" width = 900 />
-
-### 100 organizations mobilized 38.7m of 48.2m regulations.gov comments on proposed rules
-### ~87 lobby in public interest coalitions 
-
----
-
-## Who is engaged?
-
-### Sample of 400 people in the "Environmental Justice" coalition
-### Estimated racial distribution (by census dist.):
-
-```{r ej, echo = FALSE, fig.height=4, warning=FALSE, message=FALSE, fig.align="center"}
-library(here)
-library(ggplot2); theme_set(theme_bw())
-load(here("data/ej_race.Rdata"))
-ggplot(Race) +
-  geom_col(aes(x = Race, y = Probability))
-
-```
 
 
 ---
