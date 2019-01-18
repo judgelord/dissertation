@@ -9,6 +9,7 @@ requires <- c("dplyr",
               "topicmodels",
               "tidytext",
               "quanteda",
+              "topicmodels",
               "tm")
 to_install <- c(requires %in% rownames(installed.packages()) == FALSE)
 install.packages(c(requires[to_install], "NA"), repos = "https://cloud.r-project.org/" )

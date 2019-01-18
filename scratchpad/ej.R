@@ -1,7 +1,10 @@
+options(strings.as.factors = FALSE)
 library(tidyverse)
 library(magrittr)
 library(scales)
 library(aod)
+
+d <- read.csv("data/PS%2BPR%2BFR %22environmental%2Bjustice%22 .csv")
 
 ejregs <- d
 eregs <- filter(regs, agencyAcronym %in% ejregs$agencyAcronym) %>%

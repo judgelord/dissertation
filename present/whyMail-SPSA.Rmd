@@ -64,39 +64,75 @@ webshot(file, "whyMail-SPSA.pdf")
 <https://slides.yihui.name/xaringan/>
 ```
 
+
+
+
+
+
+
+
+
+<!-- 
+Hi, my name is Devin Judge-Lord, I'm a phd candidate at Wisconsin
+This paper is the fist bit of writing I've done for my dissertation on mass comment campaigns.
+It sets out concepts and measures for these occasional bursts of civic participation,
+which I will then use to assess it matters. 
+
+I am still workshopping these concepts and measures, so your comments will be decisive for where I'll be taking this in next few years. 
+
+SLIDE 
+
+For many reasons, Rulemaking is usually an insiders' game--people here and others have shown that, to the extent anyone is able to influence bureaucratic policymaking, it is the ususal suspects, mostly businesses. 
+--> 
 ## Public comment periods:
 ### Usually an insiders' game, but occassionally not. 
 
---
+--<!-- but SOMETIMES its very different; or at least it looks different because lots of ordinary people are voicing their opinions, but we really don't know if it matters. 
+-->
 
 ## Does it matter? 
 ![](tweet-lind.png) 
-### But first: who, when, why?
-1. Selection effects? 
+--<!-- before we can assess effects, however, we need to know what exactly we are assessing the effects OF and when we expect to see these effects. This is my present task.
+-->
+### But first:
+1. What is it? 
 2. How do we measures it? 
+3. Why does it occur? -> Selection problems.
+
 
 ---
-
+<!-- First, I want to assert that what we care about here is MOBILIZED commenting. Sure a few of us in this room may puruse open dockets on regulations.gov, but this is just not what ordinary people do. By ordinary, I mean not professional policy influencers.-->
+# *Mobilized* civic engagement
+--
 ### Who mobilizes?
-- Public interest groups / "advocacy" groups (Shapiro 2008; Potter 2017) / "societal constituencies" (Balla n.d.)
+- Public interest groups / "advocacy" groups (Shapiro 2008; Potter 2017) / "societal constituencies" (Balla et al. n.d.)
 <!-- Tricky concepts! -->
+<!-- In the paper, I suggest that many conflicts that mobilize thousands are best seen as over public and private goods rather than cultural issues -->
+- Sometimes others <!--sometimes people that don't fit that concept-->
+--
+<img src="https://github.com/judgelord/dissertation/raw/master/Figs/EPA_protest_kills_jobs.jpg" width = 200 />
+<img src="https://github.com/judgelord/dissertation/raw/master/Figs/EPA_protest_nurses.png" width = 200 />
 
+![](EPA_protest_nurses.png) 
+![](EPA_protest_kills_jobs.jpg) 
+
+--
 ### Who is mobilized? 
-- Earnist, not so nieve (Yackee 2015)
+- Earnist, not so nieve (Yackee 2015) <!-- to think that businesses don't dominate, but but most probably have no understanding of their probability of success. The same people who do other kinds of engagment-->
 - "Like-minded" 
-<!-- Discusts some law professors, but collective action among like minded is the bread and butter of polticis  -->
+<!-- Bothers some law professors, but collective action among like minded is the bread and butter of poltics  -->
 
-### Who's interests do they represent? 
+### Who's interests are represented? 
 - "Second-order"" participation/representation (Seifter 2016)
 
 ---
 ### Which rules? 
+- Significant, no deadline (Moore n.d.)
 - Ones people dislike? (negativity bias)
 - Controversial, salient? (both endogenous) <!-- indeed, we often measure salience this way --> 
 
-
 ### Which agencies? 
-- Less expert, more controversial (Moore 2017)
+- Less expert, more salient (Moore n.d.)
 ---
 # Why mobilize people?
 
@@ -106,18 +142,64 @@ vs.
 #### 2. Leverage resources into an impression of public support
 
 ### 3. Not lobbying
-#### Recruitment
 #### Member expectations
+--<!-- here the sierra club ask for consent to contact you in the future --> 
+#### Recruitment
+<img src="https://github.com/judgelord/dissertation/raw/master/Figs/sierra2.jpg" width = 500 />
 ---
+## Selectiong problems
+### Which campaigns ought to matter? 
+### How can we tell them apart?
+--
+
+| | Inside lobbying | Outside lobbying |
+|:---|:---:|:---:|:---:|
+| "Normal" lobbying | High | None | 
+| "Going public" | High | High |
+| "Disrupting consensus" | High | Low | 
+| "Going down fighting" | Low | High |
+
+---
+
 ## Political Information 
 
 ###“Coalition lobbying can generate new information and new actors—beyond simply the ‘usual suspects’—relevant to policy decision makers. Thus, we theorize **consensus**, coalition **size**, and **composition** matter to policy change." (Nelson and Yackee 2012)
 ---
-## Measuring Political Information 
+## Identifying Coalitions
 
-### 1. Text reuse 
+### Text reuse
+#### 1. Remove text copied from proposed rule or request for comments 
+#### 2. Exact match 
+- Duplicate comments 
+#### 3. 10-word moving "window" 
+- Part copy, part unique
+- Unique
 
-### 2. Classifiers
+### Word frequency
+#### - K-means clustering
+#### - Topic proportion similarity
+
+### Inspect and hand-code clusters
+
+<!-- EPA has contractors do this by hand! --> 
+---
+## Measuring Political Information*
+
+### Number
+
+### Share
+
+### Effort
+
+Lower <----------------------------------------------> Higher 
+
+Duplicate (Signature) <-> Partilly unique <-> Unique 
+
+### Contagion
+
+#### Share of unique comments
+
+*Agencies may not process comments in ways that deliver this information to decisionmakers
 
 
 ---
@@ -125,44 +207,77 @@ class: inverse center middle
 
 # First cut
 
----
-class: center
-
-## When does mass engagment occur?
-
-
 
 ---
 class: center
 
-## When does mass engagment occur?
+## Most comments are mass comments
+<img src="https://github.com/judgelord/dissertation/raw/master/Figs/comments-mass-1.png" width = 700 />
 
+---
+class: center
+
+## When does mass engagment occur?
 
 ### Asymetric mobilization swamps negativity bias
-<img src="https://github.com/judgelord/dissertation/raw/master/Figs/comments-mass-support-vs-oppose-1.png" width = 500 />
+<img src="https://github.com/judgelord/dissertation/raw/master/Figs/comments-mass-support-vs-oppose-1.png" width = 700 />
 
 ---
+class: center
+
+## When does mass engagment occur?
+
+### A few public interest groups
+
+<img src="https://github.com/judgelord/dissertation/raw/master/Figs/toporgs-1.png" width = 700 />
+
+---
+
 ## Who is engaged?
 
-### Sample of 300 people who signed their names:
+### Sample of ~400 people who signed their names:
+### Distribution by census proportion:
+
+```{r ej, echo = FALSE, fig.height=4, warning=FALSE, message=FALSE, fig.align="center"}
+library(here)
+library(ggplot2); theme_set(theme_bw())
+load(here("data/ej_race.Rdata"))
+ggplot(Race) +
+  geom_col(aes(x = Race, y = Probability))
+
+```
+
 
 ---
-
 class: center
-# Thanks!
 ![](spam.png) 
 
-Regulations.gov, Unified Agenda, ORIA reports:
+# Thanks!
 
-GitHub.com/JudgeLord/Rulemaking
+
+#### Unified Agenda, ORIA reports, Regulations.gov (in progress):
+
+### GitHub.com/JudgeLord/Rulemaking
 
 or
 
-JudgeWord@Wisc.edu
+### JudgeLord@Wisc.edu
 
 
 
+
+
+<!-- EXTRA
+This may sound absurd to political scientists, but there is a common refrain that because 1 ordinary person does not matter and because they are all saying the same thing, therfor any number of them don't matter.
 
 ---
+## The "Environmental Justice" Coalition
+### 9448 EPA proposed rules did *not* mention "environmental justice."  
 
+## On 1004 of these, commenters did. When they did, EPA mentioned "environmental justices" in 18% of final rules. When commenters did not, EPA did so in only 7%. 
+--
+
+### Number of comments had no effect on this.
+
+-->
 
