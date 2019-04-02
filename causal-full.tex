@@ -1,4 +1,4 @@
-\begin{figure}[h!]
+\begin{figure}
     \centering
     \caption{The Role of Mass Commenting and Political Information in Bureaucratic Policymaking}
     \label{fig:causal-full}
@@ -19,7 +19,7 @@ title/.style={rectangle, align=center, aspect=1, minimum size=2cm}
 
 % Group Nodes
 \node[pnode]      (groupdemands) [right=of draft] {Group Demands};
-\node[dnode]        (groupdecides) [right=of groupdemands] {Lobbying Strategy\\(H1)};
+\node[dnode]        (groupdecides) [right=of groupdemands] {Group Lobbying Strategy};
 \node[squarednode]      (groupinfo) [right=of groupdecides] {Technical Information (H3a)};
 
 % policy 
@@ -48,7 +48,7 @@ title/.style={rectangle, align=center, aspect=1, minimum size=2cm}
 \draw[->] (politicalinfo.north east) -- (policy.south west);
 
 % public Nodes
-\node[squarednode]      (publicinfo) [below=of politicalinfotext] {Perceived Public Opinion\\(H2, H3b)};
+\node[squarednode]      (publicinfo) [below=of politicalinfotext] {Perceived Public Opinion\\(H3b)};
 \node[dnode]      (publicdecides) [left=of publicinfo] {Mass\\ Engagement\\(H1 DV)};
 \node[pnode]        (publicdemands) [left=of publicdecides] {Latent Public Demands};
 
