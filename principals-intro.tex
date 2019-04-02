@@ -8,8 +8,8 @@ The story of the Do Not Call rule suggests that public engagement in rulemaking 
 
 % oversight affects policy outcomes 
 \paragraph{Political oversight.}
-Political oversight of bureaucracies has long concerned both practitioners and theorists %\citep{Wilson1989,  McCubbins1984, Epstein1999, Huber2002, Potter2016, Lowande2017, Lowande2018JOP, Lowande2018FOIA}. 
-Political scientists often model the relationship between elected officials and bureaucrats as a principal-agent problem. For example, an agency may have a preferred policy but, upon observing the preferences of principals, may change the rule or delay its publication to avoid being reversed \citep{Potter2016}. While it is widely accepted that agency officials must take the positions of their principals into account, the mechanisms by which this occurs and the empirical conditions for political control are debated.
+Political oversight of bureaucracies has long concerned both practitioners and theorists.  %\citep{Wilson1989,  McCubbins1984, Epstein1999, Huber2002, Potter2016, Lowande2017, Lowande2018JOP, Lowande2018FOIA}. 
+Political scientists often model the relationship between elected officials and bureaucrats as a principal-agent problem. For example, an agency may have a preferred policy but, upon observing the preferences of principals, may change the rule or delay its publication. Agencies may do this to avoid political consequences such as having their policies reversed \citep{Potter2016} or because they perceive elected officials as representing public demands \cite{Cuellar2005}. While it is widely accepted that agency officials take the positions of their principals into account, the mechanisms by which this occurs and the empirical conditions for political control are debated.
 
  %add Meier and O’Toole 2006; West 1995; Wood and Waterman 1994
 % both branches of government can influence regulatory decision making (Moe 1985, Wood & Waterman 1991, Furlong 1997).
@@ -21,26 +21,45 @@ Because I focus on influence in the period between publication of draft and fina
 
 \input{causal-classic-principals.tex}
 
-\citet{McCubbins1987} suggest two oversight mechanisms. Principals may proactively attend to agency activities, like a ``police patrol'' or they may rely on bureaucrats' fear of sanction when attentive interest groups alert principals about agency activities, more like a ``fire alarm.'' Administrative procedures like mandatory public comment periods thus offer opportunities for direct oversight and to be alerted to oversight opportunities.
+\citet{McCubbins1987} suggest two oversight mechanisms. Principals may proactively attend to agency activities, like a ``police patrol'' or they may rely on bureaucrats' fear of sanction when attentive interest groups alert principals about agency activities, more like a ``fire alarm.'' Administrative procedures like mandatory public comment periods thus offer opportunities for direct oversight and to be alerted to oversight opportunities \citep{Balla1998}.
 
 
 \subsubsection{Incorporating political information into models of political oversight}
 In addition to interest groups directly alerting elected officials to oversight opportunities as in the ``fire alarm'' model,
-the political information signaled by mass engagement may serve as a serve as a ``warning sign,''--altering elected officials to political risks
+the political information signaled by mass engagement may alert elected officials to political risks (like a ``warning sign'')
 % More precisely, political information may alert elected officials of opportunities to rein in an agency (the concept of ``fire alarm'' oversight discussed by \citep{Mccubbins1984}) 
-\emph{or}, conversely, to encourage the agency to hold course (what might better be described as a ``beacon'' attracting positive attention and credit claiming opportunities. In the case of the FTC's ``Do Not Call'' rule and subsequent legislation, mass engagement functioned more as a ``warning'' and a ``beacon,'' effectively enabling and empowering rather than restraining the agency as the classic ``fire alarm'' concept suggests.
+\emph{or}, conversely, to encourage the agency to hold course (like a ``beacon'' attracting positive attention and credit claiming opportunities. In the case of the FTC's ``Do Not Call'' rule and subsequent legislation, mass engagement functioned more as a ``warning'' for would-be opponents and a ``beacon'' for potential allies, effectively enabling and empowering rather than restraining the agency as the classic ``fire alarm'' concept suggests. Agency officials credit the public support mobilized by mass comment campaigns with the political momentum needed to hold course. 
 
 Mass engagement in bureaucratic policymaking may affect the behavior of an agency's principals because the shadow of public sanction hangs over elected officials \citep{Arnold1979, Mayhew2000}. \citet{Moore2018} finds that agencies that receive more comments per rule are also subject to more congressional hearings. When the public is more attentive, it is more important for officials to take popular positions and avoid unpopular ones.
 Thus, when a coalition goes public, especially if it generates a perceived consensus in expressed public sentiments, elected officials ought to be more likely to intervene on their behalf and less likely to intervene against them.  
 
-\begin{hyp} \label{hyp:principals}
-Elected officials' advocacy is moderated by mass engagement. Elected officials are more likely to engage in rulemaking in support of positions supported by the majority of comments and less likely to engage in opposition to the majority of comments.
+\subsubsection{Hypotheses about the relationship between mass engagement and oversight}
+
+
+It may be the case that both principals and the majority of commenters hold the same position simply because it is popular. Thus, to assess the ``fire-alarm,'' ``beacon,'' and ``warning sign'' mechanisms, it is important to condition on principals' existing policy positions and to control for their baseline rates of commenting. I estimate principals baseline rates of commenting using legislators' comments on similar rules that did not receive a mass comment campaign. I may also use partisanship to approximate principals' priors. Future work could improve this by coding principals' specific policy positions using the best data available prior to the draft rule's publication.
+
+\noindent \textbf{Hypothesis 2:}\textit{ Elected officials' advocacy is moderated by mass engagement.}
+
+\begin{subhyp}
+
+
+\begin{hyp} \label{hyp:beacon}
+Mass commenting attract oversight from allies. The more comments supporting a position, the more likely principals holding that position are to engage.
 \end{hyp}
 
-This suggests an addendum to Hall and Miler's (2008) finding that legislators are more likely to engage in rulemaking when they have been lobbied by a like-minded interest group.
-When interest groups lobby elected officials to engage in rulemaking, they may be more likely to engage when aligned with the majority of commenters than when opposed to them (Hypothesis \ref{hyp:principals}.
-If elected officials learn from political information, they will be even more likely to engage when lobbied by a coalition that includes public interest groups running a mass-comment campaign, and less likely when lobbied by a coalition dominated by private interests opposed by a large mass comment campaign.\footnote{Of course, if Members of Congress receive signals about the distribution of comments from their districts, the distribution of opinions in their district constituency may be more important. Figure \ref{fig:sierra}, shows that the Sierra Club requires zip code information from commenters, so mass-mobilizers may often send such signals to elected officials.}
+\begin{hyp} \label{hyp:warning}
+Mass commenting reduces oversight from opponents. The more comments opposing a position, the less likely principals holding that position are to engage.
+\end{hyp}
+\end{subhyp}
+
+Hypothesis \ref{hyp:beacon} implies that $\beta_1$ is positive and Hypothesis \ref{hyp:warning} $\beta_2$ is negative in this statement: 
+\textit{Pr(Principal Comments $|$ Principal Position $i$) $\sim \beta_0 + \beta_1$Comments supporting $i + \beta_2$Comments opposing $i$}
+
+If Hypothesis \ref{hyp:beacon} is correct, it would suggest an addendum to Hall and Miler's (2008) finding that legislators are more likely to engage in rulemaking when they have been lobbied by a like-minded interest group: When interest groups lobby elected officials to engage in rulemaking, they may be more likely to engage when aligned with the majority of commenters than when opposed to them.
+If elected officials learn from political information, they will be even more likely to engage when lobbied by a coalition that includes public interest groups running a mass-comment campaign, and less likely to engage when opposed by a large mass comment campaign.\footnote{Of course, if Members of Congress receive signals about the distribution of comments from their districts, the distribution of opinions in their district constituency may be more important. Figure \ref{fig:sierra}, shows that the Sierra Club requires zip code information from commenters, so mass-mobilizers may often send such information to elected officials.}
+
+Alternatively, the effect of mass engagement on political principals may be asymmetric. Mass engagement may only mobilize or only demobilize. For example elected officials may be attracted to oversight opportunities but not dissuaded by mobilization on the other side because they assume their voters share their position. Or, if elected officials are risk adverse, they may avoid engaging in contentious rulemaking processes regardless of the balance of comments. Each of these results would be evidence against hypothesis \ref{hyp:warning} or \ref{hyp:beacon} respectively.
 
 \input{causal-principals.tex}
 
-Figure \ref{fig:causal-principals} builds on the classic model of political oversight in two ways. First, it suggests that the public and private comments by elected officials are a particularly relevant oversight behavior and a mechanism by which bureaucrats learn and update beliefs about their principals demands. Second, it suggests that such oversight behaviors may be affected by mass engagement because of the impressions of public opinion (i.e. the political information) it creates.
+Figure \ref{fig:causal-principals} builds on the classic model of political oversight in two ways. First, it suggests that comments from elected officials are a particularly relevant oversight behavior and a mechanism by which bureaucrats learn and update beliefs about their principals' demands. Second, it suggests that such oversight behaviors may be affected by mass engagement because of the impressions of public opinion (i.e. the political information) it creates.
