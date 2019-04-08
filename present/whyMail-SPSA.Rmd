@@ -25,29 +25,13 @@ knitr::opts_chunk$set(eval = TRUE,
                       cache = TRUE,
                       fig.retina = 2,
                       fig.align = "center", dpi = 100)
-# Xaringan settings
+# Xaringan: https://slides.yihui.name/xaringan/
 library("xaringan")
 library("xaringanthemer")
 library("here")
-
-
 ```
 
 ```{r, eval = FALSE, include= FALSE}
-# extra 
-mono_light(base_color = "#002b36",
-          link_color = "#2aa198",
-          header_font_google = google_font("Vollkorn"), 
-          text_font_google = google_font("PT Sans"), 
-          code_font_google = google_font("Inconsolata"), 
-          code_inline_background_color    = "#F5F5F5", 
-          table_row_even_background_color = "white", 
-          extra_css = 
-            list(".remark-slide-number" = list("display" = "none"), 
-                 ".remark-inline-code" = list("background" = "#F5F5F5", 
-                                                #e7e8e2; /* darker */
-                                              "border-radius" = "3px", 
-                                              "padding" = "4px")))
 # setup
 devtools::install_github("yihui/xaringan")
 devtools::install_github("gadenbuie/xaringanthemer")
@@ -58,18 +42,7 @@ library(webshot)
 # export to pdf
 file <- here("present/whyMail-SPSA.html")
 webshot(file, "whyMail-SPSA.pdf")
-
-### Read the documentation
-
-<https://slides.yihui.name/xaringan/>
 ```
-
-
-
-
-
-
-
 
 
 <!-- 
@@ -77,14 +50,43 @@ Hi, my name is Devin Judge-Lord, I'm a Ph.D. candidate at Wisconsin
 This paper is the first bit of writing I've done for my dissertation on mass engament in bureaucratic plicymaking, for example mass comment campaigns.
 
 It sets out concepts and measures for these occasional bursts of civic participation,
-which I will then use to assess it matters. 
+which I will then use to assess whether it matters. 
 
 I am still workshopping these concepts and measures, so your comments will be decisive for where I take this in the next few years. 
+
+SLIDE
+
+My dissertation is at the intersection of two literatures that have not had much contact 
+
+On the one hand, civic engagment has long been a core interest of political scientists. We are highly uncertian about the size of effects from actions like letterwritting, signing petitions, protests, but there is little doubt that, at a large enough scale, these things matter.  
+--> 
+
+## Civic engagment
+
+Writing to government officials, signing petitions, attending hearings, attending protests, or donating to a political campaign (Verba and Nie 1987).
+
+
+---
+
+## Bureaucratic policymaking
+
+
+---
+
+## Mass engagment in bureaucratic policymaking
+
+"The ‘mass comments’ occasionally submitted in great volume in highly salient rulemakings are one of the more vexing challenges facing agencies in recent years."
+
+<!--
+
+In Susan's recent Annual Review on the politics of rulemaking, she found that the literature has next to nothing in the literature about mass engagment, besides a some filp skepticism.
 
 SLIDE 
 
 For many reasons, Rulemaking is usually an insiders' game--people here and others have shown that, to the extent anyone is able to influence bureaucratic policymaking, it is the usual suspects, mostly businesses. 
 --> 
+
+---
 
 ## Public comment periods:
 ### Usually an insiders' game, but occasionally not. 
@@ -103,7 +105,7 @@ For many reasons, Rulemaking is usually an insiders' game--people here and other
 -->
 
 ---
-class: inverse center middle 
+class: inverse middle 
 ## But first:
 ### 1. What is it? 
 ### 2. How do we measure it? 
@@ -113,7 +115,7 @@ class: inverse center middle
 ## Selection process 
 
 ### Which rules? 
-- Significant, no deadline, less expert agencies (Moore n.d.)
+- Significant policy changes at less-expert agencies (Moore n.d.)
 - Ones people dislike? (negativity bias)
 - Controversial, salient? (both endogenous) <!-- indeed, we often measure salience this way --> 
 
@@ -162,13 +164,13 @@ vs.
 #### 3. Member expectations / recruitment
 
 ---
-class: inverse center middle
+class: inverse middle
 
 # Tasks
 
-## 1. Identifying coalitions
+## 1. Identify coalitions
 
-## 2. Measuring mass engagement
+## 2. Measure mass engagement
 
 ## 3. Which campaigns ought to matter
 
@@ -178,7 +180,7 @@ class: inverse center middle
 
 ### Text reuse
 #### 1. Remove text copied from proposed rule or request for comments 
-#### 2. Exact match = Duplicate comments 
+#### 2. Exact match = Duplicate (cosigned) comments
 #### 3. 10-word moving "window" = Part copy, part unique
 
 ### Word frequency
@@ -200,15 +202,15 @@ class: inverse center middle
 
 ## Measuring Political Information*
 
-### Number/share per coalition
+### 1. Number/share per coalition
 
-### Effort per comment
+### 2. Effort per comment
 
 Lower <--------------------------------------------> Higher 
 
-Duplicate (Signature) <-> Partially unique <-> Unique 
+Co-sign an org's comment <-> Partially unique <-> Unique 
 
-### Potential contagion (share of unique comments?)
+### 3. Potential contagion (share of unique comments?)
 
 *Agencies may not process comments in ways that deliver this information to decisionmakers
 
@@ -271,6 +273,7 @@ or
 
 ### JudgeLord@Wisc.edu
 
+---
 
 <!--
 questions that congress scholars have asked 
@@ -309,5 +312,5 @@ Gunnar trumball - coalitions need to create legitimacy
 
 - Companies buying off nonprofits, hiring consultants, supporting coal miners union, grass roots 
 
-
+-->
 

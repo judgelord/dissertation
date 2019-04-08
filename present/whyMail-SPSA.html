@@ -59,7 +59,7 @@ For many reasons, Rulemaking is usually an insiders' game--people here and other
 --&gt;
 
 ---
-class: inverse center middle 
+class: inverse middle 
 ## But first:
 ### 1. What is it? 
 ### 2. How do we measure it? 
@@ -118,13 +118,13 @@ vs.
 #### 3. Member expectations / recruitment
 
 ---
-class: inverse center middle
+class: inverse middle
 
 # Tasks
 
-## 1. Identifying coalitions
+## 1. Identify coalitions
 
-## 2. Measuring mass engagement
+## 2. Measure mass engagement
 
 ## 3. Which campaigns ought to matter
 
@@ -156,15 +156,15 @@ class: inverse center middle
 
 ## Measuring Political Information*
 
-### Number/share per coalition
+### - Number/share per coalition
 
-### Effort per comment
+### - Effort per comment
 
 Lower &lt;--------------------------------------------&gt; Higher 
 
 Duplicate (Signature) &lt;-&gt; Partially unique &lt;-&gt; Unique 
 
-### Potential contagion (share of unique comments?)
+### - Potential contagion (share of unique comments?)
 
 *Agencies may not process comments in ways that deliver this information to decisionmakers
 
@@ -226,7 +226,49 @@ class: center
 or
 
 ### JudgeLord@Wisc.edu
+
+---
+
+&lt;!--
+questions that congress scholars have asked 
+
+
+EPA - profitability inseperable from democracy 
+
+Wilson - bureaucrats want to be sued
+
+Janna - complexity is important - working on policy development monopolies- expert groups claim rents as providing info
+
+Brian - how important are these rules 
+- 25% of CRS overturned 
+- 
+- payday vs. net neutrality - are they all the same thing? 
+- - no some are going down fighting 
+- - net neutrality is idoelogy vs ideology - organized IN THE SAME WAY 
+- - payday loan was not only mobilizer - true vs false grassroots
+- - disrupting consensus = Paysay 
+- - why do agencies care? 
+
+- how do they process and extract 
+- - EPA consultant bins - more binned 
+
+
+- better fit between theory and measures 
+
+- Maarmam - cosigning 
+
+- coalition - movement - interest - 
+- What evidence would you need to know if this is 
+
+
+Gunnar trumball - coalitions need to create legitimacy
+
+
+- Companies buying off nonprofits, hiring consultants, supporting coal miners union, grass roots 
+
+--&gt;
     </textarea>
+<style data-target="print-only">.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
@@ -236,11 +278,41 @@ or
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });
-(function() {
-  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
   if (!r) return;
   s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
   d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
 })();</script>
 
 <script>
