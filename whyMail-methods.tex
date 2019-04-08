@@ -15,7 +15,7 @@ Previous studies of rulemaking stress the importance of coalitions \citep{Yackee
 Unfortunately, metadata on the authors of comments and their organizational affiliations are inconsistent and incomplete. As this information is key to identifying influential actors, improving these data was a significant data-organization task. 
 
 
-\paragraph{Mobilizing organizations}. I identified organizations responsible for mobilizing 100 or more comments with repeated text, either identical text or partially unique texts that contain shared language. 
+\paragraph{Mobilizing organizations.} I identified organizations responsible for mobilizing 100 or more comments with repeated text, either identical text or partially unique texts that contain shared language. 
 I then searched comment texts for mentions of these organizations' names to complete missing information on the mobilizing organization.
 % Further text matching of organization and individual names across texts, especially those named as comment authors will help link individuals systematically to the groups that mobilized them. % who may participate in different coalitions and under different names over time. 
 % This helps to identify formal coalitions of organizations that sign onto the same comment as well as experts and citizens mobilized by advocacy campaigns to submit separate comments.
@@ -86,10 +86,10 @@ First, I measure the total number of comments on the rule. As commenting results
 % When comparing coalitions, I have already subset to cases where mobilization occurred and thus commenting can now be considered a regular count process. 
 
 \textbf{Effort.} I measure effort per comment by the number of words people write, omitting any to text longer than ten words that is not unique, usually because a mobilizing organization provided it. % effort example 
-For example, using the form shown in Figure \ref{fig:sierra}, the Sierra Club mobilized more than 47,710 people to submit exactly the same text on the delay of the methane pollution rule, but 7,452 people also took the time to write a personalized comment in addition to the text provided. However, we may not observe people who have low levels of passion for the issue because they either do not cross the effort threshold required to comment or opt to write nothing more than the form letter. I consider the low end of the distribution of words to be truncated.
+For example, using the form shown in Figure \ref{fig:sierra}, the Sierra Club mobilized more than 47,710 people to submit exactly the same text on the delay of the methane pollution rule, but 7,452 people also took the time to write a personalized comment in addition to the text provided. However, we may not observe people who have low levels of passion for the issue because they either do not cross the effort threshold required to comment or opt to write nothing more than the form letter. Thus, while effort measured by the number of words people write may be normally distributed, I assume that the low end of this distribution is truncated.
 
 % contagion
-\textbf{Contagion.} Mass-comment campaigns have wildly different results. Some gather a clean 10,000 copies of (signatures on) the same comment and call their work done. Others ``go viral''---inspiring a mess of further engagement where the original messages are translated through social media posts and news stories.
+\textbf{Contagion.} Mass-comment campaigns have wildly different results. Some submit a clean 10,000 copies of (signatures on) the same comment. Others ``go viral''---inspiring a mess of further engagement where the original messages are translated through social media posts and news stories.
 To identify people who were plausibly mobilized indirectly by a campaign, I count the number of people who use a similar distribution of words to that of the form letter but fewer than ten words matching any other comment. This is a regular count process.
 
 % \begin{quote}
@@ -106,8 +106,8 @@ To identify people who were plausibly mobilized indirectly by a campaign, I coun
 % % Model 4) Type of campaign $\sim$ multinomial. 
 % \end{quote}
 
-% The dependent 2-4 are built using text reuse and bayesian classifiers\footnote{
-% Ultimately something similar to the correlated topic model \citep{Blei2005}, possibly with lexical priors \citep{Fong2016} based on organizational comments
+% The dependent 2-4 are built using text reuse and Bayesian classifiers\footnote{
+% Ultimately something similar to the correlated topic model \citep{Blei2005}, possibly with lexical priors \citep{Fong2016} based on sentiment dictionaries and organizational comments
 % },
 % one observation per coalition per rule. Explanatory variables include agency alignment with Congress and the president (models 1-4), coalition unity and alignment (models 2-4), and coding coalitions as driven more by public or private interests (models 2-3).%, part of the DV in model 4).
 
