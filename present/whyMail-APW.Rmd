@@ -3,6 +3,7 @@ title: "Why do agencies (sometimes) get so much mail?"
 subtitle: ""
 author: "Devin Judge-Lord"
 date: ""
+
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -29,6 +30,21 @@ knitr::opts_chunk$set(eval = TRUE,
 library("xaringan")
 library("xaringanthemer")
 library("here")
+
+
+mono_light(base_color = "#003333",
+          link_color = "#000080",
+          #background_color = "#FAF0E6", # linen
+          header_font_google = google_font("PT Sans"), 
+          text_font_google = google_font("Old Standard"), 
+          text_font_size = "30px",
+          padding = "10px",
+          code_font_google = google_font("Inconsolata"), 
+          code_inline_background_color    = "#F5F5F5", 
+          table_row_even_background_color = "#E6F0FA",
+          extra_css = 
+            list(".remark-slide-number" = list("display" = "none")))
+
 ```
 
 ```{r, eval = FALSE, include= FALSE}
@@ -220,7 +236,9 @@ background-image: url("present/tweetBenWilkerMoveon.png")
 
 ### Outside lobbying
 #### 1. Expand the scope of conflict (Schattschneider 1975)
+
 vs.
+
 #### 2. Leverage resources into an impression of public support
 
 ### Not lobbying
