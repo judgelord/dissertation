@@ -1,0 +1,113 @@
+---
+title: "Measuring policy change"
+author: "Devin Judge-Lord"
+output:
+    html_document:
+      toc: true
+      toc_float: true
+      #code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source(here::here("setup.R"))
+```
+
+In addition to `tidyverse` packages, this example uses the `rvest`, `magrittr`, `pdftools`, and `here` packages.
+
+```{r libraries}
+library(tidyverse)
+library(rvest)
+library(magrittr)
+library(pdftools)
+library(here)
+```
+
+```{r}
+rule_text <- function(x){
+  read_html(x) %>% 
+  html_text() %>% 
+  str_replace_all("\n|\t", "") %>%
+  str_squish() %>% 
+  str_extract("Start of Main Content.*") %>% 
+  str_remove("^Start of Main Content ")
+}
+
+text <- rule_text("data/final.html")
+```
+
+```{r}
+tengrams <- function(text){
+tengrams <- quanteda::tokens(text, 
+                               what="word", 
+                               remove_numbers = T, 
+                               remove_punct = T, 
+                               remove_symbols =T,
+                             ngrams = 10,
+                             concatenator = " ") %>%
+  as.character()
+return(tengrams)
+}
+
+text %<>% tengrams()
+
+head(text)
+```
+
+```{r}
+match_score <- function(text){
+  text$score <- NA
+  for(i in 1:10){
+    text$score[i] <- sum(text$match[1:9])
+  }
+  for(i in 10:nrow(text)){
+    text$score[i] = sum(text$match[i-9]:text$match[i])
+  }
+  return(text)
+}
+    
+matched <- function(text1, text2){
+  text1 %<>% tengrams()
+  text2 %<>% tengrams()
+  
+  match1 <- tibble(source = 1,
+                   index = 1:length(text1) %>% formatC(width=6, flag="0"),
+                   text = text1,
+                   match = text1 %in% text2)%>% 
+    mutate(word = str_remove(text, " .*")) %>%
+    match_score() %>%
+    mutate(match = ifelse(score > 0, TRUE, FALSE)) %>% 
+    select(-score)
+  
+  match2 <- tibble(source = 2,
+                   index = 1:length(text2) %>% formatC(width=6, flag="0"),
+                   text = text2,
+                   match = text2 %in% text2) %>% 
+    mutate(word = str_remove(text, " .*")) %>%
+    match_score() %>%
+    mutate(match = ifelse(score > 0, TRUE, FALSE)) %>% 
+    select(-score)
+  
+  match <- full_join(match1, match2) %>% 
+    group_by(text, match, word) %>% 
+    summarise(source = str_c(unique(source), collapse = ":"),
+              index = str_c(unique(index), collapse = ":")) %>% 
+    distinct() %>% 
+    arrange(index, source)
+  return(match)
+}
+
+m <- matched(rule_text("data/draft.html"), rule_text("data/final.html") ) 
+
+tail(m)
+head(m)
+
+
+text1only <- filter(m, source == 1, !match)
+paste(text1only$word, collapse = " ")
+text2only <- filter(m, source == 2, !match)
+paste(text2only$word, collapse = " ")
+text1and2 <- filter(m, source == "1:2", match)
+paste(text1and2$word, collapse = " ")
+```
+
