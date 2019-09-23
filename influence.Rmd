@@ -23,7 +23,9 @@ author:
 
 abstract: "Do public pressure campaigns affect policies made by unelected bureaucrats? In this article, I develop several measures of lobbying success and corresponding tests of whether public pressure campaings increase lobbying success. I then theorize mechanisms by which mass public engagment may affect policy. Each involves a distinct type of information revealed to decisionmakers."
 ---
-
+```{r setup}
+source("setup.R")
+```
 
 
 \newpage
@@ -49,24 +51,63 @@ A coalition of 15 environmental organizations mobilized over 944,000 comments, o
 
 The final rule moved in the the direction requested by this coalition, but to a lesser extent than requested--what I code as "some desired changs."" As NRDC et al. requested, the final rule retained the language protecting tributaries and adjacent waters and added some protections for "other waters" like prarie potholes and vernal pools, but EPA did not alter the exemptions for ditches and waste treatement systems. 
 
-For this coalition, the dependent variable, *coalitions success* is 1, *coalition size* is 15, *business coalition* is 0, *comment length* is 69/88, `r round(69/88,2)`, and *log comments* is log(943,931), `r round(log(943931), 2)`.
+For this coalition, the dependent variable, *coalitions success* is 1, *coalition size* is 15, *business coalition* is 0, *comment length* is 69/88, `r round(69/88,2)`, and *log mass comments* is log(943,931), `r round(log(943931), 2)`.
 
 #### 2009 Fine Particle National Ambient Air Quality Standards
 
 In 2008, the EPA proposed a rule expanding air quality protections. Because measuring small particles of air pollution was once difficult, measurments of large particulates were allowed as a surragate measure for fine particles under EPA's 1977 PM10 Surrogate Policy. EPA proposed eliminating this policy, thus requring regulated entities and state regulators to measure and enforce limits on much finer particles of air pollution. 
 
-EPA received 163 comments on the rule, 129 from businesses, business associations such as the American Petrolium Institute and The Chamber of Commerce, and state regulators that opposed the rule, requesting that it be withdrawn or at least delayed. A few state regulators only requested delayed implimation of the rule until they next revised their State Implimentation Plans (SIPs) for Prevention of Significant Deteriouration (PSD). EarthJustice supported the rule but opposed the idea that the cost of measureing fine particles should be a consideration. On behalf of the Sierra Club, the Clean Air Task Force, EarthJustice commented "We support EPA’s proposal to get rid of the policy but reject the line of questioning as to the benefits and costs associated with ending a policy that is illegal." The EarthJustice-led coalition also opposed delaying implimentation "EPA must immediately end any use of the Surrogate Policy – either by “grandfathered” sources or sources in states with SIP‐approved PSD programs – and may not consider whether some flexibility or transition is warranted by policy considerations."
+EPA received 163 comments on the rule, 129 from businesses, business associations such as the American Petrolium Institute and The Chamber of Commerce, and state regulators that opposed the rule. Most of these were short and cited their support for the 63-page comment from the PM Group, "an ad hoc group of industry trade associations" that opposed regulation of fine particulate matter. Six state regulators, including Oregon's only requested delayed implimation of the rule until they next revised their State Implimentation Plans (SIPs) for Prevention of Significant Deteriouration (PSD). EarthJustice supported the rule but opposed the idea that the cost of measureing fine particles should be a consideration. On behalf of the Sierra Club, the Clean Air Task Force, EarthJustice commented "We support EPA’s proposal to get rid of the policy but reject the line of questioning as to the benefits and costs associated with ending a policy that is illegal." The EarthJustice-led coalition also opposed delaying implimentation "EPA must immediately end any use of the Surrogate Policy – either by “grandfathered” sources or sources in states with SIP‐approved PSD programs – and may not consider whether some flexibility or transition is warranted by policy considerations."
 
 The final rule did eliminate the Surrate Policy, but allowed states to delay implimentation and enforcement until the next sceduled revision of their Implimentation Plans. I code this as the EarthJustice coalition getting most of what they requested, but not a complete loss for the regulated coalition.
 
-For the EarthJustice coalition, the dependent variable, *coalitions success* is 1, *coalition size* is 3, *business coalition* is 0, *comment length* is 7/85, `r round(7/85, 2)`, and *log mass comments* is log(0), `r log(0)`.
+For the PM Group coalition, the dependent variable, *coalitions success* is -1, *coalition size* is 129, *business coalition* is 1, *comment length* is 63/85, `r round(63/85, 2)`, and *log mass comments* is log(0), `r log(1)`.
 
-For the EarthJustice coalition, the dependent variable, *coalitions success*, is -1, *coalition size* is 129, *business coalition* is 1, *comment length* is and *log mass comments*, $x_i$, is log(0), `r log(0)`.
+For the State of Oregon's coalition, the dependent variable, *coalitions success* is 2, *coalition size* is 6, *business coalition* is 0, *comment length* is 5/85, `r round(5/85, 2)`, and *log comments*, is log(1), `r log(1)`.
+
+For the EarthJustice coalition, the dependent variable, *coalitions success* is 1, *coalition size* is 3, *business coalition* is 0, *comment length* is 7/85, `r round(7/85, 2)`, and *log comments*, is log(1), `r log(1)`.
 
 
 
 # Pre-analysis
 
+To illustrate my analysis, I simulate data for each of the variables described above. 
+Coalition success is drawn from a descrete distribution {-2, -1, 0, 1, 2}. Coalition size (a count) is drawn from a Poisson distribution. Business colation is binomial. In realition, business coalitions are more common, but here I estimate a ballenced sample. I set rule pages constant at 85 and draw comment lengths from a Poisson distribution. While in reality, less than one precent of coalitions lobbying in rulemaking opt for a mass-comment campaign, I aim to gather a ballenced sample, so half of the simulated data are assumed to have no mass comment campaign and the other half have a number of comments drawn from a Zero-Truncated Poisson distribution. 
 
+```{r,  fig.width=2, fig.height=2}
+success <- sample(x = c(-2,1,0,1,2), 1000, replace = T, prob = c(0.1, 0.3, .1, 0.4, 0.1)) 
+size <- rtnorm(1000, mean = 5, sd= 100, lower = 1) %>% round()
+business <- sample(x = c(0,1), 1000, replace = T, prob = c(0.5, .5)) 
+
+comment_length <- rpois(1000, 10)
+length <- comment_length/85 *100
+
+comments <-c(rtnorm(500, mean = 10000, sd = 100000, lower = 100)  %>% log(), rep(0, 500)) %>% sample() %>% round()
+
+d = tibble(success, size, business, length, comments)
+
+# ggplot(d, aes( x = success)) + geom_histogram()
+# ggplot(d, aes( x = business)) + geom_histogram()
+ggplot(d, aes( x = size)) + geom_histogram()
+ggplot(d, aes( x= length)) + geom_histogram()
+ggplot(d, aes( x= comments)) + geom_histogram()
+```
+
+```{r model}
+m <- lm(success ~ size + business + length + comments, data = d) 
+
+knitr::kable(m %>% tidy(), digits = 4)
+
+m %>%
+  tidy(conf.int = TRUE) %>% 
+  filter(term != "(Intercept)") %>% 
+  ggplot() + 
+  geom_hline(yintercept = 0, color = "grey") + 
+  aes(x = term, y = estimate, ymin = conf.low, ymax =conf.high) + 
+  geom_pointrange( )  + 
+  coord_flip() +
+  labs(y = "Success", x = "Term") + 
+  scale_color_discrete()
+```
 
 
