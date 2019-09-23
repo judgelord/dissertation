@@ -82,7 +82,7 @@ matched <- function(text1, text2){
   match2 <- tibble(source = 2,
                    index = 1:length(text2) %>% formatC(width=6, flag="0"),
                    text = text2,
-                   match = text2 %in% text2) %>% 
+                   match = text2 %in% text1) %>% 
     mutate(word = str_remove(text, " .*")) %>%
     match_score() %>%
     mutate(match = ifelse(score > 0, TRUE, FALSE)) %>% 
@@ -92,22 +92,35 @@ matched <- function(text1, text2){
     group_by(text, match, word) %>% 
     summarise(source = str_c(unique(source), collapse = ":"),
               index = str_c(unique(index), collapse = ":")) %>% 
+    ungroup() %>% 
+    select(-text) %>% 
+    # cases where 10-gram is different but word is the same 
+    mutate(source = ifelse(match, "1:2", source)) %>% 
     distinct() %>% 
-    arrange(index, source)
+    arrange(index, source) %>% 
+    ungroup()
+  
   return(match)
 }
 
+# m is all 10-grams appearing in either or both texts
 m <- matched(rule_text("data/draft.html"), rule_text("data/final.html") ) 
 
+nrow(m)
 tail(m)
 head(m)
 
 
-text1only <- filter(m, source == 1, !match)
-paste(text1only$word, collapse = " ")
-text2only <- filter(m, source == 2, !match)
-paste(text2only$word, collapse = " ")
-text1and2 <- filter(m, source == "1:2", match)
-paste(text1and2$word, collapse = " ")
-```
+old <- filter(m, source == 1, !match)
+nrow(old)
+# paste(old$word, collapse = " ")
+new <- filter(m, source == 2, !match)
+nrow(new)
+# paste(new$word, collapse = " ")
+copy <- filter(m, source == "1:2", match)
+nrow(copy)
+# paste(copy$word, collapse = " ")
 
+percent <- (nrow(new) + nrow(old)) / nrow(m)
+percent
+```

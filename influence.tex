@@ -1,0 +1,233 @@
+\documentclass[
+      12pt,
+        ]{article}
+
+
+
+
+
+
+% --- type and typeface? -----------------------
+
+% input
+\usepackage[utf8]{inputenc}
+
+% typography
+\usepackage{microtype}
+
+
+\usepackage[T1]{fontenc}
+
+
+% text block
+\usepackage{setspace}
+\usepackage[              left = 1in,top = 1in,right = 1in,bottom = 1in             ]{geometry}
+
+\usepackage{enumitem}
+  \setlist{noitemsep}
+
+
+
+% decimal numbering for appendix figs and tabs
+
+
+% Deletes section counters
+% \setcounter{secnumdepth}{0}
+
+
+
+
+
+
+
+  \usepackage{longtable, booktabs}
+
+
+
+
+
+
+
+
+
+  \usepackage{natbib}
+  \bibliographystyle{apa}
+  % protect underscores in most circumstances
+  \usepackage[strings]{underscore} 
+
+
+% 
+
+% \newtheorem{hypothesis}{Hypothesis}
+
+\makeatletter
+  \@ifpackageloaded{hyperref}{}{%
+    \ifxetex
+      % page size defined by xetex
+      % unicode breaks when used with xetex
+      \PassOptionsToPackage{hyphens}{url}\usepackage[setpagesize = false, 
+                                                     unicode = false, 
+                                                     xetex]{hyperref}
+    \else
+      \PassOptionsToPackage{hyphens}{url}\usepackage[unicode = true]{hyperref}
+    \fi
+  }
+
+  \@ifpackageloaded{color}{
+    \PassOptionsToPackage{usenames,dvipsnames}{color}
+  }{
+    \usepackage[usenames,dvipsnames]{color}
+  }
+\makeatother
+
+\hypersetup{breaklinks = true,
+            bookmarks = true,
+            pdfauthor = {Devin Judge-Lord (University of Wisconsin-Madison)},
+             pdfkeywords  =  {},  
+            pdftitle = {Do Public Pressure Campaigns Influence Bureaucratic Policymaking?},
+            colorlinks = true,
+            citecolor = black,
+            urlcolor = blue,
+            linkcolor = magenta,
+            pdfborder = {0 0 0}}
+
+% \urlstyle{same}  % don't use monospace font for urls
+
+
+% set default figure placement to htbp
+\makeatletter
+  \def\fps@figure{hbtp}
+\makeatother
+
+
+% optional footnotes as endnotes
+
+
+% ----- Pandoc wants this tightlist command ----------
+\providecommand{\tightlist}{
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+}
+
+
+
+
+
+% --- title & section styles -----------------------
+
+
+% title, author, date
+  \title{Do Public Pressure Campaigns Influence Bureaucratic Policymaking?}
+
+  \author{ % author, option footnote, optional affiliation
+            Devin Judge-Lord  \\ \emph{University of Wisconsin-Madison} 
+            }
+
+% auto-format date?
+  \date{\today}
+
+
+% abstract
+\usepackage{abstract}
+  \renewcommand{\abstractname}{}    % clear the title
+  \renewcommand{\absnamepos}{empty} % originally center
+
+  \newcommand*{\authorfont}{\sffamily\selectfont}
+
+
+% section titles
+\usepackage[small, bf, sc]{titlesec}
+  % \titleformat*{\subsection}{\itshape}
+  \titleformat*{\subsubsection}{\itshape} 
+  \titleformat*{\paragraph}{\itshape} 
+  \titleformat*{\subparagraph}{\itshape}
+
+
+
+
+\usepackage{floatrow}
+\floatsetup[figure]{capposition=top}
+\floatsetup[table]{capposition=top}
+\usepackage{multirow}
+\usepackage{rotating} 
+\usepackage{caption}
+
+
+
+
+\begin{document}
+ 
+
+% --- PAGE: title and abstract -----------------------
+
+  \maketitle
+
+% \pagenumbering{gobble}
+
+
+
+  \begin{abstract}
+    \noindent Do public pressure campaigns affect policies made by unelected bureaucrats? In this article, I develop several measures of lobbying success and corresponding tests of whether public pressure campaings increase lobbying success. I then theorize mechanisms by which mass public engagment may affect policy. Each involves a distinct type of information revealed to decisionmakers. 
+
+    
+  \end{abstract}
+
+
+
+% --- PAGE: contents -----------------------
+
+
+
+
+% --- PAGE: body -----------------------
+
+
+
+\noindent 
+      \doublespacing 
+    \newpage
+
+\input{intro.tex}
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
+
+To illustrate how I create these variables, consider two such cases:
+
+\hypertarget{waters-of-the-united-states}{%
+\paragraph{Waters of the United States}\label{waters-of-the-united-states}}
+
+In responce to litigation over which waters were protectected by the Clean Water Act, the Environmental Protection Agency and Army Corp of Engineers proposed a rule based on a legal theory articulated by Justice Kennedy, which was more expansive than Justice Scalia's.
+An Attorney for the Natural Resources Defense Council submitted a 69-page highly technical comment ``on behalf of the Natural Resources Defense Council\ldots, the Sierra Club, the Conservation Law Foundation, the League of Conservation Voters, Clean Water Action, and Environment America'' supporting the proposed rule:
+
+\begin{quote}
+``we strongly support EPA's and the Corps' efforts to clarify which waters are protected by the Clean Water Act. We urge the agencies to strengthen the proposal and move quickly to finalize it\ldots{}''
+\end{quote}
+
+I coded this as support for the rule change, specifically not going far enough. I also coded it as requesting speedy publication. NRDC makes four substantive requests: one about retaining language in the proposed rule (``proposed protections for tributaries and adjacent waters\ldots{} must be included in the final rule'') and three proposed changes (``we describe three key aspects of the rule that must be strengthened'').\footnote{These three aspects are: (1) ``The Rule Should Categorically Protect Certain ``Other Waters'' including Vernal Pools, Pocosins, Sinkhole Wetlands, Rainwater Basin Wetlands, Sand Hills Wetlands, Playa Lakes, Interdunal Wetlands, Carolina and Delmarva Bays, and Other Coastal Plain Depressional Wetlands, and Prairie Potholes. Furthermore, ``Other `Isolated' Waters Substantially Affect Interstate Commerce and Should be Categorically Protected Under the Agencies' Commerce Clause Authority.'' (2) ``The Rule Should Not Exempt Ditches Without a Scientific Basis'' (3) ``The Rule Should Limit the Current Exemption for Waste Treatment Systems''} These demands provide specific key words and phrases to search the change in rule text.
+
+A coalition of 15 environmental organizations mobilized over 944,000 comments, over half (518,963) were mobilized by the four above organizations: 2421,641 by Environment America, 108,076 by NRDC, 101,496 by clean water action, and 67,750 by the Sierra Club. Other coalition partners included EarthJustice (99,973 comments) and Organizing for Action (formerly president Obama's campaign organization, 69,369 comments). This case represents the upper end of the distribution. This coalition made sophisticated recomendations and mobilized a million people.
+
+The final rule moved in the the direction requested by this coalition, but to a lesser extent than requested--what I code as ``some desired changs.''" As NRDC et al.~requested, the final rule retained the language protecting tributaries and adjacent waters and added some protections for ``other waters'' like prarie potholes and vernal pools, but EPA did not alter the exemptions for ditches and waste treatement systems.
+
+For this coalition, the dependent variable, \emph{coalitions success} is 1, \emph{coalition size} is 15, \emph{business coalition} is 0, \emph{comment length} is 69/88, 0.78, and \emph{log comments} is log(943,931), 14.
+
+\hypertarget{fine-particle-national-ambient-air-quality-standards}{%
+\paragraph{2009 Fine Particle National Ambient Air Quality Standards}\label{fine-particle-national-ambient-air-quality-standards}}
+
+In 2008, the EPA proposed a rule expanding air quality protections. Because measuring small particles of air pollution was once difficult, measurments of large particulates were allowed as a surragate measure for fine particles under EPA's 1977 PM10 Surrogate Policy. EPA proposed eliminating this policy, thus requring regulated entities and state regulators to measure and enforce limits on much finer particles of air pollution.
+
+EPA received 163 comments on the rule, 129 from businesses, business associations such as the American Petrolium Institute and The Chamber of Commerce, and state regulators that opposed the rule, requesting that it be withdrawn or at least delayed. A few state regulators only requested delayed implimation of the rule until they next revised their State Implimentation Plans (SIPs) for Prevention of Significant Deteriouration (PSD). EarthJustice supported the rule but opposed the idea that the cost of measureing fine particles should be a consideration. On behalf of the Sierra Club, the Clean Air Task Force, EarthJustice commented ``We support EPA's proposal to get rid of the policy but reject the line of questioning as to the benefits and costs associated with ending a policy that is illegal.'' The EarthJustice-led coalition also opposed delaying implimentation ``EPA must immediately end any use of the Surrogate Policy -- either by ``grandfathered'' sources or sources in states with SIP‐approved PSD programs -- and may not consider whether some flexibility or transition is warranted by policy considerations."
+
+The final rule did eliminate the Surrate Policy, but allowed states to delay implimentation and enforcement until the next sceduled revision of their Implimentation Plans. I code this as the EarthJustice coalition getting most of what they requested, but not a complete loss for the regulated coalition.
+
+For the EarthJustice coalition, the dependent variable, \emph{coalitions success} is 1, \emph{coalition size} is 3, \emph{business coalition} is 0, \emph{comment length} is 7/85, 0.08, and \emph{log mass comments} is log(0), \ensuremath{-\infty{}}.
+
+For the EarthJustice coalition, the dependent variable, \emph{coalitions success}, is -1, \emph{coalition size} is 129, \emph{business coalition} is 1, \emph{comment length} is and \emph{log mass comments}, \(x_i\), is log(0), \ensuremath{-\infty{}}.
+% --- PAGE: endnotes -----------------------
+% --- PAGE: refs -----------------------
+\newpage
+\singlespacing 
+                    \renewcommand\refname{Pre-analysis} 
+              \bibliography{mendeley.bib} 
+  \end{document}
