@@ -21,7 +21,7 @@ author:
 - name: Devin Judge-Lord
   affiliation: University of Wisconsin-Madison
 
-abstract: "Do public pressure campaigns affect policies made by unelected bureaucrats? In this article, I develop several measures of lobbying success and corresponding tests of whether public pressure campaings increase lobbying success. I then theorize mechanisms by which mass public engagment may affect policy. Each involves a distinct type of information revealed to decisionmakers."
+abstract: "Do public pressure campaigns affect policies made by unelected bureaucrats? In this article, I develop several measures of lobbying success and corresponding tests of whether public pressure campaings increase lobbying success. I then theorize mechanisms by which mass public engagment may affect policy. Each mechanism involves a distinct type of information revealed to decisionmakers."
 ---
 ```{r setup}
 source("setup.R")
@@ -34,7 +34,13 @@ source("setup.R")
 
 
 # Methods
+The simplist way to falsify the hypothes that mass engagment increases lobbying success is to estabilish no relationship. Thus, before examining evidence for or against different pathways to influence, the first step is to assess the raw correlation. It is possible that bureaucrats anticipate public pressure campaigns when writing draft rules, muting effects at the final rule stage of the policy process, but this is a different hypothesis that would require different measures.  
 
+The main dependent variable here is whether a coalition got their way. I measure this in three ways. First, on a sample of rules, I hand-coded lobbying success for each lobbying coalition, comparing the change between the draft and final rule to each comment's demands on a five-point scale from "mostly as requested" to "significantly different/opposite than requested." Second, I use text-reuse methods underlying plagarism detection algorithms to identify changes between draft and final rules and count the number of new 10-word phrases that appear in the comment and final rule, but not the draft rule. Finally, I model assess the similarity in word distributions between comments and changes made to the rule.
+
+In addition to changing policy texts, agencies may speed up or delay finalizing a rule, extend the comment period, or delay date at which the rule goes into effect. Indeed, commentors often request speedy or delayed rule finalization, comment period extensions, or a delayed effective dates. Additionally, agencies write lengthy justifications of their decisions in response to some comments but not others. This measure of attention to commentor demands will be captured by the text similarity measure.
+
+### Example cases
 To illustrate how I create these variables, consider two such cases:
 
 #### Waters of the United States
@@ -63,20 +69,25 @@ The final rule did eliminate the Surrate Policy, but allowed states to delay imp
 
 For the PM Group coalition, the dependent variable, *coalitions success* is -1, *coalition size* is 129, *business coalition* is 1, *comment length* is 63/85, `r round(63/85, 2)`, and *log mass comments* is log(0), `r log(1)`.
 
-For the State of Oregon's coalition, the dependent variable, *coalitions success* is 2, *coalition size* is 6, *business coalition* is 0, *comment length* is 5/85, `r round(5/85, 2)`, and *log comments*, is log(1), `r log(1)`.
+For the State of Oregon's coalition, the dependent variable, *coalitions success* is 2, *coalition size* is 6, *business coalition* is 0, *comment length* is 5/85, `r round(5/85, 2)`, and *log mass comments*, is log(1), `r log(1)`.
 
-For the EarthJustice coalition, the dependent variable, *coalitions success* is 1, *coalition size* is 3, *business coalition* is 0, *comment length* is 7/85, `r round(7/85, 2)`, and *log comments*, is log(1), `r log(1)`.
+For the EarthJustice coalition, the dependent variable, *coalitions success* is 1, *coalition size* is 3, *business coalition* is 0, *comment length* is 7/85, `r round(7/85, 2)`, and *log mass comments*, is 0.
 
 
 
 # Pre-analysis
 
-To illustrate my analysis, I simulate data for each of the variables described above. 
-Coalition success is drawn from a descrete distribution {-2, -1, 0, 1, 2}. Coalition size (a count) is drawn from a Poisson distribution. Business colation is binomial. In realition, business coalitions are more common, but here I estimate a ballenced sample. I set rule pages constant at 85 and draw comment lengths from a Poisson distribution. While in reality, less than one precent of coalitions lobbying in rulemaking opt for a mass-comment campaign, I aim to gather a ballenced sample, so half of the simulated data are assumed to have no mass comment campaign and the other half have a number of comments drawn from a Zero-Truncated Poisson distribution. 
+To illustrate my planned analysis, I simulate data for each of the variables described above. 
+
+**Dependent variables:** *Coalition success* is drawn from a descrete distribution {-2, -1, 0, 1, 2}. 
+
+**Explainatory variables:** *Coalition size* (a count) is drawn from a Poisson distribution. *Business colation* is binomial. In reality, business coalitions are more common than non-bussness coalitions, but here I estimate a ballenced sample. I set rule pages constant at 85 and draw comment lengths from a Poisson distribution. While in reality, less than one precent of coalitions lobbying in rulemaking opt for a mass-comment campaign, I aim to gather a ballenced sample, so half of the simulated data are assumed to have no mass comment campaign and the other half have a number of comments drawn from a Zero-Truncated Poisson distribution. 
 
 ```{r,  fig.width=2, fig.height=2}
 success <- sample(x = c(-2,1,0,1,2), 1000, replace = T, prob = c(0.1, 0.3, .1, 0.4, 0.1)) 
+
 size <- rtnorm(1000, mean = 5, sd= 100, lower = 1) %>% round()
+
 business <- sample(x = c(0,1), 1000, replace = T, prob = c(0.5, .5)) 
 
 comment_length <- rpois(1000, 10)
@@ -93,10 +104,11 @@ ggplot(d, aes( x= length)) + geom_histogram()
 ggplot(d, aes( x= comments)) + geom_histogram()
 ```
 
-```{r model}
+Unsurprisingly a model predicting lobbying success as a combination of coalition size, business coalition, comment length, and mass comments yields no significant results. 
+```{r model_success}
 m <- lm(success ~ size + business + length + comments, data = d) 
 
-knitr::kable(m %>% tidy(), digits = 4)
+# knitr::kable(m %>% tidy(), digits = 3)
 
 m %>%
   tidy(conf.int = TRUE) %>% 
@@ -106,8 +118,18 @@ m %>%
   aes(x = term, y = estimate, ymin = conf.low, ymax =conf.high) + 
   geom_pointrange( )  + 
   coord_flip() +
-  labs(y = "Success", x = "Term") + 
+  labs(title = "",
+       y = "Lobbying Success", 
+       x = "") + 
   scale_color_discrete()
 ```
 
+\input{mechanisms.tex}
+
+# Limitations
+
+Observing policy influence, especially in the final stages of policymaking is difficult. Given the momentum of political agendas and the fact that much is determined before draft rules are made public, changes are often on the margins. But such marginal victories are also the aim of business and other interest groups that are not part of a mass mobilization campaign. 
+
+Additionally, my theory suggests that influence is likely only in cases where mass mobilization is (1) aimed at influencing policy and (2) not accurately anticipated by policymakers. Identifying these conditions these will also be difficult.
+Observational studies of policy decisions are almost always frustrated by the fact that decisionmakers rationally anticipate the actions of those who would influence them, rendering this influence difficult to observe. Thus I expect to observe larger effects in cases where mobilization or the level of engagement achieved was not anticipated by agency staff. However, as long as rulewriters do not perfectly anticipate mass engagement, it should have observable, if depressed, effects. Thus, without accounting for anticipation, any effects I uncover are likely underestimated, making the methods described above conservative tests.
 
