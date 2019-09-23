@@ -14,8 +14,12 @@ output: #word_document
     toc: false
     fig_caption: true
     citation_package: natbib
-#header-includes:
+header-includes:
+- \usepackage{ragged2e}
 #- \input{preamble.tex}
+#- \let\footnote=\endnote
+#- \renewcommand{\footnotesize}{\normal}
+#- \renewcommand{\normalsize}{\large}
 spacing: doublespacing
 #endnotes: true
 title: "Do Public Pressure Campaigns Influence Bureaucratic Policymaking?"
@@ -38,7 +42,7 @@ options(stringsAsFactors = FALSE)
 
 source("setup.R")
 ```
-
+\RaggedRight
 
 \newpage
 
@@ -145,15 +149,3 @@ m %>%
   scale_color_discrete()
 ```
 
-<!--
-
-# Limitations
-
-Observing policy influence, especially in the final stages of policymaking, is difficult. Given the momentum of political agendas and the fact that much is determined before draft rules are made public, changes are often on the margins. But such marginal victories are also the aim of businesses and other interest groups that are not part of a mass mobilization campaign. 
-
-Additionally, my theory suggests that influence is likely only in cases where mass mobilization is (1) aimed at influencing policy and (2) not accurately anticipated by policymakers. Identifying these conditions will also be difficult.
-Observational studies of policy decisions are almost always frustrated by the fact that decisionmakers rationally anticipate the actions of those who would influence them, rendering this influence difficult to observe. Thus I expect to observe larger effects in cases where mobilization or the level of engagement achieved was not anticipated by agency staff. However, as long as rulewriters do not perfectly anticipate mass engagement, it should have observable, if depressed, effects. Thus, without accounting for anticipation, any effects I uncover are likely underestimated, making the methods described above conservative tests.
-
-# Mechanisms
-
-\input
