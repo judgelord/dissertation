@@ -14,6 +14,8 @@ output: #word_document
     toc: false
     fig_caption: true
     citation_package: natbib
+#header-includes:
+#- \input{preamble.tex}
 spacing: doublespacing
 #endnotes: true
 title: "Do Public Pressure Campaigns Influence Bureaucratic Policymaking?"
@@ -42,18 +44,21 @@ source("setup.R")
 
 \input{intro.tex}
 
+\newpage 
 
 # Methods
 The simplest way to falsify the hypothesis that mass engagement increases lobbying success is to establish no relationship. Thus, before examining evidence for or against different pathways to influence, the first step is to assess the raw correlation. It is possible that bureaucrats anticipate public pressure campaigns when writing draft rules, muting effects at the final rule stage of the policy process, but this is a different hypothesis that would require different measures.  
 
-The main dependent variable here is whether a coalition got their way. I measure this in three ways. First, on a sample of rules, I hand-coded lobbying success for each lobbying coalition, comparing the change between the draft and final rule to each comment's demands on a five-point scale from "mostly as requested" to "significantly different/opposite than requested." Second, I use text-reuse methods underlying plagiarism detection algorithms to identify changes between draft and final rules and count the number of new 10-word phrases that appear in the comment and final rule, but not the draft rule. Finally, I model the similarity in word distributions between comments and changes made to the rule.
+The main dependent variable here is whether a coalition got their way. I measure this in three ways. First, on a sample of rules, I hand-coded lobbying success for each lobbying coalition, comparing the change between the draft and final rule to each comment's demands on a five-point scale from "mostly as requested" to "significantly different/opposite than requested." Lobbying success may take forms other than changes in policy texts. Agencies may speed up or delay finalizing a rule, extend the comment period, or delay date at which the rule goes into effect. Indeed, commentors often request speedy or delayed rule finalization, comment period extensions, or delayed effective dates.
 
-In addition to changing policy texts, agencies may speed up or delay finalizing a rule, extend the comment period, or delay date at which the rule goes into effect. Indeed, commentors often request speedy or delayed rule finalization, comment period extensions, or delayed effective dates. Additionally, agencies write lengthy justifications of their decisions in response to some comments but not others. Text-similarity captures this measure of attention to a comment's demands.
+Second, I use text-reuse methods underlying plagiarism detection algorithms to identify changes between draft and final rules and count the number of new 10-word phrases that appear in the comment and final rule, but not the draft rule. 
+
+Finally, I model the similarity in word distributions between comments and changes made to the rule. Here, I also include the rule preambles and agency responses to comments. Agencies write lengthy justifications of their decisions in response to some comments but not others. By including preambles and response to comments, text-similarity captures this measure of attention to a comment's demands.
 
 ## Example cases
 To illustrate how I create these variables, consider two such cases:
 
-**Waters of the United States:**
+**2015 Waters of the United States Rule:**
 In response to litigation over which waters were protected by the Clean Water Act, the Environmental Protection Agency and Army Corp of Engineers proposed a rule based on a legal theory articulated by Justice Kennedy, which was more expansive than Justice Scalia's. 
 The Natural Resources Defense Council submitted a 69-page highly technical comment "on behalf of the Natural Resources Defense Council..., the Sierra Club, the Conservation Law Foundation, the League of Conservation Voters, Clean Water Action, and Environment America" supporting the proposed rule:
 
@@ -64,13 +69,15 @@ I coded this as support for the rule change, specifically not going far enough. 
 
 A coalition of 15 environmental organizations mobilized over 944,000 comments, over half (518,963) were mobilized by the four above organizations: 2421,641 by Environment America, 108,076 by NRDC, 101,496 by clean water action, and 67,750 by the Sierra Club. Other coalition partners included EarthJustice (99,973 comments) and Organizing for Action (formerly president Obama's campaign organization, 69,369 comments). This is the upper tail end of the distribution. This coalition made sophisticated recommendations and mobilized a million people.
 
-The final rule moved in the direction requested by this coalition, but to a lesser extent than requested--what I code as "some desired changs."" As NRDC et al. requested, the final rule retained the language protecting tributaries and adjacent waters and added some protections for "other waters" like prairie potholes and vernal pools, but EPA did not alter the exemptions for ditches and waste treatment systems. 
+The final rule moved in the direction requested by NRDC's coalition, but to a lesser extent than requested--what I code as "some desired changs."" As NRDC et al. requested, the final rule retained the language protecting tributaries and adjacent waters and added some protections for "other waters" like prairie potholes and vernal pools, but EPA did not alter the exemptions for ditches and waste treatment systems. 
+
+Comparing the draft and final with text reuse allows us to count the number words that belong to 10-word phrases that appear in both the draft and final, those that appear only in the draft, and those that appear only in the final. For the 2015 Waters Of The U.S. rule, 15 thousand words were deleted, 37 thousand words were added, and 22 thousand words were kept the same. This means that more words "changed" than remained the same, specifically 69% of words appearing in the draft or final were part were either deleted or added.
 
 For this coalition, the dependent variable, *coalitions success* is 1, *coalition size* is 15, *business coalition* is 0, *comment length* is 69/88, `r round(69/88,2)`, and *log mass comments* is log(943,931), `r round(log(943931), 2)`.
 
 **2009 Fine Particle National Ambient Air Quality Standards:** In 2008, the EPA proposed a rule expanding air quality protections. Because measuring small particles of air pollution was once difficult, measurements of large particulates were allowed as a surrogate measure for fine particles under EPA's 1977 PM10 Surrogate Policy. EPA proposed eliminating this policy, thus requiring regulated entities and state regulators to measure and enforce limits on much finer particles of air pollution. 
 
-EPA received 163 comments on the rule, 129 from businesses, business associations such as the American Petroleum Institute and The Chamber of Commerce, and state regulators that opposed the rule. Most of these were short and cited their support for the 63-page comment from the PM Group, "an ad hoc group of industry trade associations" that opposed regulation of fine particulate matter. Six state regulators, including Oregon's, only requested delayed implication of the rule until they next revised their State Implementation Plans (SIPs) for Prevention of Significant Deterioration (PSD). EarthJustice supported the rule but opposed the idea that the cost of measuring fine particles should be a consideration. On behalf of the Sierra Club, the Clean Air Task Force, EarthJustice commented: "We support EPA’s proposal to get rid of the policy but reject the line of questioning as to the benefits and costs associated with ending a policy that is illegal." The EarthJustice-led coalition also opposed delaying implementation "EPA must immediately end any use of the Surrogate Policy – either by “grandfathered” sources or sources in states with SIP‐approved PSD programs – and may not consider whether some flexibility or transition is warranted by policy considerations."
+EPA received 163 comments on the rule, 129 from businesses, business associations such as the American Petroleum Institute and The Chamber of Commerce, and state regulators that opposed the rule. Most of these were short and cited their support for the 63-page comment from the PM Group, "an ad hoc group of industry trade associations" that opposed regulation of fine particulate matter. Six state regulators, including Oregon's, only requested delayed implication of the rule until they next revised their State Implementation Plans (SIPs) for Prevention of Significant Deterioration (PSD). EarthJustice supported the rule but opposed the idea that the cost of measuring fine particles should be a consideration. On behalf of the Sierra Club, the Clean Air Task Force, EarthJustice commented: "We support EPA’s proposal to get rid of the policy but reject the line of questioning as to the benefits and costs associated with ending a policy that is illegal." The EarthJustice-led coalition also opposed delaying implementation "EPA must immediately end any use of the Surrogate Policy – either by "grandfathered" sources or sources in states with SIP‐approved PSD programs – and may not consider whether some flexibility or transition is warranted by policy considerations."
 
 The final rule did eliminate the Surrate Policy but allowed states to delay implementation and enforcement until the next scheduled revision of their Implementation Plans. I code this as the EarthJustice coalition getting most of what they requested, but not a complete loss for the regulated coalition.
 
@@ -88,7 +95,7 @@ To illustrate my planned analysis, I simulate data for each of the variables des
 
 **Dependent variables:** *Coalition success* is drawn from a descrete distribution {-2, -1, 0, 1, 2}. 
 
-**Explanatory variables:** *Coalition size* (a count) is drawn from a Poisson distribution. *Business colation* is binomial. In reality, business coalitions are more common than non-business coalitions, but here I estimate a balanced sample. I set rule pages constant at 85 and draw comment lengths from a Poisson distribution. While in reality, less than one percent of coalitions lobbying in rulemaking opt for a mass-comment campaign, I aim to gather a balanced sample, so half of the simulated data are assumed to have no mass comment campaign and the other half have a number of comments drawn from a Zero-Truncated Poisson distribution. 
+**Explanatory variables:** *Coalition size* (a count) is drawn from a Poisson distribution. *Business colation* is binomial. In reality, business coalitions are more common than non-business coalitions, but here I estimate a balanced sample. I set rule pages constant at 85 and draw *comment lengths* from a Poisson distribution. While in reality, less than one percent of coalitions lobbying in rulemaking opt for a mass-comment campaign, I aim to gather a balanced sample, so half of the simulated data are assumed to have no mass comment campaign (*mass comments* = 0) and the other half have a number of *mass comments* drawn from a Zero-Truncated Poisson distribution, which is then transformed to a log scale. 
 
 ```{r,  fig.width=2, fig.height=2}
 success <- sample(x = c(-2,1,0,1,2), 1000, replace = T, prob = c(0.1, 0.3, .1, 0.4, 0.1)) 
@@ -104,14 +111,20 @@ comments <-c(rtnorm(500, mean = 10000, sd = 100000, lower = 100)  %>% log(), rep
 
 d = tibble(success, size, business, length, comments)
 
+d1 <- d %>% mutate(rule = sample(1:1000), coalitions  = 1, unopposed = 1)
+d2 <- d %>% mutate(rule = sample(1001:2000), coalitions  = 2, unopposed = 0)
+d3 <- d %>% mutate(rule = sample(1001:2000), coalitions  = 2, unopposed = 0)
+
+# full_join(d1,d2) %>% full_join(d3) %>% arrange(-rule)
+
 # ggplot(d, aes( x = success)) + geom_histogram()
 # ggplot(d, aes( x = business)) + geom_histogram()
-ggplot(d, aes( x = size)) + geom_histogram()
-ggplot(d, aes( x= length)) + geom_histogram()
-ggplot(d, aes( x= comments)) + geom_histogram()
+ggplot(d, aes( x = size)) + geom_histogram()+ labs(x = "Coalition size")
+ggplot(d, aes( x= length)) + geom_histogram()+ labs(x = "Comment length/proposed rule length")
+ggplot(d, aes( x= comments)) + geom_histogram() + labs(x = "Log(mass comments)")
 ```
 
-Unsurprisingly a model predicting lobbying success as a combination of coalition size, a business coalition, comment length, and mass comments yields no significant results. With lobbying success as the dependent variable, the coeficient on the main variable of interest would be interpreted as a one unit increase in the logged number of comments correspondends to a $\beta_{logmasscomments}$ increase in the five-point influence scale.
+Unsurprisingly a OLS model predicting lobbying success as a combination of coalition size, a business coalition, comment length, and mass comments yields no significant results. With lobbying success as the dependent variable, the coefficient on the main variable of interest would be interpreted as a one-unit increase in the logged number of comments corresponds to a $\beta_{logmasscomments}$ increase in the five-point influence scale.
 
 ```{r model_success}
 m <- lm(success ~ size + business + length + comments, data = d) 
@@ -132,6 +145,7 @@ m %>%
   scale_color_discrete()
 ```
 
+<!--
 
 # Limitations
 
@@ -140,3 +154,6 @@ Observing policy influence, especially in the final stages of policymaking, is d
 Additionally, my theory suggests that influence is likely only in cases where mass mobilization is (1) aimed at influencing policy and (2) not accurately anticipated by policymakers. Identifying these conditions will also be difficult.
 Observational studies of policy decisions are almost always frustrated by the fact that decisionmakers rationally anticipate the actions of those who would influence them, rendering this influence difficult to observe. Thus I expect to observe larger effects in cases where mobilization or the level of engagement achieved was not anticipated by agency staff. However, as long as rulewriters do not perfectly anticipate mass engagement, it should have observable, if depressed, effects. Thus, without accounting for anticipation, any effects I uncover are likely underestimated, making the methods described above conservative tests.
 
+# Mechanisms
+
+\input
