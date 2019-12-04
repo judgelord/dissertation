@@ -7,6 +7,7 @@ knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that your code will show
                       fig.height = 3,
                       # fig.retina = 6,
                       fig.width = 8)
+                      #dev = "cairo_pdf")
 options(stringsAsFactors = FALSE)
 
 requires <- c("dplyr", 
@@ -20,7 +21,8 @@ requires <- c("dplyr",
               "quanteda",
               "topicmodels",
               "tm",
-              "msm")
+              "msm",
+              "kableExtra")
 to_install <- c(requires %in% rownames(installed.packages()) == FALSE)
 install.packages(c(requires[to_install], "NA"), repos = "https://cloud.r-project.org/" )
 rm(requires, to_install)
@@ -35,6 +37,7 @@ library(tidytext)
 library(quanteda)
 library(tm)
 library(msm)
+library(kableExtra)
 
 
 
