@@ -45,11 +45,11 @@ To illustrate my planned analysis, I simulate data for each variable described a
 **Explanatory variables:** *Coalition size* (a count) is drawn from a Poisson distribution. *Business colation* is binomial. In reality, business coalitions are more common than non-business coalitions, but here I estimate a balanced sample. I set rule pages constant at 85 and draw *comment lengths* from a Poisson distribution. While in reality, less than one percent of coalitions lobbying in rulemaking opt for a mass-comment campaign, I aim to gather a balanced sample, so half of the simulated data are assumed to have no mass comment campaign (*comments* = 1, *log(comments)* = 0) and the other half have a number of *comments* drawn from a Zero-Truncated Poisson distribution, which is then transformed to a log scale. 
 
 ```{r,  fig.width=2, fig.height=2}
-coalition_success <- sample(x = c(-1, -.5, 0, .5, 1), 1000, replace = T, prob = c(0.1, 0.3, .1, 0.4, 0.1))
+coalition_success <- sample(x = c(-1, -.5, 0, .5, 1), 1000, prob = c(0.1, 0.3, .1, 0.4, 0.1), replace = T)
 
 coalition_size <- rtnorm(1000, mean = 5, sd= 10, lower = 1) %>% round()
 
-coalition_business <- sample(x = c(0,1), 1000, replace = T, prob = c(0.5, .5))
+coalition_business <- sample(x = c(0,1), 1000, replace = T, prob = c(0.3, .7))
 
 comment_length <- round(rpois(1000, 10)/85 *100, 1)
 
@@ -95,7 +95,7 @@ ggplot(d, aes(x = coalition_size)) + geom_histogram()+ labs(x = "Coalition size"
 ```
 
 ```{r, hist_comments, fig.show="hold", fig.width=3, fig.height=2, echo=FALSE}
-ggplot(d, aes( x= comment_length)) + geom_histogram()+ labs(x = "Comment length/proposed rule length")
+ggplot(d, aes( x= comment_length)) + geom_histogram()+ labs(x = "% (Comment length/proposed rule length)*100")
 ggplot(d, aes( x= comments)) + geom_histogram() + labs(x = "Log(comments)")
 ```
 
