@@ -47,43 +47,16 @@ To illustrate my planned analysis, I simulate data for each variable described a
 ```{r,  fig.width=2, fig.height=2}
 coalition_success <- sample(x = c(-1, -.5, 0, .5, 1), 1000, prob = c(0.1, 0.3, .1, 0.4, 0.1), replace = T)
 
-coalition_size <- rtnorm(1000, mean = 5, sd= 10, lower = 1) %>% round()
-
-coalition_business <- sample(x = c(0,1), 1000, replace = T, prob = c(0.3, .7))
-
-comment_length <- round(rpois(1000, 10)/85 *100, 1)
-
-comments <- c(rtnorm(500, mean = 10000, sd = 100000, lower = 100), 
-              rep(1, 500)) %>% 
-  sample() %>% round()
-
-cong_support <- c(rtnorm(500, mean = 1, sd = 5, lower = 0), 
-                  rep(0, 500)) %>%
-  sample() %>% round() 
-
-d = tibble(coalition_success, 
-           coalition_size, 
-           coalition_business, 
-           comment_length, 
-           comments, 
-           cong_support)
-
-# if there is one coalition, it must be unnopposed
-d1 <- d %>% mutate(rule_id = sample(1:1000), 
-                   coalition_id = sample(1:1000), 
-                   coalitions  = 1, 
-                   coalition_unopposed = 1)
-# if there are two coalitions, I assume they are opposing (for simulation only)
-d2 <- d %>% mutate(rule_id = sample(1001:2000),  
-                   coalition_id = 1001:2000, 
-                   coalitions  = 2, 
-                   coalition_unopposed = 0)
-d3 <- d %>% mutate(rule_id = sample(1001:2000),  
-                   coalition_id = 2001:3000, 
-                   coalitions  = 2, 
-                   coalition_unopposed = 0)
-
-d <- full_join(d1,d2) %>% full_join(d3) 
+d = tibble(rule_id = c(1:1000, rep(1001:1500, 2)),
+           coalition_id = sample(1:2000),
+           coalitions  = c(rep(1, 1000), rep(2, 1000)),
+           coalition_unopposed = c(rep(0, 1000), rep(1, 1000)),
+           coalition_success = c(coalition_success, sort(coalition_success)), 
+           coalition_size = rtnorm(1000, mean = 5, sd= 10, lower = 1) %>% rep(2) %>% round(), 
+           coalition_business = sample(x = c(0,1), 2000, replace = T, prob = c(0.3, .7)), 
+           comment_length = round(rpois(2000, 10)/85 *100, 1), 
+           comments= c(rtnorm(1000, mean = 10000, sd = 100000, lower = 100), rep(1, 1000)) %>% sample() %>% round() , 
+           cong_support = c(rtnorm(1000, mean = 1, sd = 5, lower = 0), rep(0, 1000)) %>% sample() %>% round() )
 
 d %>% sample_n(10) %>% dplyr::select(rule_id, coalition_id, everything()) %>% knitr::kable(caption = "Simulated data") %>% kable_styling(font_size = 5)
 ```
