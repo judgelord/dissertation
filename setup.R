@@ -10,7 +10,8 @@ requires <- c("dplyr",
               "quanteda",
               "topicmodels",
               "tm",
-              "msm")
+              "msm",
+              "kableExtra")
 to_install <- c(requires %in% rownames(installed.packages()) == FALSE)
 install.packages(c(requires[to_install], "NA"), repos = "https://cloud.r-project.org/" )
 rm(requires, to_install)
@@ -25,6 +26,7 @@ library(tidytext)
 library(quanteda)
 library(tm)
 library(msm)
+library(kableExtra)
 
 
 

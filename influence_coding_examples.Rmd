@@ -1,0 +1,57 @@
+---
+# fontsize: 12pt
+bibliography:  mendeley.bib
+biblio-style: apa
+citecolor: black
+output: #word_document
+  bookdown::pdf_document2:
+    latex_engine: pdflatex
+    keep_tex: true
+    template: article-template.tex
+    toc: false
+    fig_caption: true
+    citation_package: natbib
+header-includes:
+#- \usepackage{ragged2e}
+#- \input{preamble.tex}
+#- \let\footnote=\endnote
+#- \renewcommand{\footnotesize}{\normal}
+#- \renewcommand{\normalsize}{\large}
+spacing: doublespacing
+---
+
+```{r setup, echo = FALSE, include = FALSE}
+source("setup.R")
+```
+
+
+# Examples of hand-coded lobbying success
+
+**2015 Waters of the United States Rule:**
+In response to litigation over which waters were protected by the Clean Water Act, the Environmental Protection Agency and Army Corp of Engineers proposed a rule based on a legal theory articulated by Justice Kennedy, which was more expansive than Justice Scalia's. 
+The Natural Resources Defense Council submitted a 69-page highly technical comment "on behalf of the Natural Resources Defense Council..., the Sierra Club, the Conservation Law Foundation, the League of Conservation Voters, Clean Water Action, and Environment America" supporting the proposed rule:
+
+> "we strongly support EPA’s and the Corps’ efforts to clarify which waters are protected by the Clean Water Act. We urge the agencies to strengthen the proposal and move quickly to finalize it..." 
+
+I coded this as support for the rule change, specifically not going far enough. I also coded it as requesting speedy publication. NRDC makes four substantive requests: one about retaining language in the proposed rule ("proposed protections for tributaries and adjacent waters...must be included in the final rule") and three proposed changes ("we describe three key aspects of the rule that must be strengthened").^[These three aspects are: (1) "The Rule Should Categorically Protect Certain “Other Waters” including Vernal Pools, Pocosins, Sinkhole Wetlands, Rainwater Basin Wetlands, Sand Hills Wetlands, Playa Lakes, Interdunal Wetlands, Carolina and Delmarva Bays, and Other Coastal Plain Depressional Wetlands, and Prairie Potholes. Furthermore, "Other 'Isolated' Waters Substantially Affect Interstate Commerce and Should be Categorically Protected Under the Agencies’ Commerce Clause Authority." (2) "The Rule Should Not Exempt Ditches Without a Scientific Basis" (3) "The Rule Should Limit the Current Exemption for Waste Treatment Systems
+"] These demands provide specific keywords and phrases for which to search in the draft and final rule text. 
+
+A coalition of 15 environmental organizations mobilized over 944,000 comments, over half (518,963) were mobilized by the four above organizations: 2421,641 by Environment America, 108,076 by NRDC, 101,496 by clean water action, and 67,750 by the Sierra Club. Other coalition partners included EarthJustice (99,973 comments) and Organizing for Action (formerly president Obama's campaign organization, 69,369 comments). This is the upper tail end of the distribution. This coalition made sophisticated recommendations and mobilized a million people.
+
+The final rule moved in the direction requested by NRDC's coalition, but to a lesser extent than requested--what I code as "some desired changs."" As NRDC et al. requested, the final rule retained the language protecting tributaries and adjacent waters and added some protections for "other waters" like prairie potholes and vernal pools, but EPA did not alter the exemptions for ditches and waste treatment systems. 
+
+Comparing the draft and final with text reuse allows us to count the number words that belong to 10-word phrases that appear in both the draft and final, those that appear only in the draft, and those that appear only in the final. For the 2015 Waters Of The U.S. rule, 15 thousand words were deleted, 37 thousand words were added, and 22 thousand words were kept the same. This means that more words "changed" than remained the same, specifically 69% of words appearing in the draft or final were part were either deleted or added.
+
+For this coalition, the dependent variable, *coalitions success* is 1, *coalition size* is 15, *business coalition* is 0, *comment length* is 69/88, `r round(69/88,2)`, and *log mass comments* is log(943,931), `r round(log(943931), 2)`.
+
+**2009 Fine Particle National Ambient Air Quality Standards:** In 2008, the EPA proposed a rule expanding air quality protections. Because measuring small particles of air pollution was once difficult, measurements of large particulates were allowed as a surrogate measure for fine particles under EPA's 1977 PM10 Surrogate Policy. EPA proposed eliminating this policy, thus requiring regulated entities and state regulators to measure and enforce limits on much finer particles of air pollution. 
+
+EPA received 163 comments on the rule, 129 from businesses, business associations such as the American Petroleum Institute and The Chamber of Commerce, and state regulators that opposed the rule. Most of these were short and cited their support for the 63-page comment from the PM Group, "an ad hoc group of industry trade associations" that opposed the regulation of fine particulate matter. Six state regulators, including Oregon's, only requested delayed implication of the rule until they next revised their State Implementation Plans (SIPs) for Prevention of Significant Deterioration (PSD). EarthJustice supported the rule but opposed the idea that the cost of measuring fine particles should be a consideration. On behalf of the Sierra Club, the Clean Air Task Force, EarthJustice commented: "We support EPA’s proposal to get rid of the policy but reject the line of questioning as to the benefits and costs associated with ending a policy that is illegal." The EarthJustice-led coalition also opposed delaying implementation: "EPA must immediately end any use of the Surrogate Policy – either by "grandfathered" sources or sources in states with SIP‐approved PSD programs – and may not consider whether some flexibility or transition is warranted by policy considerations."
+
+The final rule did eliminate the Surrate Policy but allowed states to delay implementation and enforcement until the next scheduled revision of their Implementation Plans. I code this as the EarthJustice coalition getting most of what they requested, but not a complete loss for the regulated coalition.
+
+For the PM Group coalition, the dependent variable, *coalitions success* is -1, *coalition size* is 129, *business coalition* is 1, *comment length* is 63/85, `r round(63/85, 2)`, and *log mass comments* is 0.
+
+For the State of Oregon's coalition, the dependent variable, *coalitions success* is 2, *coalition size* is 6, *business coalition* is 0, *comment length* is 5/85, `r round(5/85, 2)`, and *log mass comments* is 0.
+
+For the EarthJustice coalition, the dependent variable, *coalitions success* is 1, *coalition size* is 3, *business coalition* is 0, *comment length* is 7/85, `r round(7/85, 2)`, and *log mass comments* is 0.

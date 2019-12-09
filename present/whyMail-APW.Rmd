@@ -38,7 +38,7 @@ mono_light(base_color = "#003333",
           header_font_google = google_font("PT Sans"), 
           text_font_google = google_font("Old Standard"), 
           text_font_size = "30px",
-          padding = "10px",
+          padding = "1px",
           code_font_google = google_font("Inconsolata"), 
           code_inline_background_color    = "#F5F5F5", 
           table_row_even_background_color = "#E6F0FA",
@@ -73,7 +73,7 @@ I am still workshopping these concepts and measures, so your comments will be de
 
 SLIDE
 
-My dissertation is at the intersection of two kinds of literature that have not had much contact 
+My dissertation is at the intersection of two kinds of literature that have not had much contact. 
 
 On the one hand, civic engagement has long been a core interest of political scientists. We are highly uncertain about the size of effects from actions like letter writing, signing petitions, protests, but there is little doubt that, at a large enough scale, these things matter.  
 --> 
@@ -133,12 +133,12 @@ For many reasons, Rulemaking is usually an insiders' game--people here and other
 ### Usually an insiders' game, but occasionally not. 
 
 --
+Does it matter? 
+![](tweet-lind.png) 
 
 <!-- but SOMETIMES it is very different, or at least it looks different because lots of ordinary people are voicing their opinions, but we don't know if it matters. 
 -->
 
-## Does it matter? 
-![](tweet-lind.png) 
 
 ---
 
@@ -150,11 +150,11 @@ For many reasons, Rulemaking is usually an insiders' game--people here and other
 
 ##  The debate in administrative law 
 
-- "purest example of participatory democracy in actual American governance."
-- "regulatory democracy" reformers (Cuéllar 2014, Johnson 2013) Agencies often discard non-technical comments, but they shouldn't (Mendelson 2011)
-- Pluralists "The goal of e-rulemaking is to more fully capture such credible, specific, and relevant information, not to solicit the views of random, self-nominating members of the public." (Herz 2016)
-- Pluralist reformers (Seifter 2016)
-- Public comment distracts from good policy. Abolish it.
+- **Optimists:** Notice and comment is the "purest example of participatory democracy in actual American governance."
+- **"Regulatory democracy" reformers** (Cuéllar 2014, Johnson 2013) argue that it could be more discursive. Agencies often discard non-technical comments, but they shouldn't (Mendelson 2011).
+- **Pluralists:** "The goal of e-rulemaking is to more fully capture such credible, specific, and relevant information, not to solicit the views of random, self-nominating members of the public." (Herz 2016)
+- **Pluralist reformers** suggest that lobbying groups disclose there membership, funding, and decisionmaking processes(Seifter 2016)
+- **Skeptics:** Public comment distracts from good policy. Abolish it.
 
 --
 
@@ -162,7 +162,7 @@ For many reasons, Rulemaking is usually an insiders' game--people here and other
 
 ---
 
-<!-- The normative interest in expertise on and deliberation--in the quality of information--have kept distracted from empirical reality. These are not attempts at information or deliberation, they are attempts to gain power with quantity rather than quality.  -->
+<!-- The normative interest in expertise on and deliberation--in the quality of information--have kept distracted from empirical reality. These are not attempts at information or deliberation; they are attempts to gain power with quantity rather than quality.  -->
 
 ## Political information 
 ### (e.g., signals of the scale and intensity of public support)
@@ -205,19 +205,20 @@ background-image: url("present/tweetBenWilkerMoveon.png")
 
 ---
 
-<!-- First, I want to assert that what we care about here is MOBILIZED commenting. Sure a few of us in this room may peruse open dockets on regulations.gov, but this is just not what ordinary people do. By ordinary, I mean not professional policy influencers.-->
+<!-- First, I want to assert that what we care about here is MOBILIZED commenting. Sure, a few of us in this room may peruse open dockets on regulations.gov, but this is just not what ordinary people do. By ordinary, I mean not professional policy influencers.-->
 
 #*Mobilized* civic engagement
 
 --
 
 ### Who mobilizes?
-- Public interest groups / "advocacy" groups (Shapiro 2008; Potter 2017) / "societal constituencies" (Balla et al. n.d.)
-
 <!-- Tricky concepts! -->
 <!-- In the paper, I suggest that many conflicts that mobilize thousands are best seen as over public and private goods rather than cultural issues -->
 
-- Sometimes others <!--sometimes people that don't fit that concept-->
+- Public interest groups / "advocacy" groups (Shapiro 2008; Potter 2017) / "societal constituencies" (Balla et al. n.d.)
+- Sometimes others 
+
+<!--sometimes people that don't fit that concept-->
 
 --
 
@@ -226,7 +227,7 @@ background-image: url("present/tweetBenWilkerMoveon.png")
 
 --
 
-## -> Coalitions
+-> Coalitions
 
 
 
@@ -243,11 +244,11 @@ vs.
 
 ### Not lobbying
 
-#### 3. Member expectations / recruitment
+#### 3. Meet member expectations or recruit new members
 
 ---
 
-## Public support
+## Comments evoke public support
 
 "Along with 80% of the American people, I strongly support ending commercial trade in elephant ivory in the US." 
 
@@ -293,16 +294,17 @@ class: inverse middle
 
 ## Measuring Political Information*
 
-### 1. Number/share per coalition
+### 1. Number of comments per coalition
 
-### 2. Effort per comment
+### 2. Average effort per comment
 
 Lower <--------------------------------------------> Higher 
 
 Co-sign an org's comment <-> Partially unique <-> Unique 
 
-### 3. Potential contagion (share of unique comments?)
+### 3. Potential contagion (share of unique comments)
 
+--
 *Agencies may not process comments in ways that deliver this information to decisionmakers
 
 ---
@@ -327,18 +329,20 @@ class: inverse center middle
 
 ---
 
-## Who mobilizes?
-### A few public interest groups.
-
-<img src="https://github.com/judgelord/rulemaking/raw/master/Figs/toporgs-1.png" width = 900 />
-
-### 100 organizations mobilized 39m of 48m regulations.gov comments on proposed rules, ~87/100 lobby in public interest coalitions 
-
----
 class: center
 
 ## Most comments are mass comments
 <img src="https://github.com/judgelord/dissertation/raw/master/Figs/comments-mass-1.png" width = 700 />
+
+---
+
+## Who mobilizes?
+A few public interest groups (more "conflict expansion" than groups with the most resources "buying" the impression of public support)
+
+<img src="https://github.com/judgelord/rulemaking/raw/master/Figs/toporgs-1.png" width = 900 />
+
+100 organizations mobilized 39m of 48m regulations.gov comments on proposed rules, ~87/100 lobby in the same public interest coalitions.
+
 
 ---
 class: center
@@ -395,7 +399,7 @@ EPA - profitability inseparable from democracy
 
 Wilson - bureaucrats want to be sued.
 
-Janna - complexity is essential - working on policy development monopolies- expert groups claim rents as providing info
+Janna - complexity is essential - working on policy development monopolies- expert groups claim rents as providing info.
 
 Brian - how important are these rules 
 - 25% of CRS overturned 
