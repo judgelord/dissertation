@@ -1,8 +1,5 @@
 ---
-# date: "`r format(Sys.time(), '%B %d, %Y')`"
 # fontsize: 12pt
-# mainfont: times
-# geometry: margin = 1in
 bibliography:  mendeley.bib
 biblio-style: apa
 citecolor: black
@@ -15,7 +12,7 @@ output: #word_document
     fig_caption: true
     citation_package: natbib
 header-includes:
-- \usepackage{ragged2e}
+#- \usepackage{ragged2e}
 #- \input{preamble.tex}
 #- \let\footnote=\endnote
 #- \renewcommand{\footnotesize}{\normal}
@@ -27,28 +24,11 @@ author:
 - name: Devin Judge-Lord
   affiliation: University of Wisconsin-Madison
 
-abstract: "I develop several measures of lobbying success and corresponding tests of whether public pressure campaigns increase lobbying success in agency rulemaking. I then theorize mechanisms by which mass public engagement may affect policy. Each mechanism involves a distinct type of information revealed to decisionmakers."
+abstract: "I develop several measures of lobbying success and corresponding tests of whether public pressure campaigns increase lobbying success in agency rulemaking. To measure lobbying success, I first hand code whether each colition got the policy outcome they sought on a random sample of 100 rules with a mass-comment campain and 100 rules without no mass comment campaign. This hand-coded set validates computational methods that I developed to identify coalitions and lobbying success with text reuse and document clustering for all rules posted for comment on regulations.gov. I then theorize mechanisms by which mass public engagement may affect policy. Each mechanism involves a distinct type of information revealed to decisionmakers. A primary question is the extent to which pressure campaings operate directly on bureaucrats or indirectly by affecting elected officials' oversight behaviors. I test this by assessing congressional oversight as a mediator using a subset of rules where I collect and code letters from Member of Congress to agencies about proposed agency rules."
 ---
 ```{r setup, echo = FALSE, include = FALSE}
-knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that your code will show
-                      warning = FALSE,
-                      message = FALSE,
-                      # fig.align = "center", 
-                      fig.path= 'Figs/', ## where to save figures
-                      fig.height = 3,
-                      # fig.retina = 6,
-                      fig.width = 8)
-options(stringsAsFactors = FALSE)
-
 source("setup.R")
 ```
-\RaggedRight
-
-\newpage
-
-\input{intro.tex}
-
-\newpage 
 
 # Methods
 The simplest way to falsify the hypothesis that mass engagement increases lobbying success is to establish no relationship. Thus, before examining evidence for or against different pathways to influence, the first step is to assess the raw correlation. It is possible that bureaucrats anticipate public pressure campaigns when writing draft rules, muting effects at the final rule stage of the policy process, but this is a different hypothesis that would require different measures.  
@@ -95,7 +75,7 @@ For the EarthJustice coalition, the dependent variable, *coalitions success* is 
 
 # Pre-analysis
 
-To illustrate my planned analysis, I simulate data for each of the variables described above. 
+To illustrate my planned analysis, I simulate data for each variable described above. 
 
 **Dependent variables:** *Coalition success* is drawn from a descrete distribution {-2, -1, 0, 1, 2}. 
 
@@ -128,7 +108,13 @@ ggplot(d, aes( x= length)) + geom_histogram()+ labs(x = "Comment length/proposed
 ggplot(d, aes( x= comments)) + geom_histogram() + labs(x = "Log(mass comments)")
 ```
 
-Unsurprisingly a OLS model predicting lobbying success as a combination of coalition size, a business coalition, comment length, and mass comments yields no significant results. With lobbying success as the dependent variable, the coefficient on the main variable of interest would be interpreted as a one-unit increase in the logged number of comments corresponds to a $\beta_{logmasscomments}$ increase in the five-point influence scale.
+I assess the relationship between lobbying success and mass comments with an a OLS model predicting lobbying success, $y_i$, as linear a combination of coalition size, a business coalition, comment length, and the number of mass comments: 
+
+$$
+y_i = \beta_0 + \beta_1*coalition\ size_i + \beta_2*business_i + \beta_3*comment\ length_i + \beta_4*mass\ comments_i + \epsilon_i
+$$
+
+Unsurprisingly this model yields no significant results. With lobbying success as the dependent variable, the coefficient on the main variable of interest would be interpreted as a one-unit increase in the logged number of comments corresponds to a $\beta_{logmasscomments}$ increase in the five-point influence scale.
 
 ```{r model_success}
 m <- lm(success ~ size + business + length + comments, data = d) 

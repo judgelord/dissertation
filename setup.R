@@ -1,13 +1,3 @@
-## Sets defaults for R chunks
-knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that your code will show
-                      warning = FALSE,
-                      message = FALSE,
-                      # fig.align = "center", 
-                      fig.path= 'Figs/', ## where to save figures
-                      fig.height = 3,
-                      # fig.retina = 6,
-                      fig.width = 8)
-options(stringsAsFactors = FALSE)
 
 requires <- c("dplyr", 
               "ggplot2", 
@@ -35,6 +25,20 @@ library(tidytext)
 library(quanteda)
 library(tm)
 library(msm)
+
+
+
+## Sets defaults for R chunks
+knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that your code will show
+                      warning = FALSE,
+                      message = FALSE,
+                      # fig.align = "center", 
+                      fig.path= 'Figs/', ## where to save figures
+                      fig.height = 3,
+                      # fig.retina = 6,
+                      fig.width = 8)
+options(stringsAsFactors = FALSE)
+
 
 
 
