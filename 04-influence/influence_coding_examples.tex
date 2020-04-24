@@ -1,0 +1,228 @@
+\documentclass[
+      12pt,
+        ]{article}
+
+
+
+
+
+
+% --- type and typeface? -----------------------
+
+% input
+\usepackage[utf8]{inputenc}
+
+% typography
+\usepackage{microtype}
+
+
+\usepackage[T1]{fontenc}
+
+
+% text block
+\usepackage{setspace}
+\usepackage[              left = 1in,top = 1in,right = 1in,bottom = 1in             ]{geometry}
+
+\usepackage{enumitem}
+  \setlist{noitemsep}
+
+
+
+% decimal numbering for appendix figs and tabs
+
+
+% Deletes section counters
+% \setcounter{secnumdepth}{0}
+
+
+
+
+
+
+
+  \usepackage{longtable, booktabs}
+
+
+
+
+
+
+
+
+
+  \usepackage{natbib}
+  \bibliographystyle{apa}
+  % protect underscores in most circumstances
+  \usepackage[strings]{underscore} 
+
+
+% 
+
+% \newtheorem{hypothesis}{Hypothesis}
+
+\makeatletter
+  \@ifpackageloaded{hyperref}{}{%
+    \ifxetex
+      % page size defined by xetex
+      % unicode breaks when used with xetex
+      \PassOptionsToPackage{hyphens}{url}\usepackage[setpagesize = false, 
+                                                     unicode = false, 
+                                                     xetex]{hyperref}
+    \else
+      \PassOptionsToPackage{hyphens}{url}\usepackage[unicode = true]{hyperref}
+    \fi
+  }
+
+  \@ifpackageloaded{color}{
+    \PassOptionsToPackage{usenames,dvipsnames}{color}
+  }{
+    \usepackage[usenames,dvipsnames]{color}
+  }
+\makeatother
+
+\hypersetup{breaklinks = true,
+            bookmarks = true,
+            pdfauthor = {},
+             pdfkeywords  =  {},  
+            pdftitle = {},
+            colorlinks = true,
+            citecolor = black,
+            urlcolor = blue,
+            linkcolor = magenta,
+            pdfborder = {0 0 0}}
+
+% \urlstyle{same}  % don't use monospace font for urls
+
+
+% set default figure placement to htbp
+\makeatletter
+  \def\fps@figure{hbtp}
+\makeatother
+
+  \usepackage{booktabs}
+  \usepackage{longtable}
+  \usepackage{array}
+  \usepackage{multirow}
+  \usepackage{wrapfig}
+  \usepackage{float}
+  \usepackage{colortbl}
+  \usepackage{pdflscape}
+  \usepackage{tabu}
+  \usepackage{threeparttable}
+  \usepackage{threeparttablex}
+  \usepackage[normalem]{ulem}
+  \usepackage{makecell}
+  \usepackage{xcolor}
+
+% optional footnotes as endnotes
+
+
+% ----- Pandoc wants this tightlist command ----------
+\providecommand{\tightlist}{
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+}
+
+
+
+
+
+% --- title & section styles -----------------------
+
+
+% title, author, date
+
+  \author{}
+
+% auto-format date?
+  \date{\today}
+
+
+% abstract
+\usepackage{abstract}
+  \renewcommand{\abstractname}{}    % clear the title
+  \renewcommand{\absnamepos}{empty} % originally center
+
+  \newcommand*{\authorfont}{\sffamily\selectfont}
+
+
+% section titles
+\usepackage[small, bf, sc]{titlesec}
+  % \titleformat*{\subsection}{\itshape}
+  \titleformat*{\subsubsection}{\itshape} 
+  \titleformat*{\paragraph}{\itshape} 
+  \titleformat*{\subparagraph}{\itshape}
+
+
+
+
+% \usepackage{floatrow}
+% \floatsetup[figure]{capposition=top}
+% \floatsetup[table]{capposition=top}
+\usepackage{multirow}
+\usepackage{rotating} 
+\usepackage{caption}
+
+
+
+
+\begin{document}
+ 
+
+% --- PAGE: title and abstract -----------------------
+
+
+% \pagenumbering{gobble}
+
+
+
+
+% --- PAGE: contents -----------------------
+
+
+
+
+% --- PAGE: body -----------------------
+
+
+
+\noindent 
+      \doublespacing 
+    \hypertarget{examples-of-hand-coded-lobbying-success}{%
+\section{Examples of hand-coded lobbying success}\label{examples-of-hand-coded-lobbying-success}}
+
+\textbf{2015 Waters of the United States Rule:}
+In response to litigation over which waters were protected by the Clean Water Act, the Environmental Protection Agency and Army Corp of Engineers proposed a rule based on a legal theory articulated by Justice Kennedy, which was more expansive than Justice Scalia's.
+The Natural Resources Defense Council submitted a 69-page highly technical comment ``on behalf of the Natural Resources Defense Council\ldots, the Sierra Club, the Conservation Law Foundation, the League of Conservation Voters, Clean Water Action, and Environment America'' supporting the proposed rule:
+
+\begin{quote}
+``we strongly support EPA's and the Corps' efforts to clarify which waters are protected by the Clean Water Act. We urge the agencies to strengthen the proposal and move quickly to finalize it\ldots{}''
+\end{quote}
+
+I coded this as support for the rule change, specifically not going far enough. I also coded it as requesting speedy publication. NRDC makes four substantive requests: one about retaining language in the proposed rule (``proposed protections for tributaries and adjacent waters\ldots must be included in the final rule'') and three proposed changes (``we describe three key aspects of the rule that must be strengthened'').\footnote{These three aspects are: (1) ``The Rule Should Categorically Protect Certain ``Other Waters'' including Vernal Pools, Pocosins, Sinkhole Wetlands, Rainwater Basin Wetlands, Sand Hills Wetlands, Playa Lakes, Interdunal Wetlands, Carolina and Delmarva Bays, and Other Coastal Plain Depressional Wetlands, and Prairie Potholes. Furthermore, ``Other `Isolated' Waters Substantially Affect Interstate Commerce and Should be Categorically Protected Under the Agencies' Commerce Clause Authority.'' (2) ``The Rule Should Not Exempt Ditches Without a Scientific Basis'' (3) ``The Rule Should Limit the Current Exemption for Waste Treatment Systems''} These demands provide specific keywords and phrases for which to search in the draft and final rule text.
+
+A coalition of 15 environmental organizations mobilized over 944,000 comments, over half (518,963) were mobilized by the four above organizations: 2421,641 by Environment America, 108,076 by NRDC, 101,496 by clean water action, and 67,750 by the Sierra Club. Other coalition partners included EarthJustice (99,973 comments) and Organizing for Action (formerly president Obama's campaign organization, 69,369 comments). This is the upper tail end of the distribution. This coalition made sophisticated recommendations and mobilized a million people.
+
+The final rule moved in the direction requested by NRDC's coalition, but to a lesser extent than requested--what I code as ``some desired changs.''" As NRDC et al.~requested, the final rule retained the language protecting tributaries and adjacent waters and added some protections for ``other waters'' like prairie potholes and vernal pools, but EPA did not alter the exemptions for ditches and waste treatment systems.
+
+Comparing the draft and final with text reuse allows us to count the number words that belong to 10-word phrases that appear in both the draft and final, those that appear only in the draft, and those that appear only in the final. For the 2015 Waters Of The U.S. rule, 15 thousand words were deleted, 37 thousand words were added, and 22 thousand words were kept the same. This means that more words ``changed'' than remained the same, specifically 69\% of words appearing in the draft or final were part were either deleted or added.
+
+For this coalition, the dependent variable, \emph{coalitions success} is 1, \emph{coalition size} is 15, \emph{business coalition} is 0, \emph{comment length} is 69/88, 0.78, and \emph{log mass comments} is log(943,931), 13.76.
+
+\textbf{2009 Fine Particle National Ambient Air Quality Standards:} In 2008, the EPA proposed a rule expanding air quality protections. Because measuring small particles of air pollution was once difficult, measurements of large particulates were allowed as a surrogate measure for fine particles under EPA's 1977 PM10 Surrogate Policy. EPA proposed eliminating this policy, thus requiring regulated entities and state regulators to measure and enforce limits on much finer particles of air pollution.
+
+EPA received 163 comments on the rule, 129 from businesses, business associations such as the American Petroleum Institute and The Chamber of Commerce, and state regulators that opposed the rule. Most of these were short and cited their support for the 63-page comment from the PM Group, ``an ad hoc group of industry trade associations'' that opposed the regulation of fine particulate matter. Six state regulators, including Oregon's, only requested delayed implication of the rule until they next revised their State Implementation Plans (SIPs) for Prevention of Significant Deterioration (PSD). EarthJustice supported the rule but opposed the idea that the cost of measuring fine particles should be a consideration. On behalf of the Sierra Club, the Clean Air Task Force, EarthJustice commented: ``We support EPA's proposal to get rid of the policy but reject the line of questioning as to the benefits and costs associated with ending a policy that is illegal.'' The EarthJustice-led coalition also opposed delaying implementation: ``EPA must immediately end any use of the Surrogate Policy -- either by''grandfathered" sources or sources in states with SIP‐approved PSD programs -- and may not consider whether some flexibility or transition is warranted by policy considerations."
+
+The final rule did eliminate the Surrate Policy but allowed states to delay implementation and enforcement until the next scheduled revision of their Implementation Plans. I code this as the EarthJustice coalition getting most of what they requested, but not a complete loss for the regulated coalition.
+
+For the PM Group coalition, the dependent variable, \emph{coalitions success} is -1, \emph{coalition size} is 129, \emph{business coalition} is 1, \emph{comment length} is 63/85, 0.74, and \emph{log mass comments} is 0.
+
+For the State of Oregon's coalition, the dependent variable, \emph{coalitions success} is 2, \emph{coalition size} is 6, \emph{business coalition} is 0, \emph{comment length} is 5/85, 0.06, and \emph{log mass comments} is 0.
+
+For the EarthJustice coalition, the dependent variable, \emph{coalitions success} is 1, \emph{coalition size} is 3, \emph{business coalition} is 0, \emph{comment length} is 7/85, 0.08, and \emph{log mass comments} is 0.
+% --- PAGE: endnotes -----------------------
+% --- PAGE: refs -----------------------
+\newpage
+\singlespacing 
+          \bibliography{mendeley.bib} 
+  \end{document}
