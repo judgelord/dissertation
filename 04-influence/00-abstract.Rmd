@@ -1,0 +1,5 @@
+# Do Public Pressure Campaigns Influence Bureaucratic Policymaking? 
+
+## Abstract {-}
+
+`r readLines(here::here("04-influence/abstract.txt"))`
