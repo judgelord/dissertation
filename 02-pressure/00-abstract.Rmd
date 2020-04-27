@@ -1,5 +1,5 @@
 # Why Do Agencies (sometimes) Get So Much Mail?
 
-# Abstract
+## Abstract {-}
 
 `r readLines(here::here("04-influence/abstract.txt"))`
