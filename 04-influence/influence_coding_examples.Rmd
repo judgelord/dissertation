@@ -20,8 +20,8 @@ header-includes:
 spacing: doublespacing
 ---
 
-```{r setup, echo = FALSE, include = FALSE}
-source("setup.R")
+```{r setup2, echo = FALSE, include = FALSE}
+# source("setup.R")
 ```
 
 
