@@ -5,11 +5,11 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-#bibliography: "assets/dissertation.bib"
+bibliography: "assets/dissertation.bib"
 biblio-style: apalike
 link-citations: yes
 # github-repo: 
 # description: ""
 ---
 
-# Introduction
+# Agency rulemaking in American politics

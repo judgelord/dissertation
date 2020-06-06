@@ -4,23 +4,26 @@ Each week, students in my public policy class must write to an elected official 
 
 But college students should not be the target demographic for notice and comment rulemaking--they are too informed and have too much time to write thoughtful comments. If we wish to realize the ideals of the APA, we must broaden participation. Can we do this? Is it worthwhile? Many scholars assume not, but the data offer some hope. 
 
-###  The debate in administrative law 
+###  The debate in administrative law {-}
 
-#### Participatory democracy optimists
+#### Participatory democracy optimists {-}
 
 Optomists see notice and comment is the "purest example of participatory democracy in actual American governance." The process is technically open to anyone with an opinion to offer and agencies are, to an extent, required to resond to substantive ideas. 
 
-#### "Regulatory democracy" reformers
+#### "Regulatory democracy" reformers {-}
 
-@Cuellar2014 and @Jonson2013 argue that rulemaking could be more discursive. @Mendelson2011 found that agencies often discard non-technical comments, but argues that they shouldn't becuase mass comments contain valuable information. For this camp, the quality of the public debate is more important than the total number of people, their affiliations, or their biases. They emphasize the transformative power of discourse. "To reach an understanding in a dialogue is not merely a matter of putting oneself forward and successfully asserting one's own point of view, but being transformed into a communion in which we do not remain what we were." (Gadamer)
+@Cuellar2014 <!--and @Jonson2013-->
+argues that rulemaking could be more discursive. @Mendelson2011 found that agencies often discard non-technical comments, but argues that they shouldn't becuase mass comments contain valuable information. For this camp, the quality of the public debate is more important than the total number of people, their affiliations, or their biases. They emphasize the transformative power of discourse. 
+<!--
+"To reach an understanding in a dialogue is not merely a matter of putting oneself forward and successfully asserting one's own point of view, but being transformed into a communion in which we do not remain what we were." (Gadamer)
+-->
 
-
-#### Pluralist reformers
+#### Pluralist reformers {-}
 
 A different brand of reformer focuses less on discource and more on interest group representation. Pluralist reformers argue that lobbying groups should have to disclose there membership, funding, and decisionmaking processes (Seifter 2016). In this view, organized groups, not individuals, are the central actors in public comment processes. However, becuase agencies often lack information about groups, it is difficult to know how well they represent the people they claim to. Interest groups faithful representation of their memebers is crucial to pluralist ideas of democracy.  
 
 
-#### Rational pluralists
+#### Rational pluralists {-}
 
 Another group of scholars sees organized interst groups and experts that can provied credible information. In this view, random or self-selecting members of the general public are not apropriate participants. "The goal of e-rulemaking is to more fully capture such credible, specific, and relevant information, not to solicit the views of random, self-nominating members of the public" (Herz 2016). Speaking on the topic of mass coment campaigns, Oliver Sherouse, a regulatory economist at the Small Business Administration, expressed the same sentiment: 
 
@@ -33,30 +36,31 @@ However, Sherouse was also wary about dismissing mass comments.
 
 
 
-#### Skeptics
+#### Skeptics {-}
 
 The most skeptical camp goes even further, arguing that open solicitations to the general public should be aboloshed. 
 
-### Challenges
+### Challenges {-}
 
-#### Fraud 
+#### Fraud  {-}
 
 (The Wall Street Journal](https://www.wsj.com/articles/many-comments-critical-of-fiduciary-rule-are-fake-1514370601) reported that 40% of comments on one Department of Labor rule used fradulent identities. 
 
+<!--
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">At the State of the Net conference, <a href="https://twitter.com/JRosenworcel?ref_src=twsrc%5Etfw">@JRosenworcel</a> says people from across the USA, across politics persuasions, have found their names &amp; identities stolen &amp; used in the <a href="https://twitter.com/FCC?ref_src=twsrc%5Etfw">@FCC</a> net neutrality rule making. 2 million total. ~500K from Russian email addresses. <a href="https://twitter.com/hashtag/sotn2018?src=hash&amp;ref_src=twsrc%5Etfw">#sotn2018</a> <a href="https://t.co/zCUNlssA54">pic.twitter.com/zCUNlssA54</a></p>&mdash; Alex Howard (@digiphile) <a href="https://twitter.com/digiphile/status/958084755605553152?ref_src=twsrc%5Etfw">January 29, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+-->
 
 
 
-
-### Reforms
+### Reforms {-}
 
 Can the unwashed masses provide useful information to agencies? My answer is yes. Will this information be biased? Yes, but all information provided by lobbying groups has a bias, the task is to make biases transparent, and reforms could do this. 
 
-1. First we must dispense with the idea that agencies merely implement the law. The APA was provides for public participation because ideal of direct democracy might affect the important substantive policy made by agencies. Indeed, agencies are often seeking comment on revisions to rules based on authority delegated decades ago. Agency must make policy to satisfy their mandates. The present question is one of process. Calling for greater congressional oversight or presidential control side-steps the issue--by what process should agencies make policy?  (Indeed, @Potter2019 shows us that agencies often side-step oversight, making their procedural rules all the more important.)
+1. First we must dispense with the idea that agencies merely implement the law. The APA provides for public participation because ideal of direct democracy might affect the important substantive policy made by agencies. Indeed, agencies are often seeking comment on revisions to rules based on authority delegated decades ago. Agency must make policy to satisfy their mandates. The present question is one of process. Calling for greater congressional oversight or presidential control side-steps the issue--by what process should agencies make policy?  (Indeed, @Potter2019 shows us that agencies often side-step oversight, making their procedural rules all the more important.)
 
 
 
-2. Critics may argue that opening the door wider to petition campaigns lets in biases. Indeed we know that those self-appointed people are disproportionately privleged. In an unequal socieity, we have unequal participation, but higher barriers to entry only make this worse.  More problematic is the idea that well-funded group who typically dominate rule making (Yackee) will sponsor astro-turf campaigns, thus creating a false impression of public support. This is a real concern. If dark money can secretly drive impressions of support for a policy, the case for expanding participation is weekend.  Hopefully, my analysis suggests that this is uncommon. the fast 
+2. Critics may argue that opening the door wider to petition campaigns lets in biases. Indeed we know that people who opt to participate are disproportionately privleged. In an unequal socieity, we have unequal participation, but higher barriers to entry only make this worse.  More problematic is the idea that well-funded group who typically dominate rule making (Yackee) will sponsor astro-turf campaigns, thus creating a false impression of public support. This is a real concern. If dark money can secretly drive impressions of support for a policy, the case for expanding participation is weekend.  Hopefully, my analysis suggests that this is uncommon. the fast 
 The fact that we do not observe it now does not mean it will not occur, but agencies could b
 
 Reforms along the lines have been suggested. ___ would like polls. Nationally representative polling may be a good investment for some rules, but we know from polling research that individuals do not always have clearly formed opinions and much depends on question wording. The reality is that american politics is animated through groups--people rely on organizations they trust to keep them informed and engaged. In classic pluralist fashion, organizations claim to represent segments of the population in rulemaking. Because these organizations 
@@ -67,7 +71,7 @@ as others have pointed out
 
 As the moderator of my class's forum I can co-sign research on discursive democracy initiatives that realizing transformative discourse is difficult. the ideal of "transformed into something" is laudable but people are busy and any barrier to participation will massively reduce participation. Participation already follows a log scale distribution, with most rules receiving no comments--even major rules, on average receive less than 10. 
 
-#### Aims of reform
+#### Aims of reform {-}
 
 **Lower barriers to participation.**
 
@@ -83,15 +87,15 @@ New technologies may provide an even more important role in gleaning political i
 
 **Gaurd against fraud.**
 
-#### Parsing the questions
+#### Parsing the questions {-}
 
 Agencies often specific ask questions and solicit comment on specific topics in an NPRM. These topics offer an intitial structure to allow commenters to self identify the topics of their comments. The American Bar Association's Section of Administrative Law and Regulatory Practice reccomends "technology that would allow agencies to identify categories that commenters could select when submitting comments." To stay open to new ideas, lobbying groups should be allowed to petition the agency to add topics to the menue or ask additional questions. 
 
-1) Agencies encourage groups to mobilize in support of the groups' answer to the questions that agencies ask. Given past trends, this will likely take the form of petition campaigns and agencies should have a mechanism to receive those comments as such. 
+For example, agencies may encourage groups to mobilize in support of the groups' answer to the questions that agencies ask. Given past trends, this will likely take the form of petition campaigns and agencies should have a mechanism to receive those comments as such. 
 
-#### Offering answers
+#### Offering answers {-}
 
-Agencies could also lower the bar to participation buy posting answers to their questions from different organizations and allow people to co-sign them or disagree with them. This is both easier for participants and requires less work for agencies to interpret where the commenter stands. 
+Agencies could also lower the bar to participation by posting answers to their questions from different organizations and allow people to co-sign them or disagree with them. This is both easier for participants and requires less work for agencies to interpret where the commenter stands. 
 
 2) The risk of astro-turf is real under any public comment system (including the current one), but transparency requirements can go a long way. Organizations or individuals acting in their professional capacity as organizations (not individuals) should be required to disclose where the money the paid for them to produce their comments came from. Likewise, organizations running campaigns should disclose the sources of funding for the campaigns and how how much they spent mobilizing public support. These numbers will provide a helpful demomoninator for agencies to gaduge public enthusiasm.
 
@@ -99,13 +103,13 @@ Agencies could also lower the bar to participation buy posting answers to their 
 
 
 
-#### ACUS Report
+#### ACUS Report {-}
 
 
 
 ---
 
-#### Increasing transparency and public participation (GSA-2019-02)
+#### Increasing transparency and public participation (GSA-2019-02) {-}
 
 On January 30th, 2020, the Government Services Administration held a hearing on the topic of mass comments. The three invited speakers represented the National Association of Manufacturers, the Small Business Administration, and MITRE. A federerally funded technology research and development. These three guests embody important aspects of how public comment is seen. First, public comment is most often utilized by business groups like NAM ("power users of the regulatory process" as Hedern put it) and thus represent the users for whom public comment technology is designed. NAM does not sponsor mass comment campaigns. Perhaps they have a stake in delegitimizing mass comment campaigns that occasionally mobilized on the opposing side, but the reason they are on this panel is simply that they are the archotypical user. Second, agencies like the Small Business Administration are the ones who must deal with the "challenge" of mass comment campaings. Third, technology consultants represent the way in which mass comment campaings are primarily viewed as a technological challenge.
 
@@ -117,7 +121,7 @@ Another important feature of this policy area is it's tight-knit epistimic commu
   manufacturing sector.  We weigh in frequently in agency actions across the entire federal family, whether they're independent agencies or executive agencies and departments.  So we have quite a lot of experience and exposure to the tools that really underpin the system.  And there's a lot of value in those tools.-->
   
 
-#### Gaurding against fraud
+#### Gaurding against fraud {-}
 
 As with any form of public participation, fraud merits attention. If organizations submit comments on behalf of people who do not exist or did not consent, this is akin to fraudulent petition signatures or fake constituent letters being sent to Members of Congress. 
 
@@ -137,7 +141,7 @@ Because mass comment campaigns include a fairly large number of individuals, esp
 
 There are good reasons to accept technical information from anonomus sources. For example, they may fear retaliation. However, anonmus comments should not be used to infer political information. This distinction supports two tracks with distinct requirments. An agency may want to allow sophisticated anonomus comments to be co-signed by large numbers of authenticated supporters, thus alowing insiders with necessary knowlege to make sopisticated arguments, but also much to lose to put ideas into pulic nad the agency to gadge public reacation to those ideas. 
 
----
+<!---
 
 # April
 
@@ -168,13 +172,13 @@ FDA CONTRACTOR FROM SAS
 
 # Software 
 
-#### Rule revision
+#### Rule revision {-}
 
 Open source 
 
 gsa github 
 
-#### Comment analysis 
+#### Comment analysis  {-}
 
 open code 
 open source 
@@ -185,7 +189,7 @@ Will the code text analysis used be part of the record or otherwise made public?
 
 
 
----
+<!---
 
 
 
@@ -202,3 +206,5 @@ Cary Coglianese, S. S. (2004, November). RECOMMENDATIONS FOR THE DESIGN OF THE F
 Farina, C. R. (2008). Achieving the Potential: The Future of Federal eRulemaking: A Report to Congress and the President. Retrieved March 3rd, 2020, from Scholarship @Cornell Law: A Digital Repository: https://scholarship.law.cornell.edu/cgi/viewcontent.cgi?article=2505&context=fac pub
 Rubin, T. (2018, December 1st). REGULATIONS.GOV AND THE FEDERAL DOCKET MANAGEMENT SYSTEM. Retrieved March 3rd, 2020, from Administrative Conference of the United States: https://www.acus.gov/sites/default/files/documents/Regulations.gov%20Report% 20FINAL%2012%203%202018.pdf
 The Federal Rulemaking Process: An Overview. (2013, June 17th). Retrieved March 3rd, 2020, from EveryCRSreport.com: https://www.everycrsreport.com/reports/RL32240.html
+
+--->
