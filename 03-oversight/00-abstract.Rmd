@@ -1,0 +1,5 @@
+# Oversight: Do Public Pressure Campaigns Influence Congressional Oversight?
+
+#### Abstract {-}
+
+` readLines(here::here("02-oversight/abstract.txt"))`
