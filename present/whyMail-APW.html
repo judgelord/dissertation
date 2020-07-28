@@ -112,7 +112,7 @@ Does it matter?
 - **Optimists:** Notice and comment is the "purest example of participatory democracy in actual American governance."
 - **"Regulatory democracy" reformers** (Cuéllar 2014, Johnson 2013) argue that it could be more discursive. Agencies often discard non-technical comments, but they shouldn't (Mendelson 2011).
 - **Pluralists:** "The goal of e-rulemaking is to more fully capture such credible, specific, and relevant information, not to solicit the views of random, self-nominating members of the public." (Herz 2016)
-- **Pluralist reformers** suggest that lobbying groups disclose there membership, funding, and decisionmaking processes(Seifter 2016)
+- **Pluralist reformers** suggest that lobbying groups disclose there membership, funding, and decisionmaking processes (Seifter 2016)
 - **Skeptics:** Public comment distracts from good policy. Abolish it.
 
 --
@@ -257,9 +257,9 @@ class: inverse middle
 
 ### 2. Average effort per comment
 
-Lower &lt;--------------------------------------------&gt; Higher 
+Co-sign an org's form comment &lt;----&gt; Partially unique &lt;----&gt; Unique 
 
-Co-sign an org's comment &lt;-&gt; Partially unique &lt;-&gt; Unique 
+Lower effort &lt;----------------------------------------------------&gt; Higher effort
 
 ### 3. Potential contagion (share of unique comments)
 
@@ -311,6 +311,14 @@ class: center
 ### Asymmetric mobilization &gt; negativity bias
 &lt;img src="https://github.com/judgelord/dissertation/raw/master/Figs/comments-mass-support-vs-oppose-1.png" width = 700 /&gt;
 
+### More "grass-roots" than "astro-turf"
+
+---
+
+
+Draft rules not mentioning "Environmental Justice"
+![](ej_prob_top_agencies.png)
+
 ---
 
 ## Asymmetric sentiment 
@@ -343,11 +351,6 @@ or
 ### JudgeLord@Wisc.edu
 --&gt;
 
-
----
-
-### Draft rules not mentioning "Environmental Justice"
-![](ej_prob_top_agencies.png)
 
 
 &lt;!--
@@ -388,6 +391,7 @@ Gunnar Trumbull - coalitions need to create legitimacy.
 - Companies buying off nonprofits, hiring consultants, supporting coal miners union, grassroots 
 
 --&gt;
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -434,7 +438,24 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 (function() {
