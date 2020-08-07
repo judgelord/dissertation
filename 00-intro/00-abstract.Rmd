@@ -2,4 +2,5 @@
 
 #### Abstract {-}
 
-`readLines(here::here("00-intro/abstract.tex"))`
+`r readLines(here::here("00-intro/abstract.tex"))`
+

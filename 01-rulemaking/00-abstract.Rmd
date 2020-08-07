@@ -1,5 +1,5 @@
-# Agency rulemaking in American politics
+# Agency Rulemaking in American politics
 
 #### Abstract {-}
 
-`readLines(here::here("01-rulamaking/abstract.tex"))`
+<!-- `readLines(here::here("01-rulamaking/abstract.txt"))` -->

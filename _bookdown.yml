@@ -3,10 +3,12 @@ language:
   ui:
     chapter_name: "Chapter "
 #new_session: yes
+new_session: no
 delete_merged_file: true
-#rmd_subdir: true # this worked in the demo but not here. file paths workaround is fine (probably more clear)
+# knit_root_dir: `r here::here()` #https://stackoverflow.com/questions/62578811/error-input-files-not-all-in-same-directory-please-supply-explicit-wd
+# rmd_subdir: true # this worked in the demo but not here. file paths workaround is fine (probably more clear)
 rmd_files:
-#  html:
+  html:
   - index.Rmd
   - 00-motivation.Rmd
   - 00-outline.Rmd
@@ -16,5 +18,5 @@ rmd_files:
   - 03-oversight/00-abstract.Rmd
   - 04-influence/00-abstract.Rmd
   - 05-ej/00-abstract.Rmd
-#  - 02-policy.Rmd
+#  - 02-policy.Rmd # policy recs
   - 99-references.Rmd
