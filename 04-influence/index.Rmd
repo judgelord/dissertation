@@ -1,0 +1,31 @@
+---
+title: "Do Public Pressure Campaigns Influence Bureaucratic Policymaking?"
+author:
+- name: Devin Judge-Lord
+  affiliation: University of Wisconsin-Madison
+abstract: '`r readLines("abstract.txt")`' # '`r readLines(here::here("04-influence/abstract.txt"))`'
+# bibliography: '`r here::here("assets/mendeley.bib")`'
+biblio-style: apa
+citecolor: black
+output: 
+ bookdown::pdf_document2:
+   latex_engine: pdflatex
+   keep_tex: true
+   template: ../assets/article-template.tex
+   toc: false
+   fig_caption: true
+   citation_package: natbib
+# fontsize: 12pt
+# header-includes:
+#- \usepackage{ragged2e}
+#- \input{preamble.tex}
+#- \let\footnote=\endnote
+#- \renewcommand{\footnotesize}{\normal}
+#- \renewcommand{\normalsize}{\large}
+spacing: doublespacing
+#endnotes: true
+---
+
+```{r setup1, echo = FALSE, include = FALSE}
+#source(here::here("setup.R"))
+```

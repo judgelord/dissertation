@@ -1,0 +1,6 @@
+# Public Pressure: Why Do Agencies (sometimes) Get So Much Mail?
+
+
+#### Abstract {-}
+
+`r readLines(here::here("02-pressure/abstract.txt"))`

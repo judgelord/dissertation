@@ -1,0 +1,72 @@
+---
+title: "Political Information in Bureaucratic Policymaking"
+author: "Devin Judge-Lord"
+date: TRUE
+header-includes:
+   - \input{preamble.tex}
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{asis, include = FALSE} 
+R -e "rmarkdown::render('prospectus.Rmd',output_file='test.pdf')"
+```
+
+```{asis, include = FALSE}
+\large
+\doublespace
+\RaggedRight
+```
+
+\input{summary.tex}
+
+<!---
+# Methods
+## Measuring mass engagement and political information
+\include{whyMail-methods.tex}
+
+## Assessing effects on elected officials' attention to rulemaking
+\include{principals-methods.tex}
+
+## Assessing effects on rulemaking and rules
+\include{influence-methods.tex}
+-->
+
+# Why So Much Mail?
+
+\input{whyMail-intro.tex}
+
+<!---
+\input{whyMail-methods.tex}
+
+# Influence on Principals
+\input{principals-intro.tex}
+\innput{principals-methods.tex}
+
+# Influence on Agency Policymaking
+\input{influence-intro.tex}
+\input{influence-methods.tex}
+
+# The environmental justice movement
+\input{ej.tex}
+
+# Field experiments
+
+# Conclusion
+
+
+# Appendix
+
+## Survey
+\input{Survey.tex}
+
+## Recruiting handout 
+-->
+
+\singlespace
+\small
+\bibliographystyle{apsr.bst} 
+\bibliography{Mendeley.bib}

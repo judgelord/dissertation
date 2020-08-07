@@ -1,0 +1,5 @@
+# The Environmental Justice Movement and Technocratic Policymaking
+
+#### Abstract {-}
+
+`r readLines(here::here("05-ej/ej-abstract.tex"))`

@@ -2,7 +2,7 @@
 title: "Why do agencies (sometimes) get so much mail?"
 subtitle: ""
 author: "Devin Judge-Lord"
-date: ""
+date: "Slides: judgelord.github.io/dissertation/present/whyMail-APW.html <br> \n Data: https://github.com/judgelord/rulemaking"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -63,7 +63,7 @@ webshot(file, "whyMail-APW.pdf")
 
 <!-- 
 Hi, my name is Devin Judge-Lord, I'm a Ph.D. candidate at Wisconsin
-This paper is the first bit of writing I've done for my dissertation on mass engagement in bureaucratic policymaking, for example, mass comment campaigns.
+This paper is the first bit of writing I've done for my dissertation on public pressure campaigns in bureaucratic policymaking, for example, mass comment campaigns.
 
 It sets out concepts and measures for these occasional bursts of civic participation,
 which I will then use to assess whether it matters. 
@@ -235,6 +235,7 @@ background-image: url("present/tweetBenWilkerMoveon.png")
 # Why mobilize people?
 
 ### Outside lobbying
+
 #### 1. Expand the scope of conflict (Schattschneider 1975)
 
 vs.
@@ -394,6 +395,14 @@ or
 -->
 
 
+<<<<<<< HEAD
+=======
+---
+
+Draft rules not mentioning "Environmental Justice"
+![](ej_prob_top_agencies.png)
+
+>>>>>>> 1374e5993f1ca49d44068c953a2d2be30427b8a4
 
 <!--
 questions that Congress scholars have asked 

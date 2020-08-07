@@ -1,0 +1,69 @@
+%\subsubsection{LDA: the Distribution of Words over Topics} 
+
+% This section first reviews the \textit{Latent Dirichlet Allocation} (LDA: Blei et al. 2003) model, then the unique text preparation and effect estimation steps necessary to address my questions, and finally additional steps and extensions to improve topic and effect estimation. In the discussion section, I suggest additional questions that may be addressed using the text analysis approach advanced here.
+
+To measure the relationship between comments and policy change, I draw on the \textit{Latent Dirichlet Allocation} (LDA: Blei et al. 2003) model. Unlike the model used to estimate coalition membership, this is a mixed-member model. In LDA, each document can be represented as a vector of topic proportions, i.e. what fraction of the words in that document belong to each topic (Blei et al. 2003). For example, in a model of rulemaking under the Environmental Protection Agency's Clean Power Plan, ``climate,'' ``adaptation,'' ``carbon,'' and a dozen other words may co-occur and indicate a topic about climate change. The words, ``clean'', ``air,'' and ``health'' may also co-occur and have relatively high frequencies in a topic that seems to be about air quality.  The change in the rule from NPRM to Final Rule and each comment would have a $\pi$ proportion of words belonging to the \textit{climate change} topic (\%$\tau_{Climate}=\pi_{Climate}$). This may be a relatively high portion for Climate Action Coalition comments and a low portion for American Lung Association comments ($\pi_{Climate, CAC} > \pi_{Climate, ALA}$) compared to the air quality topic, which may be the opposite ($\pi_{AirQuality, CAC} < \pi_{AirQuality, ALA}$). If the rule changes to focus more on climate change from the draft to the final rule ($\pi_{Climate, \Delta EPA} > \pi_{AirQuality, \Delta EPA}$), the Climate Action Coalition may be seen as more successful than the American Lung Association with respect to the broad emphasis of the regulation. This offers a new way to capture what Jones and Baumgartner (2005) call \textit{attention allocation}, the changing weights on policy images and issues: in this case, what the Environmental Protection Agency ought to do.
+
+\begin{figure}[h!]
+\label{percent}
+\small
+\caption{Assessing Policy Change with a Latent Dirichlet Model (LDA)}
+\begin{tabular}{@{\extracolsep{5pt}}rlccl} 
+& & & \\
+Text: &\fbox{Comments} &  $\longrightarrow$ & \fbox{Change in Rule}\\
+& & & \\
+Dist. over $T$ topics (e.g. $\tau_{1:3}$): & Comment$_{j_1}$ $\sim $\{\%$\tau_{1}$, \%$\tau_{2}$, \%$\tau_{3}$\}  & & $\Delta$Rule $\sim $\{\%$\tau_{1}$, \%$\tau_{2}$, \%$\tau_{3}$\}\\
+& Comment$_{j_2} \sim $\{\%$\tau_{1}$, \%$\tau_{2}$, \%$\tau_{3}$\} & & \\%$\Delta$Rule$-$ $\sim $\{\%$\tau_{1}$, \%$\tau_{2}$, \%$\tau_{3}$\}\\
+& Coalition$_{(j_1+j_2)} \sim $\{\%$\tau_{1}$, \%$\tau_{2}$, \%$\tau_{3}$\} & & \\
+& ...
+\end{tabular}
+\end{figure}
+
+
+% For comment $j$ and rule change $\Delta r$ on topics $\tau_{1:T}$ with proportions $\pi_{j}$ and $\pi_{\Delta r}$:
+% \begin{align*}
+% Success_{j, \tau} \ &= 1-(\pi_{j, \tau} - \pi_{\Delta r,\tau})\\
+% \end{align*}
+
+
+%More precisely, this includes the topic distribution of text added to the rule $\pi_{\Delta r+}$ and subtracted $\pi_{\Delta r-}$:
+%\begin{align*}
+%Success_{j, \tau} \ &= 1-(\pi_{j, \tau} - \pi_{\Delta r+,\tau}) +  1-(\pi_{j, \tau} - \pi_{\Delta r-,\tau})\\
+%\end{align*}
+
+
+
+The percent of each topic $\tau$ within each document $j$ is estimated as $\pi_{j, \tau}$ where:
+\begin{align*}
+%z_i &\sim Multinomial(\theta_{D_{i, j} })\\
+%\theta_k &\sim Dirichlet(\alpha)\\
+%w_i &\sim Multinomial(\phi_i)\\
+%\phi &\sim Dirichlet(\beta) \\
+%=\\
+\tau_{i, j} | W_{i, j} &\sim Multinomial(\pi_{w_{i, j} })\\
+\pi_{j} &\sim Dirichlet(\alpha) \\ % should tau be there
+W_{i, j} &\sim Multinomial(\rho_{\tau,w})\\ % should be W_{tao}, probability of drawing a word in W at token i is drawn from a multi distribution of the probabilities that each word is in each topic
+% should be rho_{w, tau}
+\rho_{\tau,w} &\sim Dirichlet(\beta) 
+\end{align*}
+
+We observe the total number of unique words ($w_1,...,w_W$) in the vocabulary of all documents and $w_{i, j}$ is the word observed at the $i$th token in document $j$. All texts are ``tokenized'' by giving each word %\footnote{For topic estimation, I use single words, but tokenizing may be done by sentence or by any n-gram string of characters or words.} 
+a unique index $i$. If token $i$ belongs to topic $\tau$, then the probability that the token is word $w$ is the topic-specific probability $\pi_{\tau, w}$. At the document level, $\pi_{\tau, j}$ %/$\theta_{i, k}$ 
+is the estimated proportion of topic $\tau$ for document $j$. %, a $i$ x $\tau$ matrix of the proportion of words from each topic in each document. 
+
+$T$, $\alpha$, and $\beta$ are defined. 
+$T$ is the number of topics $(\tau_1,...\tau_T)$ where $\tau_{i, j}$ is the topic of the $i$th token in document $j$. Each token comes from exactly one topic.
+$\alpha$ is the parameter of the prior on the per-document topic distributions, and
+$\beta$ is the parameter of the prior on the per-topic word distributions. 
+$\rho_{\tau, w}$ % / $\phi_{w, k}] / $ 
+is the distribution over $w$ words in each topic $\tau$, i.e. the probability of drawing the $w$th word of the vocabulary for topic $\tau$.
+%$\rho_{j,w}$ is the probability that the $i$th token of document $j$ lies in
+%$\tau_{i, j}$ %/D
+%, $\pi_{w_{i, j}}$.%$\theta_{D_{i, j}}$ / is this right?
+
+%w / $\psi$ is the specific word (the only observable variable) 
+% CHOOSE A WORD w[i] GIVEN THE TOPIC z
+
+
+
+

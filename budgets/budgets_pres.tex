@@ -1,0 +1,543 @@
+\documentclass[10pt]{beamer}
+\mode<beamer>{%
+  \usetheme[]{CambridgeUS}}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{amsfonts, amsmath, amssymb}
+%\usepackage{dcolumn, multirow}
+\usepackage{graphicx}
+%\usepackage{anysize, indentfirst, setspace}
+\usepackage{mathtools}
+\usepackage{caption, rotating}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{mathabx}
+\usepackage{sidecap}
+%\usepackage{hanging}
+%\usepackage{float}
+\setlength{\tabcolsep}{3pt}
+
+\title{Measuring Change and Influence in Budgeting}
+\author[Devin Judge-Lord]{Devin Judge-Lord}
+\institute{University of Wisconsin}
+%\titlegraphic{\includegraphics[width=20mm]{USTL}}
+\date{\today}
+
+\begin{document}
+\begin{frame}<handout:0>
+  \titlepage
+\end{frame}
+
+% Hi my name is Devin, 
+% this is a very early stage project, so your comments could be decisive in where it goes 
+
+\section{Problem}
+
+
+% i am interested in policy change 
+% common class of qeustions in poliical science relate to the changes in policy texts. 
+
+
+\begin{frame}
+\frametitle{Policy Change}
+\begin{tabular}{@{\extracolsep{5pt}}ccc} 
+& $\Delta$ \\
+\fbox{Policy Text$_{t}$} & $\longrightarrow$& \fbox{Policy Text$_{t+1}$}\\
+& & \\
+& & 
+\end{tabular}
+\end{frame}
+
+% AND especially if we can connect policy change to the policy demands of those attempting to influence it
+
+% i started this project with rulemaking. the challenge is that each rulemaking is different. 
+\begin{frame}
+\frametitle{Policy Change: Influence}
+\begin{tabular}{@{\extracolsep{5pt}}ccc} 
+& $\Delta$ \\
+\fbox{Policy Text$_{t}$} & $\longrightarrow$& \fbox{Policy Text$_{t+1}$}\\
+& $\uparrow$\\
+& \fbox{Input Texts}
+\end{tabular}
+\end{frame}
+
+
+% ideally, we would have repeated observations of essentially the same policy process.
+\begin{frame}
+\frametitle{Policy Change: Attention Over Time}
+\begin{tabular}{@{\extracolsep{5pt}}ccccccccc} 
+& $\Delta_1$ & & $\Delta_2$ \\
+ \fbox{Policy Text$_{t}$} & $\longrightarrow$ & \fbox{Policy Text$_{t+1}$} & $\longrightarrow$ & \fbox{Policy Text$_{t+2}$} & $\longrightarrow$ ...\\
+\end{tabular}
+\end{frame}
+
+\section{Data}
+% this lead me to the budgeting. each year, the limited budget of each agency requires similar policy decisions to be made. 
+
+% the other reason i became interested in budgeting was the budget changes with the presidential administration. 
+% curious, are agencies like EPA doing the same 
+
+\begin{frame}
+\frametitle{Data: President's Annual Budget}
+\begin{tabular}{@{\extracolsep{5pt}}ccccccccc} 
+& $\Delta_1$ & & $\Delta_2$ & & $\Delta_3$\\
+ \fbox{Budget Proposal$_{t}$} & $\longrightarrow$ & \fbox{Budget Proposal$_{t+1}$} & $\longrightarrow$ & \fbox{Budget Proposal$_{t+2}$} & $\longrightarrow$ & \fbox{Budget Proposal$_{t+3}$} \\
+\end{tabular}
+\end{frame}
+
+% we also have corresponding reports from appropriations committees in Congress, responding to budget request and making demands for how they want money spent
+\begin{frame}
+\frametitle{Data: Appropriations Bills}
+\begin{tabular}{@{\extracolsep{5pt}}ccccccccc} 
+& $\Delta_1$ & & $\Delta_2$ & & $\Delta_3$\\
+ \fbox{Committee Report$_{t}$} & $\longrightarrow$ & \fbox{Committee Report$_{t+1}$} & $\longrightarrow$ & \fbox{Committee Report$_{t+2}$} & $\longrightarrow$ & \fbox{Budget Proposal$_{t+3}$} \\
+\end{tabular}
+\end{frame}
+
+%  I collected these reports for 71 agency, 10-50 years
+
+% more data points on the same policy, i.e. what each agency should spend money on 
+\begin{frame}
+\includegraphics[width=\textwidth]{reports}
+\end{frame}
+
+
+\section{Theory}
+% taken together these data may help address two things (1) distribution of attention over time and 
+
+% (2) influence of each branch on setting the agenda for the other. 
+
+\begin{frame}
+\frametitle{Issue Attention ($\rightarrow$) and Agenda Setting ($\uparrow \downarrow$)}
+
+\begin{tabular}{@{\extracolsep{5pt}}ccccccccc} 
+$\longrightarrow$&\fbox{Budget Proposal$_{t}$}& $\longrightarrow$& \fbox{Budget Proposal$_{t+1}$} & $\longrightarrow$ & ... & &\\
+& $\downarrow (H1)$& $\uparrow (H2)$ & $\downarrow$& $\uparrow $ & \\
+...&$\longrightarrow$ &\fbox{Committee Report$_{t}$} & $\longrightarrow$ & \fbox{Committee Report$_{t+1}$} &$\longrightarrow$ &\\
+\end{tabular}
+
+\end{frame}
+
+% attention is limited 
+
+% in very broad strokes, we may say that congress scholars have viewed attention as valuable commodity for those aiming to get their way 
+
+% bureaucracy scolars tend to focus on the oversite aspect of attention. in fact the only other study I am aware of that uses appropration reports uses their length as a measure of scruteny, but this is not right, because if you read them, it is a mix of positive and negative, need to drill down to identify different dynamics in separate issues. 
+\begin{frame}
+\frametitle{Motivation}
+Attention is limited and varies over time.
+
+\bigskip
+
+Congress scholars:
+\begin{itemize}
+\item Attention is desired (e.g. Jones and Baumgartner 2005)
+\end{itemize}
+Bureaucracy scholars:
+\begin{itemize}
+\item Attention is often bad (e.g. ``fire-alarm'' oversight (McCubbins and Schwartz 1984))
+\end{itemize}
+ \bigskip
+ 
+How much do parties, committee chairs, president, or agencies affect the appropriations agenda? (Berry, Burden, and Howell 2010, Carpenter 2001, Lee 2000) 
+\end{frame}
+
+  \section{Approach}
+  
+  % 
+  % these are baseline expectations, methods ought to capture this kind of change from administration to administration 
+
+\begin{frame}
+\frametitle{Term Frequency}
+\begin{figure}[h!]
+\label{ccEPA67}
+\centering
+\caption{"Climate Change" in the Environmental Protection Agency Budget Justification}
+\includegraphics[trim = {0 0 0 .65cm}, clip, width = 10cm]{"CCmentionsEPA67"}
+\end{figure}
+\end{frame}
+
+  % similarly, we see an increase in attention to climate change when democrats win the house in 2006 and a decrease, though not as dramatic after the 2010 tea party wave
+  
+  % but as I will show, the frequency of one term is far from the big picture AND has little to say about who is driving the agenda
+  
+\begin{frame}
+\frametitle{Term Frequency}
+\begin{figure}[h!]
+\label{ccEPA67}
+\centering
+\caption{"Climate Change" in House Appropriations Subcommittee Reports}
+\includegraphics[trim = {0 0 0 .65cm}, clip, width = 10cm]{"Congress"}
+\end{figure}
+\end{frame}
+
+
+%In addition to there being many potentially interesting terms, a significant portion of text is reused, 
+
+% in this section of the EPA's budget, the same statutory authorities are being used to justify the exact opposite policy as they did under the previous administration
+\begin{frame}
+\frametitle{Text Reuse}
+
+FY 2017 $\rightarrow$ FY 2018:\\
+
+\texttt{
+``\underline{This funding change eliminates climate change research FTE} \underline{This funding change reduces air quality research This eliminates} \underline{funding for the Science to Achieve Results STAR program for FY} \underline{Statutory Authority:Clean} Air Act Title II of Energy Independence and Security Act of Environmental Research Development and Demonstration Authorization Act ERDDAA Intergovernmental Cooperation Act National Environmental Policy Act NEPA Pollution Prevention Act PPA Global Change Research Act"}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Text Reuse}
+FY 2017:
+
+\texttt{
+"FDA is implementing the Food Safety Modernization Act FSMA the XXXXXXXXX motivation XXXXXX for 
+XXXXX the generic drug labeling rule and regulation of tobacco products"}\\
+\bigskip
+
+FY 2018:
+
+%\downarrow
+\texttt{
+"FDA is implementing the Food Safety Modernization Act FSMA XXX \underline{addressing} XXXXXXXXX \underline{opioid} XXX 
+\underline{abuse} XXX XXXXXXX XXXX XXXXXXXX XXXX and regulation of tobacco products"}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Thinking About Relationships Among Texts}
+\footnotesize
+\begin{table}[h!]
+\begin{tabular}{@{\extracolsep{0pt}}lll} 
+\underline{Question} & \underline{Approach} & \underline{Metric}\\
+How much discussion of $K$ topics? & Topic Models & Proportions of $K$ topics per document\\
+& \ \ \ $\drsh$ Mixed Member & \ \ \ Topic proportions\\
+& \ \ \ $\drsh$ Single Member & \ \ \ Number of paragraphs per topic \\
+How similar is overall word-use? & Cosine Similarity & Similarity score for each pair \\
+Documents' relative positions? & Scaling (e.g. \textit{\textit{\textit{Wordfish}}}) & Location on 1-Dimensional scale\\
+% Who is discussing what? & $\drsh$ Structural Topic Model & $J$ document types over $T$ topics\\
+% Is one change related to another? &   $\ \ \  \drsh$ Relational Topic Model & Topic change $j_1|j_1'$ vs. change $j_2|j_2'$\\
+What is copied from where? & Text Reuse & Tokens in document $d$ copied from $d'$\\
+& \ \ \ $\drsh$ Sentences & \ \ \ Matching sentences\\
+& \ \ \ $\drsh$  10-grams & \ \ \ Matching sequences $\geq$ 10 words\\
+& \ \ \ $\drsh$  Smith-Waterman & \ \ \ Approximately aligned sequences
+\end{tabular}
+\end{table}
+\end{frame}
+
+
+
+% i want to give a quick shout out to matt and arthur's preText package which is really easy to use and provides helpful guidence in thinking through the risk of preprocessing decisions 
+
+\begin{frame}
+\begin{figure}[h!]
+\frametitle{Term Frequency}
+\caption{Estimated Impact of Preprocessing Steps using preText()}
+\includegraphics[width=10cm]{pretextEPA96}
+\end{figure}
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Term Frequency: LDA}
+Difference in $\theta$ proportions of K topics
+
+\centering
+\begin{tabular}{@{\extracolsep{5pt}}rcccc} 
+& & &  & \\
+Text: &\fbox{Year $t$} &   & \fbox{Year $t+1$} & \underline{Change}\\
+& & & \\
+& $\theta_{k,t}$  & $\longrightarrow$&  $\theta_{k,t+1}$ & 
+%$|\theta_{1,t+1}-\theta_{1,t}|,\ |\theta_{2,t+1}-\theta_{2,t}|,\ ... 
+$|\theta_{k,t+1}-\theta_{k,t}|$\\
+% & Senate Report $\theta_{1:k}$ & $\longrightarrow$ & Senate Report $\theta_{1:k}$\\
+% & House Report $\theta_{1:k}$&$ \longrightarrow$ & House Report $\theta_{1:k}$
+\end{tabular}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Term Frequency: LDA}
+
+\begin{figure}[h!]
+\centering
+\caption{Year-to-year Change in Environmental Protection Agency Budget Justification for 45 LDA Topic Models (K = 5:50), Fiscal Years 1967-2018}
+\includegraphics[trim = {0 2cm 0 0cm}, clip, width = \textwidth]{"EPA67climate2018"}
+\end{figure}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Term Frequency: Scaling and 
+Cosine Similarity}
+\centering
+\begin{tabular}{@{\extracolsep{10pt}}ccc}
+& \underline{Difference} & \underline{Similarity}\\
+& \\
+\textit{Wordfish}: & $|\omega_{t+1} - \omega_{t}|$ & 1-Difference\\
+& \\
+Cosine: & 1-Similarity & $\dfrac{\textbf{A} \cdot \textbf{B}}{\| \| \textbf{A}\|\|_2\| \|\textbf{B}\|\|_2}$
+\end{tabular}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Text Reuse: 10-gram Window}
+\centering
+\footnotesize
+Agriculture, Rural Development, Food and Drug Administration, and Related Agencies
+
+\includegraphics[trim = 0 2cm 0 0, clip, width = 7cm]{CongressAg}
+
+Interior, Environment, and Related Agencies
+
+\includegraphics[width=7cm]{CongressEnv}
+
+*Solid lines indicate change in Senate majority, dotted lines a change in House majority. 
+
+0 = No report published. 
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Comparison}
+
+\begin{figure}[h!]
+\label{EPA5methods}
+\centering
+\caption{Year-to-year Change in Environmental Protection Agency Budget Justification}
+\includegraphics[trim = {0 0 0 0cm}, clip, width = \textwidth]{"EPA5methods"}
+\end{figure}
+
+\end{frame}
+
+
+
+
+
+
+
+\section{Agenda Setting / Influence}
+
+\begin{frame}
+\frametitle{Agenda Setting / Influence}
+\footnotesize
+\centering
+\begin{tabular}{@{\extracolsep{5pt}}rlclll} 
+& & &  & \\
+Text: &\fbox{President's Budget} &  $\longrightarrow$ & \fbox{Appropriations Reports}&  $\longrightarrow$ & \fbox{Next Year's Budget}\\
+& &  $H1$ & & $H2$\\
+% & $\theta_{1:k, t, Agency}$  
+% & & $\theta_{1:k, t, Senate}$ & & $\theta_{1:k, t+1, Agency}$\\
+% & & & $\theta_{1:k, t, House}$ \\
+\end{tabular}
+
+\end{frame}
+\begin{frame}
+
+\begin{figure}[h!]
+\label{Congress5methods}
+\centering
+\caption{Assessing the Relationship Between Congress and the EPA Over Time}
+\includegraphics[trim = {0 0 0 0cm}, clip, width = 6cm]{"EPAhousesenate5methods"}
+\end{figure}
+
+\end{frame}
+
+
+
+\end{document}
+
+\section{Justification Texts}
+\begin{frame}
+  \frametitle{Justifications}
+\begin{figure}[h!]
+\small
+\label{inputs}
+\caption{The Textual Record of the Annual Federal Budget Justifications}
+%\begin{table}
+\begin{tabular}{@{\extracolsep{5pt}}cccccc}
+ &  & &  \\
+ & \multicolumn{3}{c}{(President submits budget)}\\
+ & & & & \\
+\fbox{Inputs}  $\longrightarrow$ & \fbox{Agency Justifications} &$\longrightarrow$ & \fbox{Committee Report}\\
+ & & & \\
+(Presidential Agenda)   & Agency and OMB & & Appropriations\\
+ (Agency Agenda)  &   &   & Subcommittees  \\
+ (Appropriations$_{t-1}$) & & & \\
+\end{tabular}
+%\end{table}
+\end{figure}
+\end{frame}
+%\color{red}\}\textit{selection}\{ \color{black}
+%\color{red}\}\textit{decisionmaking}\{
+
+
+
+
+
+\begin{frame}
+  \frametitle{Committee Report Change}
+\begin{figure}[h!]\centering
+\caption{Percent New Text in Agriculture, Rural Development, Food and Drug Administration, and Related Agencies Appropriations Subcommittee reports 2010-2017.}
+\includegraphics[width=10cm]{percent}
+\end{figure}
+\end{frame}
+
+
+\section{Hypotheses}
+\begin{frame}
+\frametitle{Hypotheses 1.1 and 1.2}
+\begin{figure}[h!]
+\tiny
+\centering
+\caption{Agenda Setting}
+\label{dynamic}
+\begin{tabular}{@{\extracolsep{5pt}}ccccccccc} 
+$\longrightarrow$&\fbox{Agency Request$_{t_1}$}& $\longrightarrow$& \fbox{Agency Request$_{t_2}$} & $\longrightarrow$ & ... & &\\
+& $\downarrow $& $\uparrow (H1.2)$ & $\downarrow (H1.1)$& $\uparrow $ & \\
+...&$\longrightarrow$ &\fbox{Committee Report$_{t_1}$} & $\longrightarrow$ & \fbox{Committee Report$_{t_2}$} &$\longrightarrow$ &\\
+\end{tabular}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Hypotheses 2.1 and 2.2}
+\begin{figure}
+\caption{Relationship Between Issue Attention and Appropriations}
+\begin{table}[h!]
+\begin{tabular}{@{\extracolsep{19pt}}cccc} 
+&\multicolumn{2}{c}{$\Delta$ Issue Attention} & \\
+\underline{Issue Support}& \underline{Agency} & \underline{Committee}&\underline{Predicted $\Delta$ Budget}\\
+High & $\uparrow$ & $\uparrow$ & $\uparrow$\\
+Low & $\uparrow$ or $-$ &$\downarrow$ & $\downarrow$\\
+Low & $\downarrow$ or $-$ & $\uparrow$ & $\downarrow$ \\
+\end{tabular}
+\end{table}
+\end{figure}
+\end{frame}
+
+\section{Model}
+\frametitle{Relational Topic Modeling}
+\begin{frame}
+\scriptsize
+\begin{table}[h!]
+\begin{tabular}{@{\extracolsep{10pt}}lll} 
+\underline{Question} & \underline{Approach} & \underline{Estimates distribution of}\\
+What topics are discussed? & LDA Topic Model & Words over $T$ topics\\
+Who is discussing what? & $\drsh$ Structural Topic Model & $J$ document types over $T$ topics\\
+Is one change related to another? &   $\ \ \  \drsh$ Relational Topic Model & Topic change $j_1|j_1'$ vs. change $j_2|j_2'$\\
+What is copied from where? & Text Reuse$\reflectbox{\rotatebox[origin=c]{270}{$\dlsh$}}$ & Tokens in document $j$ copied from $j'$
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Topic Modeling}
+\begin{figure}[h!]
+\label{percent}
+\tiny
+\centering
+\caption{Estimating Topic Proportions in Documents}
+\begin{tabular}{@{\extracolsep{5pt}}rlccl} 
+& & &  & \\
+Text: &\fbox{President's Budget} &  $\longrightarrow$ & \fbox{Appropriations Committee}\\
+& &  $H1.1$ & \\
+& &  & \\
+Dist. over $T$ topics (e.g. $\tau_{1:3}$): & Agency$_j$+ $\sim $\{\%$\tau_{1}$, \%$\tau_{2}$, \%$\tau_{3}$\}  & & Senate$_c$+ $\sim $\{\%$\tau_{1}$, \%$\tau_{2}$, \%$\tau_{3}$\}\\
+& Agency$_j,$ $\sim $\{\%$\tau_{1}$, \%$\tau_{2}$, \%$\tau_{3}$\}& & Senate$_c-$ $\sim $\{\%$\tau_{1}$, \%$\tau_{2}$, \%$\tau_{3}$\}\\
+& & &  House$_c$+ $\sim $\{\%$\tau_{1}$, \%$\tau_{2}$, \%$\tau_{3}$\}\\
+& & & House$_c-$ $\sim $\{\%$\tau_{1}$, \%$\tau_{2}$, \%$\tau_{3}$\} \\
+\end{tabular}
+\end{figure}
+\centering
+Percent of each topic $\tau$ = topic proportions $\pi$.
+
+(e.g. \%$\tau_{ClimateChange}=\pi_{ClimateChange}$)
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Relational Topic Modeling}
+\begin{figure}[h!]
+\tiny
+\caption{Agenda Setting: Text Added and Cut}
+\label{dynamic2}
+\begin{tabular}{@{\extracolsep{5pt}}ccccccccc} 
+&&Added Text:  & & \\
+&&&&\\
+\fbox{Agency$=\pi_{j,\tau, t_1}$}& $\longrightarrow$& \fbox{Agency$+ =  \pi_{j_2-j_1,\tau, t_2}$} & $\longrightarrow$ & ... & &\\
+ $\downarrow $& $\uparrow $ & $\downarrow (H1.1+)$& $\uparrow (H1.2+) $ & \\
+$\longrightarrow$ &\fbox{Committee$ = \pi_{c,\tau, t_1}$} & $\longrightarrow$ & \fbox{Committee$+= \pi_{c_2-c_1,\tau, t_2}$} &$\longrightarrow$ & ...\\
+&&&&\\
+\hline
+&&&&\\
+&&Deleted Text:  & &\\
+&&&&\\
+\fbox{Agency$=\pi_{j,\tau, t_1}$}& $\longrightarrow$& \fbox{Agency$- =  \pi_{j_1-j_2,\tau, t_2}$} & $\longrightarrow$ & ... & &\\
+ $\downarrow $& $\uparrow $ & $\downarrow (H1.1-)$& $\uparrow (H1.2-)$ & \\
+$\longrightarrow$ &\fbox{Committee$ = \pi_{c,\tau, t_1}$} & $\longrightarrow$ & \fbox{Committee$-= \pi_{c_1-c_2,\tau, t_2}$} &$\longrightarrow$ & ...\\
+\end{tabular}
+\end{figure}
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\begin{figure}
+\tiny
+\label{EPA6}
+\caption{\textbf{Environmental Protection Agency} budget justification sentences added (EPA+) and cut (EPA-) and corresponding house appropriations subcommittee report sentences added (House+) and cut (House-) over six topics 2008-2017.} 
+%Dotted vertical lines indicate a new House Appropriations Chair.} %Solid lines are a new Senate Appropriations Chair. 
+%Topics are labeled by the six most frequent and exclusive words as identified by the FREX algorithm.
+%Shaded region is the 95\% credible interval.
+%Lines are portion means.
+%Congressional texts are Appropriations Subcommittee Budget Justification Report pages that contain the agency's name or abbreviation.}
+\includegraphics[width=5cm]{EPA6}
+\end{figure}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
