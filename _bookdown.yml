@@ -10,9 +10,12 @@ delete_merged_file: true
 rmd_files:
   html:
   - index.Rmd
+  - intro.md
+  - intro-conclusion
   - 00-motivation.Rmd
   - 00-outline.Rmd
   - 01-rulemaking/00-abstract.Rmd
+  - 00-intro/intro-book.md
   - 02-pressure/00-abstract.Rmd
 #  - 02-pressure/01-intro.Rmd
   - 03-oversight/00-abstract.Rmd

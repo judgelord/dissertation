@@ -1,0 +1,170 @@
+---
+title: Why Do Agencies (Sometimes) Get So Much Mail?
+subtitle: Public Pressure Campaigns and Bureaucratic Policymaking
+
+author:
+- name: Devin Judge-Lord
+  affiliation: 
+  footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Presentation Slides and the most recent draft are available at <https://judgelord.github.io/research/whymail>"
+date: "`r Sys.Date()`"
+abstract: | 
+  THIS DRAFT WAS PREPARED FOR THE 2020 AMERICAN POLITICAL ECONOMY WORKSHOP. PRESENTATION SLIDES AND THE MOST RECENT DRAFT ARE [HERE](https://judgelord.github.io/research/whymail/) 
+  
+  \bigskip
+  
+  `r readLines(here::here("02-pressure/abstract.txt"))`
+#site: bookdown::bookdown_site
+# documentclass: book
+bibliography: '`r here::here("assets/dissertation.bib")`'
+# biblio-style: apalike
+biblio-style: '`r here::here("assets/apsr.bst")`'
+link-citations: yes
+# endnotes: true # CHANGE THIS TO true BEFORE SUBMISSION
+frontpage: true
+# spacing: doublespacing
+# github-repo: https://github.com/judgelord/dissertation
+# description: ""
+# keywords: Interest groups, rulemaking, lobbying, bureaucratic politics, data sources
+
+output:
+   pdf_document:
+      template: 'article-template.tex' # redirect to assets
+      keep_tex: true
+      latex_engine: xelatex
+      citation_package: natbib
+      fig_caption: true
+# GIT RID OF THIS 
+#  includes:
+#      in_header: "preamble.tex" # '`r here::here("preamble.tex")`'
+# \input{preamble.tex}
+# % \usepackage{figcaps}
+# % \setlength{\parskip}{1em}
+
+---
+
+
+**Note to reader:** Thank you so much for reading this draft. For context, this dissertation chapter develops concepts and measures of public engagement in agency rulemaking that will be used in chapters 3 and 4. The methods are under construction, and the few empirical claims are very tentative.
+<!--%In the dissertation, I argue that mass participation results from interest groups' strategic choices. When lobbying organizations have an opportunity to shape policy, the resources to mobilize, and broader support than their opposition, outside lobbying (``going public'') may produce valuable, politically-relevant information. Depending on how agencies process political information, outside lobbying may %be a plausible strategy for organizations to 
+%influence policy, both directly and indirectly.
+%For example, those lobbying in rulemaking often make dubious claims to represent broad segments of the public. Mobilizing a large number of people may directly support such claims.
+%Indirectly, it may alert elected officials to political risks and opportunities, affecting oversight behavior. % and thus shifting bureaucrats' relationships with their political principals. % It remains to be seen if conditions under which this is plausible ever occur and, if so, if mass engagement does indeed influence policy. 
+-->
+
+
+
+```{r child = here::here("outline.md")}
+```
+
+# Introduction
+\label{intro}
+
+```{r child = here::here("intro.md")}
+```
+
+
+```{r child = here::here("02-pressure/intro-motivation.text")}
+```
+
+
+
+# Theory
+
+<!--% MAIN QUESTION --> 
+
+\paragraph{Incorporating mass engagement into theories of bureaucratic policymaking.}
+How, if at all, should scholars incorporate mass engagement into models of bureaucratic policymaking? 
+ I argue that mass engagement produces potentially valuable political information about the coalition that mobilized it.
+Thus, depending on how agencies process political information, ``going public'' may occasionally be an effective strategy for organizations to influence policy, both directly and indirectly. However, influencing policy may not be the only reason to mobilize. 
+
+<!--  % % PREVIEW 
+
+The next section builds a causal theory. I theorize that activists' opportunities and strategies and latent public opinion drive engagement.
+
+% The following section outlines methodologies to assess my three overarching questions and their component parts. These methods rely on analysis of comment and policy texts as large-n observational data. -->
+
+
+### Why mobilize?
+\label{whymail-intro}
+```{r child = here::here("02-pressure/why-mobilize.md")}
+```
+
+
+
+# Methods
+
+### Measuring Public Pressure and Political Information
+\label{whyMail-methods}
+
+```{r child = here::here("02-pressure/methods.md")}
+```
+
+
+
+# Results: Patterns of Public Engagement in Rulemaking
+\label{whyMail-results}
+```{r child = here::here("02-pressure/results.md")}
+```
+
+# Conclusion
+
+```{r child = here::here("conclusion.md")}
+```
+
+
+\newpage
+# Appendix
+
+
+\begin{figure}[h!]
+    \centering
+        \caption{Rules ranked by number of comments posted to regulations.gov}
+    \includegraphics[width = 6.5in]{../Figs/rules-ranked-comments-per-year-1.png}
+    \label{fig:rules-ranked}
+\end{figure}
+
+\begin{figure}[p!]
+    \centering
+        \caption{Major and non-major rules on regulations.gov}
+    \includegraphics[width = 7in]{../Figs/major-comments-density-1.png}
+    \label{fig:rules-major}
+\end{figure}
+
+\begin{figure}[p!]
+    \centering
+        \caption{Rules on regulations.gov by priority level}
+    \includegraphics[width = 7in]{../Figs/priority-comment-density-1.png}
+    \label{fig:rules-priority}
+\end{figure}
+
+<!--% FULL CAUSAL
+```{r child = here::here("tikz/causal-full.tex")}
+```
+-->
+
+\clearpage 
+
+\begin{figure}
+    \caption{Unique or partially unique comments by sentiment score (sample of 2018 rules)}
+    \label{fig:sentiment-2018}
+    \centering
+    \includegraphics[width = 7in]{../Figs/sent-2018ATF-2018-0001.png}
+    \includegraphics[width = 7in]{../Figs/sent-2018ATF-2018-0002.png}
+    \includegraphics[width = 7in]{../Figs/sent-2018BIS-2018-0006.png}
+    \includegraphics[width = 7in]{../Figs/sent-2018BLM-2018-0001.png}
+    \includegraphics[width = 7in]{../Figs/sent-2018BSEE-2018-0002.png}
+    \includegraphics[width = 7in]{../Figs/sent-2018CEQ-2018-0001.png}
+\end{figure}
+
+\begin{figure}
+    \caption{Unique or partially unique comments by sentiment score (sample of 2016 rules)}
+    \label{fig:sentiment-2016}
+    \centering
+    \includegraphics[width = 7in]{../Figs/sent-2016BLM-2016-0001.png}
+    \includegraphics[width = 7in]{../Figs/sent-2016CMS-2016-0116.png}
+    \includegraphics[width = 7in]{../Figs/sent-2016EPA-HQ-OAR-2016-0004.png}
+    \includegraphics[width = 7in]{../Figs/sent-2016FWS-HQ-ES-2016-0010.png}
+    \includegraphics[width = 7in]{../Figs/sent-2016HHS-OS-2016-0014.png}
+    \includegraphics[width = 7in]{../Figs/sent-2016NOAA-2005-0226.png}
+\end{figure}
+
+
