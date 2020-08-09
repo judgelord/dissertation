@@ -38,6 +38,46 @@
 
 
 
+  \usepackage{color}
+  \usepackage{fancyvrb}
+  \newcommand{\VerbBar}{|}
+  \newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+  % Add ',fontsize=\small' for more characters per line
+  \usepackage{framed}
+  \definecolor{shadecolor}{RGB}{248,248,248}
+  \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+  \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+  \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+  \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+  \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+  \newcommand{\BuiltInTok}[1]{#1}
+  \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+  \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+  \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+  \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+  \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+  \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+  \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+  \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+  \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+  \newcommand{\ExtensionTok}[1]{#1}
+  \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+  \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+  \newcommand{\ImportTok}[1]{#1}
+  \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+  \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+  \newcommand{\NormalTok}[1]{#1}
+  \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+  \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+  \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+  \newcommand{\RegionMarkerTok}[1]{#1}
+  \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+  \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+  \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+  \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+  \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+  \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 
 
 
@@ -132,7 +172,7 @@
  
 
   \author{ % author, option footnote, optional affiliation
-            Devin Judge-Lord\footnote{University of Wisconsin-Madison, \href{mailto:judgelord@wisc.edu}{\nolinkurl{judgelord@wisc.edu}}. Presentation Slides and the most recent draft are available at \url{https://judgelord.github.io/research/whymail}} 
+            Devin Judge-Lord\footnote{University of Wisconsin-Madison, \href{mailto:judgelord@wisc.edu}{\nolinkurl{judgelord@wisc.edu}}. Slides and the most recent draft are available at \url{https://judgelord.github.io/research/whymail}} 
             }
 
 % auto-format date?
@@ -156,10 +196,12 @@
 
 
 
-
-% \usepackage{floatrow}
-% \floatsetup[figure]{capposition=top}
-% \floatsetup[table]{capposition=top}
+%\usepackage{float}
+%\floatstyle{plaintop}
+%\restylefloat{table}
+\usepackage{floatrow}
+\floatsetup[figure]{capposition=top}
+\floatsetup[table]{capposition=top}
 \usepackage{multirow}
 \usepackage{rotating} 
 \usepackage{caption}
@@ -185,6 +227,21 @@
 
 
 
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[section]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
 \begin{document}
  
 
@@ -198,7 +255,7 @@
 
 
   \begin{abstract}
-    \noindent THIS DRAFT WAS PREPARED FOR THE 2020 AMERICAN POLITICAL ECONOMY WORKSHOP. PRESENTATION SLIDES AND THE MOST RECENT DRAFT ARE \href{https://judgelord.github.io/research/whymail/}{HERE}
+    \noindent THIS DRAFT WAS PREPARED FOR THE 2020 AMERICAN POLITICAL ECONOMY WORKSHOP. SLIDES AND THE MOST RECENT DRAFT ARE \href{https://judgelord.github.io/research/whymail/}{HERE}
 
 \bigskip
 
@@ -212,11 +269,6 @@ I examine who participates in public pressure campaigns and why. Scholars of bur
 
 % --- PAGE: contents -----------------------
 
- 
-      \newpage
-    \hypersetup{linkcolor = black}
-  \setcounter{tocdepth}{2}
-  \tableofcontents
 
 
 
@@ -231,6 +283,14 @@ I examine who participates in public pressure campaigns and why. Scholars of bur
  
    
    
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include\_graphics}\NormalTok{(here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"Figs/sierra2.jpeg"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Mass Mobilization Campaign by the Sierra Club Collects Contact Information
+
 \textbf{Note to reader:} Thank you so reading this draft. For context, this dissertation chapter develops concepts and measures of public engagement in rulemaking that I apply in chapters 3 and 4. The methods are under construction, and the empirical claims are tentative.
 
 This project aims to better understand the role of ordinary people in bureaucratic policymaking.
@@ -256,7 +316,7 @@ I systematically identify changes between draft and final rules, parse these dif
 
 \textbf{Chapter 5 presents a case study of the environmental justice movement.} I identify all rules where ``environmental justice'' is raised in the comments to assess agency responses both quantitatively and qualitatively. In preliminary analysis, I find that responsiveness to environmental justice activist comments varies in predictable ways across agencies, but I find no evidence that the total number of comments affects rules.
 
-\textbf{Chapter 6} concludes with remarks for scholars on the study of bureaucratic policymaking and policy recomendations to better account for the fact that public pressure campains and the bursts of civic engagment they mobilize will be an enduring feature of the policy process.
+\textbf{Chapter 6} concludes with remarks on the study of bureaucratic policymaking and policy recomendations to better account for the fact that public pressure campains and the bursts of civic engagment they mobilize will be an enduring feature of the policy process.
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
@@ -409,7 +469,7 @@ mobilization campaign.\footnote{Some of the most contentious recent public contr
 the ease of online mobilizing and commenting has, like other forms of
 participation \citep{Boulianne2018}, created exponential increases in the
 number of rules in which thousands and even millions of people engage
-(see Figure @ref(fig:comments\_per\_rule); note that comments per rule are on a
+(see Figure \ref{fig:commentsperrule}; note that comments per rule are on a
 logarithmic scale).\footnote{Proposed rules that have attracted the most public attention have
   been published by the Federal Communications Commission (FCC,
   omitted from this plot), the Environmental Protection Agency (EPA),
@@ -432,7 +492,7 @@ decisions.\footnote{I focus on public comments in rulemaking, but the theories a
   quickly identify whether there are significant or meaningful
   objections'' (p.~34).} Big red letters across the top of the Regulations.gov
 homepage solicit visitors to ``Make a difference. Submit your comments
-and let your voice be heard'' (Figure @ref(fig:regs.gov). A
+and let your voice be heard'' (Figure \ref{fig:regsgov}. A
 blue ``Comment Now!'' button accompanies a short description of each draft
 policy and pending agency action. Another invitation at the bottom of
 the page reads ``Participate today!'' Public commenting on proposed agency
@@ -445,26 +505,30 @@ contributing to the democracy.'' Despite much debate about the
 theoretical import and possible reforms, the bulk of public comments
 have yet to be studied.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include\_graphics}\NormalTok{(}\StringTok{"../Figs/regulations{-}header.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Regulations.gov Solicits Public Comments on Draft Agency Rules
+
 \begin{figure}
-\hypertarget{fig:regs.gov}{%
 \centering
-\includegraphics[width=6.5in,height=\textheight]{../Figs/regulations-header.png}
-\caption{Regulations.gov Solicits Public Comments on Draft Agency Rules}\label{fig:regs.gov}
-}
+\includegraphics{../Figs/regulations-header.png}
+\caption{Regulations.gov Solicits Public Comments on Draft Agency Rules \label{fig:regsgov}}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=6.5in,height=\textheight]{../Figs/comments-mass-vs-unique-1.png}
-\caption{Comments on Proposed Rules per Year (\#fig:comments\_per\_year)}
+\caption{Comments on Proposed Rules per Year \label{fig:commentsperyear}}
 \end{figure}
 
 \begin{figure}
-\hypertarget{fig:comments_per_rule}{%
 \centering
 \includegraphics[width=4.5in,height=\textheight]{../Figs/rules-comments-per-year-1.png}
-\caption{Comments per Rule}\label{fig:comments_per_rule}
-}
+\caption{Comments per Rule\label{fig:commentsperrule}}
 \end{figure}
 
 While ``ordinary'' members of the public may occasionally provide novel
@@ -483,7 +547,7 @@ suggest specific edits to policy texts like the interest group comments
 that have thus far captured the attention of political scientists. If
 they add information to rulemaking, it is a different, more political
 flavor of information. Indeed as Figure
-@ref(fig:comments\_per\_year) shows, every year since 2008, most people who
+\ref{fig:commentsperyear} shows, every year since 2008, most people who
 comment on draft regulations have done so as a result of an interest
 group's campaign.\footnote{At least for agencies participating in regulations.gov. See
   sections
@@ -558,15 +622,17 @@ As noted above, scholars of bureaucratic policymaking have focused on
 the sophisticated lobbying efforts of powerful interest groups such as
 business coalitions. A key insight from this scholarship is that
 technical information is the currency of insider lobbying. Figure
-\ref{fig:causal-classic-lobbying}\label{fig:causal-classic-lobbying}\{reference-type=``ref''
-reference=``fig:causal-classic-lobbying''\} illustrates the classic causal
+\ref{fig:causal-classic} illustrates the classic causal
 model of insider lobbying that describes most rulemakings and nearly all
-scholarship on lobbying in bureaucratic policymaking to date.\footnote{Diamonds indicate observable choices, ovals indicate latent
-  preferences, and rectangles indicate information.}
+scholarship on lobbying in bureaucratic policymaking to date.\footnote{Diamonds indicate observable choices, ovals indicate latent preferences, and rectangles indicate information.}
 However, mass engagement has no place in this model. I aim to fill this
 gap.
 
-The `Classic Model' of Interest Group Lobbying in Bureaucratic Policymaking
+\begin{figure}
+\centering
+\includegraphics{../present/classicmodel.png}
+\caption{The `Classic Model' of Interest Group Lobbying in Bureaucratic Policymaking \label{fig:causal-classic}}
+\end{figure}
 
 First, I offer a framework for assessing the causes of mass engagement.
 Next, I argue that organizations may mobilize large numbers of people
@@ -677,7 +743,7 @@ specific policy issues, most members of the public and their elected
 representatives may only learn about the issue and take a position as a
 result of a public pressure campaign \citep{Hutchings2003}. I thus consider
 public demands to be a latent factor in my model of policymaking (Figure
-\ref{fig:causal-full}. Public demands shape the decisions of
+\ref{fig:causal-whymail}. Public demands shape the decisions of
 groups who lobby in rulemaking. If they believe the attentive public is
 on their side, groups may attempt to reveal this political information
 to policymakers by launching a mass mobilization campaign. The public
@@ -685,7 +751,7 @@ response to the campaign depends on the extent that the attentive public
 is passionate about the issue.
 
 Figure \ref{causal-whymail} amends the ``Classic Model''" of interest
-group lobbying (Figure \ref{causal-classic} to incorporate the above
+group lobbying (Figure \ref{fig:causal-classic} to incorporate the above
 intuitions. In addition to providing technical information, for example
 through sophisticated comments, an organization may mobilize supporters.
 The more support a group has, the more successful this effort will be.
@@ -740,6 +806,13 @@ decisionmakers perceive a consensus.\footnote{For example, consensus among inter
   a majoritarian logic \citep{Mendelson2011}), or simply that unified
   demands are easier to process than opposing demands.}
 
+\begin{theorem}
+\protect\hypertarget{thm:support}{}{\label{thm:support} }Lobbying coalitions
+mobilize mass engagement when they perceive the attentive public is on
+their side, have sufficient resources, and perceive an opportunity to
+influence policy.
+\end{theorem}
+
 The key part of this hypothesis is that mobilizing is correlated with
 existing public support, what might be called ``grass-roots'' support. The
 converse, that organizations mobilize when they have less public
@@ -772,6 +845,14 @@ that these are coalitions with less intense public support and its aim
 is prevent a perceived consensus, I expect such campaigns to engage
 fewer people, less effort per person, and yield a smaller portion of
 indirect engagement.
+
+\begin{theorem}
+\protect\hypertarget{thm:disrupt}{}{\label{thm:disrupt} }When a lobbying
+coalition with more intense public support mobilizes successfully in
+response to an opportunity to influence policy, opposing coalitions with
+less public support are more likely to counter-mobilize, but with
+proportionally smaller results.
+\end{theorem}
 
 The first part of Hypothesis
 \ref{thm:disrupt} would be undermined if lobbying organizations
@@ -806,7 +887,11 @@ of the public who wanted to voice their opinion, the Sierra Club created
 an easy way to do so, as long as users consented to ``receive periodic
 communication from the Sierra Club.''
 
-Mass mobilization campaign by the Sierra Club collects contact information
+\begin{figure}
+\centering
+\includegraphics{../Figs/sierra2.jpeg}
+\caption{Mass mobilization campaign by the Sierra Club collects contact information \label{fig:sierra}}
+\end{figure}
 
 While such campaigns may engage many people, they are unlikely to affect
 policy or to inspire countermobilization. I expect such campaigns to
@@ -833,16 +918,20 @@ likely in these cases. Table
 engagement suggested by each of the three reasons behind mass-comment
 campaigns.
 
-\begin{longtable}[]{@{}lclcl@{}}
-\caption{\label{tab:campaigns-patterns} Observable differences in engagement across types of
-mass-mobilization campaigns}\tabularnewline
+\begin{longtable}[]{@{}lccc@{}}
+\caption{\label{tab:campaigns-patterns} Observable Differences in Lobbying Strategies}\tabularnewline
 \toprule
+& Inside lobbying & Outside lobbying &\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+& Inside lobbying & Outside lobbying &\tabularnewline
+\midrule
 \endhead
-& Inside & & Outside &\tabularnewline
-& Technical information & Number of comments & Effort & Contagion\tabularnewline
-Going public & High & High & High & High\tabularnewline
-Disrupting & High & Low & Low & Low\tabularnewline
-Going down fighting & Low & High & High & High\tabularnewline
+``Normal'' lobbying & High & None &\tabularnewline
+``Going public'' & High & High &\tabularnewline
+``Disrupting consensus'' & High & Low &\tabularnewline
+``Going down fighting'' & Low & High &\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -890,6 +979,12 @@ have sufficient resources to run a campaign. If true, one implication is
 that mass mobilization will systematically run counter to concentrated
 business interests where they conflict with the values of public
 interest groups with sufficient resources to mobilize.
+
+\begin{theorem}
+\protect\hypertarget{thm:publicinterest}{}{\label{thm:publicinterest} }
+Public interest group coalitions mobilize more often than
+business-driven coalitions.
+\end{theorem}
 
 Hypothesis
 \ref{thm:publicinterest} posits a conditional logic in the
@@ -1214,7 +1309,11 @@ If mass engagement does shape agency decisions, a new research program will be n
 \hypertarget{appendix}{%
 \section{Appendix}\label{appendix}}
 
-The Role of Mass Commenting and Political Information in Bureaucratic Policymaking
+\begin{figure}
+\centering
+\includegraphics{../present/model.png}
+\caption{The Role of Mass Commenting and Political Information in Bureaucratic Policymaking (\#causal-full)}
+\end{figure}
 
 \begin{figure}[h!]
     \centering

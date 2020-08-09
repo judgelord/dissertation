@@ -22,3 +22,5 @@ bookdown::pdf_book:
 #  keep_tex: yes
 
 # bookdown::epub_book: default
+
+word_document: default

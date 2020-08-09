@@ -12,17 +12,14 @@ As noted above, scholars of bureaucratic policymaking have focused on
 the sophisticated lobbying efforts of powerful interest groups such as
 business coalitions. A key insight from this scholarship is that
 technical information is the currency of insider lobbying. Figure
-\@ref(fig:causal-classic-lobbying)(#fig:causal-classic-lobbying){reference-type="ref"
-reference="fig:causal-classic-lobbying"} illustrates the classic causal
+\@ref(fig:causal-classic) illustrates the classic causal
 model of insider lobbying that describes most rulemakings and nearly all
-scholarship on lobbying in bureaucratic policymaking to date.^[Diamonds indicate observable choices, ovals indicate latent
-    preferences, and rectangles indicate information.]
+scholarship on lobbying in bureaucratic policymaking to date.^[Diamonds indicate observable choices, ovals indicate latent preferences, and rectangles indicate information.]
 However, mass engagement has no place in this model. I aim to fill this
 gap.
 
-```{r causal-cclassic-lobbying, fig.cap="The 'Classic Model' of Interest Group Lobbying in Bureaucratic Policymaking"}
-knitr::include_graphics("../present/classicmodel.png")
-```
+![The 'Classic Model' of Interest Group Lobbying in Bureaucratic Policymaking (\#fig:causal-classic)](../present/classicmodel.png)
+
 
 First, I offer a framework for assessing the causes of mass engagement.
 Next, I argue that organizations may mobilize large numbers of people
@@ -130,7 +127,7 @@ specific policy issues, most members of the public and their elected
 representatives may only learn about the issue and take a position as a
 result of a public pressure campaign [@Hutchings2003]. I thus consider
 public demands to be a latent factor in my model of policymaking (Figure
-\@ref(fig:causal-full). Public demands shape the decisions of
+\@ref(fig:causal-whymail). Public demands shape the decisions of
 groups who lobby in rulemaking. If they believe the attentive public is
 on their side, groups may attempt to reveal this political information
 to policymakers by launching a mass mobilization campaign. The public
@@ -138,7 +135,7 @@ response to the campaign depends on the extent that the attentive public
 is passionate about the issue.
 
 Figure \@ref(causal-whymail) amends the "Classic Model"" of interest
-group lobbying (Figure \@ref(causal-classic) to incorporate the above
+group lobbying (Figure \@ref(fig:causal-classic) to incorporate the above
 intuitions. In addition to providing technical information, for example
 through sophisticated comments, an organization may mobilize supporters.
 The more support a group has, the more successful this effort will be.
@@ -273,11 +270,9 @@ of the public who wanted to voice their opinion, the Sierra Club created
 an easy way to do so, as long as users consented to "receive periodic
 communication from the Sierra Club."
 
-```{r fig:sierra, fig.height = 4, fig.cap = "Mass mobilization campaign by the Sierra Club collects contact information"}
+![Mass mobilization campaign by the Sierra Club collects contact information (\#fig:sierra)](../Figs/sierra2.jpeg)
 
-knitr::include_graphics("../Figs/sierra2.jpeg")
 
-```
 
 
 While such campaigns may engage many people, they are unlikely to affect
@@ -305,16 +300,26 @@ likely in these cases. Table
 engagement suggested by each of the three reasons behind mass-comment
 campaigns.
 
+<!--Table: (\#tab:campaigns-patterns) Observable differences in engagement across types of
+  mass-mobilization campaigns
   --------------------- ----------------------- -------------------- --------- -----------
-                                Inside                                Outside  
                          Technical information   Number of comments   Effort    Contagion
   Going public                   High                   High           High       High
   Disrupting                     High                   Low             Low        Low
   Going down fighting             Low                   High           High       High
   --------------------- ----------------------- -------------------- --------- -----------
+-->
 
-Table: (\#tab:campaigns-patterns) Observable differences in engagement across types of
-  mass-mobilization campaigns
+Table: (\#tab:campaigns-patterns) Observable Differences in Lobbying Strategies
+  
+| | Inside lobbying | Outside lobbying |
+|:---|:---:|:---:|:---:|
+| "Normal" lobbying | High | None | 
+| "Going public" | High | High |
+| "Disrupting consensus" | High | Low | 
+| "Going down fighting" | Low | High |
+
+
 
 As Table
 \@ref(tab:campaigns-patterns) suggests, the relevant statistic
@@ -360,9 +365,11 @@ that mass mobilization will systematically run counter to concentrated
 business interests where they conflict with the values of public
 interest groups with sufficient resources to mobilize.
 
-```{theorem, label = "thm:publicinterest"}
+```{theorem, publicinterest}
+
 Public interest group coalitions mobilize more often than
 business-driven coalitions.
+
 ```
 
 Hypothesis

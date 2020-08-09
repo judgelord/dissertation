@@ -5,10 +5,10 @@ subtitle: Public Pressure Campaigns and Bureaucratic Policymaking
 author:
 - name: Devin Judge-Lord
   affiliation: 
-  footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Presentation Slides and the most recent draft are available at <https://judgelord.github.io/research/whymail>"
+  footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/whymail>"
 date: "`r Sys.Date()`"
 abstract: | 
-  THIS DRAFT WAS PREPARED FOR THE 2020 AMERICAN POLITICAL ECONOMY WORKSHOP. PRESENTATION SLIDES AND THE MOST RECENT DRAFT ARE [HERE](https://judgelord.github.io/research/whymail/) 
+  THIS DRAFT WAS PREPARED FOR THE 2020 AMERICAN POLITICAL ECONOMY WORKSHOP. SLIDES AND THE MOST RECENT DRAFT ARE [HERE](https://judgelord.github.io/research/whymail/) 
   
   \bigskip
   
@@ -29,11 +29,14 @@ frontpage: true
 output:
     bookdown::pdf_document2:
       template: '../assets/article-template.tex' # redirect to assets 
-      keep_tex: false
+      keep_tex: true
       latex_engine: xelatex
       citation_package: natbib
+      toc: false
       fig_caption: true
+      fig.topcaption: true
       fig_width: 7
+    word_document: default
 ---
 
 ```{r global.options, include=FALSE}
@@ -45,15 +48,20 @@ knit_hooks$set(plot = function(x, options) {
         sep = '')
 })
 
-knitr::opts_chunk$set(echo = FALSE, 
-                      cache = F, 
+knitr::opts_chunk$set(echo = TRUE, 
+                      cache = TRUE, 
                       fig.width=6.5, 
                       fig.align = 'center', 
                       fig.path='Figs/',
-                      warning=FALSE, 
-                      message=FALSE)
+                      warning=TRUE, 
+                      message=TRUE)
 ```
 
+```{r sierra2, out.width="10%",fig.cap = "Mass Mobilization Campaign by the Sierra Club Collects Contact Information"}
+
+knitr::include_graphics(here::here("Figs/sierra2.jpeg"))
+
+```
 
 **Note to reader:** Thank you so reading this draft. For context, this dissertation chapter develops concepts and measures of public engagement in rulemaking that I apply in chapters 3 and 4. The methods are under construction, and the empirical claims are tentative.
 <!--%In the dissertation, I argue that mass participation results from interest groups' strategic choices. When lobbying organizations have an opportunity to shape policy, the resources to mobilize, and broader support than their opposition, outside lobbying (``going public'') may produce valuable, politically-relevant information. Depending on how agencies process political information, outside lobbying may %be a plausible strategy for organizations to 
@@ -124,9 +132,7 @@ The next section builds a causal theory. I theorize that activists' opportunitie
 # Appendix
 
 
-```{r fig:causal-full, fig.cap="The Role of Mass Commenting and Political Information in Bureaucratic Policymaking"}
-knitr::include_graphics("../present/model.png")
-```
+![The Role of Mass Commenting and Political Information in Bureaucratic Policymaking (\#causal-full)](../present/model.png)
 
 
 \begin{figure}[h!]
