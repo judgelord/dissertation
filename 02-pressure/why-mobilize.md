@@ -12,12 +12,17 @@ As noted above, scholars of bureaucratic policymaking have focused on
 the sophisticated lobbying efforts of powerful interest groups such as
 business coalitions. A key insight from this scholarship is that
 technical information is the currency of insider lobbying. Figure
-[\[fig:causal-classic-lobbying\]](#fig:causal-classic-lobbying){reference-type="ref"
+\@ref(fig:causal-classic-lobbying)(#fig:causal-classic-lobbying){reference-type="ref"
 reference="fig:causal-classic-lobbying"} illustrates the classic causal
 model of insider lobbying that describes most rulemakings and nearly all
-scholarship on lobbying in bureaucratic policymaking to date.[^1]
+scholarship on lobbying in bureaucratic policymaking to date.^[Diamonds indicate observable choices, ovals indicate latent
+    preferences, and rectangles indicate information.]
 However, mass engagement has no place in this model. I aim to fill this
 gap.
+
+```{r causal-cclassic-lobbying, fig.cap="The 'Classic Model' of Interest Group Lobbying in Bureaucratic Policymaking"}
+knitr::include_graphics("../present/classicmodel.png")
+```
 
 First, I offer a framework for assessing the causes of mass engagement.
 Next, I argue that organizations may mobilize large numbers of people
@@ -58,7 +63,9 @@ petitions effectively channel public interests, but, at a minimum,
 engaging a large number of supporters may help broader interests to
 distinguish themselves from truly narrower ones. It suggests that the
 organization is not "memberless" [@Skocpol2003] in the sense that they
-can demonstrate some verifiable public support.[^2]
+can demonstrate some verifiable public support.^[Public support can be faked or inflated using "astroturf" tactics
+    but as I argue below, such campaigns ought to have observably
+    different patterns of engagement.]
 
 Here I build on three insights. First, @Furlong1997 and @Kerwin2011
 identify mobilization as a tactic. The organizations that they surveyed
@@ -102,7 +109,12 @@ opinion polls. I build from a similar intuition that mass comment
 campaigns currently function like a poll or, more accurately, a
 petition, capturing the intensity of preferences among the attentive
 public---i.e., how many people are willing to take the time to
-engage.[^3] Self-selection may not be ideal for representation, but
+engage.^[For example, a campaign by the World Wildlife Federation provided
+    language explicitly claiming to have public opinion on their side.
+    Their model comment stated that "Along with 80% of the American
+    people, I strongly support ending commercial trade in elephant ivory
+    in the US." This suggests that mass comment campaigns aim to signal
+    information about public opinion.] Self-selection may not be ideal for representation, but
 opt-in participation---whether voting, attending a hearing, or writing a
 comment---may often be one of the few heuristics decisionmakers have
 about public preferences.
@@ -118,33 +130,30 @@ specific policy issues, most members of the public and their elected
 representatives may only learn about the issue and take a position as a
 result of a public pressure campaign [@Hutchings2003]. I thus consider
 public demands to be a latent factor in my model of policymaking (Figure
-[\[fig:causal-whymail\]](#fig:causal-whymail){reference-type="ref"
-reference="fig:causal-whymail"}). Public demands shape the decisions of
+\@ref(fig:causal-full). Public demands shape the decisions of
 groups who lobby in rulemaking. If they believe the attentive public is
 on their side, groups may attempt to reveal this political information
 to policymakers by launching a mass mobilization campaign. The public
 response to the campaign depends on the extent that the attentive public
 is passionate about the issue.
 
-Figure
-[\[fig:causal-whymail\]](#fig:causal-whymail){reference-type="ref"
-reference="fig:causal-whymail"} amends the Classic Model of interest
-group lobbying (Figure
-[\[fig:causal-classic-lobbying\]](#fig:causal-classic-lobbying){reference-type="ref"
-reference="fig:causal-classic-lobbying"}) to incorporate the above
+Figure \@ref(causal-whymail) amends the "Classic Model"" of interest
+group lobbying (Figure \@ref(causal-classic) to incorporate the above
 intuitions. In addition to providing technical information, for example
 through sophisticated comments, an organization may mobilize supporters.
 The more support a group has, the more successful this effort will be.
 Large-scale engagement may produce several types of relevant political
 information. The most direct and obvious is the expressed "public
-opinion" that policymakers observe.[^4]
+opinion" that policymakers observe.^[I address other types of political information that mass
+    engagement may create elsewhere. For an expanded model, see Figure
+    \@ref(causal-full) in the Appendix.
+]
 
 The causal process visualized in Figure
-[\[fig:causal-whymail\]](#fig:causal-whymail){reference-type="ref"
-reference="fig:causal-whymail"} only operates under certain conditions,
+\@ref(fig:causal-whymail) only operates under certain conditions,
 one of those being that mobilization is aimed at influencing policy.
 
-### Hypotheses about the drivers of mass mobilization
+## Hypotheses about the drivers of mass mobilization
 
 ### Types of campaigns
 
@@ -158,21 +167,37 @@ situation where the organization does not expect to influence policy but
 mobilizes for other reasons.
 
 **Going public.** Coalitions "go public" when they believe that
-expanding the scope of conflict gives them an advantage.[^5] As these
+expanding the scope of conflict gives them an advantage.^["Going public," "outside lobbying" or an "outside strategy"
+    contrasts with insider lobbying. It is used by Presidents
+    [@Kernell2007], Members of Congress [@Malecha2012], interest groups
+    [@Walker1991; @Dur2013], Lawyers, and Judges (Davis 2011). For
+    example, organizations may use phone banks, targeting strategies,
+    and direct-mail techniques to drum-up and channel public support
+    (Cooper 1985).] As these
 are the coalitions that believe they have more intense public
-support[^6], mass engagement is likely to skew heavily toward this side.
+support, mass engagement is likely to skew heavily toward this side.^[This strategy is likely to be used by those disadvantaged (those
+    @Schattschneider1975 calls the 'losers') in a policy process with
+    less public attention.]
 Indeed, @Potter2017 finds that advocacy group-driven campaigns mobilize
 far more people on average than industry-driven campaigns. Additionally,
 many people may be inspired indirectly (e.g., through news stories) or
 to engage with more effort (e.g., writing longer comments) than people
 mobilized by the side with less public support. This is important
 because political information may be especially influential if
-decisionmakers perceive a consensus.[^7]
+decisionmakers perceive a consensus.^[For example, consensus among interest groups
+    [@Golden1998; @Yackee2006JPART], especially business unity
+    [@Yackee2006JOP; @Haeder2015], predicts policy change, though it is
+    not clear if this is a result of strategic calculation, a perceived
+    obligation due to the normative power of consensus (e.g., following
+    a majoritarian logic [@Mendelson2011]), or simply that unified
+    demands are easier to process than opposing demands.]
 
-[\[hyp:support\]]{#hyp:support label="hyp:support"} Lobbying coalitions
+```{theorem,  support} 
+Lobbying coalitions
 mobilize mass engagement when they perceive the attentive public is on
 their side, have sufficient resources, and perceive an opportunity to
 influence policy.
+```
 
 The key part of this hypothesis is that mobilizing is correlated with
 existing public support, what might be called "grass-roots" support. The
@@ -183,13 +208,11 @@ their superior resources further to mobilize support to alter a bad
 reputation or bolster claims that they represent more than their private
 interest. If mobilization most often takes this "astro-turf" form, this
 would be evidence against Hypothesis
-[\[hyp:support\]](#hyp:support){reference-type="ref"
-reference="hyp:support"} and Schattschneider's argument that it is the
+\@ref(thm:support) and Schattschneider's argument that it is the
 disadvantaged who seek to expand the scope of the conflict.
 
 The latter parts of Hypothesis
-[\[hyp:support\]](#hyp:support){reference-type="ref"
-reference="hyp:support"} regarding sufficient resources and political
+\@ref(thm:support) regarding sufficient resources and political
 opportunity are scope conditions. Most organizations that are
 disadvantaged in low-salience rulemaking also lack resources to launch
 mass mobilization campaigns. If an organization does not perceive a
@@ -209,15 +232,16 @@ is prevent a perceived consensus, I expect such campaigns to engage
 fewer people, less effort per person, and yield a smaller portion of
 indirect engagement.
 
-[\[hyp:disrupt\]]{#hyp:disrupt label="hyp:disrupt"} When a lobbying
+```{theorem, disrupt}
+When a lobbying
 coalition with more intense public support mobilizes successfully in
 response to an opportunity to influence policy, opposing coalitions with
 less public support are more likely to counter-mobilize, but with
 proportionally smaller results.
+```
 
 The first part of Hypothesis
-[\[hyp:disrupt\]](#hyp:disrupt){reference-type="ref"
-reference="hyp:disrupt"} would be undermined if lobbying organizations
+\@ref(thm:disrupt) would be undermined if lobbying organizations
 with less public support are no more likely to engage in outside
 lobbying when their opposition does so. While @Potter2017 found industry
 groups were no more likely to advocate for rules to be strengthened,
@@ -277,8 +301,7 @@ fighting strategy. By identify cases where coalitions engage in large
 public campaigns without corresponding investment in sophisticated
 lobbying, I can assess whether countermobilization and is indeed less
 likely in these cases. Table
-[\[tab:campaigns-patterns\]](#tab:campaigns-patterns){reference-type="ref"
-reference="tab:campaigns-patterns"} specifies the general pattern of
+\@ref(tab:campaigns-patterns) specifies the general pattern of
 engagement suggested by each of the three reasons behind mass-comment
 campaigns.
 
@@ -290,15 +313,11 @@ campaigns.
   Going down fighting             Low                   High           High       High
   --------------------- ----------------------- -------------------- --------- -----------
 
-  : Observable differences in engagement across types of
+Table: (\#tab:campaigns-patterns) Observable differences in engagement across types of
   mass-mobilization campaigns
 
-[\[tab:campaigns-patterns\]]{#tab:campaigns-patterns
-label="tab:campaigns-patterns"}
-
 As Table
-[\[tab:campaigns-patterns\]](#tab:campaigns-patterns){reference-type="ref"
-reference="tab:campaigns-patterns"} suggests, the relevant statistic
+\@ref(tab:campaigns-patterns) suggests, the relevant statistic
 distinguishing patterns is the *relative* number of each type of comment
 on each side on a given rulemaking docket. Even among rules targeted by
 campaigns, salience varies significantly and thus "high" and "low"
@@ -317,7 +336,22 @@ While coalitions may form around various material and ideological
 conflicts, those most likely to be advantaged by going public or going
 down fighting are public interest groups---organizations primarily
 serving an idea of the public good rather than the material interests of
-their members.[^8] Thus, I theorize that mass mobilization is most
+their members.^[@Potter2017 similarly distinguishes "advocacy groups" from
+    "industry groups." @Berry1999 calls these groups "citizen groups"
+    and emphasizes conflict over cultural issues. While some public
+    interest groups focus on conservative or progressive cultural
+    issues, like religious education, immigration, or endangered
+    species, many are more focused on the public provision or protection
+    of public goods such as national parks, consumer product safety
+    standards, air quality, drinking water, and public safety.
+    One exception may be types of membership organizations that are both
+    broad and often focused on material outcomes for their members such
+    as labor unions. @Potter2017 puts unions in the "Industry" category.
+    I take a different approach based on the coalition with whom such
+    groups lobby. If a union lobbies alongside businesses, I classify
+    this as a private interest-driven coalition. If a union lobbies with
+    public interest groups on public health or safety issues, I classify
+    this as a public interest.] Thus, I theorize that mass mobilization is most
 likely to occur in conflicts of public versus private interests or
 public versus public interests (i.e., between coalitions led by groups
 with distinct cultural ideals or desired public goods), provided they
@@ -326,13 +360,13 @@ that mass mobilization will systematically run counter to concentrated
 business interests where they conflict with the values of public
 interest groups with sufficient resources to mobilize.
 
-[\[hyp:publicinterest\]]{#hyp:publicinterest label="hyp:publicinterest"}
+```{theorem, label = "thm:publicinterest"}
 Public interest group coalitions mobilize more often than
 business-driven coalitions.
+```
 
 Hypothesis
-[\[hyp:publicinterest\]](#hyp:publicinterest){reference-type="ref"
-reference="hyp:publicinterest"} posits a conditional logic in the
+\@ref(thm:publicinterest) posits a conditional logic in the
 decision to mobilize. If resources purely determined outside lobbying,
 business-driven coalitions would often dominate, as they do elsewhere.
 However, I argue, because outside lobbying can alter the decision
@@ -351,7 +385,10 @@ indicate more intense preferences. Finally, commenters who express
 solidarity in similar but distinct phrases indicate they were engaged
 indirectly, perhaps by a news story or a social media post about the
 campaign, as campaign messages spread beyond those initially
-targeted.[^9] Because the success of a mobilization effort is moderated
+targeted.^[It is possible that some people in this latter category engage
+    purely on their own initiative, but any impact they have likely
+    comes from their alignment with a coalition. Furthermore, as I show
+    below, wholly original comments are rare.] Because the success of a mobilization effort is moderated
 by public support, broader public interest group coalitions ought to
 mobilize more people, more effort per person, and more people indirectly
 for the same amount of mobilization effort (e.g., spending or
@@ -379,65 +416,3 @@ demands, and contagiousness are thus produced, but such political
 information will only influence decisions if these signals are processed
 in a way that captures this information and relays it to decisionmakers.
 These organizational processes may vary significantly across agencies.
-
-[^1]: Diamonds indicate observable choices, ovals indicate latent
-    preferences, and rectangles indicate information.
-
-[^2]: Public support can be faked or inflated using "astroturf" tactics
-    but as I argue below, such campaigns ought to have observably
-    different patterns of engagement.
-
-[^3]: For example, a campaign by the World Wildlife Federation provided
-    language explicitly claiming to have public opinion on their side.
-    Their model comment stated that "Along with 80% of the American
-    people, I strongly support ending commercial trade in elephant ivory
-    in the US." This suggests that mass comment campaigns aim to signal
-    information about public opinion.
-
-[^4]: I address other types of political information that mass
-    engagement may create elsewhere. For an expanded model, see Figure
-    [\[fig:causal-full\]](#fig:causal-full){reference-type="ref"
-    reference="fig:causal-full"} in the Appendix.
-
-[^5]: "Going public," "outside lobbying" or an "outside strategy"
-    contrasts with insider lobbying. It is used by Presidents
-    [@Kernell2007], Members of Congress [@Malecha2012], interest groups
-    [@Walker1991; @Dur2013], Lawyers, and Judges (Davis 2011). For
-    example, organizations may use phone banks, targeting strategies,
-    and direct-mail techniques to drum-up and channel public support
-    (Cooper 1985).
-
-[^6]: This strategy is likely to be used by those disadvantaged (those
-    @Schattschneider1975 calls the 'losers') in a policy process with
-    less public attention.
-
-[^7]: For example, consensus among interest groups
-    [@Golden1998; @Yackee2006JPART], especially business unity
-    [@Yackee2006JOP; @Haeder2015], predicts policy change, though it is
-    not clear if this is a result of strategic calculation, a perceived
-    obligation due to the normative power of consensus (e.g., following
-    a majoritarian logic [@Mendelson2011]), or simply that unified
-    demands are easier to process than opposing demands.
-
-[^8]: @Potter2017 similarly distinguishes "advocacy groups" from
-    "industry groups." @Berry1999 calls these groups "citizen groups"
-    and emphasizes conflict over cultural issues. While some public
-    interest groups focus on conservative or progressive cultural
-    issues, like religious education, immigration, or endangered
-    species, many are more focused on the public provision or protection
-    of public goods such as national parks, consumer product safety
-    standards, air quality, drinking water, and public safety.
-
-    One exception may be types of membership organizations that are both
-    broad and often focused on material outcomes for their members such
-    as labor unions. @Potter2017 puts unions in the "Industry" category.
-    I take a different approach based on the coalition with whom such
-    groups lobby. If a union lobbies alongside businesses, I classify
-    this as a private interest-driven coalition. If a union lobbies with
-    public interest groups on public health or safety issues, I classify
-    this as a public interest.
-
-[^9]: It is possible that some people in this latter category engage
-    purely on their own initiative, but any impact they have likely
-    comes from their alignment with a coalition. Furthermore, as I show
-    below, wholly original comments are rare.

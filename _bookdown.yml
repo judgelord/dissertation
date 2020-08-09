@@ -11,7 +11,7 @@ rmd_files:
   html:
   - index.Rmd
   - intro.md
-  - intro-conclusion
+  - 00-intro/00-intro-conclusion.text
   - 00-motivation.Rmd
   - 00-outline.Rmd
   - 01-rulemaking/00-abstract.Rmd

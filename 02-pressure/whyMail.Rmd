@@ -19,7 +19,7 @@ bibliography: '`r here::here("assets/dissertation.bib")`'
 # biblio-style: apalike
 biblio-style: '`r here::here("assets/apsr.bst")`'
 link-citations: yes
-# endnotes: true # CHANGE THIS TO true BEFORE SUBMISSION
+# endnotes: true # CHANGE THIS BEFORE SUBMISSION
 frontpage: true
 # spacing: doublespacing
 # github-repo: https://github.com/judgelord/dissertation
@@ -27,23 +27,35 @@ frontpage: true
 # keywords: Interest groups, rulemaking, lobbying, bureaucratic politics, data sources
 
 output:
-   pdf_document:
-      template: 'article-template.tex' # redirect to assets
-      keep_tex: true
+    bookdown::pdf_document2:
+      template: '../assets/article-template.tex' # redirect to assets 
+      keep_tex: false
       latex_engine: xelatex
       citation_package: natbib
       fig_caption: true
-# GIT RID OF THIS 
-#  includes:
-#      in_header: "preamble.tex" # '`r here::here("preamble.tex")`'
-# \input{preamble.tex}
-# % \usepackage{figcaps}
-# % \setlength{\parskip}{1em}
-
+      fig_width: 7
 ---
 
+```{r global.options, include=FALSE}
+library(knitr)
+knit_hooks$set(plot = function(x, options) {
+  paste('<figure><figcaption>', options$fig.cap, '</figcaption><img src="',
+        opts_knit$get('base.url'), paste(x, collapse = '.'),
+        '"></figure>',
+        sep = '')
+})
 
-**Note to reader:** Thank you so much for reading this draft. For context, this dissertation chapter develops concepts and measures of public engagement in agency rulemaking that will be used in chapters 3 and 4. The methods are under construction, and the few empirical claims are very tentative.
+knitr::opts_chunk$set(echo = FALSE, 
+                      cache = F, 
+                      fig.width=6.5, 
+                      fig.align = 'center', 
+                      fig.path='Figs/',
+                      warning=FALSE, 
+                      message=FALSE)
+```
+
+
+**Note to reader:** Thank you so reading this draft. For context, this dissertation chapter develops concepts and measures of public engagement in rulemaking that I apply in chapters 3 and 4. The methods are under construction, and the empirical claims are tentative.
 <!--%In the dissertation, I argue that mass participation results from interest groups' strategic choices. When lobbying organizations have an opportunity to shape policy, the resources to mobilize, and broader support than their opposition, outside lobbying (``going public'') may produce valuable, politically-relevant information. Depending on how agencies process political information, outside lobbying may %be a plausible strategy for organizations to 
 %influence policy, both directly and indirectly.
 %For example, those lobbying in rulemaking often make dubious claims to represent broad segments of the public. Mobilizing a large number of people may directly support such claims.
@@ -61,20 +73,17 @@ output:
 ```{r child = here::here("intro.md")}
 ```
 
-
-```{r child = here::here("02-pressure/intro-motivation.text")}
+```{r child = here::here("02-pressure/intro-motivation.md")}
 ```
-
-
 
 # Theory
 
 <!--% MAIN QUESTION --> 
 
-\paragraph{Incorporating mass engagement into theories of bureaucratic policymaking.}
+**Incorporating mass engagement into theories of bureaucratic policymaking.**
 How, if at all, should scholars incorporate mass engagement into models of bureaucratic policymaking? 
  I argue that mass engagement produces potentially valuable political information about the coalition that mobilized it.
-Thus, depending on how agencies process political information, ``going public'' may occasionally be an effective strategy for organizations to influence policy, both directly and indirectly. However, influencing policy may not be the only reason to mobilize. 
+Thus, depending on how agencies process political information, "going public" may occasionally be an effective strategy for organizations to influence policy, both directly and indirectly. However, influencing policy may not be the only reason to mobilize. 
 
 <!--  % % PREVIEW 
 
@@ -83,7 +92,7 @@ The next section builds a causal theory. I theorize that activists' opportunitie
 % The following section outlines methodologies to assess my three overarching questions and their component parts. These methods rely on analysis of comment and policy texts as large-n observational data. -->
 
 
-### Why mobilize?
+## Why mobilize?
 \label{whymail-intro}
 ```{r child = here::here("02-pressure/why-mobilize.md")}
 ```
@@ -92,7 +101,7 @@ The next section builds a causal theory. I theorize that activists' opportunitie
 
 # Methods
 
-### Measuring Public Pressure and Political Information
+## Measuring Public Pressure and Political Information
 \label{whyMail-methods}
 
 ```{r child = here::here("02-pressure/methods.md")}
@@ -113,6 +122,11 @@ The next section builds a causal theory. I theorize that activists' opportunitie
 
 \newpage
 # Appendix
+
+
+```{r fig:causal-full, fig.cap="The Role of Mass Commenting and Political Information in Bureaucratic Policymaking"}
+knitr::include_graphics("../present/model.png")
+```
 
 
 \begin{figure}[h!]
@@ -136,10 +150,7 @@ The next section builds a causal theory. I theorize that activists' opportunitie
     \label{fig:rules-priority}
 \end{figure}
 
-<!--% FULL CAUSAL
-```{r child = here::here("tikz/causal-full.tex")}
-```
--->
+
 
 \clearpage 
 
