@@ -8,7 +8,7 @@ author:
   footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/whymail>"
 date: "`r Sys.Date()`"
 abstract: | 
-  THIS DRAFT WAS PREPARED FOR THE 2020 AMERICAN POLITICAL ECONOMY WORKSHOP. SLIDES AND THE MOST RECENT DRAFT ARE [HERE](https://judgelord.github.io/research/whymail/) 
+  THIS DRAFT WAS PREPARED FOR THE 2020 APSA DISSERTATION WORKSHOP. SLIDES AND THE MOST RECENT DRAFT ARE [HERE](https://judgelord.github.io/research/whymail/) 
   
   \bigskip
   
@@ -47,7 +47,7 @@ knitr::opts_chunk$set(echo = FALSE,
                       cache = FALSE, 
                       fig.align = 'center',
                       fig.width = 7,
-                      out.width = "7in",
+                      out.width = "6.5in",
                       #fig.path= `r here::here('Figs/)`
                       fig.show = "hold",
                       warning=FALSE, 
@@ -110,7 +110,7 @@ The next section builds a causal theory. I theorize that activists' opportunitie
 ```{r child = here::here("02-pressure/results.md")}
 ```
 
-\clearpage 
+
 
 # Conclusion
 
