@@ -38,8 +38,8 @@ data was a significant data-organization task.
 
 #### Mobilizing organizations.
 
-I identified organizations responsible for mobilizing 100 or more
-comments with repeated text, either identical text or partially unique
+Through an iterative combination of automated search methods and hand-coding, I identify organizations for over 40 million comments, including all organizations responsible for mobilizing 100 or more
+comments with repeated text--either identical text or partially unique
 texts that contain shared language. I then searched comment texts for
 mentions of these organizations' names to complete missing information
 on the mobilizing organization. The top 100 mobilizing organizations
@@ -53,7 +53,7 @@ knitr::include_graphics("../Figs/toporgs.png")
 ```
 
 Having identified who is participating in rulemaking, the next step is
-to determine who is lobbying together.
+to determine who is lobbying together. Studies of rulemaking stress the importance of coalitions [@Yackee2006JOP, Dwidar2019]. Scholars have measured coalitions of organized groups but have yet to attribute citizen comments to the coalition that mobilized them.
 
 ### Who lobbies together?
 
@@ -68,21 +68,14 @@ interests, all of whom oppose offshore drilling," suggesting that claims
 of public and elected official support aim to provide similar kinds of
 political information.
 
-#### Text reuse and clustering.
-
+#### I identify coalitions using text reuse and clustering methods.
 I identify comments that are not identical but share a 10-word (or
 "10-gram") string using a moving window function looping over each
-possible pair of texts to identify matches.^[For more about this method and comparisons with related partial
-    matching methods such as the Smith-Waterman algorithm, see
-    @Casas2017 and @Judge-Lord2017].
-
+possible pair of texts to identify matches.^[For more about this method and comparisons with related partial matching methods such as the Smith-Waterman algorithm, see @Casas2017 and @Judge-Lord2017.]
 When actors sign onto the same comment, it is clear that they are
 lobbying together. However, various businesses, advocacy groups, and
-citizens often comment separately even when they aligned. The comment
-process is open to anyone, and it is often not worthwhile for all actors
-to coordinate their messages. Thus, in addition to mapping text re-use,
-I adapt several statistical models (k-means clustering and Bayesian
-mixture models) of text to classify comments into coalitions. I cluster
+citizens often comment separately, even when they are aligned. Thus, in addition to mapping text re-use, for rules with a large number of comments,
+I use statistical models of text to classify comments into coalitions. I cluster
 documents by the frequency with which they use different words. Being
 classified together does not mean that the documents all address exactly
 the same distribution of substantive issues, just that they use similar
@@ -90,8 +83,7 @@ words relative to the full set of documents. I start by modeling all
 comments on each rule (collapsing identical comments to one document)
 with two and three clusters, which I then inspect to see how well the
 comments of named organizations were classified. If the two cluster
-model most sensibly describes the conflict, I label these clusters "pro"
-and "con." If the three-cluster model more sensibly describes the
+model most sensibly describes the conflict, I label these clusters "pro" and "con" If the three-cluster model more sensibly describes the
 conflict, I label these clusters as "pro, con, other." If neither fits
 well, I increase the number of clusters as needed.
 

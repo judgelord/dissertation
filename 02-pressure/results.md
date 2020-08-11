@@ -5,18 +5,10 @@
 Figure
 \@ref(fig:comments-support) shows all comments posted on
 regulations.gov over time by whether they are exact or partial copies of
-another comment or not. While some agencies classify all duplicate
-comments as mass comments, I call comments that have between 2 and 99
+another comment or not. I call comments that have between 2 and 99
 identical copies, "medium batch" because such comments may reflect
 coordinated efforts among interest groups that do not include a public
-pressure strategy that involves mobilizing ordinary people. Here "mass
-comments" are comments that have either 100 or more identical copies or
-were uploaded in bulk batches of at least 100. This restrictive
-definition of what counts as mass engagement captures comments that were
-certainly mobilized by a campaign. As Figure
-\@ref(fig:comments-support) shows mass commenting campaigns
-mobilize the vast majority of comments. In other words, most comments
-are from ordinary people.
+pressure strategy that involves mobilizing ordinary people. Even relatively unsuccessful public pressure campaigns yield far more than 99 comments. Comments that have either 100 or more identical copies or were uploaded in bulk batches of at least 100 are then "mass comments" that were certainly mobilized by a public pressure campaign. Figure \@ref(fig:comments-support) shows that public pressure campaigns mobilize the vast majority of comments. Over 80% of the 48 million comments on proposed rules posted to regulations.gov were mobilized by just 100 organizations. In other words, most comments are from ordinary people mobilized by a few public interest organizations.
 
 ```{r comments-support, out.width = "49%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
 
@@ -56,6 +48,10 @@ knitr::include_graphics("../Figs/topdockets.png")
 
 
 #### A coalition of public-interest organizations mobilize most comments.
+
+
+**Is civic engagement resulting from public pressure campaigns better understood as "astroturf" or "grassroots" participation?** In short, I find much more evidence of grassroots participation than astroturf participation.
+
 
 As Figure \@ref(fig:topdockets) shows, the most prolific mobilizers are
 environmental groups. On five out of the top ten dockets (here including

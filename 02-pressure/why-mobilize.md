@@ -10,6 +10,8 @@ capture similar statistics to questions posed by @Verba1987 [p. 9]: "How
 much participation is there, what kind is it, and from what segments of
 society does it come?"
 
+
+
 As noted above, scholars of bureaucratic policymaking have focused on
 the sophisticated lobbying efforts of powerful interest groups such as
 business coalitions. A key insight from this scholarship is that
@@ -33,23 +35,23 @@ policy.
 
 ### Incorporating political information into models of lobbying in rulemaking
 
+#### Public pressure is a political resource.
 An organization's ability to expand the scope of conflict by mobilizing
-a large number of people may occasionally be a valuable political
-resource. In contrast to scholars who focus on the deliberative
+a large number of people can be a valuable political resource [@Schattschneider1975]. In contrast to scholars who focus on the deliberative
 potential of public comment processes, I focus on public engagement as a
-tactic aimed at gaining power. Scholars who do understand mobilization
-as a tactic [@Furlong1997; @Kerwin2011] have thus far focused on
-organizations mobilizing their membership. I include a campaign's
-broader audience and its potential to grow, more akin to the concept of
+tactic aimed at gaining power. Scholars who understand mobilization
+as a tactic [@Furlong1997; @Kerwin2011] have focused on how
+organizations mobilize their membership. I expand on this understanding of mobilization as a lobbying tactic to include a campaign's broader audience, more akin to the concept of
 an attentive public [@Key1961] or issue public [@Converse1964].
 
+#### Public pressure campaigns evoke the public interest and representation.
 Appeals to the government are almost always couched in the language of
 public interest, even when true motivations are private
 [@Schattschneider1975]. When lobbying during rulemaking, groups often
 make dubious claims to represent broad segments of the public
 [@Seifter2016UCLA]. If agency staff do not trust an organizations'
 representational claims, engaging actual people may be one of the few
-credible signals of a broad base of support. Furthermore, if
+credible signals of a broad base of support.  Furthermore, if
 organizations claim to represent people beyond their official members,
 reforms requiring groups to disclose information about their funding and
 membership [@Seifter2016UCLA] only go part way to assess groups' claims
@@ -58,15 +60,13 @@ group decisions are primarily made by D.C. professionals, these
 advocates themselves may be unsure how broadly their claims resonate
 until potentially-attentive publics are actually engaged.
 
-Theorists may debate whether signing a petition of support without
-having a role in crafting the appeal is a meaningful voice or whether
+Theorists debate whether signing a petition of support without
+having a role in crafting the appeal is a meaningful voice and whether
 petitions effectively channel public interests, but, at a minimum,
 engaging a large number of supporters may help broader interests to
 distinguish themselves from truly narrower ones. It suggests that the
 organization is not "memberless" [@Skocpol2003] in the sense that they
-can demonstrate some verifiable public support.^[Public support can be faked or inflated using "astroturf" tactics
-    but as I argue below, such campaigns ought to have observably
-    different patterns of engagement.]
+can demonstrate some verifiable public support.^[Public support can be faked or inflated using "astroturf" tactics, but such campaigns have observably different patterns of engagement.]
 
 Here I build on three insights. First, @Furlong1997 and @Kerwin2011
 identify mobilization as a tactic. The organizations that they surveyed

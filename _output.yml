@@ -5,7 +5,7 @@ bookdown::gitbook:
   # search: yes
     split_bib: true 
     sharing: no
-    download: ["pdf"]
+    download: ["pdf"] # docx
     toc:
       before: |
         <li><a href="./index.html">Public Pressure Campaigns and Bureaucratic Policymaking</a></li>

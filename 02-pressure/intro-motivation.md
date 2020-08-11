@@ -1,97 +1,67 @@
+<!--Much of our knowledge about civic participation beyond voting comes from surveys and qualitative studies of particular groups. -->
+
+Participatory processes like public comment periods, where government
+agencies must solicit public input on draft policies, are said to provide political oversight opportunities [@Balla1998; @Mccubbins1984], democratic legitimacy [@Croley2003; @Rosenbloom2003], and new technical information [@Yackee2006JPART; @Nelson2012]. While recent scholarship on agency policymaking has shed light on sophisticated lobbying by businesses, we know surprisingly little about the vast majority of public comments which are submitted by ordinary people as part of public pressure campaigns.^[
+    As I show below, most comments submitted to
+    regulations.gov are part of organized campaigns, more akin to petition signatures
+    than sophisticated lobbying. Indeed, approximately 40 million out of
+    50 million (80%) of these public comments mobilized by just 100
+    advocacy organizations. ]
+Activists frequently target agency policymaking with letter-writing campaigns, petitions, protests,
+and mobilizing people to attend hearings, all classic examples of "civic engagement" [@Verba1987]. Yet civic engagement remains poorly understood in the context of bureaucratic policymaking.
 While practitioners and administrative law scholars have long pondered
 what to make of mass commenting, political scientists have had
-surprisingly little to say about this kind of civic participation. The
-contentious politics that inspire the majority of public comments have
-no place in leading models of bureaucratic policymaking and have largely
-been ignored by political scientists.
+surprisingly little to say about this kind of civic participation. 
 
-Instead, models focus on how agencies either learn about policy
-problems, negotiate or avoid accountability to various principals, or
-balance interest-group demands.^[
-On learning, see @Kerwin2011 and empirical studies by @yackee2012,
-    @Cook2017, [@Gordon2018], and @Walters2019. See @Gailmard2017 and
-    @Libgober2018 for information-based models where comments reveal
-    information to the agency.
+#### The contentious politics that inspire the majority of public comments have no place in leading models of bureaucratic policymaking and have largely been ignored by political scientists.
+Foundational scholarship on rulemaking [@Furlong2005, @Furlong1997, @Furlong1998, @Kerwin2011] focuses on interest group lobbying. Theoretical models focus on how agencies learn about policy problems, negotiate or avoid accountability to various principals, or balance interest-group demands.^[On learning, see @Kerwin2011 and empirical studies by @Yackee2012,
+    @Cook2017, @Gordon2018, and @Walters2019. See @Gailmard2017 and
+    @Libgober2018 for information-based models where comments reveal information to the agency.
     On accountability to elected officials, see @Furlong1997, @Nou2016,
-    @Potter2016, @Woods2018, and @Yackee2009RegGov. See [@Gailmard2012]
-    for a review of formal models of oversight. Especially relevant to
-    my analysis of the effects of mass mobilization on oversight,
-    @Potter2014dis develops a signaling model where agencies propose and
-    principals veto rules depending, in part, on their beliefs about
-    interest group preferences.
-    On interest group balancing see @Yackee2006JOP, @Yackee2006JPART,
+    @Potter2016, @Woods2018, and @Yackee2009RegGov. 
+    @Potter2014dis develops a signaling model where agencies propose and principals veto rules depending, in part, on their beliefs about interest group preferences.
+    On interest-group balancing, see @Yackee2006JOP, @Yackee2006JPART,
     and @Kerwin2011. A key assumption of Libgober's (2018) model is that
     bureaucrats have a distribution of preferences over interest group
     positions, about which they are uncertain unless groups reveal their
-    preferences through commenting.
-]
+    preferences through commenting.]
 
 #### Most scholars are skeptical that ordinary people can affect rulemaking.
 
-Foundational scholarship on rulemaking by @Furlong2005, @Furlong1997
-[@Furlong1998], and @Kerwin2011 focuses on interest group lobbying. To
-the extent scholars address the input of ordinary people at all, both
+To the extent scholars address the input of ordinary people at all, both
 existing theory and empirical scholarship suggest skepticism that it
 matters. (By "ordinary" people, I simply mean people who are not
-professional policy-influencers, not that these politically-engaged
-people are demographically representative of the broader public.)
+professional policy-influencers.)
 Empirical scholarship finds that economic elites and business groups
 dominate American politics in general [@Gilens2014] and rulemaking in
 particular. While some are optimistic that requirements for agencies to
 solicit and respond to public comments on proposed rules allow "civil
 society" to provide public oversight [@Michaels2015; @Metzger2010], most
 studies find that participants in rulemaking often represent elites and
-business interests
-[@Seifter2016UCLA; @Crow2015; @Wagner2011; @West2009; @Yackee2006JOP; @Yackee2006JPART; @Golden1998; @Haeder2015; @Cook2017].
-
+business interests [@Seifter2016UCLA; @Crow2015; @Wagner2011; @West2009; @Yackee2006JOP; @Yackee2006JPART; @Golden1998; @Haeder2015; @Cook2017].
+<!--
 From a strategic perspective, agency officials are not directly
 accountable to voters. And even if organized groups do supplement
 congressional and judicial checks on executive power, the groups that
 participate in rulemaking represent only certain (if any) segments of
-the public and may not represent them well [@Seifter2016UCLA]. Scholars
-are thus skeptical about rulemaking as a site for collective action the
-ability of most people to participate. As a result, mass comment
-campaigns are dismissed as epiphenomenal to bargaining with principals
+the public and may not represent them well [@Seifter2016UCLA].-->
+
+Scholars are thus skeptical about rulemaking as a venue for collective action. As a result, public pressure campaigns are dismissed as epiphenomenal to bargaining with political principals
 or interest groups. Indeed, almost all empirical studies of rulemaking
 discard unsophisticated comments from ordinary people, as evident from a
 comprehensive review of scholarship on "The Politics of Rulemaking" by
 @Yackee2019, who finds skepticism about citizen comments, but no studies
-analyzing mass mobilization as a lobbying tactic:
+analyzing public pressure campaigns as a lobbying tactic:
 
-> "@Kerwin2011 point out that a citizen must know not only that a
-> regulation is being formulated but also how and when to participate.
-> This is a high bar for most Americans. Second, to be influential
-> during rulemaking, commenters may require resources and technical
-> expertise. As @Epstein2014 suggest, agency rule-writers--who are often
-> chosen because of their technical or policy-specific
-> expertise--privilege the type of data-driven arguments and reasoning
-> that are not common to citizen comments. " (p. 10)
+> "@Kerwin2011 point out that a citizen must know not only that a regulation is being formulated but also how and when to participate. This is a high bar for most Americans. Second, to be influential during rulemaking, commenters may require resources and technical expertise. As @Epstein2014 suggest, agency rule-writers---who are often chosen because of their technical or policy-specific expertise---privilege the type of data-driven arguments and reasoning
+that are not common to citizen comments." (p. 10)
 
-For any particular lay commenter, this conclusion seems inescapable. But
-groups do occasionally mobilize, usually behind a more sophisticated
-lobbying effort. Without systematic understanding and study of public
-participation, it is difficult to adjudicate such questions about how
-processes like public comment periods may enhance or undermine various
-democratic ideals.
+For any particular lay commenter, this conclusion seems inescapable; individuals acting alone are unlikely to affect policy. But groups occasionally mobilize a large number of people, usually behind a more sophisticated lobbying effort. Without systematic understanding of the scale and impact of public participation in rulemaking, it is impossible to answer normative questions about how participatory processes like public comment periods may enhance or undermine various democratic ideals.
+<!--These bursts of civic participation may affect
+rulemaking [@Coglianese2001], but **this intuition has yet to be tested.**-->
 
-Contrary to the common assumption that mass engagement emerges
-organically, it is almost always mobilized by an organization that also
-engages in sophisticated lobbying or coordination with such an
-organization. By mass engagement, I mean that thousands of people beyond
-professional policy influencers engage. In my empirical context of
-agency rulemaking, I define mass engagement as more than 1000 public
-comments or 100 identical comments, plausibly indicating a mobilization
-effort.^[Following the conventional terms "mass comment campaign" and
-    "public engagement," I call the general phenomenon "mass engagement"
-    resulting from a "mass mobilization campaign" to distinguish the
-    magnitude of civic engagement. This differs from the Environmental
-    Protection Agency's definition of mass comment campaign as two or
-    more identical comments. In the results below, I use an intermediate
-    category---"small batch"---comments to describe identical comments
-    numbering less than 100]
-
-This scholarly oversight is surprising given that most people are only
-aware of rulemaking when it is the target of a high-profile mass
+Scholars' neglect of public pressure campaigns is surprising given that most people are only
+aware of agency rulemaking when it is the target of a high-profile mass
 mobilization campaign.^[Some of the most contentious recent public controversies involve
     bureaucratic policymaking. For example, along with 50 thousand
     protesters in Washington D.C., the State Department Received 1.2
@@ -118,13 +88,12 @@ logarithmic scale).^[Proposed rules that have attracted the most public attentio
     the Department of Interior (DOI), the Bureau of Ocean Energy
     Management (BOEM), the Consumer Financial Protection Bureau (CFPB),
     and Fish and Wildlife Service (FWS).] Occasionally, a large number of people are
-paying attention. These bursts of civic participation may affect
-rulemaking [@Coglianese2001], but this intuition has yet to be tested.
+paying attention. <!--These bursts of civic participation may affect
+rulemaking [@Coglianese2001], but this intuition has yet to be tested.-->
 
 
 
-The general failure to explain or account for mass engagement in
-rulemaking is also striking in light of how agencies advertise public
+The general failure to explain or account for public pressure campaigns in models of bureaucratic policymaking is also striking in light of how agencies advertise public
 comment periods as an opportunity for a voice in government
 decisions.^[I focus on public comments in rulemaking, but the theories and
     methods here may also apply to other kinds of political engagement
@@ -136,18 +105,14 @@ decisions.^[I focus on public comments in rulemaking, but the theories and
     quickly identify whether there are significant or meaningful
     objections" (p. 34).] Big red letters across the top of the Regulations.gov
 homepage solicit visitors to "Make a difference. Submit your comments
-and let your voice be heard" (Figure \@ref(fig:regsgov). A
-blue "Comment Now!" button accompanies a short description of each draft
-policy and pending agency action. Another invitation at the bottom of
-the page reads "Participate today!" Public commenting on proposed agency
-rules is described as "an important part of democracy" (WSJ 2017), the
+and let your voice be heard" and "Participate today!" (Figure \@ref(fig:regsgov). A blue "Comment Now!" button accompanies a short description of each draft
+policy and pending agency action. 
+Public comments on proposed agency
+rules is described as "an important part of democracy" (WSJ 2017),
 "often held out as the purest example of participatory democracy in
-actual American governance" [@Herz2016]. @Rossi1997 finds that "courts,
-Congress, and scholars have elevated participation in rulemaking to
-a sacrosanct status..greater participation is generally viewed as
-contributing to the democracy." Despite much debate about the
-theoretical import and possible reforms, the bulk of public comments
-have yet to be studied.
+actual American governance" [@Herz2016]. @Rossi1997 finds that "courts, Congress, and scholars have elevated participation in rulemaking to
+a sacrosanct status...greater participation is generally viewed as
+contributing to democracy." 
 
 ```{r regsgov, fig.cap = "Regulations.gov Solicits Public Comments on Draft Agency Rules"}
 
@@ -172,16 +137,14 @@ people never provide novel and useful technical information, but because
 this is not how most people attempt to influence policy, nor, I argue,
 how we should expect ordinary people to have influence.
 
-Most public comments are, in fact, of the flavor suggested by the
-solicitations on Regulation.gov---ordinary people voicing opinions on a
-proposed policy. They do not provide useful technical information or
+Most public comments are, in fact, of the type suggested by the
+solicitations on Regulations.gov---ordinary people voicing opinions on a proposed policy. They do not provide useful technical information or
 suggest specific edits to policy texts like the interest group comments
 that have thus far captured the attention of political scientists. If
 they add information to rulemaking, it is a different, more political
 flavor of information. Indeed as Figure
 \@ref(fig:comments-per-year) shows, every year since 2008, most people who
-comment on draft regulations have done so as a result of an interest
-group's campaign.^[At least for agencies participating in regulations.gov. See
+comment on draft regulations have done so as a result of public pressure campaign.^[At least for agencies participating in regulations.gov. See
     sections
     \@ref(whyMail-methods) and
     \@ref(whyMail-results) for my definition and methods for
@@ -207,22 +170,7 @@ rulemaking thus presents a novel context to examine the consequences of
 broader engagement in typically insider-dominated policymaking and how
 public participation may condition how political decisions are made.
 
-Mass commenting also, in a sense, expands participation in
-policymaking.^[If defining "political participation" as "acts aimed at
-    influencing governmental decisions [@Verba1987 p. 2], signing a
-    petition or mass comment counts. However, some consider true
-    participation to be deliberative, which mass commenting is not.
-    Other requirements, that participation is "genuine," "informed," or
-    "reasoned" are more difficult to assess. Normative theorists may
-    debate whether deliberation among a small number of people is
-    preferable to a large number of people simply expressing their
-    preferences, but empirically, public participation in bureaucratic
-    policymaking is much more the latter.] Surely, those who opt in are far from representative
-of the broader public [@Verba1987], but in many ways, they must be more
-representative than the handful of political insiders who participate in
-most policy processes. As @Schattschneider1942 put it, the usual
-participants have "an upper-class accent." Does adding thousands of more
-voices dilute this bias? This depends on how people are mobilized. If
-mass engagement is mobilized by the usual participants to create an
-impression of public support, it may merely legitimize the demands of
-powerful interest groups.
+Public pressure campaigns expand civic participation in policymaking.^[If defining "civic participation" as "acts aimed at influencing governmental decisions [@Verba1987 p. 2], signing a    petition or form comment counts. However, some consider true
+participation to be deliberative, which mass comment campaigns are not.
+Other criteria posed by normative theorists that participation should be "genuine," "informed," or "reasoned" are more difficult to assess. Normative theorists may debate whether deliberation among a small number of people is preferable to a large number of people simply expressing their preferences, but empirically, public participation in bureaucratic policymaking is much more the latter [@Shapiro2008b].]
+Surely, those who engage are far from representative of the broader public [@Verba1987], but in many ways, they must be more representative than the handful of political insiders who participate in most policy processes. If the usual participants have "an upper-class accent" [@Schattschneider1942], does adding thousands of more voices dilute this bias? This depends on how people are mobilized. If public pressure is mobilized by the usual participants to create an impression of public support, it may merely legitimize the demands of powerful interest groups. 
