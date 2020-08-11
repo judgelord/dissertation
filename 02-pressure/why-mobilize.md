@@ -1,3 +1,5 @@
+## Why mobilize? {#why-mobilize}
+
 This section offers a theory and hypotheses to explain variation in mass
 engagement. I argue that we should observe different patterns of
 engagement depending on whether an organization launches a mobilization
@@ -18,8 +20,10 @@ scholarship on lobbying in bureaucratic policymaking to date.^[Diamonds indicate
 However, mass engagement has no place in this model. I aim to fill this
 gap.
 
-![The 'Classic Model' of Interest Group Lobbying in Bureaucratic Policymaking (\#fig:causal-classic)](../present/classicmodel.png)
+```{r causal-classic, fig.cap = "The 'Classic Model' of Interest Group Lobbying in Bureaucratic Policymaking"}
 
+knitr::include_graphics("../Figs/causal-classic.png")
+```
 
 First, I offer a framework for assessing the causes of mass engagement.
 Next, I argue that organizations may mobilize large numbers of people
@@ -134,21 +138,24 @@ to policymakers by launching a mass mobilization campaign. The public
 response to the campaign depends on the extent that the attentive public
 is passionate about the issue.
 
-Figure \@ref(causal-whymail) amends the "Classic Model"" of interest
-group lobbying (Figure \@ref(fig:causal-classic) to incorporate the above
-intuitions. In addition to providing technical information, for example
-through sophisticated comments, an organization may mobilize supporters.
-The more support a group has, the more successful this effort will be.
+```{r causal-whymail, fig.cap = "Incorporating Political Information into Models of Bureaucratic Policymaking"}
+
+knitr::include_graphics("../Figs/causal-whymail.png")
+
+```
+
+Figure \@ref(fig:causal-whymail) amends the "Classic Model"" of interest
+group lobbying (Figure \@ref(fig:causal-classic)) to incorporate political information about the attentive public. In addition to providing technical information through sophisticated comments, an organization may mobilize supporters.
+The more support a group has, the more successful this mobilization effort will be.
 Large-scale engagement may produce several types of relevant political
 information. The most direct and obvious is the expressed "public
 opinion" that policymakers observe.^[I address other types of political information that mass
     engagement may create elsewhere. For an expanded model, see Figure
-    \@ref(causal-full) in the Appendix.
+    \@ref(fig:causal-full) in the Appendix.
 ]
 
 The causal process visualized in Figure
-\@ref(fig:causal-whymail) only operates under certain conditions,
-one of those being that mobilization is aimed at influencing policy.
+\@ref(fig:causal-whymail) may only operate under certain conditions. For example, we may only expect mobilization to influence a given policy when the mobilization effort is aimed at influencing that particular policy, rather than using the public comment period go build organzational membership or power more generally.
 
 ## Hypotheses about the drivers of mass mobilization
 
@@ -190,11 +197,15 @@ decisionmakers perceive a consensus.^[For example, consensus among interest grou
     demands are easier to process than opposing demands.]
 
 ```{theorem,  support} 
-Lobbying coalitions
+
+```
+
+(ref:support) Hypothesis 1
+
+> **(ref:support):** Lobbying coalitions
 mobilize mass engagement when they perceive the attentive public is on
 their side, have sufficient resources, and perceive an opportunity to
 influence policy.
-```
 
 The key part of this hypothesis is that mobilizing is correlated with
 existing public support, what might be called "grass-roots" support. The
@@ -204,12 +215,11 @@ already advantaged in low salience rulemaking may decide to leverage
 their superior resources further to mobilize support to alter a bad
 reputation or bolster claims that they represent more than their private
 interest. If mobilization most often takes this "astro-turf" form, this
-would be evidence against Hypothesis
-\@ref(thm:support) and Schattschneider's argument that it is the
+would be evidence against 
+(ref:support) and Schattschneider's argument that it is the
 disadvantaged who seek to expand the scope of the conflict.
 
-The latter parts of Hypothesis
-\@ref(thm:support) regarding sufficient resources and political
+The latter parts of (ref:support) regarding sufficient resources and political
 opportunity are scope conditions. Most organizations that are
 disadvantaged in low-salience rulemaking also lack resources to launch
 mass mobilization campaigns. If an organization does not perceive a
@@ -230,15 +240,17 @@ fewer people, less effort per person, and yield a smaller portion of
 indirect engagement.
 
 ```{theorem, disrupt}
-When a lobbying
+```
+
+(ref:disrupt) Hypothesis 2
+
+> **(ref:disrupt):** When a lobbying
 coalition with more intense public support mobilizes successfully in
 response to an opportunity to influence policy, opposing coalitions with
 less public support are more likely to counter-mobilize, but with
 proportionally smaller results.
-```
 
-The first part of Hypothesis
-\@ref(thm:disrupt) would be undermined if lobbying organizations
+The first part of (ref:disrupt) would be undermined if lobbying organizations
 with less public support are no more likely to engage in outside
 lobbying when their opposition does so. While @Potter2017 found industry
 groups were no more likely to advocate for rules to be strengthened,
@@ -270,9 +282,13 @@ of the public who wanted to voice their opinion, the Sierra Club created
 an easy way to do so, as long as users consented to "receive periodic
 communication from the Sierra Club."
 
-![Mass mobilization campaign by the Sierra Club collects contact information (\#fig:sierra)](../Figs/sierra2.jpeg)
 
 
+```{r sierra, out.width="40%",fig.cap = "The Sierra Club Collects Contact Information Through Mass Mobilization Campaign"}
+
+knitr::include_graphics(here::here("Figs/sierra2.jpeg"))
+
+```
 
 
 While such campaigns may engage many people, they are unlikely to affect
@@ -312,7 +328,7 @@ campaigns.
 
 Table: (\#tab:campaigns-patterns) Observable Differences in Lobbying Strategies
   
-| | Inside lobbying | Outside lobbying |
+| | Inside lobbying (technical information) | Outside lobbying (public pressure campaign) |
 |:---|:---:|:---:|:---:|
 | "Normal" lobbying | High | None | 
 | "Going public" | High | High |
@@ -365,15 +381,16 @@ that mass mobilization will systematically run counter to concentrated
 business interests where they conflict with the values of public
 interest groups with sufficient resources to mobilize.
 
-```{theorem, publicinterest}
-
-Public interest group coalitions mobilize more often than
-business-driven coalitions.
+```{proposition, publicinterest}
 
 ```
 
-Hypothesis
-\@ref(thm:publicinterest) posits a conditional logic in the
+(ref:publicinterest) Hypothesis 3
+
+> **(ref:publicinterest):** Public interest group coalitions mobilize more often than
+business-driven coalitions.
+
+(ref:publicinterest) posits a conditional logic in the
 decision to mobilize. If resources purely determined outside lobbying,
 business-driven coalitions would often dominate, as they do elsewhere.
 However, I argue, because outside lobbying can alter the decision
@@ -381,7 +398,7 @@ environment, those who have the advantage in the usual rulemaking
 process (where a more limited set of actors participate) have little
 incentive to expand the scope of the conflict.
 
-### Types of public engagement
+## Types of public engagement
 
 I classify supporters into three types that help describe key pieces of
 political information. I illustrate these types in the context of public

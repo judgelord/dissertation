@@ -111,7 +111,7 @@ mobilization campaign.^[Some of the most contentious recent public controversies
 the ease of online mobilizing and commenting has, like other forms of
 participation [@Boulianne2018], created exponential increases in the
 number of rules in which thousands and even millions of people engage
-(see Figure \@ref(fig:commentsperrule); note that comments per rule are on a
+(see Figure \@ref(fig:comments-per-year); note that comments per rule are on a
 logarithmic scale).^[Proposed rules that have attracted the most public attention have
     been published by the Federal Communications Commission (FCC,
     omitted from this plot), the Environmental Protection Agency (EPA),
@@ -144,21 +144,24 @@ rules is described as "an important part of democracy" (WSJ 2017), the
 "often held out as the purest example of participatory democracy in
 actual American governance" [@Herz2016]. @Rossi1997 finds that "courts,
 Congress, and scholars have elevated participation in rulemaking to
-a sacrosanct status\...greater participation is generally viewed as
+a sacrosanct status..greater participation is generally viewed as
 contributing to the democracy." Despite much debate about the
 theoretical import and possible reforms, the bulk of public comments
 have yet to be studied.
 
 ```{r regsgov, fig.cap = "Regulations.gov Solicits Public Comments on Draft Agency Rules"}
+
 knitr::include_graphics("../Figs/regulations-header.png")
 ```
 
-![Regulations.gov Solicits Public Comments on Draft Agency Rules (\#fig:regsgov)](../Figs/regulations-header.png)
+```{r comments-per-year, fig.cap = "Comments per Proposed Rule and Total Comments per Year", out.width = NULL, out.height = "25%", fig.show = "hold"}
 
-![Comments on Proposed Rules per Year (\#fig:commentsperyear)](../Figs/comments-mass-vs-unique-1.png){width="6.5in"}
+knitr::include_graphics(here::here("Figs/rules-comments-per-year-1.png"))
 
+knitr::include_graphics(here::here("Figs/comments-mass-vs-unique.pdf"))
 
-![Comments per Rule(\#fig:commentsperrule)](../Figs/rules-comments-per-year-1.png){width="4.5in"}
+```
+
 
 While "ordinary" members of the public may occasionally provide novel
 and useful technical information to expert bureaucrats, such
@@ -176,7 +179,7 @@ suggest specific edits to policy texts like the interest group comments
 that have thus far captured the attention of political scientists. If
 they add information to rulemaking, it is a different, more political
 flavor of information. Indeed as Figure
-\@ref(fig:commentsperyear) shows, every year since 2008, most people who
+\@ref(fig:comments-per-year) shows, every year since 2008, most people who
 comment on draft regulations have done so as a result of an interest
 group's campaign.^[At least for agencies participating in regulations.gov. See
     sections

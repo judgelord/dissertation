@@ -1,4 +1,4 @@
-### Measuring mass engagement and political information
+## Measuring Public Pressure and Political Information
 
 In this section, I develop methods to attribute mass comments to the
 campaigns that mobilized them and measure the intensity of preferences
@@ -44,13 +44,13 @@ texts that contain shared language. I then searched comment texts for
 mentions of these organizations' names to complete missing information
 on the mobilizing organization. The top 100 mobilizing organizations
 each mobilized between 55 thousand and 4.2 million comments. Figure
-[\[fig:toporgs\]](#fig:toporgs){reference-type="ref"
-reference="fig:toporgs"} shows the top organizers of comments posted to
+\@ref(fig:toporgs) shows the top organizers of comments posted to
 regulations.gov.
 
-![Top mobilizers of comments posted to
-regulations.gov](../Figs/toporgs.png "fig:"){width="6.5in"}
-[\[fig:toporgs\]]{#fig:toporgs label="fig:toporgs"}
+```{r toporgs, fig.cap = "Top mobilizers of comments posted to regulations.gov", fig.width = 7}
+
+knitr::include_graphics("../Figs/toporgs.png")
+```
 
 Having identified who is participating in rulemaking, the next step is
 to determine who is lobbying together.
@@ -72,7 +72,9 @@ political information.
 
 I identify comments that are not identical but share a 10-word (or
 "10-gram") string using a moving window function looping over each
-possible pair of texts to identify matches. [^1].
+possible pair of texts to identify matches.^[For more about this method and comparisons with related partial
+    matching methods such as the Smith-Waterman algorithm, see
+    @Casas2017 and @Judge-Lord2017].
 
 When actors sign onto the same comment, it is clear that they are
 lobbying together. However, various businesses, advocacy groups, and
@@ -89,21 +91,21 @@ comments on each rule (collapsing identical comments to one document)
 with two and three clusters, which I then inspect to see how well the
 comments of named organizations were classified. If the two cluster
 model most sensibly describes the conflict, I label these clusters "pro"
-and "con'.' If the three-cluster model more sensibly describes the
+and "con." If the three-cluster model more sensibly describes the
 conflict, I label these clusters as "pro, con, other." If neither fits
 well, I increase the number of clusters as needed.
 
-![K-means clustering fails to capture coalitions when nearly all
-comments oppose a
-regulation[]{label="fig:kmeans"}](../Figs/kmeans.png){#fig:kmeans
-width="7in"}
+```{r kmeans, fig.cap = "K-means clustering fails to capture coalitions when nearly all comments oppose a regulation"}
+
+knitr::include_graphics("../Figs/kmeans.png")
+```
+
 
 The asymmetry in expressed support for most rules presents challenges
 for unsupervised clustering because much of the variation in comment
 texts is within-coalition variation. For example, one of the most common
 clustering methods, k-means clustering, often captures within-coalition
-variation. Figure [1](#fig:kmeans){reference-type="ref"
-reference="fig:kmeans"} shows k-means clusters based on a normalized
+variation. Figure \@ref(fig:kmeans) shows k-means clusters based on a normalized
 measure of word frequency (term-frequency/inverse-document-frequency)
 compared to two principal components of variation. Neither k-means nor
 principal components analysis is well suited to identifying the small
@@ -113,9 +115,9 @@ on protests in Washington DC.
 Two strategies may improve clustering. First, even partial text reuse
 generally indicates that comments belong to the same coalition. For
 example, as seen at the top of figure
-[1](#fig:kmeans){reference-type="ref" reference="fig:kmeans"}, models
+\@ref(fig:kmeans), models
 may be restricted to cluster the large number of comments beginning with
-\"As a citizen who has frequently participated\" in the same coalition
+"As a citizen who has frequently participated" in the same coalition
 even if they go on to add different personal anecdotes about why protest
 rights are important to them. Thus, clustering methods could be
 restricted to group partially copied texts, as well as entirely copied
@@ -159,7 +161,3 @@ stories. To identify people who were plausibly mobilized indirectly by a
 campaign, I count the number of people who use a similar distribution of
 words to that of the form letter but fewer than ten words matching any
 other comment. This is a regular count process.
-
-[^1]: For more about this method and comparisons with related partial
-    matching methods such as the Smith-Waterman algorithm, see
-    @Casas2017 and @Judge-Lord2017

@@ -19,6 +19,7 @@ bibliography: '`r here::here("assets/dissertation.bib")`'
 # biblio-style: apalike
 biblio-style: '`r here::here("assets/apsr.bst")`'
 link-citations: yes
+link-color: black
 # endnotes: true # CHANGE THIS BEFORE SUBMISSION
 frontpage: true
 # spacing: doublespacing
@@ -35,35 +36,27 @@ output:
       toc: false
       fig_caption: true
       fig.topcaption: true
-      fig_width: 7
+      fig.width: 7
     word_document: default
 ---
 
 ```{r global.options, include=FALSE}
-library(knitr)
-knit_hooks$set(plot = function(x, options) {
-  paste('<figure><figcaption>', options$fig.cap, '</figcaption><img src="',
-        opts_knit$get('base.url'), paste(x, collapse = '.'),
-        '"></figure>',
-        sep = '')
-})
+options(knitr.graphics.auto_pdf = TRUE)
 
-knitr::opts_chunk$set(echo = TRUE, 
-                      cache = TRUE, 
-                      fig.width=6.5, 
-                      fig.align = 'center', 
-                      fig.path='Figs/',
-                      warning=TRUE, 
-                      message=TRUE)
+knitr::opts_chunk$set(echo = FALSE, 
+                      cache = FALSE, 
+                      fig.align = 'center',
+                      fig.width = 7,
+                      out.width = "7in",
+                      #fig.path= `r here::here('Figs/)`
+                      fig.show = "hold",
+                      warning=FALSE, 
+                      message=FALSE)
 ```
 
-```{r sierra2, out.width="10%",fig.cap = "Mass Mobilization Campaign by the Sierra Club Collects Contact Information"}
 
-knitr::include_graphics(here::here("Figs/sierra2.jpeg"))
 
-```
-
-**Note to reader:** Thank you so reading this draft. For context, this dissertation chapter develops concepts and measures of public engagement in rulemaking that I apply in chapters 3 and 4. The methods are under construction, and the empirical claims are tentative.
+**Note to reader:** This dissertation chapter develops concepts and measures of public engagement in rulemaking that I apply in chapters 3 and 4. The methods are under construction, and the empirical claims are tentative.
 <!--%In the dissertation, I argue that mass participation results from interest groups' strategic choices. When lobbying organizations have an opportunity to shape policy, the resources to mobilize, and broader support than their opposition, outside lobbying (``going public'') may produce valuable, politically-relevant information. Depending on how agencies process political information, outside lobbying may %be a plausible strategy for organizations to 
 %influence policy, both directly and indirectly.
 %For example, those lobbying in rulemaking often make dubious claims to represent broad segments of the public. Mobilizing a large number of people may directly support such claims.
@@ -75,14 +68,15 @@ knitr::include_graphics(here::here("Figs/sierra2.jpeg"))
 ```{r child = here::here("outline.md")}
 ```
 
-# Introduction
-\label{intro}
+# Introduction {#intro}
 
 ```{r child = here::here("intro.md")}
 ```
 
+
 ```{r child = here::here("02-pressure/intro-motivation.md")}
 ```
+
 
 # Theory
 
@@ -100,27 +94,23 @@ The next section builds a causal theory. I theorize that activists' opportunitie
 % The following section outlines methodologies to assess my three overarching questions and their component parts. These methods rely on analysis of comment and policy texts as large-n observational data. -->
 
 
-## Why mobilize?
-\label{whymail-intro}
 ```{r child = here::here("02-pressure/why-mobilize.md")}
 ```
 
 
 
-# Methods
-
-## Measuring Public Pressure and Political Information
-\label{whyMail-methods}
+# Methods {#whyMail-methods}
 
 ```{r child = here::here("02-pressure/methods.md")}
 ```
 
 
 
-# Results: Patterns of Public Engagement in Rulemaking
-\label{whyMail-results}
+# Results: Patterns of Public Engagement in Rulemaking {#whyMail-results}
 ```{r child = here::here("02-pressure/results.md")}
 ```
+
+\clearpage 
 
 # Conclusion
 
@@ -131,27 +121,31 @@ The next section builds a causal theory. I theorize that activists' opportunitie
 \newpage
 # Appendix
 
+```{r causal-full, fig.cap="The Role of Mass Commenting and Political Information in Bureaucratic Policymaking"}
+knitr::include_graphics("../Figs/causal-full.png")
+```
 
-![The Role of Mass Commenting and Political Information in Bureaucratic Policymaking (\#causal-full)](../present/model.png)
-
+```{r comments-from, fig.cap="Sources of Comments Posted to regulations.gov"}
+knitr::include_graphics("../Figs/comments-form-1.png")
+```
 
 \begin{figure}[h!]
     \centering
-        \caption{Rules ranked by number of comments posted to regulations.gov}
+        \caption{Rules in Order of Number of Comments}
     \includegraphics[width = 6.5in]{../Figs/rules-ranked-comments-per-year-1.png}
     \label{fig:rules-ranked}
 \end{figure}
 
 \begin{figure}[p!]
     \centering
-        \caption{Major and non-major rules on regulations.gov}
+        \caption{Major and Non-major Rules on regulations.gov}
     \includegraphics[width = 7in]{../Figs/major-comments-density-1.png}
     \label{fig:rules-major}
 \end{figure}
 
 \begin{figure}[p!]
     \centering
-        \caption{Rules on regulations.gov by priority level}
+        \caption{Rules on regulations.gov by Unified Agenda Priority Level}
     \includegraphics[width = 7in]{../Figs/priority-comment-density-1.png}
     \label{fig:rules-priority}
 \end{figure}
@@ -161,7 +155,7 @@ The next section builds a causal theory. I theorize that activists' opportunitie
 \clearpage 
 
 \begin{figure}
-    \caption{Unique or partially unique comments by sentiment score (sample of 2018 rules)}
+    \caption{Unique or Partially Unique Comments by Sentiment Score (Sample of 2018 Rules)}
     \label{fig:sentiment-2018}
     \centering
     \includegraphics[width = 7in]{../Figs/sent-2018ATF-2018-0001.png}
@@ -173,7 +167,7 @@ The next section builds a causal theory. I theorize that activists' opportunitie
 \end{figure}
 
 \begin{figure}
-    \caption{Unique or partially unique comments by sentiment score (sample of 2016 rules)}
+    \caption{Unique or Partially Unique Comments by Sentiment Score (Sample of 2016 Rules)}
     \label{fig:sentiment-2016}
     \centering
     \includegraphics[width = 7in]{../Figs/sent-2016BLM-2016-0001.png}
@@ -184,4 +178,4 @@ The next section builds a causal theory. I theorize that activists' opportunitie
     \includegraphics[width = 7in]{../Figs/sent-2016NOAA-2005-0226.png}
 \end{figure}
 
-
+\clearpage
