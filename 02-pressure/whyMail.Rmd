@@ -23,7 +23,7 @@ citecolor: black
 urlcolor: blue
 # endnotes: true # CHANGE THIS BEFORE SUBMISSION
 frontpage: true
-# spacing: doublespacing
+spacing: onehalfspacing
 # github-repo: https://github.com/judgelord/dissertation
 # description: ""
 # keywords: Interest groups, rulemaking, lobbying, bureaucratic politics, data sources
