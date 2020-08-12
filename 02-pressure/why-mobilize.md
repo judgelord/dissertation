@@ -1,4 +1,4 @@
-## Why mobilize? {#why-mobilize}
+## Why Mobilize? {#why-mobilize}
 
 This section offers a theory and hypotheses to explain variation in mass
 engagement. I argue that we should observe different patterns of
@@ -156,7 +156,7 @@ opinion" that policymakers observe.^[I address other types of political informat
 The causal process visualized in Figure
 \@ref(fig:causal-whymail) may only operate under certain conditions. For example, we may only expect mobilization to influence a given policy when the mobilization effort is aimed at influencing that particular policy, rather than using the public comment period go build organizational membership or power more generally.
 
-## Hypotheses about the drivers of mass mobilization
+## Hypotheses About the Drivers of Mass Mobilization
 
 ### Types of campaigns
 
@@ -327,7 +327,7 @@ campaigns.
 
 Table: (\#tab:campaigns-patterns) Observable Differences in Lobbying Strategies
   
-| | Inside lobbying (technical information) | Outside lobbying (public pressure campaign) |
+| | Inside lobbying (eg., technical information provided) | Outside lobbying (e.g., number of comments from a public pressure campaign) |
 |:---|:---:|:---:|:---:|
 | "Normal" lobbying | High | None | 
 | "Going public" | High | High |

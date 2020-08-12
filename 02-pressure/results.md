@@ -67,4 +67,4 @@ interest group mobilizing on the Clean Power Plan was an example of
 "going public" to pressure the Obama administration and then "going
 down fighting" in the face of the Trump administration's repeal,
 industry counter-mobilization responding to the first, but not the
-second fits aligns with (ref:disrupt).
+second aligns with (ref:disrupt).

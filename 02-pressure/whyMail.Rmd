@@ -23,7 +23,7 @@ citecolor: black
 urlcolor: blue
 # endnotes: true # CHANGE THIS BEFORE SUBMISSION
 frontpage: true
-spacing: onehalfspacing
+# spacing: onehalfspacing
 # github-repo: https://github.com/judgelord/dissertation
 # description: ""
 # keywords: Interest groups, rulemaking, lobbying, bureaucratic politics, data sources
@@ -55,8 +55,6 @@ knitr::opts_chunk$set(echo = FALSE,
                       message=FALSE)
 ```
 
-
-
 **Note to reader:** This dissertation chapter develops concepts and measures of public engagement in rulemaking that I apply in chapters 3 and 4. The methods are under construction, and the empirical claims are tentative.
 <!--%In the dissertation, I argue that mass participation results from interest groups' strategic choices. When lobbying organizations have an opportunity to shape policy, the resources to mobilize, and broader support than their opposition, outside lobbying (``going public'') may produce valuable, politically-relevant information. Depending on how agencies process political information, outside lobbying may %be a plausible strategy for organizations to 
 %influence policy, both directly and indirectly.
@@ -70,6 +68,8 @@ knitr::opts_chunk$set(echo = FALSE,
 ```
 
 # Introduction {#intro}
+
+\onehalfspacing
 
 ```{r child = here::here("intro.md")}
 ```

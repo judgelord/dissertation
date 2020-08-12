@@ -1,9 +1,9 @@
 <!--Much of our knowledge about civic participation beyond voting comes from surveys and qualitative studies of particular groups. -->
 
 Participatory processes like public comment periods, where government
-agencies must solicit public input on draft policies, are said to provide political oversight opportunities [@Balla1998; @Mccubbins1984], democratic legitimacy [@Croley2003; @Rosenbloom2003], and new technical information [@Yackee2006JPART; @Nelson2012]. While recent scholarship on agency policymaking has shed light on sophisticated lobbying by businesses, we know surprisingly little about the vast majority of public comments which are submitted by ordinary people as part of public pressure campaigns.^[
+agencies must solicit public input on draft policies, are said to provide political oversight opportunities [@Balla1998; @Mccubbins1984], democratic legitimacy [@Croley2003; @Rosenbloom2003], and new technical information [@Yackee2006JPART; @Nelson2012]. While recent scholarship on agency policymaking has shed light on sophisticated lobbying by businesses, we know surprisingly little about the vast majority of public comments, which are submitted by ordinary people as part of public pressure campaigns.^[
     As I show below, most comments submitted to
-    regulations.gov are part of organized campaigns, more akin to petition signatures than sophisticated lobbying. Indeed, approximately 40 million out of
+    regulations.gov are part of organized campaigns, more akin to petition signatures than "deliberative" participation or sophisticated lobbying. Indeed, approximately 40 million out of
     50 million (80%) of these public comments mobilized by just 100
     advocacy organizations. ]
 Activists frequently target agency policymaking with letter-writing campaigns, petitions, protests,
@@ -27,7 +27,7 @@ Foundational scholarship on rulemaking [@Furlong2005, @Furlong1997, @Furlong1998
 
 #### Most scholars are skeptical that ordinary people can affect rulemaking.
 
-To the extent scholars address the input of ordinary people at all, both
+To the extent that scholars address the input of ordinary people at all, both
 existing theory and empirical scholarship suggest skepticism that it
 matters. (By "ordinary" people, I simply mean people who are not
 professional policy-influencers.)
