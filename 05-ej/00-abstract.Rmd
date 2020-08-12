@@ -3,3 +3,5 @@
 #### Abstract {-}
 
 `r readLines(here::here("05-ej/ej-abstract.tex"))`
+
+See the working paper version of this chapter [here](https://judgelord.github.io/research/ej/).

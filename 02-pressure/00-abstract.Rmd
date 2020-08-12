@@ -4,3 +4,5 @@
 #### Abstract {-}
 
 `r readLines(here::here("02-pressure/abstract.txt"))`
+
+See the working paper version of this chapter [here](https://judgelord.github.io/research/whymail/).

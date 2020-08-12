@@ -1,30 +1,3 @@
----
-# fontsize: 12pt
-bibliography:  mendeley.bib
-biblio-style: apa
-citecolor: black
-output: #word_document
-  bookdown::pdf_document2:
-    latex_engine: pdflatex
-    keep_tex: true
-    template: article-template.tex
-    toc: false
-    fig_caption: true
-    citation_package: natbib
-header-includes:
-#- \usepackage{ragged2e}
-#- \input{preamble.tex}
-#- \let\footnote=\endnote
-#- \renewcommand{\footnotesize}{\normal}
-#- \renewcommand{\normalsize}{\large}
-spacing: doublespacing
----
-
-```{r setup2, echo = FALSE, include = FALSE}
-# source("setup.R")
-```
-
-
 ## Examples of hand-coded lobbying success
 
 **2015 Waters of the United States Rule:**
