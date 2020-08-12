@@ -1,8 +1,9 @@
 ---
-title: "Why do agencies (sometimes) get so much mail?"
-subtitle: ""
+title: "Why do Agencies (Sometimes) Get So Much Mail?"
+subtitle: "Public Pressure Campaigns and Bureaucratic Policymaking"
 author: "Devin Judge-Lord"
-date: "Slides: judgelord.github.io/dissertation/present/whyMail-APW.html <br> \n Data: https://github.com/judgelord/rulemaking"
+date: "Slides: https://judgelord.github.io/research/whymail <br> \n Data: https://github.com/judgelord/rulemaking"
+urlcolor: cyan
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -21,10 +22,12 @@ editor_options:
 # hide code and messages by default (warning, message)
 # cache everything 
 knitr::opts_chunk$set(eval = TRUE, 
-                      warning = FALSE, message = FALSE,
+                      warning = FALSE, 
+                      message = FALSE,
                       cache = TRUE,
                       fig.retina = 2,
-                      fig.align = "center", dpi = 100)
+                      fig.align = "center", 
+                      dpi = 100)
 # Xaringan: https://slides.yihui.name/xaringan/
 library("xaringan")
 library("xaringanthemer")
@@ -168,9 +171,11 @@ Does it matter?
 
 --
 
-![](model.png)
+![](causal-whymail.png)
 
+Dimonds = observed actions, Circles = unobserved prefrences, 
 
+Rectangles = information (mechanisms of policy influence)
 
 <!-- Before we can assess effects, however, we need to know what exactly we are assessing the effects OF and WHEN we expect to see these effects. This is my present task.
 -->
@@ -352,7 +357,7 @@ class: center
 ## When does mass engagement occur?
 
 ### Asymmetric mobilization > negativity bias
-<img src="https://github.com/judgelord/dissertation/raw/master/Figs/comments-mass-support-vs-oppose-1.png" width = 700 />
+<img src="https://github.com/judgelord/dissertation/raw/master/Figs/comments-mass-support-vs-oppose,pdf" width = 700 />
 
 
 
@@ -362,6 +367,35 @@ class: center
 Draft rules not mentioning "Environmental Justice"
 ![](ej_prob_top_agencies.png)
 
+---
+
+
+
+
+---
+class: center
+![](spam.png) 
+
+# Thanks!
+
+Unified Agenda + ORIA reports + Regulations.gov (Rdata or SQLite):
+
+GitHub.com/JudgeLord/Rulemaking
+
+or
+
+JudgeLord@Wisc.edu
+
+---
+
+Incorporating Political Information Into Models of Bureaucratic Policymaking
+![](causal-full.png)
+
+Dimonds = observed actions, circles = unobserved prefrences, rectangles = information (mechanisms of policy influence)
+
+---
+
+![](../Figs/comments-form-1.png)
 ---
 
 ## Asymmetric sentiment 
@@ -377,32 +411,22 @@ Draft rules not mentioning "Environmental Justice"
 
 400 of 610,927 comments
 
-
----
-class: center
-![](spam.png) 
-
-# Thanks!
-
 <!--
-#### Unified Agenda, ORIA reports, Regulations.gov (in progress):
 
-### GitHub.com/JudgeLord/Rulemaking
+```{r causal-full, fig.cap="The Role of Mass Commenting and Political Information in Bureaucratic Policymaking"}
+knitr::include_graphics(here::here("Figs/causal-full.png"))
+```
 
-or
+```{r comments-from, fig.cap="Sources of Comments Posted to regulations.gov"}
+knitr::include_graphics("../Figs/comments-form-1.png")
+```
 
-### JudgeLord@Wisc.edu
+
+
 -->
 
 
-<<<<<<< HEAD
-=======
----
 
-Draft rules not mentioning "Environmental Justice"
-![](ej_prob_top_agencies.png)
-
->>>>>>> 1374e5993f1ca49d44068c953a2d2be30427b8a4
 
 <!--
 questions that Congress scholars have asked 

@@ -9,7 +9,7 @@ Comments with identical text (if any) indicate which groups and
 coalitions ran a mass comment campaign. Within each campaign, I measure
 the intensity and potential for the movement to grow. To measure
 intensity, I examine the ratio of high-effort and low-effort comments.
-To measure potential to grow, I measure the number of comments mobilized
+To measure the potential to grow, I measure the number of comments mobilized
 indirectly by the campaign (i.e., those that support a campaign but do
 not include text provided by the campaign). The result is several new
 measures of participation in bureaucratic policymaking.
@@ -68,7 +68,7 @@ interests, all of whom oppose offshore drilling," suggesting that claims
 of public and elected official support aim to provide similar kinds of
 political information.
 
-#### I identify coalitions using text reuse and clustering methods.
+#### I identify coalitions using text re-use and clustering methods.
 I identify comments that are not identical but share a 10-word (or
 "10-gram") string using a moving window function looping over each
 possible pair of texts to identify matches.^[For more about this method and comparisons with related partial matching methods such as the Smith-Waterman algorithm, see @Casas2017 and @Judge-Lord2017.]
@@ -104,9 +104,9 @@ principal components analysis is well suited to identifying the small
 number of comments supporting the Park Service's proposed restrictions
 on protests in Washington DC.
 
-Two strategies may improve clustering. First, even partial text reuse
+Two strategies may improve clustering. First, even partial text re-use
 generally indicates that comments belong to the same coalition. For
-example, as seen at the top of figure
+example, as seen at the top of Figure
 \@ref(fig:kmeans), models
 may be restricted to cluster the large number of comments beginning with
 "As a citizen who has frequently participated" in the same coalition
@@ -115,7 +115,7 @@ rights are important to them. Thus, clustering methods could be
 restricted to group partially copied texts, as well as entirely copied
 texts. Second, Bayesian mixture model may better recover pro and con
 clusters, especially with strong priors comments using positive and
-negative setiment words belong together.
+negative sentiment words belong together.
 
 ### Measuring the volume, intensity, and potential contagion of public engagement.
 
@@ -134,11 +134,10 @@ follow a zero-inflated negative binomial distribution.
 
 **Effort.** I measure effort per comment by the number of words people
 write, omitting any to text longer than ten words that is not unique,
-usually because a mobilizing organization provided it. For example,
-\@ref(fig:sierra), the Sierra Club mobilized more than 47,710
+usually because a mobilizing organization provided it. For example the Sierra Club mobilized more than 47,710
 people to submit exactly the same text on the delay of the methane
 pollution rule, but 7,452 people also took the time to write a
-personalized comment in addition to the text provided. However, we may
+personalized comment in addition to the text provided (see Figure \@ref(fig:sierra)). However, we may
 not observe people who have low levels of passion for the issue because
 they either do not cross the effort threshold required to comment or opt
 to write nothing more than the form letter. Thus, while effort measured

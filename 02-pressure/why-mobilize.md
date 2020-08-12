@@ -144,18 +144,17 @@ knitr::include_graphics("../Figs/causal-whymail.png")
 
 ```
 
-Figure \@ref(fig:causal-whymail) amends the "Classic Model"" of interest
+Figure \@ref(fig:causal-whymail) amends the "Classic Model" of interest
 group lobbying (Figure \@ref(fig:causal-classic)) to incorporate political information about the attentive public. In addition to providing technical information through sophisticated comments, an organization may mobilize supporters.
 The more support a group has, the more successful this mobilization effort will be.
 Large-scale engagement may produce several types of relevant political
 information. The most direct and obvious is the expressed "public
-opinion" that policymakers observe.^[I address other types of political information that mass
-    engagement may create elsewhere. For an expanded model, see Figure
+opinion" that policymakers observe.^[I address other types of political information that mass engagement may create elsewhere. For an expanded model, see Figure
     \@ref(fig:causal-full) in the Appendix.
 ]
 
 The causal process visualized in Figure
-\@ref(fig:causal-whymail) may only operate under certain conditions. For example, we may only expect mobilization to influence a given policy when the mobilization effort is aimed at influencing that particular policy, rather than using the public comment period go build organzational membership or power more generally.
+\@ref(fig:causal-whymail) may only operate under certain conditions. For example, we may only expect mobilization to influence a given policy when the mobilization effort is aimed at influencing that particular policy, rather than using the public comment period go build organizational membership or power more generally.
 
 ## Hypotheses about the drivers of mass mobilization
 
@@ -214,7 +213,7 @@ support, could also be true. For example, business groups who are
 already advantaged in low salience rulemaking may decide to leverage
 their superior resources further to mobilize support to alter a bad
 reputation or bolster claims that they represent more than their private
-interest. If mobilization most often takes this "astro-turf" form, this
+interest. If mobilization most often takes this "astroturf" form, this
 would be evidence against 
 (ref:support) and Schattschneider's argument that it is the
 disadvantaged who seek to expand the scope of the conflict.
@@ -247,15 +246,15 @@ indirect engagement.
 > **(ref:disrupt):** When a lobbying
 coalition with more intense public support mobilizes successfully in
 response to an opportunity to influence policy, opposing coalitions with
-less public support are more likely to counter-mobilize, but with
+less public support are more likely to countermobilize, but with
 proportionally smaller results.
 
 The first part of (ref:disrupt) would be undermined if lobbying organizations
 with less public support are no more likely to engage in outside
-lobbying when their opposition does so. While @Potter2017 found industry
+lobbying when their opponents do so. While @Potter2017 found industry
 groups were no more likely to advocate for rules to be strengthened,
 weakened or withdrawn, this does not mean that they are no more likely
-to mobilize when their opposition does so.
+to mobilize when their opponents do so.
 
 The second part of this hypothesis, that countermobilization is
 proportionally smaller, rests on the intuition that the scale and
@@ -301,7 +300,7 @@ executive-branch agendas shift more quickly than public opinion.
 
 When a lobbying coalition with more intense public support successfully
 mobilizes for reasons other than influencing policy, opposing coalitions
-with less public support are not more likely to counter-mobilize.
+with less public support are not more likely to countermobilize.
 
 Going public and going down fighting may be difficult to distinguish in
 the observed public response. Indeed, members of the public may poorly

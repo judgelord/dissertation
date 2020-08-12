@@ -22,7 +22,7 @@ The right pane of Figure
 million comments for which I have digitized texts. Many of these
 comments appear to support proposed agency rules. A rough measure of
 support (whether the comment text includes " support " or " oppose ")
-shows that many more comments mention support, until 2018, when there is
+shows that many more comments mention support, until 2018 when there is
 a fairly dramatic reversal in the share of comments mentioning "support
 " compared to those mentioning "oppose " (Figure
 \@ref(fig:comments-support). This may be a function of the
@@ -35,8 +35,8 @@ on several rules in 2016 and 2018).
 
 #### Most comments occur on a small number of salient rules.
 
-Approximately one third of public comments posted to regulations.gov
-were received on just ten regulations shown in figure
+Approximately one-third of public comments posted to regulations.gov
+were received on just ten regulations shown in Figure
 \@ref(fig:topdockets).
 
 ```{r topdockets, fig.width = 1, fig.cap = "Top 10 Dockets Receiving the Most Comments on regulations.gov and the top 20 Mobilizers"}
@@ -45,13 +45,12 @@ knitr::include_graphics("../Figs/topdockets.png")
 ```
 
 
+### Is civic engagement resulting from public pressure campaigns better understood as "astroturf" or "grassroots" participation?
+
+In short, I find much more evidence of grassroots participation than astroturf participation.
 
 
 #### A coalition of public-interest organizations mobilize most comments.
-
-
-**Is civic engagement resulting from public pressure campaigns better understood as "astroturf" or "grassroots" participation?** In short, I find much more evidence of grassroots participation than astroturf participation.
-
 
 As Figure \@ref(fig:topdockets) shows, the most prolific mobilizers are
 environmental groups. On five out of the top ten dockets (here including

@@ -8,7 +8,7 @@ author:
   footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/whymail>"
 date: "`r Sys.Date()`"
 abstract: | 
-  THIS DRAFT WAS PREPARED FOR THE 2020 APSA DISSERTATION WORKSHOP. SLIDES AND THE MOST RECENT DRAFT ARE [HERE](https://judgelord.github.io/research/whymail/) 
+  THIS DRAFT WAS PREPARED FOR THE 2020 AMERICAN POLITICAL ECONOMY WORKSHOP. SLIDES AND THE MOST RECENT DRAFT ARE [HERE](https://judgelord.github.io/research/whymail/) 
   
   \bigskip
   
@@ -19,7 +19,8 @@ bibliography: '`r here::here("assets/dissertation.bib")`'
 # biblio-style: apalike
 biblio-style: '`r here::here("assets/apsr.bst")`'
 link-citations: yes
-link-color: black
+citecolor: black
+urlcolor: blue
 # endnotes: true # CHANGE THIS BEFORE SUBMISSION
 frontpage: true
 # spacing: doublespacing
@@ -119,7 +120,10 @@ The next section builds a causal theory. I theorize that activists' opportunitie
 
 
 \newpage
-# Appendix
+
+# (APPENDIX) Appendix {-}
+
+# Appendix {-}
 
 ```{r causal-full, fig.cap="The Role of Mass Commenting and Political Information in Bureaucratic Policymaking"}
 knitr::include_graphics("../Figs/causal-full.png")

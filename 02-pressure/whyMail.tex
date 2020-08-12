@@ -38,60 +38,12 @@
 
 
 
-  \usepackage{color}
-  \usepackage{fancyvrb}
-  \newcommand{\VerbBar}{|}
-  \newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-  % Add ',fontsize=\small' for more characters per line
-  \usepackage{framed}
-  \definecolor{shadecolor}{RGB}{248,248,248}
-  \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-  \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-  \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-  \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-  \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-  \newcommand{\BuiltInTok}[1]{#1}
-  \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-  \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-  \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-  \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-  \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-  \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-  \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-  \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-  \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-  \newcommand{\ExtensionTok}[1]{#1}
-  \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-  \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-  \newcommand{\ImportTok}[1]{#1}
-  \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-  \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-  \newcommand{\NormalTok}[1]{#1}
-  \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-  \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-  \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-  \newcommand{\RegionMarkerTok}[1]{#1}
-  \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-  \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-  \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-  \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-  \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-  \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 
 
 
 
   \usepackage{longtable, booktabs}
 
-  \usepackage{graphicx,grffile}
-  % Scale images; don't overflow page margins by default.
-  % Still possible explicate \includegraphics[width, height, ...]{}
-  \makeatletter
-    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-    \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-  \makeatother 
-  \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 
 
 
@@ -136,7 +88,7 @@
              pdfkeywords  =  {},  
             pdftitle = {Why Do Agencies (Sometimes) Get So Much Mail?: Public Pressure Campaigns and Bureaucratic Policymaking},
             colorlinks = true,
-            citecolor = blue,
+            citecolor = black,
             urlcolor = blue,
             linkcolor = magenta,
             pdfborder = {0 0 0}}
@@ -176,7 +128,7 @@
             }
 
 % auto-format date?
-  \date{2020-08-09}
+  \date{2020-08-12}
 
 
 % abstract
@@ -227,21 +179,6 @@
 
 
 
-\usepackage{amsthm}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}{Lemma}[section]
-\newtheorem{corollary}{Corollary}[section]
-\newtheorem{proposition}{Proposition}[section]
-\newtheorem{conjecture}{Conjecture}[section]
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
-\theoremstyle{definition}
-\newtheorem{example}{Example}[section]
-\theoremstyle{definition}
-\newtheorem{exercise}{Exercise}[section]
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
-\newtheorem*{solution}{Solution}
 \begin{document}
  
 
@@ -283,25 +220,17 @@ I examine who participates in public pressure campaigns and why. Scholars of bur
  
    
    
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include\_graphics}\NormalTok{(here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"Figs/sierra2.jpeg"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-Mass Mobilization Campaign by the Sierra Club Collects Contact Information
-
-\textbf{Note to reader:} Thank you so reading this draft. For context, this dissertation chapter develops concepts and measures of public engagement in rulemaking that I apply in chapters 3 and 4. The methods are under construction, and the empirical claims are tentative.
+\textbf{Note to reader:} This dissertation chapter develops concepts and measures of public engagement in rulemaking that I apply in chapters 3 and 4. The methods are under construction, and the empirical claims are tentative.
 
 This project aims to better understand the role of ordinary people in bureaucratic policymaking.
 I develop theories of why mass engagement occurs and how it may affect policy. To assess these theories, I tackle three related empirical questions: (1) Why does it occur?; (2) How does it affect the oversight behaviors of agencies' political principals?; and
 (3) Does mass engagement in bureaucratic policymaking affect policy?
 
-\textbf{Chapter 1 situates agency rulemaking in the context of American poliitcs.} I show that rulemaking is a major site of policymaking and political conflict.
+\textbf{Chapter 1 situates agency rulemaking in the context of American politics.} I show that rulemaking is a major site of policymaking and political conflict.
 
 \textbf{Chapter 2 explains why agencies (occasionally) get so much mail.}
-The literature suggests two possible explanations for variation in mass engagement; groups may leverage public support as a lobbying resources (``grass roots'' mobilization) or groups with more resources may leverage those resources into impression of public support (sometimes called ``astro-turf'').
-I find that public interst campiagns explain variation in mass engagement. That is, unlike other forms of lobbying, it is not primarily driven by interests with the large finanical stakes and resources.
+The literature suggests two possible explanations for variation in mass engagement; groups may leverage public support as a lobbying resource (``grassroots'' mobilization) or groups with more resources may leverage those resources into an impression of public support (sometimes called ``astroturf'').
+I find that public interest campaigns explain variation in mass engagement. Unlike other forms of lobbying, it is not primarily driven by interests with the largest financial stakes and resources.
 Because the vast majority of comments are inspired by interest-group campaigns, finding their cause requires a method to link comments to the lobbying coalitions that mobilized them. To link individual comments to the more sophisticated lobbying efforts they support, I use text reuse and clustering methods to capture formal and informal coalitions.
 
 \textbf{Chapter 3 asks whether mass engagement affect political oversight.} The political information signaled by mass engagement may serve as ``fire alarms,'' altering principals to oversight opportunities or ``warning signs'' altering them to political risks.
@@ -310,30 +239,28 @@ elected officials ought to be more likely to engage on their behalf and less lik
 To assess these hypotheses, I count the number of times Members of Congress engage the agency before, during, and after comment periods on rules where lobbying organizations did and did not go public. I then use text analysis to compare legislators' sentiments and rhetoric to that used by each coalition.
 
 \textbf{Chapter 4 asks whether mass engagement affects rulemaking and rules.}
-I theorize that the effects of political information on policy depend on the extent to which the strategic environment allows change and how political information is processed, both directly within agencies and indirectly through other actors (e.g.~Members of Congress) whose appraisals matter to bureaucrats.
+I theorize that the effects of political information on policy depend on the extent to which the strategic environment allows change and how political information is processed, both directly within agencies and indirectly through other actors (e.g., Members of Congress) whose appraisals matter to bureaucrats.
 The main dependent variable is change in the rule text.
 I systematically identify changes between draft and final rules, parse these differences to identify meaningful policy changes, and compare them to demands raised in comments to measure which coalition got their desired outcomes.
 
 \textbf{Chapter 5 presents a case study of the environmental justice movement.} I identify all rules where ``environmental justice'' is raised in the comments to assess agency responses both quantitatively and qualitatively. In preliminary analysis, I find that responsiveness to environmental justice activist comments varies in predictable ways across agencies, but I find no evidence that the total number of comments affects rules.
 
-\textbf{Chapter 6} concludes with remarks on the study of bureaucratic policymaking and policy recomendations to better account for the fact that public pressure campains and the bursts of civic engagment they mobilize will be an enduring feature of the policy process.
+\textbf{Chapter 6} concludes with remarks on the study of bureaucratic policymaking and policy recommendations to better account for the fact that public pressure campaigns and the bursts of civic engagement they mobilize will be an enduring feature of the policy process.
 
-\hypertarget{introduction}{%
-\section{Introduction}\label{introduction}}
-
-\label{intro}
+\hypertarget{intro}{%
+\section{Introduction}\label{intro}}
 
 With the rise of the administrative state, U.S. federal agencies have
 become a major site of policymaking and political conflict. By some
 estimates, upward of 90\% of legally binding U.S. federal policy is now
 written by agencies. Agency rules are revised much more frequently than
-statutory law \citep{Wagner2017} and in the years or decades between
+statutory law \citep{Wagner2017}, and in the years or decades between
 legislative enactments, federal agencies make legally-binding rules
 interpreting and reinterpreting old statutes to address emerging issues
 and priorities. Examples are striking: The effect of the Dodd-Frank Wall
 Street Reform and Consumer Protection Act was largely unknown until the
 specific regulations were written, and it continues to change as these
-rules are revised. Congress authorizes billions in farm subsidies and
+rules are revised. Congress authorizes billions in farm subsidies, and
 leases for public lands, but who gets them depends on agency policy. In
 the decades since the last major environmental legislation, agencies
 have written thousands of pages of new environmental regulations and
@@ -349,34 +276,33 @@ leading to a 130\% increase in industry stock value. Agency rulemaking
 matters.
 
 Less clear, however, is how the new centrality of agency rulemaking fits
-with democracy. In addition the bureaucracy's complex relationships with
+with democracy. In addition to the bureaucracy's complex relationships with
 the president and Congress, agencies have complex and poorly understood
 relationships with the public and advocacy groups. Relationships with
-constituent groups may even provide agencies with a degree of ``autonomy''
-from their official principals \citep{Carpenter2001}.
+constituent groups may even provide agencies with a degree of ``autonomy'' from their official principals \citep{Carpenter2001}.
 
+Participatory processes like public comment periods, where government
+agencies must solicit public input on draft policies, are said to provide political oversight opportunities \citep{Balla1998, Mccubbins1984}, democratic legitimacy \citep{Croley2003, Rosenbloom2003}, and new technical information \citep{Yackee2006JPART, Nelson2012}. While recent scholarship on agency policymaking has shed light on sophisticated lobbying by businesses, we know surprisingly little about the vast majority of public comments which are submitted by ordinary people as part of public pressure campaigns.\footnote{
+  As I show below, most comments submitted to
+  regulations.gov are part of organized campaigns, more akin to petition signatures than sophisticated lobbying. Indeed, approximately 40 million out of
+  50 million (80\%) of these public comments mobilized by just 100
+  advocacy organizations.}
+Activists frequently target agency policymaking with letter-writing campaigns, petitions, protests,
+and mobilizing people to attend hearings, all classic examples of ``civic engagement'' \citep{Verba1987}. Yet civic engagement remains poorly understood in the context of bureaucratic policymaking.
 While practitioners and administrative law scholars have long pondered
 what to make of mass commenting, political scientists have had
-surprisingly little to say about this kind of civic participation. The
-contentious politics that inspire the majority of public comments have
-no place in leading models of bureaucratic policymaking and have largely
-been ignored by political scientists.
+surprisingly little to say about this kind of civic participation.
 
-Instead, models focus on how agencies either learn about policy
-problems, negotiate or avoid accountability to various principals, or
-balance interest-group demands.\footnote{
-  On learning, see \citet{Kerwin2011} and empirical studies by \citet{yackee2012},
-  \citet{Cook2017}, \citep{Gordon2018}, and \citet{Walters2019}. See \citet{Gailmard2017} and
-  \citet{Libgober2018} for information-based models where comments reveal
-  information to the agency.
+\hypertarget{the-contentious-politics-that-inspire-the-majority-of-public-comments-have-no-place-in-leading-models-of-bureaucratic-policymaking-and-have-largely-been-ignored-by-political-scientists.}{%
+\paragraph{The contentious politics that inspire the majority of public comments have no place in leading models of bureaucratic policymaking and have largely been ignored by political scientists.}\label{the-contentious-politics-that-inspire-the-majority-of-public-comments-have-no-place-in-leading-models-of-bureaucratic-policymaking-and-have-largely-been-ignored-by-political-scientists.}}
+
+Foundational scholarship on rulemaking \citep[\citet{Furlong1997}, \citet{Furlong1998}, \citet{Kerwin2011}]{Furlong2005} focuses on interest group lobbying. Theoretical models focus on how agencies learn about policy problems, negotiate or avoid accountability to various principals, or balance interest-group demands.\footnote{On learning, see \citet{Kerwin2011} and empirical studies by \citet{Yackee2012},
+  \citet{Cook2017}, \citet{Gordon2018}, and \citet{Walters2019}. See \citet{Gailmard2017} and
+  \citet{Libgober2018} for information-based models where comments reveal information to the agency.
   On accountability to elected officials, see \citet{Furlong1997}, \citet{Nou2016},
-  \citet{Potter2016}, \citet{Woods2018}, and \citet{Yackee2009RegGov}. See \citep{Gailmard2012}
-  for a review of formal models of oversight. Especially relevant to
-  my analysis of the effects of mass mobilization on oversight,
-  \citet{Potter2014dis} develops a signaling model where agencies propose and
-  principals veto rules depending, in part, on their beliefs about
-  interest group preferences.
-  On interest group balancing see \citet{Yackee2006JOP}, \citet{Yackee2006JPART},
+  \citet{Potter2016}, \citet{Woods2018}, and \citet{Yackee2009RegGov}.
+  \citet{Potter2014dis} develops a signaling model where agencies propose and principals veto rules depending, in part, on their beliefs about interest group preferences.
+  On interest-group balancing, see \citet{Yackee2006JOP}, \citet{Yackee2006JPART},
   and \citet{Kerwin2011}. A key assumption of Libgober's (2018) model is that
   bureaucrats have a distribution of preferences over interest group
   positions, about which they are uncertain unless groups reveal their
@@ -385,71 +311,34 @@ balance interest-group demands.\footnote{
 \hypertarget{most-scholars-are-skeptical-that-ordinary-people-can-affect-rulemaking.}{%
 \paragraph{Most scholars are skeptical that ordinary people can affect rulemaking.}\label{most-scholars-are-skeptical-that-ordinary-people-can-affect-rulemaking.}}
 
-Foundational scholarship on rulemaking by \citet{Furlong2005}, \citeauthor{Furlong1997} \citetext{\citeyear{Furlong1997}; \citealp{Furlong1998}}, and \citet{Kerwin2011} focuses on interest group lobbying. To
-the extent scholars address the input of ordinary people at all, both
+To the extent scholars address the input of ordinary people at all, both
 existing theory and empirical scholarship suggest skepticism that it
 matters. (By ``ordinary'' people, I simply mean people who are not
-professional policy-influencers, not that these politically-engaged
-people are demographically representative of the broader public.)
+professional policy-influencers.)
 Empirical scholarship finds that economic elites and business groups
 dominate American politics in general \citep{Gilens2014} and rulemaking in
 particular. While some are optimistic that requirements for agencies to
 solicit and respond to public comments on proposed rules allow ``civil
 society'' to provide public oversight \citep{Michaels2015, Metzger2010}, most
 studies find that participants in rulemaking often represent elites and
-business interests
-\citep{Seifter2016UCLA, Crow2015, Wagner2011, West2009, Yackee2006JOP, Yackee2006JPART, Golden1998, Haeder2015, Cook2017}.
+business interests \citep{Seifter2016UCLA, Crow2015, Wagner2011, West2009, Yackee2006JOP, Yackee2006JPART, Golden1998, Haeder2015, Cook2017}.
 
-From a strategic perspective, agency officials are not directly
-accountable to voters. And even if organized groups do supplement
-congressional and judicial checks on executive power, the groups that
-participate in rulemaking represent only certain (if any) segments of
-the public and may not represent them well \citep{Seifter2016UCLA}. Scholars
-are thus skeptical about rulemaking as a site for collective action the
-ability of most people to participate. As a result, mass comment
-campaigns are dismissed as epiphenomenal to bargaining with principals
+Scholars are thus skeptical about rulemaking as a venue for collective action. As a result, public pressure campaigns are dismissed as epiphenomenal to bargaining with political principals
 or interest groups. Indeed, almost all empirical studies of rulemaking
 discard unsophisticated comments from ordinary people, as evident from a
 comprehensive review of scholarship on ``The Politics of Rulemaking'' by
 \citet{Yackee2019}, who finds skepticism about citizen comments, but no studies
-analyzing mass mobilization as a lobbying tactic:
+analyzing public pressure campaigns as a lobbying tactic:
 
 \begin{quote}
-``\citet{Kerwin2011} point out that a citizen must know not only that a
-regulation is being formulated but also how and when to participate.
-This is a high bar for most Americans. Second, to be influential
-during rulemaking, commenters may require resources and technical
-expertise. As \citet{Epstein2014} suggest, agency rule-writers--who are often
-chosen because of their technical or policy-specific
-expertise--privilege the type of data-driven arguments and reasoning
+``\citet{Kerwin2011} point out that a citizen must know not only that a regulation is being formulated but also how and when to participate. This is a high bar for most Americans. Second, to be influential during rulemaking, commenters may require resources and technical expertise. As \citet{Epstein2014} suggest, agency rule-writers---who are often chosen because of their technical or policy-specific expertise---privilege the type of data-driven arguments and reasoning
 that are not common to citizen comments.'' (p.~10)
 \end{quote}
 
-For any particular lay commenter, this conclusion seems inescapable. But
-groups do occasionally mobilize, usually behind a more sophisticated
-lobbying effort. Without systematic understanding and study of public
-participation, it is difficult to adjudicate such questions about how
-processes like public comment periods may enhance or undermine various
-democratic ideals.
+For any particular lay commenter, this conclusion seems inescapable; individuals acting alone are unlikely to affect policy. But groups occasionally mobilize a large number of people, usually behind a more sophisticated lobbying effort. Without a systematic understanding of the scale and impact of public participation in rulemaking, it is impossible to answer normative questions about how participatory processes like public comment periods may enhance or undermine various democratic ideals.
 
-Contrary to the common assumption that mass engagement emerges
-organically, it is almost always mobilized by an organization that also
-engages in sophisticated lobbying or coordination with such an
-organization. By mass engagement, I mean that thousands of people beyond
-professional policy influencers engage. In my empirical context of
-agency rulemaking, I define mass engagement as more than 1000 public
-comments or 100 identical comments, plausibly indicating a mobilization
-effort.\footnote{Following the conventional terms ``mass comment campaign'' and
-  ``public engagement,'' I call the general phenomenon ``mass engagement''
-  resulting from a ``mass mobilization campaign'' to distinguish the
-  magnitude of civic engagement. This differs from the Environmental
-  Protection Agency's definition of mass comment campaign as two or
-  more identical comments. In the results below, I use an intermediate
-  category---``small batch''---comments to describe identical comments
-  numbering less than 100}
-
-This scholarly oversight is surprising given that most people are only
-aware of rulemaking when it is the target of a high-profile mass
+Scholars' neglect of public pressure campaigns is surprising given that most people are only
+aware of agency rulemaking when it is the target of a high-profile mass
 mobilization campaign.\footnote{Some of the most contentious recent public controversies involve
   bureaucratic policymaking. For example, along with 50 thousand
   protesters in Washington D.C., the State Department Received 1.2
@@ -469,18 +358,16 @@ mobilization campaign.\footnote{Some of the most contentious recent public contr
 the ease of online mobilizing and commenting has, like other forms of
 participation \citep{Boulianne2018}, created exponential increases in the
 number of rules in which thousands and even millions of people engage
-(see Figure \ref{fig:commentsperrule}; note that comments per rule are on a
+(see Figure \ref{fig:comments-per-year}; note that comments per rule are on a
 logarithmic scale).\footnote{Proposed rules that have attracted the most public attention have
   been published by the Federal Communications Commission (FCC,
   omitted from this plot), the Environmental Protection Agency (EPA),
   the Department of Interior (DOI), the Bureau of Ocean Energy
   Management (BOEM), the Consumer Financial Protection Bureau (CFPB),
   and Fish and Wildlife Service (FWS).} Occasionally, a large number of people are
-paying attention. These bursts of civic participation may affect
-rulemaking \citep{Coglianese2001}, but this intuition has yet to be tested.
+paying attention.
 
-The general failure to explain or account for mass engagement in
-rulemaking is also striking in light of how agencies advertise public
+The general failure to explain or account for public pressure campaigns in models of bureaucratic policymaking is also striking in light of how agencies advertise public
 comment periods as an opportunity for a voice in government
 decisions.\footnote{I focus on public comments in rulemaking, but the theories and
   methods here may also apply to other kinds of political engagement
@@ -492,43 +379,31 @@ decisions.\footnote{I focus on public comments in rulemaking, but the theories a
   quickly identify whether there are significant or meaningful
   objections'' (p.~34).} Big red letters across the top of the Regulations.gov
 homepage solicit visitors to ``Make a difference. Submit your comments
-and let your voice be heard'' (Figure \ref{fig:regsgov}. A
-blue ``Comment Now!'' button accompanies a short description of each draft
-policy and pending agency action. Another invitation at the bottom of
-the page reads ``Participate today!'' Public commenting on proposed agency
-rules is described as ``an important part of democracy'' (WSJ 2017), the
+and let your voice be heard'' and ``Participate today!'' (Figure \ref{fig:regsgov}. A blue ``Comment Now!'' button accompanies a short description of each draft
+policy and pending agency action.
+Public comment periods on proposed agency
+rules is described as ``an important part of democracy'' (WSJ 2017),
 ``often held out as the purest example of participatory democracy in
-actual American governance'' \citep{Herz2016}. \citet{Rossi1997} finds that ``courts,
-Congress, and scholars have elevated participation in rulemaking to
-a sacrosanct status...greater participation is generally viewed as
-contributing to the democracy.'' Despite much debate about the
-theoretical import and possible reforms, the bulk of public comments
-have yet to be studied.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include\_graphics}\NormalTok{(}\StringTok{"../Figs/regulations{-}header.png"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-Regulations.gov Solicits Public Comments on Draft Agency Rules
+actual American governance'' \citep{Herz2016}. \citet{Rossi1997} finds that ``courts, Congress, and scholars have elevated participation in rulemaking to
+a sacrosanct status\ldots greater participation is generally viewed as
+contributing to democracy.''
 
 \begin{figure}
-\centering
-\includegraphics{../Figs/regulations-header.png}
-\caption{Regulations.gov Solicits Public Comments on Draft Agency Rules \label{fig:regsgov}}
+
+{\centering \includegraphics[width=6.5in]{../Figs/regulations-header} 
+
+}
+
+\caption{Regulations.gov Solicits Public Comments on Draft Agency Rules}\label{fig:regsgov}
 \end{figure}
 
 \begin{figure}
-\centering
-\includegraphics[width=6.5in,height=\textheight]{../Figs/comments-mass-vs-unique-1.png}
-\caption{Comments on Proposed Rules per Year \label{fig:commentsperyear}}
-\end{figure}
 
-\begin{figure}
-\centering
-\includegraphics[width=4.5in,height=\textheight]{../Figs/rules-comments-per-year-1.png}
-\caption{Comments per Rule\label{fig:commentsperrule}}
+{\centering \includegraphics[height=0.25\textheight]{/Users/devin/dissertation/Figs/rules-comments-per-year-1} \includegraphics[height=0.25\textheight]{/Users/devin/dissertation/Figs/comments-mass-vs-unique} 
+
+}
+
+\caption{Comments per Proposed Rule and Total Comments per Year}\label{fig:comments-per-year}
 \end{figure}
 
 While ``ordinary'' members of the public may occasionally provide novel
@@ -540,22 +415,19 @@ people never provide novel and useful technical information, but because
 this is not how most people attempt to influence policy, nor, I argue,
 how we should expect ordinary people to have influence.
 
-Most public comments are, in fact, of the flavor suggested by the
-solicitations on Regulation.gov---ordinary people voicing opinions on a
-proposed policy. They do not provide useful technical information or
+Most public comments are, in fact, of the type suggested by the
+solicitations on Regulations.gov---ordinary people voicing opinions on a proposed policy. They do not provide useful technical information or
 suggest specific edits to policy texts like the interest group comments
 that have thus far captured the attention of political scientists. If
 they add information to rulemaking, it is a different, more political
 flavor of information. Indeed as Figure
-\ref{fig:commentsperyear} shows, every year since 2008, most people who
-comment on draft regulations have done so as a result of an interest
-group's campaign.\footnote{At least for agencies participating in regulations.gov. See
+\ref{fig:comments-per-year} shows, every year since 2008, most people who
+comment on draft regulations have done so as a result of a public pressure campaign.\footnote{At least for agencies participating in regulations.gov. See
   sections
   \ref{whyMail-methods} and
-  \ref{whyMail-results} for my definition and methods for
-  identifying mass comments.} Public engagement in rulemaking is highly
+  \ref{whyMail-results} for my definition and methods for identifying mass comments.} Public engagement in rulemaking is highly
 clustered on a few rules made salient by these campaigns. It is
-plausible that, at least some of the time, such campaigns aim to
+plausible that at least some of the time, such campaigns aim to
 influence policy. It is also plausible that thousands of people engaging
 may alter the politics of these policy processes, but this hypothesis
 remains untested. Indeed, we have much to understand about the causes
@@ -565,7 +437,7 @@ must understand who mobilizes and why.
 
 The kind of politics created by mass engagement has a few notable
 features. It is contentious; most ordinary people are not engaging in
-deliberation, they are simply making demands. Importantly, however,
+deliberation; they are simply making demands. Importantly, however,
 processes like public comment periods channel contentious demands into
 institutionalized policy processes rather than undermining them. In
 short, the politics of rulemaking created by mass engagement is much
@@ -575,25 +447,10 @@ rulemaking thus presents a novel context to examine the consequences of
 broader engagement in typically insider-dominated policymaking and how
 public participation may condition how political decisions are made.
 
-Mass commenting also, in a sense, expands participation in
-policymaking.\footnote{If defining ``political participation'' as ``acts aimed at
-  influencing governmental decisions \citep[ p.~2]{Verba1987}, signing a
-  petition or mass comment counts. However, some consider true
-  participation to be deliberative, which mass commenting is not.
-  Other requirements, that participation is''genuine," ``informed,'' or
-  ``reasoned'' are more difficult to assess. Normative theorists may
-  debate whether deliberation among a small number of people is
-  preferable to a large number of people simply expressing their
-  preferences, but empirically, public participation in bureaucratic
-  policymaking is much more the latter.} Surely, those who opt in are far from representative
-of the broader public \citep{Verba1987}, but in many ways, they must be more
-representative than the handful of political insiders who participate in
-most policy processes. As \citet{Schattschneider1942} put it, the usual
-participants have ``an upper-class accent.'' Does adding thousands of more
-voices dilute this bias? This depends on how people are mobilized. If
-mass engagement is mobilized by the usual participants to create an
-impression of public support, it may merely legitimize the demands of
-powerful interest groups.
+Public pressure campaigns expand civic participation in policymaking.\footnote{If defining ``civic participation'' as ``acts aimed at influencing governmental decisions \citep[ p.~2]{Verba1987}, signing a petition or form comment counts. However, some consider true
+  participation to be deliberative, which mass comment campaigns are not.
+  Other criteria posed by normative theorists that participation should be''genuine," ``informed,'' or ``reasoned'' are more difficult to assess. Normative theorists may debate whether deliberation among a small number of people is preferable to a large number of people simply expressing their preferences, but empirically, public participation in bureaucratic policymaking is much more the latter \citep{Shapiro2008b}.}
+Surely, those who engage are far from representative of the broader public \citep{Verba1987}, but in many ways, they must be more representative than the handful of political insiders who participate in most policy processes. If the usual participants have ``an upper-class accent'' \citep{Schattschneider1942}, does adding thousands of more voices dilute this bias? This depends on how people are mobilized. If public pressure is mobilized by the usual participants to create an impression of public support, it may merely legitimize the demands of powerful interest groups.
 
 \hypertarget{theory}{%
 \section{Theory}\label{theory}}
@@ -605,8 +462,6 @@ Thus, depending on how agencies process political information, ``going public'' 
 
 \hypertarget{why-mobilize}{%
 \subsection{Why mobilize?}\label{why-mobilize}}
-
-\label{whymail-intro}
 
 This section offers a theory and hypotheses to explain variation in mass
 engagement. I argue that we should observe different patterns of
@@ -629,9 +484,12 @@ However, mass engagement has no place in this model. I aim to fill this
 gap.
 
 \begin{figure}
-\centering
-\includegraphics{../present/classicmodel.png}
-\caption{The `Classic Model' of Interest Group Lobbying in Bureaucratic Policymaking \label{fig:causal-classic}}
+
+{\centering \includegraphics[width=6.5in]{../Figs/causal-classic} 
+
+}
+
+\caption{The 'Classic Model' of Interest Group Lobbying in Bureaucratic Policymaking}\label{fig:causal-classic}
 \end{figure}
 
 First, I offer a framework for assessing the causes of mass engagement.
@@ -643,15 +501,19 @@ policy.
 \hypertarget{incorporating-political-information-into-models-of-lobbying-in-rulemaking}{%
 \subsubsection{Incorporating political information into models of lobbying in rulemaking}\label{incorporating-political-information-into-models-of-lobbying-in-rulemaking}}
 
+\hypertarget{public-pressure-is-a-political-resource.}{%
+\paragraph{Public pressure is a political resource.}\label{public-pressure-is-a-political-resource.}}
+
 An organization's ability to expand the scope of conflict by mobilizing
-a large number of people may occasionally be a valuable political
-resource. In contrast to scholars who focus on the deliberative
+a large number of people can be a valuable political resource \citep{Schattschneider1975}. In contrast to scholars who focus on the deliberative
 potential of public comment processes, I focus on public engagement as a
-tactic aimed at gaining power. Scholars who do understand mobilization
-as a tactic \citep{Furlong1997, Kerwin2011} have thus far focused on
-organizations mobilizing their membership. I include a campaign's
-broader audience and its potential to grow, more akin to the concept of
+tactic aimed at gaining power. Scholars who understand mobilization
+as a tactic \citep{Furlong1997, Kerwin2011} have focused on how
+organizations mobilize their membership. I expand on this understanding of mobilization as a lobbying tactic to include a campaign's broader audience, more akin to the concept of
 an attentive public \citep{Key1961} or issue public \citep{Converse1964}.
+
+\hypertarget{public-pressure-campaigns-evoke-the-public-interest-and-representation.}{%
+\paragraph{Public pressure campaigns evoke the public interest and representation.}\label{public-pressure-campaigns-evoke-the-public-interest-and-representation.}}
 
 Appeals to the government are almost always couched in the language of
 public interest, even when true motivations are private
@@ -668,15 +530,13 @@ group decisions are primarily made by D.C. professionals, these
 advocates themselves may be unsure how broadly their claims resonate
 until potentially-attentive publics are actually engaged.
 
-Theorists may debate whether signing a petition of support without
-having a role in crafting the appeal is a meaningful voice or whether
+Theorists debate whether signing a petition of support without
+having a role in crafting the appeal is a meaningful voice and whether
 petitions effectively channel public interests, but, at a minimum,
 engaging a large number of supporters may help broader interests to
 distinguish themselves from truly narrower ones. It suggests that the
 organization is not ``memberless'' \citep{Skocpol2003} in the sense that they
-can demonstrate some verifiable public support.\footnote{Public support can be faked or inflated using ``astroturf'' tactics
-  but as I argue below, such campaigns ought to have observably
-  different patterns of engagement.}
+can demonstrate some verifiable public support.\footnote{Public support can be faked or inflated using ``astroturf'' tactics, but such campaigns have observably different patterns of engagement.}
 
 Here I build on three insights. First, \citet{Furlong1997} and \citet{Kerwin2011}
 identify mobilization as a tactic. The organizations that they surveyed
@@ -750,20 +610,25 @@ to policymakers by launching a mass mobilization campaign. The public
 response to the campaign depends on the extent that the attentive public
 is passionate about the issue.
 
-Figure \ref{causal-whymail} amends the ``Classic Model''" of interest
-group lobbying (Figure \ref{fig:causal-classic} to incorporate the above
-intuitions. In addition to providing technical information, for example
-through sophisticated comments, an organization may mobilize supporters.
-The more support a group has, the more successful this effort will be.
+\begin{figure}
+
+{\centering \includegraphics[width=6.5in]{../Figs/causal-whymail} 
+
+}
+
+\caption{Incorporating Political Information into Models of Bureaucratic Policymaking}\label{fig:causal-whymail}
+\end{figure}
+
+Figure \ref{fig:causal-whymail} amends the ``Classic Model'' of interest
+group lobbying (Figure \ref{fig:causal-classic}) to incorporate political information about the attentive public. In addition to providing technical information through sophisticated comments, an organization may mobilize supporters.
+The more support a group has, the more successful this mobilization effort will be.
 Large-scale engagement may produce several types of relevant political
 information. The most direct and obvious is the expressed ``public
-opinion'' that policymakers observe.\footnote{I address other types of political information that mass
-  engagement may create elsewhere. For an expanded model, see Figure
-  \ref{causal-full} in the Appendix.}
+opinion'' that policymakers observe.\footnote{I address other types of political information that mass engagement may create elsewhere. For an expanded model, see Figure
+  \ref{fig:causal-full} in the Appendix.}
 
 The causal process visualized in Figure
-\ref{fig:causal-whymail} only operates under certain conditions,
-one of those being that mobilization is aimed at influencing policy.
+\ref{fig:causal-whymail} may only operate under certain conditions. For example, we may only expect mobilization to influence a given policy when the mobilization effort is aimed at influencing that particular policy, rather than using the public comment period go build organizational membership or power more generally.
 
 \hypertarget{hypotheses-about-the-drivers-of-mass-mobilization}{%
 \subsection{Hypotheses about the drivers of mass mobilization}\label{hypotheses-about-the-drivers-of-mass-mobilization}}
@@ -806,12 +671,14 @@ decisionmakers perceive a consensus.\footnote{For example, consensus among inter
   a majoritarian logic \citep{Mendelson2011}), or simply that unified
   demands are easier to process than opposing demands.}
 
-\begin{theorem}
-\protect\hypertarget{thm:support}{}{\label{thm:support} }Lobbying coalitions
+
+
+\begin{quote}
+\textbf{Hypothesis 1:} Lobbying coalitions
 mobilize mass engagement when they perceive the attentive public is on
 their side, have sufficient resources, and perceive an opportunity to
 influence policy.
-\end{theorem}
+\end{quote}
 
 The key part of this hypothesis is that mobilizing is correlated with
 existing public support, what might be called ``grass-roots'' support. The
@@ -820,13 +687,12 @@ support, could also be true. For example, business groups who are
 already advantaged in low salience rulemaking may decide to leverage
 their superior resources further to mobilize support to alter a bad
 reputation or bolster claims that they represent more than their private
-interest. If mobilization most often takes this ``astro-turf'' form, this
-would be evidence against Hypothesis
-\ref{thm:support} and Schattschneider's argument that it is the
+interest. If mobilization most often takes this ``astroturf'' form, this
+would be evidence against
+Hypothesis 1 and Schattschneider's argument that it is the
 disadvantaged who seek to expand the scope of the conflict.
 
-The latter parts of Hypothesis
-\ref{thm:support} regarding sufficient resources and political
+The latter parts of Hypothesis 1 regarding sufficient resources and political
 opportunity are scope conditions. Most organizations that are
 disadvantaged in low-salience rulemaking also lack resources to launch
 mass mobilization campaigns. If an organization does not perceive a
@@ -846,21 +712,22 @@ is prevent a perceived consensus, I expect such campaigns to engage
 fewer people, less effort per person, and yield a smaller portion of
 indirect engagement.
 
-\begin{theorem}
-\protect\hypertarget{thm:disrupt}{}{\label{thm:disrupt} }When a lobbying
+
+
+\begin{quote}
+\textbf{Hypothesis 2:} When a lobbying
 coalition with more intense public support mobilizes successfully in
 response to an opportunity to influence policy, opposing coalitions with
-less public support are more likely to counter-mobilize, but with
+less public support are more likely to countermobilize, but with
 proportionally smaller results.
-\end{theorem}
+\end{quote}
 
-The first part of Hypothesis
-\ref{thm:disrupt} would be undermined if lobbying organizations
+The first part of Hypothesis 2 would be undermined if lobbying organizations
 with less public support are no more likely to engage in outside
-lobbying when their opposition does so. While \citet{Potter2017} found industry
+lobbying when their opponents do so. While \citet{Potter2017} found industry
 groups were no more likely to advocate for rules to be strengthened,
 weakened or withdrawn, this does not mean that they are no more likely
-to mobilize when their opposition does so.
+to mobilize when their opponents do so.
 
 The second part of this hypothesis, that countermobilization is
 proportionally smaller, rests on the intuition that the scale and
@@ -888,9 +755,12 @@ an easy way to do so, as long as users consented to ``receive periodic
 communication from the Sierra Club.''
 
 \begin{figure}
-\centering
-\includegraphics{../Figs/sierra2.jpeg}
-\caption{Mass mobilization campaign by the Sierra Club collects contact information \label{fig:sierra}}
+
+{\centering \includegraphics[width=0.4\linewidth]{/Users/devin/dissertation/Figs/sierra2} 
+
+}
+
+\caption{The Sierra Club Collects Contact Information Through Mass Mobilization Campaign}\label{fig:sierra}
 \end{figure}
 
 While such campaigns may engage many people, they are unlikely to affect
@@ -903,7 +773,7 @@ executive-branch agendas shift more quickly than public opinion.
 
 When a lobbying coalition with more intense public support successfully
 mobilizes for reasons other than influencing policy, opposing coalitions
-with less public support are not more likely to counter-mobilize.
+with less public support are not more likely to countermobilize.
 
 Going public and going down fighting may be difficult to distinguish in
 the observed public response. Indeed, members of the public may poorly
@@ -921,17 +791,65 @@ campaigns.
 \begin{longtable}[]{@{}lccc@{}}
 \caption{\label{tab:campaigns-patterns} Observable Differences in Lobbying Strategies}\tabularnewline
 \toprule
-& Inside lobbying & Outside lobbying &\tabularnewline
+\begin{minipage}[b]{0.19\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[b]{0.23\columnwidth}\centering
+Inside lobbying (technical information)\strut
+\end{minipage} & \begin{minipage}[b]{0.23\columnwidth}\centering
+Outside lobbying (public pressure campaign)\strut
+\end{minipage} & \begin{minipage}[b]{0.23\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-& Inside lobbying & Outside lobbying &\tabularnewline
+\begin{minipage}[b]{0.19\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[b]{0.23\columnwidth}\centering
+Inside lobbying (technical information)\strut
+\end{minipage} & \begin{minipage}[b]{0.23\columnwidth}\centering
+Outside lobbying (public pressure campaign)\strut
+\end{minipage} & \begin{minipage}[b]{0.23\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
 \midrule
 \endhead
-``Normal'' lobbying & High & None &\tabularnewline
-``Going public'' & High & High &\tabularnewline
-``Disrupting consensus'' & High & Low &\tabularnewline
-``Going down fighting'' & Low & High &\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright
+``Normal'' lobbying\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
+High\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
+None\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright
+``Going public''\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
+High\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
+High\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright
+``Disrupting consensus''\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
+High\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
+Low\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright
+``Going down fighting''\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
+Low\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
+High\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -980,14 +898,14 @@ that mass mobilization will systematically run counter to concentrated
 business interests where they conflict with the values of public
 interest groups with sufficient resources to mobilize.
 
-\begin{theorem}
-\protect\hypertarget{thm:publicinterest}{}{\label{thm:publicinterest} }
-Public interest group coalitions mobilize more often than
-business-driven coalitions.
-\end{theorem}
 
-Hypothesis
-\ref{thm:publicinterest} posits a conditional logic in the
+
+\begin{quote}
+\textbf{Hypothesis 3:} Public interest group coalitions mobilize more often than
+business-driven coalitions.
+\end{quote}
+
+Hypothesis 3 posits a conditional logic in the
 decision to mobilize. If resources purely determined outside lobbying,
 business-driven coalitions would often dominate, as they do elsewhere.
 However, I argue, because outside lobbying can alter the decision
@@ -996,7 +914,7 @@ process (where a more limited set of actors participate) have little
 incentive to expand the scope of the conflict.
 
 \hypertarget{types-of-public-engagement}{%
-\subsubsection{Types of public engagement}\label{types-of-public-engagement}}
+\subsection{Types of public engagement}\label{types-of-public-engagement}}
 
 I classify supporters into three types that help describe key pieces of
 political information. I illustrate these types in the context of public
@@ -1039,16 +957,11 @@ information will only influence decisions if these signals are processed
 in a way that captures this information and relays it to decisionmakers.
 These organizational processes may vary significantly across agencies.
 
-\hypertarget{methods}{%
-\section{Methods}\label{methods}}
+\hypertarget{whyMail-methods}{%
+\section{Methods}\label{whyMail-methods}}
 
 \hypertarget{measuring-public-pressure-and-political-information}{%
 \subsection{Measuring Public Pressure and Political Information}\label{measuring-public-pressure-and-political-information}}
-
-\label{whyMail-methods}
-
-\hypertarget{measuring-mass-engagement-and-political-information}{%
-\subsubsection{Measuring mass engagement and political information}\label{measuring-mass-engagement-and-political-information}}
 
 In this section, I develop methods to attribute mass comments to the
 campaigns that mobilized them and measure the intensity of preferences
@@ -1059,7 +972,7 @@ Comments with identical text (if any) indicate which groups and
 coalitions ran a mass comment campaign. Within each campaign, I measure
 the intensity and potential for the movement to grow. To measure
 intensity, I examine the ratio of high-effort and low-effort comments.
-To measure potential to grow, I measure the number of comments mobilized
+To measure the potential to grow, I measure the number of comments mobilized
 indirectly by the campaign (i.e., those that support a campaign but do
 not include text provided by the campaign). The result is several new
 measures of participation in bureaucratic policymaking.
@@ -1091,20 +1004,26 @@ data was a significant data-organization task.
 \hypertarget{mobilizing-organizations.}{%
 \paragraph{Mobilizing organizations.}\label{mobilizing-organizations.}}
 
-I identified organizations responsible for mobilizing 100 or more
-comments with repeated text, either identical text or partially unique
+Through an iterative combination of automated search methods and hand-coding, I identify organizations for over 40 million comments, including all organizations responsible for mobilizing 100 or more
+comments with repeated text--either identical text or partially unique
 texts that contain shared language. I then searched comment texts for
 mentions of these organizations' names to complete missing information
 on the mobilizing organization. The top 100 mobilizing organizations
 each mobilized between 55 thousand and 4.2 million comments. Figure
-\protect\hyperlink{fig:toporgs}{\[fig:toporgs\]} shows the top organizers of comments posted to
+\ref{fig:toporgs} shows the top organizers of comments posted to
 regulations.gov.
 
-\includegraphics[width=6.5in,height=\textheight]{../Figs/toporgs.png}
-\protect\hypertarget{fig:toporgs}{}{\[fig:toporgs\]}
+\begin{figure}
+
+{\centering \includegraphics[width=6.5in]{../Figs/toporgs} 
+
+}
+
+\caption{Top mobilizers of comments posted to regulations.gov}\label{fig:toporgs}
+\end{figure}
 
 Having identified who is participating in rulemaking, the next step is
-to determine who is lobbying together.
+to determine who is lobbying together. Studies of rulemaking stress the importance of coalitions \citep[Dwidar2019]{Yackee2006JOP}. Scholars have measured coalitions of organized groups but have yet to attribute citizen comments to the coalition that mobilized them.
 
 \hypertarget{who-lobbies-together}{%
 \subsubsection{Who lobbies together?}\label{who-lobbies-together}}
@@ -1120,22 +1039,16 @@ interests, all of whom oppose offshore drilling,'' suggesting that claims
 of public and elected official support aim to provide similar kinds of
 political information.
 
-\hypertarget{text-reuse-and-clustering.}{%
-\paragraph{Text reuse and clustering.}\label{text-reuse-and-clustering.}}
+\hypertarget{i-identify-coalitions-using-text-re-use-and-clustering-methods.}{%
+\paragraph{I identify coalitions using text re-use and clustering methods.}\label{i-identify-coalitions-using-text-re-use-and-clustering-methods.}}
 
 I identify comments that are not identical but share a 10-word (or
 ``10-gram'') string using a moving window function looping over each
-possible pair of texts to identify matches. \footnote{For more about this method and comparisons with related partial
-  matching methods such as the Smith-Waterman algorithm, see
-  \citet{Casas2017} and \citet{Judge-Lord2017}}.
-
+possible pair of texts to identify matches.\footnote{For more about this method and comparisons with related partial matching methods such as the Smith-Waterman algorithm, see \citet{Casas2017} and \citet{Judge-Lord2017}.}
 When actors sign onto the same comment, it is clear that they are
 lobbying together. However, various businesses, advocacy groups, and
-citizens often comment separately even when they aligned. The comment
-process is open to anyone, and it is often not worthwhile for all actors
-to coordinate their messages. Thus, in addition to mapping text re-use,
-I adapt several statistical models (k-means clustering and Bayesian
-mixture models) of text to classify comments into coalitions. I cluster
+citizens often comment separately, even when they are aligned. Thus, in addition to mapping text re-use, for rules with a large number of comments,
+I use statistical models of text to classify comments into coalitions. I cluster
 documents by the frequency with which they use different words. Being
 classified together does not mean that the documents all address exactly
 the same distribution of substantive issues, just that they use similar
@@ -1143,44 +1056,42 @@ words relative to the full set of documents. I start by modeling all
 comments on each rule (collapsing identical comments to one document)
 with two and three clusters, which I then inspect to see how well the
 comments of named organizations were classified. If the two cluster
-model most sensibly describes the conflict, I label these clusters ``pro''
-and ``con'.' If the three-cluster model more sensibly describes the
-conflict, I label these clusters as''pro, con, other." If neither fits
+model most sensibly describes the conflict, I label these clusters ``pro'' and ``con'' If the three-cluster model more sensibly describes the
+conflict, I label these clusters as ``pro, con, other.'' If neither fits
 well, I increase the number of clusters as needed.
 
 \begin{figure}
-\hypertarget{fig:kmeans}{%
-\centering
-\includegraphics[width=7in,height=\textheight]{../Figs/kmeans.png}
-\caption{K-means clustering fails to capture coalitions when nearly all
-comments oppose a
-regulation{}}\label{fig:kmeans}
+
+{\centering \includegraphics[width=6.5in]{../Figs/kmeans} 
+
 }
+
+\caption{K-means clustering fails to capture coalitions when nearly all comments oppose a regulation}\label{fig:kmeans}
 \end{figure}
 
 The asymmetry in expressed support for most rules presents challenges
 for unsupervised clustering because much of the variation in comment
 texts is within-coalition variation. For example, one of the most common
 clustering methods, k-means clustering, often captures within-coalition
-variation. Figure \protect\hyperlink{fig:kmeans}{1} shows k-means clusters based on a normalized
+variation. Figure \ref{fig:kmeans} shows k-means clusters based on a normalized
 measure of word frequency (term-frequency/inverse-document-frequency)
 compared to two principal components of variation. Neither k-means nor
 principal components analysis is well suited to identifying the small
 number of comments supporting the Park Service's proposed restrictions
 on protests in Washington DC.
 
-Two strategies may improve clustering. First, even partial text reuse
+Two strategies may improve clustering. First, even partial text re-use
 generally indicates that comments belong to the same coalition. For
-example, as seen at the top of figure
-\protect\hyperlink{fig:kmeans}{1}, models
+example, as seen at the top of Figure
+\ref{fig:kmeans}, models
 may be restricted to cluster the large number of comments beginning with
-"As a citizen who has frequently participated" in the same coalition
+``As a citizen who has frequently participated'' in the same coalition
 even if they go on to add different personal anecdotes about why protest
 rights are important to them. Thus, clustering methods could be
 restricted to group partially copied texts, as well as entirely copied
 texts. Second, Bayesian mixture model may better recover pro and con
 clusters, especially with strong priors comments using positive and
-negative setiment words belong together.
+negative sentiment words belong together.
 
 \hypertarget{measuring-the-volume-intensity-and-potential-contagion-of-public-engagement.}{%
 \subsubsection{Measuring the volume, intensity, and potential contagion of public engagement.}\label{measuring-the-volume-intensity-and-potential-contagion-of-public-engagement.}}
@@ -1200,11 +1111,10 @@ follow a zero-inflated negative binomial distribution.
 
 \textbf{Effort.} I measure effort per comment by the number of words people
 write, omitting any to text longer than ten words that is not unique,
-usually because a mobilizing organization provided it. For example,
-\ref{fig:sierra}, the Sierra Club mobilized more than 47,710
+usually because a mobilizing organization provided it. For example the Sierra Club mobilized more than 47,710
 people to submit exactly the same text on the delay of the methane
 pollution rule, but 7,452 people also took the time to write a
-personalized comment in addition to the text provided. However, we may
+personalized comment in addition to the text provided (see Figure \ref{fig:sierra}). However, we may
 not observe people who have low levels of passion for the issue because
 they either do not cross the effort threshold required to comment or opt
 to write nothing more than the form letter. Thus, while effort measured
@@ -1220,67 +1130,73 @@ campaign, I count the number of people who use a similar distribution of
 words to that of the form letter but fewer than ten words matching any
 other comment. This is a regular count process.
 
-\hypertarget{results-patterns-of-public-engagement-in-rulemaking}{%
-\section{Results: Patterns of Public Engagement in Rulemaking}\label{results-patterns-of-public-engagement-in-rulemaking}}
-
-\label{whyMail-results}
+\hypertarget{whyMail-results}{%
+\section{Results: Patterns of Public Engagement in Rulemaking}\label{whyMail-results}}
 
 \hypertarget{patterns-of-public-engagement-in-rulemaking}{%
-\subsubsection{Patterns of public engagement in rulemaking}\label{patterns-of-public-engagement-in-rulemaking}}
+\subsection{Patterns of public engagement in rulemaking}\label{patterns-of-public-engagement-in-rulemaking}}
 
 \hypertarget{most-comments-result-from-mass-comment-campaigns.}{%
 \paragraph{Most comments result from mass-comment campaigns.}\label{most-comments-result-from-mass-comment-campaigns.}}
 
 Figure
-\protect\hyperlink{fig:comments-support}{\[fig:comments-support\]} shows all comments posted on
+\ref{fig:comments-support} shows all comments posted on
 regulations.gov over time by whether they are exact or partial copies of
-another comment or not. While some agencies classify all duplicate
-comments as mass comments, I call comments that have between 2 and 99
+another comment or not. I call comments that have between 2 and 99
 identical copies, ``medium batch'' because such comments may reflect
 coordinated efforts among interest groups that do not include a public
-pressure strategy that involves mobilizing ordinary people. Here ``mass
-comments'' are comments that have either 100 or more identical copies or
-were uploaded in bulk batches of at least 100. This restrictive
-definition of what counts as mass engagement captures comments that were
-certainly mobilized by a campaign. As Figure
-\protect\hyperlink{fig:comments-support}{\[fig:comments-support\]} shows mass commenting campaigns
-mobilize the vast majority of comments. In other words, most comments
-are from ordinary people.
+pressure strategy that involves mobilizing ordinary people. Even relatively unsuccessful public pressure campaigns yield far more than 99 comments. Comments that have either 100 or more identical copies or were uploaded in bulk batches of at least 100 are then ``mass comments'' that were certainly mobilized by a public pressure campaign. Figure \ref{fig:comments-support} shows that public pressure campaigns mobilize the vast majority of comments. Over 80\% of the 48 million comments on proposed rules posted to regulations.gov were mobilized by just 100 organizations. In other words, most comments are from ordinary people mobilized by a few public interest organizations.
 
-\includegraphics[width=\textwidth,height=2in]{../Figs/comments-mass-1.png} \includegraphics[width=\textwidth,height=2in]{../Figs/comments-mass-support-vs-oppose-1.png}
+\begin{figure}
 
-\protect\hypertarget{fig:comments-support}{}{\[fig:comments-support\]}
+{\centering \includegraphics[width=0.49\linewidth]{../Figs/comments-mass-1} \includegraphics[width=0.49\linewidth]{../Figs/comments-mass-support-vs-oppose-1} 
+
+}
+
+\caption{Comments on Draft Rules Posted to Regulations.gov 2006-2018}\label{fig:comments-support}
+\end{figure}
 
 The right pane of Figure
-\protect\hyperlink{fig:comments-support}{\[fig:comments-support\]} shows results from a sample of several
+\ref{fig:comments-support} shows results from a sample of several
 million comments for which I have digitized texts. Many of these
 comments appear to support proposed agency rules. A rough measure of
 support (whether the comment text includes " support " or " oppose ``)
-shows that many more comments mention support, until 2018, when there is
+shows that many more comments mention support, until 2018 when there is
 a fairly dramatic reversal in the share of comments mentioning''support
 " compared to those mentioning ``oppose'' (Figure
-\protect\hyperlink{fig:comments-support}{\[fig:comments-support\]}). This may be a function of the
+\ref{fig:comments-support}. This may be a function of the
 changing regulatory agenda due to the change in presidential
 administration. However, support and oppose are not used in all comments
 and do not always indicate support for a rule (see figures
-\protect\hyperlink{fig:sentiment-2018}{\[fig:sentiment-2018\]} and
-\protect\hyperlink{fig:sentiment-2016}{\[fig:sentiment-2016\]} in the appendix for a sample of comments
+\ref{fig:sentiment-2018} and
+\ref{fig:sentiment-2016} in the appendix for a sample of comments
 on several rules in 2016 and 2018).
 
 \hypertarget{most-comments-occur-on-a-small-number-of-salient-rules.}{%
 \paragraph{Most comments occur on a small number of salient rules.}\label{most-comments-occur-on-a-small-number-of-salient-rules.}}
 
-Approximately one third of public comments posted to regulations.gov
-were received on just ten regulations shown in figure
-\protect\hyperlink{fig:topdockets}{\[fig:topdockets\]}.
+Approximately one-third of public comments posted to regulations.gov
+were received on just ten regulations shown in Figure
+\ref{fig:topdockets}.
 
-\includegraphics[width=6in,height=\textheight]{../Figs/topdockets.png}
-\protect\hypertarget{fig:topdockets}{}{\[fig:topdockets\]}
+\begin{figure}
+
+{\centering \includegraphics[width=6.5in]{../Figs/topdockets} 
+
+}
+
+\caption{Top 10 Dockets Receiving the Most Comments on regulations.gov and the top 20 Mobilizers}\label{fig:topdockets}
+\end{figure}
+
+\hypertarget{is-civic-engagement-resulting-from-public-pressure-campaigns-better-understood-as-astroturf-or-grassroots-participation}{%
+\subsubsection{Is civic engagement resulting from public pressure campaigns better understood as ``astroturf'' or ``grassroots'' participation?}\label{is-civic-engagement-resulting-from-public-pressure-campaigns-better-understood-as-astroturf-or-grassroots-participation}}
+
+In short, I find much more evidence of grassroots participation than astroturf participation.
 
 \hypertarget{a-coalition-of-public-interest-organizations-mobilize-most-comments.}{%
 \paragraph{A coalition of public-interest organizations mobilize most comments.}\label{a-coalition-of-public-interest-organizations-mobilize-most-comments.}}
 
-As Figure \protect\hyperlink{fig:topdockets}{\[fig:topdockets\]} shows, the most prolific mobilizers are
+As Figure \ref{fig:topdockets} shows, the most prolific mobilizers are
 environmental groups. On five out of the top ten dockets (here including
 rulemaking and non-rulemaking dockets), a similar coalition of groups
 mobilized the majority of public comments. In part, this is because the
@@ -1292,46 +1208,62 @@ stands out as the lone mobilizer on behalf of material interest for its
 members. Notably, it only mobilized significantly on the Clean Power
 Plan but not on the subsequent Clean Power Plan repeal. If public
 interest group mobilizing on the Clean Power Plan was an example of
-"going public" to pressure the Obama administration and then "going
-down fighting" in the face of the Trump administration's repeal,
+``going public'' to pressure the Obama administration and then ``going
+down fighting'' in the face of the Trump administration's repeal,
 industry counter-mobilization responding to the first, but not the
-second fits aligns with hypothesis
-\protect\hyperlink{hyp:disrupt}{\[hyp:disrupt\]}.
+second fits aligns with Hypothesis 2.
 
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}
 
-The legitimacy of bureaucratic policymaking is said to depend on the premise that rulemaking provides for public voice @{[}Croley2003, Rosenbloom2003{]}. Yet we lack an empirical base necessary to evaluate whether any legitimacy the public comment process may provide is deserved. If input solicited from ordinary people has little effect on policy outcomes, directly or indirectly, it may be best understood as providing a veneer of democratic legitimacy on an essentially technocratic and/or elite-driven process. I have made a few initial steps toward better understanding actual public engagement in bureaucratic policymaking.
+The legitimacy of bureaucratic policymaking is said to depend on the premise that rulemaking provides for public voice \citep[\citet{Rosenbloom2003}]{Croley2003}. Yet we lack an empirical base necessary to evaluate whether any legitimacy the public comment process may provide is deserved. If input solicited from ordinary people has little effect on policy outcomes, directly or indirectly, it may be best understood as providing a veneer of democratic legitimacy on an essentially technocratic and/or elite-driven process. I have made a few initial steps toward better understanding actual public engagement in bureaucratic policymaking.
 If mass engagement does shape agency decisions, a new research program will be needed to investigate who exactly these campaigns mobilize and represent.
 
 \newpage
 
+\hypertarget{appendix-appendix}{%
+\appendix}
+
+
 \hypertarget{appendix}{%
-\section{Appendix}\label{appendix}}
+\section*{Appendix}\label{appendix}}
+\addcontentsline{toc}{section}{Appendix}
 
 \begin{figure}
-\centering
-\includegraphics{../present/model.png}
-\caption{The Role of Mass Commenting and Political Information in Bureaucratic Policymaking (\#causal-full)}
+
+{\centering \includegraphics[width=6.5in]{../Figs/causal-full} 
+
+}
+
+\caption{The Role of Mass Commenting and Political Information in Bureaucratic Policymaking}\label{fig:causal-full}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=6.5in]{../Figs/comments-form-1} 
+
+}
+
+\caption{Sources of Comments Posted to regulations.gov}\label{fig:comments-from}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
-        \caption{Rules ranked by number of comments posted to regulations.gov}
+        \caption{Rules in Order of Number of Comments}
     \includegraphics[width = 6.5in]{../Figs/rules-ranked-comments-per-year-1.png}
     \label{fig:rules-ranked}
 \end{figure}
 
 \begin{figure}[p!]
     \centering
-        \caption{Major and non-major rules on regulations.gov}
+        \caption{Major and Non-major Rules on regulations.gov}
     \includegraphics[width = 7in]{../Figs/major-comments-density-1.png}
     \label{fig:rules-major}
 \end{figure}
 
 \begin{figure}[p!]
     \centering
-        \caption{Rules on regulations.gov by priority level}
+        \caption{Rules on regulations.gov by Unified Agenda Priority Level}
     \includegraphics[width = 7in]{../Figs/priority-comment-density-1.png}
     \label{fig:rules-priority}
 \end{figure}
@@ -1339,7 +1271,7 @@ If mass engagement does shape agency decisions, a new research program will be n
 \clearpage
 
 \begin{figure}
-    \caption{Unique or partially unique comments by sentiment score (sample of 2018 rules)}
+    \caption{Unique or Partially Unique Comments by Sentiment Score (Sample of 2018 Rules)}
     \label{fig:sentiment-2018}
     \centering
     \includegraphics[width = 7in]{../Figs/sent-2018ATF-2018-0001.png}
@@ -1351,7 +1283,7 @@ If mass engagement does shape agency decisions, a new research program will be n
 \end{figure}
 
 \begin{figure}
-    \caption{Unique or partially unique comments by sentiment score (sample of 2016 rules)}
+    \caption{Unique or Partially Unique Comments by Sentiment Score (Sample of 2016 Rules)}
     \label{fig:sentiment-2016}
     \centering
     \includegraphics[width = 7in]{../Figs/sent-2016BLM-2016-0001.png}
@@ -1361,6 +1293,8 @@ If mass engagement does shape agency decisions, a new research program will be n
     \includegraphics[width = 7in]{../Figs/sent-2016HHS-OS-2016-0014.png}
     \includegraphics[width = 7in]{../Figs/sent-2016NOAA-2005-0226.png}
 \end{figure}
+
+\clearpage
 % --- PAGE: endnotes -----------------------
 % --- PAGE: refs -----------------------
 \newpage
