@@ -14,12 +14,7 @@ indirectly by the campaign (i.e., those that support a campaign but do
 not include text provided by the campaign). The result is several new
 measures of participation in bureaucratic policymaking.
 
-### Who lobbies?
 
-Previous studies of rulemaking stress the importance of coalitions
-[@Yackee2006JOP]. Scholars have measured coalitions of organized groups
-but have yet to attribute citizen comments to the coalition that
-mobilized them.
 
 #### Data.
 
@@ -30,6 +25,8 @@ I then linked these comments to other data on the rules from the Unified
 Agenda and Office of Information and Regulatory Affairs Reports on draft
 rules sent to them for review. Summary statistics for these data are
 available in the Appendix.
+
+### Who lobbies?
 
 Unfortunately, metadata on the authors of comments and their
 organizational affiliations are inconsistent and incomplete. As this
@@ -52,21 +49,10 @@ regulations.gov.
 knitr::include_graphics("../Figs/toporgs.png")
 ```
 
-Having identified who is participating in rulemaking, the next step is
-to determine who is lobbying together. Studies of rulemaking stress the importance of coalitions [@Yackee2006JOP, Dwidar2019]. Scholars have measured coalitions of organized groups but have yet to attribute citizen comments to the coalition that mobilized them.
-
 ### Who lobbies together?
 
-The Oceana coalition framed its mass mobilization effort to curb the
-Bureau of Ocean Energy Management's 2017 Proposed Offshore Oil and Gas
-Leasing Program as a "petition signed by 67,275 self-proclaimed United
-States residents," suggesting that organizations consider these efforts
-as akin to petitions. In the same statement, Oceana also claimed the
-support of "more than 110 East Coast municipalities, 100 Members of
-Congress, 750 state and local elected officials, and 1,100 business
-interests, all of whom oppose offshore drilling," suggesting that claims
-of public and elected official support aim to provide similar kinds of
-political information.
+Having identified who is participating in rulemaking, the next step is
+to determine who is lobbying together. Studies of rulemaking stress the importance of coalitions [@Yackee2006JOP, Dwidar2019]. Scholars have measured coalitions of organized groups but have yet to attribute citizen comments to the coalition that mobilized them.
 
 #### I identify coalitions using text re-use and clustering methods.
 I identify comments that are not identical but share a 10-word (or

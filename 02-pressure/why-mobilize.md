@@ -35,16 +35,20 @@ policy.
 
 ### Incorporating political information into models of lobbying in rulemaking
 
-#### Public pressure is a political resource.
-An organization's ability to expand the scope of conflict by mobilizing
-a large number of people can be a valuable political resource [@Schattschneider1975]. In contrast to scholars who focus on the deliberative
-potential of public comment processes, I focus on public engagement as a
-tactic aimed at gaining power. Scholars who understand mobilization
-as a tactic [@Furlong1997; @Kerwin2011] have focused on how
-organizations mobilize their membership. I expand on this understanding of mobilization as a lobbying tactic to include a campaign's broader audience, more akin to the concept of
-an attentive public [@Key1961] or issue public [@Converse1964].
 
-#### Public pressure campaigns evoke the public interest and representation.
+#### Public pressure campaigns claim to represent and evoke the public interest.
+
+The Oceana coalition framed its mass mobilization effort to curb the
+Bureau of Ocean Energy Management's 2017 Proposed Offshore Oil and Gas
+Leasing Program as a "petition signed by 67,275 self-proclaimed United
+States residents," suggesting that organizations consider these efforts
+as akin to petitions. In the same statement, Oceana also claimed the
+support of "more than 110 East Coast municipalities, 100 Members of
+Congress, 750 state and local elected officials, and 1,100 business
+interests, all of whom oppose offshore drilling," suggesting that claims
+of public and elected official support aim to provide similar kinds of
+political information.
+
 Appeals to the government are almost always couched in the language of
 public interest, even when true motivations are private
 [@Schattschneider1975]. When lobbying during rulemaking, groups often
@@ -68,6 +72,15 @@ distinguish themselves from truly narrower ones. It suggests that the
 organization is not "memberless" [@Skocpol2003] in the sense that they
 can demonstrate some verifiable public support.^[Public support can be faked or inflated using "astroturf" tactics, but such campaigns have observably different patterns of engagement.]
 
+#### Public pressure is a political resource.
+An organization's ability to expand the scope of conflict by mobilizing
+a large number of people can be a valuable political resource [@Schattschneider1975]. In contrast to scholars who focus on the deliberative
+potential of public comment processes, I focus on public engagement as a
+tactic aimed at gaining power. Scholars who understand mobilization
+as a tactic [@Furlong1997; @Kerwin2011] have focused on how
+organizations mobilize their membership. I expand on this understanding of mobilization as a lobbying tactic to include a campaign's broader audience, more akin to the concept of
+an attentive public [@Key1961] or issue public [@Converse1964].
+
 Here I build on three insights. First, @Furlong1997 and @Kerwin2011
 identify mobilization as a tactic. The organizations that they surveyed
 reported that forming coalitions and mobilizing large numbers of people
@@ -85,7 +98,7 @@ to mass commenting:
 > coordinating efforts of the leaders, would otherwise not lobby. This
 > activation is important because it implies that coalition lobbying can
 > generate new information and new actors---beyond simply the 'usual
-> suspects'---relevant to policy decision makers. Thus, we theorize
+> suspects'---relevant to policy decisionmakers. Thus, we theorize
 > consensus, coalition size, and composition matter to policy change."
 
 I argue that, concerning political information, this logic extends to
@@ -154,7 +167,9 @@ opinion" that policymakers observe.^[I address other types of political informat
 ]
 
 The causal process visualized in Figure
-\@ref(fig:causal-whymail) may only operate under certain conditions. For example, we may only expect mobilization to influence a given policy when the mobilization effort is aimed at influencing that particular policy, rather than using the public comment period go build organizational membership or power more generally.
+\@ref(fig:causal-whymail) may only operate under certain conditions. The success of a mobilizing effort depends on whether a group's perception of latent public demands (the diagonal arrow between "Latent Public Demands" and "Lobbying Strategy") reflects the public response to a mobilizing effort (the horizontal arrow between "Latent Public Demands" and "Mass Engagement"). 
+
+The influence of political information on policy (the arrow between "Political Information" and "Policy Response") depends on the institutional processes by which agencies receive and interpret information. We may only expect to observe mass mobilization influencing a particular policy only if the mobilization effort was aimed at influencing that policy, rather than using the public comment the period to build organizational membership or power more generally.
 
 ## Hypotheses About the Drivers of Mass Mobilization
 
@@ -187,7 +202,7 @@ many people may be inspired indirectly (e.g., through news stories) or
 to engage with more effort (e.g., writing longer comments) than people
 mobilized by the side with less public support. This is important
 because political information may be especially influential if
-decisionmakers perceive a consensus.^[For example, consensus among interest groups
+decisionmakers perceive a consensus.^[For example, the level of consensus among interest groups
     [@Golden1998; @Yackee2006JPART], especially business unity
     [@Yackee2006JOP; @Haeder2015], predicts policy change, though it is
     not clear if this is a result of strategic calculation, a perceived
@@ -199,7 +214,7 @@ decisionmakers perceive a consensus.^[For example, consensus among interest grou
 
 ```
 
-(ref:support) Hypothesis 1
+(ref:support) Hypothesis 1a
 
 > **(ref:support):** Lobbying coalitions
 mobilize mass engagement when they perceive the attentive public is on
@@ -241,7 +256,7 @@ indirect engagement.
 ```{theorem, disrupt}
 ```
 
-(ref:disrupt) Hypothesis 2
+(ref:disrupt) Hypothesis 1b
 
 > **(ref:disrupt):** When a lobbying
 coalition with more intense public support mobilizes successfully in
@@ -327,7 +342,7 @@ campaigns.
 
 Table: (\#tab:campaigns-patterns) Observable Differences in Lobbying Strategies
   
-| | Inside lobbying (eg., technical information provided) | Outside lobbying (e.g., number of comments from a public pressure campaign) |
+| | Inside lobbying (eg., technical information provided) | Outside lobbying (e.g., the number of comments from a public pressure campaign) |
 |:---|:---:|:---:|:---:|
 | "Normal" lobbying | High | None | 
 | "Going public" | High | High |
@@ -368,7 +383,7 @@ their members.^[@Potter2017 similarly distinguishes "advocacy groups" from
     broad and often focused on material outcomes for their members such
     as labor unions. @Potter2017 puts unions in the "Industry" category.
     I take a different approach based on the coalition with whom such
-    groups lobby. If a union lobbies alongside businesses, I classify
+    groups lobby. If a union lobbies alongside businesses (see @Mildenberger2020), I classify
     this as a private interest-driven coalition. If a union lobbies with
     public interest groups on public health or safety issues, I classify
     this as a public interest.] Thus, I theorize that mass mobilization is most
@@ -384,7 +399,7 @@ interest groups with sufficient resources to mobilize.
 
 ```
 
-(ref:publicinterest) Hypothesis 3
+(ref:publicinterest) Hypothesis 1c
 
 > **(ref:publicinterest):** Public interest group coalitions mobilize more often than
 business-driven coalitions.

@@ -35,7 +35,7 @@ With measures, I test whether variation in engagement explains variation in over
 <!--Model 1 is one observation per rule. Models 2-4 are one observation per coalition per rule. Explanatory variables include agency alignment with Congress and the president (models 1-4), coalition alignment and unity (models 2-4), whether a coalition is driven more by public or private interests (models 2-3).<!--, part of the DV in model 4).-->
 
 <!--**Step 2. Are elected officials more or less likely to engage after mass public engagement?** -->
-**Chapter 3 asks whether mass engagement affect political oversight.** The political information signaled by mass engagement may serve as "fire alarms," altering principals to oversight opportunities or "warning signs" altering them to political risks.
+**Chapter 3 asks whether public pressure campaigns affect political oversight.** The political information signaled by mass engagement may serve as "fire alarms," altering principals to oversight opportunities or "warning signs" altering them to political risks.
 When a coalition mobilizes successfully, <!--especially if it generates a perceived consensus in expressed public sentiments, -->
 elected officials ought to be more likely to engage on their behalf and less likely to engage against them.
 <!-- This suggests an addendum to Hall and Miler's (2008) finding that members are more likely to engage in rulemaking when they have been lobbied by a like-minded interest group.-->
@@ -50,7 +50,7 @@ Dependent variables include -->
 <!--(2) the share of supportive congressional comments, <!--  $\sim$  beta. -->
 <!--(3) the similarity of words in comments from the coalition and Members of Congress. -->
 
-**Chapter 4 asks whether mass engagement affects rulemaking and rules.** 
+**Chapter 4 asks whether public pressure campaigns affect rulemaking and rules.** 
 I theorize that the effects of political information on policy depend on the extent to which the strategic environment allows change and how political information is processed, both directly within agencies and indirectly through other actors (e.g., Members of Congress) whose appraisals matter to bureaucrats.
 The main dependent variable is change in the rule text.
 <!--Different inputs may yield different results: -->
