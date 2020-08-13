@@ -39,7 +39,7 @@ mono_light(base_color = "#3b444b",
           #background_color = "#FAF0E6", # linen
           header_font_google = google_font("PT Sans"), 
           text_font_google = google_font("Old Standard"), 
-          text_font_size = "30px",
+          text_font_size = "28px",
           padding = "10px",
           code_font_google = google_font("Inconsolata"), 
           code_inline_background_color    = "#F5F5F5", 
@@ -88,13 +88,14 @@ On the one hand, civic engagement has long been a core interest of political sci
 
 --
 
-## Will organized pubic pressure to carry over to agency policymaking? 
+## Will organized public pressure to carry over to agency policymaking? 
 --
 If so, by what mechanisms?
 
 ---
 
-Rulemaking: ~90% of new U.S. law
+Rulemaking, ~90% of new U.S. law
+
 ![](macro-medicare.png)
 
 ---
