@@ -169,7 +169,7 @@ opinion" that policymakers observe.^[I address other types of political informat
 The causal process visualized in Figure
 \@ref(fig:causal-whymail) may only operate under certain conditions. The success of a mobilizing effort depends on whether a group's perception of latent public demands (the diagonal arrow between "Latent Public Demands" and "Lobbying Strategy") reflects the public response to a mobilizing effort (the horizontal arrow between "Latent Public Demands" and "Mass Engagement"). 
 
-The influence of political information on policy (the arrow between "Political Information" and "Policy Response") depends on the institutional processes by which agencies receive and interpret information. We may only expect to observe mass mobilization influencing a particular policy only if the mobilization effort was aimed at influencing that policy, rather than using the public comment the period to build organizational membership or power more generally.
+The influence of political information on policy (the arrow between "Political Information" and "Policy Response") depends on the institutional processes by which agencies receive and interpret information. We may only expect to observe mass mobilization influencing a particular policy only if the mobilization effort was aimed at influencing that policy, rather than using the public comment the period to build organizational membership or power more generally (see @Carpenter2014b).
 
 ## Hypotheses About the Drivers of Mass Mobilization
 
@@ -282,10 +282,11 @@ preferences.
 
 **Going down fighting.** Finally, campaigns may target supporters rather
 than policymakers. Sometimes organizations "go down fighting" to fulfill
-supporters' expectations. I use "going down fighting" as shorthand for
-campaigns aimed only at fulfilling member, donor, or supporter
+supporters' expectations. For example, @Carpenter2020 finds that anti-slavery petitions were this type of campaign where "the most important readers of a
+petition are its signatories."  In the context of notice and comment rulemaking, after a draft policy is published, failing to secure one's demands is always a loss, so I use "going down fighting" as shorthand for
+campaigns aimed primarily at fulfilling member, donor, or supporter
 expectations and related logics that are internal to the organization,
-including member retention or recruitment, fundraising, or satisfying a
+including member retention or recruitment (@Carpenter2014b, @Carpenter2020), fundraising, or satisfying a
 board of directors. For example, as Figure
 \@ref(fig:sierra) shows, the Sierra Club uses campaigns to collect
 contact information of supporters and potential members. In this case,

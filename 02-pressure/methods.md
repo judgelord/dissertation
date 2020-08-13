@@ -120,7 +120,7 @@ follow a zero-inflated negative binomial distribution.
 
 **Effort.** I measure effort per comment by the number of words people
 write, omitting any to text longer than ten words that is not unique,
-usually because a mobilizing organization provided it. For example the Sierra Club mobilized more than 47,710
+usually because a mobilizing organization provided it. For example, the Sierra Club mobilized more than 47,710
 people to submit exactly the same text on the delay of the methane
 pollution rule, but 7,452 people also took the time to write a
 personalized comment in addition to the text provided (see Figure \@ref(fig:sierra)). However, we may
@@ -128,7 +128,7 @@ not observe people who have low levels of passion for the issue because
 they either do not cross the effort threshold required to comment or opt
 to write nothing more than the form letter. Thus, while effort measured
 by the number of words people write may be normally distributed, I
-assume that the low end of this distribution is truncated.
+assume that the low end of the observed distribution is truncated.
 
 **Contagion.** Mass-comment campaigns have wildly different results.
 Some submit a clean 10,000 copies of (signatures on) the same comment.

@@ -20,8 +20,8 @@ rmd_files:
 #  - 02-pressure/01-intro.Rmd
   - 03-oversight/00-abstract.Rmd
   - 04-influence/00-abstract.Rmd
-  - 04-influence/influence.md
-  - 04-influence/influence_coding_examples.md
+#  - 04-influence/influence.md
+#  - 04-influence/influence_coding_examples.md
 #  - 04-influence/preanalysis.md
   - 05-ej/00-abstract.Rmd
 #  - 02-policy.Rmd # policy recs

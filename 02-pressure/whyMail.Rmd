@@ -130,7 +130,7 @@ knitr::include_graphics("../Figs/causal-full.png")
 ```
 
 ```{r comments-from, fig.cap="Sources of Comments Posted to regulations.gov"}
-knitr::include_graphics("../Figs/comments-form-1.png")
+knitr::include_graphics("../Figs/comments-from.pdf")
 ```
 
 \begin{figure}[h!]

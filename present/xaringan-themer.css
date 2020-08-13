@@ -33,7 +33,7 @@ h1, h2, h3 {
 }
 .remark-slide-content {
   background-color: #E5EAEA;
-  font-size: 25px;
+  font-size: 30px;
   
   
   
@@ -67,7 +67,7 @@ h1, h2, h3 {
 }
 strong{color:#003333;}
 a, a > code {
-  color: #000080;
+  color: #B7E4CF;
   text-decoration: none;
 }
 .footnote {

@@ -37,7 +37,7 @@ particular. While some are optimistic that requirements for agencies to
 solicit and respond to public comments on proposed rules allow "civil
 society" to provide public oversight [@Michaels2015; @Metzger2010], most
 studies find that participants in rulemaking often represent elites and
-business interests [@Seifter2016UCLA; @Crow2015; @Wagner2011; @West2009; @Yackee2006JOP; @Yackee2006JPART; @Golden1998; @Haeder2015; @Cook2017].
+business interests [@Seifter2016UCLA; @Crow2015; @Wagner2011; @West2009; @Yackee2006JOP; @Yackee2006JPART; @Golden1998; @Haeder2015; @Cook2017, LibgoberCarpenter2018].
 <!--
 From a strategic perspective, agency officials are not directly
 accountable to voters. And even if organized groups do supplement
@@ -57,7 +57,7 @@ that are not common to citizen comments." (p. 10)
 
 For any particular lay commenter, this conclusion seems inescapable; individuals acting alone are unlikely to affect policy. As Hacker and Pierson (Forthcoming) observe, 
 
->"[The United States'] institutional terrain advantages political actors with the capacity to work across multiple venues, over extended periods, and in a political environment where coordinated government action is difficult and strategies of evasion and exit from regulatory constraints are often successful. These capacities are characteristic of organized groups, not individual voters.""
+>"[The United States'] institutional terrain advantages political actors with the capacity to work across multiple venues, over extended periods, and in a political environment where coordinated government action is difficult, and strategies of evasion and exit from regulatory constraints are often successful. These capacities are characteristic of organized groups, not individual voters."
 
 But groups occasionally mobilize a large number of people, usually behind a more sophisticated lobbying effort. Without a systematic understanding of the scale and impact of public participation--*group-mediated* participation--in rulemaking, it is impossible to answer normative questions about how participatory processes like public comment periods may enhance or undermine various democratic ideals.
 <!--These bursts of civic participation may affect
