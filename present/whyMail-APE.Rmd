@@ -34,7 +34,7 @@ library("xaringanthemer")
 library("here")
 
 
-mono_light(base_color = "#003333",
+mono_light(base_color = "#3b444b",
           link_color = "#B7E4CF",
           #background_color = "#FAF0E6", # linen
           header_font_google = google_font("PT Sans"), 
@@ -84,13 +84,18 @@ On the one hand, civic engagement has long been a core interest of political sci
 
 --
 
-## If groups build the power to pass a Green New Deal, what happens when agencies write the actual policies? 
+## If groups build the power to pass a Green New Deal, what happens when 30+ agencies write the actual policies? 
 
 --
 
 ## Will organized pubic pressure to carry over to agency policymaking? 
 --
 If so, by what mechanisms?
+
+---
+
+Rulemaking: ~90% of new U.S. law
+![](macro-medicare.png)
 
 ---
 
@@ -105,7 +110,7 @@ If so, by what mechanisms?
 
 Most rules receive <10 comments
 --
-, some receive  millions.
+, some receive millions.
 
 <!--
 ![](rules-ranked-comments-per-year-1.png)
@@ -147,9 +152,9 @@ exclude: true
 
 ## Bureaucratic policymaking
 
-### ~90% of new U.S. law
 
-### Discretion (Institutional design, information asymmetry, multiple principals, coalitions)
+
+### Discretion (institutional design, information asymmetry, multiple principals, coalitions)
 
 --
 
@@ -193,7 +198,7 @@ Does it matter?
 <!-- I argue that, if public pressure campaigns affect policy, it is through political information --> 
 
 ## Political information 
-### (e.g., signals of the scale and intensity of public support)
+(e.g., signals of the scale and intensity of public support)
 
 
 ![](causal-whymail.png)
@@ -214,6 +219,7 @@ class: inverse
 ### 3. Why does it occur? (selection problems)
 
 ---
+exclude: true
 
 <!--## Selection process -->
 
@@ -222,7 +228,6 @@ class: inverse
 - Ones people dislike? (negativity bias)
 - Controversial, salient? (both endogenous) <!-- indeed, we often measure salience this way --> 
 
---
 
 ### -> Opportunities for mobilization
 
@@ -249,14 +254,12 @@ background-image: url("present/tweetBenWilkerMoveon.png")
 
 <!--sometimes people that don't fit that concept-->
 
---
-
 <img src="https://github.com/judgelord/dissertation/raw/master/Figs/EPA_protest_kills_jobs.jpg" height = 200 />
 <img src="https://github.com/judgelord/dissertation/raw/master/Figs/EPA_protest_nurses.jpg" height = 200 />
 
 --
 
--> Coalitions
+# -> Coalitions
 
 
 
@@ -270,7 +273,7 @@ background-image: url("present/tweetBenWilkerMoveon.png")
 
 vs.
 
-#### 2. Leverage resources into an impression of public support (Skocpol & Hertel-Fernandez)
+#### 2. Leverage resources into an impression of public support (Skocpol & Hertel-Fernandez 2016)
 
 ### Not lobbying
 
@@ -330,9 +333,9 @@ exclude: true
 
 ### 2. Average effort per comment
 
-Co-sign an org's form comment <----> Partially unique <----> Unique 
+Co-sign an org's form comment <--> Partially unique <--> Unique 
 
-Lower effort <----------------------------------------------------> Higher effort
+Lower effort <------------------------------------------------> Higher effort
 
 ### 3. Potential contagion (share of unique comments)
 
@@ -358,7 +361,7 @@ exclude: true
 
 class: inverse middle 
 
-# Does the institution enable grassroots contestation of powerful intersts or astroturf legitimation of them? 
+# Does the institution enable grassroots contestation of powerful interests or astroturf legitimation of them? 
 
 ---
 
@@ -376,13 +379,15 @@ class: center
 ---
 
 ## Who mobilizes?
-A few public interest groups.
+A few public interest groups 
+--
+$\rightarrow$ More "grassroots" than "astroturf"
 
-More "conflict expansion" than groups with the most resources "buying" the impression of public support $\longrightarrow$ More "grassroots" than "astroturf"
+More "conflict expansion" than groups with the most resources "buying" the impression of public support 
 
 <img src="https://github.com/judgelord/rulemaking/raw/master/Figs/toporgs-1.png" width = 900 />
 
-100 organizations mobilized 39m of 48m regulations.gov comments on proposed rules, ~87/100 lobby in the same public interest coalitions.
+100 orgs mobilized 39m of 48m regulations.gov comments on proposed rules, ~87/100 lobby in the same in coalitions.
 
 
 ---
@@ -401,28 +406,60 @@ class: center inverse
 
 # Thanks!
 
-Unified Agenda + ORIA reports + Regulations.gov (Rdata, SQLite):
+Unified Agenda + ORIA reports + Regulations.gov data:
 
-[GitHub.com/JudgeLord/Rulemaking](https://github.com/judgelord/rulemaking)
+GitHub.com/JudgeLord/Rulemaking
 
 or
 
-[JudgeLord@Wisc.edu](mailto:JudgeLord@Wisc.edu)
-
+JudgeLord@Wisc.edu
 ---
 
-Incorporating Political Information Into Models of Bureaucratic Policymaking
+Political Information in Bureaucratic Policymaking
 ![](causal-full.png)
 
 $\Diamond \text{ observed actions,       }  \bigcirc \text{ unobserved prefrences,      } \square \text{ information}$
 
 ---
 
-![](../Figs/comments-form.pdf)
+
+## 20 orgs mobilized nearly half of comments on the top 10 most commented on rules
+
+
+![](topdockets.png)
+
+CFPB's Payday Lending Rule received 80,000 partially unique comments
+
+DOI's National Monuments Review received 200,000 unique comments
+
 ---
 
-Influence on draft rules not mentioning "Environmental Justice"
+background-image: url("ej-second-order.png")
+background-size: contain
+
+
+---
+
+background-image: url(commentor-race.png)
+background-size: contain
+
+---
+
+Change in Draft Rules that did mot Mention Environmental Justice
 ![](ej_prob_top_agencies.png)
+
+---
+
+
+![](macro-environment.png)
+
+---
+
+![](macro-welfare.png)
+
+---
+
+![](macro-labor.png)
 
 ---
 
@@ -466,7 +503,7 @@ Wilson - bureaucrats want to be sued.
 
 Janna - complexity is essential - working on policy development monopolies- expert groups claim rents as providing info.
 
-Brian - how important are these rules 
+Brian - how important are these rules. 
 - 25% of CRS overturned 
 - 
 - payday vs. net neutrality - are they all the same thing? 
