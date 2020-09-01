@@ -1,4 +1,4 @@
-book_filename: "dissertation"
+book_filename: "outline"
 language:
   ui:
     chapter_name: "Chapter "
@@ -26,3 +26,23 @@ rmd_files:
   - 05-ej/00-abstract.Rmd
 #  - 02-policy.Rmd # policy recs
   - 99-references.Rmd
+  latex:
+  - index.Rmd
+  - intro.md
+  - 00-intro/00-intro-conclusion.text
+  - 00-motivation.Rmd
+  - 00-outline.Rmd
+  - 01-rulemaking/00-abstract.Rmd
+  - 00-intro/intro-book.md
+  - 02-pressure/00-abstract.Rmd
+#  - 02-pressure/01-intro.Rmd
+  - 03-oversight/00-abstract.Rmd
+  - 04-influence/00-abstract.Rmd
+#  - 04-influence/influence.md
+#  - 04-influence/influence_coding_examples.md
+#  - 04-influence/preanalysis.md
+  - 05-ej/00-abstract.Rmd
+#  - 02-policy.Rmd # policy recs
+  - 99-references.Rmd
+
+# pandoc -s _book/outline.tex -o _book/outline.docx

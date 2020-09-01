@@ -1,4 +1,24 @@
+<!--To address this gap, -->
+I assess the relationship between the number of
+public comments and the amount of change between draft and final policy
+texts. Next, I assess the relationship between the number of people
+mobilized by each campaign and whether the campaign achieved its policy
+goals. Finally, I theorize and test four mechanisms by which public
+input may affect bureaucratic policymaking. Each mechanism involves a
+distinct type of information that pressure campaigns may relay to
+policymakers: technical information, information about the likelihood of
+political consequences, information about the preferences of elected
+officials, or information about the preferences of the attentive public.
+Because scholarship on bureaucratic policymaking has focused on the
+power of technical information, where insider lobbying is most likely to
+matter and where outside strategies are least likely to matter,
+political scientists have largely overlooked mass mobilization as a
+tactic.
 
+I find evidence consistent with the observable implications of mass
+comment campaigns influencing policymaking through \[non-null results\]
+but no evidence that mass engagement affects rulemaking processes or
+outcomes through \[null results\].
 
 ## Data
 I create an original dataset that combines several sources of data on U.S. federal agency rulemaking. 

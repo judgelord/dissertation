@@ -6,16 +6,19 @@ bookdown::gitbook:
   # search: yes
     split_bib: true 
     sharing: no
-    download: ["pdf"] # docx
+    download: ["pdf", "epub", "docx"]
     toc:
       before: |
         <li><a href="./index.html">Public Pressure Campaigns and Bureaucratic Policymaking</a></li>
       after: "DRAFT--DO NOT CITE WITHOUT PERMISSION"
   #edit: https://github.com/judgelord/dissertation/edit/master/%s
 bookdown::pdf_book:
+#  includes:
+#    in_header: preamble.tex
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
 bookdown::word_document2:
   toc: true
 # bookdown::epub_book: default
+bookdown::epub_book: default
