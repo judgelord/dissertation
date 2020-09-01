@@ -9,7 +9,7 @@ bibliography: "assets/dissertation.bib"
 biblio-style: apalike
 link-citations: yes
 # github-repo: 
-# description: ""
+description: "Outline"
 ---
 
 # Introduction {-}

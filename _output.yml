@@ -3,8 +3,8 @@ bookdown::gitbook:
 #  self_contained: true # MathJax doesn't work with self_contained when not using the rmarkdown "default" template.
   css: style.css #`r here::here("assets/style.css")`
   config: 
-  # search: yes
-    split_bib: true 
+    search: yes
+    split_bib: yes 
     sharing: no
     download: ["pdf", "epub", "docx"]
     toc:
@@ -19,6 +19,6 @@ bookdown::pdf_book:
   citation_package: natbib
   keep_tex: yes
 bookdown::word_document2:
-  toc: true
+  toc: false
 # bookdown::epub_book: default
 bookdown::epub_book: default
