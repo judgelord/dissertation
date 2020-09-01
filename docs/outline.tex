@@ -1,0 +1,262 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Public Pressure Campaigns and Bureaucratic Policymaking},
+  pdfauthor={Devin Judge-Lord},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{Public Pressure Campaigns and Bureaucratic Policymaking}
+\author{Devin Judge-Lord}
+\date{2020-08-31}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{introduction}{%
+\chapter*{Introduction}\label{introduction}}
+\addcontentsline{toc}{chapter}{Introduction}
+
+Does civic engagement through public pressure campaigns affect agency rulemaking? I examine who participates in public pressure campaigns and why, whether they affect congressional oversight, and whether they affect policy. Answering these questions informs our understanding of bureaucratic politics and interest group lobbying, organizing, and mobilizing tactics. If ordinary people have a voice in bureaucratic policymaking, I argue, it is through public pressure campaings. Thus, understnding the nature and effects of these campaigns is key to understanding modern democracy.
+
+With the rise of the administrative state, U.S. federal agencies have
+become a major site of policymaking and political conflict. By some
+estimates, upward of 90\% of legally binding U.S. federal policy is now
+written by agencies. Agency rules are revised much more frequently than
+statutory law \citep{Wagner2017}. In the years or decades between
+legislative enactments, federal agencies make legally-binding rules
+interpreting and reinterpreting old statutes to address emerging issues
+and priorities. Examples are striking: Many effects of the Dodd-Frank Wall
+Street Reform and Consumer Protection Act were largely unknown until the
+specific regulations were written, and it continues to change as these
+rules are revised. Congress authorizes billions in grants, subsidies, and
+leases for public lands, but who gets them depends on agency policy. In
+the decades since the last major environmental legislation, agencies
+have written thousands of pages of new environmental regulations and
+thousands more changing tack under each new administration. These
+revisions significantly shape lives and fortunes. For example, in 2006,
+citing the authority of statutes last amended in the 1950s, the Justice
+Department's Bureau of Prisons proposed a rule restricting eligibility
+for parole. In 2016, the Bureau withdrew this rule and announced it
+would require fewer contracts with prison companies,
+precipitating a 50\% loss of industry stock value. Six months later, a
+new administration announced these policies would again be reversed,
+leading to a 130\% increase in industry stock value. Agency rulemaking
+matters.
+
+Less clear, however, is how the new centrality of agency rulemaking fits
+with democracy. In addition to the bureaucracy's complex relationships with
+the president and Congress, agencies have complex and poorly understood
+relationships with the public and advocacy groups. Relationships with
+constituent groups may even provide agencies with a degree of ``autonomy'' from their official principals \citep{Carpenter2001}.
+
+Participatory processes like public comment periods, where government
+agencies must solicit public input on draft policies, are said to
+provide political oversight opportunities \citep{Balla1998, Mccubbins1984},
+democratic legitimacy \citep{Croley2003, Rosenbloom2003}, and new technical
+information \citep{Yackee2006JPART, Nelson2012}. While recent scholarship on
+agency policymaking has shed light on the sophisticated lobbying by
+businesses and political insiders, we know surprisingly little about the
+vast majority of public comments which are submitted by ordinary people
+as part of public pressure campaigns.\footnote{As I show elsewhere \citep{Judge-Lord2019}, most comments submitted to
+  regulations.gov are form comments, more akin to petition signatures
+  than sophisticated lobbying. Indeed, approximately 40 million out of
+  50 million (80\%) of these public comments mobilized by just 100
+  advocacy organizations.} Activists frequently target
+agency policymaking with letter-writing campaigns, petitions, protests,
+and mobilizing people to attend hearings, all classic examples of ``civic
+engagement'' \citep{Verba1987}. Yet civic engagement remains poorly understood
+in the context of bureaucratic policymaking.
+
+These occasional bursts of civic engagement in bureaucratic policymaking
+raise practical and theoretical questions for the practice of
+democracy.\footnote{In 2018, the Administrative Conference of the United States (ACUS)
+  identified mass commenting as a top issue in administrative law. In
+  their report to ACUS, \citet{SantAmbrogio2018} conclude, ``The `mass
+  comments' occasionally submitted in great volume in highly salient
+  rulemakings are one of the more vexing challenges facing agencies in
+  recent years. Mass comments are typically the result of orchestrated
+  campaigns by advocacy groups to persuade members or other
+  like-minded individuals to express support for or opposition to an
+  agency's proposed rule.'' Mass comment campaigns are known to drive
+  significant participation of ordinary people in Environmental
+  Protection Agency rulemaking
+  \citep{Judge-Lord2019, Potter2017, Balla2018}. \citet{Cuellar2005}, who
+  examines public input on three rules, finds that ordinary people
+  made up the majority of commenters demonstrating ``demand among the
+  mass public for a seat at the table in the regulatory process.''} These questions, in turn, hinge on unanswered empirical
+questions: Do these campaigns affect policy? If so, by what mechanisms?
+Existing research finds that commenters believe their comments matter
+\citep{Yackee2015JPART} and that the number of public comments varies across
+agencies and policy processes
+\citep{Judge-Lord2019, Libgober2018, Moore2017}, but the relationship
+between the scale of public engagement and policy change remains
+untested.
+
+\hypertarget{motivation}{%
+\section*{Motivation}\label{motivation}}
+\addcontentsline{toc}{section}{Motivation}
+
+Leading models of influence in bureaucratic policymaking focus on two key political forces: sophisticated interest group lobbying and political oversight.
+As bureaucrats learn about policy problems and balance interest-group demands, public comment processes allow lobbying organizations to provide useful technical information and inform decisionmakers of their preferences on draft policies.
+Agencies may then update policy positions within constraints imposed by their political principals.
+
+While this may describe most cases of bureaucratic policymaking, these models do not explain or account for the contentious politics that occasionally inspire millions of ordinary people to respond to calls for public input on draft agency policies. Mass engagement in bureaucratic policymaking has thus largely been ignored by political scientists, leaving a weak empirical base for normative and prescriptive work.
+Like other forms of mass political participation, such as protests and letter writing campaigns,
+mass public comments on draft agency rules provide no new technical information.
+Nor do they wield any formal authority to reward or sanction bureaucrats, as comments from a Members of Congress might.
+The number on each side, be it ten or ten million, has no legal import for an agency's response.
+
+How, if at all, should scholars incorporate mass engagement into models of bureaucratic policymaking?
+
+\hypertarget{outline-of-the-book}{%
+\section*{Outline of the book}\label{outline-of-the-book}}
+\addcontentsline{toc}{section}{Outline of the book}
+
+This project aims to better understand the role of ordinary people in bureaucratic policymaking.
+I develop theories of why mass engagement occurs and how it may affect policy. To assess these theories, I tackle three related empirical questions: (1) Why does it occur?; (2) How does it affect the oversight behaviors of agencies' political principals?; and
+(3) Does mass engagement in bureaucratic policymaking affect policy?
+
+\textbf{Chapter 1 situates agency rulemaking in the context of American politics.} I show that rulemaking is a major site of policymaking and political conflict.
+
+\textbf{Chapter 2 explains why agencies (occasionally) get so much mail.}
+The literature suggests two possible explanations for variation in mass engagement; groups may leverage public support as a lobbying resource (``grassroots'' mobilization) or groups with more resources may leverage those resources into an impression of public support (sometimes called ``astroturf'').
+I find that public interest campaigns explain variation in mass engagement. Unlike other forms of lobbying, it is not primarily driven by interests with the largest financial stakes and resources.
+Because the vast majority of comments are inspired by interest-group campaigns, finding their cause requires a method to link comments to the lobbying coalitions that mobilized them. To link individual comments to the more sophisticated lobbying efforts they support, I use text reuse and clustering methods to capture formal and informal coalitions.
+
+\textbf{Chapter 3 asks whether public pressure campaigns affect political oversight.} The political information signaled by mass engagement may serve as ``fire alarms,'' altering principals to oversight opportunities or ``warning signs'' altering them to political risks.
+When a coalition mobilizes successfully,
+elected officials ought to be more likely to engage on their behalf and less likely to engage against them.
+To assess these hypotheses, I count the number of times Members of Congress engage the agency before, during, and after comment periods on rules where lobbying organizations did and did not go public. I then use text analysis to compare legislators' sentiments and rhetoric to that used by each coalition.
+
+\textbf{Chapter 4 asks whether public pressure campaigns affect rulemaking and rules.}
+I theorize that the effects of political information on policy depend on the extent to which the strategic environment allows change and how political information is processed, both directly within agencies and indirectly through other actors (e.g., Members of Congress) whose appraisals matter to bureaucrats.
+The main dependent variable is change in the rule text.
+I systematically identify changes between draft and final rules, parse these differences to identify meaningful policy changes, and compare them to demands raised in comments to measure which coalition got their desired outcomes.
+
+\textbf{Chapter 5 presents a case study of the environmental justice movement.} I identify all rules where ``environmental justice'' is raised in the comments to assess agency responses both quantitatively and qualitatively. In preliminary analysis, I find that responsiveness to environmental justice activist comments varies in predictable ways across agencies, but I find no evidence that the total number of comments affects rules.
+
+\textbf{Chapter 6} concludes with remarks on the study of bureaucratic policymaking and policy recommendations to better account for the fact that public pressure campaigns and the bursts of civic engagement they mobilize will be an enduring feature of the policy process.
+
+\hypertarget{agency-rulemaking-in-american-politics}{%
+\chapter{Agency Rulemaking in American Politics}\label{agency-rulemaking-in-american-politics}}
+
+\hypertarget{abstract}{%
+\subsubsection*{Abstract}\label{abstract}}
+\addcontentsline{toc}{subsubsection}{Abstract}
+
+Large democracies face two big problems. First, they are vulnerable to fleeting passions and demagogues. To combat this, many decisions are left to experts who, ideally, exercise judgment loosely guided by the public. Second, everyone cannot vote on every decision. We thus delegate power to representatives (who then delegate it to deputies), create temporary mini-publics, and solicit input from those most affected or moved by a public decision.\footnote{As imagined by \citet{Dahl1989}, mini-publics are representative, selected at random, and deliberative. Besides juries, however, randomly selected deliberative bodies are rare. Instead, citizens more often engage in government decisions when given opportunities to opt-in, such as hearings, petitions, and public comment periods. These mechanisms of engagement generate a different, more contentious flavor of public input than the discourse imagined by scholars who focus on deliberation.} Most policy is then made by bureaucrats, supposedly guided indirectly through elected representatives and directly by limited public input (mostly limited to more contentious policy debates).
+
+Both of these problems converge in the bureaucracy, run by experts who are deputized by elected officials (or by their deputy's deputy's deputy) and with procedures that create opportunities for public input. It is far from clear how bureaucratic decisions are to balance expertise, accountability to elected officials, and responsiveness to public input in decisionmaking.
+
+\hypertarget{public-pressure-why-do-agencies-sometimes-get-so-much-mail}{%
+\chapter{Public Pressure: Why Do Agencies (sometimes) Get So Much Mail?}\label{public-pressure-why-do-agencies-sometimes-get-so-much-mail}}
+
+\hypertarget{abstract-1}{%
+\subsubsection*{Abstract}\label{abstract-1}}
+\addcontentsline{toc}{subsubsection}{Abstract}
+
+I examine who participates in public pressure campaigns and why. Scholars of bureaucratic policymaking have focused on the sophisticated lobbying efforts of powerful interest groups. Yet agencies occasionally receive thousands or even millions of comments from ordinary people. How, if at all, should scholars incorporate mass participation into models of bureaucratic policymaking? Are public pressure campaigns, like other lobbying tactics, primarily used by well-resourced groups to create an impression of public support? Or are they better understood as conflict expansion tactics used by less-resourced groups? To answer these questions, I collect and analyze millions of public comments on draft agency rules. Using text analysis methods underlying plagiarism detection, I match individual public comments to pressure-group campaigns. I find that most public comments are mobilized by a few public interest organizations. Over 80\% of the 48 million comments on proposed rules posted to regulations.gov were mobilized by just 100 organizations, 87 of which lobby in coalitions with each other. Contrary to other forms of lobbying, I find that mass comment campaigns are almost always a conflict expansion tactic, rather than well-resourced groups creating an impression of public support. Contrary to other forms of political participation, I find no evidence of negativity bias in public comments. Indeed, from 2005 to 2017, most comments supported proposed rules. This is because public comments tend to support Democratic policies and oppose Republican policies, reflecting the asymmetry in mobilizing groups.
+
+See the working paper version of this chapter \href{https://judgelord.github.io/research/whymail/}{here}.
+
+\hypertarget{oversight-do-public-pressure-campaigns-influence-congressional-oversight}{%
+\chapter{Oversight: Do Public Pressure Campaigns Influence Congressional Oversight?}\label{oversight-do-public-pressure-campaigns-influence-congressional-oversight}}
+
+\hypertarget{abstract-2}{%
+\subsubsection*{Abstract}\label{abstract-2}}
+\addcontentsline{toc}{subsubsection}{Abstract}
+
+This chapter examines the effect of public pressure campaigns on congressional oversight. I assess whether legislators are more likely to engage in rulemaking when advocacy groups mobilize public pressure. This involves collecting and coding thousands of comments from Members of Congress on proposed rules with and without public pressure campaigns. These data also allow me to assess congressional oversight as a mediator in policy influence, i.e., the extent to which public pressure campaigns affect agency decisionmakers directly or indirectly through their effects on elected officials' oversight behaviors.
+
+\hypertarget{policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking}{%
+\chapter{Policy Influence: Do Public Pressure Campaigns Influence Bureaucratic Policymaking?}\label{policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking}}
+
+\hypertarget{abstract-3}{%
+\subsubsection*{Abstract}\label{abstract-3}}
+\addcontentsline{toc}{subsubsection}{Abstract}
+
+I assess whether public pressure campaigns increase lobbying success in agency rulemaking using a mix of hand-coding and computational text analysis methods. To measure lobbying success, I develop computational methods to identify lobbying coalitions and estimate lobbying success for all rules posted for comment on regulations.gov. These methods are validated against a random sample of 100 rules with a mass-comment campaign and 100 rules without a mass comment campaign that I hand-code for whether each coalition got the policy outcome they sought. I then assess potential mechanisms by which mass public engagement may affect policy. Each mechanism involves a distinct type of information revealed to decisionmakers. Of primary interest is the extent to which public pressure campaigns affect agency decisionmakers directly or indirectly through their effects on elected officials' oversight behaviors. I test this by assessing congressional oversight as a causal mediator using a subset of rules where I collect and code correspondence from Member of Congress to agencies about proposed agency rules.
+
+\hypertarget{the-environmental-justice-movement-and-technocratic-policymaking}{%
+\chapter{The Environmental Justice Movement and Technocratic Policymaking}\label{the-environmental-justice-movement-and-technocratic-policymaking}}
+
+\hypertarget{abstract-4}{%
+\subsubsection*{Abstract}\label{abstract-4}}
+\addcontentsline{toc}{subsubsection}{Abstract}
+
+This chapter explores the role of public comments in rulemaking by focusing on their role in the environmental justice movement. Environmental justice concerns focus on the unequal access to healthy environments and protection from harms caused by things like pollution and climate change. The ways in which agencies consider environmental justice highlights how rulemaking has distributive consequences, how the public comment process creates a political community, and how claims raised by activists are addressed. Examining over 20,000 rulemaking processes at agencies known to address environmental justice concerns, I find that when public comments raise environmental justice concerns, these concerns are more likely to be addressed in the final rule. Effects vary across agencies, possibly due to the alignment of environmental justice aims with agency missions. While we cannot infer that agencies addressing environmental justice concerns is caused by the public comments themselves, comments may be a good proxy for mobilization in general. Furthermore, the correlation between mobilization and policy changes is largest and most significant in agencies with missions focused on environmental and distributional policy, i.e.~the kinds of agencies we may expect to be most responsive to environmental justice concerns.
+
+See the working paper version of this chapter \href{https://judgelord.github.io/research/ej/}{here}.
+
+  \bibliography{assets/dissertation.bib}
+
+\end{document}
