@@ -3,14 +3,14 @@ bookdown::gitbook:
 #  self_contained: true # MathJax doesn't work with self_contained when not using the rmarkdown "default" template.
   css: style.css #`r here::here("assets/style.css")`
   config: 
-    search: yes
+    search: true
     split_bib: yes 
     sharing: no
     download: ["pdf", "epub", "docx"]
     toc:
       before: |
         <li><a href="./index.html">Public Pressure Campaigns and Bureaucratic Policymaking</a></li>
-      after: "DRAFT--DO NOT CITE WITHOUT PERMISSION"
+      after: "DRAFT OUTLINE" #--DO NOT CITE WITHOUT PERMISSION"
   #edit: https://github.com/judgelord/dissertation/edit/master/%s
 bookdown::pdf_book:
 #  includes:

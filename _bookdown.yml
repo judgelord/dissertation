@@ -1,4 +1,5 @@
 book_filename: "outline"
+output_dir: "docs"
 language:
   ui:
     chapter_name: "Chapter "
@@ -45,4 +46,4 @@ rmd_files:
 #  - 02-policy.Rmd # policy recs
   - 99-references.Rmd
 
-# pandoc -s _book/outline.tex -o _book/outline.docx
+# pandoc -s docs/outline.tex -o docs/outline.docx
