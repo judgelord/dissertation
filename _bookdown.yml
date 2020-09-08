@@ -1,9 +1,8 @@
 book_filename: "outline"
-output_dir: "docs"
+output_dir: "docs"  # pandoc -s docs/outline.tex -o outline.docx
 language:
   ui:
     chapter_name: "Chapter "
-#new_session: yes
 new_session: no
 delete_merged_file: true
 # knit_root_dir: `r here::here()` #https://stackoverflow.com/questions/62578811/error-input-files-not-all-in-same-directory-please-supply-explicit-wd
@@ -45,5 +44,4 @@ rmd_files:
   - 05-ej/00-abstract.Rmd
 #  - 02-policy.Rmd # policy recs
   - 99-references.Rmd
-
-# pandoc -s docs/outline.tex -o docs/outline.docx
+  epub: ["index.Rmd"]
