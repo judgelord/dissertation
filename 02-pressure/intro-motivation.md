@@ -119,14 +119,14 @@ contributing to democracy."
 
 ```{r regsgov, fig.cap = "Regulations.gov Solicits Public Comments on Draft Agency Rules"}
 
-knitr::include_graphics("../Figs/regulations-header.png")
+knitr::include_graphics(here::here("Figs", "regulations-header.png"))
 ```
 
 ```{r comments-per-year, fig.cap = "Comments per Proposed Rule and Total Comments per Year", out.width = NULL, out.height = "25%", fig.show = "hold"}
 
-knitr::include_graphics(here::here("Figs/rules-comments-per-year-1.png"))
+knitr::include_graphics(here::here("Figs", "rules-comments-per-year-1.png"))
 
-knitr::include_graphics(here::here("Figs/comments-mass-vs-unique.pdf"))
+knitr::include_graphics(here::here("Figs", "comments-mass-vs-unique.pdf"))
 
 ```
 

@@ -126,11 +126,11 @@ The next section builds a causal theory. I theorize that activists' opportunitie
 # Appendix {-}
 
 ```{r causal-full, fig.cap="The Role of Mass Commenting and Political Information in Bureaucratic Policymaking"}
-knitr::include_graphics("../Figs/causal-full.png")
+knitr::include_graphics(here::here("Figs", "causal-full.png"))
 ```
 
 ```{r comments-from, fig.cap="Sources of Comments Posted to regulations.gov"}
-knitr::include_graphics("../Figs/comments-from.pdf")
+knitr::include_graphics(here::here("Figs", "comments-from.pdf"))
 ```
 
 \begin{figure}[h!]

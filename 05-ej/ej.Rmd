@@ -1,0 +1,61 @@
+---
+title: The Environmental Justice Movement and Technocratic Policymaking
+subtitle: 
+
+author:
+- name: Devin Judge-Lord
+  affiliation: 
+  footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/whymail>"
+date: "`r Sys.Date()`"
+abstract: | 
+  THIS DRAFT WAS PREPARED FOR THE 2018 ASSOCIATION FOR ENVIRONMENTAL STUDIES AND SCIENCES CONFERENCE. 
+  
+  SLIDES AND THE MOST RECENT DRAFT ARE [HERE](https://judgelord.github.io/research/ej/) 
+  
+  \bigskip
+  
+  `r readLines(here::here("05-ej", "ej-abstract.tex"))`
+#site: bookdown::bookdown_site
+# documentclass: book
+bibliography: '`r here::here("assets/dissertation.bib")`'
+# biblio-style: apalike
+biblio-style: '`r here::here("assets/apsr.bst")`'
+link-citations: yes
+citecolor: black
+urlcolor: blue
+# endnotes: true # CHANGE THIS BEFORE SUBMISSION
+frontpage: true
+# spacing: onehalfspacing
+# github-repo: https://github.com/judgelord/dissertation
+# description: ""
+# keywords: Interest groups, rulemaking, lobbying, bureaucratic politics, data sources
+
+output:
+    bookdown::pdf_document2:
+      template: '../assets/article-template.tex' # redirect to assets 
+      keep_tex: true
+      latex_engine: xelatex
+      citation_package: natbib
+      toc: false
+      fig_caption: true
+      fig.topcaption: true
+      fig.width: 7
+    word_document: default
+---
+
+```{r global.options, include=FALSE}
+options(knitr.graphics.auto_pdf = TRUE)
+
+knitr::opts_chunk$set(echo = FALSE, 
+                      cache = FALSE, 
+                      fig.align = 'center',
+                      fig.width = 7,
+                      out.width = "6.5in",
+                      fig.path= "Figs",
+                      fig.show = "hold",
+                      warning=FALSE, 
+                      message=FALSE)
+```
+
+```{r child = here::here("05-ej", "01-intro.md")}
+```
