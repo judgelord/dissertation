@@ -1,3 +1,5 @@
+# Introduction
+
 I explore the role of public comments in rulemaking by focusing on their
 role in the environmental justice movement. Environmental justice
 concerns focus on the unequal access to healthy environments and
@@ -186,8 +188,7 @@ environmental justice. For the same reason, commenters, especially
 sophisticated ones, who critique draft rules also use the cite this
 executive order and use this language.
 
-Data
-----
+# Data
 
 In order to examine whether the environmental justice movement's mass
 mobilization of letter-writing influences the discourse around policies,
@@ -201,7 +202,9 @@ collected all documents from the website regulations.gov and selected
 proposed rules, 17,539 public comments on these proposed rules, and
 10,418 final rules. I then added all draft and final rules from all 35
 agencies that have published at least one rule addressing environmental
-justice, an additional 40,096 documents.[^1]
+justice, an additional 40,096 documents.^[This may be an over-inclusive sample and in future work, I may
+    attempt to refine this sample to rules that plausibly relate to
+    environmental justice issues.]
 
 Notably, more than twice as many final rules as proposed rules contain
 the phrase "environmental justice." This suggests a systematic element
@@ -210,6 +213,7 @@ public comment. Below, I investigate the extent that this change from
 the draft to final policy is related to environmental justice issues
 being raised in the public comments.
 
+```
 ![Number of Rules where Environmental Justice Appears in the Record
 (Left) and Number of Comments per Notice or Proposed Rule (Right). Text
 indicates the agency for the most commented on
@@ -219,6 +223,7 @@ Comments per Notice or Proposed Rule (Right). Text indicates the agency
 for the most commented on
 rules.](eandj_comments.pdf "fig:"){width="3.5in"} [\[fig:ej\]]{#fig:ej
 label="fig:ej"}
+```
 
 Figure [\[fig:ej\]](#fig:ej){reference-type="ref" reference="fig:ej"}
 shows that the number of rules and comments increasing over time. This
@@ -237,10 +242,15 @@ environmental justice when their draft did not. Additionally, there are
 many rules where environmental justice is mentioned in the public
 comments and not in the draft. Recently, there are also many rules where
 environmental justice is raised in the comments but does not make it
-into the final draft.[^2]
+into the final draft.^[Note that, because not all comments are machine-readable, this is an
+    underestimate of the number of comments mentioning environmental
+    justice, so we cannot conclude that before 2010, rules were
+    mentioning environmental justice when the comments had not.
+    Additionally, this does not include comments like those of the
+    Bishops who raise justice issues but do not use the phrase
+    "environmental justice."]
 
-Second-order Representation
----------------------------
+# Second-order Representation
 
 Before analysis of whether comments matter, I briefly describe who these
 commenters are. This is what @Seifter2016UCLA calls "second-order"
@@ -373,7 +383,10 @@ signed their full name on their comment. Figure
 reference="ejcommentsbyrace"} shows two ways of estimating the racial
 distribution of commenters who raise "environmental justice" concerns in
 their comments. Both methods use the reported racial identities
-associated with surnames as recorded in the 2010 census[^3] and are
+associated with surnames as recorded in the 2010 census^[I recode "Hispanic" as "Latinx" in both cases because the
+    prediction method assumes a forced choice that includes "Hispanic"
+    as a primary racial category] 
+and are
 based on a limited sample of 327 commenters who signed their name with a
 surname matching census records. The first is based on the proportion of
 people with a given surname that identified as belonging to each racial
@@ -391,11 +404,13 @@ people with that surname and this method would predict that the person
 is White. For this reason, the portion of individuals predicted to be
 White (right) is higher than in the probabilistic distribution (left).
 
+```
 ![Probabilistic (Left) and Predicted (Right) Race from Census
 Surnames](race_prob.pdf "fig:"){width="3in"} ![Probabilistic (Left) and
 Predicted (Right) Race from Census
 Surnames](race_pred.pdf "fig:"){width="3in"}
 [\[ejcommentsbyrace\]]{#ejcommentsbyrace label="ejcommentsbyrace"}
+```
 
 Compared to estimates from the 2010 census, this sample of commenters
 appears to be disproportionately Black and less than proportionately
@@ -410,15 +425,15 @@ with respect to the predicted race of each commenter in the sample. As
 there are very few predicted non-White commenters in the sample, it is
 unwise to infer too much from this figure.
 
-  ------------------------------------------------------------------------------------------------------------------------ ------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------
-                                                           White                                                                                                                    Latinx                                                                                                                    Black
-   ![Common words used in comments mentioning "environmental justice" by predicted race](ej_white_words.pdf){width="2in"}   ![Common words used in comments mentioning "environmental justice" by predicted race](ej_latinx_words.pdf){width="2in"}   ![Common words used in comments mentioning "environmental justice" by predicted race](ej_black_words.pdf){width="2in"}
-  ------------------------------------------------------------------------------------------------------------------------ ------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------
+   
+```
+{#ejwordsbyrace label="ejwordsbyrace"}
+![Common words used in comments mentioning "environmental justice" by predicted race](ej_white_words.pdf){width="2in"}   
+![Common words used in comments mentioning "environmental justice" by predicted race](ej_latinx_words.pdf){width="2in"}   
+![Common words used in comments mentioning "environmental justice" by predicted race](ej_black_words.pdf){width="2in"}
+```
 
-[\[ejwordsbyrace\]]{#ejwordsbyrace label="ejwordsbyrace"}
-
-Results: Are final rules more likely to address environmental justice after comments do so?
--------------------------------------------------------------------------------------------
+# Results: Are final rules more likely to address environmental justice after comments do so?
 
 This subsection presents preliminary results from an analysis of draft
 rules, comments, and final rules. Descriptively, figure
@@ -439,9 +454,11 @@ increased demands had little effect. However, a better approach would be
 to estimate a statistical model of the effect of comments on the change
 from draft to final rules. This is what I do.
 
+```
 ![Rules With Comments Addressing EJ on a Draft That Did
 Not](ej_win_rate.pdf "fig:"){width="3.5in"} [\[ejwinrate\]]{#ejwinrate
 label="ejwinrate"}
+```
 
 For this preliminary analysis, I estimate a logit regression where the
 outcome is whether environmental justice was addressed in the final rule
@@ -449,11 +466,10 @@ and the predictors are whether it was addressed in the draft rule,
 whether it was addressed in the comments, and the total number of
 comments received.
 
-$$\begin{aligned}
-  \hat{EJ in Final} = \Bigg\{ \begin{array}{lll}
+$$ \hat{EJ in Final} = \Bigg\{ \begin{array}{lll}
     1 & if &  \beta_0 + \beta_1 EJ in Draft + \beta_2 EJ in Comments + \beta_3 Total Comments  + \epsilon > 0\\
 0 & otherwise &  
-  \end{array}\end{aligned}$$
+  \end{array}$$
 
 As logit coefficients are not easily interpretable, I calculate
 predicted probabilities for the types of rules of interest, i.e. rules
@@ -476,6 +492,7 @@ Overall the probability across all agencies of adding environmental
 justice increases from under 2% to about 9%. At the EPA, the probability
 triples from about 6% to about 18%.
 
+```
 ![Proposed Rules Not Addressing Environmental Justice (Left: All
 agencies. Right: Environmental Protection
 Agency)](ej_prob_env_nprms.pdf "fig:"){width="3.2 in"} ![Proposed Rules
@@ -483,6 +500,7 @@ Not Addressing Environmental Justice (Left: All agencies. Right:
 Environmental Protection
 Agency)](ej_prob_epa_nprms.pdf "fig:"){width="3.2 in"}
 [\[ejpredicted\]]{#ejpredicted label="ejpredicted"}
+```
 
 To examine the degree to which this generalizes across agencies, figure
 [\[ejlogitagencies\]](#ejlogitagencies){reference-type="ref"
@@ -497,9 +515,11 @@ exactly the agencies we would expect to be influenced by comments
 raising environmental justice concerns, i.e. agencies that deal with
 environmental issues with distributive consequences.
 
+```
 ![Proposed Rules Not Addressing Environmental
 Justice](ej_prprob_by_agency.pdf "fig:"){width="\\textwidth"}
 [\[ejlogitagencies\]]{#ejlogitagencies label="ejlogitagencies"}
+```
 
 As the EPA accounts for the largest portion of the data, we are most
 confident in this result, but the EPA is not the agency with the largest
@@ -532,8 +552,7 @@ a rare occurrence, which makes sense if most research does not have
 direct environmental justice consequences, but agencies are open to
 adding analysis of these issues if when they are raised.
 
-Conclusion
-----------
+# Conclusion
 
 This analysis has illustrated the importance of ideas in policymaking
 and cross-sectional statistical results suggest that when issue frames
@@ -576,19 +595,3 @@ does not seem to depend on mass mobilization or elite support. Compared
 to cases where environmental justice issues were not raised, when they
 are, we see a significantly higher probability that they will be
 addressed by policymakers.
-
-[^1]: This may be an over-inclusive sample and in future work, I may
-    attempt to refine this sample to rules that plausibly relate to
-    environmental justice issues.
-
-[^2]: Note that, because not all comments are searchable, this is an
-    underestimate of the number of comments mentioning environmental
-    justice, so we cannot conclude that before 2010, rules were
-    mentioning environmental justice when the comments had not.
-    Additionally, this does not include comments like those of the
-    Bishops who raise justice issues but do not use the phrase
-    "environmental justice."
-
-[^3]: I recode "Hispanic" as "Latinx" in both cases because the
-    prediction method assumes a forced choice that includes "Hispanic"
-    as a primary racial category
