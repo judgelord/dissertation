@@ -3,3 +3,5 @@
 #### Abstract {-}
 
 `r readLines(here::here("04-influence/abstract.txt"))`
+
+## See the preanalysis plan for this chapter [_here_](https://github.com/judgelord/dissertation/blob/master/04-influence/preanalysis.pdf).
