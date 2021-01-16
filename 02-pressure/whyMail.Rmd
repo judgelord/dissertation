@@ -55,17 +55,19 @@ knitr::opts_chunk$set(echo = FALSE,
                       message=FALSE)
 ```
 
-**Note to reader:** This dissertation chapter develops concepts and measures of public engagement in rulemaking that I apply in chapters 3 and 4. The methods are under construction, and the empirical claims are tentative.
-<!--%In the dissertation, I argue that mass participation results from interest groups' strategic choices. When lobbying organizations have an opportunity to shape policy, the resources to mobilize, and broader support than their opposition, outside lobbying (``going public'') may produce valuable, politically-relevant information. Depending on how agencies process political information, outside lobbying may %be a plausible strategy for organizations to 
-%influence policy, both directly and indirectly.
-%For example, those lobbying in rulemaking often make dubious claims to represent broad segments of the public. Mobilizing a large number of people may directly support such claims.
-%Indirectly, it may alert elected officials to political risks and opportunities, affecting oversight behavior. % and thus shifting bureaucrats' relationships with their political principals. % It remains to be seen if conditions under which this is plausible ever occur and, if so, if mass engagement does indeed influence policy. 
--->
+\centerline{\textbf{\underline{NOTE TO READER}}}
 
+\thispagestyle{empty}
 
+The following writing sample is part of my dissertation exploring the effects of public pressure campaigns on agency rulemaking, a technocratic policy process where “public participation” is usually limited to sophisticated lobbying but occasionally includes millions of people mobilized by public pressure campaigns. Public comment periods on proposed policies purport to provide democratic accountability. Yet theories of bureaucratic policymaking largely ignore the occasional bursts of civic engagement that generate the vast majority of public comments on proposed rules. To fill this gap, I build and test theories about the role of public pressure in policymaking. I collect and analyze millions of public comments to develop the first systematic measures of civic engagement and influence in bureaucratic policymaking. The outline of the dissertation is as follows:  
 
 ```{r child = here::here("outline.md")}
 ```
+
+
+\newpage
+
+\setcounter{page}{1}
 
 # Introduction {#intro}
 
