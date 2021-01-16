@@ -4,4 +4,4 @@
 
 `r readLines(here::here("05-ej/ej-abstract.tex"))`
 
-## See the working paper version of this chapter [_here_](https://judgelord.github.io/research/ej/).
+## See the working paper version of this chapter [_here_](https://judgelord.github.io/research/ej/)

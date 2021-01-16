@@ -4,7 +4,7 @@ bookdown::gitbook:
   css: style.css #`r here::here("assets/style.css")`
   config: 
     search: true
-    split_bib: yes 
+    split_bib: no 
     sharing: no
     download: ["pdf", "epub", "docx"]
     toc:
@@ -19,6 +19,7 @@ bookdown::pdf_book:
   citation_package: natbib
   keep_tex: yes
   urlcolor: blue
+  linkcolor: blue
 bookdown::word_document2:
   toc: true
 bookdown::epub_book: default
