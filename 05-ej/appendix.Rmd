@@ -140,7 +140,10 @@ rules %<>%
   left_join(ejcomments %>% 
               count(docket_id, name = "ej_comments_unique") ) %>% 
   mutate(#ej_comments = replace_na(ej_comments, 0),
-         ej_comments_unique = replace_na(ej_comments_unique, 0)) 
+         ej_comments_unique = replace_na(ej_comments_unique, 0) ) %>% 
+  # recode 1 as 0 to reduce colinearity with ej_comment, logical
+  #FIXME make this a new var 
+  mutate(ej_comments_unique = ifelse(ej_comments_unique == 1, 0, ej_comments_unique))
 
 # indicators for ej in various docket-level variables
 rules %<>% 
@@ -211,7 +214,7 @@ ejPR %>%
   ggplot() + 
   aes(x = year) +
   geom_bar(alpha = .7, position = "dodge") + 
-  labs(y  = "Proposed Rules Addressing Environmental Justice",
+  labs(y  = "Proposed Rules\nAddressing Environmental Justice",
        x = "Year") + 
   theme(axis.text.x = element_text(angle = 45, vjust = .5))
 ```
@@ -236,11 +239,12 @@ ejFR %>%
   ggplot() + 
   aes(x = year) +
   geom_bar(alpha = .7, position = "dodge") + 
-  labs(y  = "Final Rules Addressing Environmental Justice",
+  labs(y  = "Final Rules\nAddressing Environmental Justice",
        x = "Year") + 
   theme(axis.text.x = element_text(angle = 45, vjust = .5))
 
-
+# SUBSETTING -------------------------------------------
+#TODO sensitivity analysis to inclusion criteria
 # filter to agencies that published at least one ej rule 
 rules %<>% 
   group_by(agency) %>% 
@@ -248,7 +252,7 @@ rules %<>%
          agency_ej_comments = sum(ej_comments_unique),
          agency_ej_nprms = sum(ej_pr)) %>%
   ungroup() %>% 
-  filter(agency_ej_rules > 0 | agency_ej_nprms > 0)
+  filter(agency_ej_rules > 0 | agency_ej_nprms > 0) #TODO sensitivity analysis
 
 rules %>% distinct(docket_id, ej_pr, ej_fr) %>% count(ej_pr, ej_fr) %>% kablebox()
 
@@ -644,9 +648,11 @@ ejFR_PR %>% count(agency, ej_comment, ej_fr)  %>%
         panel.grid.major.x = element_blank())
 ```
 
-```{r ej-m-PR-agency, fig.height=9}
+### Models
+
+```{r}
 m_PR_agency <- glm(ej_fr ~ ej_comment*log(comments+1) + 
-                     ej_comments_unique + 
+                     ej_comments_unique + #TODO remove or transform 
                      president + 
                      agency,
            data = ejFR_PR, 
@@ -654,11 +660,20 @@ m_PR_agency <- glm(ej_fr ~ ej_comment*log(comments+1) +
 
 tidy(m_PR_agency) %>% kablebox()
 
-library(gglm)
-# gglm(m_PR_agency)
 
+#  with ej_comments_unique 
+m_nPR_agency <- glm(ej_fr ~ log(comments+1) + 
+                     ej_comments_unique + 
+                     president + 
+                     agency,
+           data = ejFR_PR, 
+             family=binomial(link="logit"))
 
+tidy(m_nPR_agency) %>% kablebox()
+```
 
+### Predicted Probabilies by Agency
+```{r ej-m-PR-agency, fig.height=9}
 # A data frame of values at which to estimate probabilities:
 values <- ejFR_PR %>%
   expand(ej_comment,
@@ -947,7 +962,9 @@ Excerpts from comments mentioning "environmental justice" on proposed rules that
 ```{r}
 ejcomments %>% 
   filter(docket_id %in% ejFR_PR$docket_id) %>% 
-  select(docket_id, title, summary) %>% kablebox()
+  distinct(docket_id, title, summary) %>%
+  group_by(docket_id) %>%
+  slice_sample(n = 2) %>% kablebox()
 ```
 
 ---
@@ -1281,6 +1298,28 @@ ejFRejPR %>% count(agency, ej_comment, change)  %>%
         panel.grid.major.x = element_blank())
 ```
 
+### Models 
+```{r}
+# interaction + agency dummies
+mejPR_agency <- glm(change ~ ej_comment*log(comments + 1) + 
+                      ej_comments_unique + #TODO this is colinear with above two, estimate nPR models
+                      president +
+                      agency,
+                    data = ejFRejPR, 
+                    family=binomial(link="logit"))
+
+tidy(mejPR_agency) %>% kablebox()
+
+# with N ej comments + agency dummies
+mejnPR_agency <- glm(change ~ log(comments + 1) + 
+                      ej_comments_unique +
+                      president,
+                    data = ejFRejPR, 
+                    family=binomial(link="logit"))
+
+tidy(mejnPR_agency) %>% kablebox()
+```
+
 ### Predicted Probabilities by Agency
 
 ```{r ej-mejPR-agency}
@@ -1516,7 +1555,7 @@ rows <- tibble(
 
 attr(rows, 'position') <- c(10,11)
 
-
+# paper table 
 modelsummary::modelsummary( models, 
                             stars = TRUE, 
                             coef_omit = "president.*|agency.*|Intercept", 
@@ -1527,6 +1566,7 @@ modelsummary::modelsummary( models,
 save(models, rows, 
      file = "ej_models.Rdata")
 
+# full table 
 modelsummary::modelsummary( models, 
                             stars = TRUE,
                             title = "Including President and Agency Dummies")
@@ -1537,9 +1577,15 @@ modelsummary::modelsummary( models,
 
 # TODO
 
-- [ ] Classify responses to comment vs adding 12898 section (in most cases, they are adding a 12898 section)
+- [ ] Transform ej_comments to reduce colinearity with with ej_comment ()
 
-- [ ] Compare % in change in 12898 sections vs. rule text vs. response to comment
+- [ ] Compare % in change in 12898 sections vs. rule text vs. response to comment. This requires classifing responses to comment vs adding 12898 section (in most cases, they are adding a 12898 section)
+
+- [ ] Fix +1 shift in predicted prob of logged vars 
+
+- [ ] Investigate other estimators like `clogit`
+
+- 
 
 
 
