@@ -5,10 +5,10 @@ subtitle:
 author:
 - name: Devin Judge-Lord
   affiliation: 
-  footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/whymail>"
+  footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/ej>"
 date: "`r Sys.Date()`"
 abstract: | 
-  THIS DRAFT WAS PREPARED FOR THE 2018 ASSOCIATION FOR ENVIRONMENTAL STUDIES AND SCIENCES CONFERENCE. 
+  THIS DRAFT WAS PREPARED FOR THE AMERICAN POLITICS WORKSHOP 
   
   SLIDES AND THE MOST RECENT DRAFT ARE [HERE](https://judgelord.github.io/research/ej/) 
   
@@ -57,5 +57,21 @@ knitr::opts_chunk$set(echo = FALSE,
                       message=FALSE)
 ```
 
-```{r child = here::here("05-ej", "01-intro.md")}
+
+```{r child = here::here("05-ej", "01-intro.Rmd")}
+```
+
+
+```{r child = here::here("05-ej", "02-data.Rmd")}
+```
+
+
+```{r child = here::here("05-ej", "03-methods.Rmd")}
+```
+
+
+```{r child = here::here("05-ej", "04-results.Rmd")}
+```
+
+```{r child = here::here("05-ej", "05-conclusion.Rmd")}
 ```

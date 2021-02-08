@@ -1,0 +1,237 @@
+# Data
+
+In order to examine whether environmental justice advocates or public pressure campaigns shape the discourse around policies,
+I use the text of draft rules, public comments, and final rules retrieved from regulations.gov. I select rulemaking documents from agencies that pubished at least one rule explicitly addressing Environmental Justice fron 1992 through 2020. This yields 30348 rulemaking dockets from 44 agencies.  
+
+```{r data, fig.cap = "Number of Rules where Environmental Justice Appears in the Record (Left) and Number of Comments per Notice or Proposed Rule (Right).", out.height = NULL, out.width = "49%", fig.show = "hold"}
+
+
+```
+
+
+
+64,128,301 public comments were recieved on these dockets, of which 24,360 unique comments (excluding duplicates) use the phrase “environmental justice”.
+
+Despite E.O. 12868, most rules do not address environmental justice. 
+Figure
+\@ref(fig:ej) 
+
+
+
+```{r ej, fig.cap = "Number of Rules where Environmental Justice Appears in the Record (Left) and Number of Comments per Notice or Proposed Rule (Right).", out.height = NULL, out.width = "49%", fig.show = "hold"}
+
+knitr::include_graphics(here::here("Figs", "eandj-hist.pdf") ) #  
+
+knitr::include_graphics(here::here("Figs", "eandj-comments.pdf") ) # 
+```
+
+
+
+
+Figure \@ref(fig:ej)
+shows that the number of rules and comments increasing over time. This
+may reflect increased salience of this concept, but it may primarily be
+the result of the increasing prevalence of searchable texts. Similarly,
+the increased number of rules where comments mention environmental
+justice may reflect growth in the movement but also may reflect more
+overall comments as technology has made commenting easier. Testing the
+hypotheses that comments raising environmental justice concerns are
+related to specific rules where environmental justice is addressed in
+the final but not in the draft requires rule-specific analysis.
+
+What we can say from Figure \@ref(fig:ej) is that each year, more final rules directly address
+environmental justice when their draft did not. Additionally, there are
+many rules where environmental justice is mentioned in the public
+comments and not in the draft. Recently, there are also many rules where
+environmental justice is raised in the comments but does not make it
+into the final draft.^[Note that, because not all comments are machine-readable, this is an
+    underestimate of the number of comments mentioning environmental
+    justice, so we cannot conclude that before 2010, rules were
+    mentioning environmental justice when the comments had not.
+    Additionally, this does not include comments like those of the
+    Bishops who raise justice issues but do not use the phrase
+    "environmental justice."]
+
+## Second-order Representation
+
+Before analysis of whether comments matter, I briefly describe who these
+commenters are. This is what @Seifter2016UCLA calls "second-order"
+representation. It is insufficient to know which groups participate. We
+also need to know who these groups represent.
+
+I investigate who is raising environmental justice concerns in two ways.
+First, I identify the top organizational commenters such as tribes,
+businesses, and nonprofits that are using environmental justice language
+and investigate who these groups represent. Second, for comments where a
+citizen signed their name, I compare surnames to their racial and ethnic
+identity propensities with respect to the U.S. census. Together these
+two pieces of information allow me to comment on "second order"
+representation, i.e. not just the extent to which public comments relate
+to government policy, but the extent to which public comments are
+representative of the public and of the groups they claim to represent.
+
+Table: (\#tab:orgs) Organizations mobilizing mass comment campaigns mentioning "environmental justice"
+
+       Organization                           Comments   Rules
+  ---- -------------------------------------- ---------- -------
+     1 Earthjustice                           1114782    28
+     2 Natural Resources Defense Council      340554     8
+     3 Sierra Club                            349841     5
+     4 Alliance for Climate Protection        253867     5
+     5 WE ACT for Environmental Justice       2402       3
+     6 CREDO                                  112879     2
+     7 Union of Concerned Scientists          43559      2
+     8 Earthworks                             308        2
+     9 Communities for a Better Environment   21         2
+    10 Southern Company                       8          2
+    11 Move On                                165948     1
+    12 Care2                                  70450      1
+    13 The Pew Charitable Trusts              63769      1
+    14 Hudson-Environmental Action            35000      1
+    15 Democracy for America                  4426       1
+
+
+Table \@ref(tab:orgs) shows the top 15 organizational commenters who
+used the phrase "environmental justice" in their comments, including all
+organizations who did so on more than one rule or mobilized more than
+100,000 such comments. The six organizations responsible for mobilizing
+more than 100,000 comments and several others on the list are national
+nonprofit advocacy groups. We Act and Communities for a Better
+Environment are both more community-based groups focusing primarily on
+environmental justice issues. Southern Company is the only corporation
+on the list
+
+The top mobilizer, Earthjustice, is primarily engaged in litigation on
+behalf environmental causes. Their website boasts 2.2 million
+supporters, but it is not clear who they are or if they play any role in
+the advocacy strategy. A search on the website returns 360 results for
+\"Environmental Justice,\" with the top results from staff biographies
+who work on more local or targeted work such as environmental conditions
+for the incarcerated, but the environmental justice language used on the
+main page is relatively mild. For example, "We are fighting for a future
+where children can breathe clean air, no matter where they live"
+[@Earthjustice2017]. The website does contain Spanish language content.
+
+The Natural Resources Defense Council is similar to Earthjustice--a
+national nonprofit funded by donations and focused on litigation--but
+they also lobby. CREDO Action and MoveOn are more generic progressive
+mobilizers who lack a systematic focus on environmental justice issues,
+but occasionally leverage their very large membership lists to support
+campaigns environmental justice campaigns led by others
+[@MoveOn.org2017; @CREDO2017]. The Alliance for Climate Protection is a
+more of an elite political group founded by former Vice President Al
+Gore.
+
+We Act and Communities for a Better Environment both have environmental
+justice in their central mission statement. We Act was founded by
+community leaders in Harlem, NY, to fight environmental racisms and
+advocate for better air quality [@WEACT2017]. Communities for a Better
+Environment has projects throughout California but is particularly
+active in Oakland [@CBECAL2017CommunitiesEnvironment]. Much of the
+content of their website is in both English and Spanish. Both
+organizations focus primarily on "low-income communities of color" and
+thus frame their work with respect to race and class. While both
+organizations participated in national policymaking We Act is more
+focused on communities in Harlem and New York whereas Communities for a
+Better Environment casts a wider frame: \"CBE's vision of environmental
+justice is global--that's why the organization continues to participate
+in such international efforts as the Indigenous Environmental Network
+and the Global Week of Action for Climate Justice\" [@CBECAL2017].
+
+The Southern Company comments are too few to count as mass mobilization.
+Companies do sometimes fund mobilization campaigns, but all of 8 of
+these comments were submitted by the Southern Company. Interestingly,
+the company repeatedly raises research into environmental justice
+concerns in order to frame these issues as a legitimate but unresolved
+scientific debate that is not yet conclusive enough to base regulations
+on: \"People with lower SES are exposed to almost an order of magnitude
+more traffic near their homes (Reynolds et al., 2001), and live closer
+to large industrial sites and are exposed to more industrial air
+pollution (Jerrett et al., 2001). Legitimate health concerns must be
+addressed. But adopting standards with a scientific basis so uncertain
+that health improvement cannot be assured is not sound public health
+policy.\" Like many companies they claim to represent their customers as
+\"electric generating companies and their customers are expected to bear
+much of the burden\" of regulations [@Hobson2004].
+
+With respect to second-order representation, it appears that the groups
+most often using the language of environmental justice may do so
+sincerely but do not themselves represent affected communities. Several
+groups representing local communities and led by community leaders have
+participated, but not nearly as often or with the same intensity as the
+"big greens." This highlights the importance of resources as a condition
+for mobilizing. Not all groups who may benefit from political
+information are able to leverage it because they lack the resources to
+invest in a campaign. However, it may be the case that smaller, more
+member-driven groups join coalitions with groups with more resources who
+mobilize on their behalf. More work is needed to identify coalitions to
+assess this possibility.
+
+Finally, a third class of commenter raises environmental justice issues
+as a way to re-frame them as ongoing debates and thus undermine their
+urgency. I call this reason for engaging as "breaking a perceived
+consensus." In a way, the fact that an energy company felt compelled to
+acknowledge and question environmental justice concerns suggests their
+importance for policy outcomes.
+
+Next, I attempt to estimate the racial distribution of those who comment
+using environmental justice language. This can only be done for
+individuals who commented separately from mobilizing organizations and
+signed their full name on their comment. Figure
+\@ref(fig:ejcommentsbyrace) shows two ways of estimating the racial
+distribution of commenters who raise "environmental justice" concerns in
+their comments. Both methods use the reported racial identities
+associated with surnames as recorded in the 2010 census^[I recode "Hispanic" as "Latinx" in both cases because the
+    prediction method assumes a forced choice that includes "Hispanic"
+    as a primary racial category] 
+and are
+based on a limited sample of 327 commenters who signed their name with a
+surname matching census records. The first is based on the proportion of
+people with a given surname that identified as belonging to each racial
+category (from this limited set of options). The estimated proportion of
+each race for this sample is simply the average of proportions
+identified with each surname. This is likely the most accurate way to
+represent the racial distribution of a set of surnames, but it does not
+assign specific individuals to racial categories. The second method
+does. It predicts the race of each individual in the sample based on
+their surname given the distribution of racial categories reported by
+people with that surname and the proportion of each race in the U.S.
+population. Thus, while a surname may be more common among people who
+identify as black rather than as white, there may still be more White
+people with that surname and this method would predict that the person
+is White. For this reason, the portion of individuals predicted to be
+White (right) is higher than in the probabilistic distribution (left).
+
+
+```{r ejcommentsbyrace, fig.cap = "Probabilistic (Left) and Predicted (Right) Race from Census Surnames", out.height = NULL, out.width = "49%", fig.show = "hold"}
+
+knitr::include_graphics(here::here("Figs", "race-prob.pdf"))
+
+knitr::include_graphics(here::here("Figs", "race-pred.pdf"))
+```
+
+
+Compared to estimates from the 2010 census, this sample of commenters
+appears to be disproportionately Black and less than proportionately
+Latinx or Asian, with just slightly fewer Whites relative to the
+national population. This makes sense given that environmental justice
+theorizing and activism have been led by African American's
+[@Bullard1993].
+
+Figure \@ref(fig:ejwordsbyrace) shows the most common words used in comments
+with respect to the predicted race of each commenter in the sample. As
+there are very few predicted non-White commenters in the sample, it is
+unwise to infer too much from this figure.
+
+   
+
+
+```{r ejwordsbyrace, fig.cap = 'Most frequent words used in comments mentioning "environmental justice" by predicted race (From Left: White, Latinx, Black)', out.height = NULL, out.width = "32%", fig.show = "hold"}
+
+knitr::include_graphics(here::here("Figs", "ej-white-words.pdf"))
+
+knitr::include_graphics(here::here("Figs", "ej-latinx-words.pdf"))
+
+knitr::include_graphics(here::here("Figs", "ej-black-words.pdf"))
+```
+

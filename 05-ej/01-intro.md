@@ -495,6 +495,7 @@ knitr::include_graphics(here::here("Figs", "ej-prob-env-nprms.pdf"))
 knitr::include_graphics(here::here("Figs", "ej-prob-epa-nprms.pdf"))
 ```
 
+
 To examine the degree to which this generalizes across agencies, figure
 \@ref(ejlogitagencies) presents predicted probabilities modeled
 for each agency, showing that the range of predicted probabilities is
