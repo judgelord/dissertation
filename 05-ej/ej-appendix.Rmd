@@ -106,13 +106,13 @@ clean_summary <- . %>%
            str_remove_all("\\(|\\)|\\[|\\]") %>%
   str_squish() )
 
-## Testing regex
-str_remove_all(ejPRnew$highlighted_content[1],
-               "./em../mark.|.mark..em.") %>% 
-           str_replace_all("\\&hellip;\\&nbsp;"," ") %>% 
-           str_replace_all("[^[A-z][0-9] \\.\\,\\?\\!\\;&\\;<>]", " ") %>% 
-           str_remove_all("\\(|\\)|\\[|\\]") %>%
-  str_squish() 
+# ## Testing regex
+# str_remove_all(ejPRnew$highlighted_content[1],
+#                "./em../mark.|.mark..em.") %>% 
+#            str_replace_all("\\&hellip;\\&nbsp;"," ") %>% 
+#            str_replace_all("[^[A-z][0-9] \\.\\,\\?\\!\\;&\\;<>]", " ") %>% 
+#            str_remove_all("\\(|\\)|\\[|\\]") %>%
+#   str_squish() 
 
 # summary vars
 ejcomments %<>%
@@ -128,7 +128,10 @@ rules %<>% filter(document_type %in% c("Proposed Rule", "Rule"),
                   !is.na(posted_date),
                   posted_date > as.Date("1993-01-20"),
                   # rulemaking dockets only
-                  docket_type == "Rulemaking" ) 
+                  docket_type == "Rulemaking" ) %>%
+  # one document per docket (drop additional PRs )
+  group_by(document_type, docket_id) %>%
+  slice_max(number_of_comments_received)
 
 
 # make summary vars for main data
@@ -181,6 +184,7 @@ rules %<>% select(docket_id,
 
 ### Documents
 
+ej-data-documenttype
 ```{r ej-data-documenttype, fig.height=3}
 # document type over time
 rules %>% 
@@ -195,6 +199,8 @@ rules %>%
 ```
 
 ### Draft Rules
+
+ej-data-ejpr
 ```{r ej-data-ejpr, fig.height=3}
 # pr over time
 rules %>% 
@@ -220,6 +226,7 @@ ejPR %>%
 ```
 
 ### Final rules
+ej-data-ejfr
 ```{r ej-data-ejfr, fig.height=3}
 # fr type over time
 rules %>% 
@@ -243,6 +250,12 @@ ejFR %>%
        x = "Year") + 
   theme(axis.text.x = element_text(angle = 45, vjust = .5))
 
+
+
+```
+
+Subsets of data:
+```{r subsets}
 # SUBSETTING -------------------------------------------
 #TODO sensitivity analysis to inclusion criteria
 # filter to agencies that published at least one ej rule 
@@ -252,53 +265,10 @@ rules %<>%
          agency_ej_comments = sum(ej_comments_unique),
          agency_ej_nprms = sum(ej_pr)) %>%
   ungroup() %>% 
-  filter(agency_ej_rules > 0 | agency_ej_nprms > 0) #TODO sensitivity analysis
+  filter(agency_ej_rules > 0)# | agency_ej_nprms > 0) #TODO sensitivity analysis
 
 rules %>% distinct(docket_id, ej_pr, ej_fr) %>% count(ej_pr, ej_fr) %>% kablebox()
 
-```
-
-### Agencies that pubished at least 1 rule addressing EJ
-
-Subsetting to agencies that pubished at least one rule explicitly addressing EJ from 1992 through 2020 yields
- `r rules %>% distinct(docket_id, comments) %>% summarize(n = sum(comments)) %>% pull(n)` public comments on
- `r rules %>% distinct(docket_id) %>% nrow()` rulemaking dockets from
-`r rules %>% distinct(agency) %>% nrow()` agencies, each publishing at least one rule that explicitly addressed environmental justice.  `r ejcomments %>% nrow()` unique comments (excluding duplicates) use the phrase "environmental justice". 
-
-
-
-```{r ej-data-agencies}
-rules %>% 
-  ggplot() + 
-  aes(x = year, fill = ej_fr) +
-  facet_wrap("agency", scales = "free") +
-  geom_bar(alpha = .7) +
-  theme(axis.text = element_blank(),
-        axis.ticks = element_blank())  + 
-  labs(fill = "EJ in Final Rule",
-       x = "",
-       y = "")
-```
-
-### Agencies that published at least 100 rules with ej comments
-
-```{r ej-data-agencies100}
-breaks <-  c("`16", "`12",  "`08",  "`04", "`00", "`96", "`20")
-# agencies that published at least 100 rules with ej comments
-rules %>% 
-  filter(agency_ej_comments > 100 | agency == "FEMA",
-         year > 1999) %>%
-  ggplot() + 
-  aes(x = Year, fill = ej_fr) +
-  facet_wrap("agency", scales = "free") +
-  geom_bar(alpha = .7) + 
-  labs(fill = "EJ in Final Rule",
-       y = "Number of Proposed Rules") + 
-  scale_x_discrete(breaks = breaks ) 
-```
-
-Subsets of data:
-```{r}
 # All proposed rules
 allPR <- rules %>% 
   # subset to final rules
@@ -313,8 +283,50 @@ allFR <- rules %>%
   mutate(direct = ifelse(docket_id %in% allPR$docket_id, "Draft Rule Published", "Direct to Final Rule"))
 ```
 
-## Draft Rules by President
+### Agencies that pubished at least 1 rule addressing EJ
 
+Subsetting to agencies that pubished at least one rule explicitly addressing EJ from 1992 through 2020 yields
+ `r allPR %>% distinct(docket_id, comments) %>% summarize(n = sum(comments)) %>% pull(n)` public comments on
+ `r allFR %>% distinct(docket_id) %>% nrow()` rulemaking dockets from
+`r rules %>% distinct(agency) %>% nrow()` agencies, each publishing at least one rule that explicitly addressed environmental justice.  `r ejcomments %>% nrow()` unique comments (excluding duplicates) use the phrase "environmental justice". 
+
+
+ej-data-agencies
+```{r ej-data-agencies}
+allFR %>%
+  ggplot() + 
+  aes(x = year, fill = ej_fr) +
+  facet_wrap("agency", scales = "free") +
+  geom_bar(alpha = .7) +
+  theme(axis.text = element_blank(),
+        axis.ticks = element_blank())  + 
+  labs(fill = "EJ in Final Rule",
+       x = "",
+       y = "")
+```
+
+### Agencies that published at least 100 ej comments
+
+ej-data-agencies100
+```{r ej-data-agencies100}
+breaks <-  c("`16", "`12",  "`08",  "`04", "`00", "`96", "`20")
+# agencies that published at least 100 rules with ej comments
+allFR %>% 
+  filter(agency_ej_comments > 100 | agency == "FEMA",
+         year > 1999) %>%
+  ggplot() + 
+  aes(x = Year, fill = ej_fr) +
+  facet_wrap("agency", scales = "free") +
+  geom_bar(alpha = .7) + 
+  labs(fill = "EJ in Final Rule",
+       y = "Number of Rules") + 
+  scale_x_discrete(breaks = breaks ) 
+```
+
+
+
+## Draft Rules by President
+ej-pr-president
 ```{r ej-pr-president, fig.height=2.5}
 allPR %>% 
   count(Year, ej_pr, president) %>%
@@ -331,6 +343,8 @@ allPR %>%
 
 ## Final Rules by President
 
+ej_fr-president
+
 ```{r ej_fr-president, fig.height=4.5}
 allFR %>% 
   count(Year, ej_fr, direct, president) %>%
@@ -345,7 +359,7 @@ allFR %>%
 
 allFR %>% 
   filter(direct == "Draft Rule Published") %>% 
-  mutate(ej_pr = ifelse(ej_pr, "EJ in Draft Rule", "EJ Only in Final Rule"),
+  mutate(ej_pr = ifelse(ej_pr, "EJ in Draft & Final Rule", "EJ Only in Final Rule"),
          ej_pr = ifelse(ej_fr, ej_pr, "No EJ Analysis")) %>% 
   count(Year, ej_pr, ej_comment, president) %>% 
   ggplot() + 
@@ -362,10 +376,12 @@ allFR %>%
 
 ## Comments by President
 
-```{r ej_comments,fig.width=6}
+ej_comments
+
+```{r ej-comments,fig.width=6}
 allFR %>% 
   filter(direct == "Draft Rule Published") %>% 
-  mutate(ej_pr = ifelse(ej_pr, "EJ in Draft Rule", "EJ Only in Final Rule"),
+  mutate(ej_pr = ifelse(ej_pr, "EJ in Draft & Final Rule", "EJ Only in Final Rule"),
          ej_pr = ifelse(ej_fr, ej_pr, "No EJ Analysis")) %>% 
   ggplot() + 
   aes(x = Year, y = comments, color = ej_comment, shape = ej_comment) + 
@@ -389,13 +405,16 @@ allFR %>%
 ```{r}
 # Final Rules that where ej was not mentioned in the NPRM
 ejFR_PR <- allFR %>% 
-  filter(docket_id %in% allPR$docket_id,
-         !ej_pr)
+  filter(docket_id %in% allPR$docket_id, # there is an NPRM
+         !ej_pr) # ej is not in it
 ```
 
 Percent where the final rule did address EJ
 
+
 ```{r ej-PR-winrate, fig.width=6, fig.height=2}
+#ej-PR-winrate 
+
 winrate <- ejFR_PR %>% 
   count(ej_comment, ej_fr) %>% 
   group_by(ej_comment) %>% #FIXME make nice table with percents
@@ -431,6 +450,8 @@ ejFR_PR %>%
 
 
 ```{r ej-PR-winrate-president, fig.height=2.5, fig.width=6}
+#ej-PR-winrate-president
+
 winrate <- ejFR_PR %>% 
   count(ej_comment, ej_fr, president) %>% 
   group_by(ej_comment) %>% #FIXME make nice table with percents
@@ -465,11 +486,15 @@ ejFR_PR %>%
 ## Model 
 
 ```{r ej-m-PR}
+# ej-m-PR
+
 m_PR <- glm(ej_fr ~ ej_comment*log(comments+1) +
               ej_comments_unique +
               president,
            data = ejFR_PR, 
              family=binomial(link="logit"))
+
+equatiomatic::extract_eq(m_PR)
 
 tidy(m_PR) %>% kablebox()
 ```
@@ -480,6 +505,8 @@ tidy(m_PR) %>% kablebox()
 With the median number of comments on Proposed Rules that did not address EJ, `r median(ejFR_PR$comments)` comments:
 
 ```{r ej-m-PR-president-median, fig.width=5, fig.height=3.5}
+# ej-m-PR-president-median
+
 # A data frame of values at which to estimate probabilities:
 values <- ejFR_PR %>% 
   expand(ej_comment,
@@ -524,6 +551,8 @@ predicted %>%
 With the **mean** number of comments on Proposed Rules that did not address EJ, `r mean(ejFR_PR$comments) %>% round()` comments:
 
 ```{r ej-m-PR-president-mean, fig.width=5, fig.height=3.5}
+# ej-m-PR-president-mean
+
 # A data frame of values at which to estimate probabilities:
 values <- ejFR_PR %>% 
   expand(ej_comment,
@@ -568,6 +597,8 @@ predicted %>%
 ## By number of comments
 
 ```{r ej-m-PR-comments, fig.width=5.25, fig.height=2.5}
+# ej-m-PR-comments
+
 # A data frame of values at which to estimate probabilities:
 values <- ejFR_PR %>% 
   expand(comments =  c(1, 10,100,1000,10000),
@@ -611,6 +642,8 @@ predicted %>%
 The percent of rules where EJ was added
 
 ```{r ej-PR-winrate-agency, fig.height=3, fig.width=7}
+#ej-PR-winrate-agency
+
 winrate <- ejFR_PR %>% 
   count(ej_comment, ej_fr, agency) %>% 
   group_by(ej_comment) %>% #FIXME make nice table with percents
@@ -674,6 +707,8 @@ tidy(m_nPR_agency) %>% kablebox()
 
 ### Predicted Probabilies by Agency
 ```{r ej-m-PR-agency, fig.height=9}
+# ej-m-PR-agency
+
 # A data frame of values at which to estimate probabilities:
 values <- ejFR_PR %>%
   expand(ej_comment,
@@ -720,6 +755,8 @@ predicted %>%
 Agencies that have at least 300 comments on proposed rules that did not mention environmental justice (i.e. agencies where at least some of the rules in this dataset saw comments) and at least 3 rules where comments raised EJ concerns (i.e. agencies where EJ is somewhat salient). 
 
 ```{r ej-m-PR-agency-top, fig.width=7}
+# ej-m-PR-agency-top
+
 ejFR_PR %>% group_by(agency) %>% count(agency, agency_ej_comments,sum(comments) )  %>%   kablebox()
 
 
@@ -755,6 +792,7 @@ predicted %>%
 A more slective subset: Agencies that have at least 500 comments on proposed rules that did not mention environmental justice (i.e. agencies where at least some of the rules in this dataset saw more than a few comments) and at least 50 rules where comments raised EJ concerns (i.e. agencies where EJ is somewhat salient). 
 
 ```{r ej-m-PR-agency-toptop, fig.height=3, , fig.width=6}
+# ej-m-PR-agency-toptop
 
 # slightly more selective, requiring 100 comments
 top <- ejFR_PR %>% 
@@ -789,6 +827,8 @@ predicted %>%
 
 
 ```{r ej-m-PR-comments-agencyFE, fig.width=5.25, fig.height=2.5}
+# ej-m-PR-comments-agencyFE
+
 # A data frame of values at which to estimate probabilities:
 values <- ejFR_PR %>% 
   expand(comments =  c(1, 10,100,1000,10000),
@@ -973,9 +1013,12 @@ ejcomments %>%
 # Proposed rules that **did** address EJ
 
 ```{r ej-data-ejPR}
+# ej-data-ejPR
+
 # Final Rules that where ej was mentioned in the NPRM
 ejFRejPR <- allFR %>% 
-  filter(docket_id %in% allPR$docket_id,
+  filter(#docket_id %in% allPR$docket_id,
+         ej_fr,
          ej_pr)
 
 # final rule text where the pr did address ej
@@ -1517,6 +1560,18 @@ ejFR %>%
   distinct(docket_id, title, summary) %>% kablebox()
 ```
 
+EPA-HQ-RCRA-2012-0121
+
+In 2015, the Environmental Protection Agency (EPA) published a draft rule revising it's hazardous waste generator regulatory program, in part "providing greater flexibility for hazardous waste generators to manage their hazardous waste in a cost-effective and protective manner" (EPA 2015). This draft rule did contain a section addressing Executive Order 12898:
+
+>EPA is allowing VSQGs [very small quantity generators] to ship their hazardous waste to an LQG [large quantity generators]...Although this change could result in an increase in traffic for certain communities, EPA believes the increase would not be significant given that VSQGs currently may send their hazardous waste to a number of destinations, including municipal and non-municipal solid waste management facilities.
+
+>EPA is finalizing alternative standards for VSQGs and SQGs that would allow these entities to maintain their generator category if they generate hazardous waste during an episodic event. Although these generators will be allowed to temporarily manage a greater amount of hazardous waste than their current generator category allows, EPA is finalizing conditions under which the hazardous waste generated from an episodic event must be managed in order to maintain protection of human health and the environment. Therefore, EPA does not anticipate disproportionately high and adverse human health or environmental effects on minority, low-income or indigenous populations from these alternative standards.
+
+EPA-HQ-RCRA-2012-0121 recieved 235 comments, but none raising EJ concerns, and this section was left unchanged in the final rule. (One commentor did attach an annotated copy of the final rule.)
+
+---
+
 ## Example comments
 
 Excerpts from comments mentioning "environmental justice" on proposed rules that did not address environmental justice: 
@@ -1578,6 +1633,8 @@ modelsummary::modelsummary( models,
 # TODO
 
 - [ ] Transform ej_comments to reduce colinearity with with ej_comment ()
+
+- [ ] Dedupe PRs and FRs, or at least explore sensitivity to which of multiple PRs is used. Perhaps select on `comments` then `posted_date`? The PR with the most comments is most likley the main PR, but many have 0 comments. However, date is complicated. A later PR could be an extension of comment period, a later FR could be a small ammendment. New metadata may help with this. 
 
 - [ ] Compare % in change in 12898 sections vs. rule text vs. response to comment. This requires classifing responses to comment vs adding 12898 section (in most cases, they are adding a 12898 section)
 

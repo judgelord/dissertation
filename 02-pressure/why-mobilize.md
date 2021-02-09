@@ -73,6 +73,7 @@ organization is not "memberless" [@Skocpol2003] in the sense that they
 can demonstrate some verifiable public support.^[Public support can be faked or inflated using "astroturf" tactics, but such campaigns have observably different patterns of engagement.]
 
 #### Public pressure is a political resource.
+
 An organization's ability to expand the scope of conflict by mobilizing
 a large number of people can be a valuable political resource [@Schattschneider1975]. In contrast to scholars who focus on the deliberative
 potential of public comment processes, I focus on public engagement as a

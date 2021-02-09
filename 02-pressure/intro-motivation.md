@@ -25,7 +25,7 @@ Foundational scholarship on rulemaking [@Furlong2005, @Furlong1997, @Furlong1998
     positions, about which they are uncertain unless groups reveal their
     preferences through commenting.]
 
-#### Most scholars are skeptical that ordinary people can affect rulemaking.
+#### Most scholars are skeptical that public pressure can affect rulemaking.
 
 To the extent that scholars address the input of ordinary people at all, both
 existing theory and empirical scholarship suggest skepticism that it

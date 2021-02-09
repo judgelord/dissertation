@@ -4,60 +4,48 @@ In order to examine whether environmental justice advocates or public pressure c
 I use the text of draft rules, public comments, and final rules retrieved from regulations.gov. I select rulemaking documents from agencies that pubished at least one rule explicitly addressing Environmental Justice fron 1992 through 2020. This yields 30348 rulemaking dockets from 44 agencies.  
 
 ```{r data, fig.cap = "Number of Rules where Environmental Justice Appears in the Record (Left) and Number of Comments per Notice or Proposed Rule (Right).", out.height = NULL, out.width = "49%", fig.show = "hold"}
+knitr::include_graphics(here::here("Figs", "eandj-hist.pdf") )
 
+knitr::include_graphics(here::here("Figs", "eandj-hist.pdf") )
 
 ```
 
 
 
-64,128,301 public comments were recieved on these dockets, of which 24,360 unique comments (excluding duplicates) use the phrase “environmental justice”.
 
-Despite E.O. 12868, most rules do not address environmental justice. 
-Figure
-\@ref(fig:ej) 
+Despite E.O. 12868, most rules do not address EJ. Figure \@ref(fig:agencies100) 
+
+```{r ej-data, fig.cap = "Number of Proposed and Final Rules Addressing Environmental Justice.", out.height = NULL, out.width = "49%", fig.show = "hold"}
+
+knitr::include_graphics(here::here("Figs", "ej-data-ejpr-1.png") ) #  
+
+knitr::include_graphics(here::here("Figs", "ej-data-ejfr-1.png") ) # 
+```
+
+Even at the Environmetal Protection Agency (EPA), where most politices presumably are clearly related to "environmental" issues, a consistant minority of rules address EJ. Agencies almost never address EJ include agencies that make policy with clear EJ effects, including Housing and Urban Development (HUD), the Nuclear Regulatory Commission (NRC), and Office of Surface Mining (OSM). A majority of rules addressed EJ only in a few years at a few agencies that publish relativly few rules such as the Concil of Environmental Quality (CEQ), Federal Emergancy Managment Agency (FEMA), and several Transportation agencies (the Federal High Way Administration, Federal Transit Administration (FTA), Federal Railroad Administration (FRA)). Figure \@ref(fig:agencies100) shows the number of rulemaking projects at each agency over time by whether they ultimatly addressed EJ. 
+
+
+```{r ej-data-agencies100, fig.cap = "Number of Proposed and Final Rules Addressing Environmental Justice", out.height = NULL, out.width = "49%", fig.show = "hold"}
+
+knitr::include_graphics(here::here("Figs", "ej-data-agencies100.png") )
+```
+
+## Comments
 
 
 
-```{r ej, fig.cap = "Number of Rules where Environmental Justice Appears in the Record (Left) and Number of Comments per Notice or Proposed Rule (Right).", out.height = NULL, out.width = "49%", fig.show = "hold"}
+```{r ej-comments, fig.cap = "Number of Proposed and Final Rules Addressing Environmental Justice", out.height = NULL, out.width = "49%", fig.show = "hold"}
 
-knitr::include_graphics(here::here("Figs", "eandj-hist.pdf") ) #  
-
-knitr::include_graphics(here::here("Figs", "eandj-comments.pdf") ) # 
+knitr::include_graphics(here::here("Figs", "ej-data-agencies100.png") )
 ```
 
 
 
+## Interest Groups and Second-order Representation
 
-Figure \@ref(fig:ej)
-shows that the number of rules and comments increasing over time. This
-may reflect increased salience of this concept, but it may primarily be
-the result of the increasing prevalence of searchable texts. Similarly,
-the increased number of rules where comments mention environmental
-justice may reflect growth in the movement but also may reflect more
-overall comments as technology has made commenting easier. Testing the
-hypotheses that comments raising environmental justice concerns are
-related to specific rules where environmental justice is addressed in
-the final but not in the draft requires rule-specific analysis.
-
-What we can say from Figure \@ref(fig:ej) is that each year, more final rules directly address
-environmental justice when their draft did not. Additionally, there are
-many rules where environmental justice is mentioned in the public
-comments and not in the draft. Recently, there are also many rules where
-environmental justice is raised in the comments but does not make it
-into the final draft.^[Note that, because not all comments are machine-readable, this is an
-    underestimate of the number of comments mentioning environmental
-    justice, so we cannot conclude that before 2010, rules were
-    mentioning environmental justice when the comments had not.
-    Additionally, this does not include comments like those of the
-    Bishops who raise justice issues but do not use the phrase
-    "environmental justice."]
-
-## Second-order Representation
-
-Before analysis of whether comments matter, I briefly describe who these
-commenters are. This is what @Seifter2016UCLA calls "second-order"
-representation. It is insufficient to know which groups participate. We
-also need to know who these groups represent.
+When lobbying during rulemaking, groups often
+make dubious claims to represent broad segments of the public [@Seifter2016UCLA]. It is thus insufficient to know which groups participate. We
+also need to know who these groups claim to represent and whether those people are actually involved in the decisions of the organization.
 
 I investigate who is raising environmental justice concerns in two ways.
 First, I identify the top organizational commenters such as tribes,
@@ -68,9 +56,11 @@ identity propensities with respect to the U.S. census. Together these
 two pieces of information allow me to comment on "second order"
 representation, i.e. not just the extent to which public comments relate
 to government policy, but the extent to which public comments are
-representative of the public and of the groups they claim to represent.
+representative of the public and of the groups they claim to represent [@Seifter2016UCLA].
 
-Table: (\#tab:orgs) Organizations mobilizing mass comment campaigns mentioning "environmental justice"
+<!---
+
+Table: (\#tab:orgs) Organizations mobilizing pressure campaigns mentioning "environmental justice"
 
        Organization                           Comments   Rules
   ---- -------------------------------------- ---------- -------
@@ -93,13 +83,15 @@ Table: (\#tab:orgs) Organizations mobilizing mass comment campaigns mentioning "
 
 Table \@ref(tab:orgs) shows the top 15 organizational commenters who
 used the phrase "environmental justice" in their comments, including all
-organizations who did so on more than one rule or mobilized more than
-100,000 such comments. The six organizations responsible for mobilizing
+organizations who mobilized more than
+100,000 total comments. The six organizations responsible for mobilizing
 more than 100,000 comments and several others on the list are national
 nonprofit advocacy groups. We Act and Communities for a Better
 Environment are both more community-based groups focusing primarily on
 environmental justice issues. Southern Company is the only corporation
-on the list
+on the list.
+
+-->
 
 The top mobilizer, Earthjustice, is primarily engaged in litigation on
 behalf environmental causes. Their website boasts 2.2 million
@@ -139,8 +131,8 @@ in such international efforts as the Indigenous Environmental Network
 and the Global Week of Action for Climate Justice\" [@CBECAL2017].
 
 The Southern Company comments are too few to count as mass mobilization.
-Companies do sometimes fund mobilization campaigns, but all of 8 of
-these comments were submitted by the Southern Company. Interestingly,
+Companies do sometimes fund mobilization campaigns, but all 8 of
+these comments were submitted by the Southern Company themselves. Interestingly,
 the company repeatedly raises research into environmental justice
 concerns in order to frame these issues as a legitimate but unresolved
 scientific debate that is not yet conclusive enough to base regulations
@@ -167,71 +159,176 @@ member-driven groups join coalitions with groups with more resources who
 mobilize on their behalf. More work is needed to identify coalitions to
 assess this possibility.
 
-Finally, a third class of commenter raises environmental justice issues
+Finally, a third, much less common type of commenter raises environmental justice issues
 as a way to re-frame them as ongoing debates and thus undermine their
 urgency. I call this reason for engaging as "breaking a perceived
 consensus." In a way, the fact that an energy company felt compelled to
 acknowledge and question environmental justice concerns suggests their
 importance for policy outcomes.
 
-Next, I attempt to estimate the racial distribution of those who comment
-using environmental justice language. This can only be done for
-individuals who commented separately from mobilizing organizations and
-signed their full name on their comment. Figure
-\@ref(fig:ejcommentsbyrace) shows two ways of estimating the racial
+### Commenter Race
+
+To estimate the racial distribution of those who comment
+using environmental justice language, I select commenters who
+signed their full name on their comment with a name with a
+surname appearing in census records. Figure
+\@ref(fig:ejcommentsbyrace) shows a probabilistic racial
 distribution of commenters who raise "environmental justice" concerns in
-their comments. Both methods use the reported racial identities
-associated with surnames as recorded in the 2010 census^[I recode "Hispanic" as "Latinx" in both cases because the
-    prediction method assumes a forced choice that includes "Hispanic"
-    as a primary racial category] 
-and are
-based on a limited sample of 327 commenters who signed their name with a
-surname matching census records. The first is based on the proportion of
-people with a given surname that identified as belonging to each racial
-category (from this limited set of options). The estimated proportion of
-each race for this sample is simply the average of proportions
-identified with each surname. This is likely the most accurate way to
-represent the racial distribution of a set of surnames, but it does not
-assign specific individuals to racial categories. The second method
-does. It predicts the race of each individual in the sample based on
-their surname given the distribution of racial categories reported by
-people with that surname and the proportion of each race in the U.S.
-population. Thus, while a surname may be more common among people who
-identify as black rather than as white, there may still be more White
-people with that surname and this method would predict that the person
-is White. For this reason, the portion of individuals predicted to be
-White (right) is higher than in the probabilistic distribution (left).
+their comments based on distribution of self-reported racial identities
+associated with surnames as recorded in the 2010 census^[I recode "Hispanic" as "Latinx"]. This distribution is estimated using the proportion of
+people with a given surname identified as belonging to each racial
+category (from this limited set of options). It does not
+assign specific individuals to racial categories, but instead represents each commenter as a set of probabilities adding up to 1 and the estimated racial distribution of the sample as a sum of individual probabilitities.
 
-
-```{r ejcommentsbyrace, fig.cap = "Probabilistic (Left) and Predicted (Right) Race from Census Surnames", out.height = NULL, out.width = "49%", fig.show = "hold"}
+```{r ejcommentsbyrace, fig.cap = 'Estimated Racial Distribution from Census Surnames of Commenters raising "Environmental Justice" Concerns', out.height = NULL, out.width = "49%", fig.show = "hold"}
 
 knitr::include_graphics(here::here("Figs", "race-prob.pdf"))
-
-knitr::include_graphics(here::here("Figs", "race-pred.pdf"))
 ```
 
 
-Compared to estimates from the 2010 census, this sample of commenters
+Compared to the overall distribution in the 2010 census, this sample of commenters
 appears to be disproportionately Black and less than proportionately
 Latinx or Asian, with just slightly fewer Whites relative to the
 national population. This makes sense given that environmental justice
-theorizing and activism have been led by African American's
+theorizing and activism have been led by African Americans
 [@Bullard1993].
 
-Figure \@ref(fig:ejwordsbyrace) shows the most common words used in comments
-with respect to the predicted race of each commenter in the sample. As
-there are very few predicted non-White commenters in the sample, it is
-unwise to infer too much from this figure.
 
-   
+# Tracing ideas 
+
+## The Distributional Politics of Murcury Pollution
+
+The use of an environmental justice frame does not always imply the same
+communities of concern. Environmental justice emerged out of movements
+against environmental racism, especially the disposal of toxic
+substances in communities of color [@Bullard1993]. However, the term
+quickly took on a wider array of meanings, encompassing any marginalized
+group. In 1994 the Bill Clinton signed an Executive order on
+Environmental Justice that required all parts of the federal government
+to make "addressing disproportionately high and adverse human health or
+environmental effects of programs, policies, and activities on minority
+populations and low-income populations" a core aspect of their mission.
+This meant considering disproportionate effects during rulemaking.
+
+Fundamental definitions of the public good and minority rights are
+implicit in agency rules. The public comment process offers an
+opportunity to protest these definitions. Protest is one way that
+marginalized groups can communicate opinions on issues to government
+officials [@Gillion2013]. In the case of the EPA's Mercury Rules, two
+such issues were decisive. First, as with many forms of pollution,
+mercury-emitting power plants are concentrated in low-income, often
+non-White communities. Second, certain populations consume much more
+locally-caught freshwater fish, a major vector of Mercury toxicity.
+Studies inspired by the political controversy around the Mercury Rules
+found high risk among communities included "Hispanic, Vietnamese, and
+Laotian populations in California and Great Lakes tribal populations
+(Chippewa and Ojibwe) active on ceded territories around the Great
+Lakes" (EPA 2012). Thus the standards that EPA chooses are fundamentally
+dependent on whom the regulation aims to protect: the average citizen,
+local residents, or fishing communities. This decision has disparate
+effects based on race and class because of disparate effects based on
+geography and different cultural practices. Such disparate impacts are
+often called environmental justice issues.
+
+In December 2000, when the EPA first announced its intention to regulate
+Mercury from power plants, the notice published in the Federal Register
+did not address environmental justice issues such as the disparate
+effects of mercury on certain populations. Risks were only discussed in
+reference to "the U.S. population" (EPA 2000). When the first draft rule
+was published, it only discussed the effects of the rule on regulated
+entities, noting that "Other types of entities not listed could also be
+affected" (EPA 2002). Commenting on this draft, Heather McCausland of
+the Alaska Community Action on Toxics (ACAT) wrote:
+
+> "The amount of methyl-mercury and other bioaccumulative chemicals
+> consumed by Alaskans (especially Alaskan Natives) could potentially be
+> much higher than is assumed\...The Alaska Native mortality rate for
+> babies which according to the CDC is 70% higher than the United States
+> average. Indigenous Arctic & Alaskan Native populations are some of
+> the most polluted populations in the world (http://www.amap.no/).
+> Global transport & old military sites contaminate us too"
+
+After receiving hundreds of thousands of comments and pressure from
+tribal organizations, a revised proposed rule echoed McCausland's
+comment noting that "Some subpopulations in the U.S., such as Native
+Americans, Southeast Asian Americans, and lower-income subsistence
+fishers, may rely on fish as a primary source of nutrition and/or for
+cultural practices. Therefore, they consume larger amounts of fish than
+the general population and may be at a greater risk of the adverse
+health effects from Hg due to increased exposure" (EPA 2004).
+
+After nearly a million additional public comments, a revised proposed
+rule ultimately included five pages of analysis of the disparate impacts
+on \"vulnerable populations\" including "African Americans," "Hispanic,"
+"Native American," and "Other and Multi-racial" groups (EPA 2011). In
+the final rule, the language of "vulnerable populations " was replaced
+with "minority, low income, and indigenous populations" (EPA 2012). EPA
+had also conducted an analysis of sub-populations with particularly high
+potential risks exposure due to high rates of fish consumption as well
+as an additional analysis of the distribution of mortality risk by to
+race.
+
+Of this second round of comments, over 200 explicitly raised the
+environmental justice issues. The Little River Band of Ottawa Indians
+expressed the Tribe's "frustration at trying to impress upon the EPA the
+multiple and profound impacts of mercury contamination from a Tribal
+perspective. Not to mention the obligations under treaties to
+participate with tribes on a "Government to Government" basis. At
+present, no such meetings have occurred in any meaningful manner with
+EPA Region V, the EPA National American Indian Environmental Office, nor
+the State of Michigan's Department of Environmental Quality." They
+conclude that \"Although EPA purported to consider environmental justice
+as it developed its "Clean Air Mercury Rule," it failed utterly. In this
+rulemaking, EPA perpetuated, rather than ameliorated, a long history of
+cultural discrimination against tribes and their members" (Sprague
+2011). Did comments like these play a role in EPA's changed analysis of
+who Mercury limits should aim to protect?
+
+Given the many potential sources of influence, it may be difficult to
+attribute causal effects of particular comments on a given policy.
+However, comments may serve as a good proxy for the general mobilization
+of groups and individuals around an administrative process, and it is
+not clear why EPA would not address environmental justice in the first
+draft of a rule and then add it to subsequent drafts in the absence of
+activists mobilization. Electoral politics does not offer an easy
+explanation. The notice proposing the Mercury Rule was issued by the
+Clinton administration, the same administration that issued the
+Executive Order on Environmental Justice, and the subsequent drafts that
+did address environmental justice issues were published by the Bush
+administration, which had a more contentious relationship with
+environmental justice advocates, while Republicans controlled both
+houses of Congress. The expansion of the analysis from one draft to the
+next seems to be in response to activist pressure.
+
+## Distributional Politics of Air Pollution
+
+In an October 2017 proposed rule to repeal
+restrictions on power plant pollution, the Trump EPA acknowledges that
+"low-income and minority communities located in proximity to [power
+plants] may have experienced an improvement in air quality as a result
+of the emissions reductions." Because the Executive Order requires
+attention to environmental justice and because the Obama EPA discussed
+it when promulgating the rule, the environmental justice cannot safely
+be ignored. However, the Trump EPA contends, the Obama EPA "did not
+address lower household energy bills for low-income households [and
+that] workers losing jobs in regions or occupations with weak labor
+markets would have been most vulnerable" (EPA 2017). As of , this
+proposed rule has received over 150,000 public comments.
 
 
-```{r ejwordsbyrace, fig.cap = 'Most frequent words used in comments mentioning "environmental justice" by predicted race (From Left: White, Latinx, Black)', out.height = NULL, out.width = "32%", fig.show = "hold"}
 
-knitr::include_graphics(here::here("Figs", "ej-white-words.pdf"))
+# Measuring Policy Change
 
-knitr::include_graphics(here::here("Figs", "ej-latinx-words.pdf"))
+I use two simple indicators of policy change to model the effect of public comments on policy: *whether* a rule addresses EJ and *how* it addresses EJ. Both measures represent a fairly low bar, indicating whether the agency explicitly paid any attention at all to ej. This is appropriate given prior research shows little to no effect of public comments from advocacy groups as well as little attention to EJ in particular. 
 
-knitr::include_graphics(here::here("Figs", "ej-black-words.pdf"))
-```
+## Adding Text Addressing EJ to Final Rules
+
+
+
+## Changing Text Addressing EJ in Final Rules
+
+Where draft rules that did address EJ, I measure whether a rule changed *how* it discussed "environmental justice" between its draft and final publication.^[Occasionally, there is more than one version of a Proposed or Final rule on a rulemaking docket. Here I opt for an inclusive measure of change that counts change from *any* proposed to *any* final rule. This means that if the change occured between the first and second draft of a proposed rule, it is counted as a change. This best capures the concept of rule change. However, estimates are similar if we only count cases where change occured between *every* version of rule.] I parse draft and final rules into sentences and identify sentences 
+
+In many cases, much of the text of final rules remains exactly the same between draft and final versions. When an agency address EJ in the draft rule, often in a section about how it addressed E.O.12898, this section stays the same, meaning that the sentences exactly match between draft and final rules.^[An alternative approach would be to parse documents by section and assess whether E.O.12898 sections are identical. Parsing by sentences has two advantages: it is computationally faster, it avoids problems with section numbering and other frustrations with section matching, and (3) it captures attentoin to EJ outside of this section, especially in the response to comments section. If an agency is paying attention to EJ issues, sentence matching will be most likely to detect it. However, other measures, such as the percent of EJ sentences changed, the percent of words in a 12898 section that changed, or the change in topic proportions [@Judge-Lord2017] could be useful in future work.]
+
 
