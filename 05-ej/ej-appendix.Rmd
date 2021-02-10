@@ -1,3 +1,4 @@
+
 ---
 title: "The Environmental Justice Movement's Impact in Agency Rulemaking"
 subtitle: "Technical Appendix and Replication Code" 
@@ -183,8 +184,9 @@ rules %<>% select(docket_id,
 
 ### Documents
 
-ej-data-documenttype
+
 ```{r ej-data-documenttype, fig.height=3}
+# ej-data-documenttype
 # document type over time
 rules %>% 
   ggplot() + 
@@ -199,8 +201,9 @@ rules %>%
 
 ### Draft Rules
 
-ej-data-ejpr
+
 ```{r ej-data-ejpr, fig.height=3}
+# ej-data-ejpr
 # pr over time
 rules %>% 
   filter(document_type == "Proposed Rule") %>% 
@@ -225,8 +228,9 @@ ejPR %>%
 ```
 
 ### Final rules
-ej-data-ejfr
+
 ```{r ej-data-ejfr, fig.height=3}
+#ej-data-ejfr
 # fr type over time
 rules %>% 
   filter(document_type == "Rule") %>% 
@@ -254,6 +258,7 @@ ejFR %>%
 ```
 
 Subsets of data:
+
 ```{r subsets}
 # SUBSETTING -------------------------------------------
 #TODO sensitivity analysis to inclusion criteria
@@ -282,7 +287,7 @@ allFR <- rules %>%
   mutate(direct = ifelse(docket_id %in% allPR$docket_id, "Draft Rule Published", "Direct to Final Rule"))
 ```
 
-### Agencies that pubished at least 1 rule addressing EJ
+### Agencies that published at least 1 rule addressing EJ
 
 Subsetting to agencies that pubished at least one rule explicitly addressing EJ from 1992 through 2020 yields
  `r allPR %>% distinct(docket_id, comments) %>% summarize(n = sum(comments)) %>% pull(n)` public comments on
@@ -304,10 +309,12 @@ allFR %>%
        y = "")
 ```
 
-### Agencies that published at least 100 ej comments
+### Agencies that published at least 100 EJ comments
 
-ej-data-agencies100
+
 ```{r ej-data-agencies100}
+# ej-data-agencies100
+
 breaks <-  c("`16", "`12",  "`08",  "`04", "`00", "`96", "`20")
 # agencies that published at least 100 rules with ej comments
 allFR %>% 
@@ -325,8 +332,10 @@ allFR %>%
 
 
 ## Draft Rules by President
-ej-pr-president
+
 ```{r ej-pr-president, fig.height=2.5}
+#ej-pr-president
+
 allPR %>% 
   count(Year, ej_pr, president) %>%
   ggplot() + 
@@ -342,9 +351,11 @@ allPR %>%
 
 ## Final Rules by President
 
-ej_fr-president
+
 
 ```{r ej_fr-president, fig.height=4.5}
+# ej_fr-president
+
 allFR %>% 
   count(Year, ej_fr, direct, president) %>%
   ggplot() + 
@@ -377,9 +388,11 @@ allFR %>%
 
 ### by President
 
-ej_comments
+
 
 ```{r ej-comments,fig.width=7}
+# ej_comments
+
 allFR %>% 
   filter(direct == "Draft Rule Published") %>% 
   mutate(ej_pr = ifelse(ej_pr, "EJ in Draft & Final Rule", "EJ Only in Final Rule"),
@@ -402,6 +415,8 @@ allFR %>%
 # By Organization 
 
 ```{r ej-orgs}
+#ej-orgs
+
 ejorgs <- ejcomments %>% 
   drop_na(organization) %>% 
   filter(!organization %in% c("NA")) %>% 
@@ -413,7 +428,9 @@ ejorgs <- ejcomments %>%
 
 
 ejorgs %>% 
-  kablebox()
+  kablebox() 
+
+#TODO table by most dockets
 
 # ejorgs_FR <- ejcomments %>%
 #   #mutate(docket_id =str_remove(id, "-[0-9]$")) %>%
@@ -790,7 +807,7 @@ predicted %>%
         axis.ticks.y = element_blank())
 ```
 
-Agencies that have at least 300 comments on proposed rules that did not mention environmental justice (i.e. agencies where at least some of the rules in this dataset saw comments) and at least 3 rules where comments raised EJ concerns (i.e. agencies where EJ is somewhat salient). 
+Agencies with at least 300 comments on proposed rules that did not mention environmental justice (i.e., agencies where at least some of the rules in this dataset saw comments) and at least 3 rules where comments raised EJ concerns (i.e., agencies where EJ is somewhat salient). 
 
 ```{r ej-m-PR-agency-top, fig.width=7}
 # ej-m-PR-agency-top
@@ -827,7 +844,7 @@ predicted %>%
 ```
 
 
-A more slective subset: Agencies that have at least 500 comments on proposed rules that did not mention environmental justice (i.e. agencies where at least some of the rules in this dataset saw more than a few comments) and at least 50 rules where comments raised EJ concerns (i.e. agencies where EJ is somewhat salient). 
+A more selective subset: Agencies that have at least 500 comments on proposed rules that did not mention environmental justice (i.e., agencies where at least some of the rules in this dataset saw more than a few comments) and at least 50 rules where comments raised EJ concerns (i.e., agencies where EJ is somewhat salient). 
 
 ```{r ej-m-PR-agency-toptop, fig.height=3, , fig.width=6}
 # ej-m-PR-agency-toptop
@@ -910,24 +927,27 @@ predicted %>%
 
 ## Example dockets
 
-Rules where the proposed rule did not address EJ but comments did an the Final Rule did.
+Rules where the proposed rule did not address EJ, but comments did, and the Final Rule did.
 
 
 EPA-R09-OAR-2010-0120	Revisions to California State Implementation Plans: Imperial County Air Pollution Control District:
+
 >"EPA agrees it is important to consider environmental justice in our actions and we briefly addressed environmental justice principles in our proposal TSD. (171) ..." 
 
-BUT "Environmental Justice" does not appear in the PR, and THERE IS NO OTHER TECHNICAL SUPPORTING DOCUMENT ON REGULATIONS.GOV. FOOTNOTE 171 REFRENCES THE PROPOSED RULE.
+BUT "Environmental Justice" does not appear in the PR, and THERE IS NO OTHER TECHNICAL SUPPORTING DOCUMENT ON REGULATIONS.GOV. FOOTNOTE 171 REFERENCES THE PROPOSED RULE.
 
 > This action will not have disproportionately high and adverse human health or environmental effects on minority, low-income or Tribal populations because it increases the level of environmental protection for all affected populations without having any disproportionately high and adverse human health or environmental effects on any population, including any minority or low-income population. Specially, EPA's limited approval and limited disapproval of Regulation VIII would have the affect of strengthening environmental requirements throughout ICAPCD, and would not relax environmental requirements in any area. Thus it promotes environmental justice by increasing the level of human health and environmental protection for an area where, **as the commenters note, relatively large portions of the population are low income and/or minority**."
 
 ---
 
 EPA-R05-OAR-2007-0587	Final Approval of the Wisconsin NOx RACT Rules (NR 428)	
+
 > "The commenter also states that multi facility averaging threatens environmental justice."
 
 ---
 
 EPA-R05-OAR-2010-0034	Final Approval of PM 2.5 Clean Data Determination for Saint Louis: 
+
 > "significant source of PM2.5 emissions in the Saint Louis area, and that the plant's operations raise environmental justice concerns. EPA reviewed air quality data throughout the Saint Louis area, including environmental justice areas."
 
 --
@@ -939,6 +959,7 @@ EPA-HQ-OAR-2003-0048	National Emission Standards for Hazardous Air Pollutants: P
 ---
 
 EPA-HQ-OAR-2004-0094	National Emission Standards for Hazardous Air Pollutants: General Provisions	Impacts
+
 > Comment: One commenter stated that EPA failed to comply with Executive Order 12898 on Environmental Justice. The commenter asserts that the amendments will adversely affect minority and low income communities around the sources.
 
 > Response: Executive Order 12898 establishes a Federal policy for incorporating environmental justice into Federal agency actions by directing agencies to identify and address, as appropriate, disproportionately high and adverse human health or environmental effects of their programs, policies and activities on minority and low-income populations. The EPA has considered the impact of the proposal on minority and low income populations. **We do not believe that these amendments will have any adverse effects** on emissions during periods of SSM. Therefore, there should not be any adverse impact **on minority and low income populations** as a result of these amendments. The amendments do not affect the underlying requirement to minimize emissions during SSM events. **Owners or operators are still required to develop SSM plans to address emissions** during these periods. They are required to report immediately when the plans are not followed and semiannually when the plans are followed and emission limitations are exceeded (or could have been in the case of malfunctions) and describe steps taken to minimize emissions. **The only difference from current regulations is that the source is not required to follow the plan**, especially when the situation may call for other action or when safety considerations override following the plan as written.
@@ -977,6 +998,7 @@ communities are variable in terms of social indicators like income, employment, 
 The preferred alternatives were selected to minimize ecological and economic impacts and provide for the sustained participation of fishing communities. The preferred alternatives would not have any effects on human health nor are they expected to have any disproportionate social or economic effects on minority and low-income communities.
 
 They also cited research published in the same year as the draft rule:
+
 >Jepson and Colburn (2013) developed social indicators of vulnerability and resilience for 25 communities in the U.S. southeast and northeast regions selected for having a greater than average number of HMS permits associated with them.
 
 ---
@@ -1000,7 +1022,7 @@ Removal of Ohio Nuisance Provision (3745-15-07) final rule
 
 > On March 23, 2020, EPA proposed, under the authority of section 110(k)(6) of the CAA, to remove Ohio's nuisance rule from the Ohio State Implementation Plan (SIP) because it does not have a reasonable connection to the attainment and maintenance of the national ambient air quality standard (NAAQS) and EPA erred in approving it as part of the Ohio SIP.
 
-> Comment 10: Commenters state that the NPRM would harm already vulnerable Ohioans by eliminating an important **environmental justice** tool. Commenters also raise concerns with the potential impact on other sensitive populations such as children, the elderly, and individuals with various health issues including respiratory illnesses.
+> Comment 10: Commenters state that the NPRM would harm already vulnerable Ohioans by eliminating an important **environmental justice** tool. Commenters also raise concerns with the potential impact on other sensitive populations such as children, the elderly, and individuals with various health issues, including respiratory illnesses.
 
 > Response: The purpose of this rulemaking action is to remove OAC 3745-15-07 from the Ohio SIP because it is not related to the implementation, maintenance, and enforcement of the NAAQS. This rulemaking action does not invalidate the Ohio law or affect its applicability to Ohio sources. **Facilities located in Ohio are still subject to the state nuisance rule.** EPA supports programs and activities that promote enforcement of health and environmental statutes in areas with minority populations and low-income populations and the protection of children, the elderly, and other vulnerable populations.
 
@@ -1101,6 +1123,8 @@ ejFRejPR %<>% filter(!is.na(change)) #TODO investigate NAs
 Percent where the final rule did change how it addressed EJ
 
 ```{r ejejPR-winrate, fig.width=6, fig.height=2}
+#ejejPR-winrate
+
 winrate <- ejFRejPR %>% 
   count(ej_comment, change) %>% 
   group_by(ej_comment) %>% #FIXME make nice table with percents
@@ -1134,6 +1158,8 @@ ejFRejPR %>%
 ## Model 
 
 ```{r ej-mejPR}
+#ej-mejPR
+
 mejPR <- glm(change ~ ej_comment*log(comments +1) +
                 #ej_comments + 
                 ej_comments_unique +
@@ -1145,6 +1171,7 @@ tidy(mejPR) %>% kablebox()
 ```
 
 ## By president
+
 ```{r ejejPR-winrate-president, fig.height=3, fig.width=6}
 # ejejPR-winrate-president-1
 
@@ -1180,11 +1207,13 @@ ejFRejPR %>%
 
 ---
 
-### Predicted Probablities by President
+### Predicted Probabilities by President
 
 With the median number of comments, `r median(ejFRejPR$comments)`
 
 ```{r ej-mejPR-president-median,fig.width=5, fig.height=3.5}
+#ej-mejPR-president-median
+
 # A data frame of values at which to estimate probabilities:
 values <- ejFRejPR %>% 
   expand(ej_comment,
@@ -1228,6 +1257,8 @@ predicted %>%
 With the mean number of comments, `r mean(ejFRejPR$comments) %>% round() %>% as.integer()`
 
 ```{r ej-mejPR-president-mean,fig.width=5, fig.height=3.5}
+#ej-mejPR-president-mean
+
 # A data frame of values at which to estimate probabilities:
 values <- ejFRejPR %>% 
   expand(ej_comment,
@@ -1272,11 +1303,13 @@ predicted %>%
 
 
 
-Change in EJ section of final rule by number of comments
+Change in EJ section of the final rule by number of comments
 
 Percent of rules that change when there are more or less than 10 comments.
 
 ```{r ejejPR-winrate-comments, fig.height=1.5, fig.width=5.5}
+#ejejPR-winrate-comments
+
 winrate <- ejFRejPR %>% 
   mutate(comments10 = comments > 9) %>% 
   count(change, comments10) %>% 
@@ -1307,9 +1340,11 @@ ejFRejPR %>%
 
 ### Predicted Probabilities by Number of Comments
 
-Estimates across numbers of comments recieved.
+Estimates across numbers of comments received.
 
 ```{r ej-mejPR-comments, fig.height = 2.5, fig.width=5.25}
+#ej-mejPR-comments
+
 # A data frame of values at which to estimate probabilities:
 values <- ejFRejPR %>% 
   expand(comments = c(1,10,100,1000,10000) ,
@@ -1348,6 +1383,8 @@ predicted %>%
 ## By Agency 
 
 ```{r ejejPR-winrate-agency, fig.height=4}
+#ejejPR-winrate-agency
+
 winrate <- ejFRejPR %>% 
   count(ej_comment, change, agency) %>% 
   group_by(ej_comment) %>% #FIXME make nice table with percents
@@ -1406,6 +1443,8 @@ tidy(mejnPR_agency) %>% kablebox()
 ### Predicted Probabilities by Agency
 
 ```{r ej-mejPR-agency}
+# ej-mejPR-agency
+
 mejPR_agency <- glm(change ~ ej_comment*log(comments + 1) + 
                       ej_comments_unique +
                       president +
@@ -1460,9 +1499,11 @@ predicted %>%
         axis.ticks.y = element_blank())
 ```
 
-Agencies that have at least 300 comments on proposed rules that did not mention environmental justice (i.e. agencies where at least some of the rules in this dataset saw comments) and at least 3 rules where comments raised EJ concerns (i.e. agencies where EJ is somewhat salient). 
+Agencies that have at least 300 comments on proposed rules that did not mention environmental justice (i.e., agencies where at least some of the rules in this dataset saw comments) and at least 3 rules where comments raised EJ concerns (i.e., agencies where EJ is somewhat salient). 
 
 ```{r ej-mejPR-agency-top}
+#ej-mejPR-agency-top
+
 ejFRejPR %>% 
   group_by(agency) %>% 
   count(agency, agency_ej_comments,sum(comments) )  %>%   
@@ -1498,9 +1539,10 @@ predicted %>%
 ```
 
 
-A more slective subset: Agencies that have at least 500 comments on proposed rules that did not mention environmental justice (i.e. agencies where at least some of the rules in this dataset saw more than a few comments) and at least 50 rules where comments raised EJ concerns (i.e. agencies where EJ is somewhat salient). 
+A more selective subset: Agencies that have at least 500 comments on proposed rules that did not mention environmental justice (i.e., agencies where at least some of the rules in this dataset saw more than a few comments) and at least 50 rules where comments raised EJ concerns (i.e., agencies where EJ is somewhat salient). 
 
 ```{r ej-mejPR-agency-toptop, fig.height=3}
+#ej-mejPR-agency-toptop
 
 # slightly more selective, requiring 100 comments
 top <- ejFRejPR %>% 
@@ -1536,6 +1578,8 @@ predicted %>%
 
 
 ```{r ej-mejPR-comments-agencyFE, fig.width=5.25, fig.height=2.5}
+#ej-mejPR-comments-agencyFE
+
 # A data frame of values at which to estimate probabilities:
 values <- ejFRejPR %>% 
   expand(comments =  c(1, 10,100,1000,10000),
@@ -1602,13 +1646,13 @@ ejFR %>%
 
 EPA-HQ-RCRA-2012-0121
 
-In 2015, the Environmental Protection Agency (EPA) published a draft rule revising it's hazardous waste generator regulatory program, in part "providing greater flexibility for hazardous waste generators to manage their hazardous waste in a cost-effective and protective manner" (EPA 2015). This draft rule did contain a section addressing Executive Order 12898:
+In 2015, the Environmental Protection Agency (EPA) published a draft rule revising its hazardous waste generator regulatory program, in part "providing greater flexibility for hazardous waste generators to manage their hazardous waste in a cost-effective and protective manner" (EPA 2015). This draft rule did contain a section addressing Executive Order 12898:
 
 >EPA is allowing VSQGs [very small quantity generators] to ship their hazardous waste to an LQG [large quantity generators]...Although this change could result in an increase in traffic for certain communities, EPA believes the increase would not be significant given that VSQGs currently may send their hazardous waste to a number of destinations, including municipal and non-municipal solid waste management facilities.
 
->EPA is finalizing alternative standards for VSQGs and SQGs that would allow these entities to maintain their generator category if they generate hazardous waste during an episodic event. Although these generators will be allowed to temporarily manage a greater amount of hazardous waste than their current generator category allows, EPA is finalizing conditions under which the hazardous waste generated from an episodic event must be managed in order to maintain protection of human health and the environment. Therefore, EPA does not anticipate disproportionately high and adverse human health or environmental effects on minority, low-income or indigenous populations from these alternative standards.
+>EPA is finalizing alternative standards for VSQGs and SQGs that would allow these entities to maintain their generator category if they generate hazardous waste during an episodic event. Although these generators will be allowed to temporarily manage a greater amount of hazardous waste than their current generator category allows, EPA is finalizing conditions under which the hazardous waste generated from an episodic event must be managed in order to maintain the protection of human health and the environment. Therefore, EPA does not anticipate disproportionately high and adverse human health or environmental effects on minority, low-income or indigenous populations from these alternative standards.
 
-EPA-HQ-RCRA-2012-0121 recieved 235 comments, but none raising EJ concerns, and this section was left unchanged in the final rule. (One commentor did attach an annotated copy of the final rule.)
+EPA-HQ-RCRA-2012-0121 received 235 comments, but none raising EJ concerns, and this section was left unchanged in the final rule. (One commenter did attach an annotated copy of the final rule.)
 
 ---
 
@@ -1628,23 +1672,23 @@ ejcomments %>%
 # Regression Tables
 
 ```{r results = "asis"}
-library(stargazer)
+# library(stargazer)
 #stargazer::stargazer(m_PR, m_PR_agency, mejPR, mejPR_agency, type = "html")
 
 library(modelsummary)
 models <- list(
-  "EJ Added 1" = m_PR, 
-  "EJ Added 2" = m_PR_agency,
-  "EJ Changed 1"  =  mejPR,
-  "EJ Changed 2" = mejPR_agency
+  "1" = m_PR, 
+  "2" = m_PR_agency,
+  "3"  =  mejPR,
+  "4" = mejPR_agency
 )
 
 rows <- tibble(
   term = c("President FE", "Agency FE"),
-  `EJ Added 1` = c("X", ""), 
-  `EJ Added 2` =c("X", "X"), 
-  `EJ Changed 1`  = c("X", ""), 
-  `EJ Changed 2` = c("X", "X")
+  `1` = c("X", ""), 
+  `2` =c("X", "X"), 
+  `3`  = c("X", ""), 
+  `4` = c("X", "X")
 )
 
 
@@ -1675,11 +1719,11 @@ modelsummary::modelsummary( models,
 
 # TODO
 
-- [ x ] Transform ej_comments to reduce colinearity with with ej_comment ()
+- [ x ] Transform ej_comments to reduce colinearity with ej_comment ()
 
-- [ x ] Dedupe PRs and FRs, or at least explore sensitivity to which of multiple PRs is used. Perhaps select on `comments` then `posted_date`? The PR with the most comments is most likley the main PR, but many have 0 comments. However, date is complicated. A later PR could be an extension of comment period, a later FR could be a small ammendment. New metadata may help with this. 
+- [ x ] Dedupe PRs and FRs, or at least explore sensitivity to which of multiple PRs is used. Perhaps select on `comments` then `posted_date`? The PR with the most comments is most likely the main PR, but many have 0 comments. However, date is complicated. A later PR could be an extension of the comment period. A later FR could be a small amendment. New metadata may help with this. 
 
-- [ ] Compare % in change in 12898 sections vs. rule text vs. response to comment. This requires classifing responses to comment vs adding 12898 section (in most cases, they are adding a 12898 section)
+- [ ] Compare % in change in 12898 sections vs. rule text vs. response to comment. This requires classifying responses to comment vs. adding 12898 section (in most cases, they are adding a 12898 section)
 
 - [ ] Fix +1 shift in predicted prob of logged vars 
 
