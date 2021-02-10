@@ -103,9 +103,14 @@ surprisingly little to say about this kind of civic participation.
 
 Dominant theories of bureaucratic policymaking focus on how agencies learn about policy problems (@Kerwin2011). Leading formal models are information-based models where comments matter by revealing information to the agency [@Gailmard2017, @Libgober2018] and empiral studies support the conclusoin that information is the currency of lobbying in rulemaking [@Yackee2012, @Cook2017, @Gordon2018, @Walters2019].  
 
-Rulemaking is a highly techoratic and legalistic for of policymaking that explicitly privleges scientific and legal information as appropriate basis for decisions.  Proceedural requirements to consider relevent information create incentives for lobbying groups to overwhelm agencies with complex techincal information, making rulmaking obscure to all but the most well-informed insiders [@Wagner2010]. Empirical work shows 
-wagner
-yackee
+Rulemaking is a highly techoratic and legalistic for of policymaking that explicitly privleges scientific and legal information as appropriate basis for decisions.  Proceedural requirements to consider relevent information create incentives for lobbying groups to overwhelm agencies with complex techincal information, making rulmaking obscure to all but the most well-informed insiders [@Wagner2010]. <!--Empirical work shows yackee -->
+As @Yackee2019 notes:
+> "to be influential during rulemaking,
+commenters may require resources and technical expertise.
+> As Epstein, Heidt
+and Farina (2014) suggest, agency rule-writers--who are often chosen because
+of their technical or policy-specific expertise--privilege the type of data-driven
+arguments and reasoning that are not common to citizen comments.” (p. 10)
 
 The result is that rulemaking is dominated by sophisticated and well-resourced interest groups capable of providing new technical or legal information. Empirical scholarship finds that economic elites and business groups
 dominate American politics in general [@Jacobs2005,@Soss2007, Hertel-Fernandez2019, @Hacker2003, @Gilens2014] and rulemaking in
@@ -185,18 +190,17 @@ The existing literature on bureurcratic policymaking in general and environmenta
 
 As discussed above, agency policymakers have incentives to address distributive concerns, especially environmental justice due to judicial review of compliance with the Adminstrative Proceedures Act and E.O.12898. By raising environmental justice concerns, commenters draw attention to the distribution of policy impacts. 
 
-
 > *Repeated Information Hypothesis*: Policymakers are more likley to change whether or how policies address environmental justice when more commentors raise environmetnal justice concerns.
 
-Scholarship on lobbying in rulmaking emphasises the value of repeated information and coalition size [@Nelson2012]. This implies that 
+Scholarship on lobbying in rulmaking emphasizes the value of repeated information and coalition size [@Nelson2012]. This implies that more unique commenters raising EJ concerns, the more likely the coalition is to influence policy.
 
-Competing intuitions and other prior studies oppose the *Distributive Information Hypothesis*. Scholarship on lobbying in rulemaking emphasises the importance of novel science, technical information, and other things unknown to agency experts. This scholarship has finds buisness commentors are influential and public interest groups are not [@Yackee2006JOP, @Haeder2015]. Furthermore, policymakers may be more likley to anticipate EJ concerns when they are more salient to interest groups and the public and thus. This would mean that rules where commenters EJ concerns may be *the least* likely to change whether or how EJ is addressed because policymakers are more likley to have considered the issues and stated their final position in the draft rule. 
+Competing intuitions and other prior studies oppose both the *Distributive and Repeated Information Hypothesis*. Scholarship on lobbying in rulemaking emphasises the importance of novel science and technical information--things unknown to agency experts [@Wagner2015]. Furthermore, scholarship finds buisness commentors are influential and public interest groups are not [@Yackee2006JOP, @Haeder2015]. Furthermore, policymakers may be more likley to anticipate EJ concerns when they are more salient to interest groups and the public and thus. This would mean that rules where commenters EJ concerns may be *the least* likely to change whether or how EJ is addressed because policymakers are more likley to have considered the issues and stated their final position in the draft rule. 
 
 > *Policy Receptivity Hypothesis*: Agencies that more frequently conduct environmental analysis will be more responsive to commenters raising environmental justice concerns.
 
 Bureaucracies are specialized institutions built for making and implimenting certian kinds of policies based on certain goals and facts. The distinct norms and epistimic community commeunity determine whether issues are seen as "environmental" and having disporate impacts meriting a consideration of distributive "justice." Some poicymakers may see their policy area as more related environmetnal justice than others and thus be more receptive to commenter concerns. 
 
-The competing intuition to the *Policy Receptivty Hypothsis is that policymakers familiar with environmetnal justice concerns are the least likelty to be responsive to EJ concerns becasue these concerns are anticipated and not novel. If so, agencies with that think about EJ may be more easily influenced to do so by commenters who present somewhat novel information and concerns. These agencies may be less likley to have prempted critques.
+The competing intuition to the *Policy Receptivty Hypothsis* is that policymakers familiar with environmetnal justice concerns are the least likelty to be responsive to EJ concerns becasue these concerns are anticipated and not novel. If so, agencies with that think about EJ may be more easily influenced to do so by commenters who present somewhat novel information and concerns. These agencies may be less likley to have prempted critques.
 
 ### Public Pressure 
 
@@ -204,20 +208,15 @@ The competing intuition to the *Policy Receptivty Hypothsis is that policymakers
 
 @Furlong1997 and @Kerwin2011
 
-The 
+The competing intuition against the *General Pressure Hypothesis* is again that large numbers of comments indicate high-salience rulemakings where the agency anticipates public scrutenty, including on environmental how it did or did not address environmetnal justice and is more likley to have stated its final position in the final rule. 
 
 > *Specific pressure hypothesis*:  Agencies are more likley to change whether or how they address environmenantal justice when they recieve more comments *and* some comments raise environmental justice concerns.
 
-It is possible that the effect 
+This hypothesis asserts that the effect of public attention only or especially effects policy when specific policy demands are present--it is the interaction between the number of total public comments and at least some of those comments raising EJ concerns. 
 
-The competing intuition is again that large numbers of comments indicate high-salience rulemakings where the agency anticipates public scrutenty, including on environmental how it did or did not address environmetnal justice and is more likley to have stated its final position in the final rule. 
-
-
-
-# Methods
+The competing intuition against the *Specific Pressure Hypothesis* is again that large numbers of comments indicate high-salience rulemakings where the agency anticipates public scrutenty, including on environmental how it did or did not address environmetnal justice and is more likley to have stated its final position in the final rule. 
 
 
-The cases I trace are not selected as the most similar, most differet, or a represenative sample. They emerged from soaking and poking in the text of rule making records. Their purporse is to assess whether the cases in the quantative analysis are plausabley what they appear to be: that changes in rule text are, sometimes, causally related to public comments and that non-changes are cases of agencies disregarding comments, not some accident of the data or measures. Tracing a somewhat random rulemaking processes also helped to avoid analitic pitfalls. For example, one case where an agency did an EJ anslysis and then appeared not to respond to a comment discussing EJ was in fact due to the fact that the commentor included an annotated version of the draft rule their comment, adding only "no comment' next to the 12898 section. To correct this, I removed text coppied from the proposed rule from comments in pre-processing. The qualitative reading also confirmed other key assumptions such as the fact that advocates do in fact use "environmental justice" when they raise distributional concerns, even on many rules that are not about issues traditioanlly considered "environmental" because of its power to give distributional justice claims gain legal purchase.
 
 
 

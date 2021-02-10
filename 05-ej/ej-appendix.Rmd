@@ -75,7 +75,7 @@ load(here::here("data", "ej_race.Rdata"))
 
 load(here::here("data", "rules_metadata.Rdata"))
 
-
+names(comments_min)
 # alternatively 
 #rules <- dbGetQuery(con, "SELECT * FROM rules")
 
@@ -368,13 +368,15 @@ allFR %>%
   facet_grid(ej_pr ~ president, scales = "free") + 
   labs(x = "",
        y = "Number of Rules",
-       fill = "Environmental\nJustice\nConcerns") + 
+       fill = "Comments Raised\nEnvironmental\nJustice Concerns") + 
   theme(panel.grid.major.x = element_blank())
 ```
 
 ---
 
-## Comments by President
+## Comments 
+
+### by President
 
 ej_comments
 
@@ -391,11 +393,48 @@ allFR %>%
   #scale_x_date(date_labels = "%y") + 
   labs(x = "",
        y = "Number of Comments (log scale)",
-       color = "Environmental\nJustice\nConcerns",
-       shape = "Environmental\nJustice\nConcerns") +
+       color = "Comments Raised\nEnvironmental\nJustice Concerns",
+       shape = "Comments Raised\nEnvironmental\nJustice Concerns") +
   scale_x_discrete(breaks = breaks) + 
   scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
   theme(panel.grid.major.x = element_blank())
+```
+
+# By organization 
+
+```{r ej-orgs}
+ejorgs <- ejcomments %>% 
+  drop_na(organization) %>% 
+  filter(!organization %in% c("NA")) %>% 
+  group_by(organization) %>%
+  #add_count(docket_id) %>% #TODO
+  summarise(unique = n(),
+            total = sum(number_of_comments_received)) %>% 
+  arrange(-total) 
+
+
+ejorgs %>% 
+  kablebox()
+
+# ejorgs_FR <- ejcomments %>%
+#   #mutate(docket_id =str_remove(id, "-[0-9]$")) %>%
+#   select(id) 
+#   filter(docket_id %in% allFR$docket_id) %>% 
+#   drop_na(organization) %>% 
+#   filter(!organization %in% c("NA")) %>% 
+#   group_by(organization, docket_id) %>%
+#   #add_count(docket_id) %>% #TODO
+#   summarise(unique = n(),
+#             total = sum(number_of_comments_received)) %>% 
+#   arrange(-total) 
+# 
+# 
+# ejorgs_FR %>% 
+#   kablebox()
+# 
+# 
+# ejorgs
+
 ```
 
 ---
