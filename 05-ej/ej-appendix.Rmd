@@ -97,7 +97,7 @@ ejcomments %<>%
   distinct() 
 
 
-# a function to clean
+# a function to clean raw selected text
 clean_summary <- . %>% 
   mutate(summary = str_remove_all(highlighted_content,
                "./em../mark.|.mark..em.") %>% 
@@ -204,6 +204,7 @@ rules %>%
 
 ```{r ej-data-ejpr, fig.height=3}
 # ej-data-ejpr
+
 # pr over time
 rules %>% 
   filter(document_type == "Proposed Rule") %>% 
@@ -231,6 +232,7 @@ ejPR %>%
 
 ```{r ej-data-ejfr, fig.height=3}
 #ej-data-ejfr
+
 # fr type over time
 rules %>% 
   filter(document_type == "Rule") %>% 
@@ -262,6 +264,7 @@ Subsets of data:
 ```{r subsets}
 # SUBSETTING -------------------------------------------
 #TODO sensitivity analysis to inclusion criteria
+
 # filter to agencies that published at least one ej rule 
 rules %<>% 
   group_by(agency) %>% 
@@ -295,8 +298,10 @@ Subsetting to agencies that pubished at least one rule explicitly addressing EJ 
 `r rules %>% distinct(agency) %>% nrow()` agencies, each publishing at least one rule that explicitly addressed environmental justice.  `r ejcomments %>% nrow()` unique comments (excluding duplicates) use the phrase "environmental justice". 
 
 
-ej-data-agencies
+
 ```{r ej-data-agencies}
+#ej-data-agencies
+
 allFR %>%
   ggplot() + 
   aes(x = year, fill = ej_fr) +
@@ -309,7 +314,7 @@ allFR %>%
        y = "")
 ```
 
-### Agencies that published at least 100 EJ comments
+### Agencies that received at least 100 EJ comments
 
 
 ```{r ej-data-agencies100}
@@ -319,7 +324,7 @@ breaks <-  c("`16", "`12",  "`08",  "`04", "`00", "`96", "`20")
 # agencies that published at least 100 rules with ej comments
 allFR %>% 
   filter(agency_ej_comments > 100 | agency == "FEMA",
-         year > 1999) %>%
+         year > 1999) #%>% distinct(agency, docket_id, agency_ej_comments)
   ggplot() + 
   aes(x = Year, fill = ej_fr) +
   facet_wrap("agency", scales = "free") +
@@ -430,23 +435,23 @@ ejorgs <- ejcomments %>%
 ejorgs %>% 
   kablebox() 
 
-#TODO table by most dockets
+#TODO table by most dockets commented on 
 
-# ejorgs_FR <- ejcomments %>%
-#   #mutate(docket_id =str_remove(id, "-[0-9]$")) %>%
-#   select(id) 
-#   filter(docket_id %in% allFR$docket_id) %>% 
-#   drop_na(organization) %>% 
-#   filter(!organization %in% c("NA")) %>% 
-#   group_by(organization, docket_id) %>%
-#   #add_count(docket_id) %>% #TODO
-#   summarise(unique = n(),
-#             total = sum(number_of_comments_received)) %>% 
-#   arrange(-total) 
-# 
-# 
-# ejorgs_FR %>% 
-#   kablebox()
+ejorgs_FR <- ejcomments %>%
+  mutate(docket_id =str_remove(id, "-[0-9]$")) %>%
+  select(docket_id)
+  filter(docket_id %in% allFR$docket_id) %>%
+  drop_na(organization) %>%
+  filter(!organization %in% c("NA")) %>%
+  group_by(organization, docket_id) %>%
+  #add_count(docket_id) %>% #TODO
+  summarise(unique = n(),
+            total = sum(number_of_comments_received)) %>%
+  arrange(-total)
+
+
+ejorgs_FR %>%
+  kablebox()
 # 
 # 
 # ejorgs
@@ -1719,16 +1724,23 @@ modelsummary::modelsummary( models,
 
 # TODO
 
-- [ x ] Transform ej_comments to reduce colinearity with ej_comment ()
+- [ x ] Transform ej_comments to reduce corr with ej_comment
 
-- [ x ] Dedupe PRs and FRs, or at least explore sensitivity to which of multiple PRs is used. Perhaps select on `comments` then `posted_date`? The PR with the most comments is most likely the main PR, but many have 0 comments. However, date is complicated. A later PR could be an extension of the comment period. A later FR could be a small amendment. New metadata may help with this. 
+- [ x ] Dedupe PRs and FRs, or at least explore sensitivity to which of multiple PRs is used. Selected on`comments`. The PR with the most comments is most likely the main PR, but many have 0 comments. Perhaps also then on `posted_date`?  However, date is complicated. A later PR could be an extension of the comment period. A later FR could be a small amendment. New metadata may help with this.
+
+- [ ] Compare new and old API metadata to make (comment counts are slightly different)
+
+- [ ] Explore new detailed comment metadata.
 
 - [ ] Compare % in change in 12898 sections vs. rule text vs. response to comment. This requires classifying responses to comment vs. adding 12898 section (in most cases, they are adding a 12898 section)
 
 - [ ] Fix +1 shift in predicted prob of logged vars 
 
-- [ ] Investigate other estimators like `clogit`
+- [ ] Investigate other estimators & `clogit`
 
+Extensions
+
+- [ ] Compare topic proportions for cut and added text with comment texts.
 
 
 
