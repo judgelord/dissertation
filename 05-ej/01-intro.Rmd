@@ -4,22 +4,21 @@ I explore the role of public comments in rulemaking by focusing on their
 role in the environmental justice movement. Environmental justice
 concerns focus on the unequal access to healthy environments and
 protection from harms caused by things like pollution and climate
-change. The ways in which agencies consider (or fail to consider) environmental justice
+change. How agencies consider (or fail to consider) environmental justice
 highlights how rulemaking has distributive consequences, how the public
 comment process creates temporary political communities, and how claims
 raised by activists are addressed.
 
 I examine thousands of rulemaking processes at agencies known to address
-environmental justice (EJ) concerns. Tracing the evolution of EJ analysis through several of these rulmaking processes shows that the concept is hotly contested and rarely addressed by agencies in ways that activists find unacceptable. Activist pressure clearly affected how rules address EJ in some cases but failed to have an effect in others. On average, I find that when public comments raise
+environmental justice (EJ) concerns. Tracing the evolution of EJ analysis through several of these rulemaking processes shows that the concept is hotly contested and rarely addressed by agencies in ways that activists find unacceptable. Activist pressure clearly affected how rules address EJ in some cases but failed to have an effect in others. On average, I find that when public comments raise
 environmental justice concerns, these concerns are more likely to be
-addressed in the final rule and how rules address environmenal justice is more likley to change. The
-number of comments mobilized both overall and those by environmental justice advocates and  also both related to success.  While we cannot
+addressed in the final rule and how rules address environmental justice is more likely to change. The number of comments mobilized both overall and those by environmental justice advocates and also both related to success.  While we cannot
 infer that agencies addressing environmental justice concerns is caused
 by the public comments themselves, comments may be a good proxy for
 lobbying and public pressure in general. Furthermore, the correlation between raising
-environmental justice and policy changes is largest and most significant
+environmental justice and policy changes is the largest and most significant
 in agencies with missions focused on environmental
-policy, i.e. the kinds of bureaucrats who we may expect to have
+policy, i.e., the kinds of bureaucrats who we may expect to have
 institutional and cognitive processes primed to be most responsive to
 environmental justice concerns.
 
@@ -28,8 +27,7 @@ inject ideas directly into the rulemaking process. I focus on the
 environmental justice movement because it offers a broad but tractable
 scope for analysis and shows what is at stake in the politics of
 rulemaking. How rules consider environmental justice issues illustrates
-how rulemaking constructs a political community of "relevant"
-stakeholders and "appropriate" criteria to evaluate policy consequences.
+how rulemaking constructs a political community of "relevant" stakeholders and "appropriate" criteria to evaluate policy consequences.
 Thus, the idea of environmental justice is an example of how social
 movements mobilize norms and evaluative frameworks that are
 connected to organizational identities, mission, and reputations and
@@ -61,11 +59,11 @@ protection from them when they are contaminated.
 Second, compared to
 other ideas around which people mobilize, "environmental justice" is a
 fairly distinctive phrase. Most people who use this phrase share a
-general definitional foundation. Even attempts to reframe the term (e.g. to focus on class rather than race or jobs rather than health) come about as a dialictical move related to the term's historial uses. Thus, when "environmental justice" appears in a text, it is rearealy a coincidence of words; it's appearence is a result of the movement or reactions to it.
+general definitional foundation. Even attempts to reframe the term (e.g., to focus on class rather than race or jobs rather than health) come about as a dialectical move related to the term's historical uses. Thus, when "environmental justice" appears in a text, it is rarely a coincidence of words; its appearance is a result of the movement or reactions to it.
 
 Third, this phrase appears frequently
-when the idea is discussed, i.e. there are not many synonyms and
-groups raising equity concerns on "environmental" issues commonly refer
+when the idea is discussed, i.e., there are not many synonyms and
+groups raising equity concerns on "environmental" issues commonly referred
 to environmental justice. Those who use the narrower, related term
 "environmental racism" almost always use "environmental justice" in their
 advocacy as well. 
@@ -73,17 +71,17 @@ advocacy as well.
 
 Finally, the term is relevant to rulemaking records in
 particular because of Executive Order 12898 issued in 1994 by President
-Clinton \"Federal Actions to Address Environmental Justice in Minority
+Clinton \ "Federal Actions to Address Environmental Justice in Minority
 Populations and Low-Income Populations\" which required all agency
 actions and policies to consider environmental justice implications. Executive orders from Presidents Obama and Biden and statements from agency heads in every administration have since interpreted and reinterpreted parts of this order, all with direct implications for rulemaking. 
 This does not mean that all draft or final rules address environmental justice, but when they
 do, they tend to cite Executive Order 12898 and explicitly discuss
 environmental justice. For the same reason, commenters, especially
 sophisticated ones, who critique draft rules also use the cite this
-executive order and use this language. 
+Executive Order and use this language. 
 
-Advocates may even sue agencies for failing to satisfy the proceedural requirements of E.O. 12898, giving agencies an incentive to explain how their policies and justifications address the Executive Order and environmental justice concerns of commenters.
-Rules may be struck down by courts for failing to comply with Administrative Proceedures Act (APA) requirements if the issuing agency fails to “examine the relevant data” or “consider an important aspect of the problem" (*Motor Vehicle Mfrs. Ass’n v. State Farm Mut. Auto. Ins. Co.*, 1983). This can include an agency's EJ analysis. : "environmental justice analysis can be reviewed under NEPA and the APA” (*Cmtys. Against Runway Expansion, Inc. v. FAA*, 2004).
+Advocates may even sue agencies for failing to satisfy the procedural requirements of EO 12898, giving agencies an incentive to explain how their policies and justifications address the Executive Order and environmental justice concerns of commenters.
+Rules may be struck down by courts for failing to comply with Administrative Procedures Act (APA) requirements if the issuing agency fails to "examine the relevant data" or "consider an important aspect of the problem" (*Motor Vehicle Mfrs. Ass'n v. State Farm Mut. Auto. Ins. Co.*, 1983). This can include an agency's EJ analysis. : "environmental justice analysis can be reviewed under NEPA and the APA" (*Cmtys. Against Runway Expansion, Inc. v. FAA*, 2004).
 
 # Theory
 
@@ -110,7 +108,7 @@ commenters may require resources and technical expertise.
 > As Epstein, Heidt
 and Farina (2014) suggest, agency rule-writers--who are often chosen because
 of their technical or policy-specific expertise--privilege the type of data-driven
-arguments and reasoning that are not common to citizen comments.” (p. 10)
+arguments and reasoning that are not common to citizen comments." (p. 10)
 
 The result is that rulemaking is dominated by sophisticated and well-resourced interest groups capable of providing new technical or legal information. Empirical scholarship finds that economic elites and business groups
 dominate American politics in general [@Jacobs2005,@Soss2007, Hertel-Fernandez2019, @Hacker2003, @Gilens2014] and rulemaking in
@@ -145,7 +143,7 @@ to mobilizing public pressure:
 > coordinating efforts of the leaders, would otherwise not lobby. This
 > activation is important because it implies that coalition lobbying can
 > generate new information and new actors---beyond simply the 'usual
-> suspects'---relevant to policy decisionmakers."
+> suspects' ---relevant to policy decisionmakers."
 
 I argue that, concerning political information, this logic extends to
 non-experts in at least two ways. 

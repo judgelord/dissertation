@@ -3,44 +3,35 @@
 In order to examine whether environmental justice advocates or public pressure campaigns shape the discourse around policies,
 I use the text of draft rules, public comments, and final rules retrieved from regulations.gov. I select rulemaking documents from agencies that pubished at least one rule explicitly addressing Environmental Justice fron 1992 through 2020. This yields 30348 rulemaking dockets from 44 agencies.  
 
-```{r data, fig.cap = "Number of Rules where Environmental Justice Appears in the Record (Left) and Number of Comments per Notice or Proposed Rule (Right).", out.height = NULL, out.width = "49%", fig.show = "hold"}
-knitr::include_graphics(here::here("Figs", "eandj-hist.pdf") )
 
-knitr::include_graphics(here::here("Figs", "eandj-hist.pdf") )
+Despite E.O. 12868, most rules do not address EJ. Figure \@ref(fig:ej-data) 
 
-```
-
-
-
-
-Despite E.O. 12868, most rules do not address EJ. Figure \@ref(fig:agencies100) 
-
-```{r ej-data, fig.cap = "Number of Proposed and Final Rules Addressing Environmental Justice.", out.height = NULL, out.width = "49%", fig.show = "hold"}
+```{r ej-data, fig.cap = "Number of Proposed and Final Rules Addressing Environmental Justice.", out.height = NULL, out.width = "99%", fig.show = "hold"}
 
 knitr::include_graphics(here::here("Figs", "ej-data-ejpr-1.png") ) #  
 
 knitr::include_graphics(here::here("Figs", "ej-data-ejfr-1.png") ) # 
 ```
 
-Even at the Environmetal Protection Agency (EPA), where most politices presumably are clearly related to "environmental" issues, a consistant minority of rules address EJ. Agencies almost never address EJ include agencies that make policy with clear EJ effects, including Housing and Urban Development (HUD), the Nuclear Regulatory Commission (NRC), and Office of Surface Mining (OSM). A majority of rules addressed EJ only in a few years at a few agencies that publish relativly few rules such as the Concil of Environmental Quality (CEQ), Federal Emergancy Managment Agency (FEMA), and several Transportation agencies (the Federal High Way Administration, Federal Transit Administration (FTA), Federal Railroad Administration (FRA)). Figure \@ref(fig:agencies100) shows the number of rulemaking projects at each agency over time by whether they ultimatly addressed EJ. 
+Even at the Environmetal Protection Agency (EPA), where most politices presumably are clearly related to "environmental" issues, a consistant minority of rules address EJ. Agencies almost never address EJ include agencies that make policy with clear EJ effects, including Housing and Urban Development (HUD), the Nuclear Regulatory Commission (NRC), and Office of Surface Mining (OSM). A majority of rules addressed EJ only in a few years at a few agencies that publish relativly few rules such as the Concil of Environmental Quality (CEQ), Federal Emergancy Managment Agency (FEMA), and several Transportation agencies (the Federal High Way Administration, Federal Transit Administration (FTA), Federal Railroad Administration (FRA)). Figure \@ref(fig:ej-agencies100) shows the number of rulemaking projects at each agency over time by whether they ultimatly addressed EJ. 
 
 
-```{r ej-data-agencies100, fig.cap = "Number of Proposed and Final Rules Addressing Environmental Justice", out.height = NULL, out.width = "49%", fig.show = "hold"}
+```{r ej-data-agencies100, fig.cap = "Number of Proposed and Final Rules Addressing Environmental Justice", out.height = NULL, out.width = "99%", fig.show = "hold"}
 
-knitr::include_graphics(here::here("Figs", "ej-data-agencies100.png") )
+knitr::include_graphics(here::here("Figs", "ej-data-agencies100-1.png") )
 ```
 
 ## Comments
 
+Figure \@ref(fig:ej-comments) shows the number of comments on each proposed rule in published between 1992 and 2020. Red circles indicated rules where no commenters raised EJ concerns. Blue Triangles indicate rules where they did. The bottom row of plots show the subset of rules where environmental justice appeared in neither the draft nor final rule. The middle row of plots show rules where "environmental justice" appreared in the final but not the draft. My firest measure and anslysis compares these two rows. The top row of plots shows rules where "environmental justice" appeared in both the draft and final rule. Predictibly, commenters most often raised EJ concerns on this last set of rules. 
 
 
-```{r ej-comments, fig.cap = "Number of Comments on Proposed and Final Rules that Did and Did Not Address Environmental Justice and Whether Comments Raised Environmental Justice Concerns", out.height = NULL, out.width = "49%", fig.show = "hold"}
+```{r ej-comments, fig.cap = "Number of Comments on Proposed and Final Rules that Did and Did Not Address Environmental Justice and Whether Comments Raised Environmental Justice Concerns", out.height = NULL, out.width = "95%", fig.show = "hold"}
 
-knitr::include_graphics(here::here("Figs", "ej-comments.png") )
+knitr::include_graphics(here::here("Figs", "ej-comments-1.png") )
 ```
 
 
-Figure \@ref(fig:ej-comments) shows the number of comments on each proposed rule in published between 1992 and 2020. Red circles indicated rules where no commenters raised EJ concerns. Blue Triangles indicate rules where they did. The bottom row of plots show the subset of rules where environmental justice appeared in neither the draft nor final rule. The middle row of plots show rules where "environmental justice" appreared in the final but not the draft. My firest measure and anslysis compares these two rows. The top row of plots shows rules where "environmental justice" appeared in both the draft and final rule. Predictibly, commenters most often raised EJ concerns on this last set of rules. 
 
 ## Interest Groups and Second-order Representation
 
@@ -181,7 +172,7 @@ people with a given surname identified as belonging to each racial
 category (from this limited set of options). It does not
 assign specific individuals to racial categories, but instead represents each commenter as a set of probabilities adding up to 1 and the estimated racial distribution of the sample as a sum of individual probabilitities.
 
-```{r ejcommentsbyrace, fig.cap = 'Estimated Racial Distribution from Census Surnames of Commenters raising "Environmental Justice" Concerns', out.height = NULL, out.width = "49%", fig.show = "hold"}
+```{r ejcommentsbyrace, fig.cap = 'Estimated Racial Distribution from Census Surnames of Commenters raising "Environmental Justice" Concerns in Rulemaking', out.height = NULL, out.width = "40%", fig.show = "hold"}
 
 knitr::include_graphics(here::here("Figs", "race-prob.pdf"))
 ```
@@ -327,11 +318,15 @@ Having demostrated that changes in rule text are plausably related to public com
 
 ## Measure 1: Adding Text Addressing EJ to Final Rules
 
-Where draft rules that did not address EJ, I measure whether added "environmental justice" between its draft and final publication. This is usually took the form of the addition of an "E.O.12898 section" to the preable of the final rule where the agency justifies its policy changes. The next most common addition came in the the agency's response to comments, explaining how the rule did not have disportate effects or that they were insignificant. Sometimes both occured, for example, the EPA responded to several commenters including Earthjustice, the Central Valley Air Quality Coalition, the Coalition for Clean Air, Central California Environmental Justice Network, and Central California Asthma Collaborative: "EPA agrees it is important to consider environmental justice in our actions and we briefly addressed environmental justice principles in our proposal." EPA had not, as the commenters noted, addressed environmental justice in the proposed rule, which approved California rules regulating particulate matter emissions from construction sites, unpaved roads, and disturbed soils in open and agricultural areas. EPA did add a fairly generic 12898 section to the final rule, but did not substantively change its position. As this example illustrates, agencies may add text addressing environmental justice that would in no way satisfy critics. This meassure merely indicates whether the agency engaged with the claims.
+Where draft rules that did not address EJ, I measure whether added "environmental justice" between its draft and final publication. This is usually took the form of the addition of an "E.O.12898 section" to the preable of the final rule where the agency justifies its policy changes. The next most common addition came in the the agency's response to comments, explaining how the rule did not have disportate effects or that they were insignificant. 
+
+Sometimes an agency will respond to a comment and add an 12898 section. For example, the EPA responded to several commenters including Earthjustice, the Central Valley Air Quality Coalition, the Coalition for Clean Air, Central California Environmental Justice Network, and Central California Asthma Collaborative: "EPA agrees it is important to consider environmental justice in our actions and we briefly addressed environmental justice principles in our proposal." EPA had not, as the commenters noted, addressed environmental justice in the proposed rule, which approved California rules regulating particulate matter emissions from construction sites, unpaved roads, and disturbed soils in open and agricultural areas. EPA did add a fairly generic 12898 section to the final rule, but did not substantively change its position. 
+
+Less frequently, an agency may explicitly dismiss a comment and decline to add a 12898 section. For example, responding to a comment on another rule "One commenter stated that EPA failed to comply with Executive Order 12898 on Environmental Justice...We do not believe that these amendments will have any adverse effects on...minority and low income populations...Owners or operators are still required to develop SSM plans to address emissions...The only difference from current regulations is that the source is not required to follow the plan." (71 FR 20445) As these examples illustrate, agencies may add text addressing environmental justice that would in no way satisfy critics. This meassure merely indicates whether the agency engaged with the claims.
 
 ## Measure 2: Changing Text Addressing EJ in Final Rules
 
-Where draft rules that did address EJ, I measure whether a rule changed *how* it discussed "environmental justice" between its draft and final publication.^[Occasionally, there is more than one version of a Proposed or Final rule on a rulemaking docket. Here I opt for an inclusive measure of change that counts change from *any* proposed to *any* final rule. This means that if the change occured between the first and second draft of a proposed rule, it is counted as a change. This best capures the concept of rule change. However, estimates are similar if we only count cases where change occured between *every* version of rule.] 
+Where draft rules did address EJ, I measure whether a rule changed *how* it discussed "environmental justice" between its draft and final publication.^[Occasionally, there is more than one version of a Proposed or Final rule on a rulemaking docket. Here I opt for an inclusive measure of change that counts change from *any* proposed to *any* final rule. This means that if the change occured between the first and second draft of a proposed rule, it is counted as a change. This best capures the concept of rule change. However, estimates are similar if we only count cases where change occured between *every* version of rule.] 
 When an agency address EJ in the draft rule, it is almost alwasy in a section about how it addressed E.O.12898. In many cases, much of the text of final rules, incuding 12898 sections remain exactly the same between draft and final versions. 
 To measure change, I parse draft and final rules into sentences and identify sentences containing the phrase "environmenal justice." If these sentences are identical, this indicates the agency did not engage with with comments raising EJ concerns.^[An alternative approach would be to parse documents by section and assess whether E.O.12898 sections are identical. Parsing by sentences has two advantages: it is computationally faster, it avoids problems with section numbering and other frustrations with section matching, and it captures attention to EJ outside of this section, especially in the response to comments section. If an agency is paying attention to EJ issues, sentence matching will be most likely to detect it. However, other measures, such as the percent of EJ sentences changed, the percent of words in a 12898 section that changed, or the change in topic proportions [@Judge-Lord2017] could be useful in future work.]
 

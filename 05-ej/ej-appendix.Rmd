@@ -75,7 +75,6 @@ load(here::here("data", "ej_race.Rdata"))
 
 load(here::here("data", "rules_metadata.Rdata"))
 
-names(comments_min)
 # alternatively 
 #rules <- dbGetQuery(con, "SELECT * FROM rules")
 
@@ -400,7 +399,7 @@ allFR %>%
   theme(panel.grid.major.x = element_blank())
 ```
 
-# By organization 
+# By Organization 
 
 ```{r ej-orgs}
 ejorgs <- ejcomments %>% 
@@ -1147,6 +1146,8 @@ tidy(mejPR) %>% kablebox()
 
 ## By president
 ```{r ejejPR-winrate-president, fig.height=3}
+# ejejPR-winrate-president-1
+
 winrate <- ejFRejPR %>% 
   count(ej_comment, change, president) %>% 
   group_by(ej_comment) %>% #FIXME make nice table with percents
@@ -1657,7 +1658,10 @@ modelsummary::modelsummary( models,
                           notes = "Full Table in the Online Appendix")
 
 
-save(models, rows, 
+save(models, rows,   m_PR, 
+ m_PR_agency,
+mejPR,
+mejPR_agency,
      file = "ej_models.Rdata")
 
 # full table 
@@ -1671,17 +1675,15 @@ modelsummary::modelsummary( models,
 
 # TODO
 
-- [ ] Transform ej_comments to reduce colinearity with with ej_comment ()
+- [ x ] Transform ej_comments to reduce colinearity with with ej_comment ()
 
-- [ ] Dedupe PRs and FRs, or at least explore sensitivity to which of multiple PRs is used. Perhaps select on `comments` then `posted_date`? The PR with the most comments is most likley the main PR, but many have 0 comments. However, date is complicated. A later PR could be an extension of comment period, a later FR could be a small ammendment. New metadata may help with this. 
+- [ x ] Dedupe PRs and FRs, or at least explore sensitivity to which of multiple PRs is used. Perhaps select on `comments` then `posted_date`? The PR with the most comments is most likley the main PR, but many have 0 comments. However, date is complicated. A later PR could be an extension of comment period, a later FR could be a small ammendment. New metadata may help with this. 
 
 - [ ] Compare % in change in 12898 sections vs. rule text vs. response to comment. This requires classifing responses to comment vs adding 12898 section (in most cases, they are adding a 12898 section)
 
 - [ ] Fix +1 shift in predicted prob of logged vars 
 
 - [ ] Investigate other estimators like `clogit`
-
-- 
 
 
 

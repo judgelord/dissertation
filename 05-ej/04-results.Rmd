@@ -21,85 +21,104 @@ increased demands had little effect. However, a better approach would be
 to estimate a statistical model of the effect of comments on the change
 from draft to final rules. This is what I do.
 
-```{r ejwinrate, fig.cap = "Proposed Rules that Did Not Address Environmental Justice"}
+```{r ej-PR-winrate, fig.cap = "Proposed Rules that Did Not Address Environmental Justice", fig.width="80%"}
 
 knitr::include_graphics(here::here("Figs", "ej-PR-winrate-1.png"))
 ```
 
 
-### Model 1: Estimating *Whether* "Evironmental Justice" is Added to Final Rule
+### Estimating *Whether* "Evironmental Justice" is Added to Final Rule
 
-For this  analysis, I estimate a logit regression where the
+For this  analysis, I estimate a logit regression where the outcome is whether environmental justice was addressed in the final rule. The predictors are
+whether it was addressed in the comments, the number of unique comments addressing EJ, the total number of comments and the interaction between whether EJ was raised and the total number of comments received. I also include fixed effects for presidential administration and, in models 2 and 4, for agency. Thus, estimates in Models 1 and 3 include variaion *across* agencies while estimates in models 2 and 4 rely on variation *within* agencies. All estimates rely on variation within presidential administration. The base equastion for model 1 is shown below. Model 3 is identical except for the dependent variable. Predicted probabilities shown below are for models with agency fixed effects, 2 and 4.
 
-The outcome in this model is whether environmental justice was addressed in the final rule. the predictors are whether it was addressed in the draft rule,
-whether it was addressed in the comments, and the total number of
-comments received.
+```{r ej-m-PR}
+load(here::here("05-ej", "ej_models.Rdata"))
+#equatiomatic::extract_eq(m_PR)
+```
 
-$$ \hat{EJ in Final} = \Bigg\{ \begin{array}{ll}
-1 & if \beta_0 + \beta_1 EJ comment + \beta_2  TotalComments + \beta_3EJcomment*Total Comments  + \epsilon > 0\\
-0 & otherwise 
-  \end{array}$$
+```{r tables, eval=FALSE}
+library(modelsummary)
+modelsummary( models, 
+                            stars = TRUE, 
+                            coef_omit = "president.*|agency.*|Intercept", 
+                          add_rows = rows, 
+                          notes = "Full Table in the Online Appendix",
+                          output = "latex")
+```
 
-As logit coefficients are not easily interpretable, I calculate
-predicted probabilities for the types of rules of interest, i.e. rules
-where environmental justice was not raised in the draft, *EJinDraft*=0.
-Figure \@ref(fig:ejpredicted) shows the predicted probability of a final rule
-addressing environmental justice when the draft rule did not for all
-agencies that have published a rule addressing environmental
-justice between 1992 and 2020. The EPA accounts for a large number of the cases where environmental justice is raised in the
-comments on a draft rule that did not address it. The total number of
-comments mentioning "environmental justice" had a substantively small
-and statistically insignificant effect on policy. The predicted probability of
-"environmental justice" appearing the final fule does not increase with the number of unique comments that mention "environmental justice."
-Environmental justice being raised in any one comment does have a
-statistically significant and substantively large effect.
+```{asis, caption}
+\begin{table}[H]
+\centering
+\caption{\label{tab:tables}Logit Regression Models Predicting Change in Final Rule Text}
+
+\begin{tabular}[t]{lcccc}
+\toprule
+& 1 & 2 & 3 & 4\\
+  & EJ Added & EJ Added & EJ Changed & EJ Changed\\
+\midrule
+EJ\_comment & 3.348*** & 2.284*** & 0.672*** & 0.731***\\
+ & (0.219) & (0.233) & (0.250) & (0.255)\\
+log(total\_comments + 1) & 0.140*** & 0.231*** & -0.093*** & -0.128***\\
+ & (0.022) & (0.034) & (0.029) & (0.031)\\
+EJ\_comments\_unique & 0.005 & 0.124** & 0.036** & 0.044***\\
+ & (0.006) & (0.051) & (0.015) & (0.016)\\
+EJ\_comment x log(total\_comments + 1) & -0.309*** & -0.194*** & 0.051 & 0.061\\
+ & (0.049) & (0.066) & (0.049) & (0.051)\\
+\midrule
+Num.Obs. & 12234 & 12234 & 2034 & 2034\\
+President FE & X & X & X & X\\
+Agency FE &  & X &  & X\\
+AIC & 4263.5 & 3330.9 & 2279.7 & 2232.6\\
+BIC & 4322.8 & 3671.8 & 2324.6 & 2395.5\\
+Log.Lik. & -2123.728 & -1619.440 & -1131.840 & -1087.306\\
+\bottomrule
+\multicolumn{5}{l}{\textsuperscript{} * p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
+\multicolumn{5}{l}{\textsuperscript{} Full Table in the Online Appendix}\\
+\end{tabular}
+\end{table}
+```
+
+### Predicted Probability of Added Text
+
+As logit coefficients are not easily interpretable, I present
+predicted probabilities for the types of rules of interest.
+Figure \@ref(fig:ej-m-PR-comments-agencyFE) shows the predicted probability of a final rule addressing environmental justice when the draft rule did not with a varying number of comment, while holding president and agency at their modal values, President Obama, the EPA, and 0 additional EJ comments.^[All predicted probability plots below also use President Obama, the EPA, and 0 additional EJ comments as the baseline values.] 
+At low numbers of total comments, environmental justice being raised in any one comment does have a
+statistically significant and substantively large effect. For rules with less than 10 comments (most rules), one comment mentioning EJ is a associated with a 30% increase in the probaibilty that EJ will be addressed in the final rule. This supports the *Distributive Information Hypothesis*. However, as in figure \@ref(fig:ej-PR-winrate), the resulting rate is still below 50%, meaning that, even when comments raise EJ concerns, agencies do not address them. As the number of comments increases 
+
+The predicted probability of
+"environmental justice" appearing the final rule also increases with the number of unique comments that mention "environmental justice" in models 2, 3, and 4, but it is does not have significantly positive relationship in Model 1. Overall this support the *Repeated Information Hypothesis*. 
 
 
+```{r ej-m-PR-comments-agencyFE, fig.cap = "Proposed Rules Not Addressing Environmental Justice", out.width = "90%", fig.show = "hold"}
 
-```{r ejpredicted, fig.cap = "Proposed Rules Not Addressing Environmental Justice (Left: All agencies. Right: Environmental Protection Agency", out.height = NULL, out.width = "49%", fig.show = "hold"}
+knitr::include_graphics(here::here("Figs", "ej-m-PR-comments-agencyFE-1.png"))
 
-knitr::include_graphics(here::here("Figs", "ej-prob-env-nprms.pdf"))
-
-knitr::include_graphics(here::here("Figs", "ej-prob-epa-nprms.pdf"))
 ```
 
 
-To examine the degree to which this generalizes across agencies, figure
-\@ref(ejlogitagencies) presents predicted probabilities modeled
-for each agency, showing that the range of predicted probabilities is
-systematically higher when environmental justice, but with varying
-degrees of confidence. There is considerable variation among agencies.
-Point estimates are only shown for agencies where confidence intervals
-do not overlap. Only a few agencies have statistically significant
-different estimates, but the agencies where effects are largest are
-exactly the agencies we would expect to be influenced by comments
-raising environmental justice concerns, i.e. agencies that deal with
-environmental issues with distributive consequences.
+Figure \@ref(ej-m-PR-agency-top) shows estimated variation in rates of adding EJ to final rules.
+Angencies with the largest average rates adding EJ langage are the agencies we would expect to be more receptive to EJ claims.  While many agencies make what could be called "environmental policy" and all policy decisions have distributive consequences, the Environmental Protection Agency have Department of Transportation (which includs the Federal
+Railroad Administration (FRA), Department of Transportation, Federal Motor Carrier Safety Administration (FMCSA), and the Federal Highway
+Administration (FHWA)) the most prominant internal guidance on ej in rulemaking. However differences among agencies are fairly uncertian due to the small number of rules where EJ was added at most agencies. Thus, there is more support for the **Policy Receptivity Hypothesis than against it, but differences between agencies with different missions and institional practices regarding EJ is not clear cut.
 
 
-```{r ejlogitagencies, fig.cap = "Proposed Rules Not Addressing Environmental Justice"}
+```{r ej-m-PR-agency-top, fig.cap = "Proposed Rules Not Addressing Environmental Justice"}
 
-knitr::include_graphics(here::here("Figs", "ej-prprob-by-agency.pdf"))
+knitr::include_graphics(here::here("Figs", "ej-m-PR-agency-top-1.png"))
 ```
 
 
 
-As the EPA accounts for the largest portion of the data, we are most
-confident in this result, but the EPA is not the agency with the largest
-predicted effects. The Forest Service has a predicted 30% difference
-between rules that do and do not receive comments raising environmental
-justices concerns. This may be because the forest service is mainly in
+The Forest Service (FS) has the highest predicted baseline rate of adding EJ to their rules. This may be because the forest service is mainly in
 the business of managing forests, leasing timber rights, and controlling
 wildfires. These types of decisions may have acute distributional
-effects that may not be the initial focus of the agency. Once raised,
-however, addressing such effects fits squarely in their mission. Though
-not statically significant the Department of Agriculture and Bureau of
-Land Management, who make similar kinds of decisions, are also
-susceptible to environmental justice claims. Similarly, the Federal
+effects that may not be the initial focus of the agency. Forest Service rule-writers may aslo simply have a practice of addressing E.O.12898 in final rules but not draft rules. 
+
+Similarly, the Federal
 Railroad Administration, Department of Transportation, Federal Highway
-Administration, Federal Motor Carrier Safety Administration, and the
-Federal Transportation Administration (which aids local transportation
-projects) all have large probability distributions. These agencies are
+Administration, Federal Motor Carrier Safety Administration, all have large baseline rates of adding EJ to final rules. These agencies are
 making decisions about infrastructure projects with implications for
 neighborhood environments and air quality. Environmental justice may
 often come up, but there may be a lot of variation in whether the agency
@@ -107,49 +126,52 @@ then decides if they are relevant to transportation policies and
 projects that are primarily about neither environmental nor justice
 concerns.
 
-Research agencies, including the National Research Council, National
-Oceanographic and Atmospheric Administration and Fish and Wildlife
-Service all had statistically significant but small spreads. In these
-cases, we can be confident of the correlation but understand that it is
-a rare occurrence, which makes sense if most research does not have
-direct environmental justice consequences, but agencies are open to
-adding analysis of these issues if when they are raised.
+Research agencies, including the Nuclear Regulatory Comission (NRC), National
+Oceanographic and Atmospheric Administration (NOAA) also has statistically significant but small spreads baseline rate of adding EJ to final rules, indicating a large difference but rare event. Indeed, as we saw in Figure \@ref(fig:ejejPR-winrate-1), there are only thre NRC proposed rules in these data that recieved EJ commennts and the agency added EJ language to two of them. 15 draft NOAA rules recieved EJ comments, 5 of which had EJ language added. 
 
 
 ## Are rules more likley to change how they address environmental justice when comments mention it?
 
-By the simple precentage of rules 
+Turning to rules that do address EJ in the draft, we also see a responsiveness to comments raising EJ concerns, now measured as whather any sentences containing "environmental justice" changed between draft and final rule.
+Figure \@ref(fig:ejejPR-winrate-1) shows that a higher percent of rules change when comments raise EJ concerns. Overall rates of change in rules without EJ comments are fairly consistant across presidencies.
 
-```{r ejejPR-winrate-1, fig.cap = "OverallPercent of Rules that Changed in How they Addressed Environmental Justice"}
-knitr::include_graphics(here::here("Figs", "ejejPR-winrate-comments-1.png"))
+```{r ejejPR-winrate-1, fig.cap = "Percent of Rules that Changed in How they Addressed Environmental Justice", out.width="49%",  fig.show = "hold"}
+knitr::include_graphics(here::here("Figs", "ejejPR-winrate-1.png"))
+
+
+knitr::include_graphics(here::here("Figs", "ejejPR-winrate-president-1.png"))
 ```
 
-Considering the total number of comments, rules are more likely to change when they recieve *fewer* comments. This supports the idea that more salient rules may be harder to change because the agency has anticipated public scrutiny. Their position set forth in the draft is more likely to be the postion of the final rule.
+<!--Considering the total number of comments, 
 
 ```{r ejejPR-winrate-comments-1, fig.cap = "Percent of Rules that Changed in How they Addressed Environmental Justice by Number of Comments"}
 knitr::include_graphics(here::here("Figs", "ejejPR-winrate-comments-1.png"))
 ```
+-->
 
-### Variation across agencies
+Finally, looking at a selected agences 
 
 ```{r ejejPR-winrate-agency-1, fig.cap = "Percent of Rules that Changed in How they Addressed Environmental Justice by Agency"}
 knitr::include_graphics(here::here("Figs", "ejejPR-winrate-agency-1.png"))
 ```
 
 
-### Model 2: Estimating Change in *How* "Environmental Justice is Addressed
+### Estimating Change in *How* "Environmental Justice is Addressed
+
+Models 3 and 4 in Table \@ref(tab:table) are the same as Models 1 and 2, except for the dependent variable is now whether any sentences mentioning EJ changed between the draft and final rule.
 
 
-### Model 2: Predicted Probabilities
 
-There are no significant difference by presidental administration.
+### Predicted Probability of Changed Text
+
+Controling for the agency and number of comments, there are no significant differences in baseline rates of adding EJ language across the Bush, Obama, and Trump presidencies. All are signifcantly lower than the rate in the Clinton adminstration, which could be a result of Clinton's Execututive order, or simply a artificat of the limited sample of rules posted to regulations.gov before the mid 2000s. 
 
 ```{r ej-mejPR-president-mean-1, fig.cap = "Predicted Change in How Environmental Justice is Addressed Between Draft and Final Rules by Number of Comments"}
 
 knitr::include_graphics(here::here("Figs", "ej-mejPR-president-mean-1.png"))
 ```
 
-The logged total number of comments has significantly negative relationship with the probabiliy the final rule text changes. The more comments there are on a proposed rule, the less likely it is to change. 
+The number of comments matters. The logged total number of comments has significantly negative relationship with the probabiliy the final rule text changes. The more comments there are on a proposed rule, the less likely it is to change. Rules are more likely to change when they recieve *fewer* comments. This supports the idea that more salient rules may be harder to change because the agency has anticipated public scrutiny. Their position set forth in the draft is more likely to be the postion of the final rule.
 
 Envrionmental justice comments have no decernable relationship to the probability of rule change at typical (low) numbers of comments. However, relationship between the number of comments and the probability of rule change is different when some comments mentioned envrionmental justice. Specifically, the interaction term is positve; more comments overall means that environmental justice comments have a larger effect. When the total number of comments is large (100 comments or more), the postive interaction between the number of comments and comments mentioning EJ means that the predicted probability of change in how a rule addresses EJ is signifantly larger when the agency recieves comments mentioning EJ.
 
@@ -159,13 +181,4 @@ knitr::include_graphics(here::here("Figs", "ej-mejPR-comments-1.png"))
 ```
 
 
-```{r tables, eval=FALSE}
-load(here::here("05-ej", "ej_models.Rdata"))
 
-library(modelsummary)
-modelsummary::modelsummary( models, 
-                            stars = TRUE, 
-                            coef_omit = "president.*|agency.*|Intercept", 
-                          add_rows = rows, 
-                          notes = "Full Table in the Online Appendix")
-```
