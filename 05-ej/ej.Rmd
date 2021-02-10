@@ -5,7 +5,7 @@ subtitle:
 author:
 - name: Devin Judge-Lord
   affiliation: 
-  footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/ej>. Additional tables, figures, and replication code is available at <https://judgelord.github.io/dissertation/ej-appendix.html>"
+  footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/ej>. Additional tables, figures, and replication code are available at <https://judgelord.github.io/dissertation/ej-appendix.html>"
 date: "`r Sys.Date()`"
 abstract: | 
   THIS DRAFT WAS PREPARED FOR THE AMERICAN POLITICS WORKSHOP 
