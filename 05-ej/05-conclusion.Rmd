@@ -1,12 +1,12 @@
 # Conclusion
 
-This analysis has illustrated the importance of ideas in policymaking
-and cross-sectional statistical results suggest that when issue frames
-like environmental justice are raised there is a higher probability that
-policymakers consider the effects on marginalized populations.
-Importantly this relationship seems to be conditional on an
-institutional environment that is predisposed to such an analysis.
-Furthermore, it is important to note that the policy outcomes suggested
+This analysis has illustrated the importance of ideas in policymaking and challenges in assessing their impact. The results suggest that when issue frames
+like environmental justice are raised, there is a higher probability that
+policymakers consider the effects on marginalized populations. However, baseline rates of addressing environmental justice in rulemaking are so low that even as the probability that agencies will at least mention environmental justice increases when commenters raise these issues, in most rules, even those where commenters raise EJ concerns, there is no explicit attention to EJ. This holds across presidents G.W. Bush, Obama, and Trump. Indeed, there are surprisingly small differences across administrations in both baseline rates of considering EJ and the relationship between comments and change in rule text. 
+Importantly, there is a great deal of variation across agencies, suggesting that predispositions, policy receptiveness, and responsiveness to comments conditional on an
+institutional being predisposed to such an analysis.
+
+Furthermore, it is essential to note that the policy outcomes suggested
 by environmental justice analysis depend on how minority populations are
 defined. In some cases, those raising environmental justice concerns
 present it as an issue of wealth or income inequality, leading policy to
@@ -25,19 +25,16 @@ advocacy organizations may frequently request that regulators protect
 more generic advocacy may not lead to the same outcomes as groups that
 present specific local environmental justice grievances that are unique
 to a community. In between generic progressive advocacy organizations
-and community-based organizations are organizations like Earthjustice
-who, despite their national focus, frequently engaged in
-community-specific litigation and thus raise these local concerns in
-national policymaking.
+and community-based organizations are organizations like the Sierra Club and Earthjustice, who, despite their national focus, frequently engaged in
+community-specific litigation or place-based and thus raise these local concerns in
+national policymaking. Given the importance of federal policy for local environmental outcomes, and advocacy organizations' potential to draw policymakers' attention to environmental justice issues, future research should examine the quality of partnerships between frontline communities and national advocacy organizations.
+
+The examination of which groups raise environmental justice concerns and
+second-order participation in these organizations' advocacy decisions validates some of the skepticism about who is able to
+participate and make their voice heard. Elite groups dominate policy lobbying, even for
+an issue like environmental justice.
 
 In the end, the above analysis offers some clarity on a poorly
-understood but important mechanism of American policymaking. It offers
+understood but important mechanism of U.S. policymaking. It offers
 some hope that citizen opinions may be heard through direct democracy
-institutions built into bureaucratic policymaking. The examination of
-second-order participation validates some of the skepticism about who
-participates. It is elite groups who participate, even with respect to
-an issue like environmental justice. However, government responsiveness
-does not seem to depend on mass mobilization or elite support. Compared
-to cases where environmental justice issues were not raised, when they
-are, we see a significantly higher probability that they will be
-addressed by policymakers.
+institutions built into bureaucratic policymaking. At the same time, it highlights how disparate impacts are explicitly considered in a tiny percentage of policies.   

@@ -1,16 +1,16 @@
 ---
-title: The Environmental Justice Movement and Technocratic Policymaking
+title: The Environmental Justice Movement's Impact on Technocratic Policymaking
 subtitle: 
 
 author:
 - name: Devin Judge-Lord
   affiliation: 
-  footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/ej>"
+  footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/ej>. Additional tables, figures, and replication code is available at <https://judgelord.github.io/dissertation/ej-appendix.html>"
 date: "`r Sys.Date()`"
 abstract: | 
   THIS DRAFT WAS PREPARED FOR THE AMERICAN POLITICS WORKSHOP 
   
-  SLIDES AND THE MOST RECENT DRAFT ARE [HERE](https://judgelord.github.io/research/ej/) 
+  SLIDES AND THE MOST RECENT DRAFT ARE [HERE](https://judgelord.github.io/research/ej/)
   
   \bigskip
   
@@ -25,7 +25,7 @@ citecolor: black
 urlcolor: blue
 # endnotes: true # CHANGE THIS BEFORE SUBMISSION
 frontpage: true
-# spacing: onehalfspacing
+spacing: onehalfspacing
 # github-repo: https://github.com/judgelord/dissertation
 # description: ""
 # keywords: Interest groups, rulemaking, lobbying, bureaucratic politics, data sources
