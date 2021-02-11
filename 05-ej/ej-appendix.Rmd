@@ -314,7 +314,7 @@ allFR %>%
        y = "")
 ```
 
-### Agencies that received at least 100 EJ comments
+### Agencies that received at least 100 unique EJ comments
 
 
 ```{r ej-data-agencies100}
@@ -324,7 +324,7 @@ breaks <-  c("`16", "`12",  "`08",  "`04", "`00", "`96", "`20")
 # agencies that published at least 100 rules with ej comments
 allFR %>% 
   filter(agency_ej_comments > 100 | agency == "FEMA",
-         year > 1999) #%>% distinct(agency, docket_id, agency_ej_comments)
+         year > 1999) %>% #distinct(agency, docket_id, agency_ej_comments)
   ggplot() + 
   aes(x = Year, fill = ej_fr) +
   facet_wrap("agency", scales = "free") +
@@ -403,13 +403,18 @@ allFR %>%
   mutate(ej_pr = ifelse(ej_pr, "EJ in Draft & Final Rule", "EJ Only in Final Rule"),
          ej_pr = ifelse(ej_fr, ej_pr, "No EJ Analysis")) %>% 
   ggplot() + 
-  aes(x = Year, y = comments, color = ej_comment, shape = ej_comment) + 
-  geom_jitter(alpha = .3) + 
+  aes(x = Year, color = ej_comment, shape = ej_comment) + 
+  # plot ej comments on top
+  geom_jitter(alpha = .3, 
+              aes(y = ifelse(ej_comment, NA, comments) ) ) + 
+    geom_jitter(alpha = .3,
+              aes(y = ifelse(ej_comment, comments, NA) ) ) +
+  #geom_jitter(alpha = .3) + 
   facet_grid(ej_pr ~ president, scales = "free_x") + 
   scale_y_log10(labels = scales::comma)  +
   #scale_x_date(date_labels = "%y") + 
   labs(x = "",
-       y = "Number of Comments (log scale)",
+       y = "Total Number of Comments (log scale)",
        color = "Comments Raised\nEnvironmental\nJustice Concerns",
        shape = "Comments Raised\nEnvironmental\nJustice Concerns") +
   scale_x_discrete(breaks = breaks) + 
@@ -438,8 +443,8 @@ ejorgs %>%
 #TODO table by most dockets commented on 
 
 ejorgs_FR <- ejcomments %>%
-  mutate(docket_id =str_remove(id, "-[0-9]$")) %>%
-  select(docket_id)
+  mutate(docket_id =str_remove(id, "-[0-9]*$")) %>%
+  #select(docket_id)
   filter(docket_id %in% allFR$docket_id) %>%
   drop_na(organization) %>%
   filter(!organization %in% c("NA")) %>%
@@ -447,12 +452,20 @@ ejorgs_FR <- ejcomments %>%
   #add_count(docket_id) %>% #TODO
   summarise(unique = n(),
             total = sum(number_of_comments_received)) %>%
+  ungroup() %>% 
   arrange(-total)
 
-
+# per docket 
 ejorgs_FR %>%
   kablebox()
-# 
+
+
+# number of dockets 
+ejorgs_FR %>%
+  count(organization, name = "dockets on which org raised EJ", sort = T) %>% 
+  kablebox()
+
+
 # 
 # ejorgs
 
