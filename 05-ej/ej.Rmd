@@ -10,7 +10,7 @@ date: "`r Sys.Date()`"
 abstract: | 
   THIS DRAFT WAS PREPARED FOR THE AMERICAN POLITICS WORKSHOP 
   
-  SLIDES AND THE MOST RECENT DRAFT ARE [HERE](https://judgelord.github.io/research/ej/)
+  THE MOST RECENT DRAFT IS [HERE](https://judgelord.github.io/research/ej/)
   
   \bigskip
   

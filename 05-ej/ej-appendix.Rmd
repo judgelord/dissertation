@@ -195,8 +195,10 @@ rules %>%
   labs(y  = "Number of Documents",
        x = "",
        fill = "") + 
-  scale_fill_viridis_d(option="cividis", begin = .3, end = .7, direction = -1, ) +
-  theme(axis.text.x = element_text(angle = 45, vjust = .5))
+  scale_fill_viridis_d(option="cividis", begin = .3, end = .7, direction = -1, ) + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank())
 ```
 
 ### Draft Rules
@@ -214,7 +216,9 @@ rules %>%
   labs(y  = "All Proposed Rules",
        x = "Year",
        fill = "EJ Addressed\nin Proposed Rule") + 
-  theme(axis.text.x = element_text(angle = 45, vjust = .5))
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank())
 
 # ej_pr over time
 ejPR %>% 
@@ -225,7 +229,9 @@ ejPR %>%
   geom_bar(alpha = .7, position = "dodge") + 
   labs(y  = "Proposed Rules\nAddressing Environmental Justice",
        x = "Year") + 
-  theme(axis.text.x = element_text(angle = 45, vjust = .5))
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank())
 ```
 
 ### Final rules
@@ -242,7 +248,9 @@ rules %>%
   labs(y  = "All Final Rules",
        x = "Year",
        fill = "EJ Addressed\nin Final Rule") + 
-  theme(axis.text.x = element_text(angle = 45, vjust = .5))
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank())
 
 # ej_fr over time
 ejFR %>% 
@@ -253,7 +261,9 @@ ejFR %>%
   geom_bar(alpha = .7, position = "dodge") + 
   labs(y  = "Final Rules\nAddressing Environmental Justice",
        x = "Year") + 
-  theme(axis.text.x = element_text(angle = 45, vjust = .5))
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank())
 
 
 
@@ -301,17 +311,19 @@ Subsetting to agencies that pubished at least one rule explicitly addressing EJ 
 
 ```{r ej-data-agencies}
 #ej-data-agencies
+breaks <-  c("`16", 
+             "`00", "`04", "`08", "`20")
 
 allFR %>%
+  filter(year > 2004) %>%
   ggplot() + 
-  aes(x = year, fill = ej_fr) +
-  facet_wrap("agency", scales = "free") +
+  aes(x = Year, fill = ej_fr) +
+  facet_wrap("agency", scales = "free_y") +
   geom_bar(alpha = .7) +
-  theme(axis.text = element_blank(),
-        axis.ticks = element_blank())  + 
   labs(fill = "EJ in Final Rule",
        x = "",
-       y = "")
+       y = "")+ 
+  scale_x_discrete(breaks = breaks ) 
 ```
 
 ### Agencies that received at least 100 unique EJ comments
@@ -320,14 +332,15 @@ allFR %>%
 ```{r ej-data-agencies100}
 # ej-data-agencies100
 
-breaks <-  c("`16", "`12",  "`08",  "`04", "`00", "`96", "`20")
+breaks <-  c("`16", "`12", 
+             "`00", "`04","`08", "`92",  "`96", "`20")
 # agencies that published at least 100 rules with ej comments
 allFR %>% 
-  filter(agency_ej_comments > 100 | agency == "FEMA",
-         year > 1999) %>% #distinct(agency, docket_id, agency_ej_comments)
+  filter(agency_ej_comments > 100 | agency_ej_rules > 10 | agency == "FEMA",
+         year > 2004) %>% #distinct(agency, docket_id, agency_ej_comments)
   ggplot() + 
   aes(x = Year, fill = ej_fr) +
-  facet_wrap("agency", scales = "free") +
+  facet_wrap("agency", scales = "free_y") +
   geom_bar(alpha = .7) + 
   labs(fill = "EJ in Final Rule",
        y = "Number of Rules") + 
@@ -364,7 +377,7 @@ allPR %>%
 allFR %>% 
   count(Year, ej_fr, direct, president) %>%
   ggplot() + 
-  aes(x = Year, y = n, fill = ej_fr) + 
+  aes(x = Year, y = as.integer(n), fill = ej_fr) + 
   geom_col(alpha = .7, position = "dodge") + 
   facet_grid(direct ~ president, scales = "free") + 
   labs(x = "Year",
@@ -418,8 +431,7 @@ allFR %>%
        color = "Comments Raised\nEnvironmental\nJustice Concerns",
        shape = "Comments Raised\nEnvironmental\nJustice Concerns") +
   scale_x_discrete(breaks = breaks) + 
-  scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
-  theme(panel.grid.major.x = element_blank())
+  scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") 
 ```
 
 # By Organization 
@@ -552,7 +564,7 @@ ejFR_PR %>%
        y = "") + 
   #theme_void() +
   theme(axis.text.x = element_text(angle = 30),
-        panel.grid.major.x = element_blank())
+        panel.grid.major.y = element_blank())
 ```
 
 
@@ -616,6 +628,7 @@ predicted %>%
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
         panel.grid.major.y = element_blank())+
+    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
   ylim(0,1) 
 ```
 
@@ -661,7 +674,8 @@ predicted %>%
        title = "Predicted change in Final Rules") + 
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
-        panel.grid.major.y = element_blank())+
+        panel.grid.major.y = element_blank())+  
+  scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
   ylim(0,1)
 ```
 
@@ -700,12 +714,15 @@ predicted %>%
                   ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
   geom_hline(yintercept = 0, linetype = 2) +
   coord_flip() +
-  #facet_wrap("ej_comment", ncol = 1) +
+    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+#facet_wrap("ej_comment", ncol = 1) +
   labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
        x = "Number of Comments",
        color = '"Environmental Justice"\nRaised by Comments',
        shape = '"Environmental Justice"\nRaised by Comments',
-       title = "Predicted Change in Final Rules")  
+       title = "Predicted Change in Final Rules")  +
+  theme(panel.border  = element_blank(),
+        panel.grid.major.y = element_blank()) 
 ```
 
 ---
@@ -749,9 +766,8 @@ ejFR_PR %>% count(agency, ej_comment, ej_fr)  %>%
   labs(fill = "EJ in Final Rule",
        x = "Proposed Rules that Did Not Address EJ",
        y = "") + 
-  #theme_void() +
   theme(axis.ticks = element_blank(),
-        panel.grid.major.x = element_blank())
+        panel.grid.major.y = element_blank())
 ```
 
 ### Models
@@ -816,13 +832,17 @@ predicted %>%
                   alpha = .7)  + 
   geom_hline(yintercept = 0, linetype = 2) +
   coord_flip() +
-  #facet_wrap("agency", ncol = 1, scales = "free") +
+    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+  
+#facet_wrap("agency", ncol = 1, scales = "free") +
   labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
        x = "",
        color =  '"Environmental Justice"\nRaised by Comments', shape =  '"Environmental Justice"\nRaised by Comments',
        title = "Predicted Change in Final Rules") + 
-  theme(#axis.text.y = element_blank(),
-        axis.ticks.y = element_blank())
+  scale_y_continuous(breaks = c(0, .5,1)) +
+  theme(panel.grid.major.y = element_blank(),
+        panel.border = element_blank()) +
+  ylim(0,1) 
 ```
 
 Agencies with at least 300 comments on proposed rules that did not mention environmental justice (i.e., agencies where at least some of the rules in this dataset saw comments) and at least 3 rules where comments raised EJ concerns (i.e., agencies where EJ is somewhat salient). 
@@ -853,12 +873,14 @@ predicted %>%
                   alpha = .7)  + 
   geom_hline(yintercept = 0, linetype = 2) +
   coord_flip() +
-  labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
+    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+  scale_y_continuous(breaks = c(0, .5,1)) +
+labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
        x = "",
        color =  '"Environmental Justice"\nRaised by Comments', shape =  '"Environmental Justice"\nRaised by Comments',
        title = "Predicted change in Final Rules") + 
   theme(panel.grid.major.y = element_blank(),
-        axis.ticks.y = element_blank())
+        panel.border  = element_blank())
 ```
 
 
@@ -885,17 +907,18 @@ predicted %>%
   aes(x = Agency, y = .fitted, shape = EJ_comment,color = EJ_comment) + 
   geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
                       ymax = .fitted + 1.96*.se.fit),
-                  alpha = .5)  + 
+                  alpha = .7)  + 
   geom_hline(yintercept = 0, linetype = 2) +
-  coord_flip() +
+  scale_y_continuous(breaks = c(0, .5,1)) +
+    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+coord_flip() +
   labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
        x = "",
        color =  '"Environmental Justice"\nRaised by Comments', shape =  '"Environmental Justice"\nRaised by Comments',
        title = "Predicted change in Final Rules") + 
   theme(panel.grid.major.y = element_blank(),
-        axis.ticks.y = element_blank())
+        panel.border = element_blank())
 ```
-
 ## Comments with Agency Fixed Effects 
 
 
@@ -930,13 +953,17 @@ predicted %>%
   geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
                   ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
   geom_hline(yintercept = 0, linetype = 2) +
-  coord_flip() +
+  #scale_y_continuous(breaks = c(0, .5,1)) +
+    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+coord_flip() +
   #facet_wrap("ej_comment", ncol = 1) +
   labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
        x = "Number of Comments",
        color = '"Environmental Justice"\nRaised by Comments',
        shape = '"Environmental Justice"\nRaised by Comments',
-       title = "Predicted Change in Final Rules")  
+       title = "Predicted Change in Final Rules")  +
+  theme(panel.border  = element_blank(),
+        panel.grid.major.y = element_blank()) 
 ```
 
 ---
@@ -1164,7 +1191,8 @@ ejFRejPR %>%
       label = ifelse(change == ej_comment, percent, NA) %>% str_c("%") ) +
   geom_col(alpha = .7) + 
   geom_text(aes(y = mean)) + 
-  facet_wrap("EJ_comment", scales = "free") + 
+    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+facet_wrap("EJ_comment", scales = "free") + 
   labs(fill = "EJ section changed\nin Final Rule",
        y = "Proposed Rules") + 
   theme_void() +
@@ -1218,9 +1246,8 @@ ejFRejPR %>%
   labs(fill = "EJ section changed\nin Final Rule",
        y = "",
        x = "Proposed Rules that Did Address EJ") + 
-  #theme_void() +
   theme(axis.ticks = element_blank(),
-        panel.grid.major.x = element_blank())
+        panel.grid.major.y = element_blank())
 ```
 
 ---
@@ -1258,7 +1285,8 @@ predicted %>%
   geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
                   ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
   geom_hline(yintercept = 0, linetype = 2) +
-  coord_flip() +
+    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+coord_flip() +
   facet_wrap("president", ncol = 1) +
   labs(y = 'Probability of Change in How a Rule\nAddresses "Environmental Justice"', 
        x = "",
@@ -1303,7 +1331,8 @@ predicted %>%
   geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
                   ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
   geom_hline(yintercept = 0, linetype = 2) +
-  coord_flip() +
+    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+coord_flip() +
   facet_wrap("president", ncol = 1) +
   labs(y = 'Probability of Change in How a Rule\nAddresses "Environmental Justice"', 
        x = "",
@@ -1386,14 +1415,17 @@ predicted %>%
   geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
                   ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
   geom_hline(yintercept = 0, linetype = 2) +
-  coord_flip() +
+    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+coord_flip() +
   #facet_wrap("ej_comment", ncol = 1) +
   labs(y = 'Probability of Change in How a Rule\nAddresses "Environmental Justice"', 
        x = "Number of Comments",
        color =  '"Environmental Justice"\nRaised by Comments',
        shape =  '"Environmental Justice"\nRaised by Comments',
        title = "Predicted Change in Final Rules")  +
-  ylim(0,1)
+  theme(panel.border  = element_blank(),
+        panel.grid.major.y = element_blank()) +
+  ylim(0,1) 
 ```
 
 ---
@@ -1431,9 +1463,8 @@ ejFRejPR %>% count(agency, ej_comment, change)  %>%
   labs(fill = "EJ section changed\nin Final Rule",
        x = "Proposed Rules that Did Address EJ", 
        y = "") + 
-  #theme_void() +
-  theme(axis.ticks = element_blank(),
-        panel.grid.major.x = element_blank())
+  theme(axis.ticks.y = element_blank(),
+        panel.grid.major.y = element_blank())
 ```
 
 ### Models 
@@ -1507,14 +1538,16 @@ predicted %>%
                       ymax = .fitted + 1.96*.se.fit),
                   alpha = .7)  + 
   geom_hline(yintercept = 0, linetype = 2) +
-  coord_flip() +
+    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+coord_flip() +
   #facet_wrap("agency", ncol = 1, scales = "free") +
   labs(y = 'Probability of Change in How a Rule Addresses "Environmental Justice"', 
        x = "",
        color =  '"Environmental Justice"\nRaised by Comments', shape =  '"Environmental Justice"\nRaised by Comments',
-       title = "Predicted change in Final Rules") + 
-  theme(#axis.text.y = element_blank(),
-        axis.ticks.y = element_blank())
+       title = "Predicted change in Final Rules")  + 
+  scale_y_continuous(breaks = c(0, .5,1)) +
+  theme(panel.grid.major.y = element_blank(),
+        panel.border = element_blank()) 
 ```
 
 Agencies that have at least 300 comments on proposed rules that did not mention environmental justice (i.e., agencies where at least some of the rules in this dataset saw comments) and at least 3 rules where comments raised EJ concerns (i.e., agencies where EJ is somewhat salient). 
@@ -1547,13 +1580,15 @@ predicted %>%
                       ymax = .fitted + 1.96*.se.fit),
                   alpha = .7)  + 
   geom_hline(yintercept = 0, linetype = 2) +
-  coord_flip() +
+    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+coord_flip() +
   labs(y = 'Probability of Change in How a Rule Addresses "Environmental Justice"', 
        x = "",
        color =  '"Environmental Justice"\nRaised by Comments', shape =  '"Environmental Justice"\nRaised by Comments',
        title = "Predicted change in Final Rules") + 
-  theme(panel.grid.major.y = element_blank(),
-        axis.ticks.y = element_blank())
+  scale_y_continuous(breaks = c(0,.5,1)) +
+  theme(panel.border = element_blank(),
+        panel.grid.major.y = element_blank())
 ```
 
 
@@ -1582,13 +1617,15 @@ predicted %>%
                       ymax = .fitted + 1.96*.se.fit),
                   alpha = .6)  + 
   geom_hline(yintercept = 0, linetype = 2) +
-  coord_flip() +
+    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+coord_flip() +
   labs(y = 'Probability of Change in How a Rule Addresses "Environmental Justice"', 
        x = "",
        color =  '"Environmental Justice"\nRaised by Comments', shape =  '"Environmental Justice"\nRaised by Comments',
        title = "Predicted change in Final Rules") + 
-  theme(panel.grid.major.y = element_blank(),
-        axis.ticks.y = element_blank())
+  scale_y_continuous(breaks = c(0,.5,1)) +
+  theme(panel.border = element_blank(),
+        panel.grid.major.y = element_blank())
 ```
 
 
@@ -1626,13 +1663,17 @@ predicted %>%
   geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
                   ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
   geom_hline(yintercept = 0, linetype = 2) +
-  coord_flip() +
+    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+coord_flip() +
   #facet_wrap("ej_comment", ncol = 1) +
   labs(y = 'Probability of Change in How a Rule\nAddresses "Environmental Justice"', 
        x = "Number of Comments",
        color = '"Environmental Justice"\nRaised by Comments',
        shape = '"Environmental Justice"\nRaised by Comments',
-       title = "Predicted Change in Final Rules")  
+       title = "Predicted Change in Final Rules")  +
+  theme(panel.border  = element_blank(),
+        panel.grid.major.y = element_blank()) +
+  ylim(0,1) 
 ```
 
 ---
@@ -1737,13 +1778,15 @@ modelsummary::modelsummary( models,
 
 # TODO
 
-- [ x ] Transform ej_comments to reduce corr with ej_comment
+- [ ] Parse agencies by the frequency of their EJ analyis and interact this with e_comment as a more direct test of the policy receptivity hypothesis
 
-- [ x ] Dedupe PRs and FRs, or at least explore sensitivity to which of multiple PRs is used. Selected on`comments`. The PR with the most comments is most likely the main PR, but many have 0 comments. Perhaps also then on `posted_date`?  However, date is complicated. A later PR could be an extension of the comment period. A later FR could be a small amendment. New metadata may help with this.
+- [X] Transform ej_comments to reduce corr with ej_comment
+
+- [X] Dedupe PRs and FRs, or at least explore sensitivity to which of multiple PRs is used. Selected on`comments`. The PR with the most comments is most likely the main PR, but many have 0 comments. Perhaps also then on `posted_date`?  However, date is complicated. A later PR could be an extension of the comment period. A later FR could be a small amendment. New metadata may help with this.
 
 - [ ] Compare new and old API metadata to make (comment counts are slightly different)
 
-- [ ] Explore new detailed comment metadata.
+- [ ] Explore new detailed comment metadata
 
 - [ ] Compare % in change in 12898 sections vs. rule text vs. response to comment. This requires classifying responses to comment vs. adding 12898 section (in most cases, they are adding a 12898 section)
 

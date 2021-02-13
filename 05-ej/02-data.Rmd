@@ -26,7 +26,7 @@ knitr::include_graphics(here::here("Figs", "ej-data-agencies100-1.png") )
 Figure \@ref(fig:ej-comments) shows the number of comments on each proposed rule published between 1992 and 2020. Red circles indicate rules where no commenters raised EJ concerns. Blue Triangles indicate rules where they did. The bottom row of plots shows the subset of rules where "environmental justice" appeared in neither the draft nor the final rule. The middle row of plots show rules where "environmental justice" appeared in the final but not the draft. My first analysis compares these two rows. The top row of plots shows rules where "environmental justice" appeared in both the draft and final rule. My second analysis compares rules in this first row. Predictably, commenters most often raised EJ concerns on rules in the first row. 
 
 
-```{r ej-comments, fig.cap = "Number of Comments on Proposed and Final Rules that Did and Did Not Address Environmental Justice and Whether Comments Raised Environmental Justice Concerns", out.height = NULL, out.width = "90%", fig.show = "hold"}
+```{r ej-comments, fig.cap = "Number of Comments on Proposed and Final Rules and Whether Comments Raised Environmental Justice Concerns", out.height = NULL, out.width = "100%", fig.show = "hold"}
 
 knitr::include_graphics(here::here("Figs", "ej-comments-1.png") )
 ```
