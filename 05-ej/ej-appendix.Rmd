@@ -1,7 +1,6 @@
-
 ---
 title: "The Environmental Justice Movement's Impact in Agency Rulemaking"
-subtitle: "Technical Appendix and Replication Code" 
+subtitle: "Appendix and Replication Code" 
 author: "Devin Judge-Lord"
 output:
     # pdf_document:
@@ -1772,9 +1771,11 @@ mejPR_agency,
      file = "ej_models.Rdata")
 
 # full table 
-modelsummary::modelsummary( models, 
+m <- modelsummary::modelsummary( models, 
                             stars = TRUE,
-                            title = "Including President and Agency Dummies")
+                            title = "Including President and Agency Dummies") %>% 
+  kable_styling() %>% 
+  scroll_box(height = "400px")
 ```
 
 
@@ -1801,6 +1802,8 @@ modelsummary::modelsummary( models,
 Extensions
 
 - [ ] Compare topic proportions for cut and added text with comment texts.
+
+- [ ] Replicate with "climate change" + "global warming" (other ideas: class and race: "inequality" "low income" "racial" "minority population")
 
 
 
