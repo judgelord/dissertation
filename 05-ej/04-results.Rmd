@@ -21,8 +21,8 @@ knitr::include_graphics(here::here("Figs", "ejejPR-winrate-comments-1.png"))
 -->
 
 
-Figure \@ref(fig:ejejPR-winrate-2) shows that overall rates of adding EJ in rules without EJ comments decreased over time, leveling out at 3% during the Obama and Trump presidencies. The rates of adding EJ when commenters did raise these concerns is consistently much higher, but it also decreases over time, from 57% under G.W. Bush to 36% under Trump.
-Finally, looking at selected agencies, Figure \@ref(fig:ej-PR-winrate-2) shows that most rules that addressed EJ in the draft were published by the EPA. EPA had a relatively high rate of baseline change, which increased when comments raised EJ concerns. Other agencies had too few rules to make strong inferences, but many responded to comments or changed how they discussed EJ 100% of the time when comments raised EJ concerns, while inconsistently doing so when comments did not.
+Figure \@ref(fig:ej-PR-winrate-2) shows that overall rates of adding EJ in rules without EJ comments decreased over time, leveling out at 3% during the Obama and Trump presidencies. The rates of adding EJ when commenters did raise these concerns is consistently much higher, but it also decreases over time, from 57% under G.W. Bush to 26% under Trump.
+Finally, looking at selected agencies, Figure \@ref(fig:ej-PR-winrate-2) shows that EPA had a relatively high baseline rate of change (10%), which increased to 52% when comments raised EJ concerns. Most other agencies also added EJ at a higher rate when comments raised EJ concerns; indeed, most agencies almost never do so when comments did not raise EJ concerns.
 
 ```{r ej-PR-winrate-2, fig.cap = "Percent of Rules that Changed in How they Addressed Environmental Justice by President and by Agency",out.width = "100%"}
 
@@ -34,10 +34,10 @@ knitr::include_graphics(here::here("Figs", "ej-PR-winrate-agency-1.png"))
 
 ### Estimating *Whether* "Environmental Justice" is Added to Final Rule
 
-For this analysis, I estimate a logit regression where the outcome is whether environmental justice was addressed in the final rule. The predictors are
-whether EJ was addressed in the comments, the number of unique comments addressing EJ, the total number of comments, and the interaction between whether EJ was raised and the total number of comments received. I also include fixed effects for presidential administration and, in models 2 and 4, for agency as well. Thus, estimates in Models 1 and 3 include variation *across* agencies, while estimates in models 2 and 4 rely on variation *within* agencies. All estimates rely on variation within the presidential administration. 
+Given differences across presidents, agencies, and the number of comments, I estimate logit regression where the outcome is whether environmental justice was addressed in the final rule (Models 1 and 2 in table \@ref(tab:tables). The predictors are
+whether EJ was addressed in the comments, the number of unique comments addressing EJ, the total number of comments, and the interaction between whether EJ was raised and the total number of comments received. Models 3 and 4 are exactly the same as 1 and 2, except that the outcome is now change in how EJ is discussed (described in the next section). All models include fixed effects for presidential administration and. Models 2 and 4 also include fixed effects for agency. Thus, estimates in Models 1 and 3 include variation *across* agencies, while estimates in models 2 and 4 rely on variation *within* agencies. All estimates rely on variation within the presidential administration. 
 <!--The base equation for model 1 is shown below.-->
-Model 3 is identical except for the dependent variable. Predicted probabilities shown below are for models with agency fixed effects, 2 and 4.
+Predicted probabilities shown below are for models with agency fixed effects, 2 and 4.
 
 ```{r ej-m-PR}
 load(here::here("05-ej", "ej_models.Rdata"))

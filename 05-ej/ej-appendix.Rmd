@@ -214,7 +214,7 @@ rules %>%
   aes(x = year, fill = ej_pr) +
   geom_bar(alpha = .7, position = "dodge") + 
   labs(y  = "All Proposed Rules",
-       x = "Year",
+       x = "",
        fill = "EJ Addressed\nin Proposed Rule") + 
   theme(axis.text.x = element_text(angle = 45, vjust = .5),
         panel.grid.major.x = element_blank(),
@@ -228,7 +228,7 @@ ejPR %>%
   aes(x = year) +
   geom_bar(alpha = .7, position = "dodge") + 
   labs(y  = "Proposed Rules\nAddressing Environmental Justice",
-       x = "Year") + 
+       x = "") + 
   theme(axis.text.x = element_text(angle = 45, vjust = .5),
         panel.grid.major.x = element_blank(),
         panel.border = element_blank())
@@ -246,7 +246,7 @@ rules %>%
   aes(x = year, fill = ej_fr) +
   geom_bar(alpha = .7, position = "dodge") + 
   labs(y  = "All Final Rules",
-       x = "Year",
+       x = "",
        fill = "EJ Addressed\nin Final Rule") + 
   theme(axis.text.x = element_text(angle = 45, vjust = .5),
         panel.grid.major.x = element_blank(),
@@ -260,7 +260,7 @@ ejFR %>%
   aes(x = year) +
   geom_bar(alpha = .7, position = "dodge") + 
   labs(y  = "Final Rules\nAddressing Environmental Justice",
-       x = "Year") + 
+       x = "") + 
   theme(axis.text.x = element_text(angle = 45, vjust = .5),
         panel.grid.major.x = element_blank(),
         panel.border = element_blank())
@@ -560,8 +560,9 @@ ejFR_PR %>%
   geom_text(aes(x = `TRUE`), hjust = 0) + 
   facet_wrap("president", scales = "free")+ 
   labs(fill = "EJ in Final Rule",
-       x = "Proposed Rules Not Addressing EJ",
-       y = "") + 
+       x = "Proposed Rules that Did Not Address EJ",
+       y = "",
+       title = "Rates of Rule Change by President") + 
   #theme_void() +
   theme(axis.text.x = element_text(angle = 30),
         panel.grid.major.y = element_blank())
@@ -765,7 +766,8 @@ ejFR_PR %>% count(agency, ej_comment, ej_fr)  %>%
   facet_wrap("agency", scales = "free")+ 
   labs(fill = "EJ in Final Rule",
        x = "Proposed Rules that Did Not Address EJ",
-       y = "") + 
+       y = "",
+       title = "Rates of Rule Change by Agency") + 
   theme(axis.ticks = element_blank(),
         panel.grid.major.y = element_blank())
 ```
