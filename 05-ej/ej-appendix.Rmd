@@ -769,6 +769,7 @@ ejFR_PR %>% count(agency, ej_comment, ej_fr)  %>%
        y = "",
        title = "Rates of Rule Change by Agency") + 
   theme(axis.ticks = element_blank(),
+        axis.text.x = element_text(angle = 30),
         panel.grid.major.y = element_blank())
 ```
 
@@ -1434,7 +1435,7 @@ coord_flip() +
 
 ## By Agency 
 
-```{r ejejPR-winrate-agency, fig.height=4}
+```{r ejejPR-winrate-agency, fig.width=6}
 #ejejPR-winrate-agency
 
 winrate <- ejFRejPR %>% 
@@ -1461,11 +1462,12 @@ ejFRejPR %>% count(agency, ej_comment, change)  %>%
       label = ifelse(change== ej_comment, percent, NA) %>% str_c("%") ) +
   geom_col(alpha = .7) + 
   geom_text(aes(x = `TRUE`), hjust = 0) + 
-  facet_wrap("agency", scales = "free")+ 
+  facet_wrap("agency", scales = "free", ncol = 2)+ 
   labs(fill = "EJ section changed\nin Final Rule",
        x = "Proposed Rules that Did Address EJ", 
        y = "") + 
   theme(axis.ticks.y = element_blank(),
+        axis.text.x = element_text(angle = 30),
         panel.grid.major.y = element_blank())
 ```
 
