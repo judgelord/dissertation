@@ -1,7 +1,7 @@
 # Data
 
 To examine whether EJ activists or public pressure campaigns shape policy documents,
-I collect the text of draft rules, public comments, and final rules from regulations.gov. Then, I select rulemaking documents from agencies that published at least one rule explicitly addressing EJ from 1992 to 2020. This yields over 25,000 rulemaking dockets from 40 agencies. 12,257 of these have both a proposed and final rule.^[Some final rules are published without a draft, and some proposed rules are withdrawn or never finalized. Additional descriptives on each type of rules are available in the online appendix.]
+I collect the text of draft rules, public comments, and final rules from regulations.gov. Then, I select rulemaking documents from agencies that published at least one rule explicitly addressing EJ from 1993 to 2020. This yields over 25,000 rulemaking dockets from 40 agencies. 12,257 of these have both a proposed and final rule.^[Some final rules are published without a draft, and some proposed rules are withdrawn or never finalized. Additional descriptives on each type of rules are available in the online appendix.]
 
 
 Despite E.O. 12898, most rules do not address EJ. Figure \@ref(fig:ej-data) shows that most draft and final rules (about 90%) do not address EJ. Interestingly, the total number of final rules and the percent of the total addressing EJ have remained fairly stable for the time period where regulations.gov data are complete (after 2005). Every year from 2006 to 2020, these agencies published between 2000 and 3000 final rules, of which between 200 and 300 addressed EJ. 
@@ -23,7 +23,7 @@ knitr::include_graphics(here::here("Figs", "ej-data-agencies100-1.png") )
 
 ## Comments
 
-Figure \@ref(fig:ej-comments) shows the number of comments on each proposed rule published between 1992 and 2020. Light red circles indicate rules where no commenters raised EJ concerns. Dark blue Triangles indicate rules where they did. The bottom row of plots shows the subset of rules where "environmental justice" appeared in neither the draft nor the final rule. The middle row of plots show rules where "environmental justice" appeared in the final but not the draft. My first analysis compares these two rows. The top row of plots shows rules where "environmental justice" appeared in both the draft and final rule. My second analysis compares rules in this first row. Predictably, commenters most often raised EJ concerns on rules in the first row. 
+Figure \@ref(fig:ej-comments) shows the number of comments on each proposed rule published between 1993 and 2020. Light red circles indicate rules where no commenters raised EJ concerns. Dark blue Triangles indicate rules where they did. The bottom row of plots shows the subset of rules where "environmental justice" appeared in neither the draft nor the final rule. The middle row of plots show rules where "environmental justice" appeared in the final but not the draft. My first analysis compares these two rows. The top row of plots shows rules where "environmental justice" appeared in both the draft and final rule. My second analysis compares rules in this first row. Predictably, commenters most often raised EJ concerns on rules in the first row. 
 
 
 ```{r ej-comments, fig.cap = "Number of Comments on Proposed and Final Rules and Whether Comments Raised Environmental Justice Concerns", out.height = NULL, out.width = "100%", fig.show = "hold"}
@@ -51,7 +51,7 @@ representative of the groups they claim to represent [@Seifter2016UCLA].
 ### Organizations Raising EJ Concerns on the Most Rulemaking Dockets
 
 
-The top mobilizer of comments mentioning "environmental justice" between 1992 and 2020 was the Sierra Club, with over 340,000 comments on dozens of rules. While it is a membership organization whose members pay dues, elect the leaders of local chapters, and have some say in local advocacy efforts, its policy work is directed by a more traditional national advocacy organization funded by donations, including over $174 million from Bloomberg Philanthropies that funded several of the public pressure campaigns in these data. The Sierra Club does have a major program arm dedicated to Environmental Justice that works with local partners "to foster the growth of the environmental justice movement so that oppressed communities will find justice and everyone can experience the benefits of a healthy and sustainable future." communities, but it is not clear to what extent those individuals have a formal say in the national organization's lobbying decisions. As a federated organization with many local efforts, it is difficult to generalize about second-order representation, which likely varies across its campaigns. The National Board of Directors adopted a statement on social justice in 1993 and principles on environmental justice in 2001. The national website does contain regular Spanish language content.
+The top mobilizer of comments mentioning "environmental justice" between 1993 and 2020 was the Sierra Club, with over 340,000 comments on dozens of rules. While it is a membership organization whose members pay dues, elect the leaders of local chapters, and have some say in local advocacy efforts, its policy work is directed by a more traditional national advocacy organization funded by donations, including over $174 million from Bloomberg Philanthropies that funded several of the public pressure campaigns in these data. The Sierra Club does have a major program arm dedicated to Environmental Justice that works with local partners "to foster the growth of the environmental justice movement so that oppressed communities will find justice and everyone can experience the benefits of a healthy and sustainable future." communities, but it is not clear to what extent those individuals have a formal say in the national organization's lobbying decisions. As a federated organization with many local efforts, it is difficult to generalize about second-order representation, which likely varies across its campaigns. The National Board of Directors adopted a statement on social justice in 1993 and principles on environmental justice in 2001. The national website does contain regular Spanish language content.
 
 The second most prolific organizer of EJ comments was Earthjustice, with over 175,000 comments on many of the same rules that the Sierra Club lobbied on. Earthjustice is primarily engaged in litigation on
 behalf of environmental causes. Their website boasts 2.2 million
@@ -190,7 +190,7 @@ Fundamental definitions of the public good and minority rights are
 implicit in agency rules. The public comment process offers an
 opportunity to protest these definitions. Protest is one way that
 marginalized groups can communicate opinions on issues to government
-officials [@Gillion2013]. In the case of the EPA's Mercury Rules, two
+officials [@Gillion2013]. In the EPA's Mercury Rules, two
 such issues were decisive. First, as with many forms of pollution,
 mercury-emitting power plants are concentrated in low-income, often
 non-White communities. Second, certain populations consume much more
