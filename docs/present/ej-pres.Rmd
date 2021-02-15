@@ -244,7 +244,7 @@ on "vulnerable populations" including "African Americans," "Hispanic,"
 
 ```{r ej-data, fig.show = "hold", out.width = "100%"}
 
-knitr::include_graphics(here::here("Figs", "ej-data-ejfr-1.png") ) # 
+knitr::include_graphics("ej-data-ejfr-1.png")  
 ```
 
 *A few rulemaking dockets have more than one draft or final rule.
@@ -257,7 +257,7 @@ knitr::include_graphics(here::here("Figs", "ej-data-ejfr-1.png") ) #
 
 ```{r ej-comments, out.width = "75%"}
 
-knitr::include_graphics(here::here("Figs", "ej-comments-1.png") )
+knitr::include_graphics("ej-comments-1.png")
 ```
 
 ---
@@ -289,7 +289,7 @@ background-size: cover
 
 ```{r ejcommentsbyrace, fig.cap = 'Estimated Racial Distribution from Census Surnames of Commenters Raising "Environmental Justice" Concerns in Rulemaking', out.height = NULL, out.width = "60%", fig.show = "hold"}
 
-knitr::include_graphics(here::here("docs", "present", "race_prob.png"))
+knitr::include_graphics("race_prob.png")
 ```
 
 ---
@@ -298,7 +298,7 @@ knitr::include_graphics(here::here("docs", "present", "race_prob.png"))
 
 ```{r ej-m-PR-president-median-1,  out.width = "75%"}
 
-knitr::include_graphics(here::here("Figs", "ej-m-PR-president-median-1.png"))
+knitr::include_graphics("ej-m-PR-president-median-1.png")
 ```
 
 - Distributive Information ✅  
@@ -309,7 +309,7 @@ knitr::include_graphics(here::here("Figs", "ej-m-PR-president-median-1.png"))
 
 ```{r ej-m-PR-comments-agencyFE, out.width = "90%", fig.show = "hold"}
 
-knitr::include_graphics(here::here("Figs", "ej-m-PR-comments-agencyFE-1.png"))
+knitr::include_graphics("ej-m-PR-comments-agencyFE-1.png")
 
 ```
 
@@ -324,7 +324,7 @@ knitr::include_graphics(here::here("Figs", "ej-m-PR-comments-agencyFE-1.png"))
 
 ```{r ej-mejPR-comments, out.width = "90%"}
 
-knitr::include_graphics(here::here("Figs", "ej-mejPR-comments-1.png"))
+knitr::include_graphics("ej-mejPR-comments-1.png")
 ```
 
 
