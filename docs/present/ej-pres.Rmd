@@ -84,7 +84,7 @@ On the one hand, civic engagement has long been a core interest of political sci
 
 --
 
-**Yes.** (Dahl 1956; Piven & Cloward 1977; Lipsky 1968; Tarrow 1994; Andrews1997; McAdam 1982, 2001; McAdam & Su 2002, McCammon et al. 2011; Cress & Saus 2000; Weldon 2002)
+**Yes.** (Dahl 1956; Piven & Cloward 1977; Lipsky 1968; Tarrow 1994; Andrews 1997; McAdam 1982, 2001; McAdam & Su 2002, McCammon et al. 2011; Cress & Snow 2000; Weldon 2002)
 
 --
 
@@ -244,7 +244,7 @@ on "vulnerable populations" including "African Americans," "Hispanic,"
 
 ```{r ej-data, fig.show = "hold", out.width = "100%"}
 
-knitr::include_graphics("ej-data-ejfr-1.png")  
+knitr::include_graphics("ej-data-ejpr-1.png")  
 ```
 
 *A few rulemaking dockets have more than one draft or final rule.
@@ -339,11 +339,11 @@ knitr::include_graphics("ej-mejPR-comments-1.png")
 
 |                                            | Add EJ Language | Change EJ Language |
 | ------------------------------------------ | :--: | :--: |
-| Distributive Information (Comments with EJ Concerns)     | ✅ | ✅ |
-| Repeated Information (Coalition Size)      | ✅ | ✅ |
-| Policy Receptivity                         | ✅ | ❓ |
-| General Public Pressure/Attention          | ✅ | ⏪ |
-| Specific (Conditional) Pressure            | ⏪ | ❓ | 
+| ✊🏿 Distributive Information (Comments with EJ Concerns)     | ✅ | ✅ |
+| 🔁 Repeated Information (Coalition Size)      | ✅ | ✅ |
+| 🏛️ Policy Receptivity                         | ✅ | ❓ |
+| 📢 General Public Pressure/Attention          | ✅ | ⏪ |
+| 📢x✊🏿 Specific (Conditional) Pressure            | ⏪ | ❓ | 
 
 ---
 
