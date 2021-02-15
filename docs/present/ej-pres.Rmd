@@ -106,7 +106,21 @@ On the one hand, civic engagement has long been a core interest of political sci
 
 - **No movement, no policy** (Skocpol 2013)
 
+???
+
+The big question is whether social movements impact policy.
+
+- There is a lot of research on social movements, much of it from sociology, but political scientists tell us that social movements do 
+- shape party agendas
+- that the act of petitioning the government builds power
+- In Lowi's words redistributive policies have been associated with social classes and movements from the beginning--some kinds of policy only come about when groups form and mobilize to affect policy
+- We don't know a lot about policy outcomes, but there is some great reach showing specific policy affects of civil rights protest, for example'
+- And as Skocpol noted in her study of why climate legislation failed during 
+
+
+
 ---
+
 
 ## Research tends to explain social movement emergence rather than specific impacts (see McAdam 2017) 
 
@@ -116,7 +130,7 @@ On the one hand, civic engagement has long been a core interest of political sci
 
 --
 
-## My DV: Systematic impact on specific policy documents: **agency rules**
+## My DV: Systematic impact on specific policy documents (**agency rules**)
 
 ---
 
@@ -128,7 +142,7 @@ On the one hand, civic engagement has long been a core interest of political sci
 
 --
 
-### Will organized public pressure to carry over to agency policymaking? 
+### Will organized public pressure carry over to agency policymaking? 
 --
 If so, by what mechanisms?
 
@@ -199,7 +213,14 @@ If so, by what mechanisms?
 1. E.O. 12898 "Federal Actions to Address Environmental Justice"
 --
 --> Administrative Procedures Act lawsuits: 
-> "environmental justice analysis can be reviewed under NEPA and the APA" (*Protect Our Communities Foundation v. Salazar* 2013; *Communities Against Runway Expansion, Inc. v. FAA*, 2004)
+> "environmental justice analysis can be reviewed under NEPA and the APA" (*Protect Our Communities Foundation v. Salazar*, 2013; *Communities Against Runway Expansion, Inc. v. FAA*, 2004)
+
+
+???
+
+Environmental Justice For All Act (2020) introduced by Senator Harris
+
+The day after Biden's executive order was launched, Rep. Cori Bush (D-MO) and Sens. Tammy Duckworth (D-IL) and Ed Markey (D-MA) introduced the Environmental Justice Mapping and Data Collection Act of 2021, which builds on many of the concepts in the executive order and would create a whole-of-government initiative, including data infrastructure and funding to “identify communities most at risk from environmental injustices.”
 
 ---
 
@@ -235,6 +256,13 @@ on "vulnerable populations" including "African Americans," "Hispanic,"
 --
 
 - 2020 Rollback: "While these communities may experience forgone benefits as a result of this action, the potential forgone [health benefits] are small." 
+
+
+???
+
+
+
+In addition to who gets what, there is debate over who the whos *are*. What communities exist as groups diserving consideration. 
 
 ---
 
@@ -339,18 +367,18 @@ knitr::include_graphics("ej-mejPR-comments-1.png")
 
 |                                            | Add EJ Language | Change EJ Language |
 | ------------------------------------------ | :--: | :--: |
-| ✊🏿 Distributive Information (Comments with EJ Concerns)     | ✅ | ✅ |
-| 🔁 Repeated Information (Coalition Size)      | ✅ | ✅ |
-| 🏛️ Policy Receptivity                         | ✅ | ❓ |
-| 📢 General Public Pressure/Attention          | ✅ | ⏪ |
-| 📢x✊🏿 Specific (Conditional) Pressure            | ⏪ | ❓ | 
+| ✊🏿 Distributive Information (Comments with EJ Concerns)     | 📈 | 📈 |
+| 🔁 Repeated Information (Coalition Size)           | 📈 | 📈 |
+| 🏛️ Policy Receptivity                             | 📈 | ❓ |
+| 📢 General Public Pressure/Attention               | 📈 | 📉 |
+| 📢x✊🏿 Specific (Conditional) Pressure            | 📉 | ❓ | 
 
 ---
 
 ### Next
 
 Framing 
-- More on how social movements' may impact policy. Petitioning and protest? Lobbying?
+- More on how social movements may impact policy. Petitioning and protest? Lobbying?
 - Better names for hypotheses? *Distributive Information*?
 
 Methods
