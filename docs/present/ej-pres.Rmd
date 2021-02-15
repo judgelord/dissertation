@@ -347,16 +347,16 @@ knitr::include_graphics("ej-mejPR-comments-1.png")
 
 ---
 
-## Next
+### Next
 
 Framing 
-- More on how social movements' may impact policy
+- More on how social movements' may impact policy. Petitioning and protest? Lobbying?
 - Better names for hypotheses? *Distributive Information*?
 
 Methods
-- Cluster errors 
-- Add rates of addressing EJ out of sample (direct rules & notices)
-- Better measures of policy change (% of words changed, changes in word frequencies, etc.)
+- Test policy receptivity using rates of addressing EJ out of sample (direct rules & notices)
+- Better measures of policy change
+- Better estimation
 
 Substance
 - Other terms/movements ("climate change"/"racial"/"minority populations"/"low-income"...others?)
