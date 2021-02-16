@@ -2,7 +2,7 @@
 title: "The Environmental Justice Movement's Impact on Technocratic Policymaking"
 subtitle: ""
 author: "Devin Judge-Lord"
-date: "Slides: [judgelord.github.io/research/ej](https://judgelord.github.io/research/ej) <br> \n Data: [github.com/judgelord/rulemaking](https://github.com/judgelord/rulemaking)"
+date: "Paper & slides: [judgelord.github.io/research/ej](https://judgelord.github.io/research/ej) <br> \n Data: [github.com/judgelord/rulemaking](https://github.com/judgelord/rulemaking)"
 urlcolor: cyan
 output:
   xaringan::moon_reader:
@@ -229,7 +229,7 @@ Thus far, by information, scholars generally mean technical and legal informatio
 
 ### *Specific (Conditional) Pressure Hypothesis*
 
->Policies are more likely to address an issue when they receive more public attention (e.g., more public comments) *and* some comments raise that issue.
+>Policies are more likely to address an issue when they receive more public attention (e.g., more public comments) *and* comments raise that issue.
 
 ---
 
@@ -381,7 +381,7 @@ knitr::include_graphics("ej-m-PR-comments-agencyFE-1.png")
 
 ---
 
-## Results: Changing EJ Language in Policy
+## Results: Changing Existing EJ Language
 
 ```{r ej-mejPR-comments, out.width = "90%"}
 
@@ -395,16 +395,20 @@ knitr::include_graphics("ej-mejPR-comments-1.png")
 
 ---
 
-## Results: To Sum Up
+## Results: To sum up, yes, movements matter.
 
 
 |                                            | Add EJ Language | Change EJ Language |
 | ------------------------------------------ | :--: | :--: |
 | ✊🏿 Distributive Information (Comments with EJ Concerns)     | 📈 | 📈 |
-| 🔁 Repeated Information (Coalition Size)           | 📈 | 📈 |
+| ✊🏿🔁 Coalition Size           | 📈 | 📈 |
 | 🏛️ Policy Receptivity                             | 📈 | ❓ |
 | 📢 General Public Pressure/Attention               | 📈 | 📉 |
-| 📢x✊🏿 Specific (Conditional) Pressure            | 📉 | ❓ | 
+
+<!--| 📢x✊🏿 Specific (Conditional) Pressure            | 📉 | ❓ | -->
+
+With more public attention, agencies are more likely  📈 to *add* EJ language where there was none (indeed, displacing effect of EJ comments), BUT agencies also anticipate public attention, making existing EJ analyses less likely 📉 to *change* on higher-salience rules.
+
 
 ---
 
