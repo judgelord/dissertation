@@ -405,6 +405,7 @@ knitr::include_graphics("ej-mejPR-comments-1.png")
 | 🏛️ Policy Receptivity                             | 📈 | ❓ |
 | 📢 General Public Pressure/Attention               | 📈 | 📉 |
 
+
 <!--| 📢x✊🏿 Specific (Conditional) Pressure            | 📉 | ❓ | -->
 
 With more public attention, agencies are more likely  📈 to *add* EJ language where there was none (indeed, displacing effect of EJ comments), BUT agencies also anticipate public attention, making existing EJ analyses less likely 📉 to *change* on higher-salience rules.
