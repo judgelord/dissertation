@@ -297,6 +297,10 @@ allFR <- rules %>%
   filter(document_type == "Rule") %>%
   # direct to final rules
   mutate(direct = ifelse(docket_id %in% allPR$docket_id, "Draft Rule Published", "Direct to Final Rule"))
+
+ejcomments$number_of_comments_received %<>% replace_na(0) 
+
+ejcomments %>% count(docket_id, number_of_comments_received, sort = T) %>% arrange(-number_of_comments_received)
 ```
 
 ### Agencies that published at least 1 rule addressing EJ
@@ -304,7 +308,7 @@ allFR <- rules %>%
 Subsetting to agencies that pubished at least one rule explicitly addressing EJ from 1992 through 2020 yields
  `r allPR %>% distinct(docket_id, comments) %>% summarize(n = sum(comments)) %>% pull(n)` public comments on
  `r allFR %>% distinct(docket_id) %>% nrow()` rulemaking dockets from
-`r rules %>% distinct(agency) %>% nrow()` agencies, each publishing at least one rule that explicitly addressed environmental justice.  `r ejcomments %>% nrow()` unique comments (excluding duplicates) use the phrase "environmental justice". 
+`r rules %>% distinct(agency) %>% nrow()` agencies, each publishing at least one rule that explicitly addressed environmental justice. `r sum(ejcomments$number_of_comments_received)` comments mentioning EJ, including  `r ejcomments %>% nrow()` unique comments (excluding duplicates) use the phrase "environmental justice". 
 
 
 
@@ -921,6 +925,7 @@ coord_flip() +
   theme(panel.grid.major.y = element_blank(),
         panel.border = element_blank())
 ```
+
 ## Comments with Agency Fixed Effects 
 
 

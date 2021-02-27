@@ -27,7 +27,7 @@ knitr::include_graphics(here::here("Figs", "ejejPR-winrate-comments-1.png"))
 <!--Figure \@ref(fig:ej-PR-winrate-2) shows that -->
 Overall rates of adding EJ in rules without EJ comments decreased over time, leveling out at 3% during the Obama and Trump presidencies. The rates of adding EJ when commenters did raise these concerns is consistently much higher, but it also decreases over time, from 57% under G.W. Bush to 26% under Trump.
 <!--Finally, looking at selected agencies, Figure \@ref(fig:ej-PR-winrate-2) shows that-->
-EPA had a relatively high baseline rate of change (10%), which increased to 52% when comments raised EJ concerns. Most other agencies also added EJ at a higher rate when comments raised EJ concerns; indeed, most agencies almost never do so when comments did not raise EJ concerns.
+EPA had a relatively high baseline rate of change (10%), which increased to 52% when comments raised EJ concerns. Most other agencies also added EJ at a higher rate when comments raised EJ concerns; indeed, most agencies almost never do so when comments did not raise EJ concerns.^[More discriptive statistics and figures are available in the online appendix.]
 
 <!--
 ```{r ej-PR-winrate-2, fig.cap = "Percent of Rules that Changed in How they Addressed Environmental Justice by President and by Agency",out.width = "100%"}

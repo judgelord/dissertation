@@ -6,7 +6,7 @@ I collect the text of draft rules, public comments, and final rules from regulat
 
 Despite E.O. 12898, most rules do not address EJ. Figure \@ref(fig:ej-data) shows that most draft and final rules (about 90%) do not address EJ. Interestingly, the total number of final rules and the percent of the total addressing EJ have remained fairly stable for the time period where regulations.gov data are complete (after 2005). Every year from 2006 to 2020, these agencies published between 2000 and 3000 final rules, of which between 200 and 300 addressed EJ. 
 
-```{r ej-data, fig.cap = "Number of Proposed and Final Rules Addressing Environmental Justice.", out.height = NULL, out.width = "99%", fig.show = "hold"}
+```{r ej-data, fig.cap = "Proposed and Final Rules by Whether they Address Environmental Justice.", out.height = NULL, out.width = "99%", fig.show = "hold"}
 
 knitr::include_graphics(here::here("Figs", "ej-data-ejpr-1.png") ) #  
 
@@ -298,6 +298,8 @@ For the subset of draft rules that did not address EJ, I measure whether agencie
 Sometimes an agency will respond to a comment and add a 12898 section. For example, the EPA responded to several commenters, including Earthjustice, the Central Valley Air Quality Coalition, the Coalition for Clean Air, Central California Environmental Justice Network, and Central California Asthma Collaborative: "EPA agrees it is important to consider environmental justice in our actions and we briefly addressed environmental justice principles in our proposal." EPA had, as the commenters noted, not in fact addressed environmental justice in the proposed rule, which approved California rules regulating particulate matter emissions from construction sites, unpaved roads, and disturbed soils in open and agricultural areas. EPA did add a fairly generic 12898 section to the final rule but did not substantively change its position. 
 
 Less frequently, an agency may explicitly dismiss a comment and decline to add a 12898 section. For example, EPA responded to a comment on another rule, "One commenter stated that EPA failed to comply with Executive Order 12898 on Environmental Justice...We do not believe that these amendments will have any adverse effects on...minority and low-income populations...Owners or operators are still required to develop SSM plans to address emissions...The only difference from current regulations is that the source is not required to follow the plan" (71 FR 20445). As these examples illustrate, agencies may add text addressing environmental justice that would in no way satisfy critics. This measure merely indicates whether the agency engaged with the claims.
+
+<!--Barry you say that change between draft and final rules is the evidence that the agency "engaged" with EJ comments. But I don't think that's quite right. The agency might have engaged heavily but decided that the draft rule was fine. It's really whether they were persuaded by the comments that a change was necessary.-->
 
 Most frequently, agencies neither responded to comments nor added a 12898 section.
 
