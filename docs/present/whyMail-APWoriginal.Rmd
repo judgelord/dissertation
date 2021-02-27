@@ -2,7 +2,7 @@
 title: "Why do Agencies (Sometimes) Get So Much Mail?"
 subtitle: "Public Pressure Campaigns and Bureaucratic Policymaking"
 author: "Devin Judge-Lord"
-date: "Slides: [judgelord.github.io/research/whymail](https://judgelord.github.io/research/whymail) <br> \n Data: [github.com/judgelord/rulemaking](https://github.com/judgelord/rulemaking)"
+date: "Slides: https://judgelord.github.io/research/whymail <br> \n Data: https://github.com/judgelord/rulemaking"
 urlcolor: cyan
 output:
   xaringan::moon_reader:
@@ -34,12 +34,12 @@ library("xaringanthemer")
 library("here")
 
 
-mono_light(base_color = "#3b444b",
-          link_color = "#B7E4CF",
+mono_light(base_color = "#003333",
+          link_color = "#000080",
           #background_color = "#FAF0E6", # linen
           header_font_google = google_font("PT Sans"), 
           text_font_google = google_font("Old Standard"), 
-          text_font_size = "28px",
+          text_font_size = "25px",
           padding = "10px",
           code_font_google = google_font("Inconsolata"), 
           code_inline_background_color    = "#F5F5F5", 
@@ -80,45 +80,39 @@ My dissertation is at the intersection of two kinds of literature that have not 
 On the one hand, civic engagement has long been a core interest of political scientists. We are highly uncertain about the size of effects from actions like letter writing, signing petitions, protests, but there is little doubt that, at a large enough scale, these things matter.  
 --> 
 
-# Whom does notice and comment rulemaking empower? 
-
---
-
-## If groups build the power to pass a Green New Deal, what happens when 30+ agencies write the actual policies? 
-
---
-
-## Will organized public pressure to carry over to agency policymaking? 
---
-If so, by what mechanisms?
-
----
-
-Rulemaking, ~90% of new U.S. law
-
-![](macro-medicare.png)
-
----
-
-<!-- this project sits at the intersection of two literatures--> 
-
 ## Civic engagement
 
 ### Writing to government officials, signing petitions, attending hearings, attending protests, or donating to a political campaign (Verba and Nie 1987).
 
 
-![](redletters.png)
+---
 
-Most rules receive <10 comments
+## Bureaucratic policymaking
+
+### ~90% of U.S. law
+
 --
-, some receive millions.
 
-<!--
-![](rules-ranked-comments-per-year-1.png)
+### Discretion (Institutional design, information asymmetry, multiple principals, coalitions)
 
--->
+--
+
+### Interest group lobbying
+
+![](classicmodel.png)
 
 ---
+
+![](redletters.png)
+
+--
+
+![](rules-ranked-comments-per-year-1.png)
+
+
+
+---
+
 
 ## 1946 Administrative Procedures Act
 
@@ -127,45 +121,6 @@ Most rules receive <10 comments
 ### "a bill of rights for the hundreds of thousands of Americans whose affairs are controlled or regulated" - Senator Pat McCarran
 
 ---
-
-exclude: true 
-
-## Mass engagement in bureaucratic policymaking
-
-### "The ‘mass comments’ occasionally submitted in great volume in highly salient rulemakings are one of the more vexing challenges facing agencies in recent years."  (Sant’Ambrogio and Staszewski 2018)
-
----
-
-
-##  The debate in administrative law 
-
-- **Optimists:** Notice and comment is the "purest example of participatory democracy in actual American governance."
-- **"Regulatory democracy" reformers** (Cuéllar 2014, Johnson 2013) argue that it could be more discursive. Agencies often discard non-technical comments, but they shouldn't (Mendelson 2011).
-- **Pluralists:** "The goal of e-rulemaking is to more fully capture such credible, specific, and relevant information, not to solicit the views of random, self-nominating members of the public." (Herz 2016)
-- **Pluralist reformers** suggest that lobbying groups disclose there membership, funding, and decisionmaking processes (Seifter 2016)
-- **Skeptics:** Public comment distracts from good policy. Abolish it.
-
-
----
-
-<!-- The normative interest in expertise on and deliberation--in the quality of information--have kept distracted from empirical reality. These are not attempts at information or deliberation; they are attempts to gain power with quantity rather than quality.  -->
-
-
-## Bureaucratic policymaking
-
-
-
-### Discretion (institutional design, information asymmetry, multiple principals, coalitions)
-
---
-
-> "The realm of durable, consequential policies is the realm of organized interests." - Hacker, Hertel-Fernandez,  Pierson, and Thelen
-
-![](classicmodel.png)
-
-
-
-
 
 <!--
 
@@ -176,13 +131,10 @@ SLIDE
 For many reasons, Rulemaking is usually an insiders' game--people here and others have shown that to the extent, anyone can influence bureaucratic policymaking; it is the usual suspects, mostly businesses. 
 --> 
 
----
-exclude: true 
-
 ## Public comment periods
 ### Usually an insiders' game, but occasionally not. 
 
-
+--
 Does it matter? 
 ![](tweet-lind.png) 
 
@@ -190,50 +142,67 @@ Does it matter?
 -->
 
 
+---
 
-<!-- Alex mentioned the Payday loan industry funding of the Congressional Black Caucus  -->
+## Mass engagement in bureaucratic policymaking
 
+### "The ‘mass comments’ occasionally submitted in great volume in highly salient rulemakings are one of the more vexing challenges facing agencies in recent years."  (Sant’Ambrogio and Staszewski 2018)
 
 ---
 
-<!-- I argue that, if public pressure campaigns affect policy, it is through political information --> 
+##  The debate in administrative law 
+
+- **Optimists:** Notice and comment is the "purest example of participatory democracy in actual American governance."
+- **"Regulatory democracy" reformers** (Cuéllar 2014, Johnson 2013) argue that it could be more discursive. Agencies often discard non-technical comments, but they shouldn't (Mendelson 2011).
+- **Pluralists:** "The goal of e-rulemaking is to more fully capture such credible, specific, and relevant information, not to solicit the views of random, self-nominating members of the public." (Herz 2016)
+- **Pluralist reformers** suggest that lobbying groups disclose there membership, funding, and decisionmaking processes (Seifter 2016)
+- **Skeptics:** Public comment distracts from good policy. Abolish it.
+
+--
+
+![](classicmodel.png)
+
+---
+
+<!-- The normative interest in expertise on and deliberation--in the quality of information--have kept distracted from empirical reality. These are not attempts at information or deliberation; they are attempts to gain power with quantity rather than quality.  -->
 
 ## Political information 
-(e.g., signals of the scale and intensity of public support)
+### (e.g., signals of the scale and intensity of public support)
 
+--
 
 ![](causal-whymail.png)
 
-$\Diamond \text{ observed actions,       }  \bigcirc \text{ unobserved prefrences,      } \square \text{ information}$
+Dimonds = observed actions, Circles = unobserved prefrences, 
+
+Rectangles = information (mechanisms of policy influence)
 
 <!-- Before we can assess effects, however, we need to know what exactly we are assessing the effects OF and WHEN we expect to see these effects. This is my present task.
 -->
 
 ---
-class: inverse 
 
-## Political information 
-
-
+class: inverse middle 
+## But first:
 ### 1. What is it? 
 ### 2. How do we measure it? 
 ### 3. Why does it occur? (selection problems)
 
 ---
-exclude: true
 
-<!--## Selection process -->
+## Selection process 
 
-### Which rules see public pressure? 
+### Which rules? 
 - Significant policy changes at less-expert agencies (Moore n.d.)
 - Ones people dislike? (negativity bias)
 - Controversial, salient? (both endogenous) <!-- indeed, we often measure salience this way --> 
 
+--
 
 ### -> Opportunities for mobilization
 
 ---
-exclude: true
+
 background-image: url("present/tweetBenWilkerMoveon.png")
 
 ![](tweetBenWiklerMoveon.png)
@@ -250,17 +219,19 @@ background-image: url("present/tweetBenWilkerMoveon.png")
 <!-- Tricky concepts! -->
 <!-- In the paper, I suggest that many conflicts that mobilize thousands are best seen as over public and private goods rather than cultural issues -->
 
-- Interest groups/ "advocacy" groups (Shapiro 2008; Potter 2017)/ "societal constituencies" (Balla et al. n.d.)
-- Unions, industry associations, 501c3s **on both sides**
+- Public interest groups / "advocacy" groups (Shapiro 2008; Potter 2017) / "societal constituencies" (Balla et al. n.d.)
+- Sometimes others 
 
 <!--sometimes people that don't fit that concept-->
 
-<img src="https://github.com/judgelord/dissertation/raw/master/docs/present/EPA-protest-kills-jobs.jpg" height = 200 />
-<img src="https://github.com/judgelord/dissertation/raw/master/docs/present/EPA-protest-nurses.jpg" height = 200 />
+--
+
+<img src="https://github.com/judgelord/dissertation/raw/master/Figs/EPA_protest_kills_jobs.jpg" height = 200 />
+<img src="https://github.com/judgelord/dissertation/raw/master/Figs/EPA_protest_nurses.jpg" height = 200 />
 
 --
 
-# -> Coalitions
+-> Coalitions
 
 
 
@@ -274,14 +245,13 @@ background-image: url("present/tweetBenWilkerMoveon.png")
 
 vs.
 
-#### 2. Leverage resources into an impression of public support (Skocpol & Hertel-Fernandez 2016)
+#### 2. Leverage resources into an impression of public support
 
 ### Not lobbying
 
-#### 3. Meet member expectations or recruit new members (Carpenter 2020)
+#### 3. Meet member expectations or recruit new members
 
 ---
-exclude: true 
 
 ## Comments evoke public support
 
@@ -299,7 +269,7 @@ class: inverse middle
 
 ## 2. Measure mass engagement
 
-## 3. Identify which campaigns ought to matter
+## 3. Which campaigns ought to matter
 
 ---
 
@@ -314,12 +284,11 @@ class: inverse middle
 
 ### Cluster comments by word frequency and sentiment
 
-### Inspect and hand-code clusters ("coalitions")
+### Inspect and hand-code clusters (i.e. coalitions)
 
 <!-- EPA has contractors do this by hand! --> 
 
 ---
-exclude: true
 <!-- Second, we need to measures what campings are doing that might be influential. I call this political information, following Nelson and Yackee  --> 
 
 ## Political Information 
@@ -334,9 +303,9 @@ exclude: true
 
 ### 2. Average effort per comment
 
-Co-sign an org's form comment <--> Partially unique <--> Unique 
+Co-sign an org's form comment <----> Partially unique <----> Unique 
 
-Lower effort <------------------------------------------------> Higher effort
+Lower effort <----------------------------------------------------> Higher effort
 
 ### 3. Potential contagion (share of unique comments)
 
@@ -344,12 +313,11 @@ Lower effort <------------------------------------------------> Higher effort
 *Agencies may not process comments in ways that deliver this information to decisionmakers
 
 ---
-exclude: true
 
 ## Selection issues
 ### Which campaigns ought to matter? 
 ### How to tell them apart?
-
+--
 
 | | Inside lobbying | Outside lobbying |
 |:---|:---:|:---:|:---:|
@@ -360,13 +328,7 @@ exclude: true
 
 ---
 
-class: inverse middle 
-
-# Does the institution enable grassroots contestation of powerful interests or astroturf legitimation of them? 
-
----
-
-class: inverse middle center
+class: inverse center middle 
 
 # First cut
 
@@ -380,15 +342,13 @@ class: center
 ---
 
 ## Who mobilizes?
-A few public interest groups 
---
-$\rightarrow$ More "grassroots" than "astroturf"
+A few public interest groups
 
-More "conflict expansion" than groups with the most resources "buying" the impression of public support 
+- More "conflict expansion" than groups with the most resources "buying" the impression of public support --> More "grass-roots" than "astro-turf"
 
 <img src="https://github.com/judgelord/rulemaking/raw/master/Figs/toporgs-1.png" width = 900 />
 
-100 orgs mobilized 39m of 48m regulations.gov comments on proposed rules, ~87/100 lobby in the same in coalitions.
+100 organizations mobilized 39m of 48m regulations.gov comments on proposed rules, ~87/100 lobby in the same public interest coalitions.
 
 
 ---
@@ -397,72 +357,45 @@ class: center
 ## When does mass engagement occur?
 
 ### Asymmetric mobilization > negativity bias
-<img src="https://github.com/judgelord/dissertation/raw/master/Figs/comments-mass-support-vs-oppose-1.png" width = 700 />
+<img src="https://github.com/judgelord/dissertation/raw/master/Figs/comments-mass-support-vs-oppose,pdf" width = 700 />
 
 
 
 ---
-class: center inverse
+
+
+Draft rules not mentioning "Environmental Justice"
+![](ej_prob_top_agencies.png)
+
+---
+
+
+
+
+---
+class: center
 ![](spam.png) 
 
 # Thanks!
 
-Unified Agenda + ORIA reports + Regulations.gov data:
+Unified Agenda + ORIA reports + Regulations.gov (Rdata or SQLite):
 
 GitHub.com/JudgeLord/Rulemaking
 
 or
 
 JudgeLord@Wisc.edu
+
 ---
 
-Political Information in Bureaucratic Policymaking
+Incorporating Political Information Into Models of Bureaucratic Policymaking
 ![](causal-full.png)
 
-$\Diamond \text{ observed actions,       }  \bigcirc \text{ unobserved prefrences,      } \square \text{ information}$
+Dimonds = observed actions, circles = unobserved prefrences, rectangles = information (mechanisms of policy influence)
 
 ---
 
-
-20 orgs mobilized nearly half of comments on the top 10 most commented on rules
-
-
-![](topdockets.png)
-
-CFPB's Payday Lending Rule received 80,000 partially unique comments
-
-DOI's National Monuments Review received 200,000 unique comments
-
----
-
-background-image: url("ej-second-order.png")
-background-size: contain
-
-
----
-
-background-image: url(commentor-race.png)
-background-size: contain
-
-
-<!---
-
-Change in Draft Rules that did mot Mention Environmental Justice
-![](ej_prob_top_agencies.png)
-
----
-
-
-![](macro-environment.png)
-
----
-
-![](macro-welfare.png)
-
----
-
-![](macro-labor.png)
-
+![](../Figs/comments-form-1.png)
 ---
 
 ## Asymmetric sentiment 
@@ -505,7 +438,7 @@ Wilson - bureaucrats want to be sued.
 
 Janna - complexity is essential - working on policy development monopolies- expert groups claim rents as providing info.
 
-Brian - how important are these rules. 
+Brian - how important are these rules 
 - 25% of CRS overturned 
 - 
 - payday vs. net neutrality - are they all the same thing? 
@@ -533,5 +466,4 @@ Gunnar Trumbull - coalitions need to create legitimacy.
 - Companies buying off nonprofits, hiring consultants, supporting coal miners union, grassroots 
 
 -->
-
 
