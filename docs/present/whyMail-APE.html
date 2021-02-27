@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>Why do Agencies (Sometimes) Get So Much Mail?</title>
     <meta charset="utf-8" />
     <meta name="author" content="Devin Judge-Lord" />
-    <script src="libs/header-attrs-2.3/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -215,8 +215,8 @@ background-image: url("present/tweetBenWilkerMoveon.png")
 
 &lt;!--sometimes people that don't fit that concept--&gt;
 
-&lt;img src="https://github.com/judgelord/dissertation/raw/master/Figs/EPA_protest_kills_jobs.jpg" height = 200 /&gt;
-&lt;img src="https://github.com/judgelord/dissertation/raw/master/Figs/EPA_protest_nurses.jpg" height = 200 /&gt;
+&lt;img src="https://github.com/judgelord/dissertation/raw/master/docs/present/EPA-protest-kills-jobs.jpg" height = 200 /&gt;
+&lt;img src="https://github.com/judgelord/dissertation/raw/master/docs/present/EPA-protest-nurses.jpg" height = 200 /&gt;
 
 --
 
@@ -384,7 +384,7 @@ Political Information in Bureaucratic Policymaking
 ---
 
 
-## 20 orgs mobilized nearly half of comments on the top 10 most commented on rules
+20 orgs mobilized nearly half of comments on the top 10 most commented on rules
 
 
 ![](topdockets.png)
@@ -403,107 +403,6 @@ background-size: contain
 
 background-image: url(commentor-race.png)
 background-size: contain
-
----
-
-Change in Draft Rules that did mot Mention Environmental Justice
-![](ej_prob_top_agencies.png)
-
----
-
-
-![](macro-environment.png)
-
----
-
-![](macro-welfare.png)
-
----
-
-![](macro-labor.png)
-
----
-
-## Asymmetric sentiment 
-![](sent-2018EPA-HQ-OAR-2018-0283.png)
-
-
----
-
-## Sentiment-LDA correlation
-
-
-![](topic-sent.png)
-
-400 of 610,927 comments
-
-&lt;!--
-
-
-```r
-knitr::include_graphics(here::here("Figs/causal-full.png"))
-```
-
-&lt;div class="figure" style="text-align: center"&gt;
-&lt;img src="/Users/devin/dissertation/Figs/causal-full.png" alt="The Role of Mass Commenting and Political Information in Bureaucratic Policymaking"  /&gt;
-&lt;p class="caption"&gt;The Role of Mass Commenting and Political Information in Bureaucratic Policymaking&lt;/p&gt;
-&lt;/div&gt;
-
-
-```r
-knitr::include_graphics("../Figs/comments-form-1.png")
-```
-
-&lt;div class="figure" style="text-align: center"&gt;
-&lt;img src="../Figs/comments-form-1.png" alt="Sources of Comments Posted to regulations.gov"  /&gt;
-&lt;p class="caption"&gt;Sources of Comments Posted to regulations.gov&lt;/p&gt;
-&lt;/div&gt;
-
-
-
---&gt;
-
-
-
-
-&lt;!--
-questions that Congress scholars have asked 
-
-
-EPA - profitability inseparable from democracy 
-
-Wilson - bureaucrats want to be sued.
-
-Janna - complexity is essential - working on policy development monopolies- expert groups claim rents as providing info.
-
-Brian - how important are these rules. 
-- 25% of CRS overturned 
-- 
-- payday vs. net neutrality - are they all the same thing? 
-- - no some are going down fighting 
-- - net neutrality is ideology vs. ideology - organized IN THE SAME WAY 
-- - payday loan was not only mobilizer - true vs. false grassroots
-- - disrupting consensus = Payday 
-- - why do agencies care? 
-
-- how do they process and extract 
-- - EPA consultant bins - more binned 
-
-
-- a better fit between theory and measures 
-
-- Maarmam - cosigning 
-
-- coalition - movement - interest - 
-- What evidence would you need to know if this is 
-
-
-Gunnar Trumbull - coalitions need to create legitimacy.
-
-
-- Companies buying off nonprofits, hiring consultants, supporting coal miners union, grassroots 
-
---&gt;
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
@@ -552,6 +451,32 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {
@@ -569,17 +494,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   }
   preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);</script>
-
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-</script>
 
 <script>
 slideshow._releaseMath = function(el) {

@@ -255,8 +255,8 @@ background-image: url("present/tweetBenWilkerMoveon.png")
 
 <!--sometimes people that don't fit that concept-->
 
-<img src="https://github.com/judgelord/dissertation/raw/master/Figs/EPA_protest_kills_jobs.jpg" height = 200 />
-<img src="https://github.com/judgelord/dissertation/raw/master/Figs/EPA_protest_nurses.jpg" height = 200 />
+<img src="https://github.com/judgelord/dissertation/raw/master/docs/present/EPA-protest-kills-jobs.jpg" height = 200 />
+<img src="https://github.com/judgelord/dissertation/raw/master/docs/present/EPA-protest-nurses.jpg" height = 200 />
 
 --
 
@@ -424,7 +424,7 @@ $\Diamond \text{ observed actions,       }  \bigcirc \text{ unobserved prefrence
 ---
 
 
-## 20 orgs mobilized nearly half of comments on the top 10 most commented on rules
+20 orgs mobilized nearly half of comments on the top 10 most commented on rules
 
 
 ![](topdockets.png)
@@ -444,7 +444,8 @@ background-size: contain
 background-image: url(commentor-race.png)
 background-size: contain
 
----
+
+<!---
 
 Change in Draft Rules that did mot Mention Environmental Justice
 ![](ej_prob_top_agencies.png)
@@ -532,4 +533,5 @@ Gunnar Trumbull - coalitions need to create legitimacy.
 - Companies buying off nonprofits, hiring consultants, supporting coal miners union, grassroots 
 
 -->
+
 
