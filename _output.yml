@@ -20,7 +20,7 @@ bookdown::pdf_book:
   keep_tex: true
   includes: 
     in_header: 
-#      - assets/preamble-title.tex
+      - assets/preamble-title.tex
       - assets/preamble-memoir.tex
   latex_engine: xelatex
   citation_package: natbib

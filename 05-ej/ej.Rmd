@@ -5,7 +5,7 @@ subtitle:
 author:
 - name: Devin Judge-Lord
   affiliation: 
-  footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/ej>. Additional tables, figures, and replication code are available at <https://judgelord.github.io/dissertation/ej-appendix.html>. This paper has benefited from helpful comments from Marcy Shieh, Susan Webb Yackee, and participants at the 2021 UW-Madison American Politics Workshop and the 2018 Association for Environmental Studies and Sciences Conference, research assistance from Hope Karnopp, and funding from the National Science Foundation and American Political Science Association."
+  footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/ej>. Additional tables, figures, and replication code are available at <https://judgelord.github.io/dissertation/ej-appendix.html>. This paper has benefited from helpful comments from Benjamin Márquez, Marcy Shieh, Susan Webb Yackee, and participants at the 2021 UW-Madison American Politics Workshop and the 2018 Association for Environmental Studies and Sciences Conference, research assistance from Hope Karnopp, and funding from the National Science Foundation and American Political Science Association."
 date: "`r Sys.Date()`"
 abstract: | 
   THIS DRAFT WAS PREPARED FOR THE AMERICAN POLITICS WORKSHOP 

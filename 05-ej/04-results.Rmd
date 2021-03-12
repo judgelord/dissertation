@@ -98,7 +98,7 @@ As logit coefficients are not easily interpretable, Figures \@ref(fig:ej-m-PR-pr
 
 Controlling for average rates of policy change per agency and the number of comments, Figure \@ref(fig:ej-m-PR-president-median-1) shows a large difference in the probability of policy change when raising EJ concerns. This supports the "Distributive Information Hypothesis." There is a decrease in rates of adding EJ language after the G.W. Bush Administration, but differences between presidents are small compared to the difference between rules that did and did not see EJ comments.  Other variables at their modal values: the EPA, zero additional EJ comments, and one comment total.^[All predicted probability plots below also show probabilities at the modal values for other variables: President Obama, the EPA, zero additional EJ comments, and the median number of total comments (one for models 1 and 2; four for models 3 and 4) unless otherwise specified.] 
 
-```{r ej-m-PR-president-median-1, fig.cap = "Probability Environmental Justice is Added Between Draft and Final Rules by President", out.width = "80%"}
+```{r ej-m-PR-president-median-1, fig.cap = "Probability that Environmental Justice is Added Between Draft and Final Rules by President", out.width = "80%"}
 
 knitr::include_graphics(here::here("Figs", "ej-m-PR-president-median-1.png"))
 ```
