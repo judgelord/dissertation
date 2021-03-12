@@ -1,4 +1,4 @@
-book_filename: "outline"
+book_filename: "judgelord"
 output_dir: "docs"  # pandoc -s docs/outline.tex -o outline.docx
 language:
   ui:
@@ -42,8 +42,7 @@ rmd_files:
   - 00-outline.Rmd
   - 01-rulemaking/00-abstract.Rmd
   - 00-intro/intro-book.md
-  - 02-pressure/00-abstract.Rmd 
-#  - 02-pressure/01-intro.Rmd
+  - 02-pressure/00-abstract.Rmd
 #  - 02-pressure/intro-motivation.md
 #  - 02-pressure/why-mobilize.md
 #  - 02-pressure/methods.md
@@ -54,7 +53,34 @@ rmd_files:
   - 04-influence/influence_coding_examples.md
 #  - 04-influence/preanalysis.md
   - 05-ej/00-abstract.Rmd
-#  - 05-ej/01-intro.md
+  - 05-ej/01-intro.Rmd
+  - 05-ej/02-data.Rmd
+  - 05-ej/03-methods.Rmd
+  - 05-ej/04-results.Rmd
 #  - 02-policy.Rmd # policy recs
   - 99-references.Rmd
-  epub: ["index.Rmd"]
+  epub: 
+  - index.Rmd
+  - intro.md
+  - 00-intro/00-intro-conclusion.text
+  - 00-motivation.Rmd
+  - 00-outline.Rmd
+  - 01-rulemaking/00-abstract.Rmd
+  - 00-intro/intro-book.md
+  - 02-pressure/00-abstract.Rmd
+#  - 02-pressure/intro-motivation.md
+#  - 02-pressure/why-mobilize.md
+#  - 02-pressure/methods.md
+#  - 02-pressure/results.md
+  - 03-oversight/00-abstract.Rmd
+  - 04-influence/00-abstract.Rmd
+  - 04-influence/influence.md
+  - 04-influence/influence_coding_examples.md
+#  - 04-influence/preanalysis.md
+  - 05-ej/00-abstract.Rmd
+  - 05-ej/01-intro.Rmd
+  - 05-ej/02-data.Rmd
+  - 05-ej/03-methods.Rmd
+  - 05-ej/04-results.Rmd
+#  - 02-policy.Rmd # policy recs
+  - 99-references.Rmd

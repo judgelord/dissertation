@@ -10,14 +10,20 @@ bookdown::gitbook:
     toc:
       before: |
         <li><a href="./index.html">Public Pressure Campaigns and Bureaucratic Policymaking</a></li>
-      after: "DRAFT OUTLINE" #--DO NOT CITE WITHOUT PERMISSION"
+      after: "DRAFT" #--DO NOT CITE WITHOUT PERMISSION"
   #edit: https://github.com/judgelord/dissertation/edit/master/%s
 bookdown::pdf_book:
-#  includes:
-#    in_header: preamble.tex
+  number_sections: true
+  fig_caption: true
+  dev: png
+  toc: false
+  keep_tex: true
+  includes: 
+    in_header: 
+#      - assets/preamble-title.tex
+      - assets/preamble-memoir.tex
   latex_engine: xelatex
   citation_package: natbib
-  keep_tex: yes
   urlcolor: blue
   linkcolor: blue
 bookdown::word_document2:

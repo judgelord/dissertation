@@ -4,12 +4,15 @@ author: "Devin Judge-Lord"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
-documentclass: book
+documentclass: memoir
+classoption: oneside
+fontsize: 12pt
+geometry: "left = 1.25in, right = 1.25in, top = 1.25in, bottom = 1.25in"
 bibliography: "assets/dissertation.bib"
 biblio-style: apalike
 link-citations: yes
 # github-repo: 
-description: "Outline"
+description: "Draft"
 ---
 
 ```{r global.options, include=FALSE}
@@ -20,8 +23,10 @@ knitr::opts_chunk$set(echo = FALSE,
                       fig.align = 'center',
                       fig.width = 7,
                       out.width = "6.5in",
+                      out.extra = "",
                       fig.path= "Figs",
                       fig.show = "hold",
+                      fig.pos= "htbp",
                       warning=FALSE, 
                       message=FALSE)
 ```

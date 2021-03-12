@@ -1,0 +1,59 @@
+% document design
+
+% --- serif chapter styles ---
+\chapterstyle{dash} % don't want serif though
+  \renewcommand*{\chaptitlefont}{\Large \centering \sffamily \bfseries} 
+  \renewcommand*{\chapnumfont}{\chaptitlefont}
+% \chapterstyle{dowding}
+
+% --- page style ---
+
+% upper right numbering
+\pagestyle{simple} 
+
+% chapter page style: upper right
+\copypagestyle{chapter}{simple}
+\makeoddhead{chapter}{}{}{\thepage}
+\makeevenhead{chapter}{}{}{\thepage}
+\makeoddfoot{chapter}{}{}{}
+\makeevenfoot{chapter}{}{}{}
+
+\copypagestyle{part}{simple}
+\makeoddhead{part}{}{}{\thepage}
+\makeevenhead{part}{}{}{\thepage}
+\makeoddfoot{part}{}{}{}
+\makeevenfoot{part}{}{}{}
+
+
+% --- section style -----------------------
+
+% we don't go deeper than subsection (hopefully..?)
+\setsecheadstyle{\large \raggedright \bfseries}
+\setsubsecheadstyle{\raggedright \bfseries}
+\setsubsubsecheadstyle{\raggedright \itshape} 
+
+% numbering depth
+\setsecnumdepth{subsubsection}  
+
+
+
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
+
+\usepackage{hyperref}
+\hypersetup{breaklinks = true,
+            bookmarks = true,  
+            colorlinks = true,
+            citecolor = black,
+            urlcolor = cyan,
+            linkcolor = magenta,
+            %pdfborder = {0 0 0}
+            }
+
+
