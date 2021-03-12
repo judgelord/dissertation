@@ -1,4 +1,4 @@
-# Introduction
+## Introduction
 
 How and to what extent do activist movements change public policy? Over the last year, few topics have dominated politics more than political protest. Yet, there is little systematic evidence about the impact of social movements on modern policymaking. I examine how social movements affect policymaking by assessing the environmental justice movement's impact on policymaking in 40 U.S. federal agencies from 1992 to 2020. Environmental justice
 concerns focus on unequal access to healthy environments and
@@ -32,7 +32,7 @@ EJ concerns.
 
 
 
-## "Environmental Justice" as a Boundary-drawing Tool
+### "Environmental Justice" as a Boundary-drawing Tool
 
 The politics of environmental justice has several convenient properties for studying the policy impact of social movements. First, discourse around policies framed
 as "environmental" issues are, unlike issues like civil
@@ -68,7 +68,7 @@ Advocates may even sue agencies for failing to satisfy the procedural requiremen
 Courts may strike down rules for failing to comply with procedural requirements of the Administrative Procedures Act (APA) if the agency fails to "examine the relevant data" or "consider an important aspect of the problem" (*Motor Vehicle Mfrs. Ass'n v. State Farm Mut. Auto. Ins. Co.*, 1983). This can include an agency's 12898 EJ analysis: "environmental justice analysis can be reviewed under NEPA and the APA" (*Communities Against Runway Expansion, Inc. v. FAA*, 2004).
 
 
-# Theory
+## Theory
 
 Participatory processes like public comment periods, where government
 agencies must solicit public input on draft policies, are said to provide democratic legitimacy [@Croley2003; @Rosenbloom2003], new technical information [@Yackee2006JPART; @Nelson2012], and political oversight opportunities [@Balla1998; @Mccubbins1984]. While recent scholarship on agency policymaking has shed light on sophisticated lobbying by businesses, we know surprisingly little about the vast majority of public comments, which are submitted as part of public pressure campaigns.^[
@@ -82,7 +82,7 @@ While practitioners and administrative law scholars have long pondered
 what to make of activists' mass comment campaigns, political scientists have had
 surprisingly little to say about this kind of civic participation. 
 
-## Technical Information as the Currency of Lobbying
+### Technical Information as the Currency of Lobbying
 
 Dominant theories of bureaucratic policymaking focus on how agencies learn about policy problems [@Kerwin2011]. Leading formal models are information-based models where comments matter by revealing information to the agency [@Gailmard2017;@Libgober2018], and empirical studies support the conclusion that information is the currency of lobbying in rulemaking [@Yackee2012;@Cook2017;@Gordon2018;@Walters2019].  
 
@@ -105,7 +105,7 @@ business interests [@Seifter2016UCLA; @Crow2015; @Wagner2011; @West2009; @Yackee
 existing theory and empirical scholarship suggest skepticism that it
 matters [@Balla2018]. 
 
-## Political Information
+### Political Information
 
 @Nelson2012
 identify political information as a potentially influential result of
@@ -154,11 +154,11 @@ an attentive public [@Key1961] or issue public [@Converse1964].
 
 Regardless of the specific claims of commenters, expanding the scope of conflict by mobilizing public attention to rulemaking may shift policymakers' attention away from the technical information provided by the "usual suspects" and toward the distributive effects of policy.
 
-## Hypotheses
+### Hypotheses
 
 The existing literature on bureaucratic policymaking in general---and EJ advocacy in particular---presents competing intuitions about the effect of EJ activists and the broader public in rulemaking. Below, I posit hypotheses in the direction that these advocacy groups do affect rulemaking while also noting equally plausible intuitions for the opposite conclusions. Because of the general skepticism and empirical work that has found that advocacy groups and public pressure campaigns have little to no effect on rulemaking, I set the empirical bar low: do EJ advocates and public pressure campaigns have *any* effect at all on policy documents. 
 
-### Information 
+#### Information 
 
 > *Distributive Information Hypothesis*: Policymakers are more likely to change whether or how policies address distributional justice when commenters raise distributional justice concerns.
 
@@ -176,7 +176,7 @@ Bureaucracies are specialized institutions built to make and implement certain k
 
 The competing intuition to the *Policy Receptivity Hypothesis* is that policymakers familiar with EJ concerns are the *least* likely to respond to EJ concerns because they anticipate these concerns--they are not novel. If so, agencies that rarely consider EJ may be more easily influenced by commenters who present somewhat novel information and concerns. These agencies may be less likely to have preempted critiques.
 
-### Public Pressure 
+#### Public Pressure 
 
 > *General Pressure Hypothesis*: Policies are more likely to change when they receive more public attention (e.g., more public comments).
 

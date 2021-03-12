@@ -1,4 +1,4 @@
-# Data
+## Data
 
 To examine whether EJ activists or public pressure campaigns shape policy documents,
 I collect the text of draft rules, public comments, and final rules from regulations.gov. Then, I select rulemaking documents from agencies that published at least one rule explicitly addressing EJ from 1993 to 2020. This yields over 25,000 rulemaking dockets from 40 agencies. 12,257 of these have both a proposed and final rule.^[Some final rules are published without a draft, and some proposed rules are withdrawn or never finalized. Additional descriptives on each type of rules are available in the online appendix.]
@@ -8,9 +8,9 @@ Despite E.O. 12898, most rules do not address EJ. Figure \@ref(fig:ej-data) show
 
 ```{r ej-data, fig.cap = "Proposed and Final Rules by Whether they Address Environmental Justice.", out.height = NULL, out.width = "99%", fig.show = "hold"}
 
-knitr::include_graphics(here::here("Figs", "ej-data-ejpr-1.png") ) #  
+knitr::include_graphics(here::here("Figs", "ej-data-ejpr-1.png") ) ##  
 
-knitr::include_graphics(here::here("Figs", "ej-data-ejfr-1.png") ) # 
+knitr::include_graphics(here::here("Figs", "ej-data-ejfr-1.png") ) ## 
 ```
 
 Even at the Environmental Protection Agency (EPA), where most policies are clearly framed as "environmental" issues, a consistent minority of rules address EJ. Many agencies that make policy with clear EJ effects almost never address EJ. These include the Department of Housing and Urban Development (HUD), Nuclear Regulatory Commission (NRC), the Office of Surface Mining (OSM), National Oceanic and Atmospheric Administration (NOAA), and Fish and Wildlife Service (FWS).  A majority of rules addressed EJ only in a few years at a few agencies that publish relatively few rules, including the Council on Environmental Quality (CEQ), Forest Service (FS), Federal Emergency Management Agency (FEMA), Army Corps of Engineers (COE), and several Department of Transportation agencies (the Federal High Way Administration and Federal Railroad Administration (FRA)). Figure \@ref(fig:ej-data-agencies100) shows the number of rulemaking projects over time by whether they ultimately addressed EJ at agencies that either published more than ten rules addressing EJ or received over 100 comments with EJ concerns. 
@@ -21,7 +21,7 @@ Even at the Environmental Protection Agency (EPA), where most policies are clear
 knitr::include_graphics(here::here("Figs", "ej-data-agencies100-1.png") )
 ```
 
-## Comments
+### Comments
 
 Figure \@ref(fig:ej-comments) shows the number of comments on each proposed rule published between 1993 and 2020. Light red circles indicate rules where no commenters raised EJ concerns. Dark blue Triangles indicate rules where they did. The bottom row of plots shows the subset of rules where "environmental justice" appeared in neither the draft nor the final rule. The middle row of plots show rules where "environmental justice" appeared in the final but not the draft. My first analysis compares these two rows. The top row of plots shows rules where "environmental justice" appeared in both the draft and final rule. My second analysis compares rules in this first row. Predictably, commenters most often raised EJ concerns on rules in the first row. 
 
@@ -33,7 +33,7 @@ knitr::include_graphics(here::here("Figs", "ej-comments-1.png") )
 
 
 
-## Interest Groups and Second-order Representation
+### Interest Groups and Second-order Representation
 
 When lobbying during rulemaking, groups often
 make dubious claims to represent broad segments of the public [@Seifter2016UCLA]. It is thus insufficient to know which groups participate. We
@@ -48,7 +48,7 @@ identity propensities with respect to the U.S. Census. Together these
 two pieces of information allow me to comment on "second-order" representation, i.e., the extent to which public comments are
 representative of the groups they claim to represent [@Seifter2016UCLA].
 
-### Organizations Raising EJ Concerns on the Most Rulemaking Dockets
+#### Organizations Raising EJ Concerns on the Most Rulemaking Dockets
 
 
 The top mobilizer of comments mentioning "environmental justice" between 1993 and 2020 was the Sierra Club, with over 340,000 comments on dozens of rules. While it is a membership organization whose members pay dues, elect the leaders of local chapters, and have some say in local advocacy efforts, its policy work is directed by a more traditional national advocacy organization funded by donations, including over $174 million from Bloomberg Philanthropies that funded several of the public pressure campaigns in these data. The Sierra Club does have a major program arm dedicated to Environmental Justice that works with local partners "to foster the growth of the environmental justice movement so that oppressed communities will find justice and everyone can experience the benefits of a healthy and sustainable future." communities, but it is not clear to what extent those individuals have a formal say in the national organization's lobbying decisions. As a federated organization with many local efforts, it is difficult to generalize about second-order representation, which likely varies across its campaigns. The National Board of Directors adopted a statement on social justice in 1993 and principles on environmental justice in 2001. The national website does contain regular Spanish language content.
@@ -124,7 +124,7 @@ consensus." In a way, the fact that an energy company felt compelled to
 acknowledge and question EJ concerns suggests their
 importance for policy outcomes.
 
-### Commenter Race
+#### Commenter Race
 
 To estimate the racial distribution of commenters
 using EJ language, I select commenters who
@@ -139,7 +139,7 @@ assign specific individuals to racial categories. Instead, it represents each co
 
 ```{r ejcommentsbyrace, fig.cap = 'Estimated Racial Distribution from Census Surnames of Commenters raising "Environmental Justice" Concerns in Rulemaking', out.height = NULL, out.width = "49%", fig.show = "hold"}
 
-knitr::include_graphics(here::here("Figs", "race-prob.pdf"))
+knitr::include_graphics(here::here("Figs", "race-prob.png"))
 ```
 
 
@@ -152,9 +152,9 @@ theorizing and activism have been led by African Americans
 
 <!--TODO-->
 
-# Tracing Ideas Through Rulemaking 
+## Tracing Ideas Through Rulemaking 
 
-## "Environmental Justice" as a Contested Concept
+### "Environmental Justice" as a Contested Concept
 
 Using an environmental justice frame does not always imply the same
 communities of concern. Environmental justice emerged from movements
@@ -184,7 +184,7 @@ markets would have been most vulnerable" (EPA 2017). Like the Southern Company's
 The major conflict over the role of race in EJ analyses is one of many conflicts that the environmental justice movement has caused to be fought somewhat on its terms. To illustrate how these definitional conflicts shape rules and rulemaking, the next section briefly reviews the decades-long policy fight over regulating Mercury pollution.^[This case and other examples in this article were not selected as the most similar, most different, or a representative sample. They emerged from reading hundreds of rulemaking documents where agencies did and did not respond to comments raising EJ concerns. Their purpose is to assess whether the cases in the quantitative analysis are plausibly what they appear to be: that changes in rule text are, sometimes, causally related to public comments and that non-changes are cases of agencies disregarding comments, not some accident of the data or measures. Tracing a few rulemaking processes also helped to avoid analytic pitfalls. For example, one case where an agency did an EJ analysis and then appeared not to respond to a comment discussing EJ was, in fact, due to the fact that the commenter included an annotated version of the draft rule their comment, adding only "no comment" next to the 12898 section. To correct this, I removed text copied from the proposed rule from comments in pre-processing. The qualitative reading also confirmed other key assumptions, such as the fact that advocates do, in fact, use "environmental justice" when they raise distributional concerns, even on many rules that are not about issues traditionally considered "environmental" because of its power to give distributional justice claims legal purchase.]
 
 
-## The Evolving Distributional Politics of Mercury Pollution
+### The Evolving Distributional Politics of Mercury Pollution
 
 Fundamental definitions of the public good and minority rights are
 implicit in agency rules. The public comment process offers an
@@ -287,11 +287,11 @@ houses of Congress. The expansion of the analysis from one draft to the
 next seems to be in response to activist pressure.
 
 
-# Measuring Policy Change
+## Measuring Policy Change
 
 Having shown how public comments and pressure can influence policy texts, I assess the general relationship between comments and policy change. I use two indicators of policy change to model the effect of public comments on policy: *whether* a rule addresses EJ and *how* it addresses EJ. Both measures represent a relatively low bar, indicating whether the agency explicitly paid any attention to EJ. This is appropriate given that prior research shows little to no effect of public comments from advocacy groups and little attention to EJ in particular. 
 
-## Measure 1: Adding Text Addressing EJ to Final Rules
+### Measure 1: Adding Text Addressing EJ to Final Rules
 
 For the subset of draft rules that did not address EJ, I measure whether agencies added any mention of "environmental justice" in the final rule. Such additions usually take the form of an "E.O. 12898" section where the agency justifies its policy changes with respect to some concept(s) of environmental justice. The next most common addition occurs in the agency's response to comments, explaining how the rule did not have disparate effects or that they were insignificant.
 
@@ -303,7 +303,7 @@ Less frequently, an agency may explicitly dismiss a comment and decline to add a
 
 Most frequently, agencies neither responded to comments nor added a 12898 section.
 
-## Measure 2: Changing Text Addressing EJ in Final Rules
+### Measure 2: Changing Text Addressing EJ in Final Rules
 
 Where draft rules did address EJ, I measure whether a rule changed *how* it discussed "environmental justice" between its draft and final publication.^[Occasionally, there is more than one version of a proposed or final rule on a rulemaking docket. Here I opt for an inclusive measure of change that counts change from *any* proposed to *any* final rule. This means that if the change occurred between the first and second draft of a proposed rule, it is counted as a change. This best captures the concept of rule change. However, estimates are similar if we only count cases where a change occurred between *every* version of the rule.] 
 When an agency addresses EJ in the draft rule, it is almost always in a section about how it addressed E.O. 12898. In many cases, much of the text of final rules, including 12898 sections, remain exactly the same between draft and final versions. 
