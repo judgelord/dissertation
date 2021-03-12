@@ -1794,9 +1794,9 @@ m <- modelsummary::modelsummary( models,
 
 - [X] Dedupe PRs and FRs, or at least explore sensitivity to which of multiple PRs is used. Selected on`comments`. The PR with the most comments is most likely the main PR, but many have 0 comments. Perhaps also then on `posted_date`?  However, date is complicated. A later PR could be an extension of the comment period. A later FR could be a small amendment. New metadata may help with this.
 
-- [ ] Compare new and old API metadata to make (comment counts are slightly different)
+- [ ] Compare new and old API metadata (comment counts are slightly different)
 
-- [ ] Explore new detailed comment metadata
+- [ ] New comment metadata from new API
 
 - [ ] Compare % in change in 12898 sections vs. rule text vs. response to comment. This requires classifying responses to comment vs. adding 12898 section (in most cases, they are adding a 12898 section)
 
@@ -1811,6 +1811,13 @@ Extensions
 - [ ] Replicate with "climate change" + "global warming" (other ideas: class and race: "inequality" "low income" "racial" "minority population")
 
 
+```{r to-scrape, include=FALSE, eval=FALSE}
+ejdockets <- ejFR_PR %>% filter(ej_comment == T) %>% 
+  full_join(
+    ejFRejPR %>% filter(ej_comment == T, change == T) 
+    ) %>% distinct(docket_id)
+save(ejdockets, file = here::here("data", "ejdockets.Rdata"))
+```
 
 
 

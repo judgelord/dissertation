@@ -28,7 +28,10 @@ rmd_files:
   - 04-influence/influence_coding_examples.md
 #  - 04-influence/preanalysis.md
   - 05-ej/00-abstract.Rmd
-#  - 05-ej/01-intro.md
+  - 05-ej/01-intro.Rmd
+  - 05-ej/02-data.Rmd
+  - 05-ej/03-methods.Rmd
+  - 05-ej/04-results.Rmd
 #  - 02-policy.Rmd # policy recs
   - 99-references.Rmd
   latex:
