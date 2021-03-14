@@ -1788,6 +1788,8 @@ m <- modelsummary::modelsummary( models,
 
 # TODO
 
+*Data*
+
 - [ ] Parse agencies by the frequency of their EJ analyis and interact this with e_comment as a more direct test of the policy receptivity hypothesis
 
 - [X] Transform ej_comments to reduce corr with ej_comment
@@ -1804,7 +1806,47 @@ m <- modelsummary::modelsummary( models,
 
 - [ ] Investigate other estimators & `clogit`
 
-Extensions
+- [ ] toss out data before 2005? I'm not seeing any systematic bias in it. It is incomplete and leads estimates for the Clinton years to be very uncertain. I hate to toss out good data just to avoid having to explain that, but maybe it is worth it.
+
+- [ ] controll for what elites view as a significant rule (OIRA)? Does this matter?
+
+*Writing*
+
+- [ ] Define activist. Who is mobilizing is not essential to the analysis, but it is essential to the interpretation of the results. If I am going to suggest that "EJ advocates/activists/...." seem to have an impact, I need to define who these people/orgs are and what they are up to. Maybe I can do this in the discussion rather than the data section? I am really not sure how to handle this. (The alternative is to just say "commenters" but that means dropping the activist/movements/representation framing). 
+
+- [ ] Describe comment periods
+
+- [ ] example rule and comment in intro?
+
+- [ ] emphasize how EJ is more often re-framed by conservatives rather than outright argued against. 
+
+- [ ] Do groups stratigically use EJ language with some agencies...maybe, but not so much. Not clear how this would bias results.
+
+- [ ] Be more explicit about the implications of EO for research design; courts only assess the 12898 analyses when the agency brings it up. If by citing it they incurred legal obligations, that would be a strong incentive not to cite it, but I don't think that is what is going on here because "compliance" with the EO is never the issue. Rather, the legal issue is whether disparate impacts are "relevant" to the rule and the agency's reasoned analysis. The EO and comments raising the EO just help make the case that these concerns and data are relevant when courts assess compliance with NEPA and the APA. 
+For example, courts have criticized “bare-bones conclusion that [a minority or low-income population] would not be disproportionately harmed” and that failure to provide “meaningful discussion” of the disparate impacts of a rule “points to the agency’s failure to ‘consider an important aspect’ of the effects of the Rule.” I don't see any threats to inference with the EO--lawsuits are regular APA lawsuits, my only point was that the EO gives both agencies and commenters a reason to use the phrase "environmental justice," but I should be careful to be really clear about that since it got a lot of attention (in part because it appeared in the intro rather than the methods section, as it will in future drafts).
+
+- [ ] Elaborate on Balla et al.
+
+
+Theory 
+
+- [ ] Clarify distributive - Lowi
+
+- [ ] Clarify that I'm not arguing against the dominance of well-resourced groups 
+
+- [ ] More on ideas, discourse, framing in public policymaking (Stone and Schneider and Ingraham)
+
+
+
+Potential outcomes (ideally have an example of each): 
+
+ - EJ neither in comments, PR, nor FR
+ - EJ in Comments only
+ - EJ in FR only
+ - EJ in Comments and FR only
+ - EJ in PR, Comments, Rule
+
+*Extensions*
 
 - [ ] Compare topic proportions for cut and added text with comment texts.
 

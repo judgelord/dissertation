@@ -1,74 +1,22 @@
-## Introduction
+# Introduction
+Social movements like the civil rights movement of the 1960s and environmental movement of the 1970s are understood to have played a critical role in advancing landmark statutes recognizing new rights and social values. Likewise, a lack of movement pressure is a leading explanation for the failure of policy efforts to address issues like climate change [@Skocpol2013]. Yet, we have little systematic evidence about the impact of social movements on modern policymaking. To what extent do movements shape the thousands of policies the government makes every year? I examine how social movements affect policymaking by assessing the environmental justice movement's impact on 25 thousand policy processes in 40 U.S. federal agencies from 1993 to 2020. Environmental justice concerns focus on unequal access to healthy environments and protection from harms caused by things like pollution and climate change.  The environmental justice movement illustrates how activists attempt to inject ideas directly into the policymaking process. Systematic data on how policy documents address (or fail to address) environmental justice allow empirical tests of theories about when institutions will address claims raised by activists.
 
-How and to what extent do activist movements change public policy? Over the last year, few topics have dominated politics more than political protest. Yet, there is little systematic evidence about the impact of social movements on modern policymaking. I examine how social movements affect policymaking by assessing the environmental justice movement's impact on policymaking in 40 U.S. federal agencies from 1992 to 2020. Environmental justice
-concerns focus on unequal access to healthy environments and
-protection from harms caused by things like pollution and climate
-change. How government agencies address (or fail to address) environmental justice in policy documents allows empirical tests of theories about when institutions will address concerns raised by activists.
-
-The environmental justice movement's successes and failures in rulemaking illustrate how activists attempt to
-inject ideas directly into the policymaking process. I focus on the
-environmental justice movement because it offers a broad but tractable
+I focus on the environmental justice movement because it offers a broad but tractable
 scope for analysis and illuminates what is at stake in the politics of
-rulemaking. Executive-branch policymaking has distributive consequences. How policy documents address distributive issues highlights policy processes construct communities of "relevant" stakeholders and "appropriate" criteria to evaluate policy consequences.
-Mobilizing for environmental justice is an example of how social
-movements mobilize norms and evaluative frameworks that are
-connected to organizational identities, mission, and reputations and
-thus have implications for policy decisions [@Carpenter2001].
+agency policymaking. Policies have distributive consequences. How policy documents address distributive issues highlights how policy processes construct communities of "relevant" stakeholders and "appropriate" criteria to evaluate policy consequences.
+Raising environmental justice concerns in policy debates is an example of how social movement organizations mobilize norms and evaluative frameworks that interact with organizational identities, mission, and reputations and, thus, impact policy decisions [@Carpenter2001].
 
-Tracing ideas like environmental justice through policy processes like rulemaking offers one way to study the mechanisms by which social movements succeed or fail to influence policy. If draft rules
-do not mention EJ concerns, but
-EJ concerns are raised in the public comments and
-then appear in the final policy, this may be evidence that public pressure mattered. Likewise, when proposed rules do include an EJ analysis, if groups comment on it and the agency changes its discussion of EJ in the final rule, this may be evidence that public pressure mattered. 
+Tracing ideas like environmental justice (EJ) through policy processes reveals the mechanisms by which social movements succeed or fail to influence policy. If draft policies do not mention EJ concerns, but activists raise EJ concerns and policymakers then address in the final policy, this may be evidence that public pressure mattered. Likewise, when draft policies *do* address EJ, if groups comment on it and then policymakers change how the final policy addresses EJ, this may be evidence that public pressure mattered. 
 
-Tracing the evolution of environmental justice (EJ) analyses through several of these rulemaking processes shows that the concept is hotly contested and rarely addressed by agencies in ways that activists find acceptable. Activist pressure affected how rules address EJ in some cases but failed to affect others. 
+I assess the impact of the EJ movement qualitatively and quantitatively. Tracing the evolution of EJ analyses through several policy processes shows that the concept is hotly contested and rarely addressed by agencies in ways that activists find acceptable. Activist pressure affected how rules address EJ in some cases but failed to affect others. 
 
-Examining all rules published by 40 agencies to regulations.gov between 1992 and 2020, I find that Activist mobilization affected policy discourse even under administrations that were explicitly hostile to their cause. When public comments raise
+Examining all rules published by 40 agencies to regulations.gov between 1993 and 2020, I find that activist mobilization affected policy discourse, even under administrations that were explicitly hostile to their cause. When public comments raise
 EJ concerns, these concerns are more likely to be
-addressed in policy documents. Specifically, the number of comments mobilized (both overall and by EJ advocates specifically) is related to agencies adding language addressing EJ to final rules where the draft did not. In contrast, change in draft rules that did address EJ is inversely related to the overall level of public attention while still positively correlated with comments raising EJ concerns. 
-While we cannot infer that public comments cause agencies to address EJ concerns, comments may be a good proxy for activist pressure in general. Furthermore, the correlation between EJ activist mobilization and policy changes is largest and most significant in agencies with missions focused on "environmental" and distributional policy---the kinds of policymakers who we may expect to have
-institutional and cognitive processes primed to be most responsive to
-EJ concerns.
+addressed in policy documents. Specifically, the number of comments mobilized (both overall and by EJ advocates specifically) is positively correlated with agencies adding language addressing EJ to policies where the draft policy did not mention EJ. When comments raise EJ concerns, sections of policies that do address EJ are also more likely to change.
+Furthermore, the correlation between EJ activist mobilization and policy changes is largest for agencies with missions focused on "environmental" and distributional policy---the kinds of policymakers we may expect to have institutional and cognitive processes primed to be most responsive to EJ concerns.
 
 
-
-
-### "Environmental Justice" as a Boundary-drawing Tool
-
-The politics of environmental justice has several convenient properties for studying the policy impact of social movements. First, discourse around policies framed
-as "environmental" issues are, unlike issues like civil
-rights and immigration, inconsistently racialized and, unlike issues
-like taxes and spending, inconsistently focused on *distributions* of
-costs and benefits. This means that policies may or may not be framed in environmental justice terms. Despite policy almost always having disparate impacts, an "environmental" frame often creates a human-environment distinction and
-shifts attention to non-human objects such as air, water, food, or
-landscapes and away from the distribution of access to these objects or
-protection from them when they are contaminated. By focusing on distributions of costs and benefits, fights over EJ analyses differ from more traditional utilitarian or conservationist analyses.
-
-
-Second, compared to
-other ideas around which people mobilize, "environmental justice" is a
-fairly distinctive phrase. Most people who use this phrase share a
-general definitional foundation. Even attempts to reframe the term (e.g., to focus on class rather than race or jobs rather than health) come about as dialectical moves related to the term's historical uses. Thus, when "environmental justice" appears in a text, it is rarely a coincidence of words; its appearance is a result of the movement or reactions to it.
-
-Third, this phrase appears frequently
-when the idea is discussed, i.e., there are few synonyms. Groups raising equity concerns on "environmental" issues commonly use the phrase "environmental justice." Those who use narrower, related terms--including the older concept of 
-"environmental racism" and the newer concept of "climate justice"--almost always use "environmental justice" in their advocacy as well. 
-
-
-Finally, the term is relevant to rulemaking records in
-particular because Executive Order 12898 issued in 1994 by President
-Clinton "Federal Actions to Address Environmental Justice in Minority
-Populations and Low-Income Populations" requires all agency
-actions and policies to consider EJ implications. Executive Orders from Presidents Obama and Biden and statements from agency heads in every administration have since interpreted and reinterpreted parts of this Order, all with direct implications for rulemaking. 
-This does not mean that all draft or final rules address EJ, but when they
-do, they tend to cite Executive Order 12898 and explicitly discuss
-environmental justice. For the same reason, commenters who critique draft rules also cite this
-Executive Order and use this language. 
-
-Advocates may even sue agencies for failing to satisfy the procedural requirements of E.O. 12898, giving agencies an incentive to explain how their policies and justifications address the Executive Order and the EJ concerns of commenters.
-Courts may strike down rules for failing to comply with procedural requirements of the Administrative Procedures Act (APA) if the agency fails to "examine the relevant data" or "consider an important aspect of the problem" (*Motor Vehicle Mfrs. Ass'n v. State Farm Mut. Auto. Ins. Co.*, 1983). This can include an agency's 12898 EJ analysis: "environmental justice analysis can be reviewed under NEPA and the APA" (*Communities Against Runway Expansion, Inc. v. FAA*, 2004).
-
-
-## Theory
+# Theory
 
 Participatory processes like public comment periods, where government
 agencies must solicit public input on draft policies, are said to provide democratic legitimacy [@Croley2003; @Rosenbloom2003], new technical information [@Yackee2006JPART; @Nelson2012], and political oversight opportunities [@Balla1998; @Mccubbins1984]. While recent scholarship on agency policymaking has shed light on sophisticated lobbying by businesses, we know surprisingly little about the vast majority of public comments, which are submitted as part of public pressure campaigns.^[
@@ -82,7 +30,7 @@ While practitioners and administrative law scholars have long pondered
 what to make of activists' mass comment campaigns, political scientists have had
 surprisingly little to say about this kind of civic participation. 
 
-### Technical Information as the Currency of Lobbying
+## Technical Information as the Currency of Lobbying
 
 Dominant theories of bureaucratic policymaking focus on how agencies learn about policy problems [@Kerwin2011]. Leading formal models are information-based models where comments matter by revealing information to the agency [@Gailmard2017;@Libgober2018], and empirical studies support the conclusion that information is the currency of lobbying in rulemaking [@Yackee2012;@Cook2017;@Gordon2018;@Walters2019].  
 
@@ -105,7 +53,7 @@ business interests [@Seifter2016UCLA; @Crow2015; @Wagner2011; @West2009; @Yackee
 existing theory and empirical scholarship suggest skepticism that it
 matters [@Balla2018]. 
 
-### Political Information
+## Political Information
 
 @Nelson2012
 identify political information as a potentially influential result of
@@ -154,11 +102,11 @@ an attentive public [@Key1961] or issue public [@Converse1964].
 
 Regardless of the specific claims of commenters, expanding the scope of conflict by mobilizing public attention to rulemaking may shift policymakers' attention away from the technical information provided by the "usual suspects" and toward the distributive effects of policy.
 
-### Hypotheses
+## Hypotheses
 
 The existing literature on bureaucratic policymaking in general---and EJ advocacy in particular---presents competing intuitions about the effect of EJ activists and the broader public in rulemaking. Below, I posit hypotheses in the direction that these advocacy groups do affect rulemaking while also noting equally plausible intuitions for the opposite conclusions. Because of the general skepticism and empirical work that has found that advocacy groups and public pressure campaigns have little to no effect on rulemaking, I set the empirical bar low: do EJ advocates and public pressure campaigns have *any* effect at all on policy documents. 
 
-#### Information 
+### Information 
 
 > *Distributive Information Hypothesis*: Policymakers are more likely to change whether or how policies address distributional justice when commenters raise distributional justice concerns.
 
@@ -176,7 +124,7 @@ Bureaucracies are specialized institutions built to make and implement certain k
 
 The competing intuition to the *Policy Receptivity Hypothesis* is that policymakers familiar with EJ concerns are the *least* likely to respond to EJ concerns because they anticipate these concerns--they are not novel. If so, agencies that rarely consider EJ may be more easily influenced by commenters who present somewhat novel information and concerns. These agencies may be less likely to have preempted critiques.
 
-#### Public Pressure 
+### Public Pressure 
 
 > *General Pressure Hypothesis*: Policies are more likely to change when they receive more public attention (e.g., more public comments).
 
