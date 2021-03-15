@@ -67,8 +67,8 @@
     \ifxetex
       % page size defined by xetex
       % unicode breaks when used with xetex
-      \PassOptionsToPackage{hyphens}{url}\usepackage[setpagesize = false, 
-                                                     unicode = false, 
+      \PassOptionsToPackage{hyphens}{url}\usepackage[setpagesize = false,
+                                                     unicode = false,
                                                      xetex]{hyperref}
     \else
       \PassOptionsToPackage{hyphens}{url}\usepackage[unicode = true]{hyperref}
@@ -82,6 +82,7 @@
   }
 \makeatother
 
+%\usepackage(hyperref}
 \hypersetup{breaklinks = true,
             bookmarks = true,
             pdfauthor = {Devin Judge-Lord ()},
@@ -101,6 +102,22 @@
   \def\fps@figure{hbtp}
 \makeatother
 
+  \usepackage{floatrow}
+  \usepackage{float}
+  \floatsetup[figure]{capposition=top}
+  \usepackage{booktabs}
+  \usepackage{longtable}
+  \usepackage{array}
+  \usepackage{multirow}
+  \usepackage{wrapfig}
+  \usepackage{float}
+  \usepackage{colortbl}
+  \usepackage{pdflscape}
+  \usepackage{tabu}
+  \usepackage{threeparttable}
+  \usepackage{threeparttablex}
+  \usepackage[normalem]{ulem}
+  \usepackage{makecell}
 
 % optional footnotes as endnotes
 
@@ -127,7 +144,7 @@
             }
 
 % auto-format date?
-  \date{2021-03-14}
+  \date{2021-03-15}
 
 
 % abstract
@@ -150,6 +167,7 @@
 %\usepackage{float}
 %\floatstyle{plaintop}
 %\restylefloat{table}
+
 \usepackage{floatrow}
 \floatsetup[figure]{capposition=top}
 \floatsetup[table]{capposition=top}
@@ -269,8 +287,7 @@ Furthermore, the correlation between EJ activist mobilization and policy changes
 \hypertarget{theory}{%
 \section{Theory}\label{theory}}
 
-Participatory processes like public comment periods, where government
-agencies must solicit public input on draft policies, are said to provide democratic legitimacy \citep{Croley2003, Rosenbloom2003}, new technical information \citep{Yackee2006JPART, Nelson2012}, and political oversight opportunities \citep{Balla1998, Mccubbins1984}. While recent scholarship on agency policymaking has shed light on sophisticated lobbying by businesses, we know surprisingly little about the vast majority of public comments, which are submitted as part of public pressure campaigns.\footnote{
+Participatory processes like public comment periods, where policymakers must solicit public input on draft policies, are said to provide democratic legitimacy \citep{Croley2003, Rosenbloom2003}, new technical information \citep{Yackee2006JPART, Nelson2012}, and political oversight opportunities \citep{Balla1998, Mccubbins1984}. While recent scholarship on agency policymaking has shed light on sophisticated lobbying by businesses, we know surprisingly little about the vast majority of public comments on proposed agency rules, which are submitted as part of public pressure campaigns.\footnote{
   As shown in \citet{judgelord2019SPSA}, most comments submitted to
   regulations.gov are part of organized campaigns, more akin to petition signatures than ``deliberative'' participation or sophisticated lobbying. Indeed, approximately 40 million out of
   50 million (80\%) of these public comments on rulemaking dockets between 2004 and 2019 were mobilized by just 100
@@ -284,9 +301,9 @@ surprisingly little to say about this kind of civic participation.
 \hypertarget{technical-information-as-the-currency-of-lobbying}{%
 \subsection{Technical Information as the Currency of Lobbying}\label{technical-information-as-the-currency-of-lobbying}}
 
-Dominant theories of bureaucratic policymaking focus on how agencies learn about policy problems \citep{Kerwin2011}. Leading formal models are information-based models where comments matter by revealing information to the agency \citep{Gailmard2017, Libgober2018}, and empirical studies support the conclusion that information is the currency of lobbying in rulemaking \citep{Yackee2012, Cook2017, Gordon2018, Walters2019}.
+Dominant theories of bureaucratic policymaking focus on how agencies learn about policy problems and solutions \citep{Kerwin2011}. Leading formal models are information-based models where comments matter by revealing information to the agency \citep{Gailmard2017, Libgober2018}, and empirical studies support the conclusion that information is the currency of lobbying in rulemaking \citep{Yackee2012, Cook2017, Gordon2018, Walters2019}.
 
-Rulemaking is a highly technocratic and legalistic form of policymaking that explicitly privileges scientific and legal facts as the appropriate basis for decisions. Procedural requirements to consider relevant information create incentives for lobbying groups to overwhelm agencies with complex technical information, making rulemaking obscure to all but the most well-informed insiders \citep{Wagner2010}.
+Rulemaking is an especially technocratic and legalistic form of policymaking that explicitly privileges scientific and legal facts as the appropriate basis for decisions. Procedural requirements to consider relevant information create incentives for lobbying groups to overwhelm agencies with complex technical information, making rulemaking obscure to all but the most well-informed insiders \citep{Wagner2010}.
 As \citet{Yackee2019} notes:
 
 \begin{quote}
@@ -310,9 +327,10 @@ matters \citep{Balla2018}.
 \hypertarget{political-information}{%
 \subsection{Political Information}\label{political-information}}
 
+While social movement organizations do engage in fights over technical reports and scientific studies, the information that activists provide is often more overtly political.
 \citet{Nelson2012}
 identify political information as a potentially influential result of
-lobbying by different business coalitions. While they focus on
+groups expanding their lobbying coalition. While they focus on
 mobilizing experts, \citet{Nelson2012} describe a dynamic that can be extended
 to mobilizing public pressure:
 
@@ -332,15 +350,12 @@ I argue that, concerning political information, this logic extends to
 non-experts in at least two ways.
 
 \textbf{1. Information about a policy's disparate effects:}
-First, while specific \emph{data} on disparate impacts of policy may require expertise, anyone can highlight a community of concern and potential distributional effects of a policy. Just as \citet{Nelson2012} found regarding the mobilizing of diverse experts, mobilizing diverse communities affected by a policy may introduce new claims from new actors about how the communities benefited or harmed by a policy should be constructed. Instead of bolstering
-\emph{scientific} claims, such comments bolster \emph{political}
-claims about who counts and even \emph{who exists} as a distinct, potentially affected group that deserves policymakers' attention. While bureaucratic policymaking in the United States is dominated by cost-benefit analysis that must abstract away from the distribution of costs and benefits, agencies have many reasons to consider the distributional effects of policy and often do.
+First, while specific \emph{data} on disparate impacts of policy may require expertise, anyone can highlight a community of concern and potential distributional effects of a policy. Just as \citet{Nelson2012} found regarding the mobilizing of diverse experts, mobilizing diverse communities affected by a policy may introduce new claims from new actors about how the communities that a policy may benefit or harm should be constructed. Instead of bolstering \emph{scientific} claims, such comments focusing on a policy's disparate impacts bolster \emph{political} claims about who counts and even \emph{who exists} as a distinct, potentially affected group that deserves policymakers' attention. While bureaucratic policymaking in the United States is dominated by cost-benefit analysis that must abstract away from the distribution of costs and benefits, agencies have many reasons to consider the distributional effects of policy and often do.
+Thus comments raising distributive concerns provide potentially influential political information.
 
 \textbf{2. Public pressure as a political resource: }
-Second, The number of supporters may
-matter because it indicates support among relevant communities or the broader public. Again, instead of bolstering
-\emph{scientific} claims, perceived public support bolsters \emph{political}
-claims.
+Second, the number of supporters may
+matter because it indicates support among relevant communities or the broader public. Again, instead of bolstering \emph{scientific} claims, perceived levels of public support bolster \emph{political} claims.
 
 Like other forms of political participation, such as protests and letter-writing campaigns,
 public pressure campaigns provide no new technical information.
@@ -360,52 +375,54 @@ Regardless of the specific claims of commenters, expanding the scope of conflict
 \hypertarget{hypotheses}{%
 \subsection{Hypotheses}\label{hypotheses}}
 
-The existing literature on bureaucratic policymaking in general---and EJ advocacy in particular---presents competing intuitions about the effect of EJ activists and the broader public in rulemaking. Below, I posit hypotheses in the direction that these advocacy groups do affect rulemaking while also noting equally plausible intuitions for the opposite conclusions. Because of the general skepticism and empirical work that has found that advocacy groups and public pressure campaigns have little to no effect on rulemaking, I set the empirical bar low: do EJ advocates and public pressure campaigns have \emph{any} effect at all on policy documents.
+The existing literature on bureaucratic policymaking in general---and EJ advocacy in particular---presents competing intuitions about the effect of EJ activists and the broader public in rulemaking. From the above discussion political information, I distill five hypotheses ---three about distributive information and two about public pressure. I posit hypotheses in the direction that these advocacy groups do affect rulemaking while also noting equally plausible intuitions for the opposite conclusions. Because of the general skepticism and empirical work that has found that advocacy groups and public pressure campaigns have little to no effect on rulemaking, I set the empirical bar low: do EJ advocates and public pressure campaigns have \emph{any} effect at all on policy documents.
 
-\hypertarget{information}{%
-\subsubsection{Information}\label{information}}
+\hypertarget{distributive-information-hypotheses}{%
+\paragraph{Distributive Information Hypotheses}\label{distributive-information-hypotheses}}
 
 \begin{quote}
-\emph{Distributive Information Hypothesis}: Policymakers are more likely to change whether or how policies address distributional justice when commenters raise distributional justice concerns.
+\emph{Distributive Information Hypothesis}: Policymakers are more likely to change whether or how policies address distributive justice when commenters raise distributive justice concerns.
 \end{quote}
 
-As discussed above, agency policymakers have incentives to address distributive concerns, especially environmental justice, due to judicial review of compliance with the Administrative Procedures Act and E.O. 12898. By raising EJ concerns, commenters draw attention to the distribution of policy impacts--who a policy may affect. Asserting definitions and categories of stakeholders and affected groups is one type of policy-relevant information.
+As discussed above, agency policymakers have incentives to address distributive concerns, especially environmental justice, due to E.O. 12898 and judicial review of compliance with the Administrative Procedures Act. By raising EJ concerns, commenters draw attention to the distribution of policy impacts---who a policy may affect. Asserting definitions and categories of stakeholders and affected groups is one type of policy-relevant information.
 
 \begin{quote}
 \emph{Repeated Information Hypothesis}: Policymakers are more likely to change whether or how policies address concerns when more commenters raise them.
 \end{quote}
 
-Scholarship on lobbying in rulemaking emphasizes the value of repeated information and coalition size \citep{Nelson2012}. This implies that the more unique comments raising EJ concerns, the more likely the coalition will influence policy.
+Scholarship on lobbying in rulemaking emphasizes the value of repeated information and coalition size \citep{Nelson2012}. This implies that the more unique comments raise EJ concerns, the more likely the coalition will influence policy.\footnote{I distinguish unique comments from mass comments. The number of unique comments approximates a coalition's size regarding the number of different groups, each submitting a unique text. The total number of comments, including signatures on identical form letters, measures public attention and pressure.}
 
-Competing intuitions and other prior studies oppose both the \emph{Distributive and Repeated Information Hypotheses}. Scholarship on lobbying in rulemaking emphasizes the importance of novel science and technical information--things unknown to agency experts \citep{Wagner2010}. Furthermore, scholarship finds business commenters are influential, and public interest groups are not \citep[\citet{Haeder2015}]{Yackee2006JOP}. Furthermore, policymakers may be more likely to anticipate EJ concerns when they are more salient to interest groups and the public. This would mean that rules where commenters raise EJ concerns may be the \emph{least} likely to change whether or how EJ is addressed because policymakers are more likely to have considered the issues and stated their final position in the draft rule.
+Competing intuitions and other prior studies oppose both the \emph{Distributive and Repeated Information Hypotheses}. Formal models and empirical scholarship on lobbying in rulemaking emphasize the importance of novel science and technical information---things unknown to agency experts \citep{Wagner2010}. Furthermore, scholarship finds business commenters are influential, and public interest groups are not \citep{Yackee2006JOP, Haeder2015}. Furthermore, policymakers may be more likely to anticipate EJ concerns when they are more salient to interest groups. This would mean that rules where commenters raise EJ concerns may be the \emph{least} likely to change whether or how EJ is addressed because policymakers are more likely to have already considered these issues and stated their final position in the draft rule.
 
 \begin{quote}
 \emph{Policy Receptivity Hypothesis}: Policymakers that more frequently address concerns like environmental justice will be more responsive to commenters raising those concerns.
 \end{quote}
 
-Bureaucracies are specialized institutions built to make and implement certain kinds of policies based on certain goals and facts. Each agency's distinct norms and epistemic community determine whether policymakers see issues as ``environmental'' and whether they have disparate impacts that demand consideration of distributive ``justice.'' Some policymakers may see their policy area as more related to environmental justice than others and thus be more receptive to commenter concerns.
+Bureaucracies are specialized institutions built to make and implement certain kinds of policies based on certain goals and types of facts. Each agency's distinct norms and epistemic community determine whether policymakers see issues as ``environmental'' and whether they have disparate impacts that demand consideration of distributive ``justice.'' Some policymakers may see their policy area as more related to environmental justice than others and thus be more receptive to commenter concerns.
 
-The competing intuition to the \emph{Policy Receptivity Hypothesis} is that policymakers familiar with EJ concerns are the \emph{least} likely to respond to EJ concerns because they anticipate these concerns--they are not novel. If so, agencies that rarely consider EJ may be more easily influenced by commenters who present somewhat novel information and concerns. These agencies may be less likely to have preempted critiques.
+The competing intuition to the \emph{Policy Receptivity Hypothesis} is that policymakers familiar with EJ concerns are the \emph{least} likely to respond to EJ concerns because they anticipate these concerns---they are not novel to them. If so, agencies that rarely consider EJ may be more easily influenced by commenters who present somewhat novel information and concerns. These policymakers may be less likely to have preempted EJ critiques in the draft policy.
 
-\hypertarget{public-pressure}{%
-\subsubsection{Public Pressure}\label{public-pressure}}
+\hypertarget{public-pressure-hypotheses}{%
+\paragraph{Public Pressure Hypotheses}\label{public-pressure-hypotheses}}
 
 \begin{quote}
 \emph{General Pressure Hypothesis}: Policies are more likely to change when they receive more public attention (e.g., more public comments).
 \end{quote}
 
-The competing intuition against the \emph{General Pressure Hypothesis} is again that large numbers of comments indicate policy processes that were already salient before the public pressure campaign. Policymakers anticipate public scrutiny and are thus more likely to have stated their final position in the draft rule.
+If policymakers respond to public pressure, policy should be more likely to change when more people comment on a draft policy.
+
+The competing intuition against the \emph{General Pressure Hypothesis} is again that large numbers of comments indicate policy processes that were already salient before the public pressure campaign. Policymakers anticipate public scrutiny and are thus more likely to have stated their final position in the draft policy. If this is the case, policies with more public comments should be \emph{less} likely to change. Public attention could also be unrelated to policy change, meaning that policymakers are neither anticipating nor responding to public attention in writing or revising policy documents.
 
 \begin{quote}
-\emph{Specific Pressure Hypothesis}: Policies are more likely to address an issue when they receive more public attention (e.g., more public comments) \emph{and} some comments raise that issue.
+\emph{Specific Pressure Hypothesis}: Policies are more likely to address an issue when they receive more public attention (e.g., more public comments) \emph{and} at least one comment raises that issue.
 \end{quote}
 
-This hypothesis asserts that the overall level of public attention will condition policy responses to specific issues--it is the interaction between the number of total public comments and at least some of those comments raising EJ concerns that makes policy more likely to address EJ.
+This hypothesis asserts that the overall level of public attention will condition policy responses to specific claims--it is the interaction between the number of total public comments and at least one of those comments raising EJ concerns that makes policy more likely to address EJ.
 
-The competing intuition against the \emph{Specific Pressure Hypothesis} is again that large numbers of comments indicate high-salience rulemakings where the agency anticipates public scrutiny, including how it did or did not address specific issues like environmental justice. Policymakers anticipate public scrutiny and are thus more likely to have stated their final position in the draft rule.
+The competing intuition against the \emph{Specific Pressure Hypothesis} is again that large numbers of comments indicate high-salience rulemakings where policymakers are more likely to anticipate public scrutiny, including how they did or did not address specific issues like environmental justice. If policymakers anticipate public scrutiny, they may be more likely to preempt EJ concerns and state their final position in the draft policy.
 
 \hypertarget{testing-the-theory}{%
-\subsection{Testing the Theory}\label{testing-the-theory}}
+\section{Testing the Theory}\label{testing-the-theory}}
 
 \hypertarget{environmental-justice-as-a-boundary-drawing-tool}{%
 \paragraph{``Environmental Justice'' as a Boundary-drawing Tool}\label{environmental-justice-as-a-boundary-drawing-tool}}
@@ -435,23 +452,23 @@ environmental justice. For the same reason, commenters who critique draft rules 
 While EO 12898 does not itself create a right to sue agencies, courts may strike down rules for failing to comply with procedural requirements of the Administrative Procedures Act (APA) and National Environmental Policy Act (NEPA) if the agency fails to ``examine the relevant data'' or ``consider an important aspect of the problem'' (\emph{Motor Vehicle Mfrs. Ass'n v. State Farm Mut. Auto. Ins. Co.}, 1983). This can include an agency's 12898 EJ analysis: ``environmental justice analysis can be reviewed under NEPA and the APA'' (\emph{Communities Against Runway Expansion, Inc.~v. FAA}, 2004).
 
 \hypertarget{data}{%
-\subsubsection{Data}\label{data}}
+\subsection{Data}\label{data}}
 
-To examine whether EJ activists or public pressure campaigns shape policy documents,
-I collect the text of draft rules, public comments, and final rules from regulations.gov. Then, I select rulemaking documents from agencies that published at least one rule explicitly addressing EJ from 1993 to 2020. This yields over 25,000 rulemaking dockets from 40 agencies. 12,257 of these have both a proposed and final rule.\footnote{Some final rules are published without a draft, and some proposed rules are withdrawn or never finalized. Additional descriptives on each type of rules are available in the online appendix.}
+To examine whether EJ activists and public pressure campaigns shape policy documents,
+I collect the text of all draft rules, public comments, and final rules from regulations.gov. Then, I select rulemaking documents from agencies that published at least one rule explicitly addressing EJ from 1993 to 2020. This yields over 25,000 rulemaking dockets from 40 agencies. 12,257 of these have both a proposed and final rule.\footnote{Some final rules are published without a draft, and some proposed rules are withdrawn or never finalized. Additional descriptives on each type of rule are available in the online appendix.}
 
-Despite E.O. 12898, most rules do not address EJ. Figure \ref{fig:ej-data} shows that most draft and final rules (about 90\%) do not address EJ. Interestingly, the total number of final rules and the percent of the total addressing EJ have remained fairly stable for the time period where regulations.gov data are complete (after 2005). Every year from 2006 to 2020, these agencies published between 2000 and 3000 final rules, of which between 200 and 300 addressed EJ.
+Despite E.O. 12898, most rules do not address EJ. Figure \ref{fig:ej-data} shows that most draft and final rules (about 90\%) do not mention ``environmental justice.'' Interestingly, the total number of final rules and the percent of the total addressing EJ have remained fairly stable for the time period where regulations.gov data are complete (after 2005). Every year from 2006 to 2020, these agencies published between 2000 and 3000 final rules, of which between 200 and 300 addressed EJ.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.99\linewidth]{/Users/devin/dissertation/Figs/ej-data-ejpr-1} \includegraphics[width=0.99\linewidth]{/Users/devin/dissertation/Figs/ej-data-ejfr-1} 
+{\centering \includegraphics[width=1\linewidth]{/Users/devin/dissertation/Figs/ej-data-ejpr-1} \includegraphics[width=1\linewidth]{/Users/devin/dissertation/Figs/ej-data-ejfr-1} 
 
 }
 
 \caption{Proposed and Final Rules by Whether they Address Environmental Justice.}\label{fig:ej-data}
 \end{figure}
 
-Even at the Environmental Protection Agency (EPA), where most policies are clearly framed as ``environmental'' issues, a consistent minority of rules address EJ. Many agencies that make policy with clear EJ effects almost never address EJ. These include the Department of Housing and Urban Development (HUD), Nuclear Regulatory Commission (NRC), the Office of Surface Mining (OSM), National Oceanic and Atmospheric Administration (NOAA), and Fish and Wildlife Service (FWS). A majority of rules addressed EJ only in a few years at a few agencies that publish relatively few rules, including the Council on Environmental Quality (CEQ), Forest Service (FS), Federal Emergency Management Agency (FEMA), Army Corps of Engineers (COE), and several Department of Transportation agencies (the Federal High Way Administration and Federal Railroad Administration (FRA)). Figure \ref{fig:ej-data-agencies100} shows the number of rulemaking projects over time by whether they ultimately addressed EJ at agencies that either published more than ten rules addressing EJ or received over 100 comments with EJ concerns.
+Even at the Environmental Protection Agency (EPA), where most policies are clearly framed as ``environmental'' issues, a consistent minority of rules address EJ. Many agencies that make policy with clear EJ effects almost never address EJ. These include the Fish and Wildlife Service (FWS), Department of Housing and Urban Development (HUD), National Oceanic and Atmospheric Administration (NOAA), Nuclear Regulatory Commission (NRC), and the Office of Surface Mining (OSM). A majority of rules addressed EJ only in a few years at a few agencies that publish relatively few rules, including the Council on Environmental Quality (CEQ), Army Corps of Engineers (COE), Federal Emergency Management Agency (FEMA), Forest Service (FS), and several Department of Transportation agencies (the Federal High Way Administration (FHWA), Federal Motor Carrier Safety Administration (FMCSA), Federal Railroad Administration (FRA), and Federal Transit Administration (FTA)). Figure \ref{fig:ej-data-agencies100} shows the number of rulemaking projects over time by whether they ultimately addressed EJ at agencies that either published more than ten rules addressing EJ or receiving over 100 comments raising EJ concerns.
 
 \begin{figure}
 
@@ -459,13 +476,13 @@ Even at the Environmental Protection Agency (EPA), where most policies are clear
 
 }
 
-\caption{Number of Proposed and Final Rules Addressing Environmental Justice at the Environmental Protection Agency (EPA), Department of Housing and Urban Development (HUD), Nuclear Regulatory Commission (NRC), the Office of Surface Mining (OSM), National Oceanic and Atmospheric Administration (NOAA), Fish and Wildlife Service (FWS), Council on Environmental Quality (CEQ), Forest Service (FS), Federal Emergency Management Agency (FEMA), the Army Corps of Engineers (COE), Federal High Way Administration (FHWA), Federal Railroad Administration (FRA), National Highway Transportation Saftey Administration (NHTSA)}\label{fig:ej-data-agencies100}
+\caption{Number of Proposed and Final Rules Addressing Environmental Justice at the Council on Environmental Quality (CEQ), Army Corps of Engineers (COE), Department of Transportation (DOT), Environmental Protection Agency (EPA), Federal Emergency Management Agency (FEMA), Federal High Way Administration (FHWA), Federal Motor Carrier Safety Administration (FMCSA), Federal Railroad Administration (FRA), Forest Service (FS), Federal Transit Administration (FTA), Fish and Wildlife Service (FWS), Department of Housing and Urban Development (HUD), National Highway Transportation Saftey Administration (NHTSA), National Oceanic and Atmospheric Administration (NOAA), Nuclear Regulatory Commission (NRC), and Office of Surface Mining (OSM)}\label{fig:ej-data-agencies100}
 \end{figure}
 
 \hypertarget{comments}{%
 \paragraph{Comments}\label{comments}}
 
-Figure \ref{fig:ej-comments} shows the number of comments on each proposed rule published between 1993 and 2020. Light red circles indicate rules where no commenters raised EJ concerns. Dark blue Triangles indicate rules where they did. The bottom row of plots shows the subset of rules where ``environmental justice'' appeared in neither the draft nor the final rule. The middle row of plots show rules where ``environmental justice'' appeared in the final but not the draft. My first analysis compares these two rows. The top row of plots shows rules where ``environmental justice'' appeared in both the draft and final rule. My second analysis compares rules in this first row. Predictably, commenters most often raised EJ concerns on rules in the first row.
+Figure \ref{fig:ej-comments} shows the number of comments on each proposed rule published between 1993 and 2020. Light red circles indicate rules where no commenters raised EJ concerns. Dark blue Triangles indicate rules where they did. The bottom row of plots shows the subset of rules where ``environmental justice'' appeared in neither the draft nor the final rule. The middle row of plots shows rules where ``environmental justice'' appeared in the final but not the draft. My first analysis compares these two rows. The top row of plots shows rules where ``environmental justice'' appeared in both the draft and final rule. My second analysis compares rules in this first row. Predictably, commenters most often raised EJ concerns on rules in the first row.
 
 \begin{figure}
 
@@ -564,7 +581,7 @@ fund a campaign. However, smaller, more
 member-driven groups may partner with national groups that have more resources to
 mobilize on their behalf.
 Finally, a third, much less common type of commenter raises EJ issues
-as a way to re-frame them as ongoing debates and thus undermine their
+as a way to reframe them as ongoing debates and thus undermine their
 urgency. I call this reason for engaging as ``breaking a perceived
 consensus.'' In a way, the fact that an energy company felt compelled to
 acknowledge and question EJ concerns suggests their
@@ -601,7 +618,7 @@ theorizing and activism have been led by African Americans
 \citep{Bullard1993}.
 
 \hypertarget{tracing-ideas-through-rulemaking-environmental-justice-as-a-contested-concept}{%
-\subsubsection{Tracing Ideas Through Rulemaking: ``Environmental Justice'' as a Contested Concept}\label{tracing-ideas-through-rulemaking-environmental-justice-as-a-contested-concept}}
+\subsection{Tracing Ideas Through Rulemaking: ``Environmental Justice'' as a Contested Concept}\label{tracing-ideas-through-rulemaking-environmental-justice-as-a-contested-concept}}
 
 Using an environmental justice frame does not always imply the same
 communities of concern. Environmental justice emerged from movements
@@ -742,7 +759,7 @@ houses of Congress. The expansion of the analysis from one draft to the
 next seems to be in response to activist pressure.
 
 \hypertarget{measuring-policy-change}{%
-\subsubsection{Measuring Policy Change}\label{measuring-policy-change}}
+\subsection{Measuring Policy Change}\label{measuring-policy-change}}
 
 Having shown how public comments and pressure can influence policy texts, I assess the general relationship between comments and policy change. I use two indicators of policy change to model the effect of public comments on policy: \emph{whether} a rule addresses EJ and \emph{how} it addresses EJ. Both measures represent a relatively low bar, indicating whether the agency explicitly paid any attention to EJ. This is appropriate given that prior research shows little to no effect of public comments from advocacy groups and little attention to EJ in particular.
 
@@ -765,10 +782,10 @@ When an agency addresses EJ in the draft rule, it is almost always in a section 
 To measure change, I parse draft and final rules into sentences and identify sentences containing the phrase ``environmental justice.'' If these sentences are identical, this indicates the agency did not engage with comments raising EJ concerns.\footnote{An alternative approach would be to parse documents by section and assess whether E.O.12898 sections are identical. Parsing by sentences has three advantages: it is computationally faster, it avoids problems with section numbering and other frustrations with section matching, and it captures attention to EJ outside of this section, especially in the section responding to comments. If an agency is paying attention to EJ issues, sentence matching will be most likely to detect it. However, other measures, such as the percent of EJ sentences changed, the percent of words in a 12898 section that changed, or the change in topic proportions \citep{Judge-Lord2017}, could be useful in future work.}
 
 \hypertarget{results}{%
-\subsection{Results}\label{results}}
+\section{Results}\label{results}}
 
 \hypertarget{are-final-rules-more-likely-to-address-environmental-justice-after-comments-do-so}{%
-\subsubsection{Are final rules more likely to address environmental justice after comments do so?}\label{are-final-rules-more-likely-to-address-environmental-justice-after-comments-do-so}}
+\subsection{Are final rules more likely to address environmental justice after comments do so?}\label{are-final-rules-more-likely-to-address-environmental-justice-after-comments-do-so}}
 
 This subsection presents results from an analysis of draft
 rules, comments, and final rules. Descriptively,
@@ -778,37 +795,38 @@ justice is not addressed in the draft rule, a higher percent of rules add EJ lan
 Overall rates of adding EJ in rules without EJ comments decreased over time, leveling out at 3\% during the Obama and Trump presidencies. The rates of adding EJ when commenters did raise these concerns is consistently much higher, but it also decreases over time, from 57\% under G.W. Bush to 26\% under Trump.
 EPA had a relatively high baseline rate of change (10\%), which increased to 52\% when comments raised EJ concerns. Most other agencies also added EJ at a higher rate when comments raised EJ concerns; indeed, most agencies almost never do so when comments did not raise EJ concerns.\footnote{More discriptive statistics and figures are available in the online appendix.}
 
-Given differences across presidents, agencies, and the number of comments, I estimate logit regression where the outcome is whether environmental justice was addressed in the final rule (Models 1 and 2 in table \ref{tab:tables}). The predictors are
+Given differences across presidents, agencies, and the number of comments, I estimate logit regression where the outcome is whether environmental justice was addressed in the final rule (Models 1 and 2 in Table \ref{tab:tables}). The predictors are
 whether EJ was addressed in the comments, the number of unique comments addressing EJ, the total number of comments, and the interaction between whether EJ was raised and the total number of comments received. Models 3 and 4 are exactly the same as 1 and 2, except that the outcome is now change in how EJ is discussed (described in the next section). All models include fixed effects for the presidential administration. Models 2 and 4 also include fixed effects for agency. Thus, estimates in Models 1 and 3 include variation \emph{across} agencies, whereas estimates in models 2 and 4 rely on variation \emph{within} agencies. All estimates rely on variation \emph{within} the presidential administration.
 All predicted probabilities shown below include agency fixed effects, models 2 and 4.
 
-\begin{table}[H]
-\centering
-\caption{\label{tab:tables}Logit Regression Models Predicting Change in Final Rule Text}
+\begin{table}
 
+\caption{\label{tab:tables}Logit Regression Predicting Change in Rule Text}
+\centering
 \begin{tabular}[t]{lcccc}
 \toprule
-Model  & 1 & 2 & 3 & 4\\
-(Dependent Variable)  & (EJ Added) & (EJ Added) & (EJ Changed) & (EJ Changed)\\
+  & 1 & 2 & 3 & 4\\
 \midrule
-EJ comment = TRUE & 3.348*** & 2.284*** & 0.672*** & 0.731***\\
- & (0.219) & (0.233) & (0.250) & (0.255)\\
-log(comments + 1) & 0.140*** & 0.231*** & -0.093*** & -0.128***\\
- & (0.022) & (0.034) & (0.029) & (0.031)\\
-Unique EJ comments & 0.005 & 0.124** & 0.036** & 0.044***\\
- & (0.006) & (0.051) & (0.015) & (0.016)\\
-EJ comment x log(comments + 1) & -0.309*** & -0.194*** & 0.051 & 0.061\\
- & (0.049) & (0.066) & (0.049) & (0.051)\\
+Dependent Variable & EJ Added & EJ Added & EJ Changed & EJ Changed\\
+\hline
+EJ Comment & 3.363*** & 2.414*** & 0.717*** & 0.748***\\
+ & (0.221) & (0.240) & (0.243) & (0.246)\\
+Log(Comments+1) & 0.068** & 0.232*** & -0.147*** & -0.156***\\
+ & (0.028) & (0.036) & (0.032) & (0.033)\\
+Unique EJ Comments & 0.005 & 0.227*** & 0.032** & 0.036**\\
+ & (0.006) & (0.068) & (0.014) & (0.014)\\
+EJ comment*Log(Comments+1) & -0.227*** & -0.226*** & 0.071 & 0.069\\
+ & (0.052) & (0.072) & (0.050) & (0.051)\\
 \midrule
-Num.Obs. & 12234 & 12234 & 2034 & 2034\\
 President FE & X & X & X & X\\
 Agency FE &  & X &  & X\\
-AIC & 4263.5 & 3330.9 & 2279.7 & 2232.6\\
-BIC & 4322.8 & 3671.8 & 2324.6 & 2395.5\\
-Log.Lik. & -2123.728 & -1619.440 & -1131.840 & -1087.306\\
+Num.Obs. & 11721 & 11721 & 1885 & 1885\\
+AIC & 3868.6 & 3125.6 & 2180.4 & 2166.5\\
+BIC & 3927.5 & 3464.6 & 2224.7 & 2327.2\\
+Log.Lik. & -1926.296 & -1516.818 & -1082.192 & -1054.252\\
 \bottomrule
 \multicolumn{5}{l}{\textsuperscript{} * p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
-\multicolumn{5}{l}{\textsuperscript{} Full Table in the Online Appendix}\\
+\multicolumn{5}{l}{\textsuperscript{} }\\
 \end{tabular}
 \end{table}
 
@@ -871,7 +889,7 @@ often come up.
 Research agencies, including the Nuclear Regulatory Commission (NRC), National Oceanographic and Atmospheric Administration (NOAA), also have small but significant baseline rate of adding EJ to final rules.
 
 \hypertarget{are-rules-more-likely-to-change-how-they-address-environmental-justice-when-comments-mention-it}{%
-\subsubsection{Are rules more likely to change how they address environmental justice when comments mention it?}\label{are-rules-more-likely-to-change-how-they-address-environmental-justice-when-comments-mention-it}}
+\subsection{Are rules more likely to change how they address environmental justice when comments mention it?}\label{are-rules-more-likely-to-change-how-they-address-environmental-justice-when-comments-mention-it}}
 
 Turning to rules that do address EJ in the draft, we also see responsiveness to comments raising EJ concerns, now measured as whether any sentences containing ``environmental justice'' changed between draft and final rule.
 

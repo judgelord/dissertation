@@ -30,29 +30,29 @@ While EO 12898 does not itself create a right to sue agencies, courts may strike
 
 ### Data
 
-To examine whether EJ activists or public pressure campaigns shape policy documents,
-I collect the text of draft rules, public comments, and final rules from regulations.gov. Then, I select rulemaking documents from agencies that published at least one rule explicitly addressing EJ from 1993 to 2020. This yields over 25,000 rulemaking dockets from 40 agencies. 12,257 of these have both a proposed and final rule.^[Some final rules are published without a draft, and some proposed rules are withdrawn or never finalized. Additional descriptives on each type of rules are available in the online appendix.]
+To examine whether EJ activists and public pressure campaigns shape policy documents,
+I collect the text of all draft rules, public comments, and final rules from regulations.gov. Then, I select rulemaking documents from agencies that published at least one rule explicitly addressing EJ from 1993 to 2020. This yields over 25,000 rulemaking dockets from 40 agencies. 12,257 of these have both a proposed and final rule.^[Some final rules are published without a draft, and some proposed rules are withdrawn or never finalized. Additional descriptives on each type of rule are available in the online appendix.]
 
-Despite E.O. 12898, most rules do not address EJ. Figure \@ref(fig:ej-data) shows that most draft and final rules (about 90%) do not address EJ. Interestingly, the total number of final rules and the percent of the total addressing EJ have remained fairly stable for the time period where regulations.gov data are complete (after 2005). Every year from 2006 to 2020, these agencies published between 2000 and 3000 final rules, of which between 200 and 300 addressed EJ. 
+Despite E.O. 12898, most rules do not address EJ. Figure \@ref(fig:ej-data) shows that most draft and final rules (about 90%) do not mention "environmental justice." Interestingly, the total number of final rules and the percent of the total addressing EJ have remained fairly stable for the time period where regulations.gov data are complete (after 2005). Every year from 2006 to 2020, these agencies published between 2000 and 3000 final rules, of which between 200 and 300 addressed EJ. 
 
-```{r ej-data, fig.cap = "Proposed and Final Rules by Whether they Address Environmental Justice.", out.height = NULL, out.width = "99%", fig.show = "hold"}
+```{r ej-data, fig.cap = "Proposed and Final Rules by Whether they Address Environmental Justice.", out.height = NULL, out.width = "100%", fig.show = "hold"}
 
 knitr::include_graphics(here::here("Figs", "ej-data-ejpr-1.png") ) ##  
 
 knitr::include_graphics(here::here("Figs", "ej-data-ejfr-1.png") ) ## 
 ```
 
-Even at the Environmental Protection Agency (EPA), where most policies are clearly framed as "environmental" issues, a consistent minority of rules address EJ. Many agencies that make policy with clear EJ effects almost never address EJ. These include the Department of Housing and Urban Development (HUD), Nuclear Regulatory Commission (NRC), the Office of Surface Mining (OSM), National Oceanic and Atmospheric Administration (NOAA), and Fish and Wildlife Service (FWS).  A majority of rules addressed EJ only in a few years at a few agencies that publish relatively few rules, including the Council on Environmental Quality (CEQ), Forest Service (FS), Federal Emergency Management Agency (FEMA), Army Corps of Engineers (COE), and several Department of Transportation agencies (the Federal High Way Administration and Federal Railroad Administration (FRA)). Figure \@ref(fig:ej-data-agencies100) shows the number of rulemaking projects over time by whether they ultimately addressed EJ at agencies that either published more than ten rules addressing EJ or received over 100 comments with EJ concerns. 
+Even at the Environmental Protection Agency (EPA), where most policies are clearly framed as "environmental" issues, a consistent minority of rules address EJ. Many agencies that make policy with clear EJ effects almost never address EJ. These include the Fish and Wildlife Service (FWS), Department of Housing and Urban Development (HUD), National Oceanic and Atmospheric Administration (NOAA), Nuclear Regulatory Commission (NRC), and the Office of Surface Mining (OSM).  A majority of rules addressed EJ only in a few years at a few agencies that publish relatively few rules, including the Council on Environmental Quality (CEQ), Army Corps of Engineers (COE), Federal Emergency Management Agency (FEMA), Forest Service (FS), and several Department of Transportation agencies (the Federal High Way Administration (FHWA), Federal Motor Carrier Safety Administration (FMCSA), Federal Railroad Administration (FRA), and Federal Transit Administration (FTA)). Figure \@ref(fig:ej-data-agencies100) shows the number of rulemaking projects over time by whether they ultimately addressed EJ at agencies that either published more than ten rules addressing EJ or receiving over 100 comments raising EJ concerns. 
 
 
-```{r ej-data-agencies100, fig.cap = "Number of Proposed and Final Rules Addressing Environmental Justice at the Environmental Protection Agency (EPA), Department of Housing and Urban Development (HUD), Nuclear Regulatory Commission (NRC), the Office of Surface Mining (OSM), National Oceanic and Atmospheric Administration (NOAA), Fish and Wildlife Service (FWS), Council on Environmental Quality (CEQ), Forest Service (FS), Federal Emergency Management Agency (FEMA), the Army Corps of Engineers (COE), Federal High Way Administration (FHWA), Federal Railroad Administration (FRA), National Highway Transportation Saftey Administration (NHTSA)", out.height = NULL, out.width = "100%", fig.show = "hold"}
+```{r ej-data-agencies100, fig.cap = "Number of Proposed and Final Rules Addressing Environmental Justice at the Council on Environmental Quality (CEQ), Army Corps of Engineers (COE), Department of Transportation (DOT), Environmental Protection Agency (EPA), Federal Emergency Management Agency (FEMA), Federal High Way Administration (FHWA), Federal Motor Carrier Safety Administration (FMCSA), Federal Railroad Administration (FRA), Forest Service (FS), Federal Transit Administration (FTA), Fish and Wildlife Service (FWS), Department of Housing and Urban Development (HUD), National Highway Transportation Saftey Administration (NHTSA), National Oceanic and Atmospheric Administration (NOAA), Nuclear Regulatory Commission (NRC), and Office of Surface Mining (OSM)", out.height = NULL, out.width = "100%", fig.show = "hold"}
 
 knitr::include_graphics(here::here("Figs", "ej-data-agencies100-1.png") )
 ```
 
 #### Comments
 
-Figure \@ref(fig:ej-comments) shows the number of comments on each proposed rule published between 1993 and 2020. Light red circles indicate rules where no commenters raised EJ concerns. Dark blue Triangles indicate rules where they did. The bottom row of plots shows the subset of rules where "environmental justice" appeared in neither the draft nor the final rule. The middle row of plots show rules where "environmental justice" appeared in the final but not the draft. My first analysis compares these two rows. The top row of plots shows rules where "environmental justice" appeared in both the draft and final rule. My second analysis compares rules in this first row. Predictably, commenters most often raised EJ concerns on rules in the first row. 
+Figure \@ref(fig:ej-comments) shows the number of comments on each proposed rule published between 1993 and 2020. Light red circles indicate rules where no commenters raised EJ concerns. Dark blue Triangles indicate rules where they did. The bottom row of plots shows the subset of rules where "environmental justice" appeared in neither the draft nor the final rule. The middle row of plots shows rules where "environmental justice" appeared in the final but not the draft. My first analysis compares these two rows. The top row of plots shows rules where "environmental justice" appeared in both the draft and final rule. My second analysis compares rules in this first row. Predictably, commenters most often raised EJ concerns on rules in the first row. 
 
 
 ```{r ej-comments, fig.cap = "Number of Comments on Proposed and Final Rules and Whether Comments Raised Environmental Justice Concerns", out.height = NULL, out.width = "100%", fig.show = "hold"}
@@ -147,7 +147,7 @@ fund a campaign. However, smaller, more
 member-driven groups may partner with national groups that have more resources to
 mobilize on their behalf. 
 Finally, a third, much less common type of commenter raises EJ issues
-as a way to re-frame them as ongoing debates and thus undermine their
+as a way to reframe them as ongoing debates and thus undermine their
 urgency. I call this reason for engaging as "breaking a perceived
 consensus." In a way, the fact that an energy company felt compelled to
 acknowledge and question EJ concerns suggests their
@@ -326,7 +326,7 @@ Sometimes an agency will respond to a comment and add a 12898 section. For examp
 
 Less frequently, an agency may explicitly dismiss a comment and decline to add a 12898 section. For example, EPA responded to a comment on another rule, "One commenter stated that EPA failed to comply with Executive Order 12898 on Environmental Justice...We do not believe that these amendments will have any adverse effects on...minority and low-income populations...Owners or operators are still required to develop SSM plans to address emissions...The only difference from current regulations is that the source is not required to follow the plan" (71 FR 20445). As these examples illustrate, agencies may add text addressing environmental justice that would in no way satisfy critics. This measure merely indicates whether the agency engaged with the claims.
 
-<!--Barry you say that change between draft and final rules is the evidence that the agency "engaged" with EJ comments. But I don't think that's quite right. The agency might have engaged heavily but decided that the draft rule was fine. It's really whether they were persuaded by the comments that a change was necessary.-->
+<!--Barry: you say that change between draft and final rules is the evidence that the agency "engaged" with EJ comments. But I don't think that's quite right. The agency might have engaged heavily but decided that the draft rule was fine. It's really whether they were persuaded by the comments that a change was necessary.-->
 
 Most frequently, agencies neither responded to comments nor added a 12898 section.
 

@@ -40,14 +40,18 @@ library(ggplot2); theme_set(theme_bw());
     ggplot2.continuous.fill = "viridis"
   )
   scale_color_discrete <- function(...){
-    scale_color_viridis_d(..., direction = -1, begin = 0, end = .6, option = "plasma")}
+    scale_color_viridis_d(..., #direction = -1, 
+                          begin = 0, end = .6, option = "plasma")}
   scale_fill_discrete <- function(...){
-    scale_fill_viridis_d(..., direction = -1, begin = 0, end = .6, option = "plasma")}
+    scale_fill_viridis_d(..., #direction = -1, 
+                         begin = 0, end = .6, option = "plasma")}
   
   scale_color_continuous <- function(...){
-    scale_color_viridis_c(..., direction = -1, option = "plasma")}
+    scale_color_viridis_c(..., #direction = -1, 
+                          option = "plasma")}
   scale_fill_continuous <- function(...){
-    scale_fill_viridis_c(..., direction = -1, option = "plasma")}
+    scale_fill_viridis_c(..., #direction = -1, 
+                         option = "plasma")}
   
   
 kablebox <- . %>% 
@@ -209,12 +213,13 @@ rules %>%
 # pr over time
 rules %>% 
   filter(document_type == "Proposed Rule") %>% 
+  mutate(ej_pr = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
   ggplot() + 
   aes(x = year, fill = ej_pr) +
   geom_bar(alpha = .7, position = "dodge") + 
   labs(y  = "All Proposed Rules",
        x = "",
-       fill = "EJ Addressed\nin Proposed Rule") + 
+       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
   theme(axis.text.x = element_text(angle = 45, vjust = .5),
         panel.grid.major.x = element_blank(),
         panel.border = element_blank())
@@ -241,12 +246,13 @@ ejPR %>%
 # fr type over time
 rules %>% 
   filter(document_type == "Rule") %>% 
+  mutate(ej_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed")) %>% 
   ggplot() + 
   aes(x = year, fill = ej_fr) +
   geom_bar(alpha = .7, position = "dodge") + 
   labs(y  = "All Final Rules",
        x = "",
-       fill = "EJ Addressed\nin Final Rule") + 
+       fill = "" ) +# "EJ Addressed\nin Final Rule") + 
   theme(axis.text.x = element_text(angle = 45, vjust = .5),
         panel.grid.major.x = element_blank(),
         panel.border = element_blank())
@@ -319,13 +325,15 @@ breaks <-  c("`16",
 
 allFR %>%
   filter(year > 2004) %>%
+  mutate(ej_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed")) %>% 
   ggplot() + 
-  aes(x = Year, fill = ej_fr) +
+  aes(x = Year, fill = factor(ej_fr, levels = c("EJ Not Addressed", "EJ Addressed"))) +
   facet_wrap("agency", scales = "free_y") +
   geom_bar(alpha = .7) +
   labs(fill = "EJ in Final Rule",
        x = "",
        y = "")+ 
+  scale_fill_discrete(direction = -1) + 
   scale_x_discrete(breaks = breaks ) 
 ```
 
@@ -341,12 +349,15 @@ breaks <-  c("`16", "`12",
 allFR %>% 
   filter(agency_ej_comments > 100 | agency_ej_rules > 10 | agency == "FEMA",
          year > 2004) %>% #distinct(agency, docket_id, agency_ej_comments)
+  mutate(ej_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed")) %>% 
   ggplot() + 
-  aes(x = Year, fill = ej_fr) +
+  aes(x = Year, fill = factor(ej_fr, levels = c("EJ Not Addressed", "EJ Addressed"))) +
+  scale_fill_discrete(direction = -1) + 
   facet_wrap("agency", scales = "free_y") +
   geom_bar(alpha = .7) + 
-  labs(fill = "EJ in Final Rule",
+  labs(fill = "\"Environmental Justice\"\nin Final Rule",
        y = "Number of Rules") + 
+
   scale_x_discrete(breaks = breaks ) 
 ```
 
@@ -359,8 +370,11 @@ allFR %>%
 
 allPR %>% 
   count(Year, ej_pr, president) %>%
+    mutate(ej_pr = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
   ggplot() + 
-  aes(x = Year, y = n, fill = ej_pr) + 
+  aes(x = Year, y =n,
+      fill = factor(ej_pr, levels = c("EJ Not Addressed", "EJ Addressed"))) +
+  scale_fill_discrete(direction = -1) + 
   geom_col(alpha = .7, position = "dodge") + 
   facet_grid(. ~ president, scales = "free") + 
   labs(x = "Year",
@@ -379,8 +393,11 @@ allPR %>%
 
 allFR %>% 
   count(Year, ej_fr, direct, president) %>%
+    mutate(ej_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed")) %>% 
   ggplot() + 
-  aes(x = Year, y = as.integer(n), fill = ej_fr) + 
+  aes(x = Year, y = n,
+      fill = factor(ej_fr, levels = c("EJ Not Addressed", "EJ Addressed"))) +
+  scale_fill_discrete(direction = -1) + 
   geom_col(alpha = .7, position = "dodge") + 
   facet_grid(direct ~ president, scales = "free") + 
   labs(x = "Year",
@@ -393,8 +410,11 @@ allFR %>%
   mutate(ej_pr = ifelse(ej_pr, "EJ in Draft & Final Rule", "EJ Only in Final Rule"),
          ej_pr = ifelse(ej_fr, ej_pr, "No EJ Analysis")) %>% 
   count(Year, ej_pr, ej_comment, president) %>% 
+  mutate(ej_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised")) %>% 
   ggplot() + 
-  aes(x = Year, y = n, fill = ej_comment) + 
+  aes(x = Year, y = n,
+      fill = factor(ej_comment, levels = c("EJ Not Raised", "EJ Raised"))) +
+  scale_fill_discrete(direction = -1) + 
   geom_col(alpha = .7) + 
   facet_grid(ej_pr ~ president, scales = "free") + 
   labs(x = "",
@@ -413,17 +433,19 @@ allFR %>%
 
 ```{r ej-comments,fig.width=7}
 # ej_comments
+breaks <- c(1996, 2000, 2004, 2008, 2012, 2016, 2020)
 
 allFR %>% 
   filter(direct == "Draft Rule Published") %>% 
   mutate(ej_pr = ifelse(ej_pr, "EJ in Draft & Final Rule", "EJ Only in Final Rule"),
          ej_pr = ifelse(ej_fr, ej_pr, "No EJ Analysis")) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised")) %>% 
   ggplot() + 
-  aes(x = Year, color = ej_comment, shape = ej_comment) + 
+  aes(x = year, color = EJ_comment, shape = EJ_comment) + 
   # plot ej comments on top
   geom_jitter(alpha = .3, 
               aes(y = ifelse(ej_comment, NA, comments) ) ) + 
-    geom_jitter(alpha = .3,
+  geom_jitter(alpha = .3,
               aes(y = ifelse(ej_comment, comments, NA) ) ) +
   #geom_jitter(alpha = .3) + 
   facet_grid(ej_pr ~ president, scales = "free_x") + 
@@ -516,11 +538,12 @@ ejFR_PR %>%
   left_join(winrate) %>%
   group_by(ej_comment) %>% 
   mutate(mean = mean(c(`TRUE`, `FALSE`)),
+         EJ_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed"),
         EJ_comment = ifelse(ej_comment, "EJ Raised by Commenters", "EJ not Raised by Commenters")) %>% 
   ggplot() + 
   aes(x = EJ_comment, 
       y = n, 
-      fill = ej_fr, 
+      fill = EJ_fr, 
       label = ifelse(ej_fr == ej_comment, percent, NA) %>% str_c("%") ) +
   geom_col(alpha = .7) + 
   geom_text(aes(y = mean)) + 
@@ -554,10 +577,11 @@ ejFR_PR %>%
   count(ej_comment, ej_fr, president) %>% 
   left_join(winrate) %>%
   group_by(ej_fr) %>% 
-  mutate(EJ_comment = ifelse(ej_comment, "EJ Comments", "No EJ Comments") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "EJ Comments", "No EJ Comments"),
+         EJ_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed") ) %>% 
   ggplot() + 
   aes(x = n, y = EJ_comment, 
-      fill = ej_fr, 
+      fill = EJ_fr, 
       label = ifelse(ej_fr== ej_comment, percent, NA) %>% str_c("%") ) +
   geom_col(alpha = .7) + 
   geom_text(aes(x = `TRUE`), hjust = 0) + 
@@ -612,7 +636,8 @@ predicted <- augment(m_PR,
                      se_fit = TRUE
                      ) %>% 
   left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = str_c(ej_comment, ", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>% 
+           str_c(", N = ", n_ej_comment))
 
 
 # As a plot
@@ -659,7 +684,7 @@ predicted <- augment(m_PR,
                      se_fit = TRUE
                      ) %>% 
   left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = str_c(ej_comment, ", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
 
 
 # As a plot
@@ -703,7 +728,7 @@ predicted <- augment(m_PR,
                      se_fit = TRUE
                      )  %>% 
   left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = str_c(ej_comment, ", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
 
 
 # As a plot
@@ -818,7 +843,7 @@ predicted <- augment(m_PR_agency,
                      se_fit = TRUE
                      )  %>% 
   left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = str_c(ej_comment, ", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
 
 # calculate difference in probabilities
 predicted %<>% 
@@ -946,7 +971,7 @@ predicted <- augment(m_PR_agency,
                      se_fit = TRUE
                      )  %>% 
   left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = str_c(ej_comment, ", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
 
 
 # As a plot
@@ -1282,7 +1307,7 @@ predicted <- augment(mejPR,
                      se_fit = TRUE
                      ) %>% 
   left_join(ejFRejPR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = str_c(ej_comment, ", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
 
 
 # As a plot
@@ -1328,7 +1353,7 @@ predicted <- augment(mejPR,
                      se_fit = TRUE
                      ) %>% 
   left_join(ejFRejPR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = str_c(ej_comment, ", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
 
 
 # As a plot
@@ -1412,7 +1437,7 @@ predicted <- augment(mejPR,
                      se_fit = TRUE
                      ) %>% 
   left_join(ejFRejPR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = str_c(ej_comment, ", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
 
 
 # As a plot
@@ -1478,7 +1503,7 @@ ejFRejPR %>% count(agency, ej_comment, change)  %>%
 ### Models 
 ```{r}
 # interaction + agency dummies
-mejPR_agency <- glm(change ~ ej_comment*log(comments + 1) + 
+mejPR_agency <- glm(change ~ ej_comment*log(comments+1) + 
                       ej_comments_unique + #TODO this is colinear with above two, estimate nPR models
                       president +
                       agency,
@@ -1488,7 +1513,7 @@ mejPR_agency <- glm(change ~ ej_comment*log(comments + 1) +
 tidy(mejPR_agency) %>% kablebox()
 
 # with N ej comments + agency dummies
-mejnPR_agency <- glm(change ~ log(comments + 1) + 
+mejnPR_agency <- glm(change ~ log(comments+1) + 
                       ej_comments_unique +
                       president,
                     data = ejFRejPR, 
@@ -1502,7 +1527,7 @@ tidy(mejnPR_agency) %>% kablebox()
 ```{r ej-mejPR-agency}
 # ej-mejPR-agency
 
-mejPR_agency <- glm(change ~ ej_comment*log(comments + 1) + 
+mejPR_agency <- glm(change ~ ej_comment*log(comments+1) + 
                       ej_comments_unique +
                       president +
                       agency,
@@ -1533,7 +1558,7 @@ predicted %<>%
   left_join(ejFRejPR %>% count(agency, name = "n_agency")) %>% 
   left_join( ejFRejPR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
   mutate(Agency = str_c(diff, "% increase at ", agency, ", N = ", n_agency),
-         EJ_comment = str_c(ej_comment, ", N = ", n_ej_comment))
+         EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
 
 
 
@@ -1657,7 +1682,7 @@ predicted <- augment(mejPR_agency,
                      se_fit = TRUE
                      )  %>% 
   left_join(ejFRejPR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = str_c(ej_comment, ", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
 
 
 # As a plot
@@ -1738,10 +1763,7 @@ ejcomments %>%
 
 # Regression Tables
 
-```{r results = "asis"}
-# library(stargazer)
-#stargazer::stargazer(m_PR, m_PR_agency, mejPR, mejPR_agency, type = "html")
-
+```{r}
 library(modelsummary)
 models <- list(
   "1" = m_PR, 
@@ -1751,25 +1773,34 @@ models <- list(
 )
 
 rows <- tibble(
-  term = c("President FE", "Agency FE"),
-  `1` = c("X", ""), 
-  `2` =c("X", "X"), 
-  `3`  = c("X", ""), 
-  `4` = c("X", "X")
+  term = c("Dependent Variable", "President FE", "Agency FE"),
+  `1` = c("EJ Added", "X", ""), 
+  `2` =c("EJ Added", "X", "X"), 
+  `3`  = c("EJ Changed", "X", ""), 
+  `4` = c("EJ Changed", "X", "X") #"✓"
 )
 
+#broom::tidy(m_PR)
+cm = c("ej_commentTRUE" = "EJ Comment",
+       "log(comments + 1)" = "Log(Comments+1)",
+       "ej_comments_unique" = "Unique EJ Comments",
+       "ej_commentTRUE:log(comments + 1)" = "EJ comment*Log(Comments+1)")
 
-attr(rows, 'position') <- c(10,11)
+attr(rows, 'position') <- c(0, 10,11)
 
 # paper table 
 modelsummary::modelsummary( models, 
                             stars = TRUE, 
-                            coef_omit = "president.*|agency.*|Intercept", 
+                            #coef_omit = "president.*|agency.*|Intercept", 
+                            coef_map = cm,
                           add_rows = rows, 
-                          notes = "Full Table in the Online Appendix")
+                          notes = "") %>% 
+  row_spec(row = 1, bold = T) %>%
+  kable_styling(latex_options
+ = c(scale_down = TRUE)) 
 
 
-save(models, rows,   m_PR, 
+save(models, rows, cm,  m_PR, 
  m_PR_agency,
 mejPR,
 mejPR_agency,
@@ -1783,7 +1814,27 @@ m <- modelsummary::modelsummary( models,
   scroll_box(height = "400px")
 ```
 
+```{r, include=FALSE, eval=FALSE}
+glance_custom.fixest <- function(x) {
+    out <- tibble::tibble(.rows = 1)
+    for (n in x$fixef_vars) {
+        out[[paste('FE: ', n)]] <- 'X'
+    }
+    return(out)
+}
 
+library(fixest)
+library(modelsummary)
+
+url <- 'https://vincentarelbundock.github.io/Rdatasets/csv/plm/EmplUK.csv'
+dat <- read.csv(url)
+mod <- list()
+mod[[1]] <- feols(emp ~ wage, dat)
+mod[[2]] <- feols(emp ~ wage | firm, dat)
+mod[[3]] <- feols(emp ~ wage | firm + year, dat)
+
+modelsummary(mod)
+```
 ---
 
 # TODO

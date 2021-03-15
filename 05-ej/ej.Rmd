@@ -41,6 +41,10 @@ output:
       fig.topcaption: true
       fig.width: 7
     word_document: default
+header-includes:
+  - \usepackage{floatrow}
+  - \usepackage{float}
+  - \floatsetup[figure]{capposition=top}
 ---
 
 ```{r global.options, include=FALSE}
@@ -55,6 +59,10 @@ knitr::opts_chunk$set(echo = FALSE,
                       fig.show = "hold",
                       warning=FALSE, 
                       message=FALSE)
+
+library(modelsummary)
+library(magrittr)
+library(kableExtra)
 ```
 
 

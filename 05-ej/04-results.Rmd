@@ -40,7 +40,7 @@ knitr::include_graphics(here::here("Figs", "ej-PR-winrate-agency-1.png"))
 #### Estimating *Whether* "Environmental Justice" is Added to Final Rule
 -->
 
-Given differences across presidents, agencies, and the number of comments, I estimate logit regression where the outcome is whether environmental justice was addressed in the final rule (Models 1 and 2 in table \@ref(tab:tables)). The predictors are
+Given differences across presidents, agencies, and the number of comments, I estimate logit regression where the outcome is whether environmental justice was addressed in the final rule (Models 1 and 2 in Table \@ref(tab:tables)). The predictors are
 whether EJ was addressed in the comments, the number of unique comments addressing EJ, the total number of comments, and the interaction between whether EJ was raised and the total number of comments received. Models 3 and 4 are exactly the same as 1 and 2, except that the outcome is now change in how EJ is discussed (described in the next section). All models include fixed effects for the presidential administration. Models 2 and 4 also include fixed effects for agency. Thus, estimates in Models 1 and 3 include variation *across* agencies, whereas estimates in models 2 and 4 rely on variation *within* agencies. All estimates rely on variation *within* the presidential administration. 
 <!--The base equation for model 1 is shown below.-->
 All predicted probabilities shown below include agency fixed effects, models 2 and 4.
@@ -50,46 +50,19 @@ load(here::here("05-ej", "ej_models.Rdata"))
 #equatiomatic::extract_eq(m_PR)
 ```
 
-```{r tables, eval=FALSE}
+```{r tables, eval=TRUE}
 library(modelsummary)
-modelsummary( models, 
+library(kableExtra)
+library(magrittr)
+modelsummary::modelsummary( models, 
+                            title = 'Logit Regression Predicting Change in Rule Text',
                             stars = TRUE, 
-                            coef_omit = "president.*|agency.*|Intercept", 
-                          add_rows = rows, 
-                          notes = "Full Table in the Online Appendix",
-                          output = "latex")
+                            coef_map = cm,
+                            add_rows = rows,
+                            notes = "") %>% 
+  row_spec(row = 1, #bold = T, 
+           hline_after = TRUE) #%>% kable_styling(latex_options = c(scale_down = TRUE)) 
 ```
-
-
-\begin{table}[H]
-\centering
-\caption{\label{tab:tables}Logit Regression Models Predicting Change in Final Rule Text}
-
-\begin{tabular}[t]{lcccc}
-\toprule
-Model  & 1 & 2 & 3 & 4\\
-(Dependent Variable)  & (EJ Added) & (EJ Added) & (EJ Changed) & (EJ Changed)\\
-\midrule
-EJ comment = TRUE & 3.348*** & 2.284*** & 0.672*** & 0.731***\\
- & (0.219) & (0.233) & (0.250) & (0.255)\\
-log(comments + 1) & 0.140*** & 0.231*** & -0.093*** & -0.128***\\
- & (0.022) & (0.034) & (0.029) & (0.031)\\
-Unique EJ comments & 0.005 & 0.124** & 0.036** & 0.044***\\
- & (0.006) & (0.051) & (0.015) & (0.016)\\
-EJ comment x log(comments + 1) & -0.309*** & -0.194*** & 0.051 & 0.061\\
- & (0.049) & (0.066) & (0.049) & (0.051)\\
-\midrule
-Num.Obs. & 12234 & 12234 & 2034 & 2034\\
-President FE & X & X & X & X\\
-Agency FE &  & X &  & X\\
-AIC & 4263.5 & 3330.9 & 2279.7 & 2232.6\\
-BIC & 4322.8 & 3671.8 & 2324.6 & 2395.5\\
-Log.Lik. & -2123.728 & -1619.440 & -1131.840 & -1087.306\\
-\bottomrule
-\multicolumn{5}{l}{\textsuperscript{} * p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
-\multicolumn{5}{l}{\textsuperscript{} Full Table in the Online Appendix}\\
-\end{tabular}
-\end{table}
 
 
 #### Predicted Probability of Added Text
