@@ -1784,7 +1784,7 @@ rows <- tibble(
 cm = c("ej_commentTRUE" = "EJ Comment",
        "log(comments + 1)" = "Log(Comments+1)",
        "ej_comments_unique" = "Unique EJ Comments",
-       "ej_commentTRUE:log(comments + 1)" = "EJ comment*Log(Comments+1)")
+       "ej_commentTRUE:log(comments + 1)" = "EJ Comment*Log(Comments+1)")
 
 attr(rows, 'position') <- c(0, 10,11)
 
@@ -1815,6 +1815,7 @@ m <- modelsummary::modelsummary( models,
 ```
 
 ```{r, include=FALSE, eval=FALSE}
+# FIXED EFFECTS 
 glance_custom.fixest <- function(x) {
     out <- tibble::tibble(.rows = 1)
     for (n in x$fixef_vars) {
@@ -1857,9 +1858,9 @@ modelsummary(mod)
 
 - [ ] Investigate other estimators & `clogit`
 
-- [ ] toss out data before 2005? I'm not seeing any systematic bias in it. It is incomplete and leads estimates for the Clinton years to be very uncertain. I hate to toss out good data just to avoid having to explain that, but maybe it is worth it.
+- [ ] Toss out data before 2005? I'm not seeing any systematic bias in it. It is incomplete and leads estimates for the Clinton years to be very uncertain. I hate to toss out good data just to avoid having to explain that, but maybe it is worth it.
 
-- [ ] controll for what elites view as a significant rule (OIRA)? Does this matter?
+- [ ] Controll for what elites view as a significant rule (OIRA)? Does this matter?
 
 *Writing*
 
@@ -1867,13 +1868,13 @@ modelsummary(mod)
 
 - [ ] Describe comment periods
 
-- [ ] example rule and comment in intro?
+- [ ] Example rule and comment in intro?
 
-- [ ] emphasize how EJ is more often re-framed by conservatives rather than outright argued against. 
+- [ ] Emphasize how EJ is more often re-framed by conservatives rather than outright ignored or argued against. 
 
 - [ ] Do groups stratigically use EJ language with some agencies...maybe, but not so much. Not clear how this would bias results.
 
-- [ ] Be more explicit about the implications of EO for research design; courts only assess the 12898 analyses when the agency brings it up. If by citing it they incurred legal obligations, that would be a strong incentive not to cite it, but I don't think that is what is going on here because "compliance" with the EO is never the issue. Rather, the legal issue is whether disparate impacts are "relevant" to the rule and the agency's reasoned analysis. The EO and comments raising the EO just help make the case that these concerns and data are relevant when courts assess compliance with NEPA and the APA. 
+- [X] Be more explicit about the implications of EO for research design; courts only assess the 12898 analyses when the agency brings it up. If by citing it they incurred legal obligations, that would be a strong incentive not to cite it, but I don't think that is what is going on here because "compliance" with the EO is never the issue. Rather, the legal issue is whether disparate impacts are "relevant" to the rule and the agency's reasoned analysis. The EO and comments raising the EO just help make the case that these concerns and data are relevant when courts assess compliance with NEPA and the APA. 
 For example, courts have criticized “bare-bones conclusion that [a minority or low-income population] would not be disproportionately harmed” and that failure to provide “meaningful discussion” of the disparate impacts of a rule “points to the agency’s failure to ‘consider an important aspect’ of the effects of the Rule.” I don't see any threats to inference with the EO--lawsuits are regular APA lawsuits, my only point was that the EO gives both agencies and commenters a reason to use the phrase "environmental justice," but I should be careful to be really clear about that since it got a lot of attention (in part because it appeared in the intro rather than the methods section, as it will in future drafts).
 
 - [ ] Elaborate on Balla et al.
@@ -1881,15 +1882,15 @@ For example, courts have criticized “bare-bones conclusion that [a minority or
 
 Theory 
 
-- [ ] Clarify distributive - Lowi
+- [ ] Clarify (re)distributive policy - Lowi
 
 - [ ] Clarify that I'm not arguing against the dominance of well-resourced groups 
 
-- [ ] More on ideas, discourse, framing in public policymaking (Stone and Schneider and Ingraham)
+- [ ] More on ideas, discourse, framing in public policymaking (Stone, Schneider, Ingraham, etc.)
 
 
 
-Potential outcomes (ideally have an example of each): 
+- [ ] Potential outcomes (have an example of each): 
 
  - EJ neither in comments, PR, nor FR
  - EJ in Comments only
@@ -1901,7 +1902,7 @@ Potential outcomes (ideally have an example of each):
 
 - [ ] Compare topic proportions for cut and added text with comment texts.
 
-- [ ] Replicate with "climate change" + "global warming" (other ideas: class and race: "inequality" "low income" "racial" "minority population")
+- [ ] Replicate with "12898" and "climate change" + "global warming" (other ideas: class and race: "inequality" "low income" "racial" "minority population"?)
 
 
 ```{r to-scrape, include=FALSE, eval=FALSE}

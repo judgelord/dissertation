@@ -1,7 +1,8 @@
 # Policy Influence: Do Public Pressure Campaigns Influence Bureaucratic Policymaking?
 
+See the preanalysis plan for this chapter [_here_](https://github.com/judgelord/dissertation/blob/master/04-influence/preanalysis.pdf).
+
 #### Abstract {-}
 
 `r readLines(here::here("04-influence/abstract.txt"))`
 
-See the preanalysis plan for this chapter [_here_](https://github.com/judgelord/dissertation/blob/master/04-influence/preanalysis.pdf)
