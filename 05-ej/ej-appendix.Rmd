@@ -452,7 +452,7 @@ allFR %>%
   scale_y_log10(labels = scales::comma)  +
   #scale_x_date(date_labels = "%y") + 
   labs(x = "",
-       y = "Total Number of Comments (log scale)",
+       y = "Total Number of Comments per Rule (log scale)",
        color = "Comments Raised\nEnvironmental\nJustice Concerns",
        shape = "Comments Raised\nEnvironmental\nJustice Concerns") +
   scale_x_discrete(breaks = breaks) + 
@@ -1910,6 +1910,15 @@ ejdockets <- ejFR_PR %>% filter(ej_comment == T) %>%
     ejFRejPR %>% filter(ej_comment == T, change == T) 
     ) %>% distinct(docket_id)
 save(ejdockets, file = here::here("data", "ejdockets.Rdata"))
+
+library(rvest)
+
+html <- rvest::html("https://www.regulations.gov/comment/EPA-HQ-OPP-2020-0585-0024")
+
+a <- tibble(text = html_text(html),
+            link = html_attr(html, "href")) 
+
+a
 ```
 
 

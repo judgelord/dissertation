@@ -45,6 +45,7 @@ header-includes:
   - \usepackage{floatrow}
   - \usepackage{float}
   - \floatsetup[figure]{capposition=top}
+  - \floatsetup[table]{capposition=top}
 ---
 
 ```{r global.options, include=FALSE}
