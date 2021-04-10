@@ -1,3 +1,5 @@
+## Introduction {#why-intro}
+
 <!--Much of our knowledge about civic participation beyond voting comes from surveys and qualitative studies of particular groups. -->
 
 Participatory processes like public comment periods, where government
@@ -12,7 +14,7 @@ While practitioners and administrative law scholars have long pondered
 what to make of mass commenting, political scientists have had
 surprisingly little to say about this kind of civic participation. 
 
-#### The contentious politics that inspire the majority of public comments have no place in leading models of bureaucratic policymaking and have largely been ignored by political scientists.
+The contentious politics that inspire the majority of public comments have no place in leading models of bureaucratic policymaking and have largely been ignored by political scientists.
 Foundational scholarship on rulemaking [@Furlong2005, @Furlong1997, @Furlong1998, @Kerwin2011] focuses on interest group lobbying. Theoretical models focus on how agencies learn about policy problems, negotiate or avoid accountability to various principals, or balance interest-group demands.^[On learning, see @Kerwin2011 and empirical studies by @Yackee2012,
     @Cook2017, @Gordon2018, and @Walters2019. See @Gailmard2017 and
     @Libgober2018 for information-based models where comments reveal information to the agency.
@@ -25,8 +27,7 @@ Foundational scholarship on rulemaking [@Furlong2005, @Furlong1997, @Furlong1998
     positions, about which they are uncertain unless groups reveal their
     preferences through commenting.]
 
-#### Most scholars are skeptical that public pressure can affect rulemaking.
-
+Most scholars are skeptical that public pressure can affect rulemaking.
 To the extent that scholars address the input of ordinary people at all, both
 existing theory and empirical scholarship suggest skepticism that it
 matters. (By "ordinary" people, I simply mean people who are not

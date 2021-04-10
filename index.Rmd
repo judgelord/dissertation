@@ -11,7 +11,7 @@ geometry: "left = 1.25in, right = 1.25in, top = 1.25in, bottom = 1.25in"
 bibliography: "assets/dissertation.bib"
 biblio-style: apalike
 link-citations: yes
-# github-repo: 
+github-repo: https://github.com/judgelord/dissertation
 description: "Draft"
 ---
 

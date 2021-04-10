@@ -1,4 +1,19 @@
-## Why Mobilize? {#why-mobilize}
+## Theory: Why Mobilize? {#why-mobilize}
+
+<!--% MAIN QUESTION 
+### Incorporating mass engagement into theories of bureaucratic policymaking.--> 
+
+
+How, if at all, should scholars incorporate mass engagement into models of bureaucratic policymaking? 
+ I argue that mass engagement produces potentially valuable political information about the coalition that mobilized it.
+Thus, depending on how agencies process political information, "going public" may occasionally be an effective strategy for organizations to influence policy, both directly and indirectly. However, influencing policy may not be the only reason to mobilize. 
+
+<!--  % % PREVIEW 
+
+The next section builds a causal theory. I theorize that activists' opportunities and strategies and latent public opinion drive engagement.
+
+% The following section outlines methodologies to assess my three overarching questions and their component parts. These methods rely on analysis of comment and policy texts as large-n observational data. -->
+
 
 This section offers a theory and hypotheses to explain variation in mass
 engagement. I argue that we should observe different patterns of
@@ -24,7 +39,7 @@ gap.
 
 ```{r causal-classic, fig.cap = "The 'Classic Model' of Interest Group Lobbying in Bureaucratic Policymaking"}
 
-knitr::include_graphics("../Figs/causal-classic.png")
+knitr::include_graphics(here::here("Figs", "causal-classic.png"))
 ```
 
 First, I offer a framework for assessing the causes of mass engagement.
@@ -154,7 +169,7 @@ is passionate about the issue.
 
 ```{r causal-whymail, fig.cap = "Incorporating Political Information into Models of Bureaucratic Policymaking"}
 
-knitr::include_graphics("../Figs/causal-whymail.png")
+knitr::include_graphics(here::here("Figs", "causal-whymail.png"))
 
 ```
 

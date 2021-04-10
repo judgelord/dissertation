@@ -1,6 +1,7 @@
-## Patterns of public engagement in rulemaking 
+## Results: Patterns of Public Engagement in Rulemaking {#why-results}
 
-#### Most comments result from mass-comment campaigns.
+
+### Most comments result from mass-comment campaigns.
 
 Figure
 \@ref(fig:comments-support) shows all comments posted on
@@ -12,8 +13,8 @@ pressure strategy that involves mobilizing ordinary people. Even relatively unsu
 
 ```{r comments-support, out.width = "49%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
 
-knitr::include_graphics("../Figs/comments-mass-1.png")
-knitr::include_graphics("../Figs/comments-mass-support-vs-oppose-1.png")
+knitr::include_graphics(here::here("Figs", "comments-mass-1.png"))
+knitr::include_graphics(here::here("Figs", "comments-mass-support-vs-oppose-1.png"))
 ```
 
 
@@ -24,16 +25,15 @@ comments appear to support proposed agency rules. A rough measure of
 support (whether the comment text includes " support " or " oppose ")
 shows that many more comments mention support, until 2018 when there is
 a fairly dramatic reversal in the share of comments mentioning "support
-" compared to those mentioning "oppose " (Figure
-\@ref(fig:comments-support). This may be a function of the
+" compared to those mentioning "oppose " (Figure \@ref(fig:comments-support). This may be a function of the
 changing regulatory agenda due to the change in presidential
 administration. However, support and oppose are not used in all comments
-and do not always indicate support for a rule (see figures
+and do not always indicate support for a rule. <!-- (see figures
 \@ref(fig:sentiment-2018) and
 \@ref(fig:sentiment-2016) in the appendix for a sample of comments
-on several rules in 2016 and 2018).
+on several rules in 2016 and 2018).-->
 
-#### Most comments occur on a small number of salient rules.
+### Most comments occur on a small number of salient rules.
 
 Approximately one-third of public comments posted to regulations.gov
 were received on just ten regulations shown in Figure
@@ -41,7 +41,7 @@ were received on just ten regulations shown in Figure
 
 ```{r topdockets, fig.width = 1, fig.cap = "Top 10 Dockets Receiving the Most Comments on regulations.gov and the top 20 Mobilizers"}
 
-knitr::include_graphics("../Figs/topdockets.png")
+knitr::include_graphics(here::here("Figs", "topdockets.png"))
 ```
 
 
@@ -50,7 +50,7 @@ knitr::include_graphics("../Figs/topdockets.png")
 In short, I find much more evidence of grassroots participation than astroturf participation.
 
 
-#### A coalition of public-interest organizations mobilize most comments.
+### A coalition of public-interest organizations mobilize most comments.
 
 As Figure \@ref(fig:topdockets) shows, the most prolific mobilizers are
 environmental groups. On five out of the top ten dockets (here including

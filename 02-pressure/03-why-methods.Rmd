@@ -1,4 +1,4 @@
-## Measuring Public Pressure and Political Information
+## Methods: Measuring Public Pressure and Political Information {#why-methods}
 
 In this section, I develop methods to attribute mass comments to the
 campaigns that mobilized them and measure the intensity of preferences
@@ -16,7 +16,7 @@ measures of participation in bureaucratic policymaking.
 
 
 
-#### Data.
+### Data.
 
 I collected a corpus of approximately 70 million comments via the
 regulations.gov API. About 50 million of these comments are on proposed
@@ -46,7 +46,7 @@ regulations.gov.
 
 ```{r toporgs, fig.cap = "Top mobilizers of comments posted to regulations.gov", fig.width = 7}
 
-knitr::include_graphics("../Figs/toporgs.png")
+knitr::include_graphics(here::here("Figs", "toporgs.png"))
 ```
 
 ### Who lobbies together?
@@ -75,7 +75,7 @@ well, I increase the number of clusters as needed.
 
 ```{r kmeans, fig.cap = "K-means clustering fails to capture coalitions when nearly all comments oppose a regulation"}
 
-knitr::include_graphics("../Figs/kmeans.png")
+knitr::include_graphics(here::here("Figs", "kmeans.png"))
 ```
 
 

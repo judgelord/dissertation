@@ -69,53 +69,24 @@ The following chapter is part of a dissertation exploring the effects of public 
 
 \setcounter{page}{1}
 
-# Introduction {#intro}
-
 \onehalfspacing
+
 
 ```{r child = here::here("intro.md")}
 ```
 
 
-```{r child = here::here("02-pressure/intro-motivation.md")}
+```{r child = here::here("02-pressure/01-why-intro.Rmd")}
 ```
 
-
-# Theory
-
-<!--% MAIN QUESTION --> 
-
-**Incorporating mass engagement into theories of bureaucratic policymaking.**
-How, if at all, should scholars incorporate mass engagement into models of bureaucratic policymaking? 
- I argue that mass engagement produces potentially valuable political information about the coalition that mobilized it.
-Thus, depending on how agencies process political information, "going public" may occasionally be an effective strategy for organizations to influence policy, both directly and indirectly. However, influencing policy may not be the only reason to mobilize. 
-
-<!--  % % PREVIEW 
-
-The next section builds a causal theory. I theorize that activists' opportunities and strategies and latent public opinion drive engagement.
-
-% The following section outlines methodologies to assess my three overarching questions and their component parts. These methods rely on analysis of comment and policy texts as large-n observational data. -->
-
-
-```{r child = here::here("02-pressure/why-mobilize.md")}
+```{r child = here::here("02-pressure/02-why-mobilize.Rmd")}
 ```
 
-
-
-# Methods {#whyMail-methods}
-
-```{r child = here::here("02-pressure/methods.md")}
+```{r child = here::here("02-pressure/03-why-methods.Rmd")}
 ```
 
-
-
-# Results: Patterns of Public Engagement in Rulemaking {#whyMail-results}
-```{r child = here::here("02-pressure/results.md")}
+```{r child = here::here("02-pressure/04-why-results.Rmd")}
 ```
-
-
-
-# Conclusion
 
 ```{r child = here::here("conclusion.md")}
 ```
