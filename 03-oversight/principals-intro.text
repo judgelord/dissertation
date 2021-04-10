@@ -1,0 +1,168 @@
+When George W. Bush replaced Bill Clinton as president, career
+bureaucrats at the Federal Trade Commission knew that this meant a
+change in policy priorities. Many rulemaking projects initiated under
+the Clinton administration were likely to be withdrawn or put on hold.
+They also knew that the new administration wanted to be perceived as
+advancing a new policy agenda, not merely undoing Clinton-era
+regulations. Entrepreneurs within the agency saw a political window of
+opportunity to initiate a new regulatory agenda aimed at curbing a
+growing volume of telemarketing calls. This initiative seemed likely to
+be popular with voters but, even with a supportive president, would be
+difficult to advance over the objections of the telemarketing industry
+whose campaign donations had earned them many powerful allies in
+Congress. Agency officials report being pessimistic about the FTC's
+telemarketing effort succeeding over opposition from Congress.
+
+When the draft "Telemarketing Sales Rule" (also known as the "Do Not
+Call" rule) was published, however, public support and engagement were
+overwhelming. The rule received thousands of supportive comments from
+frustrated members of the public who were encouraged to comment by
+advocacy groups like the Consumer Federation of America. Agency
+officials report that the volume of public response not only encouraged
+the agency and the administration but, more importantly, "scared off"
+Members of Congress who the industry was relying on to kill or reverse
+the rule. Once it became clear that the public was paying attention and
+sufficiently mobilized to act on the issue, elected officials became
+much less willing to take unpopular positions supporting industry
+donors. Instead, Congress ended up codifying the agency's authority to
+implement the Do Not Call regulations with legislation the following
+year.
+
+The story of the Do Not Call rule suggests that public engagement in
+rulemaking may occasionally be influential because it affects the
+behavior of elected officials who have the power to provide key support
+or opposition to a proposed rule.
+
+#### Political oversight.
+
+Political oversight of bureaucracies has long concerned both
+practitioners and theorists. Political scientists often model the
+relationship between elected officials and bureaucrats as a
+principal-agent problem. For example, an agency may have a preferred
+policy but, upon observing the preferences of principals, may change the
+rule or delay its publication. Agencies may do this to avoid political
+consequences such as having their policies reversed [@Potter2016] or
+because they perceive elected officials as representing public demands
+[@Cuellar2005]. While it is widely accepted that agency officials take
+the positions of their principals into account, the mechanisms by which
+this occurs and the empirical conditions for political control are
+debated.
+
+Because I focus on influence in the period between publication of draft
+and final rules, I focus on information about principals' preferences
+revealed to the agency in this period. Oversight during rulemaking is a
+form of ex-post control [@Epstein1994], in this case after the proposed
+rule is published. Figure
+[\[fig:causal-classic-principals\]](#fig:causal-classic-principals){reference-type="ref"
+reference="fig:causal-classic-principals"} shows a version of the
+classic model of principal influence in rulemaking. Upon learning
+content of a draft rule, an official with power over the agency may
+choose to signal their demands to the agency. There is an ongoing debate
+among scholars over how political oversight operates--i.e. how the
+observable behaviors of principals actually inform agency decisions.
+
+@McCubbins1987 suggest two oversight mechanisms. Principals may
+proactively attend to agency activities, like a "police patrol" or they
+may rely on bureaucrats' fear of sanction when attentive interest groups
+alert principals about agency activities, more like a "fire alarm."
+Administrative procedures like mandatory public comment periods thus
+offer opportunities for direct oversight and to be alerted to oversight
+opportunities [@Balla1998].
+
+### Incorporating political information into models of political oversight
+
+In addition to interest groups directly alerting elected officials to
+oversight opportunities as in the "fire alarm" model, the political
+information signaled by mass engagement may alert elected officials to
+political risks (like a "warning sign") *or*, conversely, to encourage
+the agency to hold course (like a "beacon" attracting positive attention
+and credit claiming opportunities. In the case of the FTC's "Do Not
+Call" rule and subsequent legislation, mass engagement functioned more
+as a "warning" for would-be opponents and a "beacon" for potential
+allies, effectively enabling and empowering rather than restraining the
+agency as the classic "fire alarm" concept suggests. Agency officials
+credit the public support mobilized by mass comment campaigns with the
+political momentum needed to hold course.
+
+Mass engagement in bureaucratic policymaking may affect the behavior of
+an agency's principals because the shadow of public sanction hangs over
+elected officials [@Arnold1979; @Mayhew2000]. @Moore2018 finds that
+agencies that receive more comments per rule are also subject to more
+congressional hearings. When the public is more attentive, it is more
+important for officials to take popular positions and avoid unpopular
+ones. Thus, when a coalition goes public, especially if it generates a
+perceived consensus in expressed public sentiments, elected officials
+ought to be more likely to intervene on their behalf and less likely to
+intervene against them.
+
+### Hypotheses about the relationship between mass engagement and oversight
+
+It may be the case that both principals and the majority of commenters
+hold the same position simply because it is popular. Thus, to assess the
+"fire-alarm," "beacon," and "warning sign" mechanisms, it is important
+to condition on principals' existing policy positions and to control for
+their baseline rates of commenting. I estimate principals baseline rates
+of commenting using legislators' comments on similar rules that did not
+receive a mass comment campaign. I may also use partisanship to
+approximate principals' priors. Future work could improve this by coding
+principals' specific policy positions using the best data available
+prior to the draft rule's publication.
+
+**Hypothesis 2:** *Elected officials' advocacy is moderated by mass
+engagement.*
+
+[\[hyp:beacon\]]{#hyp:beacon label="hyp:beacon"} Mass commenting attract
+oversight from allies. The more comments supporting a position, the more
+likely principals holding that position are to engage.
+
+[\[hyp:warning\]]{#hyp:warning label="hyp:warning"} Mass commenting
+reduces oversight from opponents. The more comments opposing a position,
+the less likely principals holding that position are to engage.
+
+Hypothesis [\[hyp:beacon\]](#hyp:beacon){reference-type="ref"
+reference="hyp:beacon"} implies that $\beta_1$ is positive and
+Hypothesis [\[hyp:warning\]](#hyp:warning){reference-type="ref"
+reference="hyp:warning"} $\beta_2$ is negative in this statement:
+*Pr(Principal Comments $|$ Principal Position $i$)
+$\sim \beta_0 + \beta_1$Comments supporting $i + \beta_2$Comments
+opposing $i$*
+
+If Hypothesis [\[hyp:beacon\]](#hyp:beacon){reference-type="ref"
+reference="hyp:beacon"} is correct, it would suggest an addendum to Hall
+and Miler's (2008) finding that legislators are more likely to engage in
+rulemaking when they have been lobbied by a like-minded interest group:
+When interest groups lobby elected officials to engage in rulemaking,
+they may be more likely to engage when aligned with the majority of
+commenters than when opposed to them. If elected officials learn from
+political information, they will be even more likely to engage when
+lobbied by a coalition that includes public interest groups running a
+mass-comment campaign, and less likely to engage when opposed by a large
+mass comment campaign.^[Of course, if Members of Congress receive signals about the
+    distribution of comments from their districts, the distribution of
+    opinions in their district constituency may be more important.
+    Figure [\[fig:sierra\]](#fig:sierra){reference-type="ref"
+    reference="fig:sierra"}, shows that the Sierra Club requires zip
+    code information from commenters, so mass-mobilizers may often send
+    such information to elected officials.]
+
+Alternatively, the effect of mass engagement on political principals may
+be asymmetric. Mass engagement may only mobilize or only demobilize. For
+example elected officials may be attracted to oversight opportunities
+but not dissuaded by mobilization on the other side because they assume
+their voters share their position. Or, if elected officials are risk
+adverse, they may avoid engaging in contentious rulemaking processes
+regardless of the balance of comments. Each of these results would be
+evidence against hypothesis
+[\[hyp:warning\]](#hyp:warning){reference-type="ref"
+reference="hyp:warning"} or
+[\[hyp:beacon\]](#hyp:beacon){reference-type="ref"
+reference="hyp:beacon"} respectively.
+
+I build on the classic model of
+political oversight in two ways. First, I suggests that comments from
+elected officials are a particularly relevant oversight behavior and a
+mechanism by which bureaucrats learn and update beliefs about their
+principals' demands. Second, I suggests that such oversight behaviors
+may be affected by public pressure because of the impressions of public
+opinion (i.e. the political information) it creates.
+
