@@ -47,6 +47,9 @@ To illustrate my planned analysis, I simulate data for each variable described a
 ```{r,  fig.width=2, fig.height=2}
 coalition_success <- sample(x = c(-1, -.5, 0, .5, 1), 1000, prob = c(0.1, 0.3, .1, 0.4, 0.1), replace = T)
 
+
+# rtnorm 
+library(MCMCglmm)
 d = tibble(rule_id = c(1:1000, rep(1001:1500, 2)),
            coalition_id = sample(1:2000),
            coalitions  = c(rep(1, 1000), rep(2, 1000)),

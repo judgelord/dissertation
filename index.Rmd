@@ -9,27 +9,20 @@ classoption: oneside
 fontsize: 12pt
 geometry: "left = 1.25in, right = 1.25in, top = 1.25in, bottom = 1.25in"
 bibliography: "assets/dissertation.bib"
-biblio-style: apalike
+biblio-style: "assets/apsr.bst"
 link-citations: yes
 github-repo: https://github.com/judgelord/dissertation
 description: "Draft"
+always_allow_html: true
 ---
 
-```{r global.options, include=FALSE}
-options(knitr.graphics.auto_pdf = TRUE)
-
-knitr::opts_chunk$set(echo = FALSE, 
-                      #cache = FALSE, 
-                      fig.align = 'center',
-                      fig.width = 7,
-                      out.width = "6.5in",
-                      out.extra = "",
-                      fig.path= "Figs",
-                      fig.show = "hold",
-                      fig.pos= "htbp",
-                      warning=FALSE, 
-                      message=FALSE)
+```{r setup, echo = FALSE, include = FALSE}
+source(here::here("code", "setup.R"))
 ```
+
+  \listoftables
+  
+  \listoffigures
 
 # Introduction {-}
 

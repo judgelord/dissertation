@@ -13,10 +13,13 @@ bookdown::gitbook:
       after: "DRAFT" #--DO NOT CITE WITHOUT PERMISSION"
   #edit: https://github.com/judgelord/dissertation/edit/master/%s
 bookdown::pdf_book:
+  spacing: 2
   number_sections: true
   fig_caption: true
   dev: png
   toc: true
+  lot: true
+  lof: true
   keep_tex: true
   includes: 
     in_header: 
@@ -33,4 +36,9 @@ bookdown::pdf_book:
   - \floatsetup[table]{capposition=top}
 bookdown::word_document2:
   toc: true
+#  lot: true
+#  lof: true
 bookdown::epub_book: default
+#  toc: true
+#  lot: true
+#  lof: true

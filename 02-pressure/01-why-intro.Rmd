@@ -150,8 +150,8 @@ flavor of information. Indeed as Figure
 \@ref(fig:comments-per-year) shows, every year since 2008, most people who
 comment on draft regulations have done so as a result of a public pressure campaign.^[At least for agencies participating in regulations.gov. See
     sections
-    \@ref(whyMail-methods) and
-    \@ref(whyMail-results) for my definition and methods for identifying mass comments.] Public engagement in rulemaking is highly
+    \@ref(why-methods) and
+    \@ref(why-results) for my definition and methods for identifying mass comments.] Public engagement in rulemaking is highly
 clustered on a few rules made salient by these campaigns. It is
 plausible that at least some of the time, such campaigns aim to
 influence policy. It is also plausible that thousands of people engaging

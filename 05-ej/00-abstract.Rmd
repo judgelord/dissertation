@@ -1,8 +1,9 @@
 # The Environmental Justice Movement and Technocratic Policymaking
 
+
+See the working paper version of this chapter [_here_](https://judgelord.github.io/research/ej/).
+
 #### Abstract {-}
 
 `r readLines(here::here("05-ej/ej-abstract.tex"))`
-
-See the working paper version of this chapter [_here_](https://judgelord.github.io/research/ej/)
 

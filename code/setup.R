@@ -1,15 +1,8 @@
 
-requires <- c("dplyr", 
-              "ggplot2", 
+requires <- c("tidyverse",
               "magrittr",
-              "stringr", 
+              "broom",
               "here",
-              "tidyverse",
-              "topicmodels",
-              "tidytext",
-              "quanteda",
-              "topicmodels",
-              "tm",
               "msm",
               "kableExtra")
 to_install <- c(requires %in% rownames(installed.packages()) == FALSE)
@@ -21,26 +14,28 @@ library(ggplot2); theme_set(theme_bw())
 library(magrittr)
 library(broom)
 library(here)
-library(topicmodels)
-library(tidytext)
-library(quanteda)
-library(tm)
 library(msm)
 library(kableExtra)
-
 
 
 ## Sets defaults for R chunks
 knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that your code will show
                       warning = FALSE,
                       message = FALSE,
-                      # fig.align = "center", 
-                      fig.path= 'Figs/', ## where to save figures
+                      fig.show="hold",
+                      fig.pos= "htbp",
+                      out.extra = "",
+                      fig.path = "figs/",
+                      out.width = "100%",
+                      fig.align='center',
+                      fig.cap = '...',
+                      fig.retina = 6,
                       fig.height = 3,
-                      # fig.retina = 6,
-                      fig.width = 8)
+                      fig.width = 7)
+
 options(stringsAsFactors = FALSE)
 
+options(knitr.graphics.auto_pdf = TRUE)
 
 
 

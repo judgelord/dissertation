@@ -1836,6 +1836,7 @@ mod[[3]] <- feols(emp ~ wage | firm + year, dat)
 
 modelsummary(mod)
 ```
+
 ---
 
 # TODO

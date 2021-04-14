@@ -1,28 +1,47 @@
+<!--## Data and Methods {#oversight-methods}-->
+
+### A Census of Comments from Members of Congress in Agency Rulemaking 
+
+Through an iterative combination of automated search methods and hand-coding, I identify the elected official or organization that submitted each comment.
+
+Figure \@ref(fig:congress) shows the number of comments from members of Congress received during rulemaking by a sample of federal agencies. Oversight letters are frequently co-signed by multiple members from the Senate, House, or both chambers. 
+
+```{r congress, fig.cap = "Number of Letters from Members of Congress Received During Rulemaking per Year", out.width = "6.5in"}
+knitr::include_graphics(here::here("figs", "comments-congress.png"))
+```
+
 To assess the hypothesis that mass engagement affects the engagement of
 political principals, I examine the relationship between mass commenting
-and the behavior of Members of Congress, while attempting to control for
-other reasons that Members of Congress may comment on a proposed rule.
+and the behavior of members of Congress, while attempting to control for
+other reasons that members of Congress may comment on a proposed rule.
 The bold arrow in figure
 [\[fig:causal-principals-test\]](#fig:causal-principals-test){reference-type="ref"
 reference="fig:causal-principals-test"} indicates the key relationship
 that I test in this step. I aim to test the relationship between mass
-public engagement and engagement from Members of Congress, who may
+public engagement and engagement from members of Congress, who may
 receive information about public opinion from mass engagement.
 
-I measure the dependent variables, legislator attention and support,
-several ways. First, I count the number of times Members of Congress
+```{r causal-oversight-1, fig.cap = "The Relationship Between Public Pressure and Congressional Oversight"}
+knitr::include_graphics(here::here("figs", "causal-oversight-1.png"))
+```
+
+
+
+I measure the dependent variables---legislator attention and support---in several ways. First, I count the number of times members of Congress
 engage the agency across rules and before, during, and after comment
 periods on rules where lobbying organizations did and did not go public.
-By engaging the agency, I mean that Members of Congress raise a rule in
+By engaging the agency, I mean that members of Congress raise a rule in
 personal correspondence or comments that members send to the agency. I
-then code each contact from the member of congress and each coalition
+then code each contact from the member of Congress and each coalition
 lobbying on the rule on the same three-point scale: are they asking for
-the rule to go further, be scaled back, or published as is. This is
+the rule to go further, be scaled back, or published as-is. This is
 similar to other hand-coding approaches to policy demands. Next, I use
 text analysis to compare the sentiment and rhetoric (phrases and word
-frequencies) used by legislators to that used by each coalition.
+frequencies) used by legislators to the language used by each coalition.
 
-### Models testing the relationship between mass engagement and oversight
+
+
+### Models testing the relationship between mass engagement and congressional oversight
 
 There are several ways to test for a relationship between mass
 engagement and engagement by Members of Congress. The key explanatory
@@ -58,7 +77,7 @@ supporting coalition $i$.
 
 $$\begin{aligned}
     Y_i \sim \beta_0 + \beta_1 z_i\end{aligned}$$
-
+<!--
 In Model 4, the dependent variable is rhetorical similarity between
 comments of each coalition $i$ and each Members of Congress $j$:
 $Y_{ij}$ = *Text similarity score between legislator comment and
@@ -71,8 +90,11 @@ $$\begin{aligned}
 
 #### Limitations.
 
-One challenge will be controlling for rule salience, which may affect
+One challenge is controlling for rule salience, which may affect
 both public and legislator attention (indeed, both are endogenous to
 rule salience). Another challenge will be controlling for latent public
 opinion, which may usually, but not exclusively, be revealed to
 legislators through mass engagement.
+
+-->
+
