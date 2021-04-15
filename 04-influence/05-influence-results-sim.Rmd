@@ -1,0 +1,132 @@
+
+## Results (SIMULATED) {#influence-results-sim}
+
+> SIMULATED DATA AND RESULTS FROM PREANALYSIS PLAN
+
+
+### Simulated Data
+
+To illustrate my planned analysis, I simulate data for each variable described above. 
+
+**Dependent variable:** *Coalition success* is drawn from a descrete distribution {-1, -.5, 0, .5, 1}. 
+
+**Explanatory variables:** *Coalition size* (a count) is drawn from a Poisson distribution. *Business colation* is binomial. In reality, business coalitions are more common than non-business coalitions, but here I estimate a balanced sample. I set rule pages constant at 85 and draw *comment lengths* from a Poisson distribution. While in reality, less than one percent of coalitions lobbying in rulemaking opt for a mass-comment campaign, I aim to gather a balanced sample, so half of the simulated data are assumed to have no mass comment campaign (*comments* = 1, *log(comments)* = 0) and the other half have a number of *comments* drawn from a Zero-Truncated Poisson distribution, which is then transformed to a log scale. 
+
+Table \@ref(tab:data-sim) shows ten rows of simulated data.
+
+```{r data-sim}
+coalition_success <- sample(x = c(-1, -.5, 0, .5, 1), 1000, prob = c(0.1, 0.3, .1, 0.4, 0.1), replace = T)
+
+d = tibble(rule_id = c(1:1000, rep(1001:1500, 2)),
+           coalition_id = sample(1:2000),
+           coalitions  = c(rep(1, 1000), rep(2, 1000)),
+           coalition_unopposed = c(rep(0, 1000), rep(1, 1000)),
+           coalition_success = c(coalition_success, sort(coalition_success)), 
+           coalition_size = rtnorm(1000, mean = 5, sd= 10, lower = 1) %>% rep(2) %>% round(), 
+           coalition_business = sample(x = c(0,1), 2000, replace = T, prob = c(0.3, .7)), 
+           comment_length = round(rpois(2000, 10)/85 *100, 1), 
+           comments= c(rtnorm(1000, mean = 10000, sd = 100000, lower = 100), rep(1, 1000)) %>% sample() %>% round() , 
+           cong_support = c(rtnorm(1000, mean = 1, sd = 5, lower = 0), rep(0, 1000)) %>% sample() %>% round() )
+
+d %>% sample_n(10) %>% dplyr::select(rule_id, coalition_id, everything()) %>% knitr::kable(caption = "Simulated data") %>% kable_styling(latex_options = c("scale_down")) 
+```
+
+```{r hist-coalitions-sim, fig.width=2, fig.height=2,  out.width = "30%"}
+ggplot(d, aes(x = coalition_success)) + geom_histogram()+ labs(x = "Coalition Success")
+
+ggplot(d, aes(x = coalition_business)) + geom_histogram()+ labs(x = "Business Coalition")
+
+ggplot(d, aes(x = coalition_size)) + geom_histogram()+ labs(x = "Coalition size")
+```
+
+```{r hist-comments-sim,  fig.width=3, fig.height=2, out.width = "49%"}
+ggplot(d, aes( x= comment_length)) + geom_histogram()+ labs(x = "% (Comment length/proposed rule length)*100")
+
+ggplot(d, aes( x= comments)) + geom_histogram() + labs(x = "Log(comments)")
+```
+
+### Simulated Results
+
+Unsurprisingly this model yields no significant results (Figure \@ref(fig:model-success-plot-sim), Table \@ref(tab:mediation-sim)). With lobbying success as the dependent variable, the coefficient on the main variable of interest would be interpreted as a $\beta_{logmasscomments}$ increase in the five-point influence scale of lobbying success for each one-unit increase in the logged number of comments.
+
+```{r model-success-sim}
+m <- lm(coalition_success ~ 
+          log(comments) + 
+          comment_length + 
+          coalition_business +  
+          coalition_size + 
+          coalition_unopposed, 
+        data = d) 
+```
+
+```{r model-success-plot-sim,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS model of coalition lobbying sucess with simulated data"}
+m %>%
+  tidy(conf.int = TRUE) %>% 
+  filter(term != "(Intercept)") %>% 
+  ggplot() + 
+  geom_hline(yintercept = 0, color = "grey") + 
+  aes(x = term, 
+      y = estimate, 
+      ymin = conf.low, 
+      ymax = conf.high) + 
+  geom_pointrange( )  + 
+  coord_flip() +
+  labs(y = "Lobbying Success", 
+       x = "") 
+```
+
+To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME, conditional on the number of comments from Members of Congress) and average direct effect (ADE) of mass comments using mediation analysis. Model 3 in table \@ref(tab:mediation-sim) replaces the dependent varible (lobbying success) with the mediator variable (the number of supportive members of Congress). 
+
+```{r mediation-sim}
+library(mediation)
+
+# model predicting mediator
+model.m <- lm(cong_support ~  log(comments) + comment_length + coalition_business+  coalition_size + coalition_unopposed, data = d) 
+
+# model predicting DV
+model.y <- lm(coalition_success ~ log(comments) + cong_support + comment_length + coalition_business+  coalition_size + coalition_unopposed, data = d) 
+
+med.cont <- mediate(model.m, model.y, sims=1000, treat = "log(comments)",
+mediator = "cong_support")
+
+# summary(med.cont)
+
+library(modelsummary)
+models <- list(
+  "1" = m,
+  "2" = model.y,
+  "3"  =  model.m
+)
+
+rows <- tibble(
+  term = c("Dependent Variable"),
+  `1` = c("Lobbying Success"), 
+  `2` =c("Lobbying Success"), 
+  `3`  = c("Members of Congress in Coalition")
+)
+
+# #broom::tidy(m_PR)
+# cm = c("ej_commentTRUE" = "EJ Comment",
+#        "log(comments + 1)" = "Log(Comments+1)",
+#        "ej_comments_unique" = "Unique EJ Comments",
+#        "ej_commentTRUE:log(comments + 1)" = "EJ Comment*Log(Comments+1)")
+
+attr(rows, 'position') <- c(0)
+
+# paper table 
+modelsummary::modelsummary( models,
+                            title = "Lobbying success and congressional support",
+                            stars = TRUE, 
+                            #coef_omit = "president.*|agency.*|Intercept", 
+                            # coef_map = cm,
+                          add_rows = rows, 
+                          notes = "") %>% 
+  row_spec(row = 1, bold = T) %>% kable_styling(latex_options = c("scale_down")) 
+
+```
+
+The average effect of the logged number of comments, conditional on letters from members of congress (the ACME) is `r round(med.cont$d.avg, 2)`, with a p value of `r round(med.cont$d0.p, 2)`.
+
+The average direct effect (ADE) of the logged number of comments on lobbying success is `r round(med.cont$z0, 2)`, with a p value of `r round(med.cont$z0.p, 2)`
+
+The Total Effect of a one-unit increase in the logged number of comments is `r round(med.cont$tau.coef, 2)`, with a p value of `r round(med.cont$tau.p, 2)`. `r round(med.cont$n0, 2)` of this is mediated through mobilizing congressional attention (p-value = `r round(med.cont$n0.p, 2)`).

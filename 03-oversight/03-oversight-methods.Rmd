@@ -6,7 +6,7 @@ Through an iterative combination of automated search methods and hand-coding, I 
 
 Figure \@ref(fig:congress) shows the number of comments from members of Congress received during rulemaking by a sample of federal agencies. Oversight letters are frequently co-signed by multiple members from the Senate, House, or both chambers. 
 
-```{r congress, fig.cap = "Number of Letters from Members of Congress Received During Rulemaking per Year", out.width = "6.5in"}
+```{r congress, fig.cap = "Number of Letters from Members of Congress Received During Rulemaking per Year", out.width = "100%"}
 knitr::include_graphics(here::here("figs", "comments-congress.png"))
 ```
 

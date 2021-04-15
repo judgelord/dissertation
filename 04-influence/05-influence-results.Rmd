@@ -1,89 +1,62 @@
-### Modeling the direct relationship
 
-For all three measures of lobbying success, I assess the relationship between lobbying success and mass comments by modeling coalition $i$'s lobbying success, $y_i$ as a combination of the relative length of the (lead) organizations comment, whether the coalition is unopposed, the coalition's size, whether it is a business coalition, and the logged number of mass comments. I estimate OLS^[See [OLS model estimates with simulated data](https://judgelord.github.io/dissertation/preanalysis.pdf). I also estimate hand-coded lobbying success with beta regression and ordered logit, which are more appropriate but less interpretable. For the automated measures of lobbying success, I estimate beta regression models with the same variables.] regression:
+## Results (hand-coded data) {#influence-results}
 
-$$
-y_i = \beta_0 + \beta_1 log(comments_i) + \beta_2 length_i + \beta_3 unopposed_i + \beta_4 size_i + \beta_5 business_i + \epsilon_i
-$$
+> IN PROGRESS
 
-
-### Modeling mediated relationships
-
-To estimate mediated effects, I estimate the average conditional marginal effect (ACME) and the proportion of the total effect attributed to mediation through congressional support (comments or other communication from Members of Congress supporting the coalition's position on the proposed rule). As developed by Imai et al. (2010), this involves first estimating a model of the proposed mediator as a combination of covariates, $X$ (*length*, *unopposed*, *size*, and *business*) and then the outcome as a combination of the mediator, *congressional support*, and covariates, $X$.
-
-Mediator model:
-
-$$
-congressional\ support_i = \beta_0 + \beta_1 log(comments_i) + \beta_{2-n} X_i + \epsilon_i
-$$
-
-Outcome model:
-
-$$
-y_i = \beta_0 + \beta_1 log(comments_i) + \beta_2 congressional\ support_i + \beta_{3-n} X_i + \epsilon_i
-$$
-
-## Results {#influence-results}
-
-> TODO: SIMULATED DATA AND RESULTS FROM PREANALYSIS PLAN TO BE REPLACED
+> Currently, these data only include rules where there was a mass-comment campaign, which likely explains why business coalitions are less successful. I anticipate the sign on that coeficient to be posive in the sample of rules that did not see a mass comment campaign.
 
 
-### Simulated Data
+### Hand-coded Data
 
-To illustrate my planned analysis, I simulate data for each variable described above. 
 
-**Dependent variable:** *Coalition success* is drawn from a descrete distribution {-1, -.5, 0, .5, 1}. 
+**Dependent variable:** *Coalition success* is the mean of hand-coded lobbying success on a five-point scale ({-2, -1, 0, 1, 2}, recoded to {-1, -.5, 0, .5, 1} for more straightforward model interpretation). 
 
-**Explanatory variables:** *Coalition size* (a count) is drawn from a Poisson distribution. *Business colation* is binomial. In reality, business coalitions are more common than non-business coalitions, but here I estimate a balanced sample. I set rule pages constant at 85 and draw *comment lengths* from a Poisson distribution. While in reality, less than one percent of coalitions lobbying in rulemaking opt for a mass-comment campaign, I aim to gather a balanced sample, so half of the simulated data are assumed to have no mass comment campaign (*comments* = 1, *log(comments)* = 0) and the other half have a number of *comments* drawn from a Zero-Truncated Poisson distribution, which is then transformed to a log scale. 
+**Explanatory variables:** *Coalition size* (a count) is the number of organizations lobbying on the rule. *Business colation* is binomial. *Comments* is the total number of comments (including mass comments) mobilized by members of the coalition, which I transform to a log scale for modeling. 
 
-Table \@ref(tab:sim-data) shows ten rows of simulated data.
+Table \@ref(tab:data-coded) shows ten rows of coded data, summarized at the coalition level.
 
-```{r sim-data}
-coalition_success <- sample(x = c(-1, -.5, 0, .5, 1), 1000, prob = c(0.1, 0.3, .1, 0.4, 0.1), replace = T)
+```{r data-coded}
+load(here::here("data", "coalitions_coded.Rdata"))
 
-d = tibble(rule_id = c(1:1000, rep(1001:1500, 2)),
-           coalition_id = sample(1:2000),
-           coalitions  = c(rep(1, 1000), rep(2, 1000)),
-           coalition_unopposed = c(rep(0, 1000), rep(1, 1000)),
-           coalition_success = c(coalition_success, sort(coalition_success)), 
-           coalition_size = rtnorm(1000, mean = 5, sd= 10, lower = 1) %>% rep(2) %>% round(), 
-           coalition_business = sample(x = c(0,1), 2000, replace = T, prob = c(0.3, .7)), 
-           comment_length = round(rpois(2000, 10)/85 *100, 1), 
-           comments= c(rtnorm(1000, mean = 10000, sd = 100000, lower = 100), rep(1, 1000)) %>% sample() %>% round() , 
-           cong_support = c(rtnorm(1000, mean = 1, sd = 5, lower = 0), rep(0, 1000)) %>% sample() %>% round() )
+d <- coalitions_coded %>% 
+  drop_na(coalition_business) %>%
+  filter(coalition_comment != "FALSE") %>% 
+  distinct() %>% 
+  dplyr::select(-coalitions)
 
-d %>% sample_n(10) %>% dplyr::select(rule_id, coalition_id, everything()) %>% knitr::kable(caption = "Simulated data") %>% kable_styling(latex_options = c("scale_down")) 
+d %>% group_by(docket_id) %>% sample_n(2, weight = comments) %>% dplyr::select(docket_id, coalition_id, everything()) %>% knitr::kable(caption = "Coded data") %>% kable_styling(latex_options = c("scale_down")) 
 ```
 
 ```{r hist-coalitions, fig.width=2, fig.height=2,  out.width = "30%"}
 ggplot(d, aes(x = coalition_success)) + geom_histogram()+ labs(x = "Coalition Success")
 
-ggplot(d, aes(x = coalition_business)) + geom_histogram()+ labs(x = "Business Coalition")
+ggplot(d) + aes(x = as.numeric(coalition_business)) + geom_histogram()+ labs(x = "Business Coalition")
 
 ggplot(d, aes(x = coalition_size)) + geom_histogram()+ labs(x = "Coalition size")
 ```
 
 ```{r hist-comments,  fig.width=3, fig.height=2, out.width = "49%"}
-ggplot(d, aes( x= comment_length)) + geom_histogram()+ labs(x = "% (Comment length/proposed rule length)*100")
+#TODO
+#ggplot(d, aes( x= comment_length)) + geom_histogram()+ labs(x = "% (Comment length/proposed rule length)*100")
 
-ggplot(d, aes( x= comments)) + geom_histogram() + labs(x = "Log(comments)")
+ggplot(d, aes( x= log(comments))) + geom_histogram() + labs(x = "Log(comments)")
 ```
 
-### Simulated Results
+### Results
 
-Unsurprisingly this model yields no significant results (Figure \@ref(fig:model-success-plot), Table \@ref(tab:mediation)). With lobbying success as the dependent variable, the coefficient on the main variable of interest would be interpreted as a $\beta_{logmasscomments}$ increase in the five-point influence scale of lobbying success for each one-unit increase in the logged number of comments.
+The results of this model (Figure \@ref(fig:model-success-plot), Table \@ref(tab:mediation)) show that ________. With lobbying success as the dependent variable, the coefficient on the main variable of interest would be interpreted as a $\beta_{logmasscomments}$ increase in the five-point influence scale of lobbying success for each one-unit increase in the logged number of comments.
 
 ```{r model-success}
 m <- lm(coalition_success ~ 
           log(comments) + 
-          comment_length + 
+          #comment_length + 
           coalition_business +  
           coalition_size + 
           coalition_unopposed, 
         data = d) 
 ```
 
-```{r model-success-plot,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS model of coalition lobbying sucess with simulated data"}
+```{r model-success-plot,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS model of coalition lobbying sucess with hand-coded data"}
 m %>%
   tidy(conf.int = TRUE) %>% 
   filter(term != "(Intercept)") %>% 
@@ -104,14 +77,18 @@ To assess congressional support as a mediator in the influence of public pressur
 ```{r mediation}
 library(mediation)
 
+# distinct obs
+d %<>% filter(!is.na(coalition_success)) %>% distinct(cong_support, comments, coalition_business, coalition_size,coalition_unopposed,coalition_success) 
+
 # model predicting mediator
-model.m <- lm(cong_support ~  log(comments) + comment_length + coalition_business+  coalition_size + coalition_unopposed, data = d) 
+model.m <- lm(cong_support ~  log(comments) + #comment_length +
+                coalition_business+  coalition_size + coalition_unopposed, data = d) 
 
 # model predicting DV
-model.y <- lm(coalition_success ~ log(comments) + cong_support + comment_length + coalition_business+  coalition_size + coalition_unopposed, data = d) 
+model.y <- lm(coalition_success ~ log(comments) + cong_support + #comment_length + 
+                coalition_business+  coalition_size + coalition_unopposed, data = d) 
 
-med.cont <- mediate(model.m, model.y, sims=1000, treat = "log(comments)",
-mediator = "cong_support")
+#med.cont <- mediate(model.m, model.y, sims=1000, treat = "log(comments)", mediator = "cong_support")
 
 # summary(med.cont)
 

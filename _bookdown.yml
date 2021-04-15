@@ -27,6 +27,7 @@ rmd_files:
   - 03-oversight/01-oversight-intro.Rmd
   - 04-influence/03-influence-methods.Rmd 
   - 03-oversight/03-oversight-methods.Rmd 
+  - 04-influence/05-influence-results-sim.Rmd 
   - 04-influence/05-influence-results.Rmd 
   - 05-ej/00-abstract.Rmd # ej
   - 05-ej/01-intro.Rmd
