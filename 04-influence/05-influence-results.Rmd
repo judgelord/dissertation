@@ -3,7 +3,7 @@
 
 > IN PROGRESS
 
-> Currently, these data only include rules where there was a mass-comment campaign, which likely explains why business coalitions are less successful. I anticipate the sign on that coeficient to be posive in the sample of rules that did not see a mass comment campaign.
+> Currently, these data only include rules where there was a mass-comment campaign, which likely explains why business coalitions are less successful than public interest coalitions. I anticipate the sign on that coeficient to be posive in the sample of rules that did not see a mass comment campaign. The contentious nature of this sample also means that there is no variation the `coalition_unopposed` variable (no coalitions in the sample with mass comment campaigns lobbied unoppossed).
 
 
 ### Hand-coded Data
@@ -125,6 +125,8 @@ modelsummary::modelsummary( models,
   row_spec(row = 1, bold = T) %>% kable_styling(latex_options = c("scale_down")) 
 
 ```
+
+> Mediation  analysis will require adding cases where coalitions lobbied unopposed, which we are much more likely to see in the sample of rules without mass comments.
 
 The average effect of the logged number of comments, conditional on letters from members of congress (the ACME) is `r round(med.cont$d.avg, 2)`, with a p value of `r round(med.cont$d0.p, 2)`.
 

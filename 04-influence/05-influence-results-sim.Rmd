@@ -1,7 +1,7 @@
 
 ## Results (SIMULATED) {#influence-results-sim}
 
-> SIMULATED DATA AND RESULTS FROM PREANALYSIS PLAN
+> SIMULATED DATA AND RESULTS FROM PREANALYSIS PLAN WILL BE MOVED TO AN APPENDIX
 
 
 ### Simulated Data
@@ -115,7 +115,7 @@ attr(rows, 'position') <- c(0)
 
 # paper table 
 modelsummary::modelsummary( models,
-                            title = "Lobbying success and congressional support",
+                            title = "Lobbying success and congressional support with simulated data",
                             stars = TRUE, 
                             #coef_omit = "president.*|agency.*|Intercept", 
                             # coef_map = cm,
@@ -124,6 +124,7 @@ modelsummary::modelsummary( models,
   row_spec(row = 1, bold = T) %>% kable_styling(latex_options = c("scale_down")) 
 
 ```
+
 
 The average effect of the logged number of comments, conditional on letters from members of congress (the ACME) is `r round(med.cont$d.avg, 2)`, with a p value of `r round(med.cont$d0.p, 2)`.
 
