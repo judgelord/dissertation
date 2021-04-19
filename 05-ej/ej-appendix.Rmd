@@ -26,7 +26,8 @@ knitr::opts_chunk$set(echo = TRUE,
                       warning=FALSE, 
                       message=FALSE)
 
-
+library(modelsummary)
+library(fixest)
 library(tidyverse)
 library(broom)
 library(magrittr)
@@ -40,17 +41,17 @@ library(ggplot2); theme_set(theme_bw());
     ggplot2.continuous.fill = "viridis"
   )
   scale_color_discrete <- function(...){
-    scale_color_viridis_d(..., #direction = -1, 
+    scale_color_viridis_d(..., direction = -1, 
                           begin = 0, end = .6, option = "plasma")}
   scale_fill_discrete <- function(...){
-    scale_fill_viridis_d(..., #direction = -1, 
+    scale_fill_viridis_d(..., direction = -1, 
                          begin = 0, end = .6, option = "plasma")}
   
   scale_color_continuous <- function(...){
-    scale_color_viridis_c(..., #direction = -1, 
+    scale_color_viridis_c(..., direction = -1, 
                           option = "plasma")}
   scale_fill_continuous <- function(...){
-    scale_fill_viridis_c(..., #direction = -1, 
+    scale_fill_viridis_c(..., direction = -1, 
                          option = "plasma")}
   
   
@@ -220,6 +221,7 @@ rules %>%
   labs(y  = "All Proposed Rules",
        x = "",
        fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
   theme(axis.text.x = element_text(angle = 45, vjust = .5),
         panel.grid.major.x = element_blank(),
         panel.border = element_blank())
@@ -253,6 +255,7 @@ rules %>%
   labs(y  = "All Final Rules",
        x = "",
        fill = "" ) +# "EJ Addressed\nin Final Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
   theme(axis.text.x = element_text(angle = 45, vjust = .5),
         panel.grid.major.x = element_blank(),
         panel.border = element_blank())
@@ -306,7 +309,7 @@ allFR <- rules %>%
 
 ejcomments$number_of_comments_received %<>% replace_na(0) 
 
-ejcomments %>% count(docket_id, number_of_comments_received, sort = T) %>% arrange(-number_of_comments_received)
+ejcomments %>% count(docket_id, number_of_comments_received, sort = T) %>% arrange(-number_of_comments_received) %>% kablebox()
 ```
 
 ### Agencies that published at least 1 rule addressing EJ
@@ -333,7 +336,7 @@ allFR %>%
   labs(fill = "EJ in Final Rule",
        x = "",
        y = "")+ 
-  scale_fill_discrete(direction = -1) + 
+  scale_fill_discrete()+#direction = -1) + 
   scale_x_discrete(breaks = breaks ) 
 ```
 
@@ -352,7 +355,7 @@ allFR %>%
   mutate(ej_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed")) %>% 
   ggplot() + 
   aes(x = Year, fill = factor(ej_fr, levels = c("EJ Not Addressed", "EJ Addressed"))) +
-  scale_fill_discrete(direction = -1) + 
+  scale_fill_discrete()+#direction = -1) + 
   facet_wrap("agency", scales = "free_y") +
   geom_bar(alpha = .7) + 
   labs(fill = "\"Environmental Justice\"\nin Final Rule",
@@ -374,7 +377,7 @@ allPR %>%
   ggplot() + 
   aes(x = Year, y =n,
       fill = factor(ej_pr, levels = c("EJ Not Addressed", "EJ Addressed"))) +
-  scale_fill_discrete(direction = -1) + 
+  scale_fill_discrete()+#direction = -1) + 
   geom_col(alpha = .7, position = "dodge") + 
   facet_grid(. ~ president, scales = "free") + 
   labs(x = "Year",
@@ -397,7 +400,7 @@ allFR %>%
   ggplot() + 
   aes(x = Year, y = n,
       fill = factor(ej_fr, levels = c("EJ Not Addressed", "EJ Addressed"))) +
-  scale_fill_discrete(direction = -1) + 
+  scale_fill_discrete()+#direction = -1) + 
   geom_col(alpha = .7, position = "dodge") + 
   facet_grid(direct ~ president, scales = "free") + 
   labs(x = "Year",
@@ -410,11 +413,11 @@ allFR %>%
   mutate(ej_pr = ifelse(ej_pr, "EJ in Draft & Final Rule", "EJ Only in Final Rule"),
          ej_pr = ifelse(ej_fr, ej_pr, "No EJ Analysis")) %>% 
   count(Year, ej_pr, ej_comment, president) %>% 
-  mutate(ej_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised")) %>% 
+  mutate(ej_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ")) %>% 
   ggplot() + 
   aes(x = Year, y = n,
-      fill = factor(ej_comment, levels = c("EJ Not Raised", "EJ Raised"))) +
-  scale_fill_discrete(direction = -1) + 
+      fill = factor(ej_comment, levels = c("No Comments Address EJ", "Comments Address EJ"))) +
+  scale_fill_discrete()+#direction = -1) + 
   geom_col(alpha = .7) + 
   facet_grid(ej_pr ~ president, scales = "free") + 
   labs(x = "",
@@ -439,7 +442,7 @@ allFR %>%
   filter(direct == "Draft Rule Published") %>% 
   mutate(ej_pr = ifelse(ej_pr, "EJ in Draft & Final Rule", "EJ Only in Final Rule"),
          ej_pr = ifelse(ej_fr, ej_pr, "No EJ Analysis")) %>% 
-  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised")) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ")) %>% 
   ggplot() + 
   aes(x = year, color = EJ_comment, shape = EJ_comment) + 
   # plot ej comments on top
@@ -456,7 +459,7 @@ allFR %>%
        color = "Comments Raised\nEnvironmental\nJustice Concerns",
        shape = "Comments Raised\nEnvironmental\nJustice Concerns") +
   scale_x_discrete(breaks = breaks) + 
-  scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") 
+  scale_color_viridis_d(begin = 0, end = .6, option = "plasma") 
 ```
 
 # By Organization 
@@ -538,7 +541,7 @@ ejFR_PR %>%
   left_join(winrate) %>%
   group_by(ej_comment) %>% 
   mutate(mean = mean(c(`TRUE`, `FALSE`)),
-         EJ_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed"),
+         EJ_fr = ej_fr,#ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed"),
         EJ_comment = ifelse(ej_comment, "EJ Raised by Commenters", "EJ not Raised by Commenters")) %>% 
   ggplot() + 
   aes(x = EJ_comment, 
@@ -550,6 +553,7 @@ ejFR_PR %>%
   facet_wrap("EJ_comment", scales = "free") + 
   labs(fill = "EJ in Final Rule",
        y = "Proposed Rules") + 
+  #scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = -1) +
   theme_void() +
   theme(axis.text.y = element_text(),
         axis.title.y = element_text(angle = 90),
@@ -578,7 +582,8 @@ ejFR_PR %>%
   left_join(winrate) %>%
   group_by(ej_fr) %>% 
   mutate(EJ_comment = ifelse(ej_comment, "EJ Comments", "No EJ Comments"),
-         EJ_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed") ) %>% 
+         EJ_fr = ej_fr# ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed") 
+         ) %>% 
   ggplot() + 
   aes(x = n, y = EJ_comment, 
       fill = EJ_fr, 
@@ -590,26 +595,49 @@ ejFR_PR %>%
        x = "Proposed Rules that Did Not Address EJ",
        y = "",
        title = "Rates of Rule Change by President") + 
+  #scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
   #theme_void() +
   theme(axis.text.x = element_text(angle = 30),
         panel.grid.major.y = element_blank())
+
+# 
+# ejFR_PR %>% 
+#   ggplot() + 
+#   aes(x = log(ej_comments_unique+1), y = log(comments+1)) + 
+#   geom_jitter() + 
+#   geom_smooth()
 ```
 
 
 ## Model 
 
+### With president dummies
+
 ```{r ej-m-PR}
 # ej-m-PR
 
 m_PR <- glm(ej_fr ~ ej_comment*log(comments+1) +
-              ej_comments_unique +
+              log(ej_comments_unique+1) +
               president,
            data = ejFR_PR, 
              family=binomial(link="logit"))
 
 equatiomatic::extract_eq(m_PR)
 
-tidy(m_PR) %>% kablebox()
+modelsummary(m_PR, stars = T)
+```
+
+### With president fixed effects
+
+```{r ej-m-PRFE}
+# ej-m-PR
+m_PRFE <- feglm(ej_fr ~ ej_comment*log(comments+1) +
+              log(ej_comments_unique+1) | president,
+           data = ejFR_PR, 
+             family=binomial(link="logit"))
+
+
+modelsummary(m_PRFE, stars = T)
 ```
 
 ### Predicted Probabilities by President
@@ -617,12 +645,12 @@ tidy(m_PR) %>% kablebox()
 
 With the median number of comments on Proposed Rules that did not address EJ, `r median(ejFR_PR$comments)` comments:
 
-```{r ej-m-PR-president-median, fig.width=5, fig.height=3.5}
+```{r ej-m-PR-president-median, fig.width=5.5, fig.height=3.5}
 # ej-m-PR-president-median
 
 # A data frame of values at which to estimate probabilities:
 values <- ejFR_PR %>% 
-  expand(ej_comment,
+  tidyr::expand(ej_comment,
          #ej_comments = median(ej_comments) %>% round(),
          ej_comments_unique = median(ej_comments_unique) %>% round(),
          comments = #c(min(comments),
@@ -636,7 +664,7 @@ predicted <- augment(m_PR,
                      se_fit = TRUE
                      ) %>% 
   left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>% 
            str_c(", N = ", n_ej_comment))
 
 
@@ -651,13 +679,13 @@ predicted %>%
   facet_wrap("president", ncol = 1) +
   labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
        x = "",
-       color =  '"Environmental Justice"\nRaised by Comments',
-       shape =  '"Environmental Justice"\nRaised by Comments',
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
        title = "Predicted change in Final Rules") + 
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
         panel.grid.major.y = element_blank())+
-    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
   ylim(0,1) 
 ```
 
@@ -670,7 +698,7 @@ With the **mean** number of comments on Proposed Rules that did not address EJ, 
 
 # A data frame of values at which to estimate probabilities:
 values <- ejFR_PR %>% 
-  expand(ej_comment,
+  tidyr::expand(ej_comment,
          #ej_comments = median(ej_comments) %>% round(),
          ej_comments_unique = mean(ej_comments_unique) %>% round(),
          comments = #c(min(comments),
@@ -684,7 +712,7 @@ predicted <- augment(m_PR,
                      se_fit = TRUE
                      ) %>% 
   left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
 
 
 # As a plot
@@ -698,13 +726,13 @@ predicted %>%
   facet_wrap("president", ncol = 1) +
   labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
        x = "",
-       color =  '"Environmental Justice"\nRaised by Comments', 
-       shape =  '"Environmental Justice"\nRaised by Comments',
+       color = "",#color = '"Environmental Justice"\nRaised by Comments', 
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
        title = "Predicted change in Final Rules") + 
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
         panel.grid.major.y = element_blank())+  
-  scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+  scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
   ylim(0,1)
 ```
 
@@ -712,12 +740,12 @@ predicted %>%
 
 ## By number of comments
 
-```{r ej-m-PR-comments, fig.width=5.25, fig.height=2.5}
+```{r ej-m-PR-comments, fig.width=6, fig.height=2.5}
 # ej-m-PR-comments
 
 # A data frame of values at which to estimate probabilities:
 values <- ejFR_PR %>% 
-  expand(comments =  c(1, 10,100,1000,10000),
+  tidyr::expand(comments =  c(1, 10,100,1000,10000),
          ej_comment,
          ej_comments_unique = median(ej_comments_unique) %>% round(),
          president = "Obama")
@@ -728,7 +756,7 @@ predicted <- augment(m_PR,
                      se_fit = TRUE
                      )  %>% 
   left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
 
 
 # As a plot
@@ -743,12 +771,12 @@ predicted %>%
                   ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
   geom_hline(yintercept = 0, linetype = 2) +
   coord_flip() +
-    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
 #facet_wrap("ej_comment", ncol = 1) +
   labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
        x = "Number of Comments",
-       color = '"Environmental Justice"\nRaised by Comments',
-       shape = '"Environmental Justice"\nRaised by Comments',
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
        title = "Predicted Change in Final Rules")  +
   theme(panel.border  = element_blank(),
         panel.grid.major.y = element_blank()) 
@@ -805,24 +833,13 @@ ejFR_PR %>% count(agency, ej_comment, ej_fr)  %>%
 
 ```{r}
 m_PR_agency <- glm(ej_fr ~ ej_comment*log(comments+1) + 
-                     ej_comments_unique + #TODO remove or transform 
+                     log(ej_comments_unique+1) + #TODO remove or transform 
                      president + 
                      agency,
            data = ejFR_PR, 
              family=binomial(link="logit"))
 
 tidy(m_PR_agency) %>% kablebox()
-
-
-#  with ej_comments_unique 
-m_nPR_agency <- glm(ej_fr ~ log(comments+1) + 
-                     ej_comments_unique + 
-                     president + 
-                     agency,
-           data = ejFR_PR, 
-             family=binomial(link="logit"))
-
-tidy(m_nPR_agency) %>% kablebox()
 ```
 
 ### Predicted Probabilies by Agency
@@ -831,19 +848,19 @@ tidy(m_nPR_agency) %>% kablebox()
 
 # A data frame of values at which to estimate probabilities:
 values <- ejFR_PR %>%
-  expand(ej_comment,
+  tidyr::expand(ej_comment,
          president = "Obama",
          ej_comments_unique = median(comments) %>% round(),
          comments = median(comments) %>% round(),
          agency)
 
-predicted <- augment(m_PR_agency,  
+predicted <- broom::augment(m_PR_agency,  
                      type.predict = "response",
                      newdata = values,
                      se_fit = TRUE
                      )  %>% 
   left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
 
 # calculate difference in probabilities
 predicted %<>% 
@@ -863,12 +880,13 @@ predicted %>%
                   alpha = .7)  + 
   geom_hline(yintercept = 0, linetype = 2) +
   coord_flip() +
-    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
   
 #facet_wrap("agency", ncol = 1, scales = "free") +
   labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
        x = "",
-       color =  '"Environmental Justice"\nRaised by Comments', shape =  '"Environmental Justice"\nRaised by Comments',
+       color = "",#color = '"Environmental Justice"\nRaised by Comments', 
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
        title = "Predicted Change in Final Rules") + 
   scale_y_continuous(breaks = c(0, .5,1)) +
   theme(panel.grid.major.y = element_blank(),
@@ -904,12 +922,13 @@ predicted %>%
                   alpha = .7)  + 
   geom_hline(yintercept = 0, linetype = 2) +
   coord_flip() +
-    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
   scale_y_continuous(breaks = c(0, .5,1)) +
-labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
-       x = "",
-       color =  '"Environmental Justice"\nRaised by Comments', shape =  '"Environmental Justice"\nRaised by Comments',
-       title = "Predicted change in Final Rules") + 
+labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule',
+     x = "",
+     color = "",#color = '"Environmental Justice"\nRaised by Comments', 
+     shape = "",#shape = "Environmental Justice"\nRaised by Comments', 
+     title = "Predicted change in Final Rules") + 
   theme(panel.grid.major.y = element_blank(),
         panel.border  = element_blank())
 ```
@@ -941,38 +960,49 @@ predicted %>%
                   alpha = .7)  + 
   geom_hline(yintercept = 0, linetype = 2) +
   scale_y_continuous(breaks = c(0, .5,1)) +
-    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
 coord_flip() +
   labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
        x = "",
-       color =  '"Environmental Justice"\nRaised by Comments', shape =  '"Environmental Justice"\nRaised by Comments',
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
        title = "Predicted change in Final Rules") + 
   theme(panel.grid.major.y = element_blank(),
         panel.border = element_blank())
 ```
 
-## Comments with Agency Fixed Effects 
+## with Agency Fixed Effects 
 
 
-```{r ej-m-PR-comments-agencyFE, fig.width=5.25, fig.height=2.5}
+```{r ej-m-PR-comments-agencyFE, fig.width=6, fig.height=2.5}
 # ej-m-PR-comments-agencyFE
+
+# agencies with variation on DV
+# ejFR_PR %<>% group_by(agency) %>% mutate(dv_var = ej_fr %>% unique() %>% length()) %>% ungroup() %>% filter(dv_var > 1)
+
+m_PR_agencyFE <- feglm (ej_fr ~ ej_comment*log(comments+1) + 
+                     log(ej_comments_unique+1) | president + 
+                     agency,
+           data = ejFR_PR, 
+             family=binomial(link="logit"))
+
+modelsummary(m_PR_agencyFE, stars = T)
 
 # A data frame of values at which to estimate probabilities:
 values <- ejFR_PR %>% 
-  expand(comments =  c(1, 10,100,1000,10000),
+  tidyr::expand(comments = c(1, 10,100,1000,10000),
          ej_comment,
          ej_comments_unique = median(ej_comments_unique) %>% round(),
          president = "Obama",
-         agency = "EPA")
+         agency = "EPA") 
 
-predicted <- augment(m_PR_agency,  
+predicted <- broom::augment(m_PR_agency,  
                      type.predict = "response",
                      newdata = values,
                      se_fit = TRUE
                      )  %>% 
   left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
-
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
 
 # As a plot
 predicted %>%
@@ -986,13 +1016,13 @@ predicted %>%
                   ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
   geom_hline(yintercept = 0, linetype = 2) +
   #scale_y_continuous(breaks = c(0, .5,1)) +
-    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
 coord_flip() +
   #facet_wrap("ej_comment", ncol = 1) +
   labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
        x = "Number of Comments",
-       color = '"Environmental Justice"\nRaised by Comments',
-       shape = '"Environmental Justice"\nRaised by Comments',
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       chape = "",#shape = '"Environmental Justice"\nRaised by Comments',
        title = "Predicted Change in Final Rules")  +
   theme(panel.border  = element_blank(),
         panel.grid.major.y = element_blank()) 
@@ -1223,7 +1253,7 @@ ejFRejPR %>%
       label = ifelse(change == ej_comment, percent, NA) %>% str_c("%") ) +
   geom_col(alpha = .7) + 
   geom_text(aes(y = mean)) + 
-    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
 facet_wrap("EJ_comment", scales = "free") + 
   labs(fill = "EJ section changed\nin Final Rule",
        y = "Proposed Rules") + 
@@ -1235,17 +1265,30 @@ facet_wrap("EJ_comment", scales = "free") +
 
 ## Model 
 
+### with president dummies
 ```{r ej-mejPR}
 #ej-mejPR
 
 mejPR <- glm(change ~ ej_comment*log(comments +1) +
-                #ej_comments + 
-                ej_comments_unique +
+                log(ej_comments_unique+1) +
               president,
            data = ejFRejPR, 
              family=binomial(link="logit"))
 
-tidy(mejPR) %>% kablebox()
+modelsummary(mejPR)
+```
+
+
+### with president fixed effects
+```{r ej-mejPRFE}
+#ej-mejPRFE
+
+mejPRFE <- feglm(change ~ ej_comment*log(comments +1) +
+                ej_comments_unique |president,
+           data = ejFRejPR, 
+             family=binomial(link="logit"))
+
+modelsummary(mejPRFE)
 ```
 
 ## By president
@@ -1288,12 +1331,12 @@ ejFRejPR %>%
 
 With the median number of comments, `r median(ejFRejPR$comments)`
 
-```{r ej-mejPR-president-median,fig.width=5, fig.height=3.5}
+```{r ej-mejPR-president-median,fig.width=5.5, fig.height=3.5}
 #ej-mejPR-president-median
 
 # A data frame of values at which to estimate probabilities:
 values <- ejFRejPR %>% 
-  expand(ej_comment,
+  tidyr::expand(ej_comment,
          #ej_comments = median(ej_comments) %>% round(),
          ej_comments_unique = median(ej_comments_unique) %>% round(),
          comments = #c(min(comments),
@@ -1307,7 +1350,7 @@ predicted <- augment(mejPR,
                      se_fit = TRUE
                      ) %>% 
   left_join(ejFRejPR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
 
 
 # As a plot
@@ -1317,12 +1360,13 @@ predicted %>%
   geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
                   ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
   geom_hline(yintercept = 0, linetype = 2) +
-    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
 coord_flip() +
   facet_wrap("president", ncol = 1) +
   labs(y = 'Probability of Change in How a Rule\nAddresses "Environmental Justice"', 
        x = "",
-       color =  '"Environmental Justice"\nRaised by Comments', shape =  '"Environmental Justice"\nRaised by Comments',
+       color = "",#color = "Environmental Justice"\nRaised by Comments', 
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
        title = "Predicted change in Final Rules") + 
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
@@ -1334,12 +1378,12 @@ coord_flip() +
 
 With the mean number of comments, `r mean(ejFRejPR$comments) %>% round() %>% as.integer()`
 
-```{r ej-mejPR-president-mean,fig.width=5, fig.height=3.5}
+```{r ej-mejPR-president-mean,fig.width=5.5, fig.height=3.5}
 #ej-mejPR-president-mean
 
 # A data frame of values at which to estimate probabilities:
 values <- ejFRejPR %>% 
-  expand(ej_comment,
+  tidyr::expand(ej_comment,
          #ej_comments = median(ej_comments) %>% round(),
          ej_comments_unique = mean(ej_comments_unique) %>% round(),
          comments = #c(min(comments),
@@ -1353,7 +1397,7 @@ predicted <- augment(mejPR,
                      se_fit = TRUE
                      ) %>% 
   left_join(ejFRejPR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
 
 
 # As a plot
@@ -1363,12 +1407,13 @@ predicted %>%
   geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
                   ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
   geom_hline(yintercept = 0, linetype = 2) +
-    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
 coord_flip() +
   facet_wrap("president", ncol = 1) +
   labs(y = 'Probability of Change in How a Rule\nAddresses "Environmental Justice"', 
        x = "",
-       color =  '"Environmental Justice"\nRaised by Comments', shape =  '"Environmental Justice"\nRaised by Comments',
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
        title = "Predicted Change in Final Rules") + 
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
@@ -1421,12 +1466,12 @@ ejFRejPR %>%
 
 Estimates across numbers of comments received.
 
-```{r ej-mejPR-comments, fig.height = 2.5, fig.width=5.25}
+```{r ej-mejPR-comments, fig.height = 2.5, fig.width=6}
 #ej-mejPR-comments
 
 # A data frame of values at which to estimate probabilities:
 values <- ejFRejPR %>% 
-  expand(comments = c(1,10,100,1000,10000) ,
+  tidyr::expand(comments = c(1,10,100,1000,10000) ,
          ej_comment,
          ej_comments_unique = median(ej_comments_unique),
          president = "Obama")
@@ -1437,7 +1482,7 @@ predicted <- augment(mejPR,
                      se_fit = TRUE
                      ) %>% 
   left_join(ejFRejPR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
 
 
 # As a plot
@@ -1447,13 +1492,13 @@ predicted %>%
   geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
                   ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
   geom_hline(yintercept = 0, linetype = 2) +
-    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
 coord_flip() +
   #facet_wrap("ej_comment", ncol = 1) +
   labs(y = 'Probability of Change in How a Rule\nAddresses "Environmental Justice"', 
        x = "Number of Comments",
-       color =  '"Environmental Justice"\nRaised by Comments',
-       shape =  '"Environmental Justice"\nRaised by Comments',
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
        title = "Predicted Change in Final Rules")  +
   theme(panel.border  = element_blank(),
         panel.grid.major.y = element_blank()) +
@@ -1504,22 +1549,14 @@ ejFRejPR %>% count(agency, ej_comment, change)  %>%
 ```{r}
 # interaction + agency dummies
 mejPR_agency <- glm(change ~ ej_comment*log(comments+1) + 
-                      ej_comments_unique + #TODO this is colinear with above two, estimate nPR models
+                      log(ej_comments_unique+1) + #TODO this is colinear with above two, estimate nPR models
                       president +
                       agency,
                     data = ejFRejPR, 
                     family=binomial(link="logit"))
 
+
 tidy(mejPR_agency) %>% kablebox()
-
-# with N ej comments + agency dummies
-mejnPR_agency <- glm(change ~ log(comments+1) + 
-                      ej_comments_unique +
-                      president,
-                    data = ejFRejPR, 
-                    family=binomial(link="logit"))
-
-tidy(mejnPR_agency) %>% kablebox()
 ```
 
 ### Predicted Probabilities by Agency
@@ -1528,7 +1565,7 @@ tidy(mejnPR_agency) %>% kablebox()
 # ej-mejPR-agency
 
 mejPR_agency <- glm(change ~ ej_comment*log(comments+1) + 
-                      ej_comments_unique +
+                      log(ej_comments_unique+1) +
                       president +
                       agency,
                     data = ejFRejPR, 
@@ -1538,7 +1575,7 @@ tidy(mejPR_agency) %>% kablebox()
 
 # A data frame of values at which to estimate probabilities:
 values <- ejFRejPR %>%
-  expand(ej_comment,
+  tidyr::expand(ej_comment,
          ej_comments_unique = median(comments) %>% round(),
          comments = median(comments) %>% round(),
          president = "Obama",
@@ -1558,7 +1595,7 @@ predicted %<>%
   left_join(ejFRejPR %>% count(agency, name = "n_agency")) %>% 
   left_join( ejFRejPR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
   mutate(Agency = str_c(diff, "% increase at ", agency, ", N = ", n_agency),
-         EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
+         EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
 
 
 
@@ -1571,12 +1608,13 @@ predicted %>%
                       ymax = .fitted + 1.96*.se.fit),
                   alpha = .7)  + 
   geom_hline(yintercept = 0, linetype = 2) +
-    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
 coord_flip() +
   #facet_wrap("agency", ncol = 1, scales = "free") +
   labs(y = 'Probability of Change in How a Rule Addresses "Environmental Justice"', 
        x = "",
-       color =  '"Environmental Justice"\nRaised by Comments', shape =  '"Environmental Justice"\nRaised by Comments',
+       color = "",#color = "Environmental Justice"\nRaised by Comments', 
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
        title = "Predicted change in Final Rules")  + 
   scale_y_continuous(breaks = c(0, .5,1)) +
   theme(panel.grid.major.y = element_blank(),
@@ -1613,11 +1651,12 @@ predicted %>%
                       ymax = .fitted + 1.96*.se.fit),
                   alpha = .7)  + 
   geom_hline(yintercept = 0, linetype = 2) +
-    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
 coord_flip() +
   labs(y = 'Probability of Change in How a Rule Addresses "Environmental Justice"', 
        x = "",
-       color =  '"Environmental Justice"\nRaised by Comments', shape =  '"Environmental Justice"\nRaised by Comments',
+       color = "",#color = '"Environmental Justice"\nRaised by Comments', 
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
        title = "Predicted change in Final Rules") + 
   scale_y_continuous(breaks = c(0,.5,1)) +
   theme(panel.border = element_blank(),
@@ -1650,11 +1689,12 @@ predicted %>%
                       ymax = .fitted + 1.96*.se.fit),
                   alpha = .6)  + 
   geom_hline(yintercept = 0, linetype = 2) +
-    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
 coord_flip() +
   labs(y = 'Probability of Change in How a Rule Addresses "Environmental Justice"', 
        x = "",
-       color =  '"Environmental Justice"\nRaised by Comments', shape =  '"Environmental Justice"\nRaised by Comments',
+       color = "",#color = '"Environmental Justice"\nRaised by Comments', 
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
        title = "Predicted change in Final Rules") + 
   scale_y_continuous(breaks = c(0,.5,1)) +
   theme(panel.border = element_blank(),
@@ -1662,15 +1702,25 @@ coord_flip() +
 ```
 
 
-## Comments with Agency Fixed Effects 
+## with Agency Fixed Effects 
+
+(as well as president FE)
 
 
-```{r ej-mejPR-comments-agencyFE, fig.width=5.25, fig.height=2.5}
+```{r ej-mejPR-comments-agencyFE, fig.width=6, fig.height=2.5}
 #ej-mejPR-comments-agencyFE
+
+mejPR_agencyFE <- feglm (change ~ ej_comment*log(comments+1) + 
+                     log(ej_comments_unique+1) | president + 
+                     agency,
+           data = ejFRejPR, 
+             family=binomial(link="logit"))
+
+modelsummary(mejPR_agencyFE, stars = T)
 
 # A data frame of values at which to estimate probabilities:
 values <- ejFRejPR %>% 
-  expand(comments =  c(1, 10,100,1000,10000),
+  tidyr::expand(comments =  c(1, 10,100,1000,10000),
          ej_comment,
          ej_comments_unique = median(ej_comments_unique) %>% round(),
          president = "Obama",
@@ -1682,7 +1732,7 @@ predicted <- augment(mejPR_agency,
                      se_fit = TRUE
                      )  %>% 
   left_join(ejFRejPR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = ifelse(ej_comment, "EJ Raised", "EJ Not Raised") %>%             str_c(", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
 
 
 # As a plot
@@ -1696,13 +1746,13 @@ predicted %>%
   geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
                   ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
   geom_hline(yintercept = 0, linetype = 2) +
-    scale_color_viridis_d(direction = -1, begin = 0, end = .6, option = "plasma") +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
 coord_flip() +
   #facet_wrap("ej_comment", ncol = 1) +
   labs(y = 'Probability of Change in How a Rule\nAddresses "Environmental Justice"', 
        x = "Number of Comments",
-       color = '"Environmental Justice"\nRaised by Comments',
-       shape = '"Environmental Justice"\nRaised by Comments',
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
        title = "Predicted Change in Final Rules")  +
   theme(panel.border  = element_blank(),
         panel.grid.major.y = element_blank()) +
@@ -1772,27 +1822,43 @@ models <- list(
   "4" = mejPR_agency
 )
 
+modelsFE <- list(
+  "1" = m_PRFE, 
+  "2" = m_PR_agencyFE,
+  "3"  =  mejPRFE,
+  "4" = mejPR_agencyFE
+)
+
+# rows <- tibble(
+#   term = c("Dependent Variable", "President FE", "Agency FE"),
+#   `1` = c("EJ Added", "X", ""), 
+#   `2` =c("EJ Added", "X", "X"), 
+#   `3`  = c("EJ Changed", "X", ""), 
+#   `4` = c("EJ Changed", "X", "X") #"✓"
+# )
+
 rows <- tibble(
-  term = c("Dependent Variable", "President FE", "Agency FE"),
-  `1` = c("EJ Added", "X", ""), 
-  `2` =c("EJ Added", "X", "X"), 
-  `3`  = c("EJ Changed", "X", ""), 
-  `4` = c("EJ Changed", "X", "X") #"✓"
+  term = c("Dependent Variable"),
+  `1` = c("EJ Added"), 
+  `2` =c("EJ Added"), 
+  `3`  = c("EJ Changed"), 
+  `4` = c("EJ Changed") #"✓"
 )
 
 #broom::tidy(m_PR)
 cm = c("ej_commentTRUE" = "EJ Comment",
        "log(comments + 1)" = "Log(Comments+1)",
-       "ej_comments_unique" = "Unique EJ Comments",
+       "log(ej_comments_unique+1)" = "Unique EJ Comments",
        "ej_commentTRUE:log(comments + 1)" = "EJ Comment*Log(Comments+1)")
 
 attr(rows, 'position') <- c(0, 10,11)
 
 # paper table 
-modelsummary::modelsummary( models, 
+modelsummary::modelsummary( modelsFE, 
                             stars = TRUE, 
                             #coef_omit = "president.*|agency.*|Intercept", 
                             coef_map = cm,
+                            gof_omit = "R.*",
                           add_rows = rows, 
                           notes = "") %>% 
   row_spec(row = 1, bold = T) %>%
