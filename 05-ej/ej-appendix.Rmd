@@ -973,7 +973,7 @@ coord_flip() +
 
 ## with Agency Fixed Effects 
 
-
+(as well as President FE)
 ```{r ej-m-PR-comments-agencyFE, fig.width=6, fig.height=2.5}
 # ej-m-PR-comments-agencyFE
 
@@ -981,8 +981,8 @@ coord_flip() +
 # ejFR_PR %<>% group_by(agency) %>% mutate(dv_var = ej_fr %>% unique() %>% length()) %>% ungroup() %>% filter(dv_var > 1)
 
 m_PR_agencyFE <- feglm (ej_fr ~ ej_comment*log(comments+1) + 
-                     log(ej_comments_unique+1) | president + 
-                     agency,
+                          log(ej_comments_unique+1) 
+                        | president + agency, se = "twoway",
            data = ejFR_PR, 
              family=binomial(link="logit"))
 
@@ -1022,7 +1022,51 @@ coord_flip() +
   labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
        x = "Number of Comments",
        color = "",#color = '"Environmental Justice"\nRaised by Comments',
-       chape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "Predicted Change in Final Rules")  +
+  theme(panel.border  = element_blank(),
+        panel.grid.major.y = element_blank()) 
+```
+
+```{r ej-m-PR-ejcomments-agencyFE, fig.width=6, fig.height=2.5}
+# ej-m-PR-ejcomments-agencyFE
+
+# A data frame of values at which to estimate probabilities:
+values <- ejFR_PR %>% 
+  tidyr::expand(ej_comments_unique = c(1, 10,100,1000, 10000),
+         ej_comment = TRUE,
+         comments = median(comments) %>% round(),
+         president = "Obama",
+         agency = "EPA") %>% 
+  # set all comments to be EJ comments (we can't have one overall comment and 100 ej comments)
+  mutate(comments = ej_comments_unique)
+
+predicted <- broom::augment(m_PR_agency,  
+                     type.predict = "response",
+                     newdata = values,
+                     se_fit = TRUE
+                     )  %>% 
+  left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
+
+# As a plot
+predicted %>%
+  ggplot() + 
+  aes(x = factor(ej_comments_unique), 
+      y = .fitted, 
+      shape = EJ_comment,
+      color = EJ_comment) + 
+  geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
+                  ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+  #scale_y_continuous(breaks = c(0, .5,1)) +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+coord_flip() +
+  #facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
+       x = "Number of Unique Comments\nRaising EJ Concerns",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
        title = "Predicted Change in Final Rules")  +
   theme(panel.border  = element_blank(),
         panel.grid.major.y = element_blank()) 
@@ -1284,11 +1328,11 @@ modelsummary(mejPR)
 #ej-mejPRFE
 
 mejPRFE <- feglm(change ~ ej_comment*log(comments +1) +
-                ej_comments_unique |president,
+                log(ej_comments_unique+1) | president,
            data = ejFRejPR, 
              family=binomial(link="logit"))
 
-modelsummary(mejPRFE)
+modelsummary(mejPRFE, stars = TRUE)
 ```
 
 ## By president
@@ -1706,14 +1750,12 @@ coord_flip() +
 
 (as well as president FE)
 
-
 ```{r ej-mejPR-comments-agencyFE, fig.width=6, fig.height=2.5}
 #ej-mejPR-comments-agencyFE
 
-mejPR_agencyFE <- feglm (change ~ ej_comment*log(comments+1) + 
-                     log(ej_comments_unique+1) | president + 
-                     agency,
-           data = ejFRejPR, 
+mejPR_agencyFE <- feglm (change ~ ej_comment*log(comments+1) + log(ej_comments_unique+1) 
+                     | president + agency,
+           data = ejFRejPR, se = "twoway",
              family=binomial(link="logit"))
 
 modelsummary(mejPR_agencyFE, stars = T)
@@ -1751,6 +1793,52 @@ coord_flip() +
   #facet_wrap("ej_comment", ncol = 1) +
   labs(y = 'Probability of Change in How a Rule\nAddresses "Environmental Justice"', 
        x = "Number of Comments",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "Predicted Change in Final Rules")  +
+  theme(panel.border  = element_blank(),
+        panel.grid.major.y = element_blank()) +
+  ylim(0,1) 
+```
+
+
+```{r ej-mejPR-ejcomments-agencyFE, fig.width=6, fig.height=2.5}
+#ej-mejPR-comments-agencyFE
+
+# A data frame of values at which to estimate probabilities:
+values <- ejFRejPR %>% 
+  tidyr::expand(ej_comments_unique =  c(1, 10,100,1000,10000),
+         ej_comment = TRUE,
+         comments = median(comments) %>% round(),
+         president = "Obama",
+         agency = "EPA") %>% 
+  mutate(comments = ej_comments_unique)
+
+predicted <- augment(mejPR_agency,  
+                     type.predict = "response",
+                     newdata = values,
+                     se_fit = TRUE
+                     )  %>% 
+  left_join(ejFRejPR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
+
+
+# As a plot
+predicted %>%
+  filter(comments<10001) %>% 
+  ggplot() + 
+  aes(x = factor(ej_comments_unique), 
+      y = .fitted, 
+      shape = EJ_comment,
+      color = EJ_comment) + 
+  geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
+                  ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+coord_flip() +
+  #facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Probability of Change in How a Rule\nAddresses "Environmental Justice"', 
+       x = "Number of Unique Comments\nRaising EJ Concerns",
        color = "",#color = '"Environmental Justice"\nRaised by Comments',
        shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
        title = "Predicted Change in Final Rules")  +
@@ -1829,15 +1917,29 @@ modelsFE <- list(
   "4" = mejPR_agencyFE
 )
 
-# rows <- tibble(
-#   term = c("Dependent Variable", "President FE", "Agency FE"),
-#   `1` = c("EJ Added", "X", ""), 
-#   `2` =c("EJ Added", "X", "X"), 
-#   `3`  = c("EJ Changed", "X", ""), 
-#   `4` = c("EJ Changed", "X", "X") #"✓"
-# )
-
 rows <- tibble(
+  term = c("Dependent Variable", "President FE", "Agency FE"),
+  `1` = c("EJ Added", "X", ""),
+  `2` =c("EJ Added", "X", "X"),
+  `3`  = c("EJ Changed", "X", ""),
+  `4` = c("EJ Changed", "X", "X") #"✓"
+)
+
+attr(rows, 'position') <- c(0, 10,11)
+
+
+rows_d <- tibble(
+  term = c("Dependent Variable", "President Dummies", "Agency Dummies"),
+  `1` = c("EJ Added", "X", ""),
+  `2` =c("EJ Added", "X", "X"),
+  `3`  = c("EJ Changed", "X", ""),
+  `4` = c("EJ Changed", "X", "X") #"✓"
+)
+
+attr(rows_d, 'position') <- c(0, 10,11)
+
+
+rowsFE <- tibble(
   term = c("Dependent Variable"),
   `1` = c("EJ Added"), 
   `2` =c("EJ Added"), 
@@ -1845,26 +1947,34 @@ rows <- tibble(
   `4` = c("EJ Changed") #"✓"
 )
 
-#broom::tidy(m_PR)
+attr(rowsFE, 'position') <- c(0)
+
 cm = c("ej_commentTRUE" = "EJ Comment",
        "log(comments + 1)" = "Log(Comments+1)",
-       "log(ej_comments_unique+1)" = "Unique EJ Comments",
+       "log(ej_comments_unique + 1)" = "Log(Unique EJ Comments+1)",
        "ej_commentTRUE:log(comments + 1)" = "EJ Comment*Log(Comments+1)")
 
-attr(rows, 'position') <- c(0, 10,11)
 
-# paper table 
-modelsummary::modelsummary( modelsFE, 
+
+# paper table dummies 
+modelsummary::modelsummary( models, 
                             stars = TRUE, 
-                            #coef_omit = "president.*|agency.*|Intercept", 
                             coef_map = cm,
-                            gof_omit = "R.*",
-                          add_rows = rows, 
+                          add_rows = rows_d, 
                           notes = "") %>% 
   row_spec(row = 1, bold = T) %>%
   kable_styling(latex_options
  = c(scale_down = TRUE)) 
 
+# paper table fixest
+modelsummary::modelsummary( modelsFE, 
+                            stars = TRUE, 
+                            coef_map = cm,
+                            gof_omit = "R.*",
+                          add_rows = rowsFE, 
+                          notes = "") %>% 
+  row_spec(row = 1, bold = T) %>%
+  kable_styling(latex_options = c(scale_down = TRUE)) 
 
 save(models, rows, cm,  m_PR, 
  m_PR_agency,
@@ -1921,8 +2031,6 @@ modelsummary(mod)
 
 - [ ] Compare % in change in 12898 sections vs. rule text vs. response to comment. This requires classifying responses to comment vs. adding 12898 section (in most cases, they are adding a 12898 section)
 
-- [ ] Fix +1 shift in predicted prob of logged vars 
-
 - [ ] Investigate other estimators & `clogit`
 
 - [ ] Toss out data before 2005? I'm not seeing any systematic bias in it. It is incomplete and leads estimates for the Clinton years to be very uncertain. I hate to toss out good data just to avoid having to explain that, but maybe it is worth it.
@@ -1954,7 +2062,6 @@ Theory
 - [ ] Clarify that I'm not arguing against the dominance of well-resourced groups 
 
 - [ ] More on ideas, discourse, framing in public policymaking (Stone, Schneider, Ingraham, etc.)
-
 
 
 - [ ] Potential outcomes (have an example of each): 
