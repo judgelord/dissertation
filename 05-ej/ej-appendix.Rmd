@@ -1319,7 +1319,7 @@ mejPR <- glm(change ~ ej_comment*log(comments +1) +
            data = ejFRejPR, 
              family=binomial(link="logit"))
 
-modelsummary(mejPR)
+modelsummary(mejPR, stars = T)
 ```
 
 
@@ -1991,26 +1991,9 @@ m <- modelsummary::modelsummary( models,
 ```
 
 ```{r, include=FALSE, eval=FALSE}
-# FIXED EFFECTS 
-glance_custom.fixest <- function(x) {
-    out <- tibble::tibble(.rows = 1)
-    for (n in x$fixef_vars) {
-        out[[paste('FE: ', n)]] <- 'X'
-    }
-    return(out)
-}
+# scratchpad
 
-library(fixest)
-library(modelsummary)
 
-url <- 'https://vincentarelbundock.github.io/Rdatasets/csv/plm/EmplUK.csv'
-dat <- read.csv(url)
-mod <- list()
-mod[[1]] <- feols(emp ~ wage, dat)
-mod[[2]] <- feols(emp ~ wage | firm, dat)
-mod[[3]] <- feols(emp ~ wage | firm + year, dat)
-
-modelsummary(mod)
 ```
 
 ---

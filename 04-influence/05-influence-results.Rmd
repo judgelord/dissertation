@@ -1,4 +1,4 @@
-
+\pagebreak
 ## Results (hand-coded data) {#influence-results}
 
 > IN PROGRESS
@@ -13,9 +13,9 @@
 
 **Explanatory variables:** *Coalition size* (a count) is the number of organizations lobbying on the rule. *Business colation* is binomial. *Comments* is the total number of comments (including mass comments) mobilized by members of the coalition, which I transform to a log scale for modeling. 
 
-Table \@ref(tab:data-coded) shows ten rows of coded data, summarized at the coalition level.
+Table \@ref(tab:data-coded) shows a sample of coded data, summarized at the coalition level.
 
-```{r data-coded}
+```{r data-coded, cache = FALSE}
 load(here::here("data", "coalitions_coded.Rdata"))
 
 d <- coalitions_coded %>% 
@@ -24,22 +24,37 @@ d <- coalitions_coded %>%
   distinct() %>% 
   dplyr::select(-coalitions)
 
-d %>% group_by(docket_id) %>% sample_n(2, weight = comments) %>% dplyr::select(docket_id, coalition_id, everything()) %>% knitr::kable(caption = "Coded data") %>% kable_styling(latex_options = c("scale_down")) 
+d %>% group_by(docket_id) %>% 
+  sample_n(2, weight = comments) %>% 
+  dplyr::select(docket_id, coalition_id, everything()) %>% distinct() %>% 
+  knitr::kable(caption = "A Sample of Hand-Coded Summarized by Coaltion") %>% 
+  kable_styling(latex_options = c("scale_down")) 
 ```
 
-```{r hist-coalitions, fig.width=2, fig.height=2,  out.width = "30%"}
-ggplot(d, aes(x = coalition_success)) + geom_histogram()+ labs(x = "Coalition Success")
+```{r hist-coalitions, fig.width=2, fig.height=2,  out.width = "30%", fig.cap="Hand-coded Data by Coalition", cache=FALSE}
+ggplot(d, aes(x = coalition_success)) + 
+  geom_histogram() + 
+  labs(x = "Coalition Success")
 
-ggplot(d) + aes(x = as.numeric(coalition_business)) + geom_histogram()+ labs(x = "Business Coalition")
+ggplot(d) + 
+  aes(x = as.numeric(coalition_business)) + 
+  geom_histogram() + 
+  labs(x = "Business Coalition")
 
-ggplot(d, aes(x = coalition_size)) + geom_histogram()+ labs(x = "Coalition size")
+ggplot(d, aes(x = coalition_size)) + 
+  geom_histogram() + 
+  labs(x = "Coalition size")
+
 ```
 
-```{r hist-comments,  fig.width=3, fig.height=2, out.width = "49%"}
+```{r hist-comments,  fig.width=3, fig.height=2, out.width = "49%", fig.cap="Number of Comments Linked to Hand-Coded Coalitions", cache=FALSE}
 #TODO
 #ggplot(d, aes( x= comment_length)) + geom_histogram()+ labs(x = "% (Comment length/proposed rule length)*100")
 
-ggplot(d, aes( x= log(comments))) + geom_histogram() + labs(x = "Log(comments)")
+ggplot(d, aes( x= log(comments))) + 
+  geom_histogram() + 
+  labs(x = "Log(comments)")
+
 ```
 
 ### Results

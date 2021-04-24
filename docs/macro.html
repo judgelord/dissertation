@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Agency Rulemaking in American Politics | Public Pressure Campaigns and Bureaucratic Policymaking</title>
   <meta name="description" content="Draft" />
-  <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Agency Rulemaking in American Politics | Public Pressure Campaigns and Bureaucratic Policymaking" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Devin Judge-Lord" />
 
 
-<meta name="date" content="2021-04-15" />
+<meta name="date" content="2021-04-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -61,7 +61,6 @@
 
 
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -304,7 +303,7 @@ Figure 1.2: Number of Final Rules Publishded per Year
 </div>
 <div id="the-likelihood-of-rulemaking-over-time" class="section level3" number="1.2.2">
 <h3><span class="header-section-number">1.2.2</span> The Likelihood of Rulemaking over Time</h3>
-<p>Finally, we can estimate statistical trend lines for different policy types. While many statistical approaches may be appropriate, I opt to use a proportional hazard model. This method estimates a baseline hazard rate–the likelihood a rule will be published given the number of days since a draft was released. I then estimate the effect of calendar time on this baseline hazard rate. The effect of calendar time on the likelihood of rule finalization is fit using a smoothing spline for every two years (every Congress) in the dataset. These splines estimate a cubic polynomial function that best captures the effect of a given date on the likelihood of rulemaking over the spline interval (a Congress) while also smoothly connecting to the intervals on either side. This gives us a smoothed function estimating the likelihood of rulemaking over time (Figure <a href="#macro-likelihood"><strong>??</strong></a>).</p>
+<p>Finally, we can estimate statistical trend lines for different policy types. While many statistical approaches may be appropriate, I opt to use a proportional hazard model. This method estimates a baseline hazard rate–the likelihood a rule will be published given the number of days since a draft was released. I then estimate the effect of calendar time on this baseline hazard rate. The effect of calendar time on the likelihood of rule finalization is fit using a smoothing spline for every two years (every Congress) in the dataset. These splines estimate a cubic polynomial function that best captures the effect of a given date on the likelihood of rulemaking over the spline interval (a Congress) while also smoothly connecting to the intervals on either side. This gives us a smoothed function estimating the likelihood of rulemaking over time (Figure <a href="macro.html#fig:macro-likelihood">1.3</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:macro-likelihood"></span>
 <img src="Figs/todo.png" alt="Smoothed Likelihood that a Rule is Published on a Given Day 1980-2020" width="10%"  />
 <p class="caption">
@@ -376,7 +375,7 @@ Claggett and Shafer (2010), among others, identify environmental issues as anoma
 Figure 1.9: Environmental Policy Final Rules, 1980-2020
 </p>
 </div>
-<p>The likelihood plot in Figure <a href="#macro-environment"><strong>??</strong></a> does show peaks in the 103rd and 111th Congresses, suggesting partisan effects. However, this partisan association could be as much an artifact of the agency as the issue. For example, Republicans may be inclined to pursue environmental protection through the Departments of Agriculture, Energy, or Defense in which they may have more trust or better policy vehicles to serve their constituents (see Appendix for additional plots). Alternatively, policymaking in the EPA may be indicative of policymaking in other venues where Democrats may also pay more attention to environmental issues. Future research could analyze the abstracts of rules in more multi-issue agencies to better determine their content. The most pronounced peak may reflect Barack Obama’s executive actions in his second term (for example, his executive order on climate change adaptation (Obama 2013)).</p>
+<p>The likelihood plot in Figure <a href="macro.html#fig:macro-environment">1.9</a> does show peaks in the 103rd and 111th Congresses, suggesting partisan effects. However, this partisan association could be as much an artifact of the agency as the issue. For example, Republicans may be inclined to pursue environmental protection through the Departments of Agriculture, Energy, or Defense in which they may have more trust or better policy vehicles to serve their constituents (see Appendix for additional plots). Alternatively, policymaking in the EPA may be indicative of policymaking in other venues where Democrats may also pay more attention to environmental issues. Future research could analyze the abstracts of rules in more multi-issue agencies to better determine their content. The most pronounced peak may reflect Barack Obama’s executive actions in his second term (for example, his executive order on climate change adaptation (Obama 2013)).</p>
 </div>
 </div>
 <div id="conclusion" class="section level2" number="1.4">

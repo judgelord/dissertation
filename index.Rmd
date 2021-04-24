@@ -39,6 +39,12 @@ source(here::here("code", "setup.R"))
 
 **TODO List**
 
+- [ ] Update outline
+ 
+- [ ] Walk through theoretical model step-by-step in each chapter
+
+Chapter 1:
+
 - [ ] Redo figures for chapter 1 with new data
 
 - [ ] Rewrite chapter 1 to better introduce data and theories
@@ -58,6 +64,8 @@ Chapter 3:
 - [ ] Add section on validation of automated methods
 
 Chapter 4: minor to-do list here: https://judgelord.github.io/dissertation/ej-appendix#TODO
+
+- [ ] Add coalition size figures 
 
 Chapter 5:  
 

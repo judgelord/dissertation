@@ -281,16 +281,13 @@ is prevent a perceived consensus, I expect such campaigns to engage
 fewer people, less effort per person, and yield a smaller portion of
 indirect engagement.
 
-```{theorem, disrupt}
+```{hypothesis, disrupt}
+\@ref(hyp:disrupt)
 ```
 
 (ref:disrupt) Hypothesis 1b
 
-> **(ref:disrupt):** When a lobbying
-coalition with more intense public support mobilizes successfully in
-response to an opportunity to influence policy, opposing coalitions with
-less public support are more likely to countermobilize, but with
-proportionally smaller results.
+> **(ref:disrupt):** When a lobbying coalition with more intense public support mobilizes successfully in response to an opportunity to influence policy, opposing coalitions with less public support are more likely to countermobilize, but with proportionally smaller results.
 
 The first part of (ref:disrupt) would be undermined if lobbying organizations
 with less public support are no more likely to engage in outside
@@ -315,8 +312,7 @@ petition are its signatories."  In the context of notice and comment rulemaking,
 campaigns aimed primarily at fulfilling member, donor, or supporter
 expectations and related logics that are internal to the organization,
 including member retention or recruitment (@Carpenter2014b, @Carpenter2020), fundraising, or satisfying a
-board of directors. For example, as Figure
-\@ref(fig:sierra) shows, the Sierra Club uses campaigns to collect
+board of directors. For example, as Figure \@ref(fig:sierra) shows, the Sierra Club uses campaigns to collect
 contact information of supporters and potential members. In this case,
 given the executive-branch transition between 2010 when the rule was
 initiated and 2017 when it was delayed, the Sierra Club may have had
@@ -329,7 +325,7 @@ communication from the Sierra Club."
 
 ```{r sierra, out.width="40%",fig.cap = "The Sierra Club Collects Contact Information Through Mass Mobilization Campaign"}
 
-knitr::include_graphics(here::here("Figs/sierra2.jpeg"))
+knitr::include_graphics(here::here("Figs", "sierra2.jpeg"))
 
 ```
 

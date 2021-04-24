@@ -40,7 +40,7 @@ knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that your code will show
                       message = FALSE,
                       fig.show="hold",
                       fig.pos= "htbp",
-                      fig.path = "figs/",
+                      #fig.path = "Figs/",
                       fig.align='center',
                       fig.cap = '   ',
                       fig.retina = 6,

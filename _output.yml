@@ -1,7 +1,7 @@
 bookdown::gitbook:
 #bookdown::tufte_html_book:
 #  self_contained: true # MathJax doesn't work with self_contained when not using the rmarkdown "default" template.
-  css: style.css #`r here::here("assets/style.css")`
+#  css: style.css #`r here::here("assets/style.css")`
   config: 
     search: true
     split_bib: no 
@@ -36,9 +36,4 @@ bookdown::pdf_book:
   - \floatsetup[table]{capposition=top}
 bookdown::word_document2:
   toc: true
-#  lot: true
-#  lof: true
 bookdown::epub_book: default
-#  toc: true
-#  lot: true
-#  lof: true

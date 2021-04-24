@@ -19,11 +19,13 @@ fig:comments-support
 fig:topdockets
 fig:causal-oversight-2
 fig:congress
-fig:causal-oversight-1
+fig:causal-oversight
 tab:data-sim
 fig:model-success-plot-sim
 tab:mediation-sim
 tab:data-coded
+fig:hist-coalitions
+fig:hist-comments
 fig:model-success-plot
 tab:mediation
 fig:ej-data

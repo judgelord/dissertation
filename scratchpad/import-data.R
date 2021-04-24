@@ -90,3 +90,5 @@ ggplot(coalitions_coded, aes(x = coalition_size)) + geom_histogram()+ labs(x = "
 
 ggplot(coalitions_coded, aes( x= log(comments))) + geom_histogram() + labs(x = "Log(comments)")
 
+coalitions_coded$comments %>% sum() 
+coalitions_coded$docket_id %>% unique()

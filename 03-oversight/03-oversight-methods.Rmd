@@ -14,14 +14,12 @@ To assess the hypothesis that mass engagement affects the engagement of
 political principals, I examine the relationship between mass commenting
 and the behavior of members of Congress, while attempting to control for
 other reasons that members of Congress may comment on a proposed rule.
-The bold arrow in figure
-[\[fig:causal-principals-test\]](#fig:causal-principals-test){reference-type="ref"
-reference="fig:causal-principals-test"} indicates the key relationship
+The bold arrow in figure \@ref(fig:causal-oversight) indicates the key relationship
 that I test in this step. I aim to test the relationship between mass
 public engagement and engagement from members of Congress, who may
 receive information about public opinion from mass engagement.
 
-```{r causal-oversight-1, fig.cap = "The Relationship Between Public Pressure and Congressional Oversight"}
+```{r causal-oversight, fig.cap = "The Relationship Between Public Pressure and Congressional Oversight"}
 knitr::include_graphics(here::here("figs", "causal-oversight-1.png"))
 ```
 
