@@ -355,7 +355,7 @@ knitr::include_graphics("Figs/ej-comments-1.png")
 
 ---
 
-background-image: url(figs/climatemarchDCej.jpg)
+background-image: url(Figs/climatemarchDCej.jpg)
 background-size: cover
 
 
@@ -363,7 +363,7 @@ background-size: cover
 
 ---
 
-background-image: url(figs/earthjustice.png)
+background-image: url(Figs/earthjustice.png)
 background-size: contain
 background-position: bottom
 
@@ -372,7 +372,7 @@ background-position: bottom
 
 ---
 
-background-image: url(figs/climatemarchDC.jpg)
+background-image: url(Figs/climatemarchDC.jpg)
 background-size: cover
 
 `"Attached are files containing the names of 11,478 individuals who have submitted public comments urging the Bureau of Land Management (BLM) to strengthen the proposed regulations on methane waste and pollution on federal and tribal lands"` 
