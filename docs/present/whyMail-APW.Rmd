@@ -96,7 +96,7 @@ If so, by what mechanisms?
 
 Rulemaking, ~90% of new U.S. law
 
-![](macro-medicare.png)
+![](Figs/macro-medicare.png)
 
 ---
 
@@ -107,14 +107,14 @@ Rulemaking, ~90% of new U.S. law
 ### Writing to government officials, signing petitions, attending hearings, attending protests, or donating to a political campaign (Verba and Nie 1987).
 
 
-![](redletters.png)
+![](Figs/redletters.png)
 
 Most rules receive <10 comments
 --
 , some receive millions.
 
 <!--
-![](rules-ranked-comments-per-year-1.png)
+![](Figs/rules-ranked-comments-per-year-1.png)
 
 -->
 
@@ -161,7 +161,7 @@ exclude: true
 
 > "The realm of durable, consequential policies is the realm of organized interests." - Hacker, Hertel-Fernandez,  Pierson, and Thelen
 
-![](classicmodel.png)
+![](Figs/classicmodel.png)
 
 
 
@@ -184,7 +184,7 @@ exclude: true
 
 
 Does it matter? 
-![](tweet-lind.png) 
+![](Figs/tweet-lind.png) 
 
 <!-- but SOMETIMES it is very different, or at least it looks different because lots of ordinary people are voicing their opinions, but we don't know if it matters. 
 -->
@@ -202,7 +202,7 @@ Does it matter?
 (e.g., signals of the scale and intensity of public support)
 
 
-![](causal-whymail.png)
+![](Figs/causal-whymail.png)
 
 $\Diamond \text{ observed actions,       }  \bigcirc \text{ unobserved prefrences,      } \square \text{ information}$
 
@@ -236,7 +236,7 @@ exclude: true
 exclude: true
 background-image: url("present/tweetBenWilkerMoveon.png")
 
-![](tweetBenWiklerMoveon.png)
+![](Figs/tweetBenWiklerMoveon.png)
 
 ---
 
@@ -255,8 +255,15 @@ background-image: url("present/tweetBenWilkerMoveon.png")
 
 <!--sometimes people that don't fit that concept-->
 
-<img src="https://github.com/judgelord/dissertation/raw/master/docs/present/EPA-protest-kills-jobs.jpg" height = 200 />
-<img src="https://github.com/judgelord/dissertation/raw/master/docs/present/EPA-protest-nurses.jpg" height = 200 />
+
+```{r jobs, out.width = "35%", fig.show = "hold"}
+
+knitr::include_graphics("Figs/EPA-protest-kills-jobs.jpg")
+
+knitr::include_graphics("Figs/EPA-protest-nurses.jpg")
+```
+
+
 
 --
 
@@ -336,7 +343,7 @@ exclude: true
 
 Co-sign an org's form comment <--> Partially unique <--> Unique 
 
-Lower effort <------------------------------------------------> Higher effort
+Lower effort <------------------------------------------> Higher effort
 
 ### 3. Potential contagion (share of unique comments)
 
@@ -403,7 +410,7 @@ class: center
 
 ---
 class: center inverse
-![](spam.png) 
+![](Figs/spam.png) 
 
 # Thanks!
 
@@ -417,7 +424,7 @@ JudgeLord@Wisc.edu
 ---
 
 Political Information in Bureaucratic Policymaking
-![](causal-full.png)
+![](Figs/causal-full.png)
 
 $\Diamond \text{ observed actions,       }  \bigcirc \text{ unobserved prefrences,      } \square \text{ information}$
 
@@ -427,7 +434,7 @@ $\Diamond \text{ observed actions,       }  \bigcirc \text{ unobserved prefrence
 20 orgs mobilized nearly half of comments on the top 10 most commented on rules
 
 
-![](topdockets.png)
+![](Figs/topdockets.png)
 
 CFPB's Payday Lending Rule received 80,000 partially unique comments
 
@@ -435,103 +442,13 @@ DOI's National Monuments Review received 200,000 unique comments
 
 ---
 
-background-image: url("ej-second-order.png")
+background-image: url(Figs/ej-second-order.png)
 background-size: contain
 
 
 ---
 
-background-image: url(commentor-race.png)
+background-image: url(Figs/commentor-race.png)
 background-size: contain
-
-
-<!---
-
-Change in Draft Rules that did mot Mention Environmental Justice
-![](ej_prob_top_agencies.png)
-
----
-
-
-![](macro-environment.png)
-
----
-
-![](macro-welfare.png)
-
----
-
-![](macro-labor.png)
-
----
-
-## Asymmetric sentiment 
-![](sent-2018EPA-HQ-OAR-2018-0283.png)
-
-
----
-
-## Sentiment-LDA correlation
-
-
-![](topic-sent.png)
-
-400 of 610,927 comments
-
-<!--
-
-```{r causal-full, fig.cap="The Role of Mass Commenting and Political Information in Bureaucratic Policymaking"}
-knitr::include_graphics(here::here("Figs/causal-full.png"))
-```
-
-```{r comments-from, fig.cap="Sources of Comments Posted to regulations.gov"}
-knitr::include_graphics("../Figs/comments-form-1.png")
-```
-
-
-
--->
-
-
-
-
-<!--
-questions that Congress scholars have asked 
-
-
-EPA - profitability inseparable from democracy 
-
-Wilson - bureaucrats want to be sued.
-
-Janna - complexity is essential - working on policy development monopolies- expert groups claim rents as providing info.
-
-Brian - how important are these rules. 
-- 25% of CRS overturned 
-- 
-- payday vs. net neutrality - are they all the same thing? 
-- - no some are going down fighting 
-- - net neutrality is ideology vs. ideology - organized IN THE SAME WAY 
-- - payday loan was not only mobilizer - true vs. false grassroots
-- - disrupting consensus = Payday 
-- - why do agencies care? 
-
-- how do they process and extract 
-- - EPA consultant bins - more binned 
-
-
-- a better fit between theory and measures 
-
-- Maarmam - cosigning 
-
-- coalition - movement - interest - 
-- What evidence would you need to know if this is 
-
-
-Gunnar Trumbull - coalitions need to create legitimacy.
-
-
-- Companies buying off nonprofits, hiring consultants, supporting coal miners union, grassroots 
-
--->
 
 
