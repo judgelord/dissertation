@@ -49,9 +49,6 @@ load(here::here("05-ej", "ej_models.Rdata"))
 ```
 
 ```{r tables, eval=TRUE}
-library(modelsummary)
-library(kableExtra)
-library(magrittr)
 modelsummary::modelsummary( models, 
                             title = 'Logit Regression Predicting Change in Rule Text',
                             stars = TRUE, 
@@ -59,7 +56,7 @@ modelsummary::modelsummary( models,
                             add_rows = rows,
                             notes = "") %>% 
   row_spec(row = 1, #bold = T, 
-           hline_after = TRUE) #%>% kable_styling(latex_options = c(scale_down = TRUE)) 
+           hline_after = TRUE) %>% kable2(file = "ej-tables") #%>% kable_styling(latex_options = c(scale_down = TRUE)) 
 ```
 
 

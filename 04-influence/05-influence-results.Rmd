@@ -25,10 +25,10 @@ d <- coalitions_coded %>%
   dplyr::select(-coalitions)
 
 d %>% group_by(docket_id) %>% 
-  sample_n(2, weight = comments) %>% 
-  dplyr::select(docket_id, coalition_id, everything()) %>% distinct() %>% 
-  knitr::kable(caption = "A Sample of Hand-Coded Summarized by Coaltion") %>% 
-  kable_styling(latex_options = c("scale_down")) 
+  sample_n(2, weight = comments) %>%
+  dplyr::select(docket_id, coalition_id, everything()) %>% 
+  distinct() %>% 
+  kable3(caption = "A Sample of Hand-Coded Summarized by Coaltion") 
 ```
 
 ```{r hist-coalitions, fig.width=2, fig.height=2,  out.width = "30%", fig.cap="Hand-coded Data by Coalition", cache=FALSE}
@@ -137,7 +137,8 @@ modelsummary::modelsummary( models,
                             # coef_map = cm,
                           add_rows = rows, 
                           notes = "") %>% 
-  row_spec(row = 1, bold = T) %>% kable_styling(latex_options = c("scale_down")) 
+  row_spec(row = 1, bold = T) %>% 
+  kable2(file = "mediation") 
 
 ```
 

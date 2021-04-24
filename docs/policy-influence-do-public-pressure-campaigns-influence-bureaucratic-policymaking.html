@@ -679,40 +679,41 @@ legislators through mass engagement.
 <p><strong>Dependent variable:</strong> <em>Coalition success</em> is drawn from a descrete distribution {-1, -.5, 0, .5, 1}.</p>
 <p><strong>Explanatory variables:</strong> <em>Coalition size</em> (a count) is drawn from a Poisson distribution. <em>Business colation</em> is binomial. In reality, business coalitions are more common than non-business coalitions, but here I estimate a balanced sample. I set rule pages constant at 85 and draw <em>comment lengths</em> from a Poisson distribution. While in reality, less than one percent of coalitions lobbying in rulemaking opt for a mass-comment campaign, I aim to gather a balanced sample, so half of the simulated data are assumed to have no mass comment campaign (<em>comments</em> = 1, <em>log(comments)</em> = 0) and the other half have a number of <em>comments</em> drawn from a Zero-Truncated Poisson distribution, which is then transformed to a log scale.</p>
 <p>Table <a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#tab:data-sim">3.1</a> shows ten rows of simulated data.</p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:data-sim">Table 3.1: </span>Simulated data
 </caption>
 <thead>
 <tr>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 rule_id
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 coalition_id
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 coalitions
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 coalition_unopposed
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 coalition_success
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 coalition_size
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 coalition_business
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 comment_length
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 comments
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 cong_support
 </th>
 </tr>
@@ -720,7 +721,103 @@ cong_support
 <tbody>
 <tr>
 <td style="text-align:right;">
-20
+166
+</td>
+<td style="text-align:right;">
+1336
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+9.4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1320
+</td>
+<td style="text-align:right;">
+442
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+-0.5
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+9.4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+1020
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+-1.0
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+12.9
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+577
 </td>
 <td style="text-align:right;">
 561
@@ -732,202 +829,10 @@ cong_support
 0
 </td>
 <td style="text-align:right;">
-0.5
+0.0
 </td>
 <td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-14.1
-</td>
-<td style="text-align:right;">
-71431
-</td>
-<td style="text-align:right;">
-12
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1259
-</td>
-<td style="text-align:right;">
-441
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.5
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-10.6
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1412
-</td>
-<td style="text-align:right;">
-552
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1.0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-17.6
-</td>
-<td style="text-align:right;">
-114595
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-998
-</td>
-<td style="text-align:right;">
-1613
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
--0.5
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-16.5
-</td>
-<td style="text-align:right;">
-132875
-</td>
-<td style="text-align:right;">
-5
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-873
-</td>
-<td style="text-align:right;">
-1376
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
--0.5
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-18.8
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1291
-</td>
-<td style="text-align:right;">
-1668
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
--0.5
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-5.9
-</td>
-<td style="text-align:right;">
-27067
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1025
-</td>
-<td style="text-align:right;">
-1870
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
--1.0
-</td>
-<td style="text-align:right;">
-15
+13
 </td>
 <td style="text-align:right;">
 1
@@ -944,10 +849,42 @@ cong_support
 </tr>
 <tr>
 <td style="text-align:right;">
-70
+867
 </td>
 <td style="text-align:right;">
-1311
+142
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+12.9
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+1571
 </td>
 <td style="text-align:right;">
 1
@@ -959,7 +896,103 @@ cong_support
 -1.0
 </td>
 <td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
 1
+</td>
+<td style="text-align:right;">
+16.5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1083
+</td>
+<td style="text-align:right;">
+1075
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+-1.0
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+8.2
+</td>
+<td style="text-align:right;">
+62689
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+712
+</td>
+<td style="text-align:right;">
+849
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+14.1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+375
+</td>
+<td style="text-align:right;">
+1330
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+<td style="text-align:right;">
+8
 </td>
 <td style="text-align:right;">
 1
@@ -968,7 +1001,7 @@ cong_support
 7.1
 </td>
 <td style="text-align:right;">
-20510
+1
 </td>
 <td style="text-align:right;">
 0
@@ -976,10 +1009,10 @@ cong_support
 </tr>
 <tr>
 <td style="text-align:right;">
-1137
+1210
 </td>
 <td style="text-align:right;">
-1809
+581
 </td>
 <td style="text-align:right;">
 2
@@ -991,55 +1024,24 @@ cong_support
 0.5
 </td>
 <td style="text-align:right;">
-4
+12
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-8.2
+11.8
 </td>
 <td style="text-align:right;">
-1
+175575
 </td>
 <td style="text-align:right;">
 0
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-132
-</td>
-<td style="text-align:right;">
-1952
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.5
-</td>
-<td style="text-align:right;">
-11
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-17.6
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-9
 </td>
 </tr>
 </tbody>
 </table>
+</div>
 <div class="figure" style="text-align: center">
 <img src="judgelord_files/figure-html/hist-coalitions-sim-1.png" alt="   " width="30%"  /><img src="judgelord_files/figure-html/hist-coalitions-sim-2.png" alt="   " width="30%"  /><img src="judgelord_files/figure-html/hist-coalitions-sim-3.png" alt="   " width="30%"  />
 <p class="caption">
@@ -1100,26 +1102,26 @@ Members of Congress in Coalition
 (Intercept)
 </td>
 <td style="text-align:center;">
-0.025
+0.079
 </td>
 <td style="text-align:center;">
-0.024
+0.080
 </td>
 <td style="text-align:center;">
-1.781***
+2.300***
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 </td>
 <td style="text-align:center;">
-(0.057)
+(0.059)
 </td>
 <td style="text-align:center;">
-(0.058)
+(0.060)
 </td>
 <td style="text-align:center;">
-(0.293)
+(0.303)
 </td>
 </tr>
 <tr>
@@ -1127,13 +1129,13 @@ Members of Congress in Coalition
 log(comments)
 </td>
 <td style="text-align:center;">
-0.000
+-0.002
 </td>
 <td style="text-align:center;">
-0.000
+-0.002
 </td>
 <td style="text-align:center;">
-0.026**
+0.022*
 </td>
 </tr>
 <tr>
@@ -1154,13 +1156,13 @@ log(comments)
 comment_length
 </td>
 <td style="text-align:center;">
-0.005
+0.001
 </td>
 <td style="text-align:center;">
-0.005
+0.001
 </td>
 <td style="text-align:center;">
-0.015
+-0.008
 </td>
 </tr>
 <tr>
@@ -1181,13 +1183,13 @@ comment_length
 coalition_business
 </td>
 <td style="text-align:center;">
--0.023
+-0.020
 </td>
 <td style="text-align:center;">
--0.023
+-0.020
 </td>
 <td style="text-align:center;">
-0.159
+-0.095
 </td>
 </tr>
 <tr>
@@ -1200,7 +1202,7 @@ coalition_business
 (0.030)
 </td>
 <td style="text-align:center;">
-(0.153)
+(0.155)
 </td>
 </tr>
 <tr>
@@ -1208,13 +1210,13 @@ coalition_business
 coalition_size
 </td>
 <td style="text-align:center;">
-0.001
+0.000
 </td>
 <td style="text-align:center;">
-0.001
+0.000
 </td>
 <td style="text-align:center;">
-0.004
+0.002
 </td>
 </tr>
 <tr>
@@ -1235,23 +1237,23 @@ coalition_size
 coalition_unopposed
 </td>
 <td style="text-align:center;">
--0.001
+0.000
 </td>
 <td style="text-align:center;">
--0.001
+0.000
 </td>
 <td style="text-align:center;">
--0.076
+-0.081
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 </td>
 <td style="text-align:center;">
-(0.028)
+(0.027)
 </td>
 <td style="text-align:center;">
-(0.028)
+(0.027)
 </td>
 <td style="text-align:center;">
 (0.141)
@@ -1264,7 +1266,7 @@ cong_support
 <td style="text-align:center;">
 </td>
 <td style="text-align:center;">
-0.001
+-0.001
 </td>
 <td style="text-align:center;">
 </td>
@@ -1305,7 +1307,7 @@ R2
 0.001
 </td>
 <td style="text-align:center;">
-0.003
+0.002
 </td>
 </tr>
 <tr>
@@ -1313,13 +1315,13 @@ R2
 R2 Adj.
 </td>
 <td style="text-align:center;">
--0.001
+-0.002
 </td>
 <td style="text-align:center;">
 -0.002
 </td>
 <td style="text-align:center;">
-0.001
+0.000
 </td>
 </tr>
 <tr>
@@ -1327,13 +1329,13 @@ R2 Adj.
 AIC
 </td>
 <td style="text-align:center;">
-3746.2
+3729.5
 </td>
 <td style="text-align:center;">
-3748.2
+3731.5
 </td>
 <td style="text-align:center;">
-10269.5
+10271.4
 </td>
 </tr>
 <tr>
@@ -1341,13 +1343,13 @@ AIC
 BIC
 </td>
 <td style="text-align:center;">
-3785.4
+3768.7
 </td>
 <td style="text-align:center;">
-3793.0
+3776.3
 </td>
 <td style="text-align:center;">
-10308.7
+10310.6
 </td>
 </tr>
 <tr>
@@ -1355,13 +1357,13 @@ BIC
 Log.Lik.
 </td>
 <td style="text-align:center;">
--1866.107
+-1857.767
 </td>
 <td style="text-align:center;">
--1866.098
+-1857.755
 </td>
 <td style="text-align:center;">
--5127.766
+-5128.721
 </td>
 </tr>
 <tr>
@@ -1369,13 +1371,13 @@ Log.Lik.
 F
 </td>
 <td style="text-align:center;">
-0.530
+0.211
 </td>
 <td style="text-align:center;">
-0.445
+0.179
 </td>
 <td style="text-align:center;">
-1.226
+0.819
 </td>
 </tr>
 </tbody>
@@ -1394,9 +1396,9 @@ F
 </tr>
 </tfoot>
 </table>
-<p>The average effect of the logged number of comments, conditional on letters from members of congress (the ACME) is 0, with a p value of 0.86.</p>
-<p>The average direct effect (ADE) of the logged number of comments on lobbying success is 0, with a p value of 0.93</p>
-<p>The Total Effect of a one-unit increase in the logged number of comments is 0, with a p value of 0.92. 0 of this is mediated through mobilizing congressional attention (p-value = 0.97).</p>
+<p>The average effect of the logged number of comments, conditional on letters from members of congress (the ACME) is 0, with a p value of 0.91.</p>
+<p>The average direct effect (ADE) of the logged number of comments on lobbying success is 0, with a p value of 0.46</p>
+<p>The Total Effect of a one-unit increase in the logged number of comments is 0, with a p value of 0.46. 0 of this is mediated through mobilizing congressional attention (p-value = 0.97).</p>
 
 <div style="page-break-after: always;"></div>
 </div>
@@ -1414,37 +1416,38 @@ F
 <p><strong>Dependent variable:</strong> <em>Coalition success</em> is the mean of hand-coded lobbying success on a five-point scale ({-2, -1, 0, 1, 2}, recoded to {-1, -.5, 0, .5, 1} for more straightforward model interpretation).</p>
 <p><strong>Explanatory variables:</strong> <em>Coalition size</em> (a count) is the number of organizations lobbying on the rule. <em>Business colation</em> is binomial. <em>Comments</em> is the total number of comments (including mass comments) mobilized by members of the coalition, which I transform to a log scale for modeling.</p>
 <p>Table <a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#tab:data-coded">3.3</a> shows a sample of coded data, summarized at the coalition level.</p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:data-coded">Table 3.3: </span>A Sample of Hand-Coded Summarized by Coaltion
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 docket_id
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 coalition_id
 </th>
-<th style="text-align:left;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 coalition_comment
 </th>
-<th style="text-align:left;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 coalition_unopposed
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 cong_support
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 coalition_size
 </th>
-<th style="text-align:left;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 coalition_business
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 coalition_success
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 comments
 </th>
 </tr>
@@ -1455,10 +1458,10 @@ comments
 CFPB-2016-0025
 </td>
 <td style="text-align:right;">
-14
+11
 </td>
 <td style="text-align:left;">
-Church Folk
+Central Florida Jobs
 </td>
 <td style="text-align:left;">
 FALSE
@@ -1467,16 +1470,16 @@ FALSE
 0
 </td>
 <td style="text-align:right;">
-28
+2
 </td>
 <td style="text-align:left;">
-TRUE
+FALSE
 </td>
 <td style="text-align:right;">
-1.0000000
+1.000000
 </td>
 <td style="text-align:right;">
-28
+2
 </td>
 </tr>
 <tr>
@@ -1484,39 +1487,10 @@ TRUE
 CFPB-2016-0025
 </td>
 <td style="text-align:right;">
-15
+75
 </td>
 <td style="text-align:left;">
-Consumer groups
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:right;">
-NaN
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CFPB-2019-0006
-</td>
-<td style="text-align:right;">
-70
-</td>
-<td style="text-align:left;">
-TRUE
+TRUE-City Coalition(Boston,Chicago,ect)
 </td>
 <td style="text-align:left;">
 FALSE
@@ -1525,16 +1499,16 @@ FALSE
 0
 </td>
 <td style="text-align:right;">
-79
+2
 </td>
 <td style="text-align:left;">
-TRUE
+FALSE
 </td>
 <td style="text-align:right;">
--1.1176471
+2.000000
 </td>
 <td style="text-align:right;">
-79
+2
 </td>
 </tr>
 <tr>
@@ -1560,7 +1534,7 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
--1.1176471
+-1.117647
 </td>
 <td style="text-align:right;">
 79
@@ -1568,13 +1542,13 @@ FALSE
 </tr>
 <tr>
 <td style="text-align:left;">
-DEA-2018-0005
+CFPB-2019-0006
 </td>
 <td style="text-align:right;">
-4
+70
 </td>
 <td style="text-align:left;">
-AMA
+TRUE
 </td>
 <td style="text-align:left;">
 FALSE
@@ -1583,16 +1557,16 @@ FALSE
 0
 </td>
 <td style="text-align:right;">
-2
+79
 </td>
 <td style="text-align:left;">
-FALSE
+TRUE
 </td>
 <td style="text-align:right;">
-2.0000000
+-1.117647
 </td>
 <td style="text-align:right;">
-2
+79
 </td>
 </tr>
 <tr>
@@ -1618,10 +1592,68 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
--1.7777778
+-1.777778
 </td>
 <td style="text-align:right;">
 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DEA-2018-0005
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+AMA
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+2.000000
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DO-2007-0015
+</td>
+<td style="text-align:right;">
+89
+</td>
+<td style="text-align:left;">
+TRUE; AHC
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+2.000000
+</td>
+<td style="text-align:right;">
+1
 </td>
 </tr>
 <tr>
@@ -1644,42 +1676,13 @@ FALSE
 6
 </td>
 <td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-0.0000000
-</td>
-<td style="text-align:right;">
-6
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-DO-2007-0015
-</td>
-<td style="text-align:right;">
-113
-</td>
-<td style="text-align:left;">
-TRUE;National Thoroughbred Racing Association
-</td>
-<td style="text-align:left;">
 FALSE
 </td>
 <td style="text-align:right;">
-0
+0.000000
 </td>
 <td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
--1.0000000
-</td>
-<td style="text-align:right;">
-1
+6
 </td>
 </tr>
 <tr>
@@ -1705,7 +1708,7 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
-2.0000000
+2.000000
 </td>
 <td style="text-align:right;">
 11
@@ -1734,7 +1737,7 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
-2.0000000
+2.000000
 </td>
 <td style="text-align:right;">
 11
@@ -1763,7 +1766,7 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
--1.8918919
+-1.891892
 </td>
 <td style="text-align:right;">
 2982
@@ -1774,10 +1777,10 @@ FALSE
 FEMA-2016-0003
 </td>
 <td style="text-align:right;">
-47
+34
 </td>
 <td style="text-align:left;">
-NEMA
+IAEM-USA
 </td>
 <td style="text-align:left;">
 FALSE
@@ -1786,16 +1789,16 @@ FALSE
 0
 </td>
 <td style="text-align:right;">
-43
+23
 </td>
 <td style="text-align:left;">
 FALSE
 </td>
 <td style="text-align:right;">
-0.9767442
+2.000000
 </td>
 <td style="text-align:right;">
-43
+23
 </td>
 </tr>
 <tr>
@@ -1803,10 +1806,10 @@ FALSE
 MSHA-2011-0001
 </td>
 <td style="text-align:right;">
-83
+87
 </td>
 <td style="text-align:left;">
-TRUE-US Silica Subsidiary
+TRUE-WMA and WTP
 </td>
 <td style="text-align:left;">
 FALSE
@@ -1821,7 +1824,7 @@ FALSE
 TRUE
 </td>
 <td style="text-align:right;">
--2.0000000
+-2.000000
 </td>
 <td style="text-align:right;">
 1
@@ -1832,10 +1835,10 @@ TRUE
 MSHA-2011-0001
 </td>
 <td style="text-align:right;">
-36
+77
 </td>
 <td style="text-align:left;">
-MARG
+TRUE-EP Minerals
 </td>
 <td style="text-align:left;">
 FALSE
@@ -1850,7 +1853,7 @@ FALSE
 TRUE
 </td>
 <td style="text-align:right;">
--2.0000000
+-2.000000
 </td>
 <td style="text-align:right;">
 1
@@ -1876,10 +1879,10 @@ FALSE
 35
 </td>
 <td style="text-align:left;">
-FALSE
+TRUE
 </td>
 <td style="text-align:right;">
-1.9687500
+1.968750
 </td>
 <td style="text-align:right;">
 35
@@ -1905,42 +1908,13 @@ FALSE
 35
 </td>
 <td style="text-align:left;">
-TRUE
+FALSE
 </td>
 <td style="text-align:right;">
-1.9687500
+1.968750
 </td>
 <td style="text-align:right;">
 35
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-USCBP-2007-0064
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:left;">
-BBP
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-20
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:right;">
--1.2000000
-</td>
-<td style="text-align:right;">
-20
 </td>
 </tr>
 <tr>
@@ -1966,10 +1940,39 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
--1.2000000
+-1.200000
 </td>
 <td style="text-align:right;">
 5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+USCBP-2007-0064
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+BBP
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+-1.200000
+</td>
+<td style="text-align:right;">
+20
 </td>
 </tr>
 <tr>
@@ -1995,7 +1998,7 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
-2.0000000
+2.000000
 </td>
 <td style="text-align:right;">
 4
@@ -2024,7 +2027,7 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
--1.0000000
+-1.000000
 </td>
 <td style="text-align:right;">
 6
@@ -2032,6 +2035,7 @@ FALSE
 </tr>
 </tbody>
 </table>
+</div>
 <div class="figure" style="text-align: center"><span id="fig:hist-coalitions"></span>
 <img src="judgelord_files/figure-html/hist-coalitions-1.png" alt="Hand-coded Data by Coalition" width="30%"  /><img src="judgelord_files/figure-html/hist-coalitions-2.png" alt="Hand-coded Data by Coalition" width="30%"  /><img src="judgelord_files/figure-html/hist-coalitions-3.png" alt="Hand-coded Data by Coalition" width="30%"  />
 <p class="caption">
@@ -2364,9 +2368,9 @@ F
 <blockquote>
 <p>Mediation analysis will require adding cases where coalitions lobbied unopposed, which we are much more likely to see in the sample of rules without mass comments.</p>
 </blockquote>
-<p>The average effect of the logged number of comments, conditional on letters from members of congress (the ACME) is 0, with a p value of 0.86.</p>
-<p>The average direct effect (ADE) of the logged number of comments on lobbying success is 0, with a p-value of 0.93</p>
-<p>The Total Effect of a one-unit increase in the logged number of comments is 0, with a p value of 0.92. 0 of this is mediated through mobilizing congressional attention (p-value = 0.97).</p>
+<p>The average effect of the logged number of comments, conditional on letters from members of congress (the ACME) is 0, with a p value of 0.91.</p>
+<p>The average direct effect (ADE) of the logged number of comments on lobbying success is 0, with a p-value of 0.46</p>
+<p>The Total Effect of a one-unit increase in the logged number of comments is 0, with a p value of 0.46. 0 of this is mediated through mobilizing congressional attention (p-value = 0.97).</p>
 </div>
 <div id="preliminary-findings" class="section level3" number="3.5.3">
 <h3><span class="header-section-number">3.5.3</span> Preliminary findings</h3>

@@ -28,7 +28,7 @@ d = tibble(rule_id = c(1:1000, rep(1001:1500, 2)),
            comments= c(rtnorm(1000, mean = 10000, sd = 100000, lower = 100), rep(1, 1000)) %>% sample() %>% round() , 
            cong_support = c(rtnorm(1000, mean = 1, sd = 5, lower = 0), rep(0, 1000)) %>% sample() %>% round() )
 
-d %>% sample_n(10) %>% dplyr::select(rule_id, coalition_id, everything()) %>% knitr::kable(caption = "Simulated data") %>% kable_styling(latex_options = c("scale_down")) 
+d %>% sample_n(10) %>% dplyr::select(rule_id, coalition_id, everything()) %>% kable3(caption = "Simulated data") 
 ```
 
 ```{r hist-coalitions-sim, fig.width=2, fig.height=2,  out.width = "30%"}
@@ -121,7 +121,7 @@ modelsummary::modelsummary( models,
                             # coef_map = cm,
                           add_rows = rows, 
                           notes = "") %>% 
-  row_spec(row = 1, bold = T) %>% kable_styling(latex_options = c("scale_down")) 
+  row_spec(row = 1, bold = T) %>% kable2(file = "mediation-sim") 
 
 ```
 

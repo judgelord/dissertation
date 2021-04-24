@@ -28,11 +28,47 @@ scale_fill_discrete <- function(...)
   scale_fill_viridis_d(...)
 
 kablebox <- . %>% 
-  head(100) %>%
+  slice_head(n = 100) %>%
   knitr::kable() %>% 
   kable_styling() %>% 
   scroll_box(height = "400px")
 
+# a function to format kables for different formats 
+kable2 <- function(x, file){
+  if(knitr:::is_html_output() | knitr::is_latex_output() ){
+      kable_styling(x, latex_options = c("scale_down"))
+  } else{
+    kableExtra::as_image(x, file = paste0("figs/", file, ".png"))}
+}
+
+library(kableExtra)
+library(flextable)
+
+# A function to trim and format tables for different outputs 
+kable3 <- function(x, caption){
+  if(knitr:::is_html_output()) {
+    x %>% 
+      head(n = 100) %>%
+      knitr::kable(caption = caption) %>% 
+      kable_styling() %>% 
+      scroll_box(height = "400px")
+  } else{
+    if(knitr::is_latex_output() ){
+      x %>% 
+        head(n = 20) %>%
+        knitr::kable(caption = caption) %>% 
+        kable_styling(latex_options = c("scale_down"))
+    } else{x %>% 
+        head(n = 20) %>%
+        flextable() %>% 
+        set_caption(caption) %>% 
+        autofit() %>% 
+        fit_to_width(max_width = 6)
+      #knitr::kable(caption = caption) %>% 
+      #kableExtra::as_image(file = paste0("figs", caption, ".png"))
+    }
+  }
+}
 
 ## Sets defaults for R chunks
 knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that your code will show
