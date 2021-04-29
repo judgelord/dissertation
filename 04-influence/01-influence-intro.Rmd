@@ -1,6 +1,31 @@
 
 ## Introduction
 
+While "ordinary" members of the public may occasionally provide novel
+and useful technical information to expert bureaucrats, such
+sophisticated means of influencing policy are out of reach for the vast
+majority of people. Thus, to investigate the potential role of ordinary
+people in bureaucratic politics I look elsewhere---not because ordinary
+people never provide novel and useful technical information, but because
+this is not how most people attempt to influence policy, nor, I argue,
+how we should expect ordinary people to have influence.
+
+Most public comments are, in fact, of the type suggested by the
+solicitations on Regulations.gov---ordinary people voicing opinions on a proposed policy. They do not provide useful technical information or
+suggest specific edits to policy texts like the interest group comments
+that have thus far captured the attention of political scientists. If
+they add information to rulemaking, it is a different, more political
+flavor of information. 
+
+Public engagement in rulemaking is highly
+clustered on a few rules made salient by these campaigns. It is
+plausible that at least some of the time, such campaigns aim to
+influence policy. It is also plausible that thousands of people engaging
+may alter the politics of these policy processes, but this hypothesis
+remains untested.
+
+Depending on how agencies process political information, "going public" may occasionally be an effective strategy for organizations to influence policy, both directly and indirectly. However, influencing policy may not be the only reason to mobilize.
+
 <!--To address this gap, -->
 I assess the relationship between the number of
 public comments and the amount of change between draft and final policy
@@ -19,11 +44,127 @@ political scientists have largely overlooked mass mobilization as a
 tactic.
 
 I find evidence consistent with the observable implications of mass
-comment campaigns influencing policymaking through \[non-null results\]
+comment campaigns influencing policymaking through [non-null results]
 but no evidence that mass engagement affects rulemaking processes or
-outcomes through \[null results\].
+outcomes through [null results].
 
 ## Theory {#influence-theory}
+
+Scholars of bureaucratic policymaking have focused on
+the sophisticated lobbying efforts of powerful interest groups such as
+business coalitions. A key insight from this scholarship is that
+technical information is the currency of insider lobbying. Figure
+\@ref(fig:causal-classic2) illustrates the classic causal
+model of insider lobbying that describes most rulemakings and nearly all
+scholarship on lobbying in bureaucratic policymaking to date.^[Diamonds indicate observable choices, ovals indicate latent preferences, and rectangles indicate information.]
+However, public pressure campaigns hav no place in this model. I aim to fill this
+gap.
+
+```{r causal-classic2, fig.cap = "The 'Classic Model' of Interest Group Lobbying in Bureaucratic Policymaking"}
+
+knitr::include_graphics(here::here("Figs", "causal-classic.png"))
+```
+
+#### Public pressure is a political resource.
+
+An organization's ability to expand the scope of conflict by mobilizing
+a large number of people can be a valuable political resource [@Schattschneider1975]. In contrast to scholars who focus on the deliberative
+potential of public comment processes, I focus on public engagement as a
+tactic aimed at gaining power. Scholars who understand mobilization
+as a tactic [@Furlong1997; @Kerwin2011] have focused on how
+organizations mobilize their membership. I expand on this understanding of mobilization as a lobbying tactic to include a campaign's broader audience, more akin to the concept of
+an attentive public [@Key1961] or issue public [@Converse1964].
+
+Here I build on three insights. First, @Furlong1997 and @Kerwin2011
+identify mobilization as a tactic. The organizations that they surveyed
+reported that forming coalitions and mobilizing large numbers of people
+are among the most effective lobbying tactics. Second, @Nelson2012
+identify political information as a potentially influential result of
+lobbying by different business coalitions. While they focus on
+mobilizing experts, I argue that @Nelson2012 describe a dynamic that can be extended
+to mass commenting:
+
+> "strategic recruitment, we theorize, mobilizes new actors to
+> participate in the policymaking process, bringing with them novel
+> technical and political information. In other words, when an expanded
+> strategy is employed, leaders activate individuals and organizations
+> to participate in the policymaking process who, without the
+> coordinating efforts of the leaders, would otherwise not lobby. This
+> activation is important because it implies that coalition lobbying can
+> generate new information and new actors---beyond simply the 'usual
+> suspects'---relevant to policy decisionmakers. Thus, we theorize
+> consensus, coalition size, and composition matter to policy change."
+
+Concerning political information, this logic extends to
+non-experts. The number and distribution of ordinary supporters may
+matter because it suggests a *public* consensus. Instead of bolstering
+*scientific* claims, a perceived public consensus bolsters *political*
+claims. Finally, @Furlong1998, @Yackee2006JPART, and others distinguish
+between direct and indirect forms of interest group influence in
+rulemaking. This distinction is especially important for political
+information, which may be most influential through indirect channels,
+such as through elected officials. In short, to understand how groups
+lobby in rulemaking, we must understand mass mobilization as a tactic
+aimed at producing political information that may have direct and
+indirect impacts on policymaking.
+
+While most scholars have emphasized mass comments' lack of useful
+technical information, a few have raised their role in creating
+political information. @Cuellar2005 calls on agencies to pay more
+attention to ordinary peoples' expressions of preference and @Rauch2016
+suggests that agencies reform the public comment process to include
+opinion polls. I build from a similar intuition that mass comment
+campaigns currently function like a poll or, more accurately, a
+petition, capturing the intensity of preferences among the attentive
+public---i.e., how many people are willing to take the time to
+engage.^[For example, a campaign by the World Wildlife Federation provided
+    language explicitly claiming to have public opinion on their side.
+    Their model comment stated that "Along with 80% of the American
+    people, I strongly support ending commercial trade in elephant ivory
+    in the US." This suggests that mass comment campaigns aim to signal
+    information about public opinion.] Self-selection may not be ideal for representation, but
+opt-in participation---whether voting, attending a hearing, or writing a
+comment---may often be one of the few heuristics decisionmakers have
+about public preferences.
+
+Mobilizing citizens and generating new political information are key
+functions of interest groups in a democracy
+[@Mansbridge1992; @Mahoney2007]. Campaigns inform agencies about the
+distribution and intensity of opinions that are often too nuanced to
+estimate a priori. Many questions that arise in rulemaking lack
+analogous public opinion polling questions, making mass commenting a
+unique source of political information. As with public opinion on many
+specific policy issues, most members of the public and their elected
+representatives may only learn about the issue and take a position as a
+result of a public pressure campaign [@Hutchings2003]. I thus consider
+public demands to be a latent factor in my model of policymaking (Figure
+\@ref(fig:causal-whymail2). Public demands shape the decisions of
+groups who lobby in rulemaking. If they believe the attentive public is
+on their side, groups may attempt to reveal this political information
+to policymakers by launching a mass mobilization campaign. The public
+response to the campaign depends on the extent that the attentive public
+is passionate about the issue.
+
+```{r causal-whymail2, fig.cap = "Incorporating Political Information into Models of Bureaucratic Policymaking"}
+
+knitr::include_graphics(here::here("Figs", "causal-whymail.png"))
+
+```
+
+Figure \@ref(fig:causal-whymail2) amends the "Classic Model" of interest
+group lobbying (Figure \@ref(fig:causal-classic2)) to incorporate political information about the attentive public. In addition to providing technical information through sophisticated comments, an organization may mobilize supporters.
+The more latent public support a group has, the more successful this mobilization effort will be.
+Large-scale engagement may produce several types of relevant political
+information. The most direct and obvious is the expressed "public
+opinion" that policymakers observe.^[I address other types of political information that mass engagement may create elsewhere. For an expanded model, see Figure
+    \@ref(fig:causal-full2). 
+]
+
+The causal process visualized in Figure
+\@ref(fig:causal-whymail2) may only operate under certain conditions. The success of a mobilizing effort depends on whether a group's perception of latent public demands (the diagonal arrow between "Latent Public Demands" and "Lobbying Strategy") reflects the public response to a mobilizing effort (the horizontal arrow between "Latent Public Demands" and "Mass Engagement"). 
+
+The influence of political information on policy (the arrow between "Political Information" and "Policy Response") depends on the institutional processes by which agencies receive and interpret information. We may only expect to observe mass mobilization influencing a particular policy only if the mobilization effort was aimed at influencing that policy, rather than using the public comment the period to build organizational membership or power more generally (see @Carpenter2014b).
+
 
 ### Incorporating political information into formal models of rulemaking {#formal}
 

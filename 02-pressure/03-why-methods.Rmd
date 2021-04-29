@@ -1,12 +1,25 @@
-## Methods: Measuring Public Pressure and Political Information {#why-methods}
+## Testing the Theory
 
-In this section, I develop methods to attribute mass comments to the
+### Data
+
+To assess the competing hypotheses about whether political insiders or outsiders mobilize public participation in bureaucratic policymaking, I collected a corpus of approximately 80 million comments via the
+regulations.gov API. About 50 million of these comments were on proposed
+rules (over 16,000 proposed rules from 144 agencies from 2005 to 2020). Of these, public pressure campaigns targed approximately 400 rules from 46 agencies.
+I then linked these comments to other data on the rules from the Unified
+Agenda and Office of Information and Regulatory Affairs Reports on draft
+rules sent to them for review. Summary statistics for these data are
+available in the Appendix.
+
+### Methods: Measuring Public Pressure and Political Information {#why-methods}
+
+To identify the groups mobilizing public pressure campaigns, I develop methods to attribute individual comments to the
 campaigns that mobilized them and measure the intensity of preferences
 expressed. To link individual comments to the more sophisticated
-lobbying efforts they support, I use textual similarity to identify
+lobbying efforts they support, I first use textual similarity to identify
 clusters of similar comments, reflecting formal and informal coalitions.
-Comments with identical text (if any) indicate which groups and
-coalitions ran a mass comment campaign. Within each campaign, I measure
+Comments with identical text (if any) indicate a coordinated campaign. Through and itterative process of hand coding and computational methods, I then identify the organization responsible for mobilizing each comment and group organizations into coalitions. 
+
+For each campaign, I measure
 the intensity and potential for the movement to grow. To measure
 intensity, I examine the ratio of high-effort and low-effort comments.
 To measure the potential to grow, I measure the number of comments mobilized
@@ -15,17 +28,6 @@ not include text provided by the campaign). The result is several new
 measures of participation in bureaucratic policymaking.
 
 
-
-### Data.
-
-I collected a corpus of approximately 70 million comments via the
-regulations.gov API. About 50 million of these comments are on proposed
-rules (over 16,000 proposed rules from 144 agencies from 2005 to 2018).
-I then linked these comments to other data on the rules from the Unified
-Agenda and Office of Information and Regulatory Affairs Reports on draft
-rules sent to them for review. Summary statistics for these data are
-available in the Appendix.
-
 ### Who lobbies?
 
 Unfortunately, metadata on the authors of comments and their
@@ -33,7 +35,7 @@ organizational affiliations are inconsistent and incomplete. As this
 information is key to identifying influential actors, improving these
 data was a significant data-organization task.
 
-#### Mobilizing organizations.
+#### Mobilizing organizations
 
 Through an iterative combination of automated search methods and hand-coding, I identify organizations for over 40 million comments, including all organizations responsible for mobilizing 100 or more
 comments with repeated text--either identical text or partially unique
@@ -54,7 +56,8 @@ knitr::include_graphics(here::here("Figs", "toporgs.png"))
 Having identified who is participating in rulemaking, the next step is
 to determine who is lobbying together. Studies of rulemaking stress the importance of coalitions [@Yackee2006JOP, Dwidar2019]. Scholars have measured coalitions of organized groups but have yet to attribute citizen comments to the coalition that mobilized them.
 
-#### I identify coalitions using text re-use and clustering methods.
+#### Identifying coalitions using text re-use and clustering methods
+
 I identify comments that are not identical but share a 10-word (or
 "10-gram") string using a moving window function looping over each
 possible pair of texts to identify matches.^[For more about this method and comparisons with related partial matching methods such as the Smith-Waterman algorithm, see @Casas2017 and @Judge-Lord2017.]
@@ -103,7 +106,7 @@ texts. Second, Bayesian mixture model may better recover pro and con
 clusters, especially with strong priors comments using positive and
 negative sentiment words belong together.
 
-### Measuring the volume, intensity, and potential contagion of public engagement.
+### Measuring the volume, intensity, and potential contagion of public engagement
 
 I measure variation in engagement in three ways, corresponding to the
 three types of comments described above.
