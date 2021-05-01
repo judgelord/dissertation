@@ -122,7 +122,6 @@ modelsummary::modelsummary( models,
                           add_rows = rows, 
                           notes = "") %>% 
   row_spec(row = 1, bold = T) %>% kable2(file = "mediation-sim") 
-
 ```
 
 

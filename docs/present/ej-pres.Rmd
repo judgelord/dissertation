@@ -355,7 +355,7 @@ knitr::include_graphics("Figs/ej-comments-1.png")
 
 ---
 
-background-image: url(Figs/climatemarchDCej.jpg)
+background-image: url(https://www.sierraclub.org/sites/www.sierraclub.org/files/uploads-wysiwig/SIERRA%20Forefront%20Of%20Change%20WB.jpg)
 background-size: cover
 
 
@@ -372,7 +372,7 @@ background-position: bottom
 
 ---
 
-background-image: url(Figs/climatemarchDC.jpg)
+background-image: url(https://www.sierraclub.org/sites/www.sierraclub.org/files/styles/flexslider_full/public/sierra/articles/big/SIERRA%20March%20Big%20Javier%20WB.jpg?itok=YfFbYPwM)
 background-size: cover
 
 `"Attached are files containing the names of 11,478 individuals who have submitted public comments urging the Bureau of Land Management (BLM) to strengthen the proposed regulations on methane waste and pollution on federal and tribal lands"` 

@@ -38,7 +38,8 @@ kable2 <- function(x, file){
   if(knitr:::is_html_output() | knitr::is_latex_output() ){
       kable_styling(x, latex_options = c("scale_down"))
   } else{
-    kableExtra::as_image(x, file = paste0("figs/", file, ".png"))}
+    kableExtra::as_image(x, file = paste0("figs/", file, ".png"))
+    }
 }
 
 library(kableExtra)
@@ -72,6 +73,7 @@ kable3 <- function(x, caption){
 
 ## Sets defaults for R chunks
 knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that your code will show
+                      cache = FALSE,
                       warning = FALSE,
                       message = FALSE,
                       fig.show="hold",
