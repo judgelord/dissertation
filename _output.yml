@@ -36,5 +36,5 @@ bookdown::pdf_book:
   - \floatsetup[table]{capposition=top}
 bookdown::word_document2:
   toc: true
-  toc_depth: 2
+  #toc_depth: 3
 bookdown::epub_book: default

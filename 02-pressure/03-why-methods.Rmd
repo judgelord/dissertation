@@ -63,8 +63,11 @@ I identify comments that are not identical but share a 10-word (or
 possible pair of texts to identify matches.^[For more about this method and comparisons with related partial matching methods such as the Smith-Waterman algorithm, see @Casas2017 and @Judge-Lord2017.]
 When actors sign onto the same comment, it is clear that they are
 lobbying together. However, various businesses, advocacy groups, and
-citizens often comment separately, even when they are aligned. Thus, in addition to mapping text re-use, for rules with a large number of comments,
-I use statistical models of text to classify comments into coalitions. I cluster
+citizens often comment separately, even when they are aligned. Text-reuse (using the exact same ten-word phrases) captures this alignment. 
+
+> TODO: INSERT AND DESCRIBE FIGURE SHOWNING A COALITION IDENTFIED THROUGH TEXT REUSE
+
+<!--I use statistical models of text to classify comments into coalitions. I cluster
 documents by the frequency with which they use different words. Being
 classified together does not mean that the documents all address exactly
 the same distribution of substantive issues, just that they use similar
@@ -105,6 +108,7 @@ restricted to group partially copied texts, as well as entirely copied
 texts. Second, Bayesian mixture model may better recover pro and con
 clusters, especially with strong priors comments using positive and
 negative sentiment words belong together.
+-->
 
 ### Measuring the volume, intensity, and potential contagion of public engagement
 
@@ -130,11 +134,10 @@ personalized comment in addition to the text provided (see Figure \@ref(fig:sier
 not observe people who have low levels of passion for the issue because
 they either do not cross the effort threshold required to comment or opt
 to write nothing more than the form letter. Thus, while effort measured
-by the number of words people write may be normally distributed, I
-assume that the low end of the observed distribution is truncated.
+by the number of words people write may be normally distributed, the low end of the observed distribution is truncated.
 
 **Contagion.** Mass-comment campaigns have wildly different results.
-Some submit a clean 10,000 copies of (signatures on) the same comment.
+Some organizations submit a clean 10,000 copies of (signatures on) the same comment.^[For example, Americans For Prosperity's campaign on the XXXX rule.]
 Others "go viral"---inspiring a mess of further engagement where the
 original messages are translated through social media posts and news
 stories. To identify people who were plausibly mobilized indirectly by a

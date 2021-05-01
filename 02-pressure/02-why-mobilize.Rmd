@@ -241,49 +241,7 @@ policy.
 
 ### Incorporating political information into models of lobbying in rulemaking
 
-Poli
-
-
-#### Public pressure campaigns claim to represent and evoke the public interest.
-
-The Oceana coalition framed its mass mobilization effort to curb the
-Bureau of Ocean Energy Management's 2017 Proposed Offshore Oil and Gas
-Leasing Program as a "petition signed by 67,275 self-proclaimed United
-States residents," suggesting that organizations consider these efforts
-as akin to petitions. In the same statement, Oceana also claimed the
-support of "more than 110 East Coast municipalities, 100 Members of
-Congress, 750 state and local elected officials, and 1,100 business
-interests, all of whom oppose offshore drilling," suggesting that claims
-of public and elected official support aim to provide similar kinds of
-political information.
-
-Appeals to the government are almost always couched in the language of
-public interest, even when true motivations are private
-[@Schattschneider1975]. 
-
-
-#### Second-order Representation.
-
-When lobbying during rulemaking, groups often
-make dubious claims to represent broad segments of the public
-[@Seifter2016UCLA]. If agency staff do not trust an organizations'
-representational claims, engaging actual people may be one of the few
-credible signals of a broad base of support.  Furthermore, if
-organizations claim to represent people beyond their official members,
-reforms requiring groups to disclose information about their funding and
-membership [@Seifter2016UCLA] only go part way to assess groups' claims
-to represent these broader segments of the public. Indeed, if advocacy
-group decisions are primarily made by D.C. professionals, these
-advocates themselves may be unsure how broadly their claims resonate
-until potentially-attentive publics are actually engaged.
-
-Theorists debate whether signing a petition of support without
-having a role in crafting the appeal is a meaningful voice and whether
-petitions effectively channel public interests, but, at a minimum,
-engaging a large number of supporters may help broader interests to
-distinguish themselves from truly narrower ones. It suggests that the
-organization is not "memberless" [@Skocpol2003] in the sense that they
-can demonstrate some verifiable public support.^[Public support can be faked or inflated using "astroturf" tactics, but such campaigns have observably different patterns of engagement.]
+> TODO
 
 
 <!-- in 01-influence: -->
@@ -385,6 +343,33 @@ The causal process visualized in Figure
 
 The influence of political information on policy (the arrow between "Political Information" and "Policy Response") depends on the institutional processes by which agencies receive and interpret information. We may only expect to observe mass mobilization influencing a particular policy only if the mobilization effort was aimed at influencing that policy, rather than using the public comment the period to build organizational membership or power more generally (see @Carpenter2014b).
 <!-- / in 01-influence -->
+
+
+
+#### Second-order Representation.
+
+When lobbying during rulemaking, groups often
+make dubious claims to represent broad segments of the public
+[@Seifter2016UCLA]. If agency staff do not trust an organizations'
+representational claims, engaging actual people may be one of the few
+credible signals of a broad base of support.  Furthermore, if
+organizations claim to represent people beyond their official members,
+reforms requiring groups to disclose information about their funding and
+membership [@Seifter2016UCLA] only go part way to assess groups' claims
+to represent these broader segments of the public. Indeed, if advocacy
+group decisions are primarily made by D.C. professionals, these
+advocates themselves may be unsure how broadly their claims resonate
+until potentially-attentive publics are actually engaged.
+
+Theorists debate whether signing a petition of support without
+having a role in crafting the appeal is a meaningful voice and whether
+petitions effectively channel public interests, but, at a minimum,
+engaging a large number of supporters may help broader interests to
+distinguish themselves from truly narrower ones. It suggests that the
+organization is not "memberless" [@Skocpol2003] in the sense that they
+can demonstrate some verifiable public support.^[Public support can be faked or inflated using "astroturf" tactics, but such campaigns have observably different patterns of engagement.]
+
+
 
 
 
@@ -521,6 +506,24 @@ Sierra Club's average of 17,325 comments per campaign, it is also far
 from zero.
 
 #### Public and private aims
+
+Public pressure campaigns claim to represent and evoke the public interest. For example, the Oceana coalition framed its mass mobilization effort to curb the
+Bureau of Ocean Energy Management's 2017 Proposed Offshore Oil and Gas
+Leasing Program as a "petition signed by 67,275 self-proclaimed United
+States residents," suggesting that organizations consider these efforts
+as akin to petitions. In the same statement, Oceana also claimed the
+support of "more than 110 East Coast municipalities, 100 Members of
+Congress, 750 state and local elected officials, and 1,100 business
+interests, all of whom oppose offshore drilling," suggesting that claims
+of public and elected official support aim to provide similar kinds of
+political information.
+
+Appeals to the government are almost always couched in the language of
+public interest, even when true motivations are private
+[@Schattschneider1975]. 
+
+> TODO: MORE ABOUT PUBLIC VS PRIVATE COALITIONS TO SET UP HYPOTHESES. ESP. ADD MORE ABOUT PRIVATE COALITIONS' RESOURCES 
+
 
 While coalitions may form around various material and ideological
 conflicts, those most likely to be advantaged by going public or going
