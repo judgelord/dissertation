@@ -61,7 +61,7 @@ ggplot(d, aes( x= log(comments))) +
 
 The results of this model (Figure \@ref(fig:model-success-plot), Table \@ref(tab:mediation)) show that ________. With lobbying success as the dependent variable, the coefficient on the main variable of interest would be interpreted as a $\beta_{logmasscomments}$ increase in the five-point influence scale of lobbying success for each one-unit increase in the logged number of comments.
 
-```{r model-success}
+```{r model-success, eval=FALSE, cache=FALSE}
 m <- lm(coalition_success ~ 
           log(comments) + 
           #comment_length + 
@@ -71,7 +71,7 @@ m <- lm(coalition_success ~
         data = d) 
 ```
 
-```{r model-success-plot,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS model of coalition lobbying sucess with hand-coded data"}
+```{r model-success-plot, cache=FALSE, eval=FALSE,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS model of coalition lobbying sucess with hand-coded data"}
 m %>%
   tidy(conf.int = TRUE) %>% 
   filter(term != "(Intercept)") %>% 
@@ -89,7 +89,7 @@ m %>%
 
 To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME, conditional on the number of comments from Members of Congress) and average direct effect (ADE) of mass comments using mediation analysis. Model 3 in table \@ref(tab:mediation) replaces the dependent variable (lobbying success) with the mediator variable (the number of supportive members of Congress). 
 
-```{r mediation}
+```{r mediation, cache=FALSE, eval=FALSE}
 library(mediation)
 
 # distinct obs
@@ -129,26 +129,29 @@ rows <- tibble(
 
 attr(rows, 'position') <- c(0)
 
-# paper table 
+# paper table
 modelsummary::modelsummary( models,
                             title = "Lobbying success and congressional support",
-                            stars = TRUE, 
-                            #coef_omit = "president.*|agency.*|Intercept", 
+                            stars = TRUE,
+                            #coef_omit = "president.*|agency.*|Intercept",
                             # coef_map = cm,
-                          add_rows = rows, 
-                          notes = "") %>% 
-  row_spec(row = 1, bold = T) %>% 
-  kable2(file = "mediation") 
+                          add_rows = rows,
+                          notes = "") %>%
+  row_spec(row = 1, bold = T) #%>%kable2(file = "mediation")
 
 ```
 
 > Mediation analysis will require adding cases where coalitions lobbied unopposed, which we are much more likely to see in the sample of rules without mass comments.
+
+<!--
 
 The average effect of the logged number of comments, conditional on letters from members of congress (the ACME) is `r round(med.cont$d.avg, 2)`, with a p value of `r round(med.cont$d0.p, 2)`.
 
 The average direct effect (ADE) of the logged number of comments on lobbying success is `r round(med.cont$z0, 2)`, with a p-value of `r round(med.cont$z0.p, 2)`
 
 The Total Effect of a one-unit increase in the logged number of comments is `r round(med.cont$tau.coef, 2)`, with a p value of `r round(med.cont$tau.p, 2)`. `r round(med.cont$n0, 2)` of this is mediated through mobilizing congressional attention (p-value = `r round(med.cont$n0.p, 2)`).
+
+-->
 
 ### Preliminary findings
 
