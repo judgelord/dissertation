@@ -14,6 +14,7 @@ fig:causal-whymail
 fig:sierra
 tab:campaigns-patterns
 fig:toporgs
+fig:percent-match
 fig:comments-support
 fig:topdockets
 fig:causal-classic2
@@ -72,7 +73,7 @@ why-methods
 who-lobbies
 mobilizing-organizations
 who-lobbies-together
-identifying-coalitions-using-text-reuse-and-clustering-methods
+identifying-coalitions-using-text-reuse
 measuring-the-volume-intensity-and-potential-contagion-of-public-engagement
 why-results
 most-comments-result-from-mass-comment-campaigns.
@@ -140,3 +141,9 @@ the-debate-in-administrative-law
 challenges
 reforms
 conclusion-3
+incorporating-mass-engagement-into-theories-of-bureaucratic-policymaking.
+limitations.
+estimating-whether-environmental-justice-is-added-to-final-rule
+api
+existing-studies
+studies-cited-by-gsa

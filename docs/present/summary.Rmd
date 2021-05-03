@@ -20,7 +20,7 @@ Using text-reuse methods similar to plagiarism detection, I assess how much text
 Automated methods to identify coalitions and lobbying success validated against a hand-coded sample of 7000 comments, 160 coalitions.
 
 
-```{r percent, fig.show = "hold", out.width = "60%"}
+```{r percent-match, fig.show = "hold", out.width = "60%"}
 
 knitr::include_graphics("Figs/comment_percent_match_plot-1.png")  
 ```

@@ -37,12 +37,12 @@ data was a significant data-organization task.
 
 #### Mobilizing organizations
 
-Through an iterative combination of automated search methods and hand-coding, I identify organizations for over 40 million comments, including all organizations responsible for mobilizing 100 or more
+Through an iterative combination of automated search methods and hand-coding, I identify the organization responsible for over 40 million comments, including all organizations responsible for mobilizing 100 or more
 comments with repeated text--either identical text or partially unique
 texts that contain shared language. I then searched comment texts for
 mentions of these organizations' names to complete missing information
 on the mobilizing organization. The top 100 mobilizing organizations
-each mobilized between 55 thousand and 4.2 million comments. Figure
+mobilized between 55 thousand and 4.2 million comments each. Figure
 \@ref(fig:toporgs) shows the top organizers of comments posted to
 regulations.gov.
 
@@ -54,9 +54,10 @@ knitr::include_graphics(here::here("Figs", "toporgs.png"))
 ### Who lobbies together?
 
 Having identified who is participating in rulemaking, the next step is
-to determine who is lobbying together. Studies of rulemaking stress the importance of coalitions [@Yackee2006JOP, Dwidar2019]. Scholars have measured coalitions of organized groups but have yet to attribute citizen comments to the coalition that mobilized them.
+to determine who is lobbying together. Studies of rulemaking stress the importance of coalitions [@Yackee2006JOP; @Dwidar2019]. Scholars have measured coalitions of organized groups but have yet to attribute citizen comments to the coalition that mobilized them.
 
-#### Identifying coalitions using text reuse and clustering methods
+#### Identifying coalitions using text reuse 
+
 
 I identify comments that are not identical but share a 10-word (or
 "10-gram") string using a moving window function looping over each
@@ -65,9 +66,19 @@ When actors sign onto the same comment, it is clear that they are
 lobbying together. However, various businesses, advocacy groups, and
 citizens often comment separately, even when they are aligned. Text-reuse (using the exact same ten-word phrases) captures this alignment. 
 
-> TODO: INSERT AND DESCRIBE FIGURE SHOWING A COALITION IDENTIFIED THROUGH TEXT REUSE
+Figure \@ref(fig:percent-match) shows the percent of shared text for a sample of 50 comments on the Consumer Financial Protection Bureau's 2016 Rule regulating Payday Loans. Comments are arranged on by the document identifier assigned by regulations.gov on both axes. 
+The black on the diagonal indicates that each document has perfect overlap with itself. Black squares off the diagional indicate additional pairs of identical documents. For example, 100% of the words from Comment 95976 are part of some tengram that also appears in 95977 because the exact same comment was uploaded twice. 
+The block of grey squres indicate a coalition of commenters using some idential text.
+Comments [91130](https://www.regulations.gov/document?D=CFPB-2016-0025-91130) through [91156](https://www.regulations.gov/document?D=CFPB-2016-0025-91154) are all partial or exact matches. Most are part of a mass comment campaign by Access Financial. The percent of the identical text is lower than many mass-comment campaigns because these are hand-written comments, but the n-gram method still picks up overlap in the OCRed text in the header and footer. 
 
-<!--I use statistical models of text to classify comments into coalitions. I cluster
+```{r percent-match, fig.show = "hold", out.width = "60%", fig.cap="Percent of Matching Text in a Sample of Public Comments"}
+
+knitr::include_graphics("Figs/comment_percent_match_plot-1.png")  
+```
+
+
+<!--  Identifying coalitions using clustering methods
+I use statistical models of text to classify comments into coalitions. I cluster
 documents by the frequency with which they use different words. Being
 classified together does not mean that the documents all address exactly
 the same distribution of substantive issues, just that they use similar
@@ -137,7 +148,7 @@ they either do not cross the effort threshold required to comment or opt
 to write nothing more than the form letter. Thus, while effort measured
 by the number of words people write may be normally distributed, the low end of the observed distribution is truncated.
 
-** contagion.** Mass-comment campaigns have wildly different results.
+**Contagion.** Mass-comment campaigns have wildly different results.
 Some organizations submit a clean 10,000 copies of (signatures on) the same comment.^[For example, Americans For Prosperity's campaign on the XXXX rule.]
 Others "go viral"---inspiring a mess of further engagement where the
 original messages are translated through social media posts and news

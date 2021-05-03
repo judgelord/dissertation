@@ -24,7 +24,7 @@
 <meta name="author" content="Devin Judge-Lord" />
 
 
-<meta name="date" content="2021-05-01" />
+<meta name="date" content="2021-05-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -624,7 +624,7 @@ opinion (i.e., the political information) it creates.</p>
 <h3><span class="header-section-number">3.3.1</span> Data</h3>
 <p>I create an original dataset that combines several sources of data on U.S. federal agency rulemaking.
 The core data are the texts of draft and final rules and public comments on these proposed rules.
-This includes all 16 thousand proposed rules from 144 agencies (as defined by regulations.gov) that were open for comment on regulations.gov between 2005 and 2018, that received at least one comment from an organization, and that saw a final agency action between 2005 and 2019.
+This includes all 16 thousand proposed rules from 144 agencies (as defined by regulations.gov) that were open for comment on regulations.gov between 2005 and 2020, that received at least one comment from an organization, and that saw a final agency action between 2005 and 2020.
 There are over 50 million comments on this set of rules.
 I scrape draft and final rule texts from federalregister.gov and comments submitted as attachments or by mail from regulations.gov.
 I retrieve comments submitted directly on regulations.gov and metadata on rules and comments (such as the dates that the proposed rule was open for comment and whether the agency identified the organization submitting the comment) from the regulations.gov API.
@@ -632,19 +632,24 @@ I add additional metadata on rules (such as whether the rule was considered “s
 <!--
 Finally, to better capture positions expressed by Members of Congress on proposed rules, I supplement congressional comments posted on regulations.gov with Freedom of Information Act Requests for all communication from Members of Congress to each agency on proposed rules from 2007 to 2019.^[Many agencies provided records of their congressional correspondence going back to 2005 or earlier.]-->
 <p>The combined dataset has over 50 million observations of one public or legislator comment on a proposed rule. I attempt to identify the organization(s) that submitted or mobilized each comment by extracting all organization names from the comment text. For comments that do not reference an organization, I am often able to identify organizations with an internet search using the comment’s text. I then identify lobbying coalitions by clustering comments that use similar phrases or word frequencies. Co-signed comments are always assigned to the same coalition. Likewise, form-letter comments are always assigned to the same coalition.<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a></p>
-<p>Because my hypotheses are about the influence of organizations and coalitions, for analysis, I collapse these data to one observation per organization or coalition per proposed rule and identify the main substantive comment submitted by each organization’s staff or lawyers, which are usually much longer than supporting comments like form letters. For hand-coding, I first select a random sample of 100 proposed rules with a mass-comment campaign and then selecting a matched sample of 100 proposed rules without a mass comment campaign. Matching prioritizes, presidential administration, policy area (following Policy Agendas Project coding), rule significance, department, agency, subagency, and proposed rule length, respectively.<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a> This hand-coded sample is several times larger than leading studies using hand-coding and includes rules with very large and small numbers of comments that previous studies exclude. The full sample is four hundred times larger.<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a></p>
+<p>Because my hypotheses are about the influence of organizations and coalitions, for analysis, I collapse these data to one observation per organization or coalition per proposed rule and identify the main substantive comment submitted by each organization’s staff or lawyers, which are usually much longer than supporting comments like form letters.
+For hand-coding, I first select a random sample of 100 proposed rules with a mass-comment campaign. I then selected all comments that were likely to be from organizations.<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a>
+The hand-coding process included identifying the organization responsible for each comment submitted by an organization (e.g. a business, nonprofit, or government).</p>
+<p>I then selecting a sample of 100 proposed rules on which the same organizations commented without a mass comment campaign. Matching prioritizes, presidential administration, policy area (following Policy Agendas Project coding), rule significance, department, agency, subagency, and proposed rule length, respectively.^[For more on policy area coding, see Chapter <a href="macro.html#macro">1</a>. This hand-coded sample is several times larger than leading studies using hand-coding and includes rules with very large and small numbers of comments that previous studies exclude. The full sample is four hundred times larger.<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a></p>
 <p>The most direct way to assess the hypothesis that mass engagement increases lobbying success is to assess the magnitude of the relationship between the number of comments that a coalition mobilizes and its lobbying success. However, public pressure campaigns may only be effective under certain conditions. Thus, I first assess the main relationship and then assess evidence for or against different potential causal pathways of influence.</p>
 </div>
 <div id="the-dependent-variable-lobbying-success" class="section level3" number="3.3.2">
 <h3><span class="header-section-number">3.3.2</span> The Dependent Variable: Lobbying Success</h3>
-<p>The dependent variable is the extent to which a lobbying coalition got the policy outcome they sought, which I measure in three ways.</p>
+<p>The dependent variable is the extent to which a lobbying coalition got the policy outcome they sought, which I measure in several ways.</p>
 <p>First, on a sample of rules, I hand-code lobbying success for each lobbying coalition, comparing the change between the draft and final rule to each organization’s demands on a five-point scale from “mostly as requested” to “significantly different/opposite than requested.”
 To do this, I first identify organizational comments.
 For each organization, I identify the main overall demand and the top three specific demands and the corresponding parts of the draft and final rule texts.<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a><br />
-I then code overall lobbying success and lobbying success on each specific demand for each organization and coalition. Both the overall score and average score across specific demands both fall on the interval from -1 (“significantly different”) to 1 (“mostly as requested”).</p>
+I then code overall lobbying success and lobbying success on each specific demand for each organization and coalition. Both the overall score and average score across specific demands both fall on the interval from -2 (“significantly different”) to 2 (“mostly as requested”).</p>
 <p>Second, I use methods similar to automated plagiarism detection algorithms to identify changes between a draft and final rule that were suggested in a comment. Specifically, I count the number of words in phrases of at least ten words that appear in the comment and final rule, but not the draft rule. To do this, I first identify new or changed text in the final rule by removing all 10-word or longer phrases retained from the draft rule. I then search each comment for any 10-word or longer phrases shared with the new rule text and count the total number of shared words in these shared phrases. Finally, I normalize this count of “copied” words across shorter and longer comments by dividing it by the total number of words in the comment. This measure falls between 0 (zero percent of words from the comment added to the final rule) and 1 (100 percent of words from the comment added to the final rule). As a robustness check, I also use the non-normalized version of this variable, i.e. the raw number of “copied” words.</p>
-<p>Third, I capture a broader dimension of lobbying success by modeling the similarity in word frequency distributions between comments and changes to the rule. New or changed text is identified as described above, except that I also include the rule’s preamble and the agency’s responses to comments. Agencies write lengthy justifications of their decisions in response to some comments but not others. By including preambles and responses to comments, this measure captures attention to a comment’s demands and the extent to which the agency adopts a comment’s discursive framing (i.e. the distribution of words it uses). I us cosign similarity to scale the word frequencies used by each comment relative to those in changes between draft and final rule.<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a> This measure falls between 0 (no common words) and 1 (exactly the same distribution of words).</p>
-<p>To assess the performance of these automated methods (text-reuse and word-frequency similarity), I calculate the correlation between these scores and my hand-coded 5-point scale for rules in the hand-coded sample where a final rule was published. As the automated methods apply at the organization-level, coalition scores are those from the lead organization–by default, the organization(s) with the longest comment. At the coalition level, the correlation between hand-coded influence is __ with the text-reuse method and __ with the word-frequency method.</p>
+<!--
+Third, I capture a broader dimension of lobbying success by modeling the similarity in word frequency distributions between comments and changes to the rule. New or changed text is identified as described above, except that I also include the rule's preamble and the agency's responses to comments. Agencies write lengthy justifications of their decisions in response to some comments but not others. By including preambles and responses to comments, this measure captures attention to a comment's demands and the extent to which the agency adopts a comment's discursive framing (i.e. the distribution of words it uses). I use cosign similarity to scale the word frequencies used by each comment relative to those in changes between draft and final rule.^[For the subset of rules with five or more organizational comments, I create a more sophisticated measure of word frequency similarity by averaging the absolute value of differences in topic proportions $\theta$ between the comment and new rule text across 45 LDA models of all organizational comments estimated with 5 through 50 topics, normalized by the number of topics $k_n$ and the number of models such that $y_i$ falls between 0 (completely different estimated topic proportions) and 1 (exactly the same topic proportions), $y_i = \sum_{5}^{n=50}(\frac{\sum|\theta_{rule\ change_i|k=n}-\theta_{comment_i|k=n}|}{n})*\frac{1}{45}$. For more on these methods of measuring textual similarity, see ["Measuring Change and Influence in Budget Texts"](https://judgelord.github.io/budgets/JudgeLordAPSA2017.pdf).] This measure falls between 0 (no common words) and 1 (exactly the same distribution of words).
+-->
+<p>To assess the performance of these automated methods (text-reuse and word-frequency similarity), I calculate the correlation between these scores and my hand-coded 5-point scale for rules in the hand-coded sample where a final rule was published. As the automated methods apply at the organization-level, coalition scores are those from the lead organization–by default, the organization(s) with the longest comment. At the coalition level, the correlation between hand-coded influence is __ with the text-reuse method.<!-- and __ with the word-frequency method.--></p>
 </div>
 <div id="the-main-predictor-variable" class="section level3" number="3.3.3">
 <h3><span class="header-section-number">3.3.3</span> The Main Predictor Variable</h3>
@@ -652,7 +657,7 @@ I then code overall lobbying success and lobbying success on each specific deman
 </div>
 <div id="explanatory-variables" class="section level3" number="3.3.4">
 <h3><span class="header-section-number">3.3.4</span> Explanatory variables</h3>
-<p>Other predictors of lobbying success in the models below are the length of the (lead) organization’s comment, whether the coalition lobbies unopposed, the size of the lobbying coalition, and whether the coalition is business-led. <em>Comment length</em> is normalized by dividing the number of words in the comment by the number of words in the proposed rule, thus capturing the complexity of the comment relative to the complexity of the proposed rule. The number and type(s) of organization(s) is an attribute of each coalition (e.g. a <em>business-led</em> coalition with <em>N</em> organizational members). Coalition <em>size</em> is the number of distinct commenting organizations in the coalition (including those that co-sign a comment). For organizations lobbying alone, coalition <em>size</em> is 1. A coalition is <em>unopposed</em> when no opposing organizations comments. I code a coalition as <em>business-led</em> if the majority of commenting organizations are for-profit businesses, or if upon investigation, I find it to be primarily led or sponsored by for-profit businesses.<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a></p>
+<p>Other predictors of lobbying success in the models below are the length of the (lead) organization’s comment, whether the coalition lobbies unopposed, the size of the lobbying coalition, and whether the coalition is business-led. <em>Comment length</em> is normalized by dividing the number of words in the comment by the number of words in the proposed rule, thus capturing the complexity of the comment relative to the complexity of the proposed rule. The number and type(s) of organization(s) is an attribute of each coalition (e.g. a <em>business-led</em> coalition with <em>N</em> organizational members). Coalition <em>size</em> is the number of distinct commenting organizations in the coalition (including those that co-sign a comment). For organizations lobbying alone, coalition <em>size</em> is 1. A coalition is <em>unopposed</em> when no opposing organizations comments. I code a coalition as <em>business-led</em> if the majority of commenting organizations are for-profit businesses, or if upon investigation, I find it to be primarily led or sponsored by for-profit businesses.<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a></p>
 </div>
 <div id="examples-of-hand-coded-lobbying-success" class="section level3" number="3.3.5">
 <h3><span class="header-section-number">3.3.5</span> Examples of hand-coded lobbying success</h3>
@@ -662,7 +667,7 @@ The Natural Resources Defense Council submitted a 69-page highly technical comme
 <blockquote>
 <p>“we strongly support EPA’s and the Corps’ efforts to clarify which waters are protected by the Clean Water Act. We urge the agencies to strengthen the proposal and move quickly to finalize it…”</p>
 </blockquote>
-<p>I coded this as support for the rule change, specifically not going far enough. I also coded it as requesting speedy publication. NRDC makes four substantive requests: one about retaining language in the proposed rule (“proposed protections for tributaries and adjacent waters…must be included in the final rule”) and three proposed changes (“we describe three key aspects of the rule that must be strengthened”).<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a> These demands provide specific keywords and phrases for which to search in the draft and final rule text.</p>
+<p>I coded this as support for the rule change, specifically not going far enough. I also coded it as requesting speedy publication. NRDC makes four substantive requests: one about retaining language in the proposed rule (“proposed protections for tributaries and adjacent waters…must be included in the final rule”) and three proposed changes (“we describe three key aspects of the rule that must be strengthened”).<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a> These demands provide specific keywords and phrases for which to search in the draft and final rule text.</p>
 <p>A coalition of 15 environmental organizations mobilized over 944,000 comments, over half (518,963) were mobilized by the four above organizations: 2421,641 by Environment America, 108,076 by NRDC, 101,496 by clean water action, and 67,750 by the Sierra Club. Other coalition partners included EarthJustice (99,973 comments) and Organizing for Action (formerly president Obama’s campaign organization, 69,369 comments). This is the upper tail end of the distribution. This coalition made sophisticated recommendations and mobilized a million people.</p>
 <p>The final rule moved in the direction requested by NRDC’s coalition, but to a lesser extent than requested–what I code as “some desired changs.”" As NRDC et al. requested, the final rule retained the language protecting tributaries and adjacent waters and added some protections for “other waters” like prairie potholes and vernal pools, but EPA did not alter the exemptions for ditches and waste treatment systems.</p>
 <p>Comparing the draft and final with text reuse allows us to count the number words that belong to 10-word phrases that appear in both the draft and final, those that appear only in the draft, and those that appear only in the final. For the 2015 Waters Of The U.S. rule, 15 thousand words were deleted, 37 thousand words were added, and 22 thousand words were kept the same. This means that more words “changed” than remained the same, specifically 69% of words appearing in the draft or final were part were either deleted or added.</p>
@@ -677,12 +682,12 @@ The Natural Resources Defense Council submitted a 69-page highly technical comme
 <div id="limitations" class="section level3" number="3.3.6">
 <h3><span class="header-section-number">3.3.6</span> Limitations</h3>
 <p>The two main limitations of this design both bias estimates of public pressure campaign influence toward zero.</p>
-<p>First, lobbying success may take forms other than changes in policy texts. Agencies may speed up or delay finalizing a rule, extend the comment period, or delay the date at which the rule goes into effect. Indeed, commentors often request speedy or delayed rule finalization, comment period extensions, or delayed effective dates. I capture these potential outcomes in my hand-coding but not in the two automated methods, which apply only to observations with a final rule text. Likewise, there there is no change between draft and final rule, both automated methods necessarily record lobbying success as 0, even if a comment asks an agency to publish a rule without change.<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a></p>
+<p>First, lobbying success may take forms other than changes in policy texts. Agencies may speed up or delay finalizing a rule, extend the comment period, or delay the date at which the rule goes into effect. Indeed, commentors often request speedy or delayed rule finalization, comment period extensions, or delayed effective dates. I capture these potential outcomes in my hand-coding but not in the two automated methods, which apply only to observations with a final rule text. Likewise, there there is no change between draft and final rule, both automated methods necessarily record lobbying success as 0, even if a comment asks an agency to publish a rule without change.<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a></p>
 <p>Second, bureaucrats may anticipate public pressure campaigns when writing draft rules, muting the observed relationship between public pressure and rule change at the final rule stage of the policy process.</p>
 </div>
 <div id="modeling-the-direct-relationship" class="section level3" number="3.3.7">
 <h3><span class="header-section-number">3.3.7</span> Modeling the direct relationship</h3>
-<p>For all three measures of lobbying success, I assess the relationship between lobbying success and mass comments by modeling coalition <span class="math inline">\(i\)</span>’s lobbying success, <span class="math inline">\(y_i\)</span> as a combination of the relative length of the (lead) organizations comment, whether the coalition is unopposed, the coalition’s size, whether it is a business coalition, and the logged number of mass comments. I estimate OLS<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a> regression:</p>
+<p>For all three measures of lobbying success, I assess the relationship between lobbying success and mass comments by modeling coalition <span class="math inline">\(i\)</span>’s lobbying success, <span class="math inline">\(y_i\)</span> as a combination of the relative length of the (lead) organizations comment, whether the coalition is unopposed, the coalition’s size, whether it is a business coalition, and the logged number of mass comments. I estimate OLS<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a> regression:</p>
 <p><span class="math display">\[
 y_i = \beta_0 + \beta_1 log(comments_i) + \beta_2 length_i + \beta_3 unopposed_i + \beta_4 size_i + \beta_5 business_i + \epsilon_i
 \]</span></p>
@@ -843,10 +848,74 @@ cong_support
 <tbody>
 <tr>
 <td style="text-align:right;">
-161
+1042
 </td>
 <td style="text-align:right;">
-1240
+1974
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+-1.0
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+16.5
+</td>
+<td style="text-align:right;">
+38849
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1439
+</td>
+<td style="text-align:right;">
+120
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+7.1
+</td>
+<td style="text-align:right;">
+89542
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+635
+</td>
+<td style="text-align:right;">
+28
 </td>
 <td style="text-align:right;">
 1
@@ -861,13 +930,13 @@ cong_support
 3
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+7.1
+</td>
+<td style="text-align:right;">
 1
-</td>
-<td style="text-align:right;">
-9.4
-</td>
-<td style="text-align:right;">
-26060
 </td>
 <td style="text-align:right;">
 0
@@ -875,10 +944,10 @@ cong_support
 </tr>
 <tr>
 <td style="text-align:right;">
-1374
+1174
 </td>
 <td style="text-align:right;">
-1926
+591
 </td>
 <td style="text-align:right;">
 2
@@ -893,24 +962,56 @@ cong_support
 9
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-9.4
+15.3
+</td>
+<td style="text-align:right;">
+77433
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+147
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-3
+0
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+16.5
+</td>
+<td style="text-align:right;">
+103122
+</td>
+<td style="text-align:right;">
+4
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-1272
+1327
 </td>
 <td style="text-align:right;">
-664
+35
 </td>
 <td style="text-align:right;">
 2
@@ -922,123 +1023,59 @@ cong_support
 0.5
 </td>
 <td style="text-align:right;">
-15
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+14.1
+</td>
+<td style="text-align:right;">
+44787
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1279
+</td>
+<td style="text-align:right;">
+1575
+</td>
+<td style="text-align:right;">
+2
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-9.4
-</td>
-<td style="text-align:right;">
-1
+-0.5
 </td>
 <td style="text-align:right;">
 3
 </td>
-</tr>
-<tr>
-<td style="text-align:right;">
-966
-</td>
-<td style="text-align:right;">
-1632
-</td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-0
+17.6
 </td>
 <td style="text-align:right;">
-0.0
+201453
 </td>
 <td style="text-align:right;">
-22
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-11.8
-</td>
-<td style="text-align:right;">
-19407
-</td>
-<td style="text-align:right;">
-0
+4
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-1216
+280
 </td>
 <td style="text-align:right;">
-992
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
--0.5
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-9.4
-</td>
-<td style="text-align:right;">
-126627
-</td>
-<td style="text-align:right;">
-2
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-893
-</td>
-<td style="text-align:right;">
-927
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
--0.5
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-15.3
-</td>
-<td style="text-align:right;">
-73883
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-462
-</td>
-<td style="text-align:right;">
-601
+1482
 </td>
 <td style="text-align:right;">
 1
@@ -1050,27 +1087,13 @@ cong_support
 1.0
 </td>
 <td style="text-align:right;">
-16
+4
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-11.8
-</td>
-<td style="text-align:right;">
-102632
-</td>
-<td style="text-align:right;">
-2
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-172
-</td>
-<td style="text-align:right;">
-995
+10.6
 </td>
 <td style="text-align:right;">
 1
@@ -1078,87 +1101,69 @@ cong_support
 <td style="text-align:right;">
 0
 </td>
-<td style="text-align:right;">
--1.0
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-9.4
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
 </tr>
 <tr>
 <td style="text-align:right;">
-1074
+777
 </td>
 <td style="text-align:right;">
-1736
-</td>
-<td style="text-align:right;">
-2
+467
 </td>
 <td style="text-align:right;">
 1
+</td>
+<td style="text-align:right;">
+0
 </td>
 <td style="text-align:right;">
 0.5
 </td>
 <td style="text-align:right;">
-23
+22
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-11.8
+12.9
 </td>
 <td style="text-align:right;">
-38435
+156717
 </td>
 <td style="text-align:right;">
-1
+3
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-414
+1022
 </td>
 <td style="text-align:right;">
-974
+792
 </td>
 <td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
--0.5
-</td>
-<td style="text-align:right;">
-5
+2
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-11.8
+-1.0
 </td>
 <td style="text-align:right;">
-267918
+2
 </td>
 <td style="text-align:right;">
 1
+</td>
+<td style="text-align:right;">
+12.9
+</td>
+<td style="text-align:right;">
+118883
+</td>
+<td style="text-align:right;">
+6
 </td>
 </tr>
 </tbody>
@@ -1224,26 +1229,26 @@ Members of Congress in Coalition
 (Intercept)
 </td>
 <td style="text-align:center;">
-0.027
+0.043
 </td>
 <td style="text-align:center;">
-0.028
+0.034
 </td>
 <td style="text-align:center;">
-2.256***
+2.237***
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 </td>
 <td style="text-align:center;">
-(0.056)
+(0.058)
 </td>
 <td style="text-align:center;">
-(0.057)
+(0.059)
 </td>
 <td style="text-align:center;">
-(0.291)
+(0.304)
 </td>
 </tr>
 <tr>
@@ -1251,13 +1256,13 @@ Members of Congress in Coalition
 log(comments)
 </td>
 <td style="text-align:center;">
--0.002
+0.003
 </td>
 <td style="text-align:center;">
--0.002
+0.003
 </td>
 <td style="text-align:center;">
-0.010
+0.007
 </td>
 </tr>
 <tr>
@@ -1278,13 +1283,13 @@ log(comments)
 comment_length
 </td>
 <td style="text-align:center;">
-0.002
+0.001
 </td>
 <td style="text-align:center;">
-0.002
+0.001
 </td>
 <td style="text-align:center;">
--0.013
+-0.016
 </td>
 </tr>
 <tr>
@@ -1305,13 +1310,13 @@ comment_length
 coalition_business
 </td>
 <td style="text-align:center;">
-0.023
+0.004
 </td>
 <td style="text-align:center;">
-0.023
+0.003
 </td>
 <td style="text-align:center;">
-0.066
+0.100
 </td>
 </tr>
 <tr>
@@ -1324,7 +1329,7 @@ coalition_business
 (0.030)
 </td>
 <td style="text-align:center;">
-(0.155)
+(0.157)
 </td>
 </tr>
 <tr>
@@ -1332,13 +1337,13 @@ coalition_business
 coalition_size
 </td>
 <td style="text-align:center;">
--0.002
+0.000
 </td>
 <td style="text-align:center;">
--0.002
+0.000
 </td>
 <td style="text-align:center;">
-0.004
+0.002
 </td>
 </tr>
 <tr>
@@ -1351,7 +1356,7 @@ coalition_size
 (0.002)
 </td>
 <td style="text-align:center;">
-(0.010)
+(0.011)
 </td>
 </tr>
 <tr>
@@ -1365,20 +1370,20 @@ coalition_unopposed
 0.001
 </td>
 <td style="text-align:center;">
--0.107
+0.054
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 </td>
 <td style="text-align:center;">
-(0.028)
+(0.027)
 </td>
 <td style="text-align:center;">
-(0.028)
+(0.027)
 </td>
 <td style="text-align:center;">
-(0.142)
+(0.144)
 </td>
 </tr>
 <tr>
@@ -1388,7 +1393,7 @@ cong_support
 <td style="text-align:center;">
 </td>
 <td style="text-align:center;">
--0.001
+0.004
 </td>
 <td style="text-align:center;">
 </td>
@@ -1437,7 +1442,7 @@ R2
 R2 Adj.
 </td>
 <td style="text-align:center;">
--0.001
+-0.002
 </td>
 <td style="text-align:center;">
 -0.002
@@ -1451,13 +1456,13 @@ R2 Adj.
 AIC
 </td>
 <td style="text-align:center;">
-3740.5
+3717.0
 </td>
 <td style="text-align:center;">
-3742.5
+3718.1
 </td>
 <td style="text-align:center;">
-10298.5
+10361.4
 </td>
 </tr>
 <tr>
@@ -1465,13 +1470,13 @@ AIC
 BIC
 </td>
 <td style="text-align:center;">
-3779.7
+3756.2
 </td>
 <td style="text-align:center;">
-3787.3
+3762.9
 </td>
 <td style="text-align:center;">
-10337.7
+10400.6
 </td>
 </tr>
 <tr>
@@ -1479,13 +1484,13 @@ BIC
 Log.Lik.
 </td>
 <td style="text-align:center;">
--1863.256
+-1851.490
 </td>
 <td style="text-align:center;">
--1863.244
+-1851.069
 </td>
 <td style="text-align:center;">
--5142.236
+-5173.708
 </td>
 </tr>
 <tr>
@@ -1493,13 +1498,13 @@ Log.Lik.
 F
 </td>
 <td style="text-align:center;">
-0.423
+0.238
 </td>
 <td style="text-align:center;">
-0.357
+0.338
 </td>
 <td style="text-align:center;">
-0.396
+0.318
 </td>
 </tr>
 </tbody>
@@ -1518,9 +1523,9 @@ F
 </tr>
 </tfoot>
 </table>
-<p>The average effect of the logged number of comments, conditional on letters from members of congress (the ACME) is 0, with a p value of 0.92.</p>
-<p>The average direct effect (ADE) of the logged number of comments on lobbying success is 0, with a p value of 0.54</p>
-<p>The Total Effect of a one-unit increase in the logged number of comments is 0, with a p value of 0.53. 0 of this is mediated through mobilizing congressional attention (p-value = 0.99).</p>
+<p>The average effect of the logged number of comments, conditional on letters from members of congress (the ACME) is 0, with a p value of 0.74.</p>
+<p>The average direct effect (ADE) of the logged number of comments on lobbying success is 0, with a p value of 0.28</p>
+<p>The Total Effect of a one-unit increase in the logged number of comments is 0, with a p value of 0.27. 0 of this is mediated through mobilizing congressional attention (p-value = 0.8).</p>
 
 <div style="page-break-after: always;"></div>
 </div>
@@ -1580,10 +1585,10 @@ comments
 CFPB-2016-0025
 </td>
 <td style="text-align:right;">
-14
+131
 </td>
 <td style="text-align:left;">
-Church Folk
+WV Citizen Action Group
 </td>
 <td style="text-align:left;">
 FALSE
@@ -1592,7 +1597,7 @@ FALSE
 0
 </td>
 <td style="text-align:right;">
-28
+3
 </td>
 <td style="text-align:left;">
 FALSE
@@ -1601,7 +1606,7 @@ FALSE
 1.0000000
 </td>
 <td style="text-align:right;">
-28
+3
 </td>
 </tr>
 <tr>
@@ -1609,10 +1614,10 @@ FALSE
 CFPB-2016-0025
 </td>
 <td style="text-align:right;">
-19
+21
 </td>
 <td style="text-align:left;">
-CUNA, CCUL
+Eastman Credit Union
 </td>
 <td style="text-align:left;">
 FALSE
@@ -1621,16 +1626,16 @@ FALSE
 0
 </td>
 <td style="text-align:right;">
-5
+1
 </td>
 <td style="text-align:left;">
-TRUE
+FALSE
 </td>
 <td style="text-align:right;">
-0.8000000
+2.0000000
 </td>
 <td style="text-align:right;">
-5
+1
 </td>
 </tr>
 <tr>
@@ -1689,6 +1694,35 @@ FALSE
 </td>
 <td style="text-align:right;">
 79
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DEA-2018-0005
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:left;">
+PhRMA
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+0.6666667
+</td>
+<td style="text-align:right;">
+3
 </td>
 </tr>
 <tr>
@@ -1722,13 +1756,15 @@ FALSE
 </tr>
 <tr>
 <td style="text-align:left;">
-DEA-2018-0005
+DO-2007-0015
 </td>
 <td style="text-align:right;">
-33
+105
 </td>
 <td style="text-align:left;">
-HSCA
+TRUE; The National Football League (NFL), Major League Baseball (MLB), National
+Basketball Association (NBA), National Hockey League (NHL), and National Collegiate
+Athletic Association (NCAA)
 </td>
 <td style="text-align:left;">
 FALSE
@@ -1737,16 +1773,16 @@ FALSE
 0
 </td>
 <td style="text-align:right;">
-9
+1
 </td>
 <td style="text-align:left;">
 FALSE
 </td>
 <td style="text-align:right;">
--1.7777778
+2.0000000
 </td>
 <td style="text-align:right;">
-9
+1
 </td>
 </tr>
 <tr>
@@ -1754,10 +1790,10 @@ FALSE
 DO-2007-0015
 </td>
 <td style="text-align:right;">
-115
+101
 </td>
 <td style="text-align:left;">
-TRUE;other banks
+TRUE; Greyhound racing industry; Tuscon greyhound
 </td>
 <td style="text-align:left;">
 FALSE
@@ -1766,74 +1802,16 @@ FALSE
 0
 </td>
 <td style="text-align:right;">
-6
+1
 </td>
 <td style="text-align:left;">
 TRUE
 </td>
 <td style="text-align:right;">
-0.0000000
-</td>
-<td style="text-align:right;">
-6
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-DO-2007-0015
-</td>
-<td style="text-align:right;">
-98
-</td>
-<td style="text-align:left;">
-TRUE; Family Research Council; Concerned Women for America
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:right;">
-0
+-2.0000000
 </td>
 <td style="text-align:right;">
 1
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:right;">
-2.0000000
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-DOI-2015-0005
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:left;">
-BLANKET CREW
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-11
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:right;">
-2.0000000
-</td>
-<td style="text-align:right;">
-11
 </td>
 </tr>
 <tr>
@@ -1863,6 +1841,35 @@ FALSE
 </td>
 <td style="text-align:right;">
 11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DOI-2015-0005
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+BIG AUTONOMY
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+2.0000000
+</td>
+<td style="text-align:right;">
+8
 </td>
 </tr>
 <tr>
@@ -1899,10 +1906,10 @@ FALSE
 FEMA-2016-0003
 </td>
 <td style="text-align:right;">
-47
+34
 </td>
 <td style="text-align:left;">
-NEMA
+IAEM-USA
 </td>
 <td style="text-align:left;">
 FALSE
@@ -1911,16 +1918,16 @@ FALSE
 0
 </td>
 <td style="text-align:right;">
-43
+23
 </td>
 <td style="text-align:left;">
 FALSE
 </td>
 <td style="text-align:right;">
-0.9767442
+2.0000000
 </td>
 <td style="text-align:right;">
-43
+23
 </td>
 </tr>
 <tr>
@@ -1928,10 +1935,10 @@ FALSE
 MSHA-2011-0001
 </td>
 <td style="text-align:right;">
-87
+55
 </td>
 <td style="text-align:left;">
-TRUE-WMA and WTP
+OIAA
 </td>
 <td style="text-align:left;">
 FALSE
@@ -1957,10 +1964,10 @@ TRUE
 MSHA-2011-0001
 </td>
 <td style="text-align:right;">
-84
+36
 </td>
 <td style="text-align:left;">
-TRUE-VCA
+MARG
 </td>
 <td style="text-align:left;">
 FALSE
@@ -2102,35 +2109,6 @@ FALSE
 USCG-2010-0990
 </td>
 <td style="text-align:right;">
-9
-</td>
-<td style="text-align:left;">
-BoatUS
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:right;">
--1.0000000
-</td>
-<td style="text-align:right;">
-6
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-USCG-2010-0990
-</td>
-<td style="text-align:right;">
 49
 </td>
 <td style="text-align:left;">
@@ -2153,6 +2131,35 @@ FALSE
 </td>
 <td style="text-align:right;">
 4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+USCG-2010-0990
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+BoatUS
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+-1.0000000
+</td>
+<td style="text-align:right;">
+6
 </td>
 </tr>
 </tbody>
@@ -2490,9 +2497,9 @@ F
 <blockquote>
 <p>Mediation analysis will require adding cases where coalitions lobbied unopposed, which we are much more likely to see in the sample of rules without mass comments.</p>
 </blockquote>
-<p>The average effect of the logged number of comments, conditional on letters from members of congress (the ACME) is 0, with a p value of 0.92.</p>
-<p>The average direct effect (ADE) of the logged number of comments on lobbying success is 0, with a p-value of 0.54</p>
-<p>The Total Effect of a one-unit increase in the logged number of comments is 0, with a p value of 0.53. 0 of this is mediated through mobilizing congressional attention (p-value = 0.99).</p>
+<p>The average effect of the logged number of comments, conditional on letters from members of congress (the ACME) is 0, with a p value of 0.74.</p>
+<p>The average direct effect (ADE) of the logged number of comments on lobbying success is 0, with a p-value of 0.28</p>
+<p>The Total Effect of a one-unit increase in the logged number of comments is 0, with a p value of 0.27. 0 of this is mediated through mobilizing congressional attention (p-value = 0.8).</p>
 </div>
 <div id="preliminary-findings" class="section level3" number="3.5.3">
 <h3><span class="header-section-number">3.5.3</span> Preliminary findings</h3>
@@ -2595,15 +2602,14 @@ Figure <a href="whymail.html#fig:sierra" reference-type="ref" reference="fig:sie
 code information from commenters, so mass-mobilizers may often send
 such information to elected officials.<a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#fnref27" class="footnote-back">↩︎</a></p></li>
 <li id="fn28"><p>The same comment text is attributed to each signatory of a comment. For more on how I identify organizations and coalitions, see <a href="https://judgelord.github.io/dissertation/whyMail.pdf">Chapter 2, “Why Do Agencies (Sometimes) Get So Much Mail?”</a>.<a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#fnref28" class="footnote-back">↩︎</a></p></li>
-<li id="fn29"><p>For more on policy area coding, see <a href="https://judgelord.github.io/dissertation/MacroRulemaking.pdf">“Trends in U.S. Executive-branch Policymaking 1980-2016”</a> in Chapter 1.<a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#fnref29" class="footnote-back">↩︎</a></p></li>
+<li id="fn29"><p>Through an itterative process, I developed a method to select comments submitted by organizations. For example, I include all comments submitted as file attachments rather than typed into the textbox.<a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#fnref29" class="footnote-back">↩︎</a></p></li>
 <li id="fn30"><p>Except for comment texts and attachments, these data are available separately and combined on github.com/judgelord/rulemaking.<a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#fnref30" class="footnote-back">↩︎</a></p></li>
 <li id="fn31"><p>This does not capture rule changes on which an organization did not comment.
 The codebook is available <a href="https://docs.google.com/document/d/1o1hi0z9O-G9xsgkspOFG2VWzh0wQKjiezzoVpItaCxU/edit?usp=sharing">here</a>. See examples of coded cases <a href="https://judgelord.github.io/dissertation/influence_coding_examples.pdf">here</a>.<a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#fnref31" class="footnote-back">↩︎</a></p></li>
-<li id="fn32"><p>For the subset of rules with five or more organizational comments, I create a more sophisticated measure of word frequency similarity by averaging the absolute value of differences in topic proportions <span class="math inline">\(\theta\)</span> between the comment and new rule text across 45 LDA models of all organizational comments estimated with 5 through 50 topics, normalized by the number of topics <span class="math inline">\(k_n\)</span> and the number of models such that <span class="math inline">\(y_i\)</span> falls between 0 (completely different estimated topic proportions) and 1 (exactly the same topic proportions), <span class="math inline">\(y_i = \sum_{5}^{n=50}(\frac{\sum|\theta_{rule\ change_i|k=n}-\theta_{comment_i|k=n}|}{n})*\frac{1}{45}\)</span>. For more on these methods of measuring textual similarity, see <a href="https://judgelord.github.io/budgets/JudgeLordAPSA2017.pdf">“Measuring Change and Influence in Budget Texts”</a>.<a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#fnref32" class="footnote-back">↩︎</a></p></li>
-<li id="fn33"><p>For more on how I identify types of organizations and coalitions, see <a href="https://judgelord.github.io/research/whymail/">Chapter 2, “Why Do Agencies (Sometimes) Get So Much Mail?”</a>.<a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#fnref33" class="footnote-back">↩︎</a></p></li>
-<li id="fn34"><p>These three aspects are: (1) “The Rule Should Categorically Protect Certain “Other Waters” including Vernal Pools, Pocosins, Sinkhole Wetlands, Rainwater Basin Wetlands, Sand Hills Wetlands, Playa Lakes, Interdunal Wetlands, Carolina and Delmarva Bays, and Other Coastal Plain Depressional Wetlands, and Prairie Potholes. Furthermore, “Other ‘Isolated’ Waters Substantially Affect Interstate Commerce and Should be Categorically Protected Under the Agencies’ Commerce Clause Authority.” (2) “The Rule Should Not Exempt Ditches Without a Scientific Basis” (3) “The Rule Should Limit the Current Exemption for Waste Treatment Systems”<a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#fnref34" class="footnote-back">↩︎</a></p></li>
-<li id="fn35"><p>Time allowing, I will hand-code a larger sample of proposed rules where no final rule was published so that these cases can be included in the analysis. Likewise, I will identify cases where organizations requested rules to be published as-is and recode these cases by hand.<a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#fnref35" class="footnote-back">↩︎</a></p></li>
-<li id="fn36"><p>See <a href="https://judgelord.github.io/dissertation/preanalysis.pdf">OLS model estimates with simulated data</a>. I also estimate hand-coded lobbying success with beta regression and ordered logit, which are more appropriate but less interpretable. For the automated measures of lobbying success, I estimate beta regression models with the same variables.<a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#fnref36" class="footnote-back">↩︎</a></p></li>
+<li id="fn32"><p>For more on how I identify types of organizations and coalitions, see <a href="https://judgelord.github.io/research/whymail/">Chapter 2, “Why Do Agencies (Sometimes) Get So Much Mail?”</a>.<a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#fnref32" class="footnote-back">↩︎</a></p></li>
+<li id="fn33"><p>These three aspects are: (1) “The Rule Should Categorically Protect Certain “Other Waters” including Vernal Pools, Pocosins, Sinkhole Wetlands, Rainwater Basin Wetlands, Sand Hills Wetlands, Playa Lakes, Interdunal Wetlands, Carolina and Delmarva Bays, and Other Coastal Plain Depressional Wetlands, and Prairie Potholes. Furthermore, “Other ‘Isolated’ Waters Substantially Affect Interstate Commerce and Should be Categorically Protected Under the Agencies’ Commerce Clause Authority.” (2) “The Rule Should Not Exempt Ditches Without a Scientific Basis” (3) “The Rule Should Limit the Current Exemption for Waste Treatment Systems”<a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#fnref33" class="footnote-back">↩︎</a></p></li>
+<li id="fn34"><p>Time allowing, I will hand-code a larger sample of proposed rules where no final rule was published so that these cases can be included in the analysis. Likewise, I will identify cases where organizations requested rules to be published as-is and recode these cases by hand.<a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#fnref34" class="footnote-back">↩︎</a></p></li>
+<li id="fn35"><p>See <a href="https://judgelord.github.io/dissertation/preanalysis.pdf">OLS model estimates with simulated data</a>. I also estimate hand-coded lobbying success with beta regression and ordered logit, which are more appropriate but less interpretable. For the automated measures of lobbying success, I estimate beta regression models with the same variables.<a href="policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymaking.html#fnref35" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

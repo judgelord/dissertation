@@ -38,7 +38,7 @@ kable2 <- function(x, file){
   if(knitr:::is_html_output() | knitr::is_latex_output() ){
       kable_styling(x, latex_options = c("scale_down"))
   } else{
-    kableExtra::as_image(x, file = paste0("figs/", file, ".png"))
+    kableExtra::as_image(x, width = 6.5, file = paste0("figs/", file, ".png"))
     }
 }
 
