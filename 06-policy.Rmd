@@ -82,6 +82,13 @@ The most skeptical camp goes even further, arguing that open solicitations to th
 
 <!--
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">At the State of the Net conference, <a href="https://twitter.com/JRosenworcel?ref_src=twsrc%5Etfw">@JRosenworcel</a> says people from across the USA, across politics persuasions, have found their names &amp; identities stolen &amp; used in the <a href="https://twitter.com/FCC?ref_src=twsrc%5Etfw">@FCC</a> net neutrality rule making. 2 million total. ~500K from Russian email addresses. <a href="https://twitter.com/hashtag/sotn2018?src=hash&amp;ref_src=twsrc%5Etfw">#sotn2018</a> <a href="https://t.co/zCUNlssA54">pic.twitter.com/zCUNlssA54</a></p>&mdash; Alex Howard (@digiphile) <a href="https://twitter.com/digiphile/status/958084755605553152?ref_src=twsrc%5Etfw">January 29, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+--> 
+
+#### Astroturf 
+
+> TODO
+<!--
+A key feature of astroturf lobbying is its covert nature. On December 19, 1995, President Bill Clinton signed into law the Lobbying Disclosure Act of 1995, establishing new registration and reporting requirements for lobbyists working for corporations, charities, and other nonprofit organizations engaged in efforts to influence legislative and executive branch decisions. The 1995 act was the first major legislation on lobbying in nearly 50 years and was designed to provide transparency in the lobbying process. Early drafts of the Lobbying Disclosure Act included provisions requiring the registration of firms engaged in astroturf lobbying and the reporting of the expenditures made on those actions. Those provisions, however, failed to make it out of committee. As the bill's sponsor, Senator Carl Levin, testified before a House committee considering the bill: “Every reference to grass roots lobbying—and even to paid efforts to stimulate artificial grass roots lobbying—has been deleted from the bill…I am personally disappointed that we were unable to do anything to address the issue of a form of grassroots lobbying referred to as astroturf lobbying, in which lobbyists hire professional experts to run phone banks and generate mail in support of their efforts. In my view, these paid, professional astroturf campaigns bear nothing in common with the genuine grassroots activities…I…hope that the House will reconsider the disclosure of such lobbying
 -->
 
 
@@ -175,6 +182,7 @@ Because mass comment campaigns include a fairly large number of individuals, esp
 There are good reasons to accept technical information from anonymous sources. For example, they may fear retaliation. However, anonymous comments should not be used to infer political information. This distinction supports two tracks with distinct requirements. An agency may want to allow sophisticated anonymous comments to be co-signed by large numbers of authenticated supporters, thus allowing insiders with the necessary knowledge to make sophisticated arguments, but also much to lose to put ideas into public and the agency to gauge public reaction to those ideas. 
 
 <!---
+
 
 # April
 

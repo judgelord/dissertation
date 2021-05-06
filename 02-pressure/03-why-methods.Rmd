@@ -10,6 +10,15 @@ Agenda and Office of Information and Regulatory Affairs Reports on draft
 rules sent to them for review. Summary statistics for these data are
 available in the Appendix.
 
+```{r comments-per-year, fig.cap = "Comments per Proposed Rule and Total Comments per Year", out.width = NULL, out.height = "25%", fig.show = "hold"}
+
+knitr::include_graphics(here::here("Figs", "rules-comments-per-year-1.png"))
+
+knitr::include_graphics(here::here("Figs", "comments-mass-vs-unique.pdf"))
+
+```
+
+
 ### Methods: Measuring Public Pressure and Political Information {#why-methods}
 
 To identify the groups mobilizing public pressure campaigns, I develop methods to attribute individual comments to the
@@ -28,9 +37,83 @@ not include text provided by the campaign). The result is several new
 measures of participation in bureaucratic policymaking.
 
 
+
+
+<!--
+### Spontanious or mediated?
+
+### If mediated, who is mobilizing
+-->
+
+### The observable implications of various forms of public engagment
+
+The different forms of participation asserted or assumed in the literature have empiracally observable patterns. 
+
+#### Individuals 
+
+In civics classrooms and Norman Rockwell paintings, raising concerns to government is an individual affair. The solicitation on regulations.gov "Let your voice be heard" suggests that individuals are expressing themselves directly. Indeed, anyone can write a letter or type a comment in the text box on regulations.gov and many people do. Individuals acting on their own submit content ranging from obsenities and memes to detailed personal accounts of how a policy would affect them and even poetry aimed changing officials' hearts and minds. 
+
+Administrative law scholarship often discusses individual participants in this light as well.
+@Cuéllar2015 finds that members of the "lay public" raise important new concerns beyond those raised by interest groups. He advocates for institutional reforms that would make it easeier for individuals to participated and increase the sophistication of individual comments on proposed policies. 
+
+The remaining forms of participation are all mediated through an organization's pressure campaign. Comments from people mobilized as part of a campaign differ from those of individuals acting on their own in two ways: they often mention the name of the organization that mobilized them and the text will often be similar or identical to other comments in the campaing, reflecting coorination. These features eleminate the value that  @Cuéllar2015 and others see in individual comments. If comments reference and organization that mobilized them, they likely have more to offer than that the more sophisticated organization has not already provided. If comments are identical the certianly provide no new information.
+
+#### Membership Organizations
+
+If most commenters are members of membership organizations as @Kerwin2011 suggest, a large campaign of, say one million people, will require a large collection of membership organizations. Very few organizations have a milion memebers and those that do are unlikely to mobilize all of them, so mobilizing a large number of people will usually require a large coalition of membership organizations. Commenters should identify themselfs as members of these many organizations.
+
+#### Policy change organizations
+
+Mobilizing people just for a particular policy fight requires a significant organizing capacity. @McNutt2007 calls these formations "policy change organizations." 
+There is a spectrum of organizing the unorganized. The poles might be labled "grassroots" and "astroturf." On the grassroots end, engagment is driven by a combination of passionate volunteerism and a supportive attentive public [@Key1961] or issue public [@Converse1964]. In practice, the campaings that most resemble the grassroots ideal are not pure volunteerism, but are organized by policy change organizations like Credo Action and Organizing For American on the left and Americans for Prosperity on the right. These organizations have large mailing lists and media operations. Membership organizations like the Sierra Club may often mobilize beyond their membership base and thus take the from of a policy change organization as well. 
+
+Like people mobilized throught their membership organizations, people mobilized by poicy change organizations will often cite the mobilzing organization.  
+Unlike those mobilized though membership organiztions, mobilization by policy change organizations is more likely to be concentrated in a few large organization with the specific resources for running campaings that engage passionate or interested but unaffiliated segments of the public. 
+
+#### Astroturf
+
+Toward the astroturf end of the spectrum of policy change organizations, well-funded efforts gather signatures from a much less passionate and attentive population. Where grassroots organizing relies on existing underlying interests that merely need to be given an opportunity to engage, people engaged by astroturf campaigns are generally disintersted in the policy and engage merely because of paid ads or petition gathering, often involving some deception in order to get people to take action on an issue that they would not take if the issue was presented more clearly. Likewise, the organizations actually collecting the signatures would have no interst in doing so if they were not being paid. The aim is to give an appearance of support. 
+
+For example Access Fininanical and other payday lending companies sponsored two campaigns targeting a regulation proposed by Consumer Financial Protection Bureau in 2016. Fist, Access Fnanncial had their employees solicit comments from customers, which Access then uploaded to regulations.gov. The customer comments suggest that they had not been told much about the rule, which limited interest rates and XXXXX. Most customers wrote some version of "Do not close this store"--a few even complained about exactly the issues that CFPB's regulation aimed to address. XXXXXX To the extent that this campaign relied on deception and not the customer's interests (even as the customers understood them), this would count as astroturf. Second, Access sponsored an effort to gather petition signatures at churches. Finally, Access and other payday loan companies uploaded supportive notes from commmunity organizations to which they had given money. Like the churchgoers, these people had no reason to comment except that they had recieved money from the potentially regulated companies. 
+
+Spotting astroturf in the wild is difficult by design. However, the clear observable result is comments advoding on behalof of large business intersts. These are the organizations with the resources and incentives to sponsor astroturf campaigns and they do [@Lyon2005].
+
+
+
+<!--
+Astroturf: Interest Group Lobbying and Corporate Strategy
+Thomas P. Lyon  John W. Maxwell
+
+- in which the firm covertly subsidizes a group with similar views to lobby when it normally would not;
+Lloyd Bentsen, long‐time senator from Texas, to describe the artificial grassroots campaigns created by public relations (PR) firms (Stauber and Rampton, 1995, p. 79)
+For example, Lupia and McCubbins (1994) and de Figueiredo et al. (1999) study how administrative procedures can be designed to optimize the flow of information to politicians, and Baron (2001) develops a model in which activists attempt to influence corporate strategy via the threat of consumer boycotts. Kollman (1998) studies the motivations and strategy behind lobbying behavior based on detailed interviews with 90 interest group leaders. Grossman and Helpman (2001) provide an excellent introduction to the recent theoretical literature on interest group politics.
+
+
+
+Astroturf, Technology and the Future of
+Community Mobilization:
+Implications for Nonprofit Theory
+JOHN McNuTT
+University of Delaware
+School of Urban Affairs & Public Policy
+KATHERINE BOLAND
+Astroturf, quite simply, is synthetic grassroots organizing created for manipulative political purposes (see Lyon &
+Maxwell, 2004; Allen, 1998; Austin, 2002). In this type of activity, an entity that wishes to affect public policy creates an effort
+that gives the appearance of grassroots support
+-->
+
+<!--
+
+
+
+
+> CITE STEVES ASTROTURF PAPER AND RELATED LIT
+
+-->
+
 ### Who lobbies?
 
-Unfortunately, metadata on the authors of comments and their
+Metadata on the authors of comments and their
 organizational affiliations are inconsistent and incomplete. As this
 information is key to identifying influential actors, improving these
 data was a significant data-organization task.
@@ -41,15 +124,7 @@ Through an iterative combination of automated search methods and hand-coding, I 
 comments with repeated text--either identical text or partially unique
 texts that contain shared language. I then searched comment texts for
 mentions of these organizations' names to complete missing information
-on the mobilizing organization. The top 100 mobilizing organizations
-mobilized between 55 thousand and 4.2 million comments each. Figure
-\@ref(fig:toporgs) shows the top organizers of comments posted to
-regulations.gov.
-
-```{r toporgs, fig.cap = "Top mobilizers of comments posted to regulations.gov", fig.width = 7}
-
-knitr::include_graphics(here::here("Figs", "toporgs.png"))
-```
+on the mobilizing organization. 
 
 ### Who lobbies together?
 

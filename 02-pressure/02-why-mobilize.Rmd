@@ -1,11 +1,22 @@
 ## Theory {#why-theory}
 
-Activists frequently target agency policymaking with letter-writing campaigns, petitions, protests,
+
+### Civic participation 
+
+### Interest groups 
+
+### Bureacratic policymaking
+
+<!--PUZZEL-->
+Bureucratic policymaking is the ideal context for powerful organized interests to dominate. Organizations with superior resources use them to flood policymakers with technical information [@Wagner2010].
+
+And yet, activists frequently target agency policymaking with letter-writing campaigns, petitions, protests,
 and mobilizing people to attend hearings, all classic examples of "civic engagement" [@Verba1987].^[As I show below, most comments submitted to regulations.gov are part of organized campaigns, more akin to petition signatures than "deliberative" participation or sophisticated lobbying. Indeed, approximately 40 million out of 50 million (80%) of these public comments mobilized by just 100 advocacy organizations.]
-Yet civic engagement and organized public pressure remain poorly understood in the context of bureaucratic policymaking.
+
 While practitioners and administrative law scholars have long pondered
 what to make of mass commenting, political scientists have had
 surprisingly little to say about this kind of civic participation and the role of public pressure in agency rulemaking. 
+Civic engagement and organized public pressure thus remain poorly understood in the context of bureaucratic policymaking.
 
 The contentious politics that inspire the majority of public comments have no place in leading models of bureaucratic policymaking and have largely been ignored by political scientists.
 Foundational scholarship on rulemaking [@Furlong2005, @Furlong1997, @Furlong1998, @Kerwin2011] focuses on interest group lobbying. Theoretical models focus on how agencies learn about policy problems, negotiate or avoid accountability to various principals, or balance interest-group demands.^[On learning, see @Kerwin2011 and empirical studies by @Yackee2012,
@@ -54,6 +65,7 @@ For any particular lay commenter, this conclusion seems inescapable; individuals
 
 >"[The United States'] institutional terrain advantages political actors with the capacity to work across multiple venues, over extended periods, and in a political environment where coordinated government action is difficult, and strategies of evasion and exit from regulatory constraints are often successful. These capacities are characteristic of organized groups, not individual voters."
 
+<!--PUSZZEL (AGAIN?) -->
 But groups occasionally mobilize a large number of people, usually behind a more sophisticated lobbying effort. Without a systematic understanding of the scale and impact of public participation--*group-mediated* participation--in rulemaking, it is impossible to answer normative questions about how participatory processes like public comment periods may enhance or undermine various democratic ideals.
 <!--These bursts of civic participation may affect
 rulemaking [@Coglianese2001], but **this intuition has yet to be tested.**-->
@@ -108,13 +120,6 @@ contributing to democracy."
 knitr::include_graphics(here::here("Figs", "regulations-header.png"))
 ```
 
-```{r comments-per-year, fig.cap = "Comments per Proposed Rule and Total Comments per Year", out.width = NULL, out.height = "25%", fig.show = "hold"}
-
-knitr::include_graphics(here::here("Figs", "rules-comments-per-year-1.png"))
-
-knitr::include_graphics(here::here("Figs", "comments-mass-vs-unique.pdf"))
-
-```
 
 <!-- now in influence 01:-->
 While "ordinary" members of the public may occasionally provide novel
@@ -190,6 +195,17 @@ Alternatively, if mass commenting is mainly a vehicle for public interest groups
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 <!--  % % PREVIEW 
 
 The next section builds a causal theory. I theorize that activists' opportunities and strategies and latent public opinion drive engagement.
@@ -236,7 +252,7 @@ policy.
 
 
 <!-- in 01-influence: -->
-#### Public pressure is a political resource.
+#### Public pressure is a political resource
 
 An organization's ability to expand the scope of conflict by mobilizing
 a large number of people can be a valuable political resource [@Schattschneider1975]. In contrast to scholars who focus on the deliberative
@@ -295,7 +311,7 @@ comment---may often be one of the few heuristics decisionmakers have
 about public preferences.
 
 Mobilizing citizens and generating new political information are key functions of interest groups in a democracy
-[@Mansbridge1992; @Mahoney2007]. Campaigns inform agencies about the
+[@Mansbridge1992; @Mahoney2007]. Petitioning, in particular, is a mechanims of raising "new claims" [@CarpenterPetitions]. Campaigns inform agencies about the
 distribution and intensity of opinions that are often too nuanced to
 estimate a priori. Many questions that arise in rulemaking lack
 analogous public opinion polling questions, making mass commenting a
@@ -334,7 +350,7 @@ The influence of political information on policy (the arrow between "Political I
 
 
 
-#### Second-order Representation.
+#### Second-order Representation
 
 When lobbying during rulemaking, groups often
 make dubious claims to represent broad segments of the public
@@ -361,7 +377,7 @@ can demonstrate some verifiable public support.^[Public support can be faked or 
 
 
 
-### A typology of pressure campaigns
+### A typology of pressure campaign motivations
 
 The effects of public pressure campaigns depend, in part, on the aims of a
 campaign. I distinguish campaigns by which of four distinct aims

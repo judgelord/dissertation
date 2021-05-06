@@ -1,6 +1,8 @@
 ## Results: Patterns of Public Engagement in Rulemaking {#why-results}
 
 
+
+
 ### Most comments result from mass-comment campaigns.
 
 Figure
@@ -9,12 +11,22 @@ regulations.gov over time by whether they are exact or partial copies of
 another comment or not. I call comments that have between 2 and 99
 identical copies, "medium batch" because such comments may reflect
 coordinated efforts among interest groups that do not include a public
-pressure strategy that involves mobilizing ordinary people. Even relatively unsuccessful public pressure campaigns yield far more than 99 comments. Comments that have either 100 or more identical copies or were uploaded in bulk batches of at least 100 are then "mass comments" that were certainly mobilized by a public pressure campaign. Figure \@ref(fig:comments-support) shows that public pressure campaigns mobilize the vast majority of comments. Over 80% of the 48 million comments on proposed rules posted to regulations.gov were mobilized by just 100 organizations. In other words, most comments are from ordinary people mobilized by a few public interest organizations.
+pressure strategy that involves mobilizing ordinary people. Even relatively unsuccessful public pressure campaigns yield far more than 99 comments. Comments that have either 100 or more identical copies or were uploaded in bulk batches of at least 100 are then "mass comments" that were certainly mobilized by a public pressure campaign. Figure \@ref(fig:comments-support) shows that public pressure campaigns mobilize the vast majority of comments. 
 
 ```{r comments-support, out.width = "49%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
 
 knitr::include_graphics(here::here("Figs", "comments-mass-1.png"))
 knitr::include_graphics(here::here("Figs", "comments-mass-support-vs-oppose-1.png"))
+```
+
+Over 80% of the 48 million comments on proposed rules posted to regulations.gov were mobilized by just 100 organizations. The top 100 mobilizing organizations
+mobilized between 55 thousand and 4.2 million comments each. Figure
+\@ref(fig:toporgs) shows the top organizers of comments posted to
+regulations.gov.  In other words, most comments are from ordinary people mobilized by a few public interest organizations. 
+
+```{r toporgs, fig.cap = "Top mobilizers of comments posted to regulations.gov", fig.width = 7}
+
+knitr::include_graphics(here::here("Figs", "toporgs.png"))
 ```
 
 

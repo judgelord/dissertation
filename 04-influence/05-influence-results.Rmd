@@ -1,23 +1,30 @@
 \pagebreak
 ## Results (hand-coded data) {#influence-results}
 
+
+
+
+### Hand-coded Data
+
 > IN PROGRESS
 
 > Currently, these data only include rules where there was a mass-comment campaign, which likely explains why business coalitions are less successful than public interest coalitions. I anticipate the sign on that coefficient to be positive in the sample of rules that did not see a mass comment campaign. The contentious nature of this sample also means that there is no variation in the `coalition_unopposed` variable (no coalitions in the sample with mass comment campaigns lobbied unopposed).
 
 
-### Hand-coded Data
-
-
 **Dependent variable:** *Coalition success* is the mean of hand-coded lobbying success on a five-point scale ({-2, -1, 0, 1, 2}, recoded to {-1, -.5, 0, .5, 1} for more straightforward model interpretation). 
 
-**Explanatory variables:** *Coalition size* (a count) is the number of organizations lobbying on the rule. *Business colation* is binomial. *Comments* is the total number of comments (including mass comments) mobilized by members of the coalition, which I transform to a log scale for modeling. 
+**Explanatory variables:** *Coalition size* (a count) is the number of organizations lobbying together on the rule. *Business colation* is binomial. *Comments* is the total number of comments (including mass comments) mobilized by members of the coalition, which I transform to a log scale for modeling. 
+
+```{r, cache = FALSE}
+load(here::here("data", "comments_coded.Rdata"))
+load(here::here("data", "coalitions_coded.Rdata"))
+```
+
+These hand-coded data include `r nrow(comments_coded)` unique comments, some of which have identical coppies for a total of `r sum(comments_coded$number_of_comments_received %>% as.numeric(),na.rm = T )` comments. These comments represent `r nrow(coalitions_coded)` distinct lobbying coalitions ranging in size from 2 to `r max(coalitions_coded$coalition_size)` organizations. Figure \@ref(fig:hist-coalitions) shows that coalitions are fairly ballenced between once that succeed and fail to get the changes they seek in the final rule. `r percent( sum(coalitions_coded$coalition_business, na.rm = T)/nrow(coalitions_coded) )` are business-led coalitions. 
 
 Table \@ref(tab:data-coded) shows a sample of coded data, summarized at the coalition level.
 
 ```{r data-coded, cache = FALSE}
-load(here::here("data", "coalitions_coded.Rdata"))
-
 d <- coalitions_coded %>% 
   drop_na(coalition_business) %>%
   filter(coalition_comment != "FALSE") %>% 
@@ -25,7 +32,7 @@ d <- coalitions_coded %>%
   dplyr::select(-coalitions)
 
 d %>% group_by(docket_id) %>% 
-  sample_n(2, weight = comments) %>%
+  slice_max(comments, n = 2) %>%
   dplyr::select(docket_id, coalition_id, everything()) %>% 
   distinct() %>% 
   kable3(caption = "A Sample of Hand-Coded Summarized by Coaltion") 
