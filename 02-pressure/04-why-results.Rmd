@@ -11,7 +11,7 @@ regulations.gov over time by whether they are exact or partial copies of
 another comment or not. I call comments that have between 2 and 99
 identical copies, "medium batch" because such comments may reflect
 coordinated efforts among interest groups that do not include a public
-pressure strategy that involves mobilizing ordinary people. Even relatively unsuccessful public pressure campaigns yield far more than 99 comments. Comments that have either 100 or more identical copies or were uploaded in bulk batches of at least 100 are then "mass comments" that were certainly mobilized by a public pressure campaign. Figure \@ref(fig:comments-support) shows that public pressure campaigns mobilize the vast majority of comments. 
+pressure strategy that involves mobilizing ordinary people. Even relatively unsuccessful public pressure campaigns yield far more than 99 comments. Comments with either 100 or more identical copies or were uploaded in bulk batches of at least 100 are then "mass comments" that were certainly mobilized by a public pressure campaign. Figure \@ref(fig:comments-support) shows that public pressure campaigns mobilize the vast majority of comments. 
 
 ```{r comments-support, out.width = "49%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
 
@@ -19,7 +19,7 @@ knitr::include_graphics(here::here("Figs", "comments-mass-1.png"))
 knitr::include_graphics(here::here("Figs", "comments-mass-support-vs-oppose-1.png"))
 ```
 
-Over 80% of the 48 million comments on proposed rules posted to regulations.gov were mobilized by just 100 organizations. The top 100 mobilizing organizations
+Just 100 organizations mobilized over 80% of the 48 million comments on proposed rules posted to regulations.gov. The top 100 mobilizing organizations
 mobilized between 55 thousand and 4.2 million comments each. Figure
 \@ref(fig:toporgs) shows the top organizers of comments posted to
 regulations.gov.  In other words, most comments are from ordinary people mobilized by a few public interest organizations. 
@@ -61,19 +61,21 @@ knitr::include_graphics(here::here("Figs", "topdockets.png"))
 
 In short, I find much more evidence of grassroots participation than astroturf participation.
 
+> TODO show this more clearly
+
 
 #### A coalition of public-interest organizations mobilize most comments.
 
 As Figure \@ref(fig:topdockets) shows, the most prolific mobilizers are
 environmental groups. On five out of the top ten dockets (here including
 rulemaking and non-rulemaking dockets), a similar coalition of groups
-mobilized the majority of public comments. In part, this is because the
+mobilized most public comments. In part, this is because the
 Environmental Protection Agency produces a large share of the
 substantive rules posted to regulations.gov. However, it is notable
-that, on the top ten dockets, 19 of the top 20 mobilizers generally
-lobby together. America's Energy Cooperatives (AEC), an industry association,
-stands out as the lone mobilizer on behalf of material interest for its
-members. Notably, it only mobilized significantly on the Clean Power
+that 19 of the top 20 mobilizers generally
+lobby together on the top ten dockets. America's Energy Cooperatives (AEC), an industry association,
+stands out as the lone mobilizer on behalf of its
+members' material interest. Notably, it only mobilized significantly on the Clean Power
 Plan but not on the subsequent Clean Power Plan repeal. If public
 interest group mobilizing on the Clean Power Plan was an example of
 "going public" to pressure the Obama administration and then "going

@@ -1,24 +1,36 @@
 ## Theory {#why-theory}
 
 
-### Civic participation 
+### The Forms and Drivers of Civic Participation 
 
-### Interest groups 
+> TODO @Verba1987
 
-### Bureacratic policymaking
+### The Role of Interest Groups 
 
-<!--PUZZEL-->
-Bureucratic policymaking is the ideal context for powerful organized interests to dominate. Organizations with superior resources use them to flood policymakers with technical information [@Wagner2010].
+> Truman, Dahl
 
-And yet, activists frequently target agency policymaking with letter-writing campaigns, petitions, protests,
-and mobilizing people to attend hearings, all classic examples of "civic engagement" [@Verba1987].^[As I show below, most comments submitted to regulations.gov are part of organized campaigns, more akin to petition signatures than "deliberative" participation or sophisticated lobbying. Indeed, approximately 40 million out of 50 million (80%) of these public comments mobilized by just 100 advocacy organizations.]
+#### Membership Organizations 
 
-While practitioners and administrative law scholars have long pondered
-what to make of mass commenting, political scientists have had
-surprisingly little to say about this kind of civic participation and the role of public pressure in agency rulemaking. 
-Civic engagement and organized public pressure thus remain poorly understood in the context of bureaucratic policymaking.
+> TODO @March1984a
 
-The contentious politics that inspire the majority of public comments have no place in leading models of bureaucratic policymaking and have largely been ignored by political scientists.
+#### Advocacy Organizations
+
+> TODO pressure groups, policy advocacy groups, citizen groups [@Berry1999], policy change organizations [McNutt2005], petitions [@CarpenterPetitions]
+
+Organizations may use phone banks, targeting strategies,
+    and direct-mail techniques to drum up and channel public support
+    (Cooper 1985)
+
+@Potter2017 finds that advocacy group-driven campaigns mobilize
+far more people on average than industry-driven campaigns. 
+
+### Group Conflict in Democratic Theory 
+
+> TODO @Dahl1985, @Schnattsneider1975, @Kollman1998
+
+### Bureaucratic policymaking
+
+The contentious politics that inspire most public engagement in policymaking have no place in leading models of bureaucratic policymaking and have largely been ignored by political scientists.
 Foundational scholarship on rulemaking [@Furlong2005, @Furlong1997, @Furlong1998, @Kerwin2011] focuses on interest group lobbying. Theoretical models focus on how agencies learn about policy problems, negotiate or avoid accountability to various principals, or balance interest-group demands.^[On learning, see @Kerwin2011 and empirical studies by @Yackee2012,
     @Cook2017, @Gordon2018, and @Walters2019. See @Gailmard2017 and
     @Libgober2018 for information-based models where comments reveal information to the agency.
@@ -34,9 +46,8 @@ Foundational scholarship on rulemaking [@Furlong2005, @Furlong1997, @Furlong1998
 <!--Most scholars are skeptical that public pressure can affect rulemaking.-->
 
 To the extent that scholars address the input of ordinary people at all, both
-existing theory and empirical scholarship suggest skepticism that it
-matters. (By "ordinary" people, I simply mean people who are not
-professional policy-influencers.)
+existing theory and empirical scholarship suggest skepticism that non-sophisticated actors matter. (By "ordinary" people, I simply mean people who are not
+professional policy influencers.)
 Empirical scholarship finds that economic elites and business groups
 dominate American politics in general [@Jacobs2005,@Soss2007, Hertel-Fernandez2019, @Hacker2003, @Gilens2014] and rulemaking in
 particular. While some are optimistic that requirements for agencies to
@@ -172,7 +183,7 @@ Surely, those who engage are far from representative of the broader public [@Ver
 
 If the usual participants have "an upper-class accent" [@Schattschneider1942], does adding thousands of more voices dilute this bias? I argue that the answer depends on how people are mobilized. If public pressure is mobilized by the usual participants to create an impression of public support, it may merely legitimize the demands of powerful interest groups. 
 
-### Why Mobilize? {#why-mobilize}
+### Incorporating political information into models of lobbying in rulemaking {#why-mobilize}
 
 <!--% MAIN QUESTION 
 ### Incorporating mass engagement into theories of bureaucratic policymaking.--> 
@@ -181,16 +192,12 @@ If the usual participants have "an upper-class accent" [@Schattschneider1942], d
 
 How, if at all, should scholars incorporate mass engagement into models of bureaucratic policymaking? 
 
-I argue that mass engagement produces potentially valuable political information about the coalition that mobilized it. Political information may play two distinct roles with opposite effects depending on who mobilized it. 
+I argue that mass engagement produces potentially valuable political information about the coalition that mobilized it. Political information may play two distinct roles with opposite effects depending on who mobilized it. The normative and empirical import of public pressure campaigns thus turns on who is behind them. 
 
-To the extent that well-resourced groups use public pressure campaigns to create a misleading impression of public support (often called "astroturf"), their role is to strengthen and legitimize demands of the same powerful interests that dominate bureaucratic policymaking [@Yackee2006JOP]. Here, just as groups with superior resources use them to flood policymakers with technical information [@Wagner2010], astroturf campaigns convert economic resources into political information in the form of an impression of public support generated by signatures or form letters. Even groups with few members or a narrow or non-existent base of support among the public may create the appearance of public support by sponsoring pressure campaigns.
+To the extent that well-resourced groups use public pressure campaigns to create a misleading impression of public support (often called "astroturf"), their role is to strengthen and legitimize demands of the same powerful interests that dominate bureaucratic policymaking [@Yackee2006JOP]. Here, just as groups with superior resources use them to flood policymakers with technical information [@Wagner2010], astroturf campaigns convert economic resources into political information in the form of an impression of public support generated by signatures or form letters. Even groups with few members or a narrow or non-existent base of support among the public may create the appearance of public support by sponsoring pressure campaigns. If the powerful business groups that dominate other forms of lobbying also dominate public pressure campaigns, these campaigns (and perhaps public comment periods themselves) are normatively suspect, merely providing a democratic veneer to economic power. Empirically, we would thus expect public pressure campaigns to further advantage well-resourced interests. 
 
 Alternatively, to the extent that public interest groups use public pressure campaigns are used as conflict expansion tactics by less-resourced groups, their role is the opposite: to push back against powerful interests that dominate bureaucratic policymaking. The political information created by conflict expansion can reveal existing and potential support among attentive segments of the public. Through public pressure campaigns, groups that lack financial resources can convert latent public support into concrete political information that may cause policymakers to update their beliefs and change their behavior.  
-
-
-The normative and empirical import of public campaigns thus turns on who is behind them. If it is the powerful business groups that dominate other forms of lobbying, public pressure campaigns (and perhaps public comment periods themselves) are normatively suspect, merely providing a democratic veneer to economic power. Empirically, we would thus expect public pressure campaigns to further advantage well-resourced interests. 
-
-Alternatively, if mass commenting is mainly a vehicle for public interest groups to convert a latent base of public support into influential political information supporting their representational claims, public comment periods may yet serve some of informing, balancing, and democratic functions that practitioners and normative theorists hoped they would. Empirically, we would then expect public pressure campaigns to disadvantage well-resourced interests that dominate most policy processes. 
+If mass commenting is mainly a vehicle for public interest groups to convert a latent base of public support into influential political information supporting their representational claims, public comment periods may yet serve some of informing, balancing, and democratic functions that practitioners and normative theorists hoped they would. Empirically, we would then expect public pressure campaigns to disadvantage well-resourced interests that dominate most policy processes. 
 
 
 
@@ -246,9 +253,6 @@ for three reasons with observable implications for observed patterns of
 mass engagement and theoretical implications for predicted effects on
 policy.
 
-### Incorporating political information into models of lobbying in rulemaking
-
-> TODO
 
 
 <!-- in 01-influence: -->
@@ -271,15 +275,7 @@ lobbying by different business coalitions. While they focus on
 mobilizing experts, I argue that @Nelson2012 describe a dynamic that can be extended
 to public pressure campaigns:
 
-> "strategic recruitment, we theorize, mobilizes new actors to
-> participate in the policymaking process, bringing with them novel
-> technical and political information. In other words, when an expanded
-> strategy is employed, leaders activate individuals and organizations
-> to participate in the policymaking process who, without the
-> coordinating efforts of the leaders, would otherwise not lobby. This
-> activation is important because it implies that coalition lobbying can
-> generate new information and new actors---beyond simply the 'usual
-> suspects'---relevant to policy decisionmakers."
+> "strategic recruitment, we theorize, mobilizes new actors to participate in the policymaking process, bringing with them novel technical and political information. In other words, when an expanded strategy is employed, leaders activate individuals and organizations to participate in the policymaking process who, without the coordinating efforts of the leaders, would otherwise not lobby. This activation is important because it implies that coalition lobbying can generate new information and new actors---beyond simply the 'usual suspects'---relevant to policy decisionmakers."
 
 Concerning political information, this logic extends to
 non-experts. The number and distribution of ordinary supporters may
@@ -311,7 +307,7 @@ comment---may often be one of the few heuristics decisionmakers have
 about public preferences.
 
 Mobilizing citizens and generating new political information are key functions of interest groups in a democracy
-[@Mansbridge1992; @Mahoney2007]. Petitioning, in particular, is a mechanims of raising "new claims" [@CarpenterPetitions]. Campaigns inform agencies about the
+[@Mansbridge1992; @Mahoney2007]. Petitioning, in particular, is a mechanism of raising "new claims" [@CarpenterPetitions]. Campaigns inform agencies about the
 distribution and intensity of opinions that are often too nuanced to
 estimate a priori. Many questions that arise in rulemaking lack
 analogous public opinion polling questions, making mass commenting a
@@ -335,7 +331,7 @@ knitr::include_graphics(here::here("Figs", "causal-whymail.png"))
 
 Figure \@ref(fig:causal-whymail) amends the "Classic Model" of interest
 group lobbying (Figure \@ref(fig:causal-classic)) to incorporate political information about the attentive public. In addition to providing technical information through sophisticated comments, an organization may mobilize supporters.
-The more latent public support a group has, the more successful this mobilization effort will be.
+The more latent public support a group has, the more successful this mobilization effort will be. Because lobbying organizations likely have some idea of the level of public support for their positions, the observable implication of this is that groups will choose to mobilize either when they have a good deal of public support (where public support is a resource) or the resources to compensate for a tepid response to their campaign (in the case of astroturf campaigns). 
 Large-scale engagement may produce several types of relevant political
 information. The most direct and obvious is the expressed "public
 opinion" that policymakers observe.^[I address other types of political information that mass engagement may create elsewhere. For an expanded model, see Figure
@@ -345,7 +341,6 @@ opinion" that policymakers observe.^[I address other types of political informat
 The causal process visualized in Figure
 \@ref(fig:causal-whymail) may only operate under certain conditions. The success of a mobilizing effort depends on whether a group's perception of latent public demands (the diagonal arrow between "Latent Public Demands" and "Lobbying Strategy") reflects the public response to a mobilizing effort (the horizontal arrow between "Latent Public Demands" and "Mass Engagement"). 
 
-The influence of political information on policy (the arrow between "Political Information" and "Policy Response") depends on the institutional processes by which agencies receive and interpret information. We may only expect to observe mass mobilization influencing a particular policy only if the mobilization effort was aimed at influencing that policy, rather than using the public comment the period to build organizational membership or power more generally (see @Carpenter2014b).
 <!-- / in 01-influence -->
 
 
@@ -377,7 +372,7 @@ can demonstrate some verifiable public support.^[Public support can be faked or 
 
 
 
-### A typology of pressure campaign motivations
+### Types of Pressure Campaign Motivations
 
 The effects of public pressure campaigns depend, in part, on the aims of a
 campaign. I distinguish campaigns by which of four distinct aims
@@ -591,7 +586,7 @@ initially targeted may be especially powerful [@Kollman1998].
 
 Information about organizational resolve, the intensity of public demands, and contagiousness are thus produced, but such political
 information will only influence decisions if these signals are processed
-in a way that captures this information and relays it to decision-makers.
+in a way that captures this information and relays it to decisionmakers.
 These organizational processes may vary significantly across agencies.
 
 

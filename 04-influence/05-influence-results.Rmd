@@ -1,8 +1,14 @@
 \pagebreak
-## Results (hand-coded data) {#influence-results}
 
+## Results {#influence-results}
 
+### Machine-coded Data
 
+> IN PROGRESS
+
+**Dependent variable:** *The percent change in policy text*...
+
+**Explanatory variables:** The *total number of comments*...
 
 ### Hand-coded Data
 
@@ -20,7 +26,7 @@ load(here::here("data", "comments_coded.Rdata"))
 load(here::here("data", "coalitions_coded.Rdata"))
 ```
 
-These hand-coded data include `r nrow(comments_coded)` unique comments, some of which have identical coppies for a total of `r sum(comments_coded$number_of_comments_received %>% as.numeric(),na.rm = T )` comments. These comments represent `r nrow(coalitions_coded)` distinct lobbying coalitions ranging in size from 2 to `r max(coalitions_coded$coalition_size)` organizations. Figure \@ref(fig:hist-coalitions) shows that coalitions are fairly ballenced between once that succeed and fail to get the changes they seek in the final rule. `r percent( sum(coalitions_coded$coalition_business, na.rm = T)/nrow(coalitions_coded) )` are business-led coalitions. 
+These hand-coded data include `r nrow(comments_coded)` unique comments, some of which have identical coppies for a total of `r sum(comments_coded$number_of_comments_received %>% as.numeric(),na.rm = T )` comments. These comments represent `r nrow(coalitions_coded)` distinct lobbying coalitions ranging in size from 2 to `r max(coalitions_coded$coalition_size)` organizations. Figure \@ref(fig:hist-coalitions) shows that coalitions are fairly ballenced between thouse that succeed and fail to get the changes they seek in the final rule. `r percent( sum(coalitions_coded$coalition_business, na.rm = T)/nrow(coalitions_coded) )` are business-led coalitions. 
 
 Table \@ref(tab:data-coded) shows a sample of coded data, summarized at the coalition level.
 
@@ -153,17 +159,19 @@ modelsummary::modelsummary( models,
 
 
 
-The average effect of the logged number of comments, conditional on letters from members of congress (the ACME) is `r round(med.cont$d.avg, 2)`, with a p value of `r round(med.cont$d0.p, 2)`.
+The average effect of the logged number of comments, conditional on letters from members of congress (the ACME) is ` round(med.cont$d.avg, 2)`, with a p value of ` round(med.cont$d0.p, 2)`.
 
-The average direct effect (ADE) of the logged number of comments on lobbying success is `r round(med.cont$z0, 2)`, with a p-value of `r round(med.cont$z0.p, 2)`
+The average direct effect (ADE) of the logged number of comments on lobbying success is ` round(med.cont$z0, 2)`, with a p-value of ` round(med.cont$z0.p, 2)`
 
-The Total Effect of a one-unit increase in the logged number of comments is `r round(med.cont$tau.coef, 2)`, with a p value of `r round(med.cont$tau.p, 2)`. `r round(med.cont$n0, 2)` of this is mediated through mobilizing congressional attention (p-value = `r round(med.cont$n0.p, 2)`).
+The Total Effect of a one-unit increase in the logged number of comments is ` round(med.cont$tau.coef, 2)`, with a p value of ` round(med.cont$tau.p, 2)`. ` round(med.cont$n0, 2)` of this is mediated through mobilizing congressional attention (p-value = ` round(med.cont$n0.p, 2)`).
 
 
 
 ### Preliminary findings
 
 I find that more public pressure correlates with more congressional oversight. This includes comments from legislators both for and against proposed rules. For example, when the Department of the Treasury published draft rules implementing the Unlawful Internet Gambling Act of 2006, the proposal generated unusually high levels of public attention. As a result, two bipartisan groups of legislators submitted comments on the rule. One, led by the chair of the House Judiciary Subcommittee on Commercial and Administrative Law, raised concerns about the Department's implementation of the Administrative Procedures Act. The other group of legislators, led by Senator Mike Pence, pushed back against interest-group opposition to the rule and urged the Department to implement the rules. This case illustrates several broader trends that I observe. Members of Congress are more likely to engage in oversight when interest groups and the public pay more attention to an issue. When legislators do engage in rulemaking, they often engage on both sides of the issue, raising process or policy concerns that may push agencies in multiple directions.
+
+
 
 
 ## Conclusion

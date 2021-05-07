@@ -1,5 +1,6 @@
 
 requires <- c("tidyverse",
+              "scales",
               "magrittr",
               "broom",
               "here",
@@ -9,15 +10,18 @@ to_install <- c(requires %in% rownames(installed.packages()) == FALSE)
 install.packages(c(requires[to_install], "NA"), repos = "https://cloud.r-project.org/" )
 rm(requires, to_install)
 
-library(tidyverse)
-# library(ggplot2); theme_set(theme_bw())
+library(scales)
 library(magrittr)
 library(broom)
 library(here)
 library(msm)
+library(knitr)
 library(kableExtra)
 
+library(tidyverse)
 library(ggplot2); theme_set(theme_minimal())
+
+
 options(
   ggplot2.continuous.color = "viridis",
   ggplot2.continuous.fill = "viridis"
@@ -27,6 +31,9 @@ scale_color_discrete <- function(...)
 scale_fill_discrete <- function(...)
   scale_fill_viridis_d(...)
 
+
+# Table formatting
+library(kableExtra)
 kablebox <- . %>% 
   slice_head(n = 100) %>%
   knitr::kable() %>% 
@@ -42,25 +49,25 @@ kable2 <- function(x, file){
     }
 }
 
-library(kableExtra)
+
 library(flextable)
 
 # A function to trim and format tables for different outputs 
 kable3 <- function(x, caption){
   if(knitr:::is_html_output()) {
     x %>% 
-      head(n = 100) %>%
+      slice_head(n = 100) %>%
       knitr::kable(caption = caption) %>% 
       kable_styling() %>% 
       scroll_box(height = "400px")
   } else{
     if(knitr::is_latex_output() ){
       x %>% 
-        head(n = 20) %>%
+        slice_head(n = 20) %>%
         knitr::kable(caption = caption) %>% 
         kable_styling(latex_options = c("scale_down"))
     } else{x %>% 
-        head(n = 20) %>%
+        slice_head(n = 20) %>%
         flextable() %>% 
         set_caption(caption) %>% 
         autofit() %>% 
@@ -70,6 +77,11 @@ kable3 <- function(x, caption){
     }
   }
 }
+
+# inline formatting 
+knit_hooks$set(inline = function(x) {
+  prettyNum(x, big.mark=",")
+})
 
 ## Sets defaults for R chunks
 knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that your code will show

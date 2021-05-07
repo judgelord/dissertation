@@ -1,6 +1,17 @@
 
 ## Introduction
 
+> TODO The poor fit between interest group influence and public pressure
+
+
+### Interest Group Influence
+
+> TODO  Scholars have avoided studying interest group influence because of the difficulty measuring lobbying success [@Mahoney2007JPP].
+
+### Public Pressure
+
+> TODO This section needs to be more general overview. Details later.
+
 While "ordinary" members of the public may occasionally provide novel
 and useful technical information to expert bureaucrats, such
 sophisticated means of influencing policy are out of reach for the vast
@@ -64,6 +75,9 @@ gap.
 
 knitr::include_graphics(here::here("Figs", "causal-classic.png"))
 ```
+
+
+
 
 #### Public pressure is a political resource.
 
@@ -164,6 +178,14 @@ The causal process visualized in Figure
 \@ref(fig:causal-whymail2) may only operate under certain conditions. The success of a mobilizing effort depends on whether a group's perception of latent public demands (the diagonal arrow between "Latent Public Demands" and "Lobbying Strategy") reflects the public response to a mobilizing effort (the horizontal arrow between "Latent Public Demands" and "Mass Engagement"). 
 
 The influence of political information on policy (the arrow between "Political Information" and "Policy Response") depends on the institutional processes by which agencies receive and interpret information. We may only expect to observe mass mobilization influencing a particular policy only if the mobilization effort was aimed at influencing that policy, rather than using the public comment the period to build organizational membership or power more generally (see @Carpenter2014b).
+
+#### Mass comment campaigns
+
+Understanding civic participation in rulemaking as a mediated process aimed at generating political information posits a different role for mass comment campaigns than that posited by existing (albiet limited) literature on this topic.
+
+> TODO Critique of Balla et al., Review @Cook2017
+
+
 
 
 ### Incorporating political information into formal models of rulemaking {#formal}

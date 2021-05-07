@@ -1,4 +1,4 @@
-# Conclusion
+## Conclusion
 
 <!--% CONCLUSION
 %This research will add to our understanding of how  bureaucratic policymaking fits with the practice of democracy.
