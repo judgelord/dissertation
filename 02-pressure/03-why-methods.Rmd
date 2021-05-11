@@ -2,6 +2,10 @@
 
 ### Data {#why-data}
 
+<!--
+Bring together information on the mass commenting coding in one table with statistics and examples to summarize for the reader.
+-->
+
 To assess the competing hypotheses about whether political insiders or outsiders mobilize public participation in bureaucratic policymaking, I collected a corpus of approximately 80 million comments via the
 regulations.gov API. About 50 million of these comments were on proposed
 rules (over 16,000 proposed rules from 144 agencies from 2005 to 2020). Of these, public pressure campaigns targeted approximately 400 rules from 46 agencies.
@@ -55,13 +59,18 @@ The different forms of participation asserted or assumed in the literature have 
 
 @Verba1987 distinguish "citizen initiated contacts" from "cooperative activity" (pg. 54).
 Administrative law scholarship often discusses individual participants in this light as well.
-@Cuellar2015 finds that members of the "lay public" raise important new concerns beyond those raised by interest groups. He advocates for institutional reforms that would make it easier for individuals to participated and increase the sophistication of individual comments on proposed policies. 
+@Cuellar2005 finds that members of the "lay public" raise important new concerns beyond those raised by interest groups. He advocates for institutional reforms that would make it easier for individuals to participated and increase the sophistication of individual comments on proposed policies. 
 
-The remaining forms of participation are all mediated through an organization's pressure campaign. Comments from people mobilized as part of a campaign differ from those of individuals acting on their own in two ways: they often mention the name of the organization that mobilized them, and the text will often be similar or identical to other comments in the campaign, reflecting coordination. These features eliminate the value that  @Cuellar2015 and others see in individual comments. If comments reference an organization that mobilized them, they likely have more to offer than that the more sophisticated organization has not already provided. If comments are identical, they certainly provide no new information.
+The remaining forms of participation are all mediated through an organization's pressure campaign. Comments from people mobilized as part of a campaign differ from those of individuals acting on their own in two ways: they often mention the name of the organization that mobilized them, and the text will often be similar or identical to other comments in the campaign, reflecting coordination. These features eliminate the value that  @Cuellar2005 and others see in individual comments. If comments reference an organization that mobilized them, they likely have more to offer than that the more sophisticated organization has not already provided. If comments are identical, they certainly provide no new information.
 
 #### Membership Organizations
 
 If most commenters are members of membership organizations as @Kerwin2011 suggest, a large campaign of, say one million people, will require a large collection of membership organizations. Very few organizations have a million members, and those that do are unlikely to mobilize all of them, so mobilizing a large number of people will usually require a large coalition of membership organizations. Commenters should identify themselves as members of these many organizations.
+
+For example, if most comments are mobilzed by membership groups, we would expect most comments to look like this comment from the NorthEast Hook Fisherman's Association:
+> "We represent a small group of Commercial Fishermen with the Limited Access Handgear HA Permits, employing the use rod and reel, handlines or tub trawls to catch Cod, Haddock and Pollock along with small quantities of other regulated and non-regulated marine fish. Historically and currently our fishermen account for a small percentage of the groundfish landed in New England. However, the monetary gains obtained by the participants in this fishery are very important to us. ([NOAA-NMFS-2013-0050-0025](https://www.regulations.gov/comment/NOAA-NMFS-2013-0050-0025))
+
+Similar groups narrowly concerned about shrimp and hilibut catach limits also commented on behalof of their members. 
 
 #### Policy change organizations
 
@@ -79,7 +88,11 @@ Unlike those mobilized through membership organizations, mobilization by policy 
 
 Toward the astroturf end of the spectrum of policy change organizations, well-funded efforts gather signatures from a much less passionate and attentive population. Where grassroots organizing relies on existing underlying interests that merely need to be given an opportunity to engage, people engaged by astroturf campaigns are generally disinterested in the policy and engage merely because of paid ads or petition gathering, often involving some deception in order to get people to take action on an issue that they would not take if the issue was presented more clearly. Likewise, the organizations actually collecting the signatures would have no interest in doing so if they were not being paid. The aim is to give an appearance of support. 
 
-For example, Access Financial and other payday lending companies sponsored two campaigns targeting a regulation proposed by Consumer Financial Protection Bureau in 2016. First, Access Financial had their employees solicit comments from customers, which Access then uploaded to regulations.gov. Many customer letters contained some version of "I have been told that payday loans would not exist in my community if the government's proposed regulations went into effect." The customer comments suggest that they had not been told much about the rule, which limited interest rates and the number of times short term loans could be compounded. Most customers wrote some version of "Do not close this store"--a few even complained about exactly the issues that CFPB's regulation aimed to address. One customer wrote "Although some of the fees are a bit high, it should be my choice whether to get a loan or not" (Access Financial Comment 91130). Another wrote "I need to keep recieving my Check'n'Go loans so I can have the time to start paying them back in the next 1 1/2 to 2 years" (Access Financial Comment 91130) indicating that Check'n'Go (a subsidiary of Access Financial) was engged in serial re-lending that put this customer deeper in debt. To the extent that this campaign relied on deception and not the customer's interests (even as the customers understood them), this would count as astroturf. Second, Access sponsored an effort to gather petition signatures at churches. Finally, Access and other payday loan companies uploaded supportive notes from community organizations to which they had given money. Like the churchgoers, these people had no reason to comment except that they had received money from the potentially regulated companies. 
+One example of an astrotruf campaign is Shell Oil's campaign to open the Arctic Outer Continental Shelf to oil and gas drilling. 
+Shell provided a template letter with a place to insert a company or constituency: 
+> On behalf of [enter company or constituents], I am writing to demonstrate my strong support of oil and gas development in the Arctic Outer Continental Shelf (OCS).
+
+In a more complex example, Access Financial and other payday lending companies sponsored two campaigns targeting a regulation proposed by Consumer Financial Protection Bureau in 2016. First, Access Financial had their employees solicit comments from customers, which Access then uploaded to regulations.gov. Many customer letters contained some version of "I have been told that payday loans would not exist in my community if the government's proposed regulations went into effect." The customer comments suggest that they had not been told much about the rule, which limited interest rates and the number of times short term loans could be compounded. Most customers wrote some version of "Do not close this store"--a few even complained about exactly the issues that CFPB's regulation aimed to address. One customer wrote "Although some of the fees are a bit high, it should be my choice whether to get a loan or not" (Access Financial Comment 91130). Another wrote "I need to keep recieving my Check'n'Go loans so I can have the time to start paying them back in the next 1 1/2 to 2 years" (Access Financial Comment 91130) indicating that Check'n'Go (a subsidiary of Access Financial) was engged in serial re-lending that put this customer deeper in debt. To the extent that this campaign relied on deception and not the customer's interests (even as the customers understood them), this would count as astroturf. Second, Access sponsored an effort to gather petition signatures at churches. Finally, Access and other payday loan companies uploaded supportive notes from community organizations to which they had given money. Like the churchgoers, these people had no reason to comment except that they had received money from the potentially regulated companies. 
 
 Spotting astroturf in the wild is difficult by design. However, the clear observable result is a large number of comments advocating on behalf of large business interests. These are the organizations with the resources and incentives to sponsor astroturf campaigns, and they do [Lyon2005].
 
@@ -154,6 +167,7 @@ Comments [91130](https://www.regulations.gov/document?D=CFPB-2016-0025-91130) th
 
 knitr::include_graphics("Figs/comment_percent_match_plot-1.png")  
 ```
+
 
 
 <!--  Identifying coalitions using clustering methods

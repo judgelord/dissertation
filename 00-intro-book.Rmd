@@ -8,6 +8,9 @@ Both of these problems converge in the bureaucracy. Bureacracies are run by expe
 ```{r child = here::here("intro.md")}
 ```
 
+<!--
+TODO THE BELOW IS REPEATED FROM WHYMAIL--SORT OUT BOOK FROM WHYMAIL MATERIAL! 
+-->
 
 Participatory processes like public comment periods, where government
 agencies must solicit public input on draft policies, are said to
@@ -17,19 +20,9 @@ information [@Yackee2006JPART; @Nelson2012]. While recent scholarship on
 agency policymaking has shed light on the sophisticated lobbying by
 businesses and political insiders, we know surprisingly little about the
 vast majority of public comments which are submitted by ordinary people
-as part of public pressure campaigns.^[As I show elsewhere [@Judge-Lord2019], most comments submitted to
-    regulations.gov are form comments, more akin to petition signatures
-    than sophisticated lobbying. Indeed, approximately 40 million out of
-    50 million (80%) of these public comments mobilized by just 100
-    advocacy organizations.] Activists frequently target
-agency policymaking with letter-writing campaigns, petitions, protests,
-and mobilizing people to attend hearings, all classic examples of "civic
-engagement" [@Verba1987]. Yet civic engagement remains poorly understood
-in the context of bureaucratic policymaking.
+as part of public pressure campaigns.
 
-These occasional bursts of civic engagement in bureaucratic policymaking
-raise practical and theoretical questions for the practice of
-democracy.^[In 2018, the Administrative Conference of the United States (ACUS)
+In 2018, the Administrative Conference of the United States (ACUS)
     identified mass commenting as a top issue in administrative law. In
     their report to ACUS, @SantAmbrogio2018 conclude, "The 'mass
     comments' occasionally submitted in great volume in highly salient
@@ -43,7 +36,24 @@ democracy.^[In 2018, the Administrative Conference of the United States (ACUS)
     [@Judge-Lord2019; @Potter2017; @Balla2018]. @Cuellar2005, who
     examines public input on three rules, finds that ordinary people
     made up the majority of commenters demonstrating "demand among the
-    mass public for a seat at the table in the regulatory process."] These questions, in turn, hinge on unanswered empirical
+    mass public for a seat at the table in the regulatory process." 
+
+    
+Activists frequently target
+agency policymaking with letter-writing campaigns, petitions, protests,
+and mobilizing people to attend hearings, all classic examples of "civic
+engagement" [@Verba1987]. As I show in \@ref{why-results}, most comments submitted to
+    regulations.gov are form comments, more akin to petition signatures
+    than sophisticated lobbying. Indeed, approximately 40 million out of
+    50 million (80%) of these public comments mobilized by just 100
+    advocacy organizations.
+    Yet civic engagement remains poorly understood
+in the context of bureaucratic policymaking.
+
+These occasional bursts of civic engagement in bureaucratic policymaking
+raise practical and theoretical questions for the practice of
+democracy. 
+These questions, in turn, hinge on unanswered empirical
 questions: Do these campaigns affect policy? If so, by what mechanisms?
 Existing research finds that commenters believe their comments matter
 [@Yackee2015JPART] and that the number of public comments varies across

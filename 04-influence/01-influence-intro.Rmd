@@ -174,6 +174,19 @@ opinion" that policymakers observe.^[I address other types of political informat
     \@ref(fig:causal-full2). 
 ]
 
+
+> TODO: more theorizing and literature development on the direct lobbying link.
+
+<!--
+Needs more theorizing and literature development on the direct lobbying link.  This must be informed by a greater breadth of literature (and must go beyond Libgober).  I found the quasi-formalization unhelpful and would have preferred that you spend more time developing why mass commenting campaigns may matter AND tying this to the leader organizations and group mediated participation.  We need theory here, which builds on literature.
+i.	In doing so, perhaps explain more the idea of political information and why it creates a direct lobbying link for mass commenters
+ii.	Need to discuss Jewell and Bero (JPART) somewhere.
+
+•	Is it REALLY mass commenters who hold the influence here when you are not measuring the content of their comments but instead the commenter provided by the leader (which might be much longer, technical, and more sophisticated than the mass comments)? 
+i.	Spend more time justifying why, on page 58, we should use the much longer substantive comments to represent the mass mobilization effort? 
+•	How do regulators view these mass comments?  Are they only concerned with the longer, leader comment (and the mass comments say how much they should really “care” about the leader’s comments)?  Then, is this really democratizing?
+-->
+
 The causal process visualized in Figure
 \@ref(fig:causal-whymail2) may only operate under certain conditions. The success of a mobilizing effort depends on whether a group's perception of latent public demands (the diagonal arrow between "Latent Public Demands" and "Lobbying Strategy") reflects the public response to a mobilizing effort (the horizontal arrow between "Latent Public Demands" and "Mass Engagement"). 
 
@@ -186,6 +199,14 @@ Understanding civic participation in rulemaking as a mediated process aimed at g
 > TODO Critique of Balla et al., Review @Cook2017
 
 
+
+Agencies respond to mass comment campaigns in different ways
+
+When 
+
+When public , agencies reject the notion that mass comment should inform their decisions.
+
+>"A rough estimate of pro and con submissions by individuals may provide insight as to public interest in a topic and to individual consumer experiences. However, under both the Administrative Procedure Act (APA) and the Dodd-Frank Act, the Bureau must base its determinations in rulemaking on the facts and the law in the rulemaking record as a whole." ([CFPB-2020-14935](https://www.federalregister.gov/d/2020-14935/p-134)
 
 
 ### Incorporating political information into formal models of rulemaking {#formal}

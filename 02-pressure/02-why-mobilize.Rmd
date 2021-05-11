@@ -1,32 +1,62 @@
+<!--
+Who are these well-resourced groups?  
+Do they lobby in other venues (like congressional policymaking)?  
+Why should we consider these very select groups and their actions democratizing?  Perhaps they – themselves – are quite elitist?  Take this question head-on.  Maybe digging into the literature on membership groups would help here.  
+Are super mobilizers different from others?
+-->
+
 ## Theory {#why-theory}
 
 
 ### The Forms and Drivers of Civic Participation 
 
-> TODO @Verba1987
+> TODO: Review @Verba1987
 
 ### The Role of Interest Groups 
 
-> Truman, Dahl
+> TODO: Review Truman, Dahl
+
+#### Businesses 
+
+> TODO: The dominance of business lobbying in congress and executive branch. 
+@Golden1998 @Yackee2006JOP
 
 #### Membership Organizations 
 
-> TODO @March1984a
+> TODO: @March1984a, industry associations, unions, etc
+
+> "The American Federation of State, County and Municipal Employees ("AFSCME") represents 1.6 million state and local government, health care and child care workers and we write to express our strong support of the proposed rule" ([IRS-2016-0015-0133](https://www.regulations.gov/comment/IRS-2016-0015-0133))
+
+Some membership organzations are federations 
+
+
+> "The Coalition on Human Needs, which represents more than 100 national member organizations and maintains a network of tens of thousands of individuals and groups nationwide, strongly supports the proposed rule" ([IRS-2016-0015-0131](https://www.regulations.gov/comment/IRS-2016-0015-0131))
+
+Organizations often claim to represent more than their membership
+
+> "As a leading representative of the nation's 28 million small business owners, Small Business Majority is writing to comment on the U.S. Department of the Treasury's proposed rule on Inversions and Related Transactions." ([IRS-2016-0015-0127](https://www.regulations.gov/comment/IRS-2016-0015-0127))
+
+
+
 
 #### Advocacy Organizations
+
 
 > TODO pressure groups, policy advocacy groups, citizen groups [@Berry1999], policy change organizations [McNutt2005], petitions [@CarpenterPetitions]
 
 Organizations may use phone banks, targeting strategies,
     and direct-mail techniques to drum up and channel public support
     (Cooper 1985)
+    
+Advocacy organizations often claim to represent a large number of "members and supporters" https://www.regulations.gov/comment/FWS-HQ-ES-2018-0007-47165
+The potential for "cheap talk" in claims of representation present a problem for 
 
 @Potter2017 finds that advocacy group-driven campaigns mobilize
 far more people on average than industry-driven campaigns. 
 
 ### Group Conflict in Democratic Theory 
 
-> TODO @Dahl1985, @Schnattsneider1975, @Kollman1998
+> TODO @Dahl1985, @Schattschneider1975, @Kollman1998
 
 ### Bureaucratic policymaking
 
@@ -177,7 +207,7 @@ broader public participation in typically insider-dominated policymaking and how
 public pressure may condition how political decisions are made.
 
 Public pressure campaigns expand civic participation in policymaking.^[If we define "civic participation" as "acts aimed at influencing governmental decisions [@Verba1987 p. 2], signing a petition or form comment counts. However, some consider true
-participation to be deliberative, which mass comment campaigns are not.
+participation to be deliberative, which mass comment campaigns are not.<!--@Goodin2006-->
 Other criteria posed by normative theorists that participation should be "genuine," "informed," or "reasoned" are more difficult to assess. Normative theorists may debate whether deliberation among a small number of people is preferable to a large number of people simply expressing their preferences, but empirically, public participation in bureaucratic policymaking is much more the latter [@Shapiro2008b].]
 Surely, those who engage are far from representative of the broader public [@Verba1987], but in many ways, they must be more representative than the handful of political insiders who participate in most policy processes. 
 
@@ -191,6 +221,8 @@ If the usual participants have "an upper-class accent" [@Schattschneider1942], d
 
 
 How, if at all, should scholars incorporate mass engagement into models of bureaucratic policymaking? 
+
+
 
 I argue that mass engagement produces potentially valuable political information about the coalition that mobilized it. Political information may play two distinct roles with opposite effects depending on who mobilized it. The normative and empirical import of public pressure campaigns thus turns on who is behind them. 
 

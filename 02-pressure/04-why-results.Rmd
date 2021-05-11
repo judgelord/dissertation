@@ -1,28 +1,60 @@
 ## Results: Patterns of Public Engagement in Rulemaking {#why-results}
 
+### How common are public pressure campaigns?
 
+```{r}
+load(here::here("data","rules_metadata.Rdata"))
 
+min(rules$posted_date, na.rm = T)
+max(rules$posted_date, na.rm = T)
+
+rules %<>% group_by(docket_id) %>%
+  mutate(year = str_sub(posted_date, 1, 4) %>% as.numeric(),
+         comments = sum(number_of_comments_received),
+         open = !is.na(comment_start_date)|!is.na(comment_due_date)|number_of_comments_received > 0,
+         open = sum(open, na.rm = T) > 0
+)
+
+rules %<>% filter(year >2004, year <2021, docket_type == "Rulemaking")
+
+mass <- filter(rules, comments > 100)
+```
+
+From `r min(rules$year, na.rm = T)` to  `r max(rules$year, na.rm = T)`, agencies posted `r nrow(distinct(rules, docket_id))` rulemaking dockets to regulations.gov. and solicited public comments on `r nrow(distinct(rules %>% filter(open), docket_id))`,  receivign `r sum(rules$number_of_comments_received)`. Only `r nrow(distinct(mass, docket_id))` rulemaking dockets received more than 100 comments, but these account for `r percent(sum(mass$number_of_comments_received)/sum(rules$number_of_comments_received), accuracy = .01)`, or `r sum(mass$number_of_comments_received)`, of the comments.
+
+Figure
+\@ref(fig:comments-density) shows a sample of rules matched to Office of Information and Regulatory Affairs coding for major and non-major rules 
+```{r comments-density, out.width = "49%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
+
+knitr::include_graphics(here::here("Figs", "major-comments-density-1.png"))
+```
+
+Figure
+\@ref(fig:comment-density) shows the sources of incoming comments 
+```{r, comments-from, out.width = "49%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
+knitr::include_graphics(here::here("Figs", "comments-from.pdf"))
+```
 
 ### Most comments result from mass-comment campaigns.
 
 Figure
-\@ref(fig:comments-support) shows all comments posted on
+\@ref(fig:comments-mass) shows all comments posted on
 regulations.gov over time by whether they are exact or partial copies of
-another comment or not. I call comments that have between 2 and 99
+another comment on the same rule or not. I call comments that have between 2 and 99
 identical copies, "medium batch" because such comments may reflect
 coordinated efforts among interest groups that do not include a public
-pressure strategy that involves mobilizing ordinary people. Even relatively unsuccessful public pressure campaigns yield far more than 99 comments. Comments with either 100 or more identical copies or were uploaded in bulk batches of at least 100 are then "mass comments" that were certainly mobilized by a public pressure campaign. Figure \@ref(fig:comments-support) shows that public pressure campaigns mobilize the vast majority of comments. 
+pressure strategy that involves mobilizing ordinary people. Even relatively unsuccessful public pressure campaigns yield far more than 99 comments. "Mass comments" are comments with 100 or more identical copies or comments that were uploaded in bulk batches of at least 100. These were almost certainly mobilized by a public pressure campaign. Figure \@ref(fig:comments-mass) shows that public pressure campaigns mobilize the vast majority of comments. 
 
-```{r comments-support, out.width = "49%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
+```{r comments-mass, out.width = "49%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
 
 knitr::include_graphics(here::here("Figs", "comments-mass-1.png"))
-knitr::include_graphics(here::here("Figs", "comments-mass-support-vs-oppose-1.png"))
 ```
 
-Just 100 organizations mobilized over 80% of the 48 million comments on proposed rules posted to regulations.gov. The top 100 mobilizing organizations
-mobilized between 55 thousand and 4.2 million comments each. Figure
-\@ref(fig:toporgs) shows the top organizers of comments posted to
-regulations.gov.  In other words, most comments are from ordinary people mobilized by a few public interest organizations. 
+Just 100 organizations mobilized over 80% of comments on proposed rules posted to regulations.gov. The top 100 mobilizing organizations
+each mobilized between 55 thousand and 4.2 million comments. Figure \@ref(fig:toporgs) shows the top organizers of comments posted to regulations.gov.  In other words, most comments are from ordinary people mobilized by a few public interest organizations. 
+
+> TODO: 1. Update with 2019-2020 data 
+2. ADD TABLE OF TOP ORGS AND DISCRIPTIVES ABOUT HOW MANY ARE MEMBERSHIP VS ADVOCACY ORGS
 
 ```{r toporgs, fig.cap = "Top mobilizers of comments posted to regulations.gov", fig.width = 7}
 
@@ -40,7 +72,14 @@ a fairly dramatic reversal in the share of comments mentioning "support
 " compared to those mentioning "oppose " (Figure \@ref(fig:comments-support). This may be a function of the
 changing regulatory agenda due to the change in the presidential
 administration. However, "support" and "oppose" are not used in all comments
-and do not always indicate support for a rule. <!-- (see figures
+and do not always indicate support for a rule. 
+
+```{r comments-support, out.width = "49%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
+
+knitr::include_graphics(here::here("Figs", "comments-mass-support-vs-oppose-1.png"))
+```
+
+<!-- (see figures
 \@ref(fig:sentiment-2018) and
 \@ref(fig:sentiment-2016) in the appendix for a sample of comments
 on several rules in 2016 and 2018).-->
