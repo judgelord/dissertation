@@ -36,17 +36,21 @@ source(here::here("code", "setup.R"))
 
 - **Lobbying success** describes a situation where a group that sought to influence policy got the outcome they sought but does not imply a causal relationship between their effort and the policy outcome.
 
-- A **Membership organization** is a type of organization formed to serve the interests of a defined membership. Membership organizations may serve their members' narrow material interests or their members' broader visions of the public interest. Some membership organizations are more directly governed by their members than others.
+- A **mass commenting campaign** is a type of public pressure campaign focused on mobilizing public comments. Such comments are "mass comments." For analytic purposes, I define a mass comment in Chapter \@ref(why-methods) as any comment with 100 identical copies or uploaded in a batch of 100 or more by the same organization.
 
-- **Mobilizing groups/organizations** recruit people to take an action (e.g., to sign a petition or submit a public comment).
+- A **membership organization** is a type of organization formed to serve the interests of a defined membership. Membership organizations may serve their members' narrow material interests or their members' broader visions of the public interest. Some membership organizations are more directly governed by their members than others.
+
+- **mobilizing groups/organizations** recruit people to take an action (e.g., to sign a petition or submit a public comment).
 
 - An **organization** is usually incorporated as a business, government, or nonprofit. Public comments *from* organizations represent the position of the organization as an incorporated entity. I only consider a comment to be on behalf of an organization if it claims to represent the organization. An employee using letterhead is insufficient. Letters from elected officials are only considered to represent their institution if they are in a position to do so (e.g., a governor, attorney general, or committee chair) and claim to do so.
 
 - A **public interest group** is a type of organization that *primarily* advocates for some vision of the public good, not the private material interest of its owners or members. Policy conflicts may involve competing visions of the public interest and thus multiple public interest group coalitions.
 
-- A **public pressure campaign** is an effort to influence policy by mobilizing a segment of the public to pay attention to and express their opinions to decision-makers. It can be an astroturf campaign, a 
+- A **public pressure campaign** is an effort to influence policy by mobilizing a segment of the public to pay attention to and express their opinions to decision-makers. It can be an astroturf campaign or grassroots campaign on behalf of public or private intersts.
 
-- A **mass commenting campaign** is a type of public pressure campaign focused on mobilizing public comments. Such comments are "mass comments." For analytic purposes, I define a mass comment in Chapter \@ref(why-methods) as any comment with 100 identical copies or uploaded in a batch of 100 or more by the same organization.
+- **Responsiveness** is observable attention that government officials pay to public input. This can be either discursive influence (similar to what [@Balla2020] call "proceedural responsiveness") or substantive policy influence.
+
+
 
 # Citations to Primary Documents  {-}
 

@@ -4,7 +4,40 @@ Each week, students in my public policy class must write to an elected official 
 
 But college students should not be the target demographic for notice and comment rulemaking--they are too informed and have too much time to write thoughtful comments. If we wish to realize the ideals of the APA, we must broaden participation. Can we do this? Is it worthwhile? Many scholars assume not, but the data offer some hope. 
 
-This chapter reviews proposed reforms in light of the empirical evidence in the previous chapters. I start with a sketch of the various positions staked out by administrative law scholars, each rooted in different theories of democracy. I then review several specific challenges and proposed reforms to the policy process. <!--Finally, I extend -->
+This chapter reviews dominant ways of thinking about public comments and proposed reforms to participatory processes in light of the empirical evidence in the previous chapters. I start with a sketch of the various positions staked out by administrative law scholars, each rooted in different theories of democracy. I then review several specific challenges and proposed reforms to the policy process. <!--Finally, I extend -->
+
+## Re-thinking Public Participation in Bureaucratic Policymaking
+
+Understanding mass commenting as a form of petitioning, as presented it in chapters \@ref(whymail), \@ref(influence), and \@ref(ej) runs against how it is often discussed by scholars and agencies. With a few notable exceptions (e.g., @Cuellar2005; @Mendelson2011; @Rauch2016), administrative law scholars imply that mass commenting is misguided and potentially harmful spam of the techoncratic process. 
+
+> "Many fear a surging wave of electronic mass submissions will overwhelm and thus delay agencies with limited resources. Furthermore, some warn us that electronic rulemaking may already have instantiated a sense that rulemaking decisions are akin to a plebiscite." - Stuart W. Shulman (EPA-HQ-OEI-2004-0002-0015)
+
+In a 2020 meeting, Reeve T. Bull, Research Director, Administrative Conference of the United States, summed up the dominant attitude of legal professionals:
+
+> "What are the fundamental goals that the agency and the APA are trying to accomplish by creating this mechanism for public participation?...[W]hen somebody files a comment with an agency, the comments sort of fall into two broad categories...the first type of comment are those expressing fact---providing data to the agency, either supporting the position that it wants to take or opposing the position that it wants to take--and trying to influence the agency's decision making accordingly. 
+
+> The second broad type of [public comments] are those expressing opinions. Now obviously there's extensive overlap between the two. Pretty much every comment is going to express an opinion one way or the other. But as Steve's data shows, sometimes a comment is nothing but an opinion. It's 'I support this policy' or 'I don't support the policy'... the law is very, very clear that with respect to the fact, with respect to data, the agency is legally required to take that into account... With respect to opinion though, the law is much less clear. Indeed it's not clear whether the agency has to take opinion into account or conversely whether the agency is even permitted to take opinion into account. ...[Agencies] have been very, very consistent in saying the rulemaking process is not a plebiscite. It's not a vote. We're not tabulating the number of comments in favor or against. ...On the part of the public though, I think the perception is quite a bit different. And I think that people really considered it problematic from their perspective that the agency might take a position that is different from what the vast majority of commenters might have preferred. And with respect to that latter aspect -- the democratic aspect if you will -- that's where I think a lot of the problems potentially start to arise. 
+
+> I don't think it's ever legitimate in a mass comment campaign for the  agency to tabulate the number of comments  received and say we got this number of this percentage in favor or against. Even if the comments are 99 percent in one direction or the other. I think that the agency should certainly consider mass comments. They should certainly consider the relevant information -- the facts contained in those comments. But I don't think  that the overall number or percentage should ever matter." - Reeve T. Bull, Research Director, Administrative Conference of the United States
+
+In response to public pressure campaigns, agencies often assert that rulemaking is not a plebicite.
+
+At the same time, agencies frequently do tally up comments on each side. In a 2008 rule regulating boarder crossing by private aircraft, The U.S. Customs cited the scale of public engagment as providing information on "public sentiment": 
+>based on the ample number of comments received by the end of the original comment period, CBP believed that public sentiment was accurately captured.” ([CBP-E8-26621/p-61](https://www.federalregister.gov/d/E8-26621/p-61))
+
+In the preamble to the 2015 Waters of the United States Rule, EPA evoked both majoritian and pluralist justifications:
+
+>"This final rule reflects the over 1 million public comments on the proposal, the substantial majority of which supported the proposed rule, as well as input provided through the agencies' extensive public outreach effort, which included over 400 meetings nationwide with states, small businesses, farmers, academics, miners, energy companies, counties, municipalities, environmental organizations, other federal agencies, and many others." ([2015-13435/p-67](https://www.federalregister.gov/d/2015-13435/p-67))
+
+EPA administrator Gina McCarthy testified that EPA "received over one million comments, and 87.1 percent of those comments...are supportive of this rule" (XXXX).
+When the EPA issued a new rule under the Trump administration, it noted "a number of comments" in favor of the new definition but "a significant number of comments" in favor of the 2015 definition. While not going so far as to explicitly state that a supermajority of commenters opposed the new policy, it is still remarkable that the agency would choose to note quantative opposition to the policy. 
+
+Agencies also regularly refer to form comments as petitions. When the Bureau of Land Managment received 6,948 identical emails that did not cite an organization, they labeled these comments a "Pro Fracking Petition" ([LM-2013-0002-5720](https://www.regulations.gov/comment/BLM-2013-0002-5720)) This text was nearly idential was signed by "Oil and Gas industry individuals" ([BLM-2013-0002-5688](https://www.regulations.gov/comment/BLM-2013-0002-5688)). Another batch of 1,289 nearly identical emails submitted through the social networking website Care2.org was labled "Anti Fracking Petition" ([BLM-2013-0002-5721](https://www.regulations.gov/comment/BLM-2013-0002-5721))
+
+The organizations running public pressure campaigs are even more explicit that they consider mass comments to be petition signatures, frequnelty citing mass comments as "Letters in support of [our organization's] Comments" ([NOAA-NMFS-2012-0059-0023](https://www.regulations.gov/comment/NOAA-NMFS-2012-0059-0023)), a "petition from World Wildlife Fund-US (WWF-US), signed by 271,893 WWF-US supporters" ([BOEM-2016-0003-2556](https://www.regulations.gov/comment/BOEM-2016-0003-2556)),
+The files containing comments collected by organizations are often named "signatures."
+
+## Reforms
 
 ###  The Debate in Administrative Law 
 

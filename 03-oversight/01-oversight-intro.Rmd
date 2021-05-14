@@ -25,7 +25,7 @@ advocacy groups like the Consumer Federation of America. Agency
 officials report that the volume of public response not only encouraged
 the agency and the administration but, more importantly, "scared off"
 Members of Congress who the industry was relying on to kill or reverse
-the rule. Once it became clear that the public was paying attention and
+the rule (personal communication, 2018). Once it became clear that the public was paying attention and
 sufficiently mobilized to act on the issue, elected officials became
 much less willing to take unpopular positions supporting industry
 donors. Instead, Congress ended up codifying the agency's authority to
@@ -39,9 +39,12 @@ or opposition to a proposed rule.
 
 <!--evidence that MCs know about and react to the mass commenting campaigns -->
 
-Other examples show that members of Congress know about and maybe spurred to act by public pressure campaigns. 
+Other examples show that members of Congress know about and maybe spurred to act by public pressure campaigns.
+> TODO: ADD EXAMPLES 
 
-Lobbying campaings can also capture the attention of members of Congress on the opposite side of the issue. For example, in 2016, a group of Democratic legislators wrote encouraging words to Obama's the Treasury Department: "We urge you not to yield to the intense lobbying against these regulations, directed both at Treasury and the Congress, but mutinational business and its trade associciations."
+Public pressure campaigns often seek to influence policy by informing them of constituent demands. Many campaigns collect the zip code of letter-signers so that they can forward constituent comments to their representatives. Some form letters include a line for signers to "CC" (carbon copy) their member of Congress (see, for example [EPA-HQ-OAR-2005-0161-2624](https://www.regulations.gov/comment/EPA-HQ-OAR-2005-0161-2624)).
+
+Lobbying campaigns can also capture the attention of members of Congress on the opposite side of the issue. For example, in 2016, a group of Democratic legislators wrote encouraging words to Obama's the Treasury Department: "We urge you not to yield to the intense lobbying against these regulations, directed both at Treasury and the Congress, but multinational business and its trade associations."
 
 #### Principal-agent relationships during rulemaking
 
@@ -50,12 +53,12 @@ Political oversight of bureaucracies has long concerned both
 practitioners and theorists. Political scientists often model the
 relationship between elected officials and bureaucrats as a
 principal-agent problem. For example, an agency may have a preferred
-policy but, upon observing the preferences of principals, may change the
-rule or delay its publication. Agencies may do this to avoid political
+policy but may change the
+rule or delay its publication upon observing its principals' preferences. Agencies may do this to avoid political
 consequences such as having their policies reversed [@Potter2016] or
 because they perceive elected officials as representing public demands
 [@Cuellar2005]. While it is widely accepted that agency officials take
-the positions of their principals into account, the mechanisms by which
+their principals' positions into account, the mechanisms by which
 this occurs and the empirical conditions for political control are
 debated.
 
@@ -75,7 +78,7 @@ Administrative procedures like mandatory public comment periods thus
 offer opportunities for direct oversight and to be alerted to oversight
 opportunities [@Balla1998].
 
-### Incorporating political information into models of political oversight
+### Incorporating Political Information into Models of Political Oversight
 
 In addition to interest groups directly alerting elected officials to
 oversight opportunities as in the "fire alarm" model, the political
@@ -88,13 +91,13 @@ as a "warning" for would-be opponents and a "beacon" for potential
 allies, effectively enabling and empowering rather than restraining the
 agency as the classic "fire alarm" concept suggests. Agency officials
 credit the public support mobilized by mass comment campaigns with the
-political momentum needed to hold course.
+political cover needed to hold course.
 
 ```{r causal-oversight-2, fig.cap = "Incorporating Congressional Oversight into Model of Bureaucratic Policymaking"}
 knitr::include_graphics(here::here("figs", "causal-oversight-2.png"))
 ```
 
-Mass engagement in bureaucratic policymaking may affect the behavior of
+Public pressure campaigns in bureaucratic policymaking may affect the behavior of
 an agency's principals because the shadow of public sanction hangs over
 elected officials [@Arnold1979; @Mayhew2000]. @Moore2018 finds that
 agencies that receive more comments per rule are also subject to more
@@ -116,7 +119,7 @@ of commenting using legislators' comments on similar rules that did not
 receive a mass comment campaign. <!-- I may also use partisanship to
 approximate principals' priors. Future work could improve this by coding
 principals' specific policy positions using the best data available
-prior to the draft rule's publication.-->
+before the draft rule's publication.-->
 
 **Hypothesis 2:** *Elected officials' advocacy is moderated by mass
 engagement.*
@@ -152,7 +155,7 @@ mass comment campaign.^[Of course, if Members of Congress receive signals about 
     opinions in their district constituency may be more important.
     Figure [\[fig:sierra\]](#fig:sierra){reference-type="ref"
     reference="fig:sierra"}, shows that the Sierra Club requires zip
-    code information from commenters, so mass-mobilizers may often send
+    code information from commenters. Mass-mobilizers may often send
     such information to elected officials.]
 
 Alternatively, the effect of mass engagement on political principals may

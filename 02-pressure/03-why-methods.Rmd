@@ -25,12 +25,24 @@ knitr::include_graphics(here::here("Figs", "comments-mass-vs-unique.pdf"))
 
 ### Methods: Measuring Public Pressure and Political Information {#why-methods}
 
+In section \@ref(why-theory), I argued that we should observe different patterns of public
+participation depending on whether an organization launches a public pressure
+campaign as an outside lobbying tactic ("going public"), as a reaction to such a campaign ("breaking a perceived consensus"), or
+for reasons other than influencing policy ("credit claiming" or "going down fighting"). In this section, I develop methods to measure these patterns. These measures
+capture similar statistics to questions posed by @Verba1987 [p. 9]: "How
+much participation is there, what kind is it, and from what segments of
+society does it come?"
+
 To identify the groups mobilizing public pressure campaigns, I develop methods to attribute individual comments to the
 campaigns that mobilized them and to measure the intensity of preferences
 expressed. To link individual comments to the more sophisticated
 lobbying efforts they support, I first use textual similarity to identify
 clusters of similar comments, reflecting formal and informal coalitions.
-Comments with identical text (if any) indicate a coordinated campaign. Through an iterative process of hand-coding and computational methods, I then identify the organization responsible for mobilizing each comment and group organizations into coalitions. 
+Comments with identical text (if any) indicate a coordinated campaign. Through an iterative process of hand-coding and computational methods, I then identify the organization responsible for mobilizing each comment and group organization into coalitions. 
+
+This approach is significantly different than that employed by previous studies in at least two ways. First, I identify coalitions consisting of multiple organizations. Previous studies measure campaigns at the organization level. For example, @Balla2020 analyze "1,049 [mass comment campaigns] that occurred during 22 EPA rulemakings" ---an average of nearly 50 "campaigns" per rule. By "campaign," @Balla2020 mean an organization's campaign rather than a coalition's campaign. Especially on EPA rules, there are rarely more than two or three coalitions engaging in public pressure campaigns--one of environmental advocacy groups and their allies, another of regulated industry groups and their allies. This is important because many comments that might be attributed to a small business, nonprofit, or membership organization are part of a campaign sponsored by a larger coalition of industry or public interest groups. It would be inappropriate to credit a small organization with little capacity for organizing a campaign when they merely allowed their mailing list to be used by a larger group. Using organizations as the unit of analysis may cause problems. If an analysis counts one coalition's campaign as 40 smaller "campaigns" with the same policy demands and response, this one campaign would be counted as 40 non-independent observations. My methods allow me to measure levels of public pressure per organization and per coalition. 
+
+The second major difference between my approach and previous research is that I do not compare sophisticated comments to mass comments. Rather, I *attribute* mass comments to organizations and coalitions that also submit sophisticated technical comments. This difference is less important to the present analysis of the drivers of public pressure campaigns, but the set of comparisons one makes is critical to any study of responsiveness or policy influence. Researchers may reach different conclusions if they compare different things. Consider a study comparing agency responsiveness to Sierra Club form letters to agency responsiveness to the Sierra Club's sophisticated comments. Now consider a study that compares responsiveness to the Sierra Club's sophisticated comments across rules where they did and did not run a mass comment campaign. Likewise, a study comparing the average influence of form-letter comments to the average influence of sophisticated comments is very different from a study that compares the influence of two sets of sophisticated comments with different *levels* of public pressure behind them. By measuring comments per coalition, both through hand-coding and through text reuse, I capture different levels of public pressure than we would see if one were to look only at comments per organization. 
 
 For each campaign, I measure
 the intensity and potential for the movement to grow. To measure
@@ -57,45 +69,50 @@ The different forms of participation asserted or assumed in the literature have 
 
  The solicitation on regulations.gov--"Let your voice be heard"--suggests that individuals are expressing themselves directly. Indeed, anyone can write a letter or type a comment in the text box on regulations.gov, and many people do. Individuals acting on their own submit content ranging from obscenities and memes to detailed personal accounts of how a policy would affect them and even poetry aimed at changing officials' hearts and minds. 
 
-@Verba1987 distinguish "citizen initiated contacts" from "cooperative activity" (pg. 54).
-Administrative law scholarship often discusses individual participants in this light as well.
-@Cuellar2005 finds that members of the "lay public" raise important new concerns beyond those raised by interest groups. He advocates for institutional reforms that would make it easier for individuals to participated and increase the sophistication of individual comments on proposed policies. 
 
-The remaining forms of participation are all mediated through an organization's pressure campaign. Comments from people mobilized as part of a campaign differ from those of individuals acting on their own in two ways: they often mention the name of the organization that mobilized them, and the text will often be similar or identical to other comments in the campaign, reflecting coordination. These features eliminate the value that  @Cuellar2005 and others see in individual comments. If comments reference an organization that mobilized them, they likely have more to offer than that the more sophisticated organization has not already provided. If comments are identical, they certainly provide no new information.
+Administrative law scholarship often discusses individual participants in this light as well.
+@Cuellar2005 finds that members of the "lay public" raise important new concerns beyond those raised by interest groups. He advocates for institutional reforms that would make it easier for individuals to participate and increase the sophistication of individual comments on proposed policies. 
+
+The remaining forms of participation are all mediated through an organization's pressure campaign--what @Verba1987 would call a "cooperative activity." Comments from people mobilized as part of a campaign differ from those of individuals acting on their own in two observable ways: they often mention the name of the organization that mobilized them, and the text is often similar or identical to other comments in the campaign, reflecting coordination through form or template letters. These features eliminate the novel informational value that  @Cuellar2005 and others seek to locate in individual comments. If comments reference an organization that mobilized them, they likely have little to offer than that the more sophisticated organization has not already provided. If comments are identical, they certainly provide no new information.
 
 #### Membership Organizations
 
-If most commenters are members of membership organizations as @Kerwin2011 suggest, a large campaign of, say one million people, will require a large collection of membership organizations. Very few organizations have a million members, and those that do are unlikely to mobilize all of them, so mobilizing a large number of people will usually require a large coalition of membership organizations. Commenters should identify themselves as members of these many organizations.
+If most commenters are members of membership organizations as @Kerwin2011 suggest, a large campaign of, say one million people, will require a large collection of membership organizations. Very few organizations have a million members, and those that do are unlikely to mobilize all of them, so mobilizing a large number of people through membership organizations will usually require a large coalition of membership organizations. We would expect commenters to identify themselves as members of these many organizations.
 
-For example, if most comments are mobilzed by membership groups, we would expect most comments to look like this comment from the NorthEast Hook Fisherman's Association:
-> "We represent a small group of Commercial Fishermen with the Limited Access Handgear HA Permits, employing the use rod and reel, handlines or tub trawls to catch Cod, Haddock and Pollock along with small quantities of other regulated and non-regulated marine fish. Historically and currently our fishermen account for a small percentage of the groundfish landed in New England. However, the monetary gains obtained by the participants in this fishery are very important to us. ([NOAA-NMFS-2013-0050-0025](https://www.regulations.gov/comment/NOAA-NMFS-2013-0050-0025))
+For example, if most comments are mobilized by membership groups, we would expect most comments to look like this comment from the NorthEast Hook Fisherman's Association:
+> "We represent a small group of Commercial Fishermen with the Limited Access Handgear HA Permits, employing the use rod and reel, handlines or tub trawls to catch Cod, Haddock, and Pollock along with small quantities of other regulated and non-regulated marine fish. Historically and currently, our fishermen account for a small percentage of the groundfish landed in New England. However, the monetary gains obtained by the participants in this fishery are very important to us. ([NOAA-NMFS-2013-0050-0025](https://www.regulations.gov/comment/NOAA-NMFS-2013-0050-0025))
 
-Similar groups narrowly concerned about shrimp and hilibut catach limits also commented on behalof of their members. 
+Similar groups, narrowly concerned about shrimp and halibut catch limits, also commented on this rule on behalf of their members. 
 
-#### Policy change organizations
+#### Policy Change Organizations: From Grassroots to Astroturf
 
-Mobilizing people just for a particular policy fight requires a significant organizing capacity. @McNutt2007 calls these formations "policy change organizations." 
+Mobilizing people just for a particular policy fight requires a significant organizing capacity. @McNutt2007 calls these formations "policy change organizations." In contrast to membership organizations, they exist to organize public pressure toward a set of policy goals, not to serve a defined membership.
+
 There is a spectrum of organizing the unorganized. The poles might be labeled "grassroots" and "astroturf." On the grassroots end, engagement is driven by a combination of passionate volunteerism and a supportive, attentive public [@Key1961] or issue public [@Converse1964]. In practice, the campaigns that most resemble the grassroots ideal are not pure volunteerism but are organized by policy change organizations like Credo Action and Organizing For American on the left and Americans for Prosperity on the right.
-
-
-
 These organizations have large mailing lists and media operations. Membership organizations like the Sierra Club may often mobilize beyond their membership base and thus take the form of a policy change organization as well. 
-
 Like people mobilized through their membership organizations, people mobilized by policy change organizations will often cite the mobilizing organization.  
 Unlike those mobilized through membership organizations, mobilization by policy change organizations is more likely to be concentrated in a few large organizations with the specific resources for running campaigns that engage passionate or interested but unaffiliated segments of the public. 
 
-#### Astroturf
 
-Toward the astroturf end of the spectrum of policy change organizations, well-funded efforts gather signatures from a much less passionate and attentive population. Where grassroots organizing relies on existing underlying interests that merely need to be given an opportunity to engage, people engaged by astroturf campaigns are generally disinterested in the policy and engage merely because of paid ads or petition gathering, often involving some deception in order to get people to take action on an issue that they would not take if the issue was presented more clearly. Likewise, the organizations actually collecting the signatures would have no interest in doing so if they were not being paid. The aim is to give an appearance of support. 
+Toward the astroturf end of the spectrum of policy change organizations, well-funded efforts gather signatures from a much less passionate and attentive population. Where grassroots organizing relies on existing underlying interests that merely need to be given an opportunity to engage, people engaged by astroturf campaigns are generally disinterested in the policy and engage merely because of paid ads or petition gathering, often involving some deception (e.g., intentionally misled about the policy or its likely effects) in order to get people to take action on an issue that they would not take if the issue was presented more clearly. Likewise, the organizations actually collecting the signatures would have no interest in doing so if they were not being paid. The aim is to give an appearance of support.
+To the extent they mobilize real people, astroturf campaigns are thus a form of outside lobbying intended to create a deceptive appearance of public support. In the extreme, astroturf campaigns may use the names of fake or non-consenting individuals. 
 
-One example of an astrotruf campaign is Shell Oil's campaign to open the Arctic Outer Continental Shelf to oil and gas drilling. 
-Shell provided a template letter with a place to insert a company or constituency: 
-> On behalf of [enter company or constituents], I am writing to demonstrate my strong support of oil and gas development in the Arctic Outer Continental Shelf (OCS).
 
-In a more complex example, Access Financial and other payday lending companies sponsored two campaigns targeting a regulation proposed by Consumer Financial Protection Bureau in 2016. First, Access Financial had their employees solicit comments from customers, which Access then uploaded to regulations.gov. Many customer letters contained some version of "I have been told that payday loans would not exist in my community if the government's proposed regulations went into effect." The customer comments suggest that they had not been told much about the rule, which limited interest rates and the number of times short term loans could be compounded. Most customers wrote some version of "Do not close this store"--a few even complained about exactly the issues that CFPB's regulation aimed to address. One customer wrote "Although some of the fees are a bit high, it should be my choice whether to get a loan or not" (Access Financial Comment 91130). Another wrote "I need to keep recieving my Check'n'Go loans so I can have the time to start paying them back in the next 1 1/2 to 2 years" (Access Financial Comment 91130) indicating that Check'n'Go (a subsidiary of Access Financial) was engged in serial re-lending that put this customer deeper in debt. To the extent that this campaign relied on deception and not the customer's interests (even as the customers understood them), this would count as astroturf. Second, Access sponsored an effort to gather petition signatures at churches. Finally, Access and other payday loan companies uploaded supportive notes from community organizations to which they had given money. Like the churchgoers, these people had no reason to comment except that they had received money from the potentially regulated companies. 
 
-Spotting astroturf in the wild is difficult by design. However, the clear observable result is a large number of comments advocating on behalf of large business interests. These are the organizations with the resources and incentives to sponsor astroturf campaigns, and they do [Lyon2005].
+In a more complex example, Access Financial and other payday lending companies sponsored two campaigns targeting a regulation proposed by Consumer Financial Protection Bureau in 2016. First, Access Financial had their employees solicit comments from customers, which Access then uploaded to regulations.gov. Many customer letters contained some version of "I have been told that payday loans would not exist in my community if the government's proposed regulations went into effect." The customer comments suggest that they had not been told much about the rule, which limited interest rates and the number of times short-term loans could be compounded. Most customers wrote some version of "Do not close this store"--a few even complained about exactly the issues that CFPB's regulation aimed to address. One customer wrote, "Although some of the fees are a bit high, it should be my choice whether to get a loan or not" (Access Financial Comment 91130). Another wrote, "I need to keep receiving my Check'n'Go loans so I can have the time to start paying them back in the next 1 1/2 to 2 years" (Access Financial Comment 91130), indicating that Check'n'Go (a subsidiary of Access Financial) was engaged in serial re-lending that put this customer deeper in debt. To the extent that this campaign relied on deception and not the customer's interests (even as the customers understood them), this would count as astroturf. Second, Access sponsored an effort to gather petition signatures at churches. Finally, Access and other payday loan companies uploaded supportive notes from community organizations to which they had given money. Like the churchgoers, these people had no reason to comment except that they had received money from the potentially regulated companies. 
 
+Spotting astroturf in the wild is difficult by design. However, the clear observable result is often a large number of comments advocating on behalf of large business interests. Large businesses or industry associations are the organizations with the resources and incentives to sponsor astroturf campaigns, and they do [Lyon2005].
+
+Not all public pressure campaigns on behalf of private interests fall on the astroturf side of the spectrum. In a cover letter to a batch of comments opposing the regulation of glyphosate herbicides, Monsanto, major glyphosate manufacture, specified how they collected the letters:
+> "These letters were collected during the 2016 Farm Progress Show from US farmers, agriculture professionals, and general consumers who use glyphosate and value its benefits. We think it is important that these voices be heard as part of EPA's review of glyphosate." ([EPA-HQ-OPP-2009-0361-0891](https://www.regulations.gov/comment/EPA-HQ-OPP-2009-0361-0891))
+
+
+Shell Oil sponsored a campaign to open the Arctic Outer Continental Shelf to oil and gas drilling and provided a template letter with a place to insert a company or constituency: 
+> On behalf of [enter company or constituents], I am writing to demonstrate my strong support of oil and gas development in the Arctic Outer Continental Shelf (OCS)...I support Shell's plan to explore its leases in the Chukchi Sea in 2015. The company has invested significant time and resources in the advancement of safe and prudent Arctic exploration. Shell should be allowed to realize the promise of the leases it purchased, and I encourage the BOEM to expeditiously approve its Exploration Plan.
+
+However, the signatories of this petition were mostly companies and workers in the oil and gas sector. Several elected officials also used Shell's form letter (e.g. [BSEE-2013-0011-0033](https://www.regulations.gov/comment/BSEE-2013-0011-0033)] and [BSEE-2013-0011-0094](https://www.regulations.gov/comment/BSEE-2013-0011-0094)). I found no evidence of deception or payments from Shell. These companies and workers presumably had a genuine interest in Shell's access to offshore oil.
+
+A similar rule
 
 
 <!--
@@ -183,7 +200,7 @@ model most sensibly describes the conflict, I label these clusters "pro" and "co
 conflict, I label these clusters as "pro, con, other." If neither fits
 well, I increase the number of clusters as needed.
 
-```{r kmeans, fig.cap = "K-means clustering fails to capture coalitions when nearly all comments oppose a regulation"}
+"`{r kmeans, fig.cap = "K-means clustering fails to capture coalitions when nearly all comments oppose a regulation"}
 
 knitr::include_graphics(here::here("Figs", "kmeans.png"))
 ```
@@ -213,7 +230,7 @@ clusters, especially with strong priors comments using positive and
 negative sentiment words belong together.
 -->
 
-### Measuring the volume, intensity, and potential contagion of public engagement
+### Measuring the Volume, Intensity, and Potential Contagion of Public Engagement
 
 I measure variation in engagement in three ways, corresponding to the
 three types of comments described above.
@@ -238,7 +255,7 @@ pollution rule, but 7,452 people also took the time to write a
 personalized comment in addition to the text provided (see Figure \@ref(fig:sierra)). 
 Completely unique comments (those that do not copy text from a form letter at all) generally indicated high levels of effort. As @Verba1987 note, signing a form letter requires "some" effort, writing an original letter to a government official requires "a lot" of "initiative" (effort). The longer the letter, the more effort required. 
 
-While effort, as measured by the number of words people write, may be normally distributed, the low end of the observed distribution is truncated.
+While effort, as measured by the number of words people write, maybe normally distributed, the low end of the observed distribution is truncated.
 This is because we will not observe people who have low levels of passion for the issue; they either do not cross the effort threshold required to comment or opt
 to write nothing more than the form letter. 
 

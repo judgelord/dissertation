@@ -1,8 +1,19 @@
-<!--## Data and Methods {#oversight-methods}-->
+<!--## Data and Methods {#oversight-methods} -->
 
 ### A Census of Comments from Members of Congress in Agency Rulemaking 
 
-Through an iterative combination of automated search methods and hand-coding, I identify the elected official or organization that submitted each comment.
+<!--
+To measure the participation of elected officials and interest groups in rulemaking, I collected a corpus of over 80 million comments via the
+regulations.gov API. About 50 million of these comments are on proposed
+rules (over 16,000 proposed rules from 144 agencies from 2005 to 2020).
+I then linked these comments to other data on the rules from the Unified
+Agenda and Office of Information and Regulatory Affairs Reports on draft
+rules sent to them for review.
+Because metadata on the authors of comments and their
+affiliations are inconsistent and incomplete, improving these
+data was a significant data-organization task.
+-->
+Through an iterative combination of automated search methods and hand-coding, I identify the comments submitted by elected officials.
 
 Figure \@ref(fig:congress) shows the number of comments from members of Congress received during rulemaking by a sample of federal agencies. Oversight letters are frequently co-signed by multiple members from the Senate, House, or both chambers. 
 
@@ -10,7 +21,7 @@ Figure \@ref(fig:congress) shows the number of comments from members of Congress
 knitr::include_graphics(here::here("figs", "comments-congress.png"))
 ```
 
-To assess the hypothesis that mass engagement affects the engagement of
+To assess the hypothesis that public pressure campaigns affect the engagement of
 political principals, I examine the relationship between mass commenting
 and the behavior of members of Congress, while attempting to control for
 other reasons that members of Congress may comment on a proposed rule.
@@ -95,4 +106,3 @@ opinion, which may usually, but not exclusively, be revealed to
 legislators through mass engagement.
 
 -->
-
