@@ -5,8 +5,8 @@
 ```{r}
 load(here::here("data","rules_metadata.Rdata"))
 
-min(rules$posted_date, na.rm = T)
-max(rules$posted_date, na.rm = T)
+# min(rules$posted_date, na.rm = T)
+# max(rules$posted_date, na.rm = T)
 
 rules %<>% group_by(docket_id) %>%
   mutate(year = str_sub(posted_date, 1, 4) %>% as.numeric(),
@@ -18,20 +18,22 @@ rules %<>% group_by(docket_id) %>%
 rules %<>% filter(year >2004, year <2021, docket_type == "Rulemaking")
 
 mass <- filter(rules, comments > 100)
+
+top10 <- slice_max(mass %>% ungroup() %>% distinct(docket_id, comments), order_by =  comments, n = 10) 
 ```
 
-From `r min(rules$year, na.rm = T)` to  `r max(rules$year, na.rm = T)`, agencies posted `r nrow(distinct(rules, docket_id))` rulemaking dockets to regulations.gov. and solicited public comments on `r nrow(distinct(rules %>% filter(open), docket_id))`,  receivign `r sum(rules$number_of_comments_received)`. Only `r nrow(distinct(mass, docket_id))` rulemaking dockets received more than 100 comments, but these account for `r percent(sum(mass$number_of_comments_received)/sum(rules$number_of_comments_received), accuracy = .01)`, or `r sum(mass$number_of_comments_received)`, of the comments.
+From 2005 to  2020, agencies posted `r nrow(distinct(rules, docket_id))` rulemaking dockets to regulations.gov. and solicited public comments on `r nrow(distinct(rules %>% filter(open), docket_id))`,  receiving `r sum(rules$number_of_comments_received)`. Only `r nrow(distinct(mass, docket_id))` rulemaking dockets received more than 100 comments, but these account for `r percent(sum(mass$number_of_comments_received)/sum(rules$number_of_comments_received), accuracy = .01)`, or `r sum(mass$number_of_comments_received)`, of the comments. The top 10 rulemaking dockets account for `r sum(top10$comments)/sum(rules$number_of_comments_received)` (`r sum(top10$comments)`), of the comments.
 
 Figure
 \@ref(fig:comments-density) shows a sample of rules matched to Office of Information and Regulatory Affairs coding for major and non-major rules 
-```{r comments-density, out.width = "49%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
+```{r comments-density, out.width = "99%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
 
 knitr::include_graphics(here::here("Figs", "major-comments-density-1.png"))
 ```
 
 Figure
 \@ref(fig:comment-density) shows the sources of incoming comments 
-```{r, comments-from, out.width = "49%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
+```{r, comments-from, out.width = "69%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
 knitr::include_graphics(here::here("Figs", "comments-from.pdf"))
 ```
 

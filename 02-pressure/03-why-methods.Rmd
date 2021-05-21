@@ -80,7 +80,8 @@ The remaining forms of participation are all mediated through an organization's 
 If most commenters are members of membership organizations as @Kerwin2011 suggest, a large campaign of, say one million people, will require a large collection of membership organizations. Very few organizations have a million members, and those that do are unlikely to mobilize all of them, so mobilizing a large number of people through membership organizations will usually require a large coalition of membership organizations. We would expect commenters to identify themselves as members of these many organizations.
 
 For example, if most comments are mobilized by membership groups, we would expect most comments to look like this comment from the NorthEast Hook Fisherman's Association:
-> "We represent a small group of Commercial Fishermen with the Limited Access Handgear HA Permits, employing the use rod and reel, handlines or tub trawls to catch Cod, Haddock, and Pollock along with small quantities of other regulated and non-regulated marine fish. Historically and currently, our fishermen account for a small percentage of the groundfish landed in New England. However, the monetary gains obtained by the participants in this fishery are very important to us. ([NOAA-NMFS-2013-0050-0025](https://www.regulations.gov/comment/NOAA-NMFS-2013-0050-0025))
+
+> "We represent a small group of Commercial Fishermen with the Limited Access Handgear HA Permits, employing the use rod and reel, handlines or tub trawls to catch Cod, Haddock, and Pollock along with small quantities of other regulated and non-regulated marine fish. Historically and currently, our fishermen account for a small percentage of the groundfish landed in New England. However, the monetary gains obtained by the participants in this fishery are very important to us." ([NOAA-NMFS-2013-0050-0025](https://www.regulations.gov/comment/NOAA-NMFS-2013-0050-0025))
 
 Similar groups, narrowly concerned about shrimp and halibut catch limits, also commented on this rule on behalf of their members. 
 
@@ -104,13 +105,15 @@ In a more complex example, Access Financial and other payday lending companies s
 Spotting astroturf in the wild is difficult by design. However, the clear observable result is often a large number of comments advocating on behalf of large business interests. Large businesses or industry associations are the organizations with the resources and incentives to sponsor astroturf campaigns, and they do [Lyon2005].
 
 Not all public pressure campaigns on behalf of private interests fall on the astroturf side of the spectrum. In a cover letter to a batch of comments opposing the regulation of glyphosate herbicides, Monsanto, major glyphosate manufacture, specified how they collected the letters:
+
 > "These letters were collected during the 2016 Farm Progress Show from US farmers, agriculture professionals, and general consumers who use glyphosate and value its benefits. We think it is important that these voices be heard as part of EPA's review of glyphosate." ([EPA-HQ-OPP-2009-0361-0891](https://www.regulations.gov/comment/EPA-HQ-OPP-2009-0361-0891))
 
 
 Shell Oil sponsored a campaign to open the Arctic Outer Continental Shelf to oil and gas drilling and provided a template letter with a place to insert a company or constituency: 
-> On behalf of [enter company or constituents], I am writing to demonstrate my strong support of oil and gas development in the Arctic Outer Continental Shelf (OCS)...I support Shell's plan to explore its leases in the Chukchi Sea in 2015. The company has invested significant time and resources in the advancement of safe and prudent Arctic exploration. Shell should be allowed to realize the promise of the leases it purchased, and I encourage the BOEM to expeditiously approve its Exploration Plan.
 
-However, the signatories of this petition were mostly companies and workers in the oil and gas sector. Several elected officials also used Shell's form letter (e.g. [BSEE-2013-0011-0033](https://www.regulations.gov/comment/BSEE-2013-0011-0033)] and [BSEE-2013-0011-0094](https://www.regulations.gov/comment/BSEE-2013-0011-0094)). I found no evidence of deception or payments from Shell. These companies and workers presumably had a genuine interest in Shell's access to offshore oil.
+> "On behalf of [enter company or constituents], I am writing to demonstrate my strong support of oil and gas development in the Arctic Outer Continental Shelf (OCS)...I support Shell's plan to explore its leases in the Chukchi Sea in 2015. The company has invested significant time and resources in the advancement of safe and prudent Arctic exploration. Shell should be allowed to realize the promise of the leases it purchased, and I encourage the BOEM to expeditiously approve its Exploration Plan."
+
+However, the signatories of this petition were mostly companies and workers in the oil and gas sector. Several elected officials also used Shell's form letter (e.g. [BSEE-2013-0011-0033](https://www.regulations.gov/comment/BSEE-2013-0011-0033) and [BSEE-2013-0011-0094](https://www.regulations.gov/comment/BSEE-2013-0011-0094)). I found no evidence of deception or payments from Shell. These companies and workers presumably had a genuine interest in Shell's access to offshore oil.
 
 A similar rule
 
@@ -160,12 +163,12 @@ comments with repeated text--either identical text or partially unique texts tha
 mentions of these organizations' names to complete missing information
 on the mobilizing organization. 
 
-### Who lobbies together?
+### Who Lobbies Together?
 
 Having identified who is participating in rulemaking, the next step is
 to determine who is lobbying together. Studies of rulemaking stress the importance of coalitions [@Yackee2006JOP; @Dwidar2019]. Scholars have measured coalitions of organized groups but have yet to attribute citizen comments to the coalition that mobilized them.
 
-#### Identifying coalitions using text reuse 
+#### Identifying Coalitions Using Text Reuse 
 
 
 I identify comments that are not identical but share a 10-word (or

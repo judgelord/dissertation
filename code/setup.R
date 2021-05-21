@@ -85,7 +85,7 @@ knit_hooks$set(inline = function(x) {
 
 ## Sets defaults for R chunks
 knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that your code will show
-                      cache = FALSE,
+                      cache = TRUE,
                       warning = FALSE,
                       message = FALSE,
                       fig.show="hold",

@@ -39,14 +39,15 @@ or opposition to a proposed rule.
 
 <!--evidence that MCs know about and react to the mass commenting campaigns -->
 
-Other examples show that members of Congress know about and maybe spurred to act by public pressure campaigns.
+Other examples show that members of Congress know about and may be spurred to act by public pressure campaigns. For example, several members of Congress attached to their comments on CFPB's Payday Loan rule (CFPB-2016-0025) mass mail or petitions from their constituents. 
+
 > TODO: ADD EXAMPLES 
 
 Public pressure campaigns often seek to influence policy by informing them of constituent demands. Many campaigns collect the zip code of letter-signers so that they can forward constituent comments to their representatives. Some form letters include a line for signers to "CC" (carbon copy) their member of Congress (see, for example [EPA-HQ-OAR-2005-0161-2624](https://www.regulations.gov/comment/EPA-HQ-OAR-2005-0161-2624)).
 
 Lobbying campaigns can also capture the attention of members of Congress on the opposite side of the issue. For example, in 2016, a group of Democratic legislators wrote encouraging words to Obama's the Treasury Department: "We urge you not to yield to the intense lobbying against these regulations, directed both at Treasury and the Congress, but multinational business and its trade associations."
 
-#### Principal-agent relationships during rulemaking
+#### Principal-agent Relationships During Rulemaking
 
 
 Political oversight of bureaucracies has long concerned both
@@ -124,24 +125,21 @@ before the draft rule's publication.-->
 **Hypothesis 2:** *Elected officials' advocacy is moderated by mass
 engagement.*
 
-[\[hyp:beacon\]]{#hyp:beacon label="hyp:beacon"} Mass commenting attract
+**Hypothesis 3:** Mass commenting attract
 oversight from allies. The more comments supporting a position, the more
 likely principals holding that position are to engage.
 
-[\[hyp:warning\]]{#hyp:warning label="hyp:warning"} Mass commenting
+**Hypothesis 4:** Mass commenting
 reduces oversight from opponents. The more comments opposing a position,
 the less likely principals holding that position are to engage.
 
-Hypothesis [\[hyp:beacon\]](#hyp:beacon){reference-type="ref"
-reference="hyp:beacon"} implies that $\beta_1$ is positive and
-Hypothesis [\[hyp:warning\]](#hyp:warning){reference-type="ref"
-reference="hyp:warning"} $\beta_2$ is negative in this statement:
+Hypothesis 3 implies that $\beta_1$ is positive and
+Hypothesis 4 $\beta_2$ is negative in this statement:
 *Pr(Principal Comments $|$ Principal Position $i$)
 $\sim \beta_0 + \beta_1$Comments supporting $i + \beta_2$Comments
 opposing $i$*
 
-If Hypothesis [\[hyp:beacon\]](#hyp:beacon){reference-type="ref"
-reference="hyp:beacon"} is correct, it would suggest an addendum to Hall
+If Hypothesis 3 is correct, it would suggest an addendum to Hall
 and Miler's (2008) finding that legislators are more likely to engage in
 rulemaking when they have been lobbied by a like-minded interest group:
 When interest groups lobby elected officials to engage in rulemaking,
@@ -153,8 +151,7 @@ mass-comment campaign, and less likely to engage when opposed by a large
 mass comment campaign.^[Of course, if Members of Congress receive signals about the
     distribution of comments from their districts, the distribution of
     opinions in their district constituency may be more important.
-    Figure [\[fig:sierra\]](#fig:sierra){reference-type="ref"
-    reference="fig:sierra"}, shows that the Sierra Club requires zip
+    Figure \@ref(fig:sierra), shows that the Sierra Club requires zip
     code information from commenters. Mass-mobilizers may often send
     such information to elected officials.]
 
@@ -166,10 +163,8 @@ their voters share their position. Or, if elected officials are risk
 adverse, they may avoid engaging in contentious rulemaking processes
 regardless of the balance of comments. Each of these results would be
 evidence against hypothesis
-[\[hyp:warning\]](#hyp:warning){reference-type="ref"
-reference="hyp:warning"} or
-[\[hyp:beacon\]](#hyp:beacon){reference-type="ref"
-reference="hyp:beacon"} respectively.
+3 or
+4 respectively.
 
 I thus build on the classic model of
 political oversight in two ways. First, I suggest that elected officials' comments are a particularly relevant oversight behavior and a
