@@ -4,5 +4,6 @@ See the preanalysis plan for this chapter [_here_](https://github.com/judgelord/
 
 #### Abstract {-}
 
-`r readLines(here::here("04-influence/abstract.txt"))`
+```{r child = here::here("04-influence/abstract.txt")}
+```
 

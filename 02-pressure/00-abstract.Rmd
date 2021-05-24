@@ -4,5 +4,6 @@ See the working paper version of this chapter [_here_](https://judgelord.github.
 
 #### Abstract {-}
 
-`r readLines(here::here("02-pressure/abstract.txt"))`
+```{r child = here::here("02-pressure/abstract.txt")}
+```
 
