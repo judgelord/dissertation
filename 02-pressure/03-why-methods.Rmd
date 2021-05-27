@@ -1,18 +1,38 @@
-## Testing the Theory
+## Testing the Theory {#why-data-methods}
 
+
+
+I focus on public comments in federal agency rulemaking, but the theories and methods here may also apply to other kinds of political engagement such as through social media or protests as well as to other political decisions, including state-level rulemaking.^[Social media
+    engagement may be especially important if agencies implement the
+    recommendations of @ACUS2018 that "Agencies should consider using
+    social media before or in connection with direct final rulemaking to
+    quickly identify whether there are significant or meaningful
+    objections" (p. 34).] 
+    
 ### Data {#why-data}
 
 <!--
 Bring together information on the mass commenting coding in one table with statistics and examples to summarize for the reader.
 -->
 
-To assess the competing hypotheses about whether political insiders or outsiders mobilize public participation in bureaucratic policymaking, I collected a corpus of approximately 80 million comments via the
+To assess my hypotheses about the extent to which more powerful or less powerful groups mobilize public participation in bureaucratic policymaking, I collected a corpus of approximately 80 million comments via the
 regulations.gov API. About 50 million of these comments were on proposed
 rules (over 16,000 proposed rules from 144 agencies from 2005 to 2020). Of these, public pressure campaigns targeted approximately 400 rules from 46 agencies.
 I then linked these comments to other data on the rules from the Unified
 Agenda and Office of Information and Regulatory Affairs Reports on draft
 rules sent to them for review. Summary statistics for these data are
 available in the Appendix.
+
+
+
+Figure \@ref(fig:comments-per-year) shows an exponential increase in the number of comments per rule over time. Note that comments per rule are on a
+logarithmic scale on the y-axis. Proposed rules that have attracted the most public attention have
+    been published by the Federal Communications Commission (FCC,
+    omitted from this plot), the Environmental Protection Agency (EPA),
+    the Department of Interior (DOI), the Bureau of Ocean Energy
+    Management (BOEM), the Consumer Financial Protection Bureau (CFPB),
+    and Fish and Wildlife Service (FWS).] Increasingly, a large number of people are
+paying attention to agency policymaking.
 
 ```{r comments-per-year, fig.cap = "Comments per Proposed Rule and Total Comments per Year", out.width = NULL, out.height = "25%", fig.show = "hold"}
 
@@ -22,6 +42,17 @@ knitr::include_graphics(here::here("Figs", "comments-mass-vs-unique.pdf"))
 
 ```
 
+Most public comments are, in fact, of the type suggested by the
+solicitations on Regulations.gov---ordinary people voicing opinions on a proposed policy. They do not provide useful technical information or
+suggest specific edits to policy texts like the interest group comments
+that have thus far captured the attention of political scientists. If
+they add information to rulemaking, it is a different, more political
+flavor of information. Indeed as Figure
+\@ref(fig:comments-per-year) shows, every year since 2008, most people who
+comment on draft regulations have done so as a result of a public pressure campaign.^[At least for agencies participating in regulations.gov. See
+    sections
+    \@ref(why-methods) for my definition and methods for identifying mass comments.] Public engagement in rulemaking is highly
+clustered on a few rules made salient by these campaigns. 
 
 ### Methods: Measuring Public Pressure and Political Information {#why-methods}
 

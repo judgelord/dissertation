@@ -5,11 +5,16 @@ Participatory processes like public comment periods on draft policies are said t
 In civics classrooms and Norman Rockwell paintings, raising concerns to government is an individual affair. Scholars, too, often focus on studying and improving the ability of individuals to participate in policymaking [@Cuellar2005]. But in practice, the capacities required to lobby effectively on matters of national policy are those of organized groups, not individual citizens.
 
 <!--PUZZLE-->
-Bureaucratic policymaking, in particular, is the ideal context for powerful organized interests to dominate. Policies made by specialized agencies are likely to have concentrated benefits or costs that lead interest groups, especially businesses, to dominate [@Lowi1969; @Lowi1972]. Agency policymakers are generally experts who are deeply embeded in the professional and epistemic networks of the industries they support and regulate. Organizations with superior resources often flood policymakers with technical information that is valued both by the specic legal context of bureaucratic policymaking and by technocratic rationality more broadly [@Wagner2010]. Agencies are generally framed as "implimenters" rather than "makers" of policy. Even the most value-laden policy documents that are re-written under each subsiquent president are framed as deriviative of (often decades-old) legislative statutes. All of these things empower legal and technical experts and thus the organizations with the resources to hire them.
+Bureaucratic policymaking, in particular, is the ideal context for powerful organized interests to dominate. Policies made by specialized agencies are likely to have concentrated benefits or costs that lead interest groups, especially businesses, to dominate [@Lowi1969; @Lowi1972]. Agency policymakers are generally experts who are deeply embeded in the professional and epistemic networks of the industries they support and regulate [@Epstein2014]. Organizations with superior resources often flood policymakers with technical information that is valued both by the specic legal context of bureaucratic policymaking and by technocratic rationality more broadly [@Wagner2010]. Agencies are generally framed as "implimenters" rather than "makers" of policy. Even the most value-laden policy documents that are re-written under each subsiquent president are framed as deriviative of (often decades-old) legislative statutes. All of these things empower legal and technical experts and thus the organizations with the resources to hire them.
 
 <!--PUZZEL-->
+
 And yet, activists frequently target agency policymaking with letter-writing campaigns, petitions, protests,
-and mobilizing people to attend hearings---all classic examples of "civic engagement" [@Verba1987]. While recent scholarship on agency policymaking has shed light on sophisticated lobbying, especially by businesses, we know surprisingly little about the vast majority of public comments, which are submitted by ordinary people as part of public pressure campaigns. As I show below, most comments submitted to regulations.gov are part of organized campaigns, more akin to petition signatures than "deliberative" participation or sophisticated lobbying.
+and mobilizing people to attend hearings---all classic examples of "civic engagement" [@Verba1987]. While recent scholarship on agency policymaking has shed light on sophisticated lobbying, especially by businesses, we know surprisingly little about the vast majority of public comments, which are submitted by ordinary people as part of public pressure campaigns. As I show below, most comments submitted to regulations.gov are part of organized campaigns, more akin to petition signatures than "deliberative" participation or sophisticated lobbying. Importantly however, nearly all comments are mobilized to support to a more sophisticated lobbying effort. Without a systematic understanding of the scale and impact of public participation--*group-mediated* participation--in rulemaking, it is impossible to answer normative questions about how participatory processes like public comment periods may enhance or undermine various democratic ideals. 
+
+<!--Not the ideal place for this?-->
+Surely, those who tend to engage are far from representative of the broader public [@Verba1987], but in many ways, they must be more representative than the handful of political insiders who participate in most policy processes. 
+If the usual participants have "an upper-class accent" [@Schattschneider1942], does adding thousands of more voices dilute this bias? The answer depends on how people are mobilized. If public pressure is mobilized by the usual participants to create an impression of public support, it may merely legitimize the demands of the same group of powerful interest groups that would dominate without broader engagment.  
 
 <!--GAP-->
 While practitioners and administrative law scholars have long pondered
@@ -18,14 +23,52 @@ surprisingly little to say about this kind of civic participation and the role o
 Models of bureaucratic policymaking focus on the participation of sophisticated lobbying groups and neither explain nor account for public pressure campaigns.
 Civic engagement in general and organized public pressure in particular thus remain poorly understood in the context of bureaucratic policymaking. 
 
+<!-- GAP IS SURPRISING -->
+Political scientists' neglect of public pressure campaigns is surprising given that most people are only
+aware of bureaucratic policymaking when it is the target of a public pressure campaign.^[Some of the most contentious recent public controversies involve bureaucratic policymaking. For example, along with 50 thousand
+    protesters in Washington D.C., the State Department Received 1.2
+    million comments on the Environmental Impact Statement for the
+    Keystone Pipeline. Similarly, along with the thousands of protesters
+    supporting the Standing Rock Sioux protest to the Dakota Access
+    Pipeline, the Army Corps of Engineers received hundreds of thousands of comments. Alongside protest actions that included shutting down many websites, the Federal Communications Commission's open internet rule received 22 million comments. While some of these comments appear to be fake, the scale of public engagement is remarkable given how little attention political scientists have paid to it.
+    Fake public comments also raise the question of why an organization
+    would bother to generate fake public input if it did not matter, as
+    its omission from theories of bureaucratic policymaking would seem
+    to imply.] While most policy processes receive little public attention,
+the ease of online mobilizing and commenting has, like other forms of
+participation [@Boulianne2018], created exponential increases in the
+number of rules in which thousands and even millions of people engage.
+ <!--These bursts of civic participation may affect
+rulemaking [@Coglianese2001], but this intuition has yet to be tested.-->
+The general failure to explain and account for public pressure campaigns in models of bureaucratic policymaking is also striking in light of how agencies advertise public
+comment periods as an opportunity for a voice in government
+decisions.
+The Regulations.gov
+homepage solicit visitors to "Make a difference. Submit your comments
+and let your voice be heard" and "Participate today!" (Figure \@ref(fig:regsgov). A blue "Comment Now!" button accompanies a short description of each draft
+policy and pending agency action. 
+Public comment periods on proposed agency
+rules are described as "an important part of democracy" (WSJ 2017),
+"often held out as the purest example of participatory democracy in
+actual American governance" [@Herz2016]. @Rossi1997 finds that "courts, Congress, and scholars have elevated participation in rulemaking to
+a sacrosanct status...greater participation is generally viewed as
+contributing to democracy." (pg. 2)
+
+```{r regsgov, fig.cap = "Regulations.gov Solicits Public Comments on Draft Agency Rules"}
+
+knitr::include_graphics(here::here("Figs", "regulations-header.png"))
+```
+
+<!--fill gap-->
 To fill this gap, I bring scholarship on policy advocacy groups^[Organizations that mobilize people to engage in policy debates (e.g., through letter-writing campaigns) go by many names, each with slightly different connotations. These include pressure groups, policy advocacy groups [@Potter2017], citizen groups [@Berry1999], policy change organizations [@McNutt2005]. TODO: NAIL DOWN MY NOMENCLATURE.] into theories of bureaucratic policymaking. Doing so reveals competing intuitions about the drivers of public participation, which I assess using a large new dataset of participation in federal agency rulemaking. 
 
-First, I develop and assess two theories of who should mobilize public pressure campaigns and why.  Each theory has observable implications for which types of groups will run campaigns in different contexts. One stems from leading theories of bureaucratic decision-making and interest group lobbying. It predicts that groups with more resources will dominate all forms of lobbying, including public pressure campaigns. The other emerges from democratic theories. It predicts that groups with fewer material resources but more popular support will more often use public pressure campaigns. <!--Schattschneider1975 Kollman1998-->
+<!-- summary, usual suspects vs underdog. this could be shorter, longer below-->
+First, I develop and assess two theories of who should mobilize public pressure campaigns and why.  Each theory has observable implications for which types of groups will run campaigns in different contexts. One stems from leading theories of bureaucratic decision-making and interest group lobbying. It predicts that groups with more resources will dominate all forms of lobbying, including public pressure campaigns. The other emerges from democratic theories. It predicts that groups with fewer material resources but more popular support will more often use public pressure campaigns. 
 The extent to which public comment periods serve the functions and provide the normative benefits that proponents assert depends on who participates. To begin to make sense of public participation in bureaucratic policymaking, I develop a typology of different kinds of participation, with implications for the normative value of participatory institutions. Because political participation is often a collective affair, this includes a typology of public pressure campaigns. 
 
 To the extent that public pressure campaigns drive participation, the normative value of participatory processes like public comment periods depends on who organizes these campaigns. 
  Suppose public pressure campaigns follow the usual patterns of interest group lobbying, where the groups with the most resources dominate. In that case, the procedural legitimacy they provide is merely a veneer masking the influence of powerful political insiders. Instead of encouraging political oversight, they would discourage it. Instead of diversifying the available information, they would merely reinforce the claims and issue frames of powerful insiders. We would expect a pressure campaign to push policy further in the direction desired by the most powerful insiders.
-On the other hand, if the usual suspects do not dominate public pressure campaigns, they may yet improve the democratic credentials of American policymaking, expand political oversight, and diversify the information available to policymakers. To the extent that public pressure tactics empower groups who are usually left out of the policy process, pressure campaigns may blunt the influence of powerful insiders.
+On the other hand, if the usual suspects do not dominate public pressure campaigns, paticipatory processes may yet improve the democratic credentials of American policymaking, expand political oversight, and diversify the information available to policymakers. To the extent that public pressure tactics empower groups who are usually left out of the policy process, pressure campaigns may blunt the influence of powerful insiders.
 Thus, to understand the empirical effects or normative value of participatory processes like public comment periods, we first need to know who participates and why. To the extent that public participation is mobilzed by campaigns, we need to know who is behind them.
 
 Second, I offer a synthetic theory about the conditions under which we should see private and public interest group campaigns. I argue that public interest groups more often have incentives to launch public pressure campaigns than private interests. However, the resources required to run a campaign will lead a few large public interest groups to dominate. I argue that private interests have incentives to sponsor campaigns (including astroturf campaigns) under much more limited conditions and should thus be less common.^[However, astroturf campaigns are most likely to occur precisely when public pressure is most decisive, so they may still present a normative concern.]
@@ -33,6 +76,8 @@ Second, I offer a synthetic theory about the conditions under which we should se
 To assess these theories, I assemble a new dataset of thousands of public pressure campaigns that collectively mobilized millions of public comments across three administrations from 2005 to 2020. Using a mix of qualitative hand-coding and computational text analysis, I identify the coalitions of groups behind each campaign and the type of interest group they represent. 
 
 I find that mass participation in bureaucratic policymaking is better explained by theories of democratic institutions and conflict expansion rather than existing theories of bureaucratic policymaking. Participation is overwhelmingly driven by the policy advocacy efforts of a few public interest groups. Indeed, just 100 advocacy organizations mobilized over 80% of public comments (40 out of 50 million). Traditional membership organizations and individuals account for a smaller portion, and "astroturf" campaigns are rare, almost exclusivly arising in opposition to a large public interst group campaign, as predicted by my theory.
+
+I proceed in the following steps. Section \@ref(why-theory) reviews literature on civic engagment, democratic politics, and bureaucratic politics an then develops hypotheses about the causes of public engagment in bureaucratic policymaking. Section \@ref(why-methods) introduces a novel dataset systematically capturing public participation in federal agency rulemaking. Section \@ref(why-methods) outlines methods to assess my hypotheses using comment as large-n observational data. Section \@ref(why-results) reviews the results of this analysis. 
 
 <!--broaden public participation, political oversight, and relevant information--and their ultimate impact on policy depends on who organizes them. If 
 <!--Observers often ask how effective public pressure campaigns are. From a political science perspective, the question is 

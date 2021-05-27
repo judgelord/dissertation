@@ -1,7 +1,17 @@
 # Appendix 
+<!--format as appendix-->
 
-## Codebook
+## Models of Bureucratic Policymaking
 
+Assembling the models presented in chapters \@ref(whymail) - \@ref(influence), \@ref(fig:causal-full) presents a full picture of the role of public pressure campaigns in bureaucratic policymaking. 
+
+```{r causal-full}
+knitr::include_graphics(here::here("figs", "causal-full.png"))
+```
+
+## Codebook {#codebook}
+
+The codebook is available [here](https://docs.google.com/document/d/1o1hi0z9O-G9xsgkspOFG2VWzh0wQKjiezzoVpItaCxU/edit).
 
 ## Hard cases 
 
