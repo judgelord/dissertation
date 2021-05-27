@@ -23,6 +23,15 @@ Agenda and Office of Information and Regulatory Affairs Reports on draft
 rules sent to them for review. Summary statistics for these data are
 available in the Appendix.
 
+Importantly, even
+campaigns that achieve very low public response rates appear in these
+data. Because campaigns aim to collect thousands of comments, it is
+implausible that even the most unpopular position would achieve no
+supportive responses. For example, @Potter2017 found Poultry Producers
+averaging only 319 comments per campaign. While this is far from the
+Sierra Club's average of 17,325 comments per campaign, it is also far
+from zero.
+
 
 
 Figure \@ref(fig:comments-per-year) shows an exponential increase in the number of comments per rule over time. Note that comments per rule are on a
