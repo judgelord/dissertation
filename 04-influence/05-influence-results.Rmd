@@ -146,7 +146,7 @@ attr(rows, 'position') <- c(0)
 
 # paper table
 modelsummary::modelsummary( models,
-                            title = "Lobbying success and congressional support",
+                            title = "Lobbying Success and Congressional Support",
                             stars = TRUE,
                             #coef_omit = "president.*|agency.*|Intercept",
                             # coef_map = cm,

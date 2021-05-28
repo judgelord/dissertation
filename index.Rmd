@@ -28,15 +28,15 @@ source(here::here("code", "setup.R"))
 
 - **Astroturf** campaigns are a form of outside lobbying intended to create a deceptive appearance of public support. The group organizing the campaign is only doing so because they are being paid. The individuals mobilized are often either deceived (e.g., intentionally misled about the policy or its likely effects) or financially incentivized to participate. In the extreme, astroturf campaigns may use the names of fake or non-consenting individuals. In contrast, a more grassroots campaign may also require funding, but groups would choose to use resources for such a campaign even without the quid pro quo, and individuals are mobilized based on some pre-existing interest or belief. While grassroots campaigns may involve simplification, spin, and even mild deception, it is not decisive. 
 
-- A **coalition** is a group of actors pursuing the same aims in the same policy fight. Because coordination is difficult to measure, my empirical definition includes individuals and organizations that identify themselves as coordinated and advocate for the same policy outcomes regardless of overt coordination. 
+- A **coalition** is a group of actors pursuing the same aims in the same policy fight. Because coordination is difficult to measure, my empirical definition includes individuals and organizations that identify themselves as coordinated and advocate for the same policy outcomes regardless of overt coordination. A coalition may include organizations lobbying for the same policy outcome for different reasons (e.g., "bootleggers and baptists" coalitions).
 
-- **Going public** describes the choice to pursue an "outside" strategy to influence policy outcomes that aims to expand the scope of conflict and involve more actors than would be involved if the lobbying organization only employed an "inside" lobbying strategy focused on the policymakers.
+- **Going public** describes the choice to pursue an "outside" strategy to influence policy outcomes that aims to expand the scope of conflict and involve more actors than would be involved if the lobbying organization only employed an "inside" lobbying strategy involving professional policy influencers and focused on the policymakers.
 
 - **Lobbying influence** implies a causal effect between an effort to influence policy and a policy outcome.
 
-- **Lobbying success** describes a situation where a group that sought to influence policy got the outcome they sought but does not imply a causal relationship between their effort and the policy outcome.
+- **Lobbying success** describes a situation where a group that sought to influence policy got the outcome they sought without implying a causal relationship between their effort and the policy outcome.
 
-- A **mass commenting campaign** is a type of public pressure campaign focused on mobilizing public comments. Such comments are "mass comments." For analytic purposes, I define a mass comment in Chapter \@ref(why-methods) as any comment with 100 identical copies or uploaded in a batch of 100 or more by the same organization.
+- A **mass commenting campaign** is a type of public pressure campaign focused on mobilizing public comments. Cmments mobilized by such campaigns are often called "mass comments." For analytic purposes, I define a mass comment in Chapter \@ref(why-methods) as any comment sharing a substantial amount of text with 99 other comments or uploaded in a batch of 100 or more by the same organization.
 
 - A **membership organization** is a type of organization formed to serve the interests of a defined membership. Membership organizations may serve their members' narrow material interests or their members' broader visions of the public interest. Some membership organizations are more directly governed by their members than others.
 
@@ -54,60 +54,8 @@ source(here::here("code", "setup.R"))
 
 # Citations to Primary Documents  {-}
 
-I extensively cite public records, including policy documents and public comments. Most of these documents have government-issued identification numbers. Citations to documents published in the Federal Register include an agency acronym, the year the document was published, and a document number (usually five digits, e.g., "CFPB-2020-14935"). If citing a specific paragraph, the citation will appear as "CFPB-2020-14935/p-134." Federal Register documents can be accessed by appending "https://www.federalregister.gov/d/" to the id number, for example, "https://www.federalregister.gov/d/2020-14935/p-134". Citations to documents posted to regulations.gov begin with a docket number, including an agency acronym and the year the rulemaking docket began, followed by a unique document number (e.g., IRS-2016-0015-0125).
+I extensively cite public records, including policy documents and public comments. Most of these documents have government-issued identification numbers. Citations to documents published in the Federal Register include an agency acronym, the year the document was published, and a document number (usually five digits, e.g., "CFPB-2020-14935"). If citing a specific paragraph, the citation will appear as "CFPB-2020-14935/p-134." Federal Register documents can be accessed by appending "federalregister.gov/d/" to the id number, for example, "federalregister.gov/d/2020-14935/p-134". Citations to documents posted to regulations.gov begin with a docket number, including an agency acronym and the year the rulemaking docket began, followed by a unique document number (e.g., "IRS-2016-0015-0125"). Regulations.gov documents can be accessed by appending "regulations.gov/document/" to the docuement id number, for example, "regulations.gov/document/IRS-2016-0015-0125")
 
-\newpage 
-
-
-# Timeline {-} 
-
-- April 15 - All dissertation writing in one document, with placeholder sections describing "to-do" tasks  
-- April 30 - Draft analyses sent to Alex and Dave using samples of real data  
-- May 15 - 100% versions of 1st and 3rd empirical chapters  
-- May 30 - 100% versions of intro and conclusion  
-- June 13 - Mostly complete draft, including 2nd empirical chapter  
-- June 30 - Revised complete draft  
-- July 16 - Final manuscript  
-
- # TODO List
- 
- Overall
-
-- [ ] Review more political science literature in intro, Chapter 2, and Chapter 3
-
-- [ ] Update book outline
- 
-- [ ] Walk through theoretical model step-by-step in each chapter
-
-Chapter 1:
-
-- [ ] Redo figures for chapter 1 with new data
-
-- [ ] Rewrite chapter 1 to better introduce data and theories
-
-Chapter 2:   
-
-- [ ] Final pass of intro and theory sections to align with the "public interest or astroturf?" frame
-
-- [ ] Rewrite data, methods, and conclusion of chapter 2 to align with that frame
-
-Chapter 3:  
-
-- [ ] Finish integrating the middle two empirical chapters into one chapter that will address both the participation of members of congress in rulemaking and the relationship between mass commenting and lobbying success.
-
-- [ ] Walkthrough theory and model, exp. direct pathway 
-
-- [ ] Update hand-coded analysis with non-mass comment sample of rules
-
-- [ ] Add section on validation of automated methods
-
-Chapter 4: minor to-do list here: https://judgelord.github.io/dissertation/ej-appendix#TODO
-
-- [ ] Add coalition size figures 
-
-Chapter 5:  
-
-- [ ] Major rewrite in light of findings
 
 \newpage
 

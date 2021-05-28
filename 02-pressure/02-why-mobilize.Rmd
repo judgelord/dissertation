@@ -11,9 +11,9 @@ Are super mobilizers different from others?
 ### Forms and Drivers of Civic Participation 
 
 Civic engagement includes participation in letter-writing campaigns, petitions, protests, hearings [@Verba1987]. Importantly, @Verba1987 distinguish "citizen-initiated contacts" from "cooperative activity" (pg. 54). Cooperative activities are coordinated and mediated through an organization.
-By coordinating political action, public pressure campaigns expand civic participation in policymaking.^[I folow @Verba1987 in defining "civic participation" as "acts aimed at influencing governmental decisions" [@Verba1987 p. 2]. However, some argue that
-participation only counts if it is deliberative, which mass comment campaigns are not, at least not at the invidual level.<!--@Goodin2006-->
-Other criteria posed by normative theorists that participation should be "genuine," "informed," or "reasoned" are more difficult to assess. Normative theorists may debate whether deliberation among a small number of people is preferable to a large number of people simply expressing their preferences, but empirically, public participation in bureaucratic policymaking is much more the latter [@Shapiro2008b].]
+By coordinating political action, public pressure campaigns expand civic participation in policymaking.^[I follow @Verba1987 in defining "civic participation" as "acts aimed at influencing governmental decisions" [@Verba1987 p. 2]. However, some argue that
+participation only counts if it is deliberative, which mass comment campaigns are not, at least not at the individual level.<!--@Goodin2006-->
+Other criteria posed by normative theorists that participation should be "genuine," "informed," or "reasoned" are more difficult to assess. Normative theorists debate whether deliberation among a small number of people is preferable to a large number of people simply expressing their preferences. But empirically, public participation in bureaucratic policymaking is much more the latter [@Shapiro2008b].]
 
 Self-selection may not be ideal for representation, but
 opt-in participation---whether voting, attending a hearing, or writing a
@@ -30,13 +30,13 @@ result of a public pressure campaign [@Hutchings2003].
 
 > TODO: PLURALIST THEORIES AND GROUP MEDIATION
 
-Forms of civic participation beyond voting, such as protests and petitioning, offer unique opportunities for minority interests as well. Protests to be an effective mechanism for minority interests to communicate preferences to policymakers when electoral mechanisms fail to do so. Policymakers learn and take informational cues from political behaviors like protests (@Gillion2013). @CarpenterPetitions finds similar potential for petitions to serve as a channel to raise "new claims" and influence policy beyond elections: "Petition democracy offer another model of aggregation, where numerical minorities could still make a case of quantitive relevance" (pg. 479). Numbers matter for protests and petitions, regardless of whether they represent a majority. These modes of preference aggretation often claim to represent a substantial segment of the public, perhaps a larger portion than those as passonately opposed to them.
+Forms of civic participation beyond voting, such as protests and petitioning, offer unique opportunities for minority interests. Protests to be an effective mechanism for minority interests to communicate preferences to policymakers when electoral mechanisms fail to do so. Policymakers learn and take informational cues from political behaviors like protests (@Gillion2013). @CarpenterPetitions finds similar potential for petitions to serve as a channel to raise "new claims" and influence policy beyond elections: "Petition democracy offer another model of aggregation, where numerical minorities could still make a case of quantitive relevance" (pg. 479). Numbers matter for protests and petitions, regardless of whether they represent a majority. These modes of preference aggregation often claim to represent a substantial segment of the public, perhaps a larger portion than those as passionately opposed to them.
 
 ### The Role of Organized Groups 
 
 Interest groups play a critical role in American politics. 
 
-Mobilizing citizens and generating new political information (information about the distribution and intensity of policy prefrences and demands) are key functions of interest groups in a democracy [@Mansbridge1992; @Mahoney2007].
+Mobilizing citizens and generating new political information (information about the distribution and intensity of policy preferences and demands) are key functions of interest groups in a democracy [@Mansbridge1992; @Mahoney2007].
 
 
 
@@ -45,7 +45,7 @@ Mobilizing citizens and generating new political information (information about 
 
 As Hacker and Pierson (Forthcoming) observe, 
 
->"[The United States'] institutional terrain advantages political actors with the capacity to work across multiple venues, over extended periods, and in a political environment where coordinated government action is difficult, and strategies of evasion and exit from regulatory constraints are often successful. These capacities are characteristic of organized groups, not individual voters."
+>" [The United States'] institutional terrain advantages political actors with the capacity to work across multiple venues, over extended periods, and in a political environment where coordinated government action is difficult, and strategies of evasion and exit from regulatory constraints are often successful. These capacities are characteristic of organized groups, not individual voters."
 
 
 #### Businesses 
@@ -67,13 +67,13 @@ Some membership organizations join to form larger federations.
 
 Membership organizations often claim to represent more than their membership. 
 
-While political science theories often assume that membership organizations advocate on behalf of somewhat exclusive private interests, they also lobbyign for broader public prefrences of their members [@CITE]. For example, healthcare worker unions frequenly lead policy campaings forcused on public health and even issues like climate change. 
+While political science theories often assume that membership organizations advocate on behalf of somewhat exclusive private interests, they also lobby for their members' broader public preferences [@CITE]. For example, healthcare worker unions frequently lead policy campaigns focused on public health and even issues like climate change. 
 
 
 
 > "As a leading representative of the nation's 28 million small business owners, Small Business Majority is writing to comment on the U.S. Department of the Treasury's proposed rule on Inversions and Related Transactions." ([IRS-2016-0015-0127](https://www.regulations.gov/comment/IRS-2016-0015-0127))
 
-> TODO SECOND ORDER REPRESENTATION DISCUSSION HERE AS TRANSITION? 
+> TODO SECOND-ORDER REPRESENTATION DISCUSSION HERE AS TRANSITION? 
 
 
 #### Advocacy Organizations and the Mobilization of Interest
@@ -84,16 +84,16 @@ While political science theories often assume that membership organizations advo
 Organizations may use phone banks, targeting strategies,
     and direct-mail techniques to drum up and channel public support [@Cooper1985].
     
-Advocacy organizations work together on campaigns. For example, "Save our Environment," which mobilized a quarter-million comments on one rule, is a 501c3 nonprofit with a simple WordPress website run by The Partnership Project, a coalition of 20 of the largest environmental advocacy organizations in the US, including the Sierra Club, Natural Resources Defense Council, Greenpeace, and the World Wildlife Fund. Several Partnership project members, including the Sierra Club, EarthJustice, and NRDC, also mobilized hundreds of thousands of their own supporters.
+Advocacy organizations work together on campaigns. For example, "Save our Environment," which collected signatures from hundreds of thousands of people, is a small nonprofit with a simple WordPress website almost entirely dedicated to mobilizing public comments. It is run by The Partnership Project, a coalition of 20 of the largest environmental advocacy organizations in the US, including the Sierra Club, Natural Resources Defense Council, Greenpeace, and the World Wildlife Fund, with the aim of "harnessing the power of the internet to increase public awareness and activism on today's most important environmental issues." <!--Several Partnership Project members, including the Sierra Club, EarthJustice, and NRDC, also mobilized hundreds of thousands of their own supporters to comment separately.-->
     
 <!-- move below to methods?---> 
     
 Advocacy organizations often claim to represent a large number of "members and supporters" (e.g. [FWS-HQ-ES-2018-0007-47165](https://www.regulations.gov/comment/FWS-HQ-ES-2018-0007-47165))
-For example, in comments on regulations regulating internet gambling, the Poker Players Alliance claimed to represent "more than 840,000 poker enthusiast members" (TREAS-DO-2007-0015-0118). Many of these people became "members" when they signed up to play a free online poker game, but the organization did claim to have mobilized over 150,000 letters to members of Congress, which, if true, would indicate a somewhat active membership. 
+For example, in its comment on proposed regulations on internet gambling, the Poker Players Alliance claimed to represent "more than 840,000 poker enthusiast members" (TREAS-DO-2007-0015-0118). Many of these people became "members" when they signed up to play a free online poker game. However, the organization did claim to have mobilized over 150,000 letters to members of Congress, which, if true, would indicate a somewhat active membership. 
 
 The potential for "cheap talk" in claims of representation is a problem for the ability of groups to communicate credible political information.
 
-To mobilized broader support, advocacy organizations often engage smaller organizations to mobilize their members as well. For example, in a public pressure campaign targeting fishing regulations, in addition to mobilizing thousands of individuals, the Pew Charitable Trusts mobilized members of the New York Underwater Photography Society and hundreds of restaurants that serve sustainable seafood. These smaller organizations did not identify themselves as part of Pew's campaign, but their letters used almost identical language.
+To mobilized broader support, advocacy organizations often engage smaller organizations to mobilize their members as well. For example, in a campaign targeting fishing regulations, in addition to mobilizing thousands of individuals, the Pew Charitable Trusts mobilized members of the New York Underwater Photography Society and hundreds of restaurants that serve sustainable seafood. These smaller organizations did not identify themselves as part of Pew's campaign, but their letters used almost identical language.
 
  
 
@@ -101,24 +101,22 @@ To mobilized broader support, advocacy organizations often engage smaller organi
 
 > TODO @Dahl1985, @Schattschneider1975, @Kollman1998
 
-Organized groups play at least two key functions in a large democracy: (1) organizing and mobilizing people around ideas and intersts and (2) sophisticated lobbying to affect policy. 
+Organized groups play at least two key functions in a large democracy: (1) organizing and mobilizing people around ideas and interests and (2) sophisticated lobbying to affect policy. 
 
 
 <!--conflicgt expansion-->
 An organization and can reshape the political environment by expanding the scope of conflict [@Schattschneider1975]. 
 
 <!--going public-->
-Political actors bring new people into a political fight through press releases, mass mailing, and phonbanking--strategies known as "going public" [@Kollman1998].  
-"Going public," "outside lobbying," or an "outside strategy"  contrasts with insider lobbying. Political actors "go public" when they expand the scope of conflict beyond the usual cadre of political actors. This strategy is used by Presidents
-    [@Kernell2007], Members of Congress [@Malecha2012], interest groups
-    [@Walker1991; @Dur2013], and even Lawyers and Judges [@Davis2011]. For
-    example, organizations may use phone banks, targeting strategies,
+Political actors bring new people into a political fight through press releases, mass mailing, and phonebanking--strategies known as "going public" [@Kollman1998].  
+"Going public," "outside lobbying," or an "outside strategy" contrasts with insider lobbying. Political actors "go public" when they expand the scope of conflict beyond the usual cadre of political actors. This strategy is used by Presidents [@Kernell2007], Members of Congress [@Malecha2012], interest groups
+    [@Walker1991; @Dur2013], and even Lawyers and Judges [@Davis2011]. For example, organizations may use phone banks, targeting strategies,
     and direct-mail techniques to drum up and channel public support [@Cooper1985].
-    For example, when presidents are in difficult negotiations with Congress, they often use their bully pulpet to mobilize segments of the public to pressure elected representatives. Likewise interest groups mobilize segments of the public to policymakers as part of their lobbying strategy.
+    For example, when presidents are in difficult negotiations with Congress, they often use their bully pulpit to mobilize segments of the public to pressure elected representatives. Likewise, interest groups mobilize segments of the public to policymakers as part of their lobbying strategy.
 The ability to mobilize a large number of people can thus be a valuable political resource. 
 
 <!--congress-->
-The dual mobilizing and lobbying functions of many interest gorups have large been addressed in the constext of congressional policymaking. REVIEW CONGRESS PRESSURE GROUP LOBBYING LIT.
+The dual mobilizing and lobbying functions of many interest groups have mostly been studied in congressional policymaking. REVIEW CONGRESS PRESSURE GROUP LOBBYING LIT.
 
 
 
@@ -129,7 +127,7 @@ The dual mobilizing and lobbying functions of many interest gorups have large be
 <!--Scholars of bureaucratic policymaking have focused on
 the sophisticated lobbying efforts of powerful interest groups such as
 business coalitions. -->
-Theories of bureacutic policy making have focused more on the lobbying than mobilizing functions of interest groups. 
+Theories of bureaucratic policymaking have focused more on the lobbying than mobilizing functions of interest groups. 
 Foundational scholarship on rulemaking [@Furlong2005; @Furlong1997; @Furlong1998; @Kerwin2011] focuses on interest group lobbying. Theoretical models focus on how agencies learn about policy problems, negotiate or avoid accountability to various principals, or balance interest-group demands.^[On learning, see @Kerwin2011 and empirical studies by @Yackee2012,
     @Cook2017, @Gordon2018, and @Walters2019. See @Gailmard2017 and
     @Libgober2018 for information-based models where comments reveal information to the agency.
@@ -148,7 +146,7 @@ The key insight from this scholarship is that
 technical information is the currency of insider lobbying. Figure
 \@ref(fig:causal-classic) illustrates the classic causal
 model of insider lobbying that describes most rulemakings and nearly all
-scholarship on lobbying in bureaucratic policymaking to date.^[Diamonds indicate observable choices, ovals indicate latent preferences and rectangles indicate information.]
+scholarship on lobbying in bureaucratic policymaking to date.^[Diamonds indicate observable choices, ovals indicate latent preferences, and rectangles indicate information.]
 <!---However, mass engagement has no place in this model. I aim to fill this
 gap.-->
 
@@ -178,7 +176,7 @@ participate in rulemaking represent only certain (if any) segments of
 the public and may not represent them well [@Seifter2016UCLA].-->
 
 
-The contentious politics of mobilzizing and counter-mobilizing that inspires most public engagement in policymaking have no place in leading models of bureaucratic policymaking and have largely been ignored by political scientists.
+The contentious politics of mobilizing and countermobilizing that inspires most public engagement in policymaking have no place in leading models of bureaucratic policymaking and have largely been ignored by political scientists.
 
 <!--These bursts of civic participation may affect
 rulemaking [@Coglianese2001], but **this intuition has yet to be tested.**-->
@@ -190,9 +188,9 @@ rulemaking [@Coglianese2001], but **this intuition has yet to be tested.**-->
 <!--% MAIN QUESTION 
 ### Incorporating mass engagement into theories of bureaucratic policymaking.--> 
 How, if at all, should scholars incorporate public pressure into models of bureaucratic policymaking?
-Because the role that public pressure may play in policymaking depends on who mobilized it and why, the fist tasks is to develop testable theories about the drivers of public participation.  
+Because the role that public pressure may play in policymaking depends on who mobilized it and why, the first task is to develop testable theories about the drivers of public participation.  
 
-In this section, I first develop two theories about the drivers of public participation in bureaucratic policymaking, one rooted in theories of group conflict and democratic politics and the other rooted in existing theories of interest-group lobbying in bureaucratic policymaking. I then offer a synthetic theory that specifies the conditions under which we should see different kinds of public pressure campaigns. I argue that mass engagement produces potentially valuable political information about the coalition that mobilized it. To the extent that groups aim to influcne poicy, public pressure is a compliment, not a substitute to sophphistated lobbying. Public pressure supports sophisticated lobbying. This can take several forms. 
+In this section, I first develop two theories about the drivers of public participation in bureaucratic policymaking, one rooted in theories of group conflict and democratic politics and the other rooted in existing theories of interest-group lobbying in bureaucratic policymaking. I then offer a synthetic theory that specifies the conditions under which we should see different kinds of public pressure campaigns. I argue that mass engagement produces potentially valuable political information about the coalition that mobilized it. To the extent that groups aim to influence policy, public pressure is a compliment, not a substitute to sophisticated lobbying. Public pressure supports sophisticated lobbying. This can take several forms. 
 
 #### "Ususal Suspects" or "Underdogs"
 
@@ -201,7 +199,7 @@ Political information may play two distinct roles in policymaking with opposite 
 To the extent that well-resourced groups (the "usual suspects") use public pressure campaigns to create a misleading impression of public support (often called "astroturf"), their role is to strengthen and legitimize demands of the same powerful interests that dominate bureaucratic policymaking. Here, just as groups with superior resources use them to flood policymakers with technical information [@Wagner2010], astroturf campaigns convert economic resources into political information in the form of an impression of public support generated by signatures or form letters. Even groups with few members or a narrow or non-existent base of support among the public may create the appearance of public support by sponsoring pressure campaigns. If the powerful business groups that dominate other forms of lobbying also dominate public pressure campaigns, these campaigns (and perhaps public comment periods themselves) are normatively suspect, merely providing a democratic veneer to economic power. Empirically, we would then expect public pressure campaigns to further advantage the most well-resourced interests. 
 
 Alternatively, to the extent that public interest groups use public pressure campaigns are used as conflict expansion tactics by less-resourced groups ("underdogs"), their role is the opposite: to push back against powerful interests that dominate bureaucratic policymaking. The political information created by conflict expansion can reveal existing and potential support among attentive segments of the public. Through public pressure campaigns, groups that lack financial resources can convert latent public support into concrete political information that may cause policymakers to update their beliefs and change their behavior.  
-If mass commenting is mainly a vehicle for public interest groups to convert a latent base of public support into influential political information supporting their representational claims or shineing light on the policy process, public comment periods may yet serve some of the informing, balancing, and democratic functions that practitioners and normative theorists desire. Empirically, we would then expect public pressure campaigns to disadvantage well-resourced interests that dominate most policy processes. 
+If mass commenting is mainly a vehicle for public interest groups to convert a latent base of public support into influential political information supporting their representational claims or shining light on the policy process, public comment periods may yet serve some of the informing, balancing, and democratic functions that practitioners and normative theorists desire. Empirically, we would then expect public pressure campaigns to disadvantage well-resourced interests that dominate most policy processes. 
 
 <!--  % %  I theorize that activists' opportunities and strategies and latent public opinion drive engagement. -->
 
@@ -226,7 +224,7 @@ In contrast to scholars who focus on the deliberative
 potential of public comment processes, I focus on public engagement as a
 tactic aimed at gaining power. Scholars who understand mobilization
 as a tactic [@Furlong1997; @Kerwin2011] have focused on how
-organizations mobilize their membership. I expand on this understanding of mobilization as a lobbying tactic to include the broader audiences that are often mobilized by policy advoacy organizations and pressure groups. The broader audiences mobilized through public pressure campaigns are more akin to the concept of
+organizations mobilize their membership. I expand on this understanding of mobilization as a lobbying tactic to include the broader audiences that are often mobilized by policy advocacy organizations and pressure groups. The broader audiences mobilized through public pressure campaigns are more akin to the concept of
 an attentive public [@Key1961] or issue public [@Converse1964].
 
 Here I build on three insights. First, @Furlong1997 and @Kerwin2011
@@ -238,11 +236,11 @@ lobbying by different business coalitions. While they focus on
 mobilizing experts, I argue that @Nelson2012 describe a dynamic that can be extended
 to public pressure campaigns:
 
-> "strategic recruitment, we theorize, mobilizes new actors to participate in the policymaking process, bringing with them novel technical and political information. In other words, when an expanded strategy is employed, leaders activate individuals and organizations to participate in the policymaking process who, without the coordinating efforts of the leaders, would otherwise not lobby. This activation is important because it implies that coalition lobbying can generate new information and new actors---beyond simply the 'usual suspects'---relevant to policy decisionmakers."
+> "strategic recruitment, we theorize, mobilizes new actors to participate in the policymaking process, bringing with them novel technical and political information. In other words, when an expanded strategy is employed, leaders activate individuals and organizations to participate in the policymaking process who, without the coordinating efforts of the leaders, would otherwise not lobby. This activation is important because it implies that coalition lobbying can generate new information and new actors---beyond simply the 'usual suspects' ---relevant to policy decisionmakers."
 
 Regarding political information, I extend this logic extends to
 non-experts. The number and distribution of ordinary supporters may
-matter because it suggests a *public* consensus, at least among some segment of the attentive public. Instead of bolstering
+matter because it suggests a *public* consensus, at least among some segments of the attentive public. Instead of bolstering
 *scientific* claims, a perceived public consensus bolsters *political*
 claims. To understand why groups
 organize public pressure campaigns, we must understand mass mobilization can be a tactic
@@ -257,7 +255,7 @@ opinion polls.
 I build from a similar intuition that public pressure
 campaigns currently function like a poll or, more accurately, a petition, capturing the intensity of preferences among the attentive
 public---i.e., how many people are willing to take the time to
-engage. Indeed, many campaigns us the language of public opinion and petitioning. For example, a campaign by the World Wildlife Federation provided
+engage. Indeed, many campaigns use the language of public opinion and petitioning. For example, a campaign by the World Wildlife Federation provided
     language explicitly claiming to have public opinion on their side.
     Their model comment cited an opinion poll, stating that "Along with 80% of the American
     people, I strongly support ending commercial trade in elephant ivory
@@ -273,21 +271,21 @@ interests, all of whom oppose offshore drilling," suggesting that claims
 of public and elected official support aim to provide similar kinds of
 political information.
     
-Public pressure campaigns reveal the intensity of passions in attentive segments of the public. Pressure campaigns may presage or co-occur with other efforts like protests and lobbying Congress, thus offering information about other likely pollitcal developments.
+Public pressure campaigns reveal the intensity of passions in attentive segments of the public. Pressure campaigns may presage or co-occur with other efforts like protests and lobbying Congress, thus offering information about other likely political developments.
 
 Building on theories of group conflict in democratic politics, I consider
 public demands to be a latent factor in my model of policymaking (Figure
 \@ref(fig:causal-whymail). Public demands shape the decisions of
 groups who lobby. If they believe the attentive public could be rallied to their cause, groups may attempt to reveal this political information
-to policymakers by launching a public pressure campaign. That is, the extent to which latent public demands align with a group's demands will affect it's lobbying stragegy, specifically whether it decides to launch a public pressure campaign. 
+to policymakers by launching a public pressure campaign. That is, the extent to which latent public demands align with a group's demands will affect its lobbying strategy, specifically whether it decides to launch a public pressure campaign. 
 
 Figure \@ref(fig:causal-whymail) amends the "Classic Model" of interest
-group lobbying (Figure \@ref(fig:causal-classic)) to incorporate public pressure campaings and political information about the attentive public. *In addition to* providing technical information through sophisticated comments, an organization may mobilize supporters to produce political information. This is a key feature of the model: political information is mobilized *in support of* a lobbying coalition's sophisticated legal or technical lobbying effort, not as an alternative to sophisticated lobbying. 
+group lobbying (Figure \@ref(fig:causal-classic)) to incorporate public pressure campaigns and political information about the attentive public. *In addition to* providing technical information through sophisticated comments, an organization may mobilize supporters to produce political information. This is a key feature of the model: political information is mobilized *in support of* a lobbying coalition's sophisticated legal or technical lobbying effort, not as an alternative to sophisticated lobbying. 
 
 The more latent public support a group has, the more successful this mobilization effort will be. 
 The public
-response to the campaign (observed as the sale of public engagment in the policy process) depends on the extent that the attentive public
-is passionate about the issue. A broader and more passionate attentive public will yeild a larger scale of mass engagment than a narrower, less passionate segment base of public support. Thus the observed scale of mass engagment on a given side of a conflict can reveal political information about segments of the public. Large-scale engagement may produce several types of relevant political
+response to the campaign (observed as the sale of public engagement in the policy process) depends on the extent that the attentive public
+is passionate about the issue. A broader and more passionate attentive public will yield a larger scale of mass engagement than a narrower, less passionate segment base of public support. Thus the observed scale of mass engagement on a given side of a conflict can reveal political information about segments of the public. Large-scale engagement may produce several types of relevant political
 information. The most direct and obvious is the expressed "public
 opinion" that policymakers observe.^[I address other types of political information that mass engagement may create elsewhere. For an expanded model, see Figure
     \@ref(fig:causal-full). 
@@ -302,9 +300,9 @@ knitr::include_graphics(here::here("Figs", "causal-whymail.png"))
 
 ```
 
-Because lobbying organizations likely have some idea of the level of public support for their positions, one observable implication of this model is that lobbying organizations will be more likely to launch a public pressure campaign when they have more public support (i.e. where latent public support is a resource). 
+Because lobbying organizations likely have some idea of the level of public support for their positions, one observable implication of this model is that lobbying organizations will be more likely to launch a public pressure campaign when they have more public support (i.e., where latent public support is a resource). 
 
-Instead of a public pressure campaign aimd at mobiling suppoters, a lobby organization may attempt to bypass mass engagment by produing fake evidence of public support. However, as I describe below, this is a risky strategy. 
+Instead of a public pressure campaign aimed at mobilizing supporters, a lobby organization may attempt to bypass mass engagement by producing fake evidence of public support. However, as I describe below, this is a risky strategy. 
 
 #### Second-order Representation
 
@@ -313,9 +311,7 @@ make dubious claims to represent broad segments of the public
 [@Seifter2016UCLA]. If agency staff do not trust an organizations'
 representational claims, engaging actual people may be one of the few
 credible signals of a broad base of support.  This is especially true when
-organizations claim to represent people beyond their official members,
-comments may be the best way to support those claims. 
-to represent these broader segments of the public.
+organizations claim to represent people beyond their official members; comments may be the best way to support those claims. 
 For example, the Natural Resources Defense Council (NRDC), a top mobilizer of public comments, often claims to represent "3 million members
 and online activists" (https://www.nrdc.org/about), presumably including anyone who has donated to or participated in one of its campaigns. Mobilizing comments is one way that NRDC can demonstrate actual support for their position on any given issue.
 
@@ -329,15 +325,12 @@ having a role in crafting the appeal is a meaningful voice and whether
 petitions effectively channel public interests, but, at a minimum,
 engaging a large number of supporters may help broader interests to
 distinguish themselves from truly narrower ones. It suggests that the
-organization is not entirely "memberless" [@Skocpol2003] in the sense that they
+organization is not entirely "memberless" [@Skocpol2003] in the sense that it
 can demonstrate some verifiable public support. An organization mobilizing its members or supporters to take some action lends weight to representational claims that might otherwise be indistinguishable from cheap talk claims that groups often make to represent broad constituencies.
 
 The credibility of the signal that mass engagement provides may be complicated by "astroturf" campaigns, where organizations aim to evoke the image of a larger base of support than they really have. To the extent that support can be effectively faked or inflated using "astroturf" tactics, the political information that pressure campaigns provide will be less accurate and thus valuable to decisionmakers. 
 
-Astroturf campaigns that utilize faked evidence of mass support (e.g. faked petition signatures) bypass the public pressure and mass engagment step entirely, manifesting false political information. However, in a model where political information is a compliment to technical information, supporting a sophisticated lobbying effort, utilizing fake political information is a risky strategy. An organization's reputation--critical to it's ability to provide credible technical information--may be severly harmed if policymakers lean that an organization provided false political information. One observable implication is thus that astrotruf campaigns will be advanced ananonomusly or organizations that do not also engage in sophisticated lobbying in order to provide sophisticated lobbying organizations plausable deniablity. Additionally, becasue policymakers may rationally discount petitions submitted ananomonusly or by groups that lack reputations for credibility, fraudlent campaings have little hope of influenceing policy in this model and may thus be fairly rare compared to a model where political information is not mediated by groups that also engage in sophisticated lobbying. 
-
-
- 
+Astroturf campaigns that utilize faked evidence of mass support (e.g., faked petition signatures) bypass the public pressure and mass engagement step entirely, manifesting false political information. However, in a model where political information is a compliment to technical information, supporting a sophisticated lobbying effort, utilizing fake political information is a risky strategy. Organizations lobbying in repeated interactions with agencies, and an organization's reputation--critical to its ability to provide credible technical information--may be severely harmed if policymakers lean that an organization provided false political information. One observable implication is thus that astroturf campaigns will often be used anonymously or by organizations that do not also engage in sophisticated lobbying in order to provide sophisticated lobbying organizations plausible deniability. Because policymakers may rationally discount petitions submitted anonymously or by groups that lack reputations for credibility, fraudulent campaigns have little hope of influencing policy in this model and may thus be fairly rare compared to a model where political information is not mediated by groups that also engage in sophisticated lobbying. 
 
 
 ### Types of Pressure Campaign Motivations
@@ -346,10 +339,10 @@ Astroturf campaigns that utilize faked evidence of mass support (e.g. faked peti
 
 The effects of public pressure campaigns depend, in part, on the aims of a
 campaign. Campaigns may pursue four distinct aims: (1) to win concessions by *going public*, (2) to *disrupt a perceived consensus*, or (3) to satisfy some audience other than policymakers by *going down fighting* when they anticipate losing or (4) to satisfy some audience other than policymakers by *credit claiming* when they anticipate winning. Going public and disrupting a perceived consensus are, respectively, forms of proactive and reactive outside lobbying. Going down fighting and credit claiming to describe
-situations where the organization mobilizes for reasons other than influencing policy, like engaging or recuriting members. In many cases, "going public" as a lobbying strategy is simultaniously an opportunity to engage and and recruit members, so organizations **going public** to influence policy and engage in power building tactics, especially *credit claiming*. For example, Sierra club organized several campaings around thanking the Obama EPA for new draft environmental policies and the agency to not back down, thus simultaniously engaging members, implying that the Sierra Club had advanced its policy agenda, and pressure policymakers to hold course or strenthen policy rather than bend to countervialing industry pressures.
+situations where the organization mobilizes for reasons other than influencing policy, like engaging or recruiting members. In many cases, "going public" as a lobbying strategy is simultaneously an opportunity to engage and recruit members, so organizations **going public** to influence policy and engage in power-building tactics, especially *credit claiming*. For example, Sierra club organized several campaigns around thanking the Obama EPA for new draft environmental policies and the agency to not back down, thus simultaneously engaging members, implying that the Sierra Club had advanced its policy agenda, and pressure policymakers to hold course or strengthen policy rather than bend to countervailing industry pressures.
 
 **Going public.** Coalitions "go public" when they believe that
-expanding the scope of conflict gives them an advantage. As coalitions that "go public" should that believe they have more intense public
+expanding the scope of conflict gives them an advantage. As coalitions that "go public" should believe they have more intense public
 support, mass engagement is likely to skew heavily toward this side.
 
 Going public is likely to be used by those disadvantaged (those
@@ -370,19 +363,19 @@ decisionmakers perceive a consensus. For example, the level of consensus among i
 **Disrupting a perceived consensus.** I theorize that when coalitions
 with less public support mobilize, it is a reaction to their opponents.
 Because the impression of consensus is potentially powerful, when a coalition goes
-public, an opposing coalition may countermobilize. Because these are coalitions with less intense public support and their aim
-is prevent a perceived consensus, I expect such campaigns to engage
+public, an opposing coalition may countermobilize. Because these are coalitions with less intense public support, and their aim
+is to prevent a perceived consensus, I expect such campaigns to engage
 fewer people, less effort per person, and yield a smaller portion of
-indirect engagement. In the extreme, these campaigns are astroturf, relying on various forms of deception to compensate for a lack of genuine public support.
+indirect engagement. In the extreme, these campaigns are astroturf, relying on various forms of deception to compensate for their lack of genuine public support.
 
 
 
 **Credit claiming** and **going down fighting**. Finally, campaigns may target supporters rather
 than policymakers. When they expect to win, organizations may launch a campaign in order to draw attention to and associate themselves with a positive policy development.  When they expect to lose, organizations may "go down fighting" to fulfill
 supporters' expectations. Both of these "performative" reasons for organizing a mass comment campaign may help engage existing members and recruit new members.  For example, @CarpenterPetitions finds that many anti-slavery petitions were this type of campaign, where "the most important readers of a
-petition are its signatories" rather than the policymakers to whom they are addressed.  "Credit claiming" and "going down fighting" 
+petition are its signatories" rather than the policymakers to whom they are addressed. "Credit claiming" and "going down fighting" 
 campaigns are rooted in logics that are internal to the organization,
-including member retention or recruitment (@Carpenter2014b; @CarpenterPetitions), fundraising, or satisfying a
+including member retention or recruitment [@Carpenter2014b; @CarpenterPetitions[], fundraising, or satisfying a
 board of directors. For example, as Figure \@ref(fig:sierra) shows, the Sierra Club uses campaigns to collect
 contact information of supporters and potential members. Given the executive-branch transition between 2010 when the rule was
 initiated and 2017 when it was delayed, the Sierra Club may have had
@@ -399,8 +392,8 @@ knitr::include_graphics(here::here("Figs", "sierra2.jpeg"))
 ```
 
 
-While more "performative" campaigns may engage many people, they are unlikely to affect
-policy or to inspire countermobilization. <!--I expect such campaigns to
+While more performative campaigns may engage many people, they are unlikely to affect
+policy or inspire countermobilization. <!--I expect such campaigns to
 occur on rules that have high partisan salience (e.g., rules following
 major legislation passed on a narrow vote), rules that propose large
 shifts on policy issues dear to member-funded public interest groups, or
@@ -409,15 +402,14 @@ executive-branch agendas shift more quickly than public opinion.-->
 
 When a lobbying coalition with more intense public support successfully
 mobilizes for reasons other than influencing policy, opposing coalitions
-with less public support have little reason to countermobilize. Thus, member-funded public interest gorups should be more common than campaigns sponsored by narrow private interests, simiply because they have more occasions where it mobilizing has benefits. Most campaings sponsored by narrow private interest should occure in opposition to another campaign, but public interest groups have reasons to launch a campaing when policyh is unlikely to move and thus private interests are unlikely to oppose them.
+with less public support have little reason to countermobilize. Thus, member-funded public interest groups should be more common than campaigns sponsored by narrow private interests, simply because they have more occasions where mobilizing has benefits. Most campaigns sponsored by narrow private interest should occur in opposition to another campaign, but public interest groups have reasons to launch a campaign when policy is unlikely to move, and thus private interests are unlikely to oppose them.
 
-The extent to which a campaign genuinaly aims to influence policy or is pursuing other logics may be difficult to distinguish in
-the observed public response. Indeed, multiple motivations may drive most campaigns and members of the public may poorly
+The extent to which a campaign genuinely aims to influence policy or is pursuing other logics may be difficult to distinguish in
+the observed public response. Indeed, multiple motivations may drive most campaigns, and members of the public may poorly
 understand the different chances of success in each case. 
-However,
-lobbying organization do likely know their chances of success and should
+However, lobbying organization do likely know their chances of success and should
 thus invest less in providing technical information when they see little opportunity to affect policy. By identify cases where coalitions engage in large
-public campaigns without corresponding investment in technica, we may be able to assess whether countermobilization and is indeed less
+public campaigns without corresponding investment in Technica, we may be able to assess whether countermobilization and is indeed less
 likely in these cases. Table
 \@ref(tab:campaigns-patterns) specifies the general pattern of
 engagement suggested by each of the above-described driver mass-comment
@@ -470,21 +462,11 @@ that mass mobilization will systematically run counter to concentrated
 business interests where they conflict with the values of public
 interest groups with sufficient resources to mobilize.
 
-Classifying coalitions as primarily driven by private or public interest provides analitic leverage, but scholars have not converged on a single approach to do so. @Potter2017 distinguishes "advocacy groups" from
-    "industry groups." @Berry1999 calls these groups "citizen groups" and emphasizes conflict over cultural issues. Some public
-    interest groups focus on conservative or progressive cultural
-    issues, like religious education, immigration, or endangered
-    species. Others are more focused on the public provision or protection
-    of public goods such as national parks, consumer product safety
-    standards, air quality, drinking water, and public safety.
-    One particular challenge for classifiction are types of membership organizations that are both
-    broad and often focused on material outcomes for their members, such
-    as labor unions. @Potter2017 puts unions in the "Industry" category.
-    I take a different approach based on the coalition with whom such
-    groups lobby. If a union lobbies alongside businesses [see @Mildenberger2020], I classify
-    this as a private interest-driven coalition. If a union lobbies with
+Classifying coalitions as primarily driven by private or public interest provides analytic leverage, but scholars have not converged on a single approach to do so. @Potter2017 distinguishes "advocacy groups" from
+    "industry groups." @Berry1999 calls these groups "citizen groups" and emphasizes conflict over cultural issues. Some public interest groups focus on conservative or progressive cultural issues, like religious education, immigration, or endangered species. Others are more focused on the public provision or protection of public goods such as national parks, consumer product safety standards, air quality, drinking water, and public safety. Types of membership organizations that are both broad and focused on material outcomes for their members (such as labor unions) are difficult to classify. @Potter2017 puts unions in the "Industry" category.
+    I take a different approach based on the coalition with whom such groups lobby. If a union lobbies alongside businesses [see @Mildenberger2020], I classify this as a private interest-driven coalition. If a union lobbies with
     public interest groups on public health or safety issues, I classify
-    this as a public interestm group coalition.
+    this as a public interest group coalition.
 
 Another challenge for classifying public and private interest groups is that appeals to the government are almost always couched in the language of
 public interest, even when true motivations are private
@@ -492,9 +474,9 @@ public interest, even when true motivations are private
 
 ### Types of Public Engagement
 
-I classify supporters into three types: minimal supporters, passonate supporters, and inspired supporters. The number and ratios of each describe key pieces of
+I classify supporters into three types: minimal supporters, passionate supporters, and inspired supporters. The number and ratios of each describe key pieces of
 political information. In the context of public
-comments, minimal supporters submit comments that are exact copies of a form letter, essentially a petition signature. Is is the  minimal effort required to participate in a campaign. Commenters that also take time to add their own text to a form letter
+comments, minimal supporters submit comments that are exact copies of a form letter, essentially a petition signature. It is the minimal effort required to participate in a campaign. Commenters that also take time to add their own text to a form letter
 indicate more intense preferences. For example, 37,127 commenters mobilized by EarthJustice submitted the same form, but 6,837 of them also added additional personalized comments. Mobilizing organizations often encourage their supporters to write personalized comments and emphasize the number of people who took the time to write personalized comments in their own comments. 
 <!--For example, Earthjustice noted the number of people who wrote personalized comments when it uploaded its mass comment campaign. "Attached is the file containing the names of 37,127 individuals who have submitted public comments urging the Environmental Protection Agency to ban organophosphate and carbamate pesticides. In addition to signing on in support of the following letter, 6,837 individuals of the total number have submitted personalized comments." ([EPA-HQ-OPP-2012-0161-0087](https://www.regulations.gov/comment/EPA-HQ-OPP-2012-0161-0087))] -->
 
@@ -523,19 +505,38 @@ Public pressure campaigns thus produce information about organizational resolve,
 
 The observable implications of the theory described above suggest several testable hypotheses. 
 
-First, when policymaking pits broad public interests against narrower private interests, it is the public interest groups more often incentives to launch a public pressure campaigns.
-
-```{hypothesis, public echo = TRUE}
-Public interest group coalitions mobilize *more often* than private interest group
-(e.g. business-led) coalitions.
+First, national politics in the United States is the terrain of organized groups. While observers frequently talk about ordinary people engaging in policymaking as individuals, political science theory suggests that the participation of individuals who are not professional policy influencers will almost always be mediated by an organized group.  
+<!--2.1-->
+```{hypothesis, meditated, echo = TRUE}
+Most people engage in the policy process as a result of organized public pressure campaigns.
 ```
 
-Hypothesis \@ref(hyp:public) may be evaluated in absolute terms--most public pressure campaigns are lauched by public interest groups--or relative terms--public interest groups are more likely to lobby with the backing of a public pressure campaign than private interests. 
+
+<!--2.2-->
+I argue that public pressure tactics are a compliment, not a substitute for sophisticated technical lobbying. Whereas some previous studies compare mass comment campaigns to technical lobbying efforts, I argue that the relevant unit of analysis is the lobbying coalition and that public pressure is a compliment, not a substitute for sophisticated technical lobbying. 
+
+```{hypothesis, coalitions, echo = TRUE}
+Public pressure campaigns are organized by *coalitions* that include groups that engage in sophisticated technical lobbying.
+```
+
+When policymaking pits broad public interests against narrower private interests, it is the public interest groups more often incentives to launch public pressure campaigns, both for policy and organizational reasons. Hypothesis \@ref(hyp:public) posits a conditional logic in the
+decision to mobilize. If resources drive outside lobbying,
+business-driven coalitions should often dominate, as they do elsewhere.
+However, I argue, because outside lobbying can alter the decision
+environment, those who have the advantage in the usual rulemaking
+process (where a more limited set of actors participate) have little
+incentive to expand the scope of the conflict. Additionally, I argue, public interest groups have greater incentives than businesses to launch public pressure campaigns for reasons other than influencing policy. 
+
+<!--2.3-->
+```{hypothesis, public, echo = TRUE}
+Public interest group coalitions mobilize *more often* than private interest group (e.g., business-led) coalitions.
+```
+
+Hypothesis \@ref(hyp:public) may be evaluated in absolute terms--whether most public pressure campaigns are launched by public interest groups--or relative terms--whether public interest groups are more likely to lobby with the backing of a public pressure campaign than private interests. 
 
 The
-converse---that organizations are more likely to mobilize when they have less public
-support---could also be true. For example, business groups that are
-already advantaged in low salience rulemaking may decide to leverage
+converse could also be true. For example, business groups that are
+already advantaged in the policy process may decide to leverage
 their superior resources further to mobilize support to alter a bad
 reputation or bolster claims that they represent more than their private
 interest. If mobilization most often takes this "astroturf" form, this
@@ -543,20 +544,57 @@ would be evidence against
 \@ref(hyp:public) and Schattschneider's argument that it is the
 disadvantaged who seek to expand the scope of the conflict.
 
-Because the success of a mobilization effort is moderated
-by public support, broader public interest group coalitions ought to
+
+
+If the success of a mobilization effort is moderated
+by latent public support, as my theory asserts, broader public interest group coalitions ought to
 mobilize more people, more effort per person, and more people indirectly
 for the same amount of mobilization effort (e.g., spending or
-solicitations). 
+solicitations). That is, the scale and the intensity of public engagement depend on preexisting support for
+the proposition that people are being asked to support.
 
-```{hypothesis, public-success echo = TRUE}
-Public interest group coalitions mobilize *more successfully* than private interest group
-(e.g. business-led) coalitions. 
+<!--2.4-->
+```{hypothesis, public-success, echo = TRUE}
+Public interest group coalitions mobilize *more successfully* than private interest group (e.g., business-led) coalitions. 
 ```
 
 Following the typology developed above, indicators of success include (1) the number
-of comments supporting a coalition, (2) the effort per comment, and (3) the
-number of comments mobilized indirectly.
+of comments supporting a coalition, (2) the effort per comment, and (3) the number of comments mobilized indirectly.
+
+<!--2.5-->
+Notwithstanding the incentive structure between coalitions advancing broad public interests and narrow private interests, resources and capacity are still necessary conditions to run a campaign. Most organizations that are
+disadvantaged in the policy process also lack resources to launch
+mass mobilization campaigns. 
+
+```{hypothesis, resources, echo = TRUE}
+Public pressure campaigns targeting national policy are most often run by large national policy advocacy organizations.
+```
+
+
+<!--2.6-->
+If private interest groups like businesses primarily use public pressure campaigns to counter a message of public consensus advanced by an opposing lobbying coalition, we should rarely see private interest groups lobbying unopposed. Hypothesis \@ref(hyp:disrupt) would be supported by evidence that public interest group coalitions more often lobby unopposed than private interest groups.
+
+```{hypothesis, disrupt, echo = TRUE}
+If narrow private interest groups (e.g., businesses) lunch public pressure campaigns, it is a response to an opposing campaign. 
+```
+
+
+
+<!--
+Hypothesis \@ref(hyp:disrupt) would be undermined if lobbying organizations
+with less public support are no more likely to engage in outside
+lobbying when their opponents do so. 
+
+While @Potter2017 found industry
+groups were no more likely to advocate for rules to be strengthened,
+weakened or withdrawn, this does not mean that they are not more likely
+to mobilize when their opponents do so.
+-->
+
+
+
+
+
 
 
 
@@ -565,57 +603,25 @@ number of comments mobilized indirectly.
 ```{hypothesis, support, echo = TRUE}
 Lobbying coalitions
 mobilize mass engagement when they perceive the attentive public is on
-their side, have sufficient resources and perceive an opportunity to
+their side, have sufficient resources, and perceive an opportunity to
 influence policy.
 ```
 
 
-The key part of hypothesis (hyp:support) is that mobilizing is correlated with
+The key part of Hypothesis \@ref(hyp:support) is that mobilizing is correlated with
 existing public support, what might be called "grass-roots" support. 
+
+ It is possible
+that the "potentially mobilized" segments of the public are unrelated to
+public support before being contacted by the campaign, for example, if
+mobilization is driven more by partisan identities than issue
+preferences.
 -->
-
-
-The latter parts of (hyp:support) regarding sufficient resources and political
-opportunity are scope conditions. Most organizations that are
-disadvantaged in low-salience rulemaking also lack resources to launch
-mass mobilization campaigns. If an organization does not perceive a
+<!--If an organization does not perceive a
 lobbying opportunity, it would be incorrect to call mobilization a
 lobbying strategy. Many factors may contribute to perceived political
 opportunities. For example, @Moore2017 finds that agencies that use high
 levels of expertise (as defined by @Selin2015) receive fewer comments,
 possibly because mobilizing organizations perceive these rules to be
-less open to influence.
+less open to influence.-->
 
-```{hypothesis, disrupt, echo = TRUE}
-When a lobbying coalition with more intense public support mobilizes successfully in response to an opportunity to influence policy, opposing coalitions with less public support are more likely to countermobilize, but with proportionally smaller results.
-```
-
-
-The first part of (ref:disrupt) would be undermined if lobbying organizations
-with less public support are no more likely to engage in outside
-lobbying when their opponents do so. While @Potter2017 found industry
-groups were no more likely to advocate for rules to be strengthened,
-weakened or withdrawn, this does not mean that they are no more likely
-to mobilize when their opponents do so.
-
-The second part of this hypothesis---that countermobilization is
-proportionally smaller---rests on the intuition that the scale and the intensity of public engagement are moderated by preexisting support for
-the proposition that people are being asked to support. It is possible
-that the "potentially mobilized" segments of the public are unrelated to
-public support before being contacted by the campaign, for example, if
-mobilization is driven more by partisan identities than issue
-preferences.
-
-```{hypothesis, publicinterest, echo = TRUE}
-Public interest group coalitions mobilize more often than
-business-driven coalitions.
-```
-
-
-(ref:public interest) posits a conditional logic in the
-decision to mobilize. If resources purely determined outside lobbying,
-business-driven coalitions would often dominate, as they do elsewhere.
-However, I argue, because outside lobbying can alter the decision
-environment, those who have the advantage in the usual rulemaking
-process (where a more limited set of actors participate) have little
-incentive to expand the scope of the conflict.
