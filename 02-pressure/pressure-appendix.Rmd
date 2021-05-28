@@ -1,0 +1,130 @@
+---
+title: "Public Pressure: Why Do Agencies (sometimes) Get So Much Mail?"
+subtitle: "Appendix and Replication Code" 
+author: "Devin Judge-Lord"
+output:
+    # pdf_document:
+    #   toc: true
+    #   keep_tex: true
+    html_document:
+      highlight: zenburn
+      toc: true
+      toc_float: true
+      code_folding: hide
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r global.options, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      cache = FALSE, 
+                      fig.width=8.5, 
+                      split = T,
+                      fig.align = 'center', 
+                      fig.path='../figs/',
+                      warning=FALSE, 
+                      message=FALSE)
+
+library(modelsummary)
+library(fixest)
+library(tidyverse)
+library(broom)
+library(magrittr)
+library(tidytext)
+library(knitr)
+library(kableExtra)
+
+library(ggplot2); theme_set(theme_bw());
+  options(
+    ggplot2.continuous.color = "viridis",
+    ggplot2.continuous.fill = "viridis"
+  )
+  scale_color_discrete <- function(...){
+    scale_color_viridis_d(..., direction = -1, 
+                          begin = 0, end = .6, option = "plasma")}
+  scale_fill_discrete <- function(...){
+    scale_fill_viridis_d(..., direction = -1, 
+                         begin = 0, end = .6, option = "plasma")}
+  
+  scale_color_continuous <- function(...){
+    scale_color_viridis_c(..., direction = -1, 
+                          option = "plasma")}
+  scale_fill_continuous <- function(...){
+    scale_fill_viridis_c(..., direction = -1, 
+                         option = "plasma")}
+  
+  
+kablebox <- . %>% 
+  head(100) %>% 
+  knitr::kable(digits = 3) %>% 
+  kable_styling() %>% 
+  scroll_box(height = "400px")
+```
+
+# Data
+
+Replication data are available in SQL and Rdata at https://github.com/judgelord/rulemaking 
+
+```{r data}
+load(here::here("data", "rules_metadata.Rdata"))
+
+# alternatively 
+#rules <- dbGetQuery(con, "SELECT * FROM rules")
+
+#FIXME REPLACE WITH date 
+d <- rules %>% mutate(year = str_sub(posted_date, 1,4) %>% as.numeric()) %>%
+  filter(year > 2004, year < 2021, document_type %in% c("Proposed Rule", "Rule"))
+
+load(here::here("data", "comments_min.Rdata"))
+
+```
+
+These data currently include `r unique(rules$docket_id) %>% length()` dockets, `r rules %>% filter(docket_type == "Rulemaking") %>% distinct(docket_id) %>% nrow()` rulemaking dockets from `r min(rules$posted_date, na.rm = T)` to `r max(rules$posted_date, na.rm = T)`. These dockets recieved approxmately `r sum(rules$number_of_comments_received, na.rm = T)` comments.
+
+This analysis relies of data from 2005 through 2020, which include `r unique(d$docket_id) %>% length()` dockets. These dockets recieved approxmately `r sum(d$number_of_comments_received, na.rm = T)` comments. Of these, `r d %>% filter(docket_type == "Rulemaking") %>% distinct(docket_id) %>% nrow()` rulemaking dockets recieved `r d %>% filter(docket_type == "Rulemaking") %>% pull(number_of_comments_received) %>% sum(na.rm = T)` comments.
+
+
+```{r dockets}
+d %>% 
+  distinct(docket_id, year, docket_type) %>% 
+  count(year, docket_type) %>%
+  ggplot() +
+  aes(x = year, y = n, fill = docket_type) +
+  geom_col()
+
+d %>% 
+  distinct(docket_id, year, docket_type, agency_id) %>% 
+  count(year, docket_type, agency_id) %>%
+  group_by(docket_type, agency_id) %>% 
+  mutate(agency_total = sum(n)) %>% 
+  ungroup() %>%
+  slice_max(order_by =  agency_total, n = 160) %>% 
+  ggplot() +
+  aes(x = year, y = n, fill = docket_type) +
+  geom_col() +
+  facet_wrap("agency_id", scales = "free_y")
+```
+
+```{r comments-per-rule}
+d %>% 
+  group_by(year) %>% 
+  summarise(n = sum(number_of_comments_received)) %>%
+  ggplot() +
+  aes(x = year, y = n) +
+  geom_col()
+
+d %>% 
+  group_by(docket_type, agency_id, year) %>% 
+  summarise(n = sum(number_of_comments_received, na.rm = T)) %>% 
+  group_by(docket_type, agency_id) %>% 
+  mutate(agency_total = sum(n, na.rm = T)) %>% 
+  ungroup() %>%
+  slice_max(order_by =  agency_total, n = 160) %>% 
+  ggplot() +
+  aes(x = year, y = n, fill = docket_type) +
+  geom_col() +
+  facet_wrap("agency_id", scales = "free_y") #+  scale_y_log10()
+```
+
+

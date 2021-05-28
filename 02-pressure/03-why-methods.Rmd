@@ -1,7 +1,5 @@
 ## Testing the Theory {#why-data-methods}
 
-
-
 I focus on public comments in federal agency rulemaking, but the theories and methods here may also apply to other kinds of political engagement such as through social media or protests as well as to other political decisions, including state-level rulemaking.^[Social media
     engagement may be especially important if agencies implement the
     recommendations of @ACUS2018 that "Agencies should consider using
@@ -13,11 +11,13 @@ I focus on public comments in federal agency rulemaking, but the theories and me
 
 <!--
 Bring together information on the mass commenting coding in one table with statistics and examples to summarize for the reader.
+
+TODO: CODE
 -->
 
-To assess my hypotheses about the extent to which more powerful or less powerful groups mobilize public participation in bureaucratic policymaking, I collected a corpus of approximately 80 million comments via the
+To assess my hypotheses about which groups should mobilize public participation in bureaucratic policymaking, I collected a corpus of approximately 80 million public comments via the
 regulations.gov API. About 50 million of these comments were on proposed
-rules (over 16,000 proposed rules from 144 agencies from 2005 to 2020). Of these, public pressure campaigns targeted approximately 400 rules from 46 agencies.
+rules (over 16,000 proposed rules from 144 agencies from 2005 to 2020). Of these, public pressure campaigns targeted approximately 2000 rules from 46 agencies.
 I then linked these comments to other data on the rules from the Unified
 Agenda and Office of Information and Regulatory Affairs Reports on draft
 rules sent to them for review. Summary statistics for these data are
@@ -43,12 +43,9 @@ logarithmic scale on the y-axis. Proposed rules that have attracted the most pub
     and Fish and Wildlife Service (FWS).] Increasingly, a large number of people are
 paying attention to agency policymaking.
 
-```{r comments-per-year, fig.cap = "Comments per Proposed Rule and Total Comments per Year", out.width = NULL, out.height = "25%", fig.show = "hold"}
+```{r comments-per-year, fig.cap = "Comments per Proposed Rule 2005-2020 (log scale)", out.width = NULL, out.height = "25%", fig.show = "hold"}
 
 knitr::include_graphics(here::here("Figs", "rules-comments-per-year-1.png"))
-
-knitr::include_graphics(here::here("Figs", "comments-mass-vs-unique.pdf"))
-
 ```
 
 Most public comments are, in fact, of the type suggested by the
@@ -65,22 +62,39 @@ clustered on a few rules made salient by these campaigns.
 
 ### Methods: Measuring Public Pressure and Political Information {#why-methods}
 
+<!--
 In section \@ref(why-theory), I argued that we should observe different patterns of public
 participation depending on whether an organization launches a public pressure
 campaign as an outside lobbying tactic ("going public"), as a reaction to such a campaign ("breaking a perceived consensus"), or
-for reasons other than influencing policy ("credit claiming" or "going down fighting"). In this section, I develop methods to measure these patterns. These measures
+for reasons other than influencing policy ("credit claiming" or "going down fighting").-->
+
+In this section, I develop methods to identify public pressure campaigns and measure the kinds of political information they create. These measures
 capture similar statistics to questions posed by @Verba1987 [p. 9]: "How
 much participation is there, what kind is it, and from what segments of
 society does it come?"
+Specifially, I assess the extent to which public comment are mobilized by pressure campaigns, which groups are behind these campaigns, which campaings are more successful in mobilizing, and which campaigns go unpposed. 
 
+
+
+<!-- step 1-->
+To identify whether a given comment is mobilize by a pressure campaign, I use several strategies.
+ I first use textual similarity to identify
+clusters of similar comments, reflecting formal and informal coalitions.
+Comments with identical text (if any) indicate a coordinated campaign. 
+
+<!-- step 2 REWRITE-->
+Second, I hand-code a large sample of comments. I link individual comments to the more sophisticated
+lobbying efforts they support.
+
+<!-- step 3-->
 To identify the groups mobilizing public pressure campaigns, I develop methods to attribute individual comments to the
 campaigns that mobilized them and to measure the intensity of preferences
-expressed. To link individual comments to the more sophisticated
-lobbying efforts they support, I first use textual similarity to identify
-clusters of similar comments, reflecting formal and informal coalitions.
-Comments with identical text (if any) indicate a coordinated campaign. Through an iterative process of hand-coding and computational methods, I then identify the organization responsible for mobilizing each comment and group organization into coalitions. 
+expressed. 
+Through an iterative process of hand-coding and computational methods, I then identify the organization responsible for mobilizing each comment and group organization into coalitions. 
 
-This approach is significantly different than that employed by previous studies in at least two ways. First, I identify coalitions consisting of multiple organizations. Previous studies measure campaigns at the organization level. For example, @Balla2020 analyze "1,049 mass comment campaigns that occurred during 22 EPA rulemakings"---an average of nearly 50 "campaigns" per rule. By "campaign," @Balla2020 mean an organization's campaign rather than a coalition's campaign. Especially on EPA rules, there are rarely more than two or three coalitions engaging in public pressure campaigns--one of environmental advocacy groups and their allies, another of regulated industry groups and their allies. This is important because many comments that might be attributed to a small business, nonprofit, or membership organization are part of a campaign sponsored by a larger coalition of industry or public interest groups. It would be inappropriate to credit a small organization with little capacity for organizing a campaign when they merely allowed their mailing list to be used by a larger group. Using organizations as the unit of analysis may cause problems. If an analysis counts one coalition's campaign as 40 smaller "campaigns" with the same policy demands and response, this one campaign would be counted as 40 non-independent observations. My methods allow me to measure levels of public pressure per organization and per coalition. 
+
+<!-- not the same as Balla et al-->
+This approach is significantly different than that employed in previous studies in at least two ways. First, I identify coalitions consisting of multiple organizations. Previous studies measure campaigns at the organization level. For example, @Balla2020 analyze "1,049 mass comment campaigns that occurred during 22 EPA rulemakings"---an average of nearly 50 "campaigns" per rule. By "campaign," @Balla2020 mean an organization's campaign rather than a coalition's campaign. Especially on EPA rules, there are rarely more than two or three coalitions engaging in public pressure campaigns--one of environmental advocacy groups and their allies, another of regulated industry groups and their allies. This is important because many comments that might be attributed to a small business, nonprofit, or membership organization are part of a campaign sponsored by a larger coalition of industry or public interest groups. It would be inappropriate to credit a small organization with little capacity for organizing a campaign when they merely allowed their mailing list to be used by a larger group. Using organizations as the unit of analysis may cause problems. If an analysis counts one coalition's campaign as 40 smaller "campaigns" with the same policy demands and response, this one campaign would be counted as 40 non-independent observations. My methods allow me to measure levels of public pressure per organization and per coalition. 
 
 The second major difference between my approach and previous research is that I do not compare sophisticated comments to mass comments. Rather, I *attribute* mass comments to organizations and coalitions that also submit sophisticated technical comments. This difference is less important to the present analysis of the drivers of public pressure campaigns, but the set of comparisons one makes is critical to any study of responsiveness or policy influence. Researchers may reach different conclusions if they compare different things. Consider a study comparing agency responsiveness to Sierra Club form letters to agency responsiveness to the Sierra Club's sophisticated comments. Now consider a study that compares responsiveness to the Sierra Club's sophisticated comments across rules where they did and did not run a mass comment campaign. Likewise, a study comparing the average influence of form-letter comments to the average influence of sophisticated comments is very different from a study that compares the influence of two sets of sophisticated comments with different *levels* of public pressure behind them. By measuring comments per coalition, both through hand-coding and through text reuse, I capture different levels of public pressure than we would see if one were to look only at comments per organization. 
 
@@ -188,6 +202,12 @@ that gives the appearance of grassroots support
 > CITE STEVES ASTROTURF PAPER AND RELATED LIT
 
 -->
+
+### To What Extent is Public Participation Mediated by Groups?
+
+```{r comments-per-year, fig.cap = "Public Comments 2005-2020", out.width = NULL, out.height = "25%", fig.show = "hold"}
+knitr::include_graphics(here::here("Figs", "comments-mass-vs-unique.pdf"))
+```
 
 ### Who lobbies?
 
