@@ -15,13 +15,68 @@ Bring together information on the mass commenting coding in one table with stati
 TODO: CODE
 -->
 
-To assess my hypotheses about which groups should mobilize public participation in bureaucratic policymaking, I collected a corpus of approximately 80 million public comments via the
-regulations.gov API. About 50 million of these comments were on proposed
-rules (over 16,000 proposed rules from 144 agencies from 2005 to 2020). Of these, public pressure campaigns targeted approximately 2000 rules from 46 agencies.
+
+
+```{r}
+load(here::here("data","rules_metadata.Rdata"))
+
+# min(rules$posted_date, na.rm = T)
+# max(rules$posted_date, na.rm = T)
+
+dockets <- rules %<>% 
+    filter(docket_title != "EPA Training Docket") %>%
+    group_by(docket_id) %>%
+  mutate(year = str_sub(posted_date, 1, 4) %>% as.numeric(),
+         comments = sum(number_of_comments_received),
+         open = !is.na(comment_start_date)|!is.na(comment_due_date)|number_of_comments_received > 0,
+         open = sum(open, na.rm = T) > 0
+)
+
+rules %<>% filter(year >2004, year <2021, docket_type == "Rulemaking")
+
+mass <- filter(rules, comments > 100)
+
+top10 <- slice_max(mass %>% ungroup() %>% distinct(docket_id, comments), order_by =  comments, n = 10) 
+```
+
+To assess my hypotheses about which groups should mobilize public participation in bureaucratic policymaking, I collected a corpus of approximately `r dockets$number_of_comments_received %>% sum() %>% {./1000000} %>% round()` million public comments via the
+regulations.gov API. `r rules$number_of_comments_received %>% sum() %>% {./1000000} %>% round()` million of these comments are on rulemaking dockets.
 I then linked these comments to other data on the rules from the Unified
 Agenda and Office of Information and Regulatory Affairs Reports on draft
 rules sent to them for review. Summary statistics for these data are
 available in the Appendix.
+
+From 2005 to  2020, agencies posted `r nrow(distinct(rules, docket_id))` rulemaking dockets to regulations.gov. and solicited public comments on `r nrow(distinct(rules %>% filter(open), docket_id))`. Only `r nrow(distinct(mass, docket_id))` rulemaking dockets received more than 100 comments, but these rules garnered `r percent(sum(mass$number_of_comments_received)/sum(rules$number_of_comments_received), accuracy = .01)`, or `r sum(mass$number_of_comments_received)`, of the comments. The top 10 rulemaking dockets account for `r percent(sum(top10$comments)/sum(rules$number_of_comments_received), accuracy = .01)` (`r sum(top10$comments)`), of the comments.
+
+
+```{r}
+rules %>% 
+    distinct(docket_title, comments) %>%
+    ungroup() %>%
+    group_by(docket_id) %>% 
+    slice(n = 1, with_ties = FALSE) %>% 
+    ungroup() %>%
+    arrange(-comments) %>% 
+    head(100) %>%
+    mutate(docket_title = docket_title %>% #str_replace_all(";|:|–|--", ";\n") %>% 
+               str_sub(0,100)) %>%
+    mutate(docket_title = ifelse(nchar(docket_title) == 100, str_c(docket_title, "..."), docket_title) ) %>%# pull(docket_title)
+    # ggplot() +
+    # aes(x = docket_id, y = comments) +
+    # geom_col() + 
+    # coord_flip()
+    #kablebox()
+    kable3(caption = "Rulemaking Dockets by Number of Comments on regulations.gov, 2005-2020")
+```
+
+Figure
+\@ref(fig:comments-density) shows a sample of rules matched to Office of Information and Regulatory Affairs coding for major and non-major rules 
+```{r comments-density, out.width = "99%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2005-2020"}
+
+knitr::include_graphics(here::here("Figs", "major-comments-density-1.png"))
+```
+
+
 
 Importantly, even
 campaigns that achieve very low public response rates appear in these
@@ -40,19 +95,14 @@ logarithmic scale on the y-axis. Proposed rules that have attracted the most pub
     omitted from this plot), the Environmental Protection Agency (EPA),
     the Department of Interior (DOI), the Bureau of Ocean Energy
     Management (BOEM), the Consumer Financial Protection Bureau (CFPB),
-    and Fish and Wildlife Service (FWS).] Increasingly, a large number of people are
+    and Fish and Wildlife Service (FWS). Increasingly, a large number of people are
 paying attention to agency policymaking.
 
-```{r comments-per-year, fig.cap = "Comments per Proposed Rule 2005-2020 (log scale)", out.width = NULL, out.height = "25%", fig.show = "hold"}
+```{r comments-per-year, fig.cap = "Comments per Proposed Rule 2005-2020 (log scale)", out.width = "55%", fig.show = "hold"}
 
 knitr::include_graphics(here::here("Figs", "rules-comments-per-year-1.png"))
 ```
 
-Figure
-\@ref(fig:comment-density) shows the sources of incoming comments 
-```{r, comments-from, out.width = "69%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
-knitr::include_graphics(here::here("Figs", "comments-from.pdf"))
-```
 
 <!--
 ### Spontaneous or mediated?
@@ -262,11 +312,11 @@ negative sentiment words belong together.
 #### Classifying Public and Private Interests
 
 <!-- step 3 public vs private coalitions-->
-I code each coalition as primarily advancing an idea of the public interest or more narrow private interests. Public interest coalitions are almost always entirely nonprofits and governments, and private interest coalitions tend to be companies and industry associations. Still, some nonprofits lobby on behalf of companies, and some companies join forces with public interest groups. These can create "hard" cases. For example, a coalition of environmental groups mobilized recreational fishing businesses ([NOAA-NMFS-2012-0059-0185](https://www.regulations.gov/comment/NOAA-NMFS-2012-0059-0185) and sustainable seafood restaurants to help push for stricter commercial fishing regulations. We know environmental groups mobilized the restaurants because they used a form letter from a nonprofit called the Gulf Restoration Network. I coded this as a public interest coalition. If, instead, the businesses had led this lobbying effort and enlisted a few nonprofits to help protect their business interests, I would have coded this as a private interest coalition. The vast majority of coalitions were much more straightforward to code as public or private.
+I code each coalition as primarily advancing an idea of the public interest or more narrow private interests. Public interest coalitions are almost always entirely nonprofits and governments, and private interest coalitions tend to be companies and industry associations. Still, some nonprofits lobby on behalf of companies, and some companies join forces with public interest groups. These can create "hard" cases. For example, a coalition of environmental groups mobilized recreational fishing businesses ([NOAA-NMFS-2012-0059-0185](https://www.regulations.gov/comment/NOAA-NMFS-2012-0059-0185)) and sustainable seafood restaurants to help push for stricter commercial fishing regulations. We know environmental groups mobilized the restaurants because they used a form letter from a nonprofit called the Gulf Restoration Network. I coded this as a public interest coalition. If, instead, the businesses had led this lobbying effort and enlisted a few nonprofits to help protect their business interests, I would have coded this as a private interest coalition. The vast majority of coalitions were much more straightforward to code as public or private.
 
 #### Coding Policy Positions
 
-To assess whether organizations and their broader coalitions lobby in opposition to other interests or unopposed, I code the position of each organization on each proposed policy (Figure \@ref(fig:spatial)). For example, if the ideal point of the commenter $i$ is the current policy ($\alpha_i = x_1$) or close to it, they will oppose any change. If the ideal point of commenter $i$ is the new proposed policy ($\alpha_i = x_1$) or closer to it, they likely support the proposal. While incompatible with a monotonic model of preferences, commenters do occasionally oppose a policy change for moving insufficiently in their preferred direction (e.g., describing the proposal as "too little" or "insufficient" to gain their support). Such positions are likely the result of the repeated game nature of policymaking, where commenters believe that rejecting a small change in their preferred direction now is likely to result in a larger change later. 
+To assess whether organizations and their broader coalitions lobby in opposition to other interests or unopposed, I code the position of each organization on each proposed policy (Figure \@ref(fig:spatial-coding)). For example, if the ideal point of the commenter $i$ is the current policy ($\alpha_i = x_1$) or close to it, they will oppose any change. If the ideal point of commenter $i$ is the new proposed policy ($\alpha_i = x_1$) or closer to it, they likely support the proposal. While incompatible with a monotonic model of preferences, commenters do occasionally oppose a policy change for moving insufficiently in their preferred direction (e.g., describing the proposal as "too little" or "insufficient" to gain their support). Such positions are likely the result of the repeated game nature of policymaking, where commenters believe that rejecting a small change in their preferred direction now is likely to result in a larger change later. 
 
 
 
