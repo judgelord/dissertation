@@ -10,7 +10,12 @@ Are super mobilizers different from others?
 
 ### Forms and Drivers of Civic Participation 
 
-Civic engagement includes participation in letter-writing campaigns, petitions, protests, hearings [@Verba1987]. Importantly, @Verba1987 distinguish "citizen-initiated contacts" from "cooperative activity" (pg. 54). Cooperative activities are coordinated and mediated through an organization.
+Civic engagement includes participation in letter-writing campaigns, petitions, protests, hearings [@Verba1987]. Importantly, @Verba1987 distinguish "citizen-initiated contacts" from "cooperative activity" (pg. 54).
+Political behavior survey research tends to forcuse on the political behavior of individuals. Activities like letter-writing are thus often studied as what @Verba1987 call "citizen-initiated contacts."
+Administrative law scholarship often discusses individual participants in rulemaking in a similar light.
+@Cuellar2005 finds that members of the "lay public" raise important new concerns beyond those raised by interest groups. He advocates for institutional reforms that would make it easier for individuals to participate and increase the sophistication of individual comments on proposed policies. 
+
+Cooperative activities are coordinated and mediated through an organization.
 By coordinating political action, public pressure campaigns expand civic participation in policymaking.^[I follow @Verba1987 in defining "civic participation" as "acts aimed at influencing governmental decisions" [@Verba1987 p. 2]. However, some argue that
 participation only counts if it is deliberative, which mass comment campaigns are not, at least not at the individual level.<!--@Goodin2006-->
 Other criteria posed by normative theorists that participation should be "genuine," "informed," or "reasoned" are more difficult to assess. Normative theorists debate whether deliberation among a small number of people is preferable to a large number of people simply expressing their preferences. But empirically, public participation in bureaucratic policymaking is much more the latter [@Shapiro2008b].]
@@ -230,7 +235,9 @@ an attentive public [@Key1961] or issue public [@Converse1964].
 Here I build on three insights. First, @Furlong1997 and @Kerwin2011
 identify mobilization as a tactic. The organizations that they surveyed
 reported that forming coalitions and mobilizing large numbers of people
-are among the most effective lobbying tactics. Second, @Nelson2012
+are among the most effective lobbying tactics.  Studies of rulemaking stress the importance of coalitions [@Yackee2006JOP; @Dwidar2019]. Scholars have measured coalitions of organized groups but have yet to attribute citizen comments to the coalition that mobilized them.
+
+ Second, @Nelson2012
 identify political information as a potentially influential result of
 lobbying by different business coalitions. While they focus on
 mobilizing experts, I argue that @Nelson2012 describe a dynamic that can be extended
@@ -506,13 +513,14 @@ Public pressure campaigns thus produce information about organizational resolve,
 The observable implications of the theory described above suggest several testable hypotheses. 
 
 First, national politics in the United States is the terrain of organized groups. While observers frequently talk about ordinary people engaging in policymaking as individuals, political science theory suggests that the participation of individuals who are not professional policy influencers will almost always be mediated by an organized group.  
-<!--2.1-->
+
+<!--1-->
 ```{hypothesis, meditated, echo = TRUE}
 Most people engage in the policy process as a result of organized public pressure campaigns.
 ```
 
 
-<!--2.2-->
+<!--2-->
 I argue that public pressure tactics are a compliment, not a substitute for sophisticated technical lobbying. Whereas some previous studies compare mass comment campaigns to technical lobbying efforts, I argue that the relevant unit of analysis is the lobbying coalition and that public pressure is a compliment, not a substitute for sophisticated technical lobbying. 
 
 ```{hypothesis, coalitions, echo = TRUE}
@@ -527,7 +535,7 @@ environment, those who have the advantage in the usual rulemaking
 process (where a more limited set of actors participate) have little
 incentive to expand the scope of the conflict. Additionally, I argue, public interest groups have greater incentives than businesses to launch public pressure campaigns for reasons other than influencing policy. 
 
-<!--2.3-->
+<!--3-->
 ```{hypothesis, public, echo = TRUE}
 Public interest group coalitions mobilize *more often* than private interest group (e.g., business-led) coalitions.
 ```
@@ -553,7 +561,7 @@ for the same amount of mobilization effort (e.g., spending or
 solicitations). That is, the scale and the intensity of public engagement depend on preexisting support for
 the proposition that people are being asked to support.
 
-<!--2.4-->
+<!--4-->
 ```{hypothesis, public-success, echo = TRUE}
 Public interest group coalitions mobilize *more successfully* than private interest group (e.g., business-led) coalitions. 
 ```
@@ -561,7 +569,7 @@ Public interest group coalitions mobilize *more successfully* than private inter
 Following the typology developed above, indicators of success include (1) the number
 of comments supporting a coalition, (2) the effort per comment, and (3) the number of comments mobilized indirectly.
 
-<!--2.5-->
+<!--5-->
 Notwithstanding the incentive structure between coalitions advancing broad public interests and narrow private interests, resources and capacity are still necessary conditions to run a campaign. Most organizations that are
 disadvantaged in the policy process also lack resources to launch
 mass mobilization campaigns. 
@@ -571,7 +579,7 @@ Public pressure campaigns targeting national policy are most often run by large 
 ```
 
 
-<!--2.6-->
+<!--6-->
 If private interest groups like businesses primarily use public pressure campaigns to counter a message of public consensus advanced by an opposing lobbying coalition, we should rarely see private interest groups lobbying unopposed. Hypothesis \@ref(hyp:disrupt) would be supported by evidence that public interest group coalitions more often lobby unopposed than private interest groups.
 
 ```{hypothesis, disrupt, echo = TRUE}

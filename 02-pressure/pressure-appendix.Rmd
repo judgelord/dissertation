@@ -128,3 +128,11 @@ d %>%
 ```
 
 
+# Methods 
+
+## Oganization types
+Membership organization comments to look like this comment from the NorthEast Hook Fisherman's Association:
+
+> "We represent a small group of Commercial Fishermen with the Limited Access Handgear HA Permits, employing the use rod and reel, handlines or tub trawls to catch Cod, Haddock, and Pollock along with small quantities of other regulated and non-regulated marine fish. Historically and currently, our fishermen account for a small percentage of the groundfish landed in New England. However, the monetary gains obtained by the participants in this fishery are very important to us." ([NOAA-NMFS-2013-0050-0025](https://www.regulations.gov/comment/NOAA-NMFS-2013-0050-0025))
+
+Similar groups, narrowly concerned about shrimp and halibut catch limits, also commented on this rule on behalf of their members. 

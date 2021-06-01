@@ -31,23 +31,37 @@ Figure
 knitr::include_graphics(here::here("Figs", "major-comments-density-1.png"))
 ```
 
-Figure
-\@ref(fig:comment-density) shows the sources of incoming comments 
-```{r, comments-from, out.width = "69%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
-knitr::include_graphics(here::here("Figs", "comments-from.pdf"))
-```
+
 
 ### Most comments result from mass-comment campaigns.
 
+Most public comments are, in fact, of the type suggested by the
+solicitations on Regulations.gov---ordinary people voicing opinions on a proposed policy. They do not provide useful technical information or
+suggest specific edits to policy texts like the interest group comments
+that have thus far captured the attention of political scientists. If
+they add information to rulemaking, it is a different, more political
+flavor of information. Indeed as Figure
+\@ref(fig:comments-mass) shows, every year since 2008, most people who
+comment on draft regulations have done so as a result of a public pressure campaign.^[At least for agencies participating in regulations.gov. See
+    sections
+    \@ref(why-methods) for my definition and methods for identifying mass comments.] Public engagement in rulemaking is highly
+clustered on a few rules made salient by these campaigns. 
+
+
+```{r comments-mass, fig.cap = "Public Comments 2005-2020", out.width = NULL, out.height = "25%", fig.show = "hold"}
+knitr::include_graphics(here::here("Figs", "comments-mass-vs-unique.pdf"))
+```
+
+
 Figure
-\@ref(fig:comments-mass) shows all comments posted on
+\@ref(fig:comments-classified) shows all comments posted on
 regulations.gov over time by whether they are exact or partial copies of
 another comment on the same rule or not. I call comments that have between 2 and 99
 identical copies, "medium batch" because such comments may reflect
 coordinated efforts among interest groups that do not include a public
 pressure strategy that involves mobilizing ordinary people. Even relatively unsuccessful public pressure campaigns yield far more than 99 comments. "Mass comments" are comments with 100 or more identical copies or comments that were uploaded in bulk batches of at least 100. These were almost certainly mobilized by a public pressure campaign. Figure \@ref(fig:comments-mass) shows that public pressure campaigns mobilize the vast majority of comments. 
 
-```{r comments-mass, out.width = "49%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
+```{r comments-classified, out.width = "49%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
 
 knitr::include_graphics(here::here("Figs", "comments-mass-1.png"))
 ```
