@@ -27,6 +27,8 @@ fig:comments-mass
 tab:toporgs
 fig:topdockets
 fig:comments-support
+fig:causal-classic2
+fig:causal-whymail2
 fig:causal-oversight-2
 fig:congress
 fig:causal-oversight
@@ -118,6 +120,11 @@ policy-influence-do-public-pressure-campaigns-influence-bureaucratic-policymakin
 introduction-1
 interest-group-influence
 public-pressure
+influence-theory
+how-might-ordinary-people-matter
+public-pressure-a-political-resource
+mass-comment-campaigns
+formal
 oversight-theory
 principal-agent-relationships-during-rulemaking
 incorporating-political-information-into-models-of-political-oversight

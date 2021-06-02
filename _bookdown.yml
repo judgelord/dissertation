@@ -24,6 +24,7 @@ rmd_files:
 #  - 03-oversight/00-abstract.Rmd # oversight (rolled into next chapter for now)
   - 04-influence/00-abstract.Rmd # influence
   - 04-influence/01-influence-intro.Rmd 
+  - 04-influence/02-influence-theory.Rmd 
   - 03-oversight/01-oversight-intro.Rmd
   - 04-influence/03-influence-methods.Rmd 
   - 03-oversight/03-oversight-methods.Rmd 
