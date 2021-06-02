@@ -13,8 +13,9 @@ output:
       code_folding: hide
 editor_options: 
   chunk_output_type: console
+  markdown: 
+    wrap: 72
 ---
-
 
 ```{r global.options, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, 
@@ -64,7 +65,8 @@ kablebox <- . %>%
 
 # Data
 
-Replication data are available in SQL and Rdata at https://github.com/judgelord/rulemaking 
+Replication data are available in SQL and Rdata at
+<https://github.com/judgelord/rulemaking>
 
 ```{r data}
 load(here::here("data", "rules_metadata.Rdata"))
@@ -80,11 +82,25 @@ load(here::here("data", "comments_min.Rdata"))
 
 ```
 
-These data currently include `r unique(rules$docket_id) %>% length()` dockets, `r rules %>% filter(docket_type == "Rulemaking") %>% distinct(docket_id) %>% nrow()` rulemaking dockets from `r min(rules$posted_date, na.rm = T)` to `r max(rules$posted_date, na.rm = T)`. These dockets recieved approxmately `r sum(rules$number_of_comments_received, na.rm = T)` comments.
+These data currently include `r unique(rules$docket_id) %>% length()`
+dockets,
+`r rules %>% filter(docket_type == "Rulemaking") %>% distinct(docket_id) %>% nrow()`
+rulemaking dockets from `r min(rules$posted_date, na.rm = T)` to
+`r max(rules$posted_date, na.rm = T)`. These dockets received
+approximately `r sum(rules$number_of_comments_received, na.rm = T)`
+comments.
 
-This analysis relies of data from 2005 through 2020, which include `r unique(d$docket_id) %>% length()` dockets. These dockets recieved approxmately `r sum(d$number_of_comments_received, na.rm = T)` comments. Of these, `r d %>% filter(docket_type == "Rulemaking") %>% distinct(docket_id) %>% nrow()` rulemaking dockets recieved `r d %>% filter(docket_type == "Rulemaking") %>% pull(number_of_comments_received) %>% sum(na.rm = T)` comments.
+This analysis relies of data from 2005 through 2020, which include
+`r unique(d$docket_id) %>% length()` dockets. These dockets received
+approximately `r sum(d$number_of_comments_received, na.rm = T)`
+comments. Of these,
+`r d %>% filter(docket_type == "Rulemaking") %>% distinct(docket_id) %>% nrow()`
+rulemaking dockets received
+`r d %>% filter(docket_type == "Rulemaking") %>% pull(number_of_comments_received) %>% sum(na.rm = T)`
+comments.
 
 ## Dockets
+
 ```{r dockets}
 d %>% 
   distinct(docket_id, year, docket_type) %>% 
@@ -111,6 +127,7 @@ d %>%
 > TODO
 
 ## Comments per rule
+
 ```{r comments-per-rule}
 d %>% 
   group_by(year) %>% 
@@ -133,55 +150,62 @@ d %>%
 ```
 
 ## Comments
-Figure
-\@ref(fig:comment-from) shows the sources of incoming comments 
+
+Figure \@ref(fig:comment-from) shows the sources of incoming comments
+
 ```{r, comments-from, out.width = "69%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
 knitr::include_graphics(here::here("Figs", "comments-from.pdf"))
 ```
 
-
-
 ## Organizations
 
 Organizations Mobilizing the Most Public Comments 2005-2020
+
 ```{r orgs-top}
 #orgs-top
 load(here("data", "org_comments.Rdata"))
 
 org_comments %<>% mutate(org_name = organization %>% 
-                           str_rm_all("\\(.*| Action Fund|^The |of the United States| - .*|:.*|Mass Comment Campaign of the |/.*| USA$") %>%
+                           str_rm_all("\\(.*| Action Fund|^The |of the United States| - .*|:.*|Mass Comment Campaign of the |/.*| USA$|\\.com") %>%
+                           str_squish() %>%
+                           str_to_title() %>%
                            str_replace(".*Sierra.*", "Sierra Club")%>% 
-                           str_replace("NRDC.*|Natural Resources Defense Council.*", "Natural Resources Defense Council")%>% 
-                           str_replace(".*Center For Biological Diversity.*", "Center For Biological Diversity")%>% 
+                           str_replace(".*Nrdc.*|Natural Resources Defense Council.*", "Natural Resources Defense Council")%>% 
+                           str_replace(".*Center For Biological Diversity.*|Cneter For Biological Diversity", "Center For Biological Diversity")%>% 
                            str_replace(".*World Wildlife Fund.*|.WWF", "World Wildlife Fund")%>%
                            str_replace(".*Greenpeace.*", "Greenpeace")%>%
-                           str_replace(".*credo.*", "credo")%>%
+                           str_replace(".*Credo.*", "credo")%>%
                            str_replace(".*Defenders Of Wildlife.*", "Defenders Of Wildlife")%>%
                            str_replace(".*Friends Of The Earth.*", "Friends Of The Earth")%>%
                            str_replace(".*Earthjustice.*", "Earthjustice")%>%
-                           str_replace(".*credo.*", "credo")%>%
+                           str_replace(".*Defenders Of Wildlife.*", "Defenders Of Wildlife")%>%
+                           str_replace(".*American Heart Association.*", "American Heart Association")%>%
+                           str_replace(".*Audubon.*", "Audubon")%>%
                            str_replace(".*Wildlife Conservation Society.*", "Wildlife Conservation Society")%>%
-                           str_replace(".*OCEANA.*", "OCEANA")%>%
-                           str_replace(".*credo.*", "credo")%>%
+                           str_replace(".*Oceana.*", "OCEANA")%>%
+                                                      str_replace(".*Planned Parenthood.*", "Planned Parenthood")%>%
+
+                           str_replace(".*Moveon.*|.*Move On.*", "credo")%>%
                            str_replace("Nat'l", "National")%>% 
-                           str_replace(".*IFAW.*", "INTERNATIONAL FUND FOR ANIMAL WELFARE")%>% 
-                           str_replace("HUMANE SOCIETY.*|HSUS.*|.*\\bHSI\\b.*", "HUMANE SOCIETY")%>%
-                           str_replace("MOM'S RISING|MOMSRIISNG", "MOMS RISING")%>%
+                           str_replace(".*Ifaw.*", "INTERNATIONAL FUND FOR ANIMAL WELFARE")%>% 
+                           str_replace(".*Humane Society.*|HSUS.*|.*\\bHSI\\b.*", "Humane Society")%>%
+                           str_replace("Moms Rising|Momsrising|Mom's Rising|Momsrisiing", "Moms Rising")%>%
+                           str_replace("Care 2|Care2", "Care2")%>%
                            str_replace("Preventobesity.*", "American Heart Association")%>%
-                           str_replace(".*AXCESS\\b.*", "AXCESS FINANCIAL")%>%
-                           str_replace(".*American Petroleum Institute.*|.*\\bAPI\\b.*", "American Petroleum Institute") %>%
+                           str_replace("Axess.*|.*Axcess\\b.*", "AXCESS FINANCIAL")%>%
+                           str_replace(".*American Petroleum Institute.*|.*\\bApi\\b.*", "American Petroleum Institute") %>%
                            str_replace(".*Consumer Energy Alliance.*", "Consumer Energy Alliance") %>%
                            str_squish() %>%
                            str_to_title(),
-                         organization = ifelse(nchar(organization)<10, str_to_upper(organization), organization) )
+                         org_name = ifelse(nchar(org_name)<10, str_to_upper(org_name), org_name) )
 
 # On non-rulemaking dockets 
 #org_comments %>% filter(str_dct(organization, "Electric Cooperatives"))
 
-save(here::here(org_comments, "data", "org_comments.Rdata"))
+save(org_comments, file =  here::here("data", "org_comments.Rdata"))
 
 
-org_comments %>% 
+org_comments_summary <- org_comments %>% 
   group_by(org_name, docket_id) %>% 
   summarise(comments = sum(number_of_comments_received, na.rm = T) ) %>%
   ungroup() %>% 
@@ -194,62 +218,88 @@ org_comments %>%
   mutate(percent = percent(campaigns/rules, accuracy = .1),
          average = round(comments/campaigns)) %>% 
   filter(!str_dct(org_name, "^NA$|unknown|individuals|n/a|^N$")) %>%
-  arrange(-comments) %>%
+  arrange(-comments)  %>% 
+  filter(comments > 100) 
+
+# need to do better
+nrow(org_comments_summary)
+org_comments_summary$comments %>% sum()
+
+org_comments_summary$org_name
+
+org_comments_summary %>% 
   kablebox() 
 #kable3(caption = "Organizations Mobilizing the Most Public Comments 2005-2020")
+
+save(org_comments_summary, file =  here::here("data", "org_comments_summary.Rdata"))
 ```
 
-# Methods 
+### American Petroleum Institute
+
+```{r}
+org_comments %>% 
+  filter(str_dct(organization, "American Petroleum Institute|\\bAPI\\b")) %>% group_by(docket_id) %>% 
+  summarise(comments = sum(number_of_comments_received, na.rm = T)) %>% 
+  arrange(-comments) %>% kablebox()
+```
+
+# Methods
 
 ## Oganization types
-Membership organization comments to look like this comment from the NorthEast Hook Fisherman's Association:
 
-> "We represent a small group of Commercial Fishermen with the Limited Access Handgear HA Permits, employing the use rod and reel, handlines or tub trawls to catch Cod, Haddock, and Pollock along with small quantities of other regulated and non-regulated marine fish. Historically and currently, our fishermen account for a small percentage of the groundfish landed in New England. However, the monetary gains obtained by the participants in this fishery are very important to us." ([NOAA-NMFS-2013-0050-0025](https://www.regulations.gov/comment/NOAA-NMFS-2013-0050-0025))
+Membership organization comments to look like this comment from the
+NorthEast Hook Fisherman's Association:
 
-Similar groups, narrowly concerned about shrimp and halibut catch limits, also commented on this rule on behalf of their members. 
+> "We represent a small group of Commercial Fishermen with the Limited
+> Access Handgear HA Permits, employing the use rod and reel, handlines
+> or tub trawls to catch Cod, Haddock, and Pollock along with small
+> quantities of other regulated and non-regulated marine fish.
+> Historically and currently, our fishermen account for a small
+> percentage of the groundfish landed in New England. However, the
+> monetary gains obtained by the participants in this fishery are very
+> important to us."
+> ([NOAA-NMFS-2013-0050-0025](https://www.regulations.gov/comment/NOAA-NMFS-2013-0050-0025))
 
-
-
-
+Similar groups, narrowly concerned about shrimp and halibut catch
+limits, also commented on this rule on behalf of their members.
 
 ## Classifying comments with text reuse
 
-Figure
-\@ref(fig:comments-classified) shows all comments posted on
+Figure \@ref(fig:comments-classified) shows all comments posted on
 regulations.gov over time by whether they are exact or partial copies of
-another comment on the same rule or not. I call comments that have between 2 and 99
-identical copies, "medium batch" because such comments may reflect
-coordinated efforts among interest groups that do not include a public
-pressure strategy that involves mobilizing ordinary people. Even relatively unsuccessful public pressure campaigns yield far more than 99 comments. "Mass comments" are comments with 100 or more identical copies or comments that were uploaded in bulk batches of at least 100. These were almost certainly mobilized by a public pressure campaign. Figure \@ref(fig:comments-mass) shows that public pressure campaigns mobilize the vast majority of comments. 
+another comment on the same rule or not. I call comments that have
+between 2 and 99 identical copies, "medium batch" because such comments
+may reflect coordinated efforts among interest groups that do not
+include a public pressure strategy that involves mobilizing ordinary
+people. Even relatively unsuccessful public pressure campaigns yield far
+more than 99 comments. "Mass comments" are comments with 100 or more
+identical copies or comments that were uploaded in bulk batches of at
+least 100. These were almost certainly mobilized by a public pressure
+campaign. Figure \@ref(fig:comments-mass) shows that public pressure
+campaigns mobilize the vast majority of comments.
 
 ```{r comments-classified, out.width = "49%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2006-2018"}
 
 knitr::include_graphics(here::here("Figs", "comments-mass-1.png"))
 ```
 
-
 ```{r toporgs, fig.cap = "Top mobilizers of comments posted to regulations.gov", fig.width = 7}
 #FIXME Colors, replace NA with "other"
 knitr::include_graphics(here::here("Figs", "toporgs.png"))
 ```
 
+------------------------------------------------------------------------
 
----
-
-# Results 
+# Results
 
 ## Most people engage in the policy process as a result of organized public pressure campaigns.
 
 ## Public pressure campaigns are organized by *coalitions* that include groups that engage in sophisticated technical lobbying.
 
-
 ## Public interest group coalitions mobilize *more often* than private interest group (e.g., business-led) coalitions.
 
-
-## Public interest group coalitions mobilize *more successfully* than private interest group (e.g., business-led) coalitions. 
-
+## Public interest group coalitions mobilize *more successfully* than private interest group (e.g., business-led) coalitions.
 
 ## Public pressure campaigns targeting national policy are most often run by large national policy advocacy organizations.
 
-
-## If narrow private interest groups (e.g., businesses) lunch public pressure campaigns, it is a response to an opposing campaign. 
+## If narrow private interest groups (e.g., businesses) lunch public pressure campaigns, it is a response to an opposing campaign.

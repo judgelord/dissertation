@@ -2,7 +2,7 @@
 
 ### Most Comments Result from Public Pressure Campaigns
 
-In line with Hypothesis \@ref(hyp:mediated), most people engage in the policy process due to organized public pressure campaigns. Indeed as Figure
+In line with Hypothesis \@ref(hyp:meditated), most people engage in the policy process due to organized public pressure campaigns. Indeed as Figure
 \@ref(fig:comments-mass) shows, every year since 2008, most people who
 comment on draft regulations did so as a result of a public pressure campaign.^[At least for agencies participating in regulations.gov. See
     section
@@ -25,26 +25,11 @@ In line with Hypothesis \@ref(hyp:coalitions), public pressure campaigns are org
 Just 100 organizations mobilized over 80% of comments on proposed rules posted to regulations.gov. These top 100 mobilizing organizations
 each mobilized between 55 thousand and 4.2 million comments. 
 
-> TODO: TABLE WITH TOP 100
 
-```{r top100, out.width="50%"}
-#FIXME GENERATE TABLE DATA IN APPENDIX
-load(here("data", "org_comments.Rdata"))
+```{r toporgs}
+load(here("data", "org_comments_summary.Rdata"))
 
-org_comments %>% 
-  group_by(org_name, docket_id) %>% 
-  summarise(comments = sum(number_of_comments_received, na.rm = T) ) %>%
-  ungroup() %>% 
-  mutate(campaign = comments > 10) %>% 
-  group_by(org_name) %>% 
-  summarise(comments = sum(comments, na.rm = T),
-            rules = n(),
-            campaigns = sum(campaign)) %>% 
-  ungroup() %>%
-  mutate(percent = percent(campaigns/rules, accuracy = .1),
-         average = round(comments/campaigns)) %>% 
-  filter(!str_dct(org_name, "^NA$|unknown|individuals|n/a|^N$")) %>%
-  arrange(-comments) %>% # kablebox()
+org_comments_summary %>% # kablebox()
   kable3(caption = "Organizations Mobilizing the Most Public Comments 2005-2020")
 ```
 
@@ -52,7 +37,7 @@ org_comments %>%
 Is civic engagement resulting from public pressure campaigns better understood as "astroturf" or "grassroots" participation?
 In short, I find much more evidence of grassroots participation than astroturf participation.
 
-In line with Hypothesis \@ref(hyp:public), nearly all of these top mobilizing organizations lobby together in public interest coalitions, especially on environmental issues. These coalitions include organizations that engage in sophisticated lobbying. Indeed, many of the most prolific organizers of public pressure engage in sophisticated lobbying themselves. Public pressure is a compliment, not an alternative to sophisticated technical lobbying.  Figure \@ref(fig:toporgs) shows the top organizers of comments posted to regulations.gov.  
+In line with Hypothesis \@ref(hyp:public), nearly all of these top mobilizing organizations lobby together in public interest coalitions, especially on environmental issues. These coalitions include organizations that engage in sophisticated lobbying. Indeed, many of the most prolific organizers of public pressure engage in sophisticated lobbying themselves. Public pressure is a compliment, not an alternative to sophisticated technical lobbying.  Table \@ref(tab:toporgs) shows the top organizers of comments posted to regulations.gov.  
 
 
 > TODO: MORE ON ORG TYPES.
@@ -60,8 +45,8 @@ In line with Hypothesis \@ref(hyp:public), nearly all of these top mobilizing or
 2. ADD TABLE OF TOP ORGS AND DESCRIPTIVES ABOUT HOW MANY ARE MEMBERSHIP VS ADVOCACY ORGS
 3.BRING IN HAND-CODED SAMPLE 
 
-> TODO: In line with Hypothesis \@ref(hyp:public), __ percent of public pressure campaigns are led by public interest coalitions. 
-In line with Hypothesis \@ref(hyp:public-success) and @Potter2017, the average number of comments for a public interest campaign is __. In contrast, the average number of comments for a private interest campaign is __. 
+> TODO: In line with Hypothesis \@ref(hyp:public), XX percent of public pressure campaigns are led by public interest coalitions. 
+In line with Hypothesis \@ref(hyp:public-success) and @Potter2017, the average number of comments for a public interest campaign is XXXX. In contrast, the average number of comments for a private interest campaign is XXX. 
 
 
 
@@ -72,14 +57,8 @@ In line with Hypothesis \@ref(hyp:resources), large national policy advocacy org
 
 Only a few of the top mobilizing organizations lobby in coalitions that focus on narrow material interests. The most prolific is a coalition of oil and gas companies led by the American Petroleum Institute (API). This coalition includes national policy advocacy organizations funded by the oil and gas industry, including Consumer Energy Alliance, Energy Citizens, and Energy Nation. It also includes industry associations in adjacent sectors, such as the Interstate Natural Gas Association of America and Association of Oil Pipe Lines, and state-level industry associations, such as The Alaska Oil and Gas Association (AOGA). API lobbied on over 400 rulemaking dockets, but it only launched public pressure comment campaigns on a few rules on which environmental groups ran much larger and more successful campaigns. API only attached their name to one of these campaigns.   On non-rulemaking issues related to electricity production (specifically, the Obama EPA's Clean Power Plan), this coalition included America's Electric Cooperatives, an industry association for electric utilities. 
 
-```{r toporgs, include=FALSE}
-org_comments %>% 
-  filter(str_dct(organization, "American Petroleum Institute|\\bAPI\\b")) %>% group_by(docket_id) %>% 
-  summarise(comments = sum(number_of_comments_received, na.rm = T)) %>% 
-  arrange(-comments)
-```
-
-The only other private-interest coalition leader among the top 100 mobilizing organizations is the payday lending company Axcess Financial. Axcess led only one campaign in opposition to the CFPB's Payday Loans rule.
+The only other private-interest coalition leader among the top 100 mobilizing organizations is Axcess Financial. Axcess led only one campaign in opposition to the CFPB's Payday Loans rule. <!--This case may be the only example where a industry-sponsored campaign was larger than the public interests campaign it opposed. 
+TODO INVESTIGATE! -->
 
 In line with Hypothesis \@ref(hyp:disrupt), private interest coalitions are less likely than public interest coalitions to lobby unopposed, suggesting that they often launch pressure campaigns in response to an opposing campaign. 
 
@@ -100,7 +79,7 @@ interest group mobilizing on the Clean Power Plan was an example of
 "going public" to pressure the Obama administration and then "going
 down fighting" in the face of the Trump administration's repeal,
 industry counter-mobilization responding to the first, but not the
-second aligns with \@ref(hyp:disrupt). If AEC found their policy goals in the Clean Power Plan rulemaking threatened by the political information being generated by environmental groups, it would make sense to devote resources to their own public pressure campaign to disrupt any perceived consensus. Likewise, if AEC were not concerned that environmental group mobilizing would affect the Clean Power Plan repeal, sponsoring a public pressure campaign would be a poor investment. Thus, while public interest groups had incentives to mobilize public comments in both cases, the private interests only had incentives to mobilize to in one. This mirrors the broader trend. 
+second aligns with Hypothesis \@ref(hyp:disrupt). If AEC found their policy goals in the Clean Power Plan rulemaking threatened by the political information being generated by environmental groups, it would make sense to devote resources to their own public pressure campaign to disrupt any perceived consensus. Likewise, if AEC were not concerned that environmental group mobilizing would affect the Clean Power Plan repeal, sponsoring a public pressure campaign would be a poor investment. Thus, while public interest groups had incentives to mobilize public comments in both cases, the private interests only had incentives to mobilize to in one. This mirrors the broader trend. 
 
 
 

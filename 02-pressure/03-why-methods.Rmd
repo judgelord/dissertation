@@ -59,8 +59,8 @@ rules %>%
     arrange(-comments) %>% 
     head(100) %>%
     mutate(docket_title = docket_title %>% #str_replace_all(";|:|–|--", ";\n") %>% 
-               str_sub(0,100)) %>%
-    mutate(docket_title = ifelse(nchar(docket_title) == 100, str_c(docket_title, "..."), docket_title) ) %>%# pull(docket_title)
+               str_sub(0,70)) %>%
+    mutate(docket_title = ifelse(nchar(docket_title) == 70, str_c(docket_title, "..."), docket_title) ) %>%# pull(docket_title)
     # ggplot() +
     # aes(x = docket_id, y = comments) +
     # geom_col() + 
