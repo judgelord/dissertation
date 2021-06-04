@@ -15,7 +15,7 @@ the question "what do people want?" Including political information
 requires two additional parameters related to a second question "why
 would agency officials care?"
 
-First, like other lobbying strategies, public pressure campaigns may shift the
+Like other lobbying strategies, public pressure campaigns may shift the
 strategic environment, leading an agency to shift its allocation in
 favor of some groups and away from others. Let this strategic shift be a
 vector $\alpha_s$. Second, campaigns may directly persuade agency officials to
@@ -32,16 +32,3 @@ unchanged and officials remains unpersuaded about which segments of society
 deserve favor, $\alpha_s$ and $\alpha_d$ are 0, and the model collapses
 to the original information game based on fixed taste. This less
 plausible when groups go public and expand the scope of conflict.
-
-Incorperating political information allows us to begin formalizing
-intuitions about mechanisms of influence. For example, @Libgober2018
-asks "What proportion of commenting activity can be characterized as
-informing regulators about public preferences versus attempting to
-attract attention of other political principals?" (p. 29). Adding
-political information to the model allows us to formalize this question:
-Under what conditions does the decision to comment depend on an
-organization's beliefs about $\alpha_t$ versus beliefs about $\alpha_s$?
-Empirically, we may often be able to infer that the difference in
-commenting can be attributed to group $i$'s beliefs about $\alpha_{si}$
-if the behavior of political principals varies but other observed
-parameter values are similar across rules at a given agency.

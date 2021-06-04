@@ -125,6 +125,20 @@ In contrast, the remaining forms of participation are all mediated through an or
 
 #### Membership Organizations
 
+Membership organizations exist to serve their members interests. Unions frequently lobbying rulemaking.
+
+> "The American Federation of State, County and Municipal Employees ("AFSCME") represents 1.6 million state and local government, health care and child care workers and we write to express our strong support of the proposed rule" ([IRS-2016-0015-0133](https://www.regulations.gov/comment/IRS-2016-0015-0133))
+
+Some membership organizations join to form larger federations.  
+
+> "The Coalition on Human Needs, which represents more than 100 national member organizations and maintains a network of tens of thousands of individuals and groups nationwide, strongly supports the proposed rule" ([IRS-2016-0015-0131](https://www.regulations.gov/comment/IRS-2016-0015-0131))
+
+Membership organizations often claim to represent more than their membership. 
+
+
+> "As a leading representative of the nation's 28 million small business owners, Small Business Majority is writing to comment on the U.S. Department of the Treasury's proposed rule on Inversions and Related Transactions." ([IRS-2016-0015-0127](https://www.regulations.gov/comment/IRS-2016-0015-0127))
+
+
 If most commenters are members of membership organizations as @Kerwin2011 suggest, a large campaign of, say one million people, would generally require a large collection of membership organizations. Very few organizations have a million members. Those who do are unlikely to mobilize all of them, so mobilizing many people through membership organizations will usually require a large coalition of membership organizations. We would expect commenters to identify themselves as members of these many organizations.
 
 > TODO: ADD EXAMPLE: For example, if membership groups mobilize most comments, we would expect ...
@@ -213,10 +227,13 @@ Specifically, I assess the extent to which public comments are mobilized by pres
 
 #### Identifying Organizations and Coalitions
 
+The primariy unit of analiysis is the a coalition--a group of organizations advocating for the same policy changes in their comments on a draft rule. 
+Advocacy organizations work together on campaigns. For example, "Save our Environment" submitted both sophisticated comments and collected signatures from hundreds of thousands of people on several rulemaking dockets. Save our Environment is a small nonprofit with a simple WordPress website almost entirely dedicated to mobilizing public comments. It is run by The Partnership Project, a coalition of 20 of the largest environmental advocacy organizations in the US, including the Sierra Club, Natural Resources Defense Council, Greenpeace, and the World Wildlife Fund, with the aim of "harnessing the power of the internet to increase public awareness and activism on today's most important environmental issues" (SaveOurEnvironment.org). Several Partnership Project members, including the Sierra Club, EarthJustice, and NRDC also submitted technical comments and mobilized hundreds of thousands of their own supporters to comment separately on the same rules.  These lobbying and mobilizing activities are not independent campaigns. These organizations and the people they mobilize are a coalition.
 
-
+To mobilize broader support, advocacy organizations often engage smaller organizations to mobilize their members as well. For example, in a campaign targeting fishing regulations, in addition to mobilizing thousands of individuals, the Pew Charitable Trusts mobilized members of the New York Underwater Photography Society and hundreds of restaurants that serve sustainable seafood. These smaller organizations did not identify themselves as part of Pew's campaign, but their letters used almost identical language.
 
 <!-- step 1 portion from campaigns-->
+Identifying which people and organizations belong to which coalition is thus a crucial first task for any study of public pressure campaigns.
 To identify whether a pressure campaign mobilizes a given comment, I use several strategies.
  I first use textual similarity to identify
 clusters of similar comments, reflecting formal and informal coalitions.
@@ -249,6 +266,9 @@ knitr::include_graphics("Figs/comment_percent_match_plot-1.png")
 
 <!-- step 2 org type and coalitions-->
 Second, I hand-code several samples of comments. One sample contains at least one comment from each cluster (coalition) of 100 or more similar comments. This census of form-letter comments allows me to make valid observations about public pressure campaigns across agencies and over time. The second sample includes nearly all comments on a random sample of rules.  The third sample includes nearly all comments on another random sample of rules, weighted by the number of comments they received. These last two samples allow me to make inferences about lobbying coalitions that do and do not use public pressure campaigns. 
+
+
+    
 
 <!--Metadata on the authors of comments and their
 organizational affiliations are inconsistent and incomplete. As this
