@@ -1,0 +1,51 @@
+Rational-choice explanations of why organizations comment on proposed
+rules build on an intuition that potential commenters will comment only
+when the benefits exceed the costs of doing so. This intuition ought to
+apply to other lobbying strategies such as public pressure campaigns as well.
+Adding an additional lobbying strategy into the model described above is
+straightforward. In Libgober's model, a potential commenter has negative
+quadratic preferences centered on their ideal policy $p_i$ and
+$u_i = -(x_f - p_i)^2$ where $x_f$ is the final policy chosen by the
+agency decisonmakers. An organization will comment if the cost of doing so is less
+than the difference between their utility when agency decisionmakers select a
+policy having been informed about the organization's ideal point $p_i$
+versus when the they select a policy having made a guess about the
+organization's ideal point, $z_i$. If $c_i$ is organization $i$'s cost
+of commenting, then $i$ will comment if it expects to be better off
+providing information than abstaining
+$E[u_i | p_i] > E[u_i | z_i] + c_i$. Similarly, an organization will go
+public when it expects that the cost of running a mass mobilization
+campaign to be less than the difference in utility when agency officials
+select a policy having been informed about the intensity of broader
+public preferences $p_{public}$ versus when agency officials select a policy
+having made a guess about the intensity of the attentive public's
+preferences, $z_{public}$. If $c_{campaign, i}$ is organization $i$'s
+cost of running a mass mobilization campaign, then $i$ will launch a
+campaign if
+$E[u_i | p_{public}] > E[u_i | z_{public}] + c_{campaign, i}$. This
+suggests that public pressure tactics should be more common when agency officials are either poorly
+informed or distant from public opinion and potentially influenced by
+the types of political information created by public pressure campaigns.
+
+Additionally, an organization may comment or run a mass mobilization
+campaign if it benefits in ways that are independent of policy outcomes.
+Strategies such as "going down fighting" can be incorporated by adding
+exogenous benefit parameters to the utility function of the potential
+commenter/mobilizer. Let $v_i$ be the benefit of commenting independent
+of its effect on the policy outcome, such as pleasing members or to
+reserving the right to sue. Let $w_i$ be the benefit of running a mass
+mobilization campaign independent of its effect on the outcome of the
+policy at hand, such as fulfilling expectations of existing members or
+recruiting new members. An organizations utility function would then be
+$u_i = -(x - p_i)^2 + v_i + w_i$.
+
+Adding these parameters also resolves a puzzling result of Libgober's
+model. Empirically, rules that receive comments do not always change.
+This result is impossible in a model where bureaucrats only have known
+fixed tastes and potential commenters only seek changes in policy. For
+policy seeking organizations to lobby but fail to influence policy
+requires that they may either be wrong about an agency's allocative bias
+or their ability to shift it. Incorporating political information allows
+change and uncertainty in an agency's biases. The result of commenting
+without rule change also becomes possible if commenters are allowed a
+strategy of "going down fighting" and incentives to do so.
