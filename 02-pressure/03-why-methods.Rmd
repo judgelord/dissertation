@@ -1,11 +1,11 @@
 ## Testing the Theory {#why-data-methods}
 
-I focus on public comments in federal agency rulemaking, but the theories and methods here may also apply to other kinds of political engagement such as through social media or protests as well as to other political decisions, including state-level rulemaking.^[Social media
+To assess my theory about which groups should mobilize public participation in bureaucratic policymaking, I use public comments in federal agency rulemaking. However, my theories and methods should also apply to other kinds of political engagement such as through social media or protests as well as to other political decisions, including state-level rulemaking.^[Social media
     engagement may be especially important if agencies implement the
     recommendations of @ACUS2018 that "Agencies should consider using
     social media before or in connection with direct final rulemaking to
     quickly identify whether there are significant or meaningful
-    objections" (p. 34).] 
+    objections" (p. 34).]
     
 ### Data {#why-data}
 
@@ -39,14 +39,13 @@ mass <- filter(rules, comments > 100)
 top10 <- slice_max(mass %>% ungroup() %>% distinct(docket_id, comments), order_by =  comments, n = 10) 
 ```
 
-To assess my hypotheses about which groups should mobilize public participation in bureaucratic policymaking, I collected a corpus of approximately `r dockets$number_of_comments_received %>% sum() %>% {./1000000} %>% round()` million public comments via the
+I collected a corpus of over `r dockets$number_of_comments_received %>% sum() %>% {./1000000} %>% round()` million public comments via the
 regulations.gov API. `r rules$number_of_comments_received %>% sum() %>% {./1000000} %>% round()` million of these comments are on rulemaking dockets.
 I then linked these comments to other data on the rules from the Unified
-Agenda and Office of Information and Regulatory Affairs Reports on draft
-rules sent to them for review. Summary statistics for these data are
+Agenda and Office of Information and Regulatory Affairs Reports. Summary statistics for these data are
 available in the Appendix.
 
-From 2005 to  2020, agencies posted `r nrow(distinct(rules, docket_id))` rulemaking dockets to regulations.gov. and solicited public comments on `r nrow(distinct(rules %>% filter(open), docket_id))`. Only `r nrow(distinct(mass, docket_id))` rulemaking dockets received more than 100 comments, but these rules garnered `r percent(sum(mass$number_of_comments_received)/sum(rules$number_of_comments_received), accuracy = .01)`, or `r sum(mass$number_of_comments_received)`, of the comments. The top 10 rulemaking dockets account for `r percent(sum(top10$comments)/sum(rules$number_of_comments_received), accuracy = .01)` (`r sum(top10$comments)`), of the comments.
+From 2005 to  2020, agencies posted `r nrow(distinct(rules, docket_id))` rulemaking dockets to regulations.gov. and solicited public comments on `r nrow(distinct(rules %>% filter(open), docket_id))`. Only `r nrow(distinct(mass, docket_id))` of these rulemaking dockets received more than 100 comments, but this small share of rules garnered `r percent(sum(mass$number_of_comments_received)/sum(rules$number_of_comments_received), accuracy = .01)` (`r sum(mass$number_of_comments_received)`) of the comments. The top 10 rulemaking dockets account for `r percent(sum(top10$comments)/sum(rules$number_of_comments_received), accuracy = .01)` (`r sum(top10$comments)`), of the comments.
 
 
 ```{r}
