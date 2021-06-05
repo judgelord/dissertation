@@ -48,14 +48,29 @@ available in the Appendix.
 From 2005 to  2020, agencies posted `r nrow(distinct(rules, docket_id))` rulemaking dockets to regulations.gov. and solicited public comments on `r nrow(distinct(rules %>% filter(open), docket_id))`. Only `r nrow(distinct(mass, docket_id))` of these rulemaking dockets received more than 100 comments, but this small share of rules garnered `r percent(sum(mass$number_of_comments_received)/sum(rules$number_of_comments_received), accuracy = .01)` (`r sum(mass$number_of_comments_received)`) of the comments. The top 10 rulemaking dockets account for `r percent(sum(top10$comments)/sum(rules$number_of_comments_received), accuracy = .01)` (`r sum(top10$comments)`), of the comments.
 
 
-```{r}
-rules %>% 
+
+
+Figure
+\@ref(fig:comments-density) shows a sample of rules matched to Office of Information and Regulatory Affairs coding for major and non-major rules. The modal number of comments for all types of rules, including major and economically significant rules, is less than ten. Indeed, the majority of rules that are open for public comment received no comments. 
+
+```{r comments-density, out.width = "99%", fig.cap = "Comments on Posted to Regulations.gov on Rules Reviewed by OIRA 2005-2020"}
+
+knitr::include_graphics(here::here("Figs", "major-comments-density-1.png"))
+```
+
+
+Table \@ref(tab:dockets) shows the rules that received the most comments on regulations.gov.
+
+```{r dockets}
+# Include plot of draft and final rules over time, report number of pairs
+rules %>%  
+  filter(open) %>% 
     distinct(docket_title, comments) %>%
     ungroup() %>%
     group_by(docket_id) %>% 
     slice(n = 1, with_ties = FALSE) %>% 
     ungroup() %>%
-    arrange(-comments) %>% 
+    arrange(-comments) %>% # filter(comments < 1)
     head(100) %>%
     mutate(docket_title = docket_title %>% #str_replace_all(";|:|–|--", ";\n") %>% 
                str_sub(0,70)) %>%
@@ -68,25 +83,6 @@ rules %>%
     kable3(caption = "Rulemaking Dockets by Number of Comments on regulations.gov, 2005-2020")
 ```
 
-Figure
-\@ref(fig:comments-density) shows a sample of rules matched to Office of Information and Regulatory Affairs coding for major and non-major rules 
-```{r comments-density, out.width = "99%", fig.cap = "Comments on Draft Rules Posted to Regulations.gov 2005-2020"}
-
-knitr::include_graphics(here::here("Figs", "major-comments-density-1.png"))
-```
-
-
-
-Importantly, even
-campaigns that achieve very low public response rates appear in these
-data. Because campaigns aim to collect thousands of comments, it is
-implausible that even the most unpopular position would achieve no
-supportive responses. For example, @Potter2017 found Poultry Producers
-averaging only 319 comments per campaign. While this is far from the
-Sierra Club's average of 17,325 comments per campaign, it is also far
-from zero.
-
-
 
 Figure \@ref(fig:comments-per-year) shows an exponential increase in the number of comments per rule over time. Note that comments per rule are on a
 logarithmic scale on the y-axis. Proposed rules that have attracted the most public attention have
@@ -97,54 +93,18 @@ logarithmic scale on the y-axis. Proposed rules that have attracted the most pub
     and Fish and Wildlife Service (FWS). Increasingly, a large number of people are
 paying attention to agency policymaking.
 
-```{r comments-per-year, fig.cap = "Comments per Proposed Rule 2005-2020 (log scale)", out.width = "55%", fig.show = "hold"}
-
+```{r comments-per-year, fig.cap = "Number of Comments (log scale) per Proposed Rule 2005-2020", out.width = "55%", fig.show = "hold"}
+# TODO alpha = .5, shape = "-", facet_wrap("president")
 knitr::include_graphics(here::here("Figs", "rules-comments-per-year-1.png"))
 ```
 
 
-<!--
-### Spontaneous or mediated?
-
-### If mediated, who is mobilizing
-
-THIS SHOULD BE INTEGRATED INTO THEORY, MAYBE? 
--->
-
-### The Observable Implications of Various Forms of Public Engagement
-
-The different forms of participation asserted or assumed in the literature have empirically observable patterns. 
-
-#### Individuals 
-
-The solicitation on regulations.gov--"Let your voice be heard"--suggests that individuals are expressing themselves directly. Indeed, anyone can write a letter or type a comment in the text box on regulations.gov, and many people do. Individuals acting on their own submit content ranging from obscenities and memes to detailed personal accounts of how a policy would affect them and even poetry aimed at changing officials' hearts and minds. 
-Comments submitted by individuals acting along should not have a large share of text copied from elsewhere. They should not reference an organization or be mailed or uploaded in bulk by an organization.
-
-In contrast, the remaining forms of participation are all mediated through an organization's pressure campaign--what @Verba1987 call a "cooperative activity." Comments from people mobilized as part of a campaign differ from those of individuals acting on their own in two observable ways: they often mention the name of the organization that mobilized them, and the text is often similar or identical to other comments in the campaign, reflecting coordination through form or template letters. These features eliminate the novel informational value that  @Cuellar2005 and others seek to locate in individual comments. If comments reference an organization that mobilized them, they likely have little to offer than that the more sophisticated organization has not already provided. If comments are identical, they certainly provide no new information.
-
-#### Membership Organizations
-
-Membership organizations exist to serve their members interests. Unions frequently lobbying rulemaking.
-
-> "The American Federation of State, County and Municipal Employees ("AFSCME") represents 1.6 million state and local government, health care and child care workers and we write to express our strong support of the proposed rule" ([IRS-2016-0015-0133](https://www.regulations.gov/comment/IRS-2016-0015-0133))
-
-Some membership organizations join to form larger federations.  
-
-> "The Coalition on Human Needs, which represents more than 100 national member organizations and maintains a network of tens of thousands of individuals and groups nationwide, strongly supports the proposed rule" ([IRS-2016-0015-0131](https://www.regulations.gov/comment/IRS-2016-0015-0131))
-
-Membership organizations often claim to represent more than their membership. 
-
-
-> "As a leading representative of the nation's 28 million small business owners, Small Business Majority is writing to comment on the U.S. Department of the Treasury's proposed rule on Inversions and Related Transactions." ([IRS-2016-0015-0127](https://www.regulations.gov/comment/IRS-2016-0015-0127))
-
-
-If most commenters are members of membership organizations as @Kerwin2011 suggest, a large campaign of, say one million people, would generally require a large collection of membership organizations. Very few organizations have a million members. Those who do are unlikely to mobilize all of them, so mobilizing many people through membership organizations will usually require a large coalition of membership organizations. We would expect commenters to identify themselves as members of these many organizations.
-
-> TODO: ADD EXAMPLE: For example, if membership groups mobilize most comments, we would expect ...
-
 #### Policy Advocacy Organizations: From Grassroots to Astroturf
 
-Mobilizing people just for a particular policy fight requires a significant organizing capacity.^[I use "mobilizing" rather than "organizing" because "organizing" often implies that people are organized in a way that is more enduring than signing a single petition or writing a single letter. Mobilizing implies an activation, but not necessarily enduring structure.] @McNutt2007 calls these formations "policy change organizations." In contrast to membership organizations, they exist more to organize public pressure toward a set of policy goals than to serve a defined membership.
+Testing my hypotheses requires that I classify campaigns as driven primarily by public or private interest groups. This is a challenge because appeals to the government are almost always couched in the language of
+public interest, even when true motivations are private
+[@Schattschneider1975]. Public pressure campaigns are no exception, and mobilizing organizations almost always evoke some version of the public interest. Classifying thus involves judgment calls. 
+I describe my classification methods in section \@ref{classify-public-private}. To provide empirical context, this subsection sketches out the range of public and private campaigns with some concrete examples of "public" pressure campaigns that primarily advance private interests.
 
 There is a spectrum of organizing the unorganized. The poles might be labeled "grassroots" and "astroturf." On the grassroots end, engagement is driven by a combination of passionate volunteerism and a supportive, attentive segment of the public. In practice, most campaigns on the grassroots end of the spectrum in federal rulemaking are not pure volunteerism but are organized by policy change organizations like MoveOn and Organizing For American on the left and Americans for Prosperity on the right.
 These organizations have large mailing lists and media operations, providing the capacity to mobilize large numbers of people for a particular policy fight.
@@ -158,52 +118,23 @@ To the extent they mobilize real people, astroturf campaigns are thus a form of 
 
 For example, in 2016, the Bureau of Ocean Energy Management received several USB drives with hundreds of thousands of comments on its National Outer Continental Shelf Oil and Gas Leasing Program from Joe Jansen. Jansen did not disclose who he worked for. These form letters, each identical except for the signature, resembled press releases from the American Petroleum Institute (API), the main industry association for oil and gas companies. According to a LinkedIn profile and [Congressional Directory](https://www.govinfo.gov/content/pkg/CDIR-2011-12-01/pdf/CDIR-2011-12-01-OH-H-1.pdf), Joe Jansen was a former legislative director for a Republican member of Congress who now worked in Government Relations.  Unlike more "grassroots" campaigns, no information was provided about who the signatories were or why they cared about oil and gas leasing. Joe Jansen, however, is also associated with other campaigns targeting the EPA and Department of State, several of which identified themselves as organized by the groups "Energy Citizens" and "Energy Nation." These organization's websites are paid for by the American Petroleum Institute. The photos they post on social media almost exclusively show employees handing out shirts, hats, and water at fairs, bars, and conferences in exchange for signatures.^[https://www.flickr.com/photos/energycitizens/18274218500/in/photostream/] Though Energy Citizens and Energy Nation submitted slightly different comments as separate organizations, most of the individual signatories were the same on both sets of comments, and many were submitted twice in order to inflate the number of pro-API comments on the rule. Energy Citizens has attracted media attention for bussing in paid protesters and attendees at town halls,^[https://www.nytimes.com/2009/08/19/business/energy-environment/19climate.html] paying actors to pose as concerned citizens, and skirting Facebook's policy against deceptive advertising.^[https://www.propublica.org/article/how-big-oil-dodges-facebooks-new-ad-transparency-rules]
 
-In a more complex example, Axcess Financial and other payday lending companies sponsored several campaigns targeting a regulation proposed by Consumer Financial Protection Bureau in 2016. First, Axcess Financial had storefront employees solicit comments from customers, which Axcess then uploaded to regulations.gov.  The customer comments suggest that they had not been told much about the rule, which limited interest rates and the number of times short-term loans could be compounded. Most customers wrote some version of "Do not close this store" or "I have been told that payday loans would not exist in my community if the government's proposed regulations went into effect."---a few even complained about exactly the issues that CFPB's regulation aimed to address. One customer wrote, "Although some of the fees are a bit high, it should be my choice whether to get a loan or not" (Access Financial Comment 91130). Another wrote, "I need to keep receiving my Check'n'Go loans so I can have the time to start paying them back in the next 1 1/2 to 2 years" (Axcess Financial Comment 91130), indicating that Check'n'Go (a subsidiary of Access Financial) was engaged in serial re-lending that put this customer deeper in debt. In their own comments, Axcess claimed that it did not do this. To the extent that this campaign relied on deception and not the customer's genuine interests (even as the customers understood them), this would count as astroturf. Second, Axcess sponsored an effort to gather petition signatures at churches. Finally, Axcess and other payday loan companies uploaded supportive notes from community organizations to which they had given money. Like the churchgoers, these people had no reason to comment except that they had received money from the potentially regulated companies. 
+In a more complex example, Axcess Financial and other payday lending companies sponsored several campaigns targeting a regulation proposed by Consumer Financial Protection Bureau in 2016. First, Axcess Financial had storefront employees solicit comments from customers, which Axcess then uploaded to regulations.gov.  The customer comments suggest that they had not been told much about the rule, which limited interest rates, fees, and the number of times short-term loans could be compounded. Most customers wrote some version of "Do not close this store" or "I have been told that payday loans would not exist in my community if the government's proposed regulations went into effect."---a few even complained about exactly the issues that CFPB's regulation aimed to address. One customer wrote, "Although some of the fees are a bit high, it should be my choice whether to get a loan or not" (Access Financial Comment 91130). Another wrote, "I need to keep receiving my Check'n'Go loans so I can have the time to start paying them back in the next 1 1/2 to 2 years" (Axcess Financial Comment 91130), indicating that Check'n'Go (a subsidiary of Axcess Financial) was engaged in serial re-lending that put this customer deeper in debt. In their own comments, Axcess claimed that it did not do this kind of serial re-lending. To the extent that this campaign relied on deception and not the customer's genuine interests (even as the customers understood them), this would count as astroturf. Second, Axcess sponsored an effort to gather signatures at churches. Finally, Axcess and other payday loan companies uploaded supportive notes from community organizations to which they had given money. These people had no reason to comment except that they had received money from the regulated companies. 
 
 As the American Petroleum Institute and Axcess Financial examples demonstrate, spotting astroturf in the wild can be difficult by design and involve complex judgment calls about the level of deception involved. However, the clear observable result is often a large number of comments advocating on behalf of narrow private interests. Large businesses or industry associations are the organizations with the resources and incentives to sponsor astroturf campaigns, and they do [@Lyon2005].
 
-Not all public pressure campaigns on behalf of private interests fall decisively on the astroturf side of the spectrum. In a cover letter to a batch of comments opposing the regulation of glyphosate herbicides, major glyphosate manufacture, Monsanto, specified how they collected the letters:
+Not all campaigns on behalf of private interests fall decisively on the astroturf side of the spectrum. In a cover letter to a batch of comments opposing the regulation of glyphosate herbicides, major glyphosate manufacture, Monsanto, described how they collected the letters:
 
 > "These letters were collected during the 2016 Farm Progress Show from US farmers, agriculture professionals, and general consumers who use glyphosate and value its benefits. We think it is important that these voices be heard as part of EPA's review of glyphosate." ([EPA-HQ-OPP-2009-0361-0891](https://www.regulations.gov/comment/EPA-HQ-OPP-2009-0361-0891))
 
-Monsanto may have, like Energy Citizens, given out shirts in exchange for many of these signatures, but the context and transparency make it more plausible that the signators genuinely opposed regulation on glyphosate. Similarly, Shell Oil sponsored a campaign to open the Arctic Outer Continental Shelf to oil and gas drilling and provided a template letter with a place to insert a company or group: 
+Monsanto may have, like Energy Citizens, given out shirts in exchange for many of these signers, but the context and transparency make it more plausible that the signators genuinely opposed regulation on glyphosate. Similarly, Shell Oil sponsored a campaign to open the Arctic Outer Continental Shelf to oil and gas drilling and provided a template letter with a place to insert a company or group: 
 
-> "On behalf of [enter company or constituents], I am writing to demonstrate my strong support of oil and gas development in the Arctic Outer Continental Shelf (OCS)...I support Shell's plan to explore its leases in the Chukchi Sea in 2015. The company has invested significant time and resources in the advancement of safe and prudent Arctic exploration. Shell should be allowed to realize the promise of the leases it purchased, and I encourage the BOEM to expeditiously approve its Exploration Plan."^[Some of Shell's supporters neglected to fill in the blanks in the template letter.]
+> "On behalf of [enter company or constituents], I am writing to demonstrate my strong support of oil and gas development in the Arctic Outer Continental Shelf (OCS)...I support Shell's plan to explore its leases in the Chukchi Sea in 2015. The company has invested significant time and resources in the advancement of safe and prudent Arctic exploration. Shell should be allowed to realize the promise of the leases it purchased, and I encourage the BOEM to expeditiously approve its Exploration Plan."^[Some of Shell's supporters neglected to fill in the blanks in the template letter ([BSEE-2013-0011-0033](https://www.regulations.gov/comment/BSEE-2013-0011-0033)).]
 
-Though Shell's private interests stood to benefit from the rule, the signatories of this petition were mostly companies and workers in the oil and gas sector. Several elected officials also used Shell's form letter (e.g. [BSEE-2013-0011-0033](https://www.regulations.gov/comment/BSEE-2013-0011-0033) and [BSEE-2013-0011-0094](https://www.regulations.gov/comment/BSEE-2013-0011-0094)). I found no evidence of deception or payments from Shell. These companies and workers plausibly had a genuine interest in Shell's access to offshore oil. The form letter's transparency about who stood to benefit further increases the plausibility that signers genuinely supported Shell's lobbying effort.
-
+Though Shell's private interests stood to benefit from the rule, the signers of this form letter were mostly companies and workers in the oil and gas sector. Several elected officials also used Shell's form letter (e.g. [BSEE-2013-0011-0033](https://www.regulations.gov/comment/BSEE-2013-0011-0033) and [BSEE-2013-0011-0094](https://www.regulations.gov/comment/BSEE-2013-0011-0094)). I found no evidence of deception or payments from Shell. These companies and workers plausibly had a genuine interest in Shell's access to offshore oil. The form letter's transparency about who stood to benefit further increases the plausibility that signers genuinely supported Shell's lobbying effort.
 
 
 <!--
-Astroturf: Interest Group Lobbying and Corporate Strategy
-Thomas P. Lyon  John W. Maxwell
-
-- in which the firm covertly subsidizes a group with similar views to lobby when it normally would not;
-Lloyd Bentsen, a long‐time senator from Texas, describes the artificial grassroots campaigns created by public relations (PR) firms (Stauber and Rampton, 1995, p. 79)
-For example, Lupia and McCubbins (1994) and de Figueiredo et al. (1999) study how administrative procedures can be designed to optimize the flow of information to politicians, and Baron (2001) develops a model in which activists attempt to influence corporate strategy via the threat of consumer boycotts. Kollman (1998) studies the motivations and strategy behind lobbying behavior based on detailed interviews with 90 interest group leaders. Grossman and Helpman (2001) provide an excellent introduction to the recent theoretical literature on interest group politics.
-
-
-
-Astroturf, Technology and the Future of
-Community Mobilization:
-Implications for Nonprofit Theory
-JOHN McNutt
-University of Delaware
-School of Urban Affairs & Public Policy
-KATHERINE BOLAND
-Astroturf, quite simply, is synthetic grassroots organizing created for manipulative political purposes (see Lyon &
-Maxwell, 2004; Allen, 1998; Austin, 2002). In this type of activity, an entity that wishes to affect public policy creates an effort
-that gives the appearance of grassroots support
--->
-
-<!--
-
-
-
-
-> CITE STEVES ASTROTURF PAPER AND RELATED LIT
-
-
+CITE STEVES ASTROTURF PAPER AND RELATED LIT IN THEORY SECTION
 -->
 
 
@@ -224,10 +155,10 @@ society does it come?"
 Specifically, I assess the extent to which public comments are mobilized by pressure campaigns, which organizations are behind these campaigns, which campaigns are more successful in mobilizing, and which campaigns go unopposed. 
 
 
-#### Identifying Organizations and Coalitions
+#### Identifying Organizations and Coalitions using Text Reuse {#reuse}
 
-The primariy unit of analiysis is the a coalition--a group of organizations advocating for the same policy changes in their comments on a draft rule. 
-Advocacy organizations work together on campaigns. For example, "Save our Environment" submitted both sophisticated comments and collected signatures from hundreds of thousands of people on several rulemaking dockets. Save our Environment is a small nonprofit with a simple WordPress website almost entirely dedicated to mobilizing public comments. It is run by The Partnership Project, a coalition of 20 of the largest environmental advocacy organizations in the US, including the Sierra Club, Natural Resources Defense Council, Greenpeace, and the World Wildlife Fund, with the aim of "harnessing the power of the internet to increase public awareness and activism on today's most important environmental issues" (SaveOurEnvironment.org). Several Partnership Project members, including the Sierra Club, EarthJustice, and NRDC also submitted technical comments and mobilized hundreds of thousands of their own supporters to comment separately on the same rules.  These lobbying and mobilizing activities are not independent campaigns. These organizations and the people they mobilize are a coalition.
+The primary unit of analysis is a lobbying coalition--a group of organizations advocating for the same policy changes in their comments on a draft rule. 
+Advocacy organizations work together on campaigns. For example, "Save our Environment" submitted both sophisticated comments and collected signatures from hundreds of thousands of people on several rulemaking dockets. Save our Environment is a small nonprofit with a simple WordPress website almost entirely dedicated to mobilizing public comments. It is run by The Partnership Project, a coalition of 20 of the largest environmental advocacy organizations in the US, including the Sierra Club, Natural Resources Defense Council, Greenpeace, and the World Wildlife Fund, with the aim of "harnessing the power of the internet to increase public awareness and activism on today's most important environmental issues" (SaveOurEnvironment.org). Several Partnership Project members, including the Sierra Club, EarthJustice, and NRDC, also submitted technical comments and mobilized hundreds of thousands of their own supporters to comment separately on the same rules.  These lobbying and mobilizing activities are not independent campaigns. These organizations and the people they mobilize are a coalition.
 
 To mobilize broader support, advocacy organizations often engage smaller organizations to mobilize their members as well. For example, in a campaign targeting fishing regulations, in addition to mobilizing thousands of individuals, the Pew Charitable Trusts mobilized members of the New York Underwater Photography Society and hundreds of restaurants that serve sustainable seafood. These smaller organizations did not identify themselves as part of Pew's campaign, but their letters used almost identical language.
 
@@ -240,19 +171,27 @@ Comments with identical text indicate a coordinated campaign.
 
 To link individual comments and public pressure campaigns to the more sophisticated lobbying efforts that they support (if any), I identify the lobbying coalition(s) (if any) to which each comment belongs. Some individual commenters and organizations are unaffiliated with a broader lobbying coalition, but, as I show below, most people and organizations lobbying in broader coalitions.
 
-##### Identifying Coalitions Using Text Reuse  {#reuse}
+Importantly, even
+campaigns that achieve very low public response rates appear in these
+data. Because campaigns aim to collect thousands of comments, it is
+implausible that even the most unpopular position would achieve no
+supportive responses. For example, @Potter2017 found Poultry Producers
+averaging only 319 comments per campaign. While this is far from the
+Sierra Club's average of 17,325 comments per campaign, it is also far
+from zero.^[These numbers are from Potter's sample; the Sierra Club's average is even larger in my sample; see Table \@ref(tab:toporgs).] 
 
-For all comments on a docket, I identify the percent of words it shares with other comments using a 10-word (or
-"10-gram") moving window function looping over each
-possible pair of texts to identify matches.^[For more about this method and comparisons with related partial matching methods such as the Smith-Waterman algorithm, see @Casas2017 and @Judge-Lord2017.]
+
+For each comment on a rulemaking docket^[Where a new presidential administration used the same docket number to solicit comments on a proposed rule that a previous administration used, I count these as separate rulemaking dockets. I do so because the second policy is usually reversing or going in the opposite direction as the policy on which the previous administration solicited comments. The same organizations often comment but with the opposition positions. Support becomes opposition and vice versa.], I identify the percent of words it shares with other comments using a 10-word (or
+"10-gram") moving window function, looping over each
+possible pair of texts to identify matches.^[For more about n-gram window functions and comparisons with related partial matching methods such as the Smith-Waterman algorithm, see @Casas2017 and @Judge-Lord2017.]
 When actors sign onto the same comment, it is clear that they are
 lobbying together. However, various businesses, advocacy groups, and
-citizens often comment separately, even when they are aligned. Text-reuse (using the exact same ten-word phrases) captures this alignment. 
+citizens often comment separately, even when they are aligned. Text-reuse (using the same ten-word phrases) captures this alignment. 
 
 Figure \@ref(fig:percent-match) shows the percent of shared text for a sample of 50 comments on the Consumer Financial Protection Bureau's 2016 Rule regulating Payday Loans. Comments are arranged by the document identifier assigned by regulations.gov on both axes. 
 The black on the diagonal indicates that each document has a perfect overlap with itself. Black squares off the diagonal indicate additional pairs of identical documents. For example, 100% of the words from Comment 95976 are part of some tengram that also appears in 95977 because the exact same comment was uploaded twice. 
-The block of grey squares indicates a coalition of commenters using some identical text.
-Comments [91130](https://www.regulations.gov/document?D=CFPB-2016-0025-91130) through [91156](https://www.regulations.gov/document?D=CFPB-2016-0025-91154) are all partial or exact matches. Most are part of a mass comment campaign by Access Financial. The percent of the identical text is lower than many mass-comment campaigns because these are hand-written comments, but the n-gram method still picks up overlap in the OCRed text in the header and footer. 
+The cluster of grey tiles indicates a coalition of commenters using some identical text.
+Comments [91130](https://www.regulations.gov/document?D=CFPB-2016-0025-91130) through [91156](https://www.regulations.gov/document?D=CFPB-2016-0025-91154) are all partial or exact matches. All are part of a mass comment campaign by Access Financial. The percent of the identical text is lower than many mass-comment campaigns because these are hand-written comments, but the n-gram method still picks up overlap in the OCRed text in the header and footer. Tengrams that appear in 100 or more comments indicate a mass comment campaign. Some agencies use similar "de-duping" software [CITE] and only provide a representative sample comment. In these cases, my linking method assumes that the example comment is representative, and I link these comments to others based on the text of the sample comment provided.
 
 ```{r percent-match, fig.show = "hold", out.width = "100%", fig.cap="Percent of Matching Text in a Sample of Public Comments"}
 
@@ -261,10 +200,10 @@ knitr::include_graphics("Figs/comment_percent_match_plot-1.png")
 
 
 
-##### Hand-coded Organizations and Coalitions
+#### Hand-coded Organizations and Coalitions
 
 <!-- step 2 org type and coalitions-->
-Second, I hand-code several samples of comments. One sample contains at least one comment from each cluster (coalition) of 100 or more similar comments. This census of form-letter comments allows me to make valid observations about public pressure campaigns across agencies and over time. The second sample includes nearly all comments on a random sample of rules.  The third sample includes nearly all comments on another random sample of rules, weighted by the number of comments they received. These last two samples allow me to make inferences about lobbying coalitions that do and do not use public pressure campaigns. 
+Second, I hand-code several samples of comments. One sample contains at least one comment from each cluster (coalition) of 100 or more similar comments. This census of form-letter comments allows me to make valid observations about public pressure campaigns across agencies and over time. A second sample includes nearly all comments on a random sample of rules.  A third sample includes nearly all comments on another random sample of rules, weighted by the number of comments they received. These last two samples allow me to make inferences about lobbying coalitions that do and do not use public pressure campaigns. 
 
 
     
@@ -274,77 +213,29 @@ organizational affiliations are inconsistent and incomplete. As this
 information is key to identifying influential actors, improving these
 data was a significant data-organization task.--->
 
-Through an iterative process of hand-coding and computational methods, I then identify the organization submitting or responsible for mobilizing each comment (if any). I identify the organization responsible for over 40 million comments, including all organizations responsible for mobilizing 100 or more comments with repeated text--either identical text or partially unique texts that contain shared language. I then searched comment texts for
+Through an iterative process of hand-coding and computational methods, I then identify the organization submitting or responsible for mobilizing each comment (if any) in all three samples of comments. I identify the organizations responsible for over `r 40` million comments, including all organizations responsible for mobilizing 100 or more comments with repeated text--either identical text or partially unique texts that contain shared language. I then searched all remaining comment texts for
 mentions of these organizations' names to complete missing information
 on the mobilizing organization.  
 
-I classify all organizations that appear in the hand-coded sample as businesses, industry associations, other nonprofits, governments, or individual elected officials and a range of sub-types within these broader categories. 
+I classify all organizations that appear in the hand-coded samples as businesses, industry associations, other nonprofits, governments, or individual elected officials and a range of sub-types within these broader categories. 
 
 
 
-
-
-<!--  Identifying coalitions using clustering methods
-I use statistical models of text to classify comments into coalitions. I cluster
-documents by the frequency with which they use different words. Being
-classified together does not mean that the documents all address 
-the same distribution of substantive issues, just that they use similar
-words relative to the full set of documents. I start by modeling all
-comments on each rule (collapsing identical comments to one document)
-with two and three clusters, which I then inspect to see how well the
-comments of named organizations were classified. If the two-cluster model most sensibly describes the conflict, I label these clusters "pro" and "con" If the three-cluster model more sensibly describes the
-conflict, I label these clusters as "pro, con, other." If neither fits
-well, I increase the number of clusters as needed.
-
-"`{r kmeans, fig.cap = "K-means clustering fails to capture coalitions when nearly all comments oppose a regulation"}
-
-knitr::include_graphics(here::here("Figs", "kmeans.png"))
-```
-
-
-The asymmetry in expressed support for most rules presents challenges
-for unsupervised clustering because much of the variation in comment
-texts is within-coalition variation. For example, one of the most common
-clustering methods, k-means clustering, often captures within-coalition
-variation. Figure \@ref(fig:kmeans) shows k-means clusters based on a normalized
-measure of word frequency (term-frequency/inverse-document-frequency)
-compared to two principal components of variation. Neither k-means nor
-principal components analysis is well suited to identifying the small
-number of comments supporting the Park Service's proposed restrictions
-on protests in Washington DC.
-
-Two strategies may improve clustering. First, even partial text reuse
-generally indicates that comments belong to the same coalition. For
-example, as seen at the top of Figure
-\@ref(fig:kmeans), models may be restricted to cluster the large number of comments beginning with
-"As a citizen who has frequently participated" in the same coalition
-even if they go on to add different personal anecdotes about why protest
-rights are important to them. Thus, clustering methods could be
-restricted to group partially copied texts, as well as entirely copied
-texts. Second, a Bayesian mixture model may better recover pro and con
-clusters, especially with strong priors comments using positive and
-negative sentiment words belong together.
--->
-
-
-
-#### Classifying Public and Private Interests
+#### Classifying Public and Private Interests {#classify-public-private}
 
 <!--TODO: NAIL DOWN MY NOMENCLATURE.-->
-Classifying coalitions as primarily driven by private or public interest provides analytic leverage, but scholars have not converged on a approach to do so. @Potter2017 distinguishes "advocacy groups" from
+Classifying coalitions as primarily driven by private or public interest provides analytic leverage, but scholars have not converged on an approach to do so. @Potter2017 distinguishes "advocacy groups" from
     "industry groups." @Berry1999 calls these groups "citizen groups" and emphasizes conflict over cultural issues. Some public interest groups focus on conservative or progressive cultural issues, like religious education, immigration, or endangered species. Others are more focused on the public provision or protection of public goods such as national parks, consumer product safety standards, air quality, drinking water, and public safety. Types of membership organizations that are both broad and focused on material outcomes for their members (such as labor unions) are especially difficult to classify. @Potter2017 puts unions in the "Industry" category.
     I take a different approach based on the coalition with whom such groups lobby. If a union lobbies alongside businesses [see @Mildenberger2020], I classify this as a private interest-driven coalition. If a union lobbies with
     public interest groups on public health or safety issues, I classify
     this as a public interest group coalition.
 
-<!-- TODO: AN IMPORTANT NOTE BUT NOT SURE WHERE TO PUT IT: 
-Another challenge for classifying public and private interest groups is that appeals to the government are almost always couched in the language of
-public interest, even when true motivations are private
-[@Schattschneider1975]. Public pressure campaigns are no exception, and mobilizing organizations almost always evoke some version of the public interest. Classifying thus involves judement calls. 
--->
+
 
 <!-- step 3 public vs private coalitions-->
 I code each coalition as primarily advancing an idea of the public interest or more narrow private interests. Public interest coalitions are almost always entirely nonprofits and governments, and private interest coalitions tend to be companies and industry associations. Still, some nonprofits lobby on behalf of companies, and some companies join forces with public interest groups. These can create "hard" cases. For example, a coalition of environmental groups mobilized recreational fishing businesses ([NOAA-NMFS-2012-0059-0185](https://www.regulations.gov/comment/NOAA-NMFS-2012-0059-0185)) and sustainable seafood restaurants to help push for stricter commercial fishing regulations. We know environmental groups mobilized the restaurants because they used a form letter from a nonprofit called the Gulf Restoration Network. I coded this as a public interest coalition. If, instead, the businesses had led this lobbying effort and enlisted a few nonprofits to help protect their business interests, I would have coded this as a private interest coalition. The vast majority of coalitions were much more straightforward to code as public or private.
+
+<!-- DOES ASTROTURF SECTION BELONG HERE?-->
 
 #### Coding Policy Positions
 
@@ -383,7 +274,7 @@ ggplot() +
     #geom_text(aes(label = code, x = position, color = label), vjust = 1.5) + 
 ```
 
-Having identified the coalitions lobbying on each proposed rule, I assign the position of the coalition as the position of the lead organization. For robustness, I also calculate the coalition's average position as the average position of its members. Coalition members usually have nearly identical positions, but occasionally, some take more extreme positions than others. For example, while all coalition members may have the same policy demands, some may ask for additional changes. I only consider such mildly diverging interests to be one coalition if the asks are entirely compatible with the position of organizations that did not ask for them. 
+Having identified the coalitions lobbying on each proposed rule, I assign the position of each coalition as the position of the lead organization. For robustness, I also calculate the coalition's average position as the average position of its members. Coalition members usually have nearly identical positions, but occasionally, some take more extreme positions than others. For example, while all coalition members may have the same policy demands, some may ask for additional changes. I only consider such mildly diverging interests to be one coalition if the asks are entirely compatible with the position of organizations that did not ask for them. 
 
 #### Measuring Intensity of Prefrences
 <!-- step 4 success TODO-->
@@ -412,7 +303,7 @@ The second major difference between my approach and previous research is that I 
 
 
 
-
+<!-- TODO 
 
 ### Measuring the Volume, Intensity, and Potential Contagion of Public Engagement
 
@@ -452,3 +343,5 @@ words to that of the form letter but fewer than ten words matching any
 other comment. This is a regular count process. In the hand-coded sample, these people are coded as "individual" members of the coalition. Though perhaps officially unaffiliated, they were clearly inspired by the campaign indirectly.
 
 > TODO: Align this with my terminology in the previous section.
+
+-->

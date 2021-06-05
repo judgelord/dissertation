@@ -234,7 +234,7 @@ org_comments_summary %>%
 save(org_comments_summary, file =  here::here("data", "org_comments_summary.Rdata"))
 ```
 
-### American Petroleum Institute
+### The American Petroleum Institute
 
 ```{r}
 org_comments %>% 
@@ -262,6 +262,34 @@ NorthEast Hook Fisherman's Association:
 
 Similar groups, narrowly concerned about shrimp and halibut catch
 limits, also commented on this rule on behalf of their members.
+
+### Membership Organizations
+
+Membership organizations exist to serve their members interests. Unions
+frequently lobbying rulemaking.
+
+> "The American Federation of State, County and Municipal Employees
+> ("AFSCME") represents 1.6 million state and local government, health
+> care and child care workers and we write to express our strong support
+> of the proposed rule"
+> ([IRS-2016-0015-0133](%5Bhttps://www.regulations.gov/comment/IRS-2016-0015-0133))](<https://www.regulations.gov/comment/IRS-2016-0015-0133>)))
+
+Some membership organizations join to form larger federations.
+
+> "The Coalition on Human Needs, which represents more than 100 national
+> member organizations and maintains a network of tens of thousands of
+> individuals and groups nationwide, strongly supports the proposed
+> rule"
+> ([IRS-2016-0015-0131](%5Bhttps://www.regulations.gov/comment/IRS-2016-0015-0131))](<https://www.regulations.gov/comment/IRS-2016-0015-0131>)))
+
+Membership organizations often claim to represent more than their
+membership.
+
+> "As a leading representative of the nation's 28 million small business
+> owners, Small Business Majority is writing to comment on the U.S.
+> Department of the Treasury's proposed rule on Inversions and Related
+> Transactions."
+> ([IRS-2016-0015-0127](%5Bhttps://www.regulations.gov/comment/IRS-2016-0015-0127))](<https://www.regulations.gov/comment/IRS-2016-0015-0127>)))
 
 ## Classifying comments with text reuse
 

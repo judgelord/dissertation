@@ -145,7 +145,7 @@ petitions effectively channel public interests, but, at a minimum,
 engaging a large number of supporters may help broader interests
 distinguish themselves from truly narrower ones. It suggests that the organization is not entirely "memberless" [@Skocpol2003] in the sense that it can demonstrate some verifiable public support. An organization mobilizing its members and supporters to take some action lends weight to representational claims that might otherwise be indistinguishable from cheap talk claims that groups often make to represent broad constituencies.
 
-The credibility of the signal that mass engagement provides may be complicated by "astroturf" campaigns, where organizations aim to project the image of a larger base of support than they truly have. To the extent that support can be effectively faked or inflated using "astroturf" tactics, the political information that pressure campaigns provide will be less accurate and thus less valuable to decisionmakers. 
+The credibility of the signal that mass engagement provides may be complicated by "astroturf" campaigns, where organizations aim to project the image of a larger base of support than they truly have [@McNutt2007, @RashinXXXX]. To the extent that support can be effectively faked or inflated using "astroturf" tactics, the political information that pressure campaigns provide will be less accurate and thus less valuable to decisionmakers. 
 
 Astroturf campaigns that utilize faked evidence of mass support (e.g., faked petition signatures) bypass the public pressure and mass engagement step entirely, manifesting false political information. However, in a model where political information complements technical information, supporting sophisticated lobbying efforts, providing fake political information is a risky strategy. Organizations lobbying in repeated interactions with agencies, and an organization's reputation--critical to its ability to provide credible technical information--may be harmed if policymakers lean that an organization provided false political information. One observable implication is that astroturf campaigns will often be anonymous or by organizations that do not also engage in sophisticated lobbying.  This may provide sophisticated lobbying organizations plausible deniability. However, because policymakers may rationally discount petitions submitted anonymously or by groups that lack reputations for credibility, fraudulent campaigns have little hope of influencing policy in this model and may thus be fairly rare compared to a model where political information is not mediated by groups that also engage in sophisticated lobbying. 
 
@@ -457,14 +457,19 @@ Thus, public pressure campaigns produce information about organizational resolve
 
 The observable implications of the theory described above suggest several testable hypotheses. 
 
-First, national politics in the United States is the terrain of organized groups. While observers frequently talk about ordinary people engaging in policymaking as individuals, political science theory suggests that an organized group will almost always mediate the participation of individuals who are not professional policy influencers. Given the technocratic nature of bureaucratic policymaking, "citizen-initiated contacts" should be rare.
+The solicitation on regulations.gov--"Let your voice be heard"--suggests that individuals are expressing themselves directly. Indeed, anyone can write a letter or type a comment in the text box on regulations.gov, and many people do. Individuals acting on their own submit content ranging from obscenities and memes to detailed personal accounts of how a policy would affect them and even poetry aimed at changing officials' hearts and minds. 
+Comments submitted by individuals acting along should not have a large share of text copied from elsewhere. They should not reference an organization or be mailed or uploaded in bulk by an organization.
+
+In contrast, to the extent that participation is mediated through public pressure campaigns as my theory suggests, we should consider public commenting to be a "cooperative activity."  While observers frequently talk about ordinary people engaging in policymaking as individuals, political science theory suggests that an organized group will almost always mediate the participation of individuals who are not professional policy influencers. Political science has shown that national politics in the United States is the terrain of organized groups. Given the technocratic nature of bureaucratic policymaking, "citizen-initiated contacts" should be especially rare.
 
 <!--1-->
 ```{hypothesis, meditated, echo = TRUE}
 Most people engage in national policy processes as a result of organized public pressure campaigns.
 ```
 
-Stated another way, Hypothesis \@ref(hyp:mediated) posits that people engage in behaviors like letter-writing and petition-signing as part of a coordinated activity---"citizen-initiated contacts" on matters of national policy are relatively rare. 
+Stated another way, Hypothesis \@ref(hyp:mediated) posits that people engage in behaviors like letter-writing and petition-signing as part of a coordinated and cooperative activity---"citizen-initiated contacts" on matters of national policy are relatively rare. 
+
+Comments from people mobilized as part of a campaign differ from those of individuals acting on their own in two observable ways: they often mention the name of the organization that mobilized them, and the text is often similar or identical to other comments in the campaign, reflecting coordination through form or template letters. These features eliminate the novel informational value that  @Cuellar2005 and others seek to locate in individual comments. If comments reference an organization that mobilized them, they likely have little to offer than that the more sophisticated organization has not already provided. If comments are identical, they certainly provide no new technical information.
 
 <!--2-->
 I argue that public pressure tactics are a compliment, not a substitute for sophisticated technical lobbying. Whereas previous studies compare mass comment campaigns to technical lobbying efforts, I argue that the relevant unit of analysis is the lobbying coalition. Coalitions may use both sophisticated technical lobbying and public pressure tactics. 
@@ -528,13 +533,16 @@ of comments supporting a coalition, (2) the effort per comment, and (3) the numb
 <!--5-->
 Notwithstanding the incentive structure that should lead coalitions advancing broad public interests to mobilize public support more often and more successfully than narrow private interests, resources and capacity are still necessary conditions to run a campaign. Most organizations that are
 disadvantaged in the policy process also lack resources to launch
-mass mobilization campaigns. This means that public pressure tactics are only an option for a small subset of public interest organizations. 
+mass mobilization campaigns. This means that public pressure tactics are only an option for a small subset of large public interest organizations. 
+
+Mobilizing people just for a particular policy fight requires a significant organizing capacity.^[I use "mobilizing" rather than "organizing" because "organizing" often implies that people are organized in a way that is more enduring than signing a single petition or writing a single letter. Mobilizing implies an activation, but not necessarily enduring structure.] @McNutt2007 calls these formations "policy change organizations." In contrast to membership organizations, they exist more to organize public pressure toward a set of policy goals than to serve a defined membership.
 <!-- TODO: Discuss resources in  mobilization section -->
 
 ```{hypothesis, resources, echo = TRUE}
 Public pressure campaigns targeting national policy are most often run by large national policy advocacy organizations.
 ```
 
+If, instead, lay commenters are mobilized through their membership organizations as @Kerwin2011 suggest, a large campaign of, say one million people, would generally require a large collection of membership organizations. Very few organizations have a million members. Those who do are unlikely to mobilize all of them, so mobilizing many people through membership organizations would likely require a large coalition of membership organizations. We would expect commenters to identify themselves as members of these many organizations.
 
 <!--6-->
 If conflict expansion theory is correct, narrow private interests only have incentives to mobilize public support to counteract an opposing campaign.
