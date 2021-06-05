@@ -331,6 +331,19 @@ negative sentiment words belong together.
 
 #### Classifying Public and Private Interests
 
+<!--TODO: NAIL DOWN MY NOMENCLATURE.-->
+Classifying coalitions as primarily driven by private or public interest provides analytic leverage, but scholars have not converged on a approach to do so. @Potter2017 distinguishes "advocacy groups" from
+    "industry groups." @Berry1999 calls these groups "citizen groups" and emphasizes conflict over cultural issues. Some public interest groups focus on conservative or progressive cultural issues, like religious education, immigration, or endangered species. Others are more focused on the public provision or protection of public goods such as national parks, consumer product safety standards, air quality, drinking water, and public safety. Types of membership organizations that are both broad and focused on material outcomes for their members (such as labor unions) are especially difficult to classify. @Potter2017 puts unions in the "Industry" category.
+    I take a different approach based on the coalition with whom such groups lobby. If a union lobbies alongside businesses [see @Mildenberger2020], I classify this as a private interest-driven coalition. If a union lobbies with
+    public interest groups on public health or safety issues, I classify
+    this as a public interest group coalition.
+
+<!-- TODO: AN IMPORTANT NOTE BUT NOT SURE WHERE TO PUT IT: 
+Another challenge for classifying public and private interest groups is that appeals to the government are almost always couched in the language of
+public interest, even when true motivations are private
+[@Schattschneider1975]. Public pressure campaigns are no exception, and mobilizing organizations almost always evoke some version of the public interest. Classifying thus involves judement calls. 
+-->
+
 <!-- step 3 public vs private coalitions-->
 I code each coalition as primarily advancing an idea of the public interest or more narrow private interests. Public interest coalitions are almost always entirely nonprofits and governments, and private interest coalitions tend to be companies and industry associations. Still, some nonprofits lobby on behalf of companies, and some companies join forces with public interest groups. These can create "hard" cases. For example, a coalition of environmental groups mobilized recreational fishing businesses ([NOAA-NMFS-2012-0059-0185](https://www.regulations.gov/comment/NOAA-NMFS-2012-0059-0185)) and sustainable seafood restaurants to help push for stricter commercial fishing regulations. We know environmental groups mobilized the restaurants because they used a form letter from a nonprofit called the Gulf Restoration Network. I coded this as a public interest coalition. If, instead, the businesses had led this lobbying effort and enlisted a few nonprofits to help protect their business interests, I would have coded this as a private interest coalition. The vast majority of coalitions were much more straightforward to code as public or private.
 
