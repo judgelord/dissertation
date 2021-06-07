@@ -24,7 +24,7 @@
 <meta name="author" content="Devin Judge-Lord" />
 
 
-<meta name="date" content="2021-06-05" />
+<meta name="date" content="2021-06-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2070,10 +2070,6 @@ Figure 2.7: Percent of Matching Text in a Sample of Public Comments
 <h4><span class="header-section-number">2.3.2.2</span> Hand-coded Organizations and Coalitions</h4>
 <!-- step 2 org type and coalitions-->
 <p>Second, I hand-code several samples of comments. One sample contains at least one comment from each cluster (coalition) of 100 or more similar comments. This census of form-letter comments allows me to make valid observations about public pressure campaigns across agencies and over time. A second sample includes nearly all comments on a random sample of rules. A third sample includes nearly all comments on another random sample of rules, weighted by the number of comments they received. These last two samples allow me to make inferences about lobbying coalitions that do and do not use public pressure campaigns.</p>
-<!--Metadata on the authors of comments and their
-organizational affiliations are inconsistent and incomplete. As this
-information is key to identifying influential actors, improving these
-data was a significant data-organization task.--->
 <p>Through an iterative process of hand-coding and computational methods, I then identify the organization submitting or responsible for mobilizing each comment (if any) in all three samples of comments. I identify the organizations responsible for over 40 million comments, including all organizations responsible for mobilizing 100 or more comments with repeated text–either identical text or partially unique texts that contain shared language. I then searched all remaining comment texts for
 mentions of these organizations’ names to complete missing information
 on the mobilizing organization.</p>
@@ -2082,53 +2078,52 @@ on the mobilizing organization.</p>
 <div id="classify-public-private" class="section level4" number="2.3.2.3">
 <h4><span class="header-section-number">2.3.2.3</span> Classifying Public and Private Interests</h4>
 <!--TODO: NAIL DOWN MY NOMENCLATURE.-->
-<p>Classifying coalitions as primarily driven by private or public interest provides analytic leverage, but scholars have not converged on an approach to do so. <span class="citation"><a href="#ref-Potter2017" role="doc-biblioref">Potter</a> (<a href="#ref-Potter2017" role="doc-biblioref">2017a</a>)</span> distinguishes “advocacy groups” from
-“industry groups.” <span class="citation"><a href="#ref-Berry1999" role="doc-biblioref">Berry</a> (<a href="#ref-Berry1999" role="doc-biblioref">1999</a>)</span> calls these groups “citizen groups” and emphasizes conflict over cultural issues. Some public interest groups focus on conservative or progressive cultural issues, like religious education, immigration, or endangered species. Others are more focused on the public provision or protection of public goods such as national parks, consumer product safety standards, air quality, drinking water, and public safety. Types of membership organizations that are both broad and focused on material outcomes for their members (such as labor unions) are especially difficult to classify. <span class="citation"><a href="#ref-Potter2017" role="doc-biblioref">Potter</a> (<a href="#ref-Potter2017" role="doc-biblioref">2017a</a>)</span> puts unions in the “Industry” category.
-I take a different approach based on the coalition with whom such groups lobby. If a union lobbies alongside businesses <span class="citation">(see <a href="#ref-Mildenberger2020" role="doc-biblioref">Mildenberger 2020</a>)</span>, I classify this as a private interest-driven coalition. If a union lobbies with
-public interest groups on public health or safety issues, I classify
-this as a public interest group coalition.</p>
+<p>Classifying coalitions as primarily driven by private or public interest provides analytic leverage, but scholars have not converged on an approach to do so. <span class="citation"><a href="#ref-Potter2017" role="doc-biblioref">Potter</a> (<a href="#ref-Potter2017" role="doc-biblioref">2017a</a>)</span> distinguishes “advocacy groups” from “industry groups.” <span class="citation"><a href="#ref-Berry1999" role="doc-biblioref">Berry</a> (<a href="#ref-Berry1999" role="doc-biblioref">1999</a>)</span> calls these groups “citizen groups” and emphasizes conflict over cultural issues. Some public interest groups focus on conservative or progressive cultural issues, like religious education, immigration, or endangered species. Others are more focused on the public provision or protection of public goods such as national parks, consumer product safety standards, air quality, drinking water, and public safety. Types of membership organizations that are both broad and focused on material outcomes for their members (such as labor unions) are especially difficult to classify. <span class="citation"><a href="#ref-Potter2017" role="doc-biblioref">Potter</a> (<a href="#ref-Potter2017" role="doc-biblioref">2017a</a>)</span> puts unions in the “Industry” category. I take a different approach based on the coalition with whom such groups lobby. If a union lobbies alongside businesses <span class="citation">(see <a href="#ref-Mildenberger2020" role="doc-biblioref">Mildenberger 2020</a>)</span>, I classify this as a private interest-driven coalition. If a union lobbies with public interest groups on public health or safety issues, I classify this as a public interest group coalition.</p>
 <!-- step 3 public vs private coalitions-->
 <p>I code each coalition as primarily advancing an idea of the public interest or more narrow private interests. Public interest coalitions are almost always entirely nonprofits and governments, and private interest coalitions tend to be companies and industry associations. Still, some nonprofits lobby on behalf of companies, and some companies join forces with public interest groups. These can create “hard” cases. For example, a coalition of environmental groups mobilized recreational fishing businesses (<a href="https://www.regulations.gov/comment/NOAA-NMFS-2012-0059-0185">NOAA-NMFS-2012-0059-0185</a>) and sustainable seafood restaurants to help push for stricter commercial fishing regulations. We know environmental groups mobilized the restaurants because they used a form letter from a nonprofit called the Gulf Restoration Network. I coded this as a public interest coalition. If, instead, the businesses had led this lobbying effort and enlisted a few nonprofits to help protect their business interests, I would have coded this as a private interest coalition. The vast majority of coalitions were much more straightforward to code as public or private.</p>
 <!-- DOES ASTROTURF SECTION BELONG HERE?-->
 </div>
 <div id="coding-policy-positions" class="section level4" number="2.3.2.4">
 <h4><span class="header-section-number">2.3.2.4</span> Coding Policy Positions</h4>
-<p>To assess whether organizations and their broader coalitions lobby in opposition to other interests or unopposed, I code the position of each organization on each proposed policy (Figure <a href="whymail.html#fig:spatial-coding">2.8</a>). For example, if the ideal point of the commenter <span class="math inline">\(i\)</span> is the current policy (<span class="math inline">\(\alpha_i = x_1\)</span>) or close to it, they will oppose any change. If the ideal point of commenter <span class="math inline">\(i\)</span> is the new proposed policy (<span class="math inline">\(\alpha_i = x_1\)</span>) or closer to it, they likely support the proposal. While incompatible with a monotonic model of preferences, commenters do occasionally oppose a policy change for moving insufficiently in their preferred direction (e.g., describing the proposal as “too little” or “insufficient” to gain their support). Such positions are likely the result of the repeated game nature of policymaking, where commenters believe that rejecting a small change in their preferred direction now is likely to result in a larger change later.</p>
+<p>To assess whether organizations and their broader coalitions lobby in opposition to other interests or unopposed, I code the position of each organization on each proposed policy given the direction of change from the current policy. In Figure <a href="whymail.html#fig:spatial-coding">2.8</a>, <span class="math inline">\(x_1\)</span> is the current policy <span class="math inline">\(x_2\)</span> is the new proposed policy. Let <span class="math inline">\(p_i\)</span> be commenter <span class="math inline">\(i\)</span>’s ideal policy. In spatial models, whether an organization supports or opposes a proposed policy change often depends on whether it is moving closer or further from its ideal policy. For example, if the ideal point of the commenter <span class="math inline">\(i\)</span> is the current policy (<span class="math inline">\(p_i = x_1\)</span>) or close to it, they will oppose any change. If the ideal point of commenter <span class="math inline">\(i\)</span> is the new proposed policy (<span class="math inline">\(p_i = x_1\)</span>) or closer to it, they likely support the proposal. While incompatible with an assumption of single-peaked preferences assumed by most models, commenters do occasionally oppose a policy change for moving insufficiently in their preferred direction (e.g., describing the proposal as “too little” or “insufficient” to gain their support). For example, if a commenter’s prefers a more extreme change (<span class="math inline">\(p_i = x_1\)</span>), they may oppose <span class="math inline">\(x_2\)</span> as “insufficient.” This is likely a result of the repeated game nature of policymaking, where commenters believe that rejecting a small change in their preferred direction (<span class="math inline">\(x_2\)</span>) now is likely to result in a more extreme change (<span class="math inline">\(x_3\)</span>) later.</p>
 <div class="figure" style="text-align: center"><span id="fig:spatial-coding"></span>
 <img src="judgelord_files/figure-html/spatial-coding-1.png" alt="Coding the Spatial Position of Commeners on Proposed Policy Changes" width="100%"  />
 <p class="caption">
 Figure 2.8: Coding the Spatial Position of Commeners on Proposed Policy Changes
 </p>
 </div>
-<p>Having identified the coalitions lobbying on each proposed rule, I assign the position of each coalition as the position of the lead organization. For robustness, I also calculate the coalition’s average position as the average position of its members. Coalition members usually have nearly identical positions, but occasionally, some take more extreme positions than others. For example, while all coalition members may have the same policy demands, some may ask for additional changes. I only consider such mildly diverging interests to be one coalition if the asks are entirely compatible with the position of organizations that did not ask for them.</p>
-</div>
-<div id="measuring-intensity-of-prefrences" class="section level4" number="2.3.2.5">
-<h4><span class="header-section-number">2.3.2.5</span> Measuring Intensity of Prefrences</h4>
+<p>Having identified the coalition lobbying on each proposed rule and the position of each organization, I assign the position of each coalition as the position of the lead organization. For robustness, I also calculate the coalition’s average position as the average position of its members. Coalition members usually have nearly identical positions, but occasionally, some take more extreme positions than others. For example, while all coalition members may have the same policy demands, some may ask for additional changes. I consider diverging interests to be one coalition only if the asks are entirely compatible with the position of organizations that did not ask for them. Incompatible policy demands indicate different coalitions.</p>
 <!-- step 4 success TODO-->
-<p>Finally, I develop computational methods to measure the intensity of preferences
-expressed by those mobilized by public pressure campaigns.
+<!--
+#### Measuring Intensity of Preferences
+
+Finally, I develop computational methods to measure the intensity of preferences
+expressed by those mobilized by public pressure campaigns. 
 To measure the mobilizing success of each campaign, I measure
 the scale and intensity of support and potential for the movement to grow. To measure
 intensity, I examine the ratio of high-effort and low-effort comments.
 To measure the potential to grow, I measure the number of comments mobilized
 indirectly by the campaign (i.e., those that support a campaign but do
 not include text provided by the campaign). The result is several new
-measures of participation in bureaucratic policymaking.</p>
+measures of participation in bureaucratic policymaking.
+
+-->
 </div>
-<div id="differences-with-prior-studies" class="section level4" number="2.3.2.6">
-<h4><span class="header-section-number">2.3.2.6</span> Differences with Prior Studies</h4>
+<div id="differences-with-prior-studies" class="section level4" number="2.3.2.5">
+<h4><span class="header-section-number">2.3.2.5</span> Differences with Prior Studies</h4>
 <!-- not the same as Balla et al.-->
-<p>This approach is significantly different than that employed in previous studies of mass comment campaigns in at least two ways. First, my methods allow me to identify coalitions consisting of multiple organizations. Previous studies measure mass comment campaigns at the organization level. For example, <span class="citation"><a href="#ref-Balla2020" role="doc-biblioref"><span>“Lost in the Flood?: Agency Responsiveness to Mass Comment Campaigns in Administrative Rulemaking”</span></a> (<a href="#ref-Balla2020" role="doc-biblioref">2020</a>)</span> analyzes “1,049 mass comment campaigns that occurred during 22 EPA rulemakings”—an average of nearly 50 “campaigns” per rule. By “campaign,” <span class="citation"><a href="#ref-Balla2020" role="doc-biblioref"><span>“Lost in the Flood?: Agency Responsiveness to Mass Comment Campaigns in Administrative Rulemaking”</span></a> (<a href="#ref-Balla2020" role="doc-biblioref">2020</a>)</span> mean an organization’s campaign rather than a coalition’s campaign. Especially on EPA rules, there are rarely more than two or three coalitions engaging in public pressure campaigns–one of the environmental advocacy groups and their allies, another of regulated industry groups and their allies. This is important because many comments that might be attributed to a small business, nonprofit, or membership organization are part of a campaign sponsored by a larger coalition led by industry associations or public interest groups. It would be inaccurate to credit a small organization with little capacity for organizing a campaign when they merely allowed their name and mailing list to be used by a larger group. Using organizations as the unit of analysis means that observations are far from independent. An analysis that counts one coalition’s campaign as 40 smaller “campaigns” with the same policy demands and response would count this one campaign as 40 observations. My methods allow me to measure levels of public pressure per organization <em>and</em> per coalition.</p>
-<p>The second major difference between my approach and previous research is that I do not compare sophisticated comments to mass comments. Rather, I <em>attribute</em> mass comments to organizations and coalitions that also submit sophisticated technical comments. This difference is less important to the present analysis of the drivers of public pressure campaigns, but the set of comparisons one makes is critical to any study of responsiveness or policy influence. Researchers may reach different conclusions if they compare different things. Consider a study comparing how agencies respond to Sierra Club form letters to how they respond to the Sierra Club’s sophisticated comments. Now consider a study that compares responsiveness to the Sierra Club’s sophisticated comments between rules where they did and did not run a mass comment campaign. A study comparing the average influence of form-letter comments to the average influence of sophisticated comments is very different from a study that compares the influence of two sets of sophisticated comments with different <em>levels</em> of public pressure behind them. By measuring comments per coalition, both through hand-coding and text reuse, I capture different levels of public pressure than we would see if we were to look only at comments per organization.</p>
-<!-- TODO 
+<p>This approach is significantly different than that employed in previous studies of mass comment campaigns in at least two ways. First, my methods allow me to identify coalitions consisting of multiple organizations. Previous studies measure mass comment campaigns at the organization level. For example, <span class="citation"><a href="#ref-Balla2020" role="doc-biblioref"><span>“Lost in the Flood?: Agency Responsiveness to Mass Comment Campaigns in Administrative Rulemaking”</span></a> (<a href="#ref-Balla2020" role="doc-biblioref">2020</a>)</span> analyzes “1,049 mass comment campaigns that occurred during 22 EPA rulemakings”—an average of nearly 50 “campaigns” per rule. By “campaign,” <span class="citation"><a href="#ref-Balla2020" role="doc-biblioref"><span>“Lost in the Flood?: Agency Responsiveness to Mass Comment Campaigns in Administrative Rulemaking”</span></a> (<a href="#ref-Balla2020" role="doc-biblioref">2020</a>)</span> mean an organization’s campaign rather than a coalition’s campaign. Especially on EPA rules, there are rarely more than two or three coalitions engaging in public pressure campaigns–one of the environmental advocacy groups and their allies, another of regulated industry groups and their allies.</p>
+<p>This is important because many comments nominally submitted by a small business, nonprofit, or membership organization are part of a campaign sponsored by a larger coalition led by industry associations or public interest groups. It would be inaccurate to credit a small organization with little capacity for organizing a campaign when they merely allowed their name and mailing list to be used by a larger group. For example, campaigns by industry associations are often officially submitted by much smaller nonprofit coalition partners. Using organizations as the unit of analysis means that observations are far from independent. An analysis that counts one coalition’s campaign as 40 smaller “campaigns” with the same policy demands would count this one campaign as 40 observations. My methods allow me to measure levels of public pressure per organization <em>and</em> per coalition.</p>
+<p>The second major difference between my approach and previous research is that I do not compare sophisticated comments to mass comments. Rather, I <em>attribute</em> mass comments to organizations and coalitions that also submit sophisticated technical comments. By measuring comments per coalition, both through hand-coding and text reuse, I capture different levels of public pressure than we would see if we were to look only at comments per organization.</p>
+<!-- TODO (some or all of this needs to go to the influence chapter)
 
 ### Measuring the Volume, Intensity, and Potential Contagion of Public Engagement
 
-I measure variation in engagement in three ways, corresponding to the three types of comments described above.
+I measure variation in engagement in three ways that provide estimates of the three types of comments described above.
 
 **Volume.** 
-First, I measure the total number of comments per organization, coalition, and rule.
-Commenting results from multiple processes. First, a group must decide to
+First, I count the total number of comments per organization, coalition, and rule. This captures the number of supporters who invested at least the minimal level of effort.
+The process that generates mass comments involves several steps. First, a group must decide to
 lobby. Then, a group must decide to mobilize public pressure. Finally, the resulting number of comments depends on the response to the
 campaign. There may be many cases where groups may have had
 success mobilizing but never reached the choice of whether to mobilize
@@ -2139,27 +2134,26 @@ follow a zero-inflated negative binomial distribution.
 
 **Effort.** 
 I measure effort per comment by the number of words people
-write, omitting any text longer than ten words that is not unique to that comment,
-usually because a mobilizing organization provided it. For example, the Sierra Club mobilized more than 47,710
+write, omitting any text longer than ten words that is not unique to that comment. When text is not unique, it is usually because a mobilizing organization provided it. For example, the Sierra Club mobilized more than 47,710
 people to submit the same text on the delay of the methane
 pollution rule, but 7,452 people also took the time to write a
 personalized comment in addition to the text provided (see Figure \@ref(fig:sierra)). Organizations often encourage "personalized notes" because the number of additional words shows the individual was willing to exert additional effort.
- As @Verba1987 note, signing a form letter requires "some" effort, whereas writing an original letter to a government official requires "a lot." The longer the letter, the more effort required. Unique comments (those that do not copy text from a form letter) generally indicated high levels of effort.
+ As @Verba1987 note, signing a form letter requires "some" effort, whereas writing an original letter to a government official requires "a lot." Adding a personal note to a form letter is somewhere in between. The longer the letter, the more effort required. 
 
 While effort, as measured by the number of words people write, may be normally distributed, the low end of the observed distribution is truncated.
 This is because we will not observe people who have low levels of passion for the issue; they either do not meet the threshold required to participate or opt
 to write nothing more than the form letter. 
 
-**Contagion.** Mass-comment campaigns have wildly different results.
+**Contagion.** Public pressure campaigns have wildly different results.
 Some organizations submit a clean 10,000 copies of (signatures on) the same comment.^[For example, Americans For Prosperity's campaign on the XXXX rule. TODO]
-Others "go viral"---inspiring a mess of further engagement where the
+Other campaigns "go viral"---inspiring a mess of further engagement where the
 original messages are translated through social media posts and news
 stories. To identify people who were plausibly mobilized indirectly by a
 campaign, I count the number of people who use a similar distribution of
 words to that of the form letter but fewer than ten words matching any
 other comment. This is a regular count process. In the hand-coded sample, these people are coded as "individual" members of the coalition. Though perhaps officially unaffiliated, they were clearly inspired by the campaign indirectly.
 
-> TODO: Align this with my terminology in the previous section.
+> TODO: Align this with my terminology in the theory section.
 
 -->
 

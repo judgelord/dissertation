@@ -19,7 +19,26 @@ library(knitr)
 library(kableExtra)
 
 library(tidyverse)
-library(ggplot2); theme_set(theme_minimal())
+
+library(ggplot2); theme_set(theme_bw());
+options(
+  ggplot2.continuous.color = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+scale_color_discrete <- function(...){
+  scale_color_viridis_d(..., direction = -1, 
+                        begin = 0, end = .6, option = "plasma")}
+scale_fill_discrete <- function(...){
+  scale_fill_viridis_d(..., direction = -1, 
+                       begin = 0, end = .6, option = "plasma")}
+
+scale_color_continuous <- function(...){
+  scale_color_viridis_c(..., direction = -1, 
+                        option = "plasma")}
+scale_fill_continuous <- function(...){
+  scale_fill_viridis_c(..., direction = -1, 
+                       option = "plasma")}
+
 
 
 options(
