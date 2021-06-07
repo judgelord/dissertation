@@ -4,9 +4,10 @@
 
 I create an original dataset that combines several sources of data on U.S. federal agency rulemaking. 
 The core data are the texts of draft and final rules and public comments on these proposed rules. 
-This includes all 16 thousand proposed rules from 144 agencies (as defined by regulations.gov) that were open for comment on regulations.gov between 2005 and 2020, that received at least one comment from an organization, and that saw a final agency action between 2005 and 2020. 
-There are over 50 million comments on this set of rules. 
-I scrape draft and final rule texts from federalregister.gov and comments submitted as attachments or by mail from regulations.gov. 
+This includes all proposed rules from 144 agencies that were open for comment on regulations.gov between 2005 and 2020, that received at least one comment from an organization, and that saw a final agency action between 2005 and 2020. 
+There are over `r 50` million comments on this set of rules. 
+
+I collected draft and final rule texts from federalregister.gov and comments submitted as attachments or by mail from regulations.gov. 
 I retrieve comments submitted directly on regulations.gov and metadata on rules and comments (such as the dates that the proposed rule was open for comment and whether the agency identified the organization submitting the comment) from the regulations.gov API. 
 I add additional metadata on rules (such as whether the rule was considered "significant") from the Unified Agenda published by the Office of Information and Regulatory Affairs (reginfo.gov). 
 

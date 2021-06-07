@@ -52,13 +52,6 @@ policy at hand, such as fulfilling expectations of existing members or
 recruiting new members. An organizations utility function would then be
 $u_i = -(x - p_i)^2 + v_i + w_i$.
 
-Adding these parameters also resolves a puzzling result of Libgober's
-model. Empirically, rules that receive comments do not always change.
-This result is impossible in a model where bureaucrats only have known
-fixed tastes and potential commenters only seek changes in policy. For
-policy seeking organizations to lobby but fail to influence policy
-requires that they may either be wrong about an agency's allocative bias
-or their ability to shift it. Incorporating political information allows
-change and uncertainty in an agency's biases. The result of commenting
+The result of commenting
 without rule change also becomes possible if commenters are allowed a
 strategy of "going down fighting" and incentives to do so.

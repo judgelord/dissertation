@@ -1,34 +1,43 @@
 Formally, political information requires several crucial amendments to
 existing information-based models of rulemaking. In the most
 sophisticated model of notice-and-comment rulemaking to date,
-@Libgober2018 posits a utility function for agency $G$ as
+@Libgober2018 posits a utility function for policymaker $G$ as
 $u_G(x_F) = \alpha_0 x_f^2 + \sum_{i=1}^N \alpha_i u_i (x_f)$ where
 $x_f$ is the spatial location of the final policy, $u_i$ is the
-preference of a member of the public or "potential commenter" $i$, and
-$\alpha$ is a vector of \"allocational bias\"---i.e. how much the agency decisionmakers
+preference of "potential commenter" $i$, and
+$\alpha$ is a vector of "allocational bias"---i.e. how much the agency decisionmakers
 care about their own preferences $\alpha_0$ relative to accommodating the
 preferences of others $\alpha_{i=1:N}$. Bureaucrats balance their own
 idea of their mission against their desire to be responsive. In
 Libgober's model, $\alpha$ is a fixed "taste" for responsiveness to each
 member of society, so agency decisions simply depend on their answer to
-the question "what do people want?" Including political information
+the question "what do people want?"
+Incorporating the insight about the power of technical information , we might consider $\alpha_0$ (the policymakers' understanding of their own prefrences) to be affected by technical information. Including political information
 requires two additional parameters related to a second question "why
-would agency officials care?"
+would agency officials care?" <!--CITE THIS IN EJ CHAPTER--> 
 
-Like other lobbying strategies, public pressure campaigns may shift the
-strategic environment, leading an agency to shift its allocation in
-favor of some groups and away from others. Let this strategic shift be a
+Like other lobbying strategies, public attention and pressure may shift the
+strategic environment, leading policymakers to shift their allocation in
+favor of some groups and away from others. Let this strategic shift in allocation be a
 vector $\alpha_s$. Second, campaigns may directly persuade agency officials to
 adjust their allocational bias, for example by supporting claims about
-the number of people the group represents or the intensity or legitimacy
-of their policy demands. Let this direct shift be $\alpha_d$ and
-immutable taste now be $\alpha_t$. Having decomposed an agency's
+the number of people a group represents or the intensity or legitimacy
+of their policy demands. Let this direct shift in allocations be $\alpha_d$. Let policymakers' immutable taste now be $\alpha_t$. Having decomposed an policymaker's
 allocative bias into three parts (its fixed tastes, shifting strategic
-environment, and potential to be convinced), the agency's utility
+environment, and potential to be convinced), the policymaker's utility
 function is now
 $u_G(x_F) =  (\alpha_{t0} + \alpha_{s0} + \alpha_{d0}) x_f^2 + \sum_{i=1}^N (\alpha_{ti} + \alpha_{si} + \alpha_{di}) u_i (x_f)$.
 If, after the comment period, the strategic environment is
 unchanged and officials remains unpersuaded about which segments of society
 deserve favor, $\alpha_s$ and $\alpha_d$ are 0, and the model collapses
-to the original information game based on fixed taste. This less
+to the original information game based on fixed tastes. This outcome is less
 plausible when groups go public and expand the scope of conflict.
+
+Adding these parameters resolves a puzzling result of Libgober's
+model. Empirically, rules that receive comments do not always change.
+This result is impossible in a model where bureaucrats only have known
+fixed tastes and potential commenters only seek changes in policy. For
+policy seeking organizations to lobby but fail to influence policy
+requires that they are either wrong about an agency's allocative bias
+or their ability to shift it. Incorporating political information allows
+change and uncertainty in an agency's biases. 

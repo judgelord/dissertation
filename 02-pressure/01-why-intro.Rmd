@@ -39,12 +39,12 @@ knitr::include_graphics(here::here("Figs", "regulations-header.png"))
 
 <!--fill gap-->
 
-To fill this gap, I bring theories of conflict expansion and pressure tactics into theories of bureaucratic policymaking. Doing so reveals competing intuitions about the drivers of public participation, which I assess using a large new dataset of participation in federal agency rulemaking.
+To fill this gap, I bring theories of conflict expansion and pressure tactics into theories of bureaucratic policymaking. Because theories of bureaucratic policymaking focus on the power of information and expertise in policymaking, I highlight the way that public pressure campaigns create new information about the political context ("poltical information"). Doing so reveals competing intuitions about the drivers of public participation, which I assess using a large new dataset of participation in federal agency rulemaking.
 
 <!-- THEORY part 1
 <!-- summary, usual suspects vs underdog. this could be shorter, longer below-->
 
-First, I develop and assess two theories of who should mobilize public pressure campaigns and why. Each theory has observable implications for which types of groups will run campaigns in different contexts. One stems from leading theories of bureaucratic decision-making and interest group lobbying. It predicts that groups with more resources will dominate all forms of lobbying, including public pressure campaigns. The other emerges from democratic theories. It predicts that groups with fewer material resources but more popular support will more often use public pressure campaigns. 
+First, I develop and assess two theories of who should mobilize public pressure campaigns and why. Each theory has observable implications for which types of groups will run campaigns in different contexts. One stems from scholarship on bureaucratic decision-making and interest group lobbying. It predicts that groups with more resources will dominate all forms of lobbying, including public pressure campaigns. The other emerges from theories of democratic politics. It predicts that groups with fewer material resources but more popular support will more often use public pressure campaigns. 
 To begin to make sense of public participation in bureaucratic policymaking, I develop a typology of different kinds of participation, with implications for the normative value of participatory institutions. Because political participation is often a collective affair, this includes a typology of public pressure campaigns.
 
 The extent to which public comment periods serve the functions and provide the normative benefits that proponents assert depends on who participates. 
