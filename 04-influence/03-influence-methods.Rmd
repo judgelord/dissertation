@@ -1,8 +1,9 @@
 ## Testing the Theory
 
-### Data {#influence-data}
+### Data: A Census of Public Comments {#influence-data}
 
 ```{r influence-data}
+load(here::here("data", "coalitions_coded.Rdata"))
 load(here::here("data", "comments_coded.Rdata"))
 load(here::here("data", "mass_coded.Rdata"))
 
@@ -39,9 +40,8 @@ The hand-coding process included identifying the organization responsible for ea
 I then select a sample of proposed rules on which the same organizations commented without a mass comment campaign. <!--Matching prioritizes, presidential administration, policy area (following Policy Agendas Project coding), rule significance, department, agency, subagency, and proposed rule length, respectively.^[For more on policy area coding, see Chapter \@ref(macro).]--> 
 This hand-coded sample is several times larger than leading studies using hand-coding and includes rules with very large and small numbers of comments that previous studies exclude.
 
-The most direct way to assess the hypothesis that mass engagement increases lobbying success is to assess the relationship between the number of comments that a coalition mobilizes and its lobbying success. However, public pressure campaigns may only be effective under certain conditions. Thus, I first assess the main relationship and then assess evidence for or against different potential causal pathways of influence.
 
-### A Census of Comments from Members of Congress in Agency Rulemaking 
+The most direct way to assess the hypothesis that mass engagement increases lobbying success is to assess the relationship between the number of comments that a coalition mobilizes and its lobbying success. However, public pressure campaigns may only be effective under certain conditions. Thus, I first assess the main relationship and then assess evidence for or against different potential causal pathways of influence. The main indirect pathway by which campaings may influence agency policymaking is through engaging members of Congress.
 
 Through the iterative combination of automated search methods and hand-coding described above, I also identify comments submitted by elected officials, with special attention to members of the U.S. Congress.
 
@@ -60,6 +60,9 @@ For each organization, I identify the main overall demand, the top three specifi
 The codebook is available [here](https://docs.google.com/document/d/1o1hi0z9O-G9xsgkspOFG2VWzh0wQKjiezzoVpItaCxU/edit?usp=sharing). See examples of coded cases [here](https://judgelord.github.io/dissertation/influence_coding_examples.pdf).]  
 I then code overall lobbying success and lobbying success on each specific demand for each organization and coalition. Both the overall score and average score across specific demands both fall on the interval from -2 ("significantly different") to 2 ("mostly as requested"). 
 A team of undergraduate research assistants then applied the codebook to all comments likely to be from organizations or elected officials on a random sample of rules. Several rules were double-coded by the whole team. Intercoder reliability was XX. I also double-coded all comments that were part of mass comment campaigns with more than XX comments.
+
+
+In the models below, *coalition success* is the mean of hand-coded lobbying success on a five-point scale ({-2, -1, 0, 1, 2}, recoded to {-1, -.5, 0, .5, 1} for more straightforward model interpretation. 
 
 The average hand-coded success per organizational comment is `r mean(d$success, na.rm = T) %>% round()` (N = `r nrow(d)`). The average success for organizational comments with a mass comment campaign is `r mean(mass_coded$success, na.rm = T) %>% round(3)` (N = `r nrow(mass_coded)`).
 
@@ -103,11 +106,11 @@ Other predictors of lobbying success in the models below are the length of the (
 
 *Comment length* is normalized by dividing the number of words in the comment by the number of words in the proposed rule, thus capturing the complexity of the comment relative to the complexity of the proposed rule. 
 
-The number and type(s) of organization(s) is an attribute of each coalition (e.g., a *business-led* coalition with *N* organizational members). Coalition *size* is the number of distinct commenting organizations in the coalition. For organizations lobbying alone, coalition *size* is 1. 
+The number and type(s) of organization(s) is an attribute of each coalition (e.g., a *business-led* coalition with *N* organizational members). *Coalition size* (a count) is the number of organizations lobbying together on the rule, i.e. the number of distinct commenting organizations in each coalition. For organizations lobbying alone, coalition *coalition size* is 1. 
 
 A coalition is *unopposed* when no opposing organizations comment. This is only for the hand-coded sample where we have coded the spatial position of each comment. 
 
-I code a coalition as *business-led* if the majority of commenting organizations are for-profit businesses, or if upon investigation, I find it to be primarily led or sponsored by for-profit businesses.^[For more on how I identify types of organizations and coalitions, see \@ref(whymail-methods)]
+I code a coalition as *business-led* if the majority of commenting organizations are for-profit businesses, or if upon investigation, I find it to be primarily led or sponsored by for-profit businesses.^[For more on how I identify types of organizations and coalitions, see \@ref(whymail-methods)]  *Business colation* is binomial.
 
 ### Examples of hand-coded lobbying success
 
@@ -142,6 +145,61 @@ For the EarthJustice coalition, the dependent variable, *coalitions success* is 
 
 > TODO: MORE EXAMPLES
 
+
+
+### Summary Statistics for Hand-coded Data
+
+These hand-coded data include `r nrow(comments_coded)` unique comments, some of which have identical coppies for a total of `r sum(comments_coded$number_of_comments_received %>% as.numeric(),na.rm = T )` comments. These comments represent `r nrow(coalitions_coded)` distinct lobbying coalitions ranging in size from 2 to `r max(coalitions_coded$coalition_size)` organizations. Figure \@ref(fig:hist-coalitions) shows that coalitions are fairly ballenced between thouse that succeed and fail to get the changes they seek in the final rule. `r percent( sum(coalitions_coded$coalition_business, na.rm = T)/nrow(coalitions_coded) )` are business-led coalitions. 
+
+Table \@ref(tab:data-coded) shows a sample of coded data, summarized at the coalition level.
+
+```{r data-coded, cache = FALSE}
+d <- coalitions_coded %>% 
+  drop_na(coalition_business) %>%
+  filter(coalition_comment != "FALSE") %>% 
+  distinct() %>% 
+  dplyr::select(-coalitions)
+
+d %>% group_by(docket_id) %>% 
+  slice_max(comments, n = 2) %>%
+  dplyr::select(docket_id, coalition_id, everything()) %>% 
+  distinct() %>% 
+  kable3(caption = "A Sample of Hand-Coded Summarized by Coaltion") 
+```
+
+```{r hist-coalitions, fig.width=2, fig.height=2,  out.width = "30%", fig.cap="Hand-coded Data by Coalition", cache=FALSE}
+ggplot(d, aes(x = coalition_success)) + 
+  geom_histogram() + 
+  labs(x = "Coalition Success")
+
+ggplot(d) + 
+  aes(x = as.numeric(coalition_business)) + 
+  geom_histogram() + 
+  labs(x = "Business Coalition")
+
+ggplot(d, aes(x = coalition_size)) + 
+  geom_histogram() + 
+  labs(x = "Coalition size")
+
+```
+
+```{r hist-comments,  fig.width=3, fig.height=2, out.width = "49%", fig.cap="Number of Comments Linked to Hand-Coded Coalitions", cache=FALSE}
+#TODO
+#ggplot(d, aes( x= comment_length)) + geom_histogram()+ labs(x = "% (Comment length/proposed rule length)*100")
+
+ggplot(d, aes( x= log(comments))) + 
+  geom_histogram() + 
+  labs(x = "Log(comments)")
+
+```
+
+### Summary Statisticas for Machine-coded Data
+
+> IN PROGRESS
+
+**Dependent variable:** *The percent change in policy text*...
+
+**Explanatory variables:** The *total number of comments*...
 ### Limitations
 
 The two main limitations of this design both bias estimates of public pressure campaign influence toward zero.
@@ -163,14 +221,21 @@ $$
 
 To estimate mediated effects, I estimate the average conditional marginal effect (ACME) and the proportion of the total effect attributed to mediation through congressional support (comments or other communication from Members of Congress supporting the coalition's position on the proposed rule). As developed by Imai et al. (2010), this involves first estimating a model of the potential mediator as a combination of covariates, $X$ (*length*, *unopposed*, *size*, and *business*) and then the outcome as a combination of the mediator, *congressional support*, and covariates, $X$.
 
+The bold arrow in figure \@ref(fig:causal-oversight) indicates the key relationship
+that I test in this step: the relationship between the scale of
+public engagement and engagement from members of Congress, who may
+receive political information (e.g., about the level of public attention or public opinion) from public pressure campaigns and the resulting mass commenting.
+
+```{r causal-oversight, fig.cap = "The Mediator Model: The Relationship Between Public Pressure and Congressional Oversight"}
+#TODO add headers, cut out demands, add political information box, shift principal comments over
+#TODO add outcome model
+knitr::include_graphics(here::here("figs", "causal-oversight-1.png"))
+```
+
 Mediator model \@ref(eq:mediator):
 
-$$
-congressional\ support_i = \beta_0 + \beta_1 log(comments_i) +\\ \beta_{2-n} X_i + \epsilon_i (\#eq:mediator)
-$$
+$$ congressional\ support_i = \beta_0 + \beta_1 log(comments_i) + \beta_{2-n} X_i + \epsilon_i (\#eq:mediator) $$
 
 Outcome ($y_i = Lobbying\ success_i$) model \@ref(eq:outcome):
 
-$$
-y_i = \beta_0 + \beta_1 log(comments_i) + \beta_2 congressional\ support_i + \beta_{3-n} X_i + \epsilon_i (\#eq:outcome)
-$$
+$$ y_i = \beta_0 + \beta_1 log(comments_i) + \beta_2 congressional\ support_i + \beta_{3-n} X_i + \epsilon_i (\#eq:outcome) $$

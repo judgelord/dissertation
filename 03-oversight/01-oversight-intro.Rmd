@@ -52,7 +52,6 @@ Lobbying campaigns increase the salience of the rulemakings they target. In addi
 
 #### Principal-agent Relationships During Rulemaking
 
-
 Political oversight of bureaucracies has long concerned both
 practitioners and theorists. Political scientists often model the
 relationship between elected officials and bureaucrats as a
@@ -72,7 +71,7 @@ debated.
 -->
 
 I focus on lobbying influence in the period between the publication of draft and final rules and thus on information about principals' preferences
-revealed to the agency in this period. Oversight during rulemaking is a
+revealed to the agency in this period. In principal-agent terms, this means I am focusing on "agency policy-making" where the agency makes the first move and members of Congress react, perhaps threatening future sanctions (@Ferejohn1990). Oversight during rulemaking is a
 form of ex-post control [@Epstein1994], in this case, after the proposed
 rule is published. Upon learning the content of a draft rule, an official with power over the agency may
 choose to signal their demands to the agency. 

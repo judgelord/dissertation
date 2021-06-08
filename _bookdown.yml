@@ -22,13 +22,13 @@ rmd_files:
   - 02-pressure/03-why-methods.Rmd
   - 02-pressure/04-why-results.Rmd
 #  - 03-oversight/00-abstract.Rmd # oversight (rolled into next chapter for now)
+#  - 03-oversight/01-oversight-intro.Rmd
+#  - 03-oversight/03-oversight-methods.Rmd 
   - 04-influence/00-abstract.Rmd # influence
   - 04-influence/01-influence-intro.Rmd 
   - 04-influence/02-influence-theory.Rmd 
   - 03-oversight/01-oversight-intro.Rmd
   - 04-influence/03-influence-methods.Rmd 
-  - 03-oversight/03-oversight-methods.Rmd 
-  #- 04-influence/05-influence-results-sim.Rmd 
   - 04-influence/05-influence-results.Rmd 
   - 05-ej/00-abstract.Rmd # ej
   - 05-ej/01-intro.Rmd

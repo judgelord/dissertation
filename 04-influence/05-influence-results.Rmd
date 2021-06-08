@@ -1,78 +1,12 @@
-\pagebreak
-
 ## Results {#influence-results}
 
-### Machine-coded Data
-
-> IN PROGRESS
-
-**Dependent variable:** *The percent change in policy text*...
-
-**Explanatory variables:** The *total number of comments*...
-
-### Hand-coded Data
-
-> IN PROGRESS
-
-> Currently, these data only include rules where there was a mass-comment campaign, which likely explains why business coalitions are less successful than public interest coalitions. I anticipate the sign on that coefficient to be positive in the sample of rules that did not see a mass comment campaign. The contentious nature of this sample also means that there is no variation in the `coalition_unopposed` variable (no coalitions in the sample with mass comment campaigns lobbied unopposed).
-
-
-**Dependent variable:** *Coalition success* is the mean of hand-coded lobbying success on a five-point scale ({-2, -1, 0, 1, 2}, recoded to {-1, -.5, 0, .5, 1} for more straightforward model interpretation). 
-
-**Explanatory variables:** *Coalition size* (a count) is the number of organizations lobbying together on the rule. *Business colation* is binomial. *Comments* is the total number of comments (including mass comments) mobilized by members of the coalition, which I transform to a log scale for modeling. 
-
-```{r, cache = FALSE}
-load(here::here("data", "comments_coded.Rdata"))
-load(here::here("data", "coalitions_coded.Rdata"))
+```{r}
+# distinct obs for modeling
+d %<>% filter(!is.na(coalition_success)) %>% distinct(cong_support, comments, coalition_business, coalition_size,coalition_unopposed,coalition_success) %>% mutate_all(as.numeric)
 ```
 
-These hand-coded data include `r nrow(comments_coded)` unique comments, some of which have identical coppies for a total of `r sum(comments_coded$number_of_comments_received %>% as.numeric(),na.rm = T )` comments. These comments represent `r nrow(coalitions_coded)` distinct lobbying coalitions ranging in size from 2 to `r max(coalitions_coded$coalition_size)` organizations. Figure \@ref(fig:hist-coalitions) shows that coalitions are fairly ballenced between thouse that succeed and fail to get the changes they seek in the final rule. `r percent( sum(coalitions_coded$coalition_business, na.rm = T)/nrow(coalitions_coded) )` are business-led coalitions. 
 
-Table \@ref(tab:data-coded) shows a sample of coded data, summarized at the coalition level.
-
-```{r data-coded, cache = FALSE}
-d <- coalitions_coded %>% 
-  drop_na(coalition_business) %>%
-  filter(coalition_comment != "FALSE") %>% 
-  distinct() %>% 
-  dplyr::select(-coalitions)
-
-d %>% group_by(docket_id) %>% 
-  slice_max(comments, n = 2) %>%
-  dplyr::select(docket_id, coalition_id, everything()) %>% 
-  distinct() %>% 
-  kable3(caption = "A Sample of Hand-Coded Summarized by Coaltion") 
-```
-
-```{r hist-coalitions, fig.width=2, fig.height=2,  out.width = "30%", fig.cap="Hand-coded Data by Coalition", cache=FALSE}
-ggplot(d, aes(x = coalition_success)) + 
-  geom_histogram() + 
-  labs(x = "Coalition Success")
-
-ggplot(d) + 
-  aes(x = as.numeric(coalition_business)) + 
-  geom_histogram() + 
-  labs(x = "Business Coalition")
-
-ggplot(d, aes(x = coalition_size)) + 
-  geom_histogram() + 
-  labs(x = "Coalition size")
-
-```
-
-```{r hist-comments,  fig.width=3, fig.height=2, out.width = "49%", fig.cap="Number of Comments Linked to Hand-Coded Coalitions", cache=FALSE}
-#TODO
-#ggplot(d, aes( x= comment_length)) + geom_histogram()+ labs(x = "% (Comment length/proposed rule length)*100")
-
-ggplot(d, aes( x= log(comments))) + 
-  geom_histogram() + 
-  labs(x = "Log(comments)")
-
-```
-
-### Results
-
-The results of this model (Figure \@ref(fig:model-success-plot), Table \@ref(tab:mediation)) show that ________. With lobbying success as the dependent variable, the coefficient on the main variable of interest would be interpreted as a $\beta_{logmasscomments}$ increase in the five-point influence scale of lobbying success for each one-unit increase in the logged number of comments.
+Figure \@ref(fig:model-success-plot) and Table \@ref(tab:mediation) show the results of a model of lobbying success show that ________. With lobbying success as the dependent variable, the coefficient on the main variable of interest would be interpreted as a $\beta_{logmasscomments}$ increase in the five-point influence scale of lobbying success for each one-unit increase in the logged number of comments.
 
 ```{r model-success, cache=FALSE}
 m <- lm(coalition_success ~ 
@@ -85,7 +19,7 @@ m <- lm(coalition_success ~
 ```
 
 
-```{r model-success-plot, cache=FALSE,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS model of coalition lobbying sucess with hand-coded data"}
+```{r model-success-plot, cache=FALSE,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS Model of Coalition Lobbying Sucess with Hand-coded Data"}
 m %>%
   tidy(conf.int = TRUE) %>% 
   filter(term != "(Intercept)") %>% 
@@ -101,13 +35,39 @@ m %>%
        x = "") 
 ```
 
+
+Figure \@ref(fig:model-oversight-plot) and Table \@ref(tab:mediation) show the results of a model of the number of members of Congress per coalition. This model shows that ________. With the number of members of Congress as the dependent variable, the coefficient on the main variable of interest would be interpreted as a $\beta_{logmasscomments}$ increase in the number of legislators joining the coalition for each one-unit increase in the logged number of public comments.
+
+```{r model-oversight, cache=FALSE}
+# model predicting mediator
+model.m <- lm(cong_support ~  log(comments) + #comment_length +
+                coalition_business+  coalition_size + coalition_unopposed, data = d) 
+```
+
+
+```{r model-oversight-plot, cache=FALSE,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS Model of the Numeber of Members of Congress Per Coalition with Hand-coded Data"}
+model.m %>%
+  tidy(conf.int = TRUE) %>% 
+  filter(term != "(Intercept)") %>% 
+  ggplot() + 
+  geom_hline(yintercept = 0, color = "grey") + 
+  aes(x = term, 
+      y = estimate, 
+      ymin = conf.low, 
+      ymax = conf.high) + 
+  geom_pointrange( )  + 
+  coord_flip() +
+  labs(y = "Number of Legislator Comments", 
+       x = "") 
+```
+
 To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME, conditional on the number of comments from Members of Congress) and average direct effect (ADE) of mass comments using mediation analysis. Model 3 in table \@ref(tab:mediation) replaces the dependent variable (lobbying success) with the mediator variable (the number of supportive members of Congress). 
 
 ```{r mediation, cache=FALSE}
+#TODO split out mediator and outcome model tables
 library(mediation)
 
-# distinct obs
-d %<>% filter(!is.na(coalition_success)) %>% distinct(cong_support, comments, coalition_business, coalition_size,coalition_unopposed,coalition_success) 
+
 
 # model predicting mediator
 model.m <- lm(cong_support ~  log(comments) + #comment_length +
@@ -115,7 +75,7 @@ model.m <- lm(cong_support ~  log(comments) + #comment_length +
 
 # model predicting DV
 model.y <- lm(coalition_success ~ log(comments) + cong_support + #comment_length + 
-                coalition_business+  coalition_size + coalition_unopposed, data = d) 
+                coalition_business+  coalition_size + coalition_unopposed, data = d %>% mutate_all(as.numeric)) 
 
 #FIXME NEED MORE OBS
 #med.cont <- mediate(model.m, model.y, sims=1000, treat = "log(comments)", mediator = "cong_support")
@@ -161,15 +121,15 @@ modelsummary::modelsummary( models,
 
 The average effect of the logged number of comments, conditional on letters from members of congress (the ACME) is ` round(med.cont$d.avg, 2)`, with a p value of ` round(med.cont$d0.p, 2)`.
 
-The average direct effect (ADE) of the logged number of comments on lobbying success is ` round(med.cont$z0, 2)`, with a p-value of ` round(med.cont$z0.p, 2)`
+The average direct effect (ADE) of the logged number of comments on lobbying success is ` round(med.cont$z0, 2)`, with a p-value of ` round(med.cont$z0.p, 2)`.
 
 The Total Effect of a one-unit increase in the logged number of comments is ` round(med.cont$tau.coef, 2)`, with a p value of ` round(med.cont$tau.p, 2)`. ` round(med.cont$n0, 2)` of this is mediated through mobilizing congressional attention (p-value = ` round(med.cont$n0.p, 2)`).
 
 
 
-### Preliminary findings
+### [PRELIMINARY] Findings
 
-I find that more public pressure correlates with more congressional oversight. This includes comments from legislators both for and against proposed rules. For example, when the Department of the Treasury published draft rules implementing the Unlawful Internet Gambling Act of 2006, the proposal generated unusually high levels of public attention. As a result, two bipartisan groups of legislators submitted comments on the rule. One, led by the chair of the House Judiciary Subcommittee on Commercial and Administrative Law, raised concerns about the Department's implementation of the Administrative Procedures Act. The other group of legislators, led by Senator Mike Pence, pushed back against interest-group opposition to the rule and urged the Department to implement the rules. This case illustrates several broader trends that I observe. Members of Congress are more likely to engage in oversight when interest groups and the public pay more attention to an issue. When legislators do engage in rulemaking, they often engage on both sides of the issue, raising process or policy concerns that may push agencies in multiple directions.
+I find that more public pressure correlates with more congressional oversight. This includes comments from legislators both for and against proposed rules. For example, when the Department of the Treasury published draft rules implementing the Unlawful Internet Gambling Act of 2006, the proposal generated unusually high levels of public attention. As a result, two bipartisan groups of legislators submitted comments on the rule. One, led by the chair of the House Judiciary Subcommittee on Commercial and Administrative Law, raised concerns about the Department's implementation of the Administrative Procedures Act. The other group of legislators, led by Senator Mike Pence, pushed back against interest-group opposition to the rule and urged the Department to implement the rules. This case illustrates several broader trends that I observe. Members of Congress are more likely to engage in oversight when interest groups and the public pay more attention to an issue. When legislators engage in rulemaking, they often engage on both sides of the issue, raising process or policy concerns that may push agencies in multiple directions.
 
 
 

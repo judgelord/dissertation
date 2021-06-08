@@ -35,11 +35,10 @@ frequencies) used by legislators to the language used by each coalition.-->
 
 There are several ways to test for a relationship between mass
 engagement and engagement by Members of Congress. The key explanatory
-variables of interest are the measures of mass engagement created in
-step 1 (how many and what types of comments). For simplicity, in the
+variables of interest are the measures of mass engagement. For simplicity, in the
 equations below, I only include measures related to the number of
-comments. Thus $\beta_0$ is the estimate for a rule with no public
-comments.
+comments. Thus $\beta_0$ is the estimate for a rule with either no public
+comments or no supportive public comments.
 
 In Model 1, the dependent variable is the total number of comments from
 Members of Congress on the rule: *$Y$ = Total comments from Congress*
