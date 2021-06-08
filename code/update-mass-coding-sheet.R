@@ -68,3 +68,4 @@ mass %<>% select(docket_id, comments, comment_type, comment_url, org_name, org_n
 # sheet_write(mass, ss, sheet = Sys.Date() %>% as.character())
 
 
+save(mass_coded, file = here::here("data", "mass_coded.Rdata"))

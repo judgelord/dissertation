@@ -38,13 +38,13 @@ or opposition to a proposed rule. Public attention and support gave agency offic
 
 <!--evidence that MCs know about and react to the mass commenting campaigns -->
 
-Members of Congress often learn about and are often spurred to act by public pressure campaigns. For example, several members of Congress attached to their comments on CFPB's Payday Loan rule (CFPB-2016-0025) mass mail or petitions from their constituents. 
+Members of Congress often learn about and are often spurred to act by public pressure campaigns. Legislators often submit comments from their constituents, either on their own or attached to their own comments. For example, several members of Congress attached to their comments on CFPB's Payday Loan rule (CFPB-2016-0025) mass mail or petitions from their constituents. 
 
 > TODO: ADD EXAMPLES 
 
 James Q. Wilson notes a similar pattern with the FTC's Funeral Industry Practice Rule and Used Car Rule:
 
-> "Undertaker sand used -care dealers were outraged by these proposed rules. Very quickly, members of Congress discovered just how many undertakers and car dealers they had in their districts and how well-connected they were. The FTC suddenly had activated large, hostile interests who were successful in getting Congress to force the agency to back down." [@Wilson1989, pg. 83]
+> "Undertakers and used-car dealers were outraged by these proposed rules. Very quickly, members of Congress discovered just how many undertakers and car dealers they had in their districts and how well-connected they were. The FTC suddenly had activated large, hostile interests who were successful in getting Congress to force the agency to back down." [@Wilson1989, pg. 83]
 
 Public pressure campaigns often seek to influence policy by informing elected officials of their constituents' demands. Many campaigns collect the zip code of letter-signers so that they can forward constituent comments to their representatives. Some form letters include a line for signers to "CC" (carbon copy) their member of Congress (see, for example [EPA-HQ-OAR-2005-0161-2624](https://www.regulations.gov/comment/EPA-HQ-OAR-2005-0161-2624)).
 
@@ -140,11 +140,14 @@ before the draft rule's publication.
 The scale of public engagement moderates elected officials' engagement in agency rulemaking
 engagement.
 ```
-Because members of Congress are some of the most relevant political principals for federal policymakers, I focus on these principals. The relationship between public engagement and legislator engagement can be modeled by Equation \@ref(eq:eq1) where $Pr(Comment_i)$ is the probability that legislator $i$ comments on a proposed rule, $\beta1$ is the total number of public comments, and $\eta$ is a vector of coefficients on other factors ($X_i$) that may affect whether a legislator engages.
 
-$$\begin{equation}
-Pr(Comment_i) \sim \beta_0 + \beta_1 text{Number of comments} + \eta X_i (\#eq:eq1)
-\end{equation}$$
+Because members of Congress are some of the most relevant political principals for federal policymakers, I focus on these principals. The relationship between public engagement and legislator engagement can be modeled by Equation \@ref(eq:oversight1) where $Pr(Comment_i)$ is the probability that legislator $i$ comments on a proposed rule, $\beta1$ is the total number of public comments, and $\eta$ is a vector of coefficients on other factors ($X_i$) that may affect whether a legislator engages.
+
+
+
+$$Pr(Comment_i) \sim \beta_0 + \beta_1 text{Number of comments} + \eta X_i 
+(\#eq:oversight1)$$
+
 
 
 ```{hypothesis beacon, echo = TRUE}
@@ -159,12 +162,13 @@ reduce oversight from opponents. The more comments opposing a position,
 the less likely principals holding that position are to engage.
 ```
 
-The probability that a legislator will comment, given their position $p$ on a proposed rule ($Pr(Comment_i|p_i)$), is modeled in equasion \@ref(eq:eq2). Hypothesis \@ref(hyp:beacon) implies that $\beta_1$ is positive and
+The probability that a legislator will comment, given their position $p$ on a proposed rule ($Pr(Comment_i|p_i)$), is modeled in equasion \@ref(eq:oversight2). Hypothesis \@ref(hyp:beacon) implies that $\beta_1$ is positive and
 Hypothesis \@ref(hyp:warning) implies that $\beta_2$ is negative.
 
-$$\begin{equation}
-Pr(Comment_i|p_i) \sim \beta_0 + \beta_1 Comments\ supporting\ p_i + \beta_2 Comments\ opposing\ p_i + \eta X_i (\#eq:eq2)
-\end{equation}$$
+
+$$Pr(Comment_i|p_i) \sim \beta_0 + \beta_1 \text{Comments supporting } p_i + \beta_2 \text{Comments opposing } p_i + \eta X_i
+(\#eq:oversight2)$$
+
 
 If Hypothesis \@ref(hyp:beacon) is correct, it would suggest a supplement to Hall
 and Miler's [-@Hall2008] finding that legislators are more likely to engage in
@@ -198,4 +202,5 @@ Second, I suggest that such oversight behaviors
 maybe affected by public pressure campaigns because of the impressions of public
 opinion (i.e., the political information) they create. 
 This is represented by the arrow between "Perceived Public Opinion" and "Principal Comments" in Figure \@ref(fig:causal-oversight). 
+
 

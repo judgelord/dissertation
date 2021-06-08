@@ -12,14 +12,16 @@ rules sent to them for review.
 Because metadata on the authors of comments and their
 affiliations are inconsistent and incomplete, improving these
 data was a significant data-organization task.
--->
+
+
 Through an iterative combination of automated search methods and hand-coding, I identify the comments submitted by elected officials.
 
 Figure \@ref(fig:congress) shows the number of comments from members of Congress received during rulemaking by a sample of federal agencies. Oversight letters are frequently co-signed by multiple members from the Senate, House, or both chambers. 
 
-```{r congress, fig.cap = "Number of Letters from Members of Congress Received During Rulemaking per Year", out.width = "100%"}
+```{r congress-hist, fig.cap = "Number of Letters from Members of Congress Received During Rulemaking per Year", out.width = "100%"}
 knitr::include_graphics(here::here("figs", "comments-congress.png"))
 ```
+-->
 
 To assess the hypothesis that public pressure campaigns affect the engagement of
 political principals, I examine the relationship between mass commenting
