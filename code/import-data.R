@@ -24,12 +24,16 @@ d %<>%
   na_if("NA") %>% 
   # fix ids
   mutate(document_id = document_id %>% str_remove("-1.pdf")) %>% 
+  mutate(success = as.numeric(success)) %>% 
   mutate(docket_id = document_id %>% str_remove("-[0-9]+$"))# %>%  mutate(across(starts_with("success")), as.numeric )
 
 
 
 # Inspect 
+# some docket_url's are missing 
 d %>% distinct(docket_id, docket_url)  %>% kablebox()
+
+# comments where there is no docket id
 d %>% filter(is.na(docket_id)) %>% distinct(document_id)
 
 
@@ -60,7 +64,51 @@ d$congress %>% unique()
 #FIXME just to make sure we are not dropping obs due to this reasonable assumption
 d$congress %<>% replace_na(FALSE)
 
+comment_errors <- d %>% filter(is.na(position), !is.na(org_type)) 
+
 comments_coded <- d %>% drop_na(position)
+
+# fix comment type and  org type 
+clean_org_type <- . %>% 
+  str_replace_all(":", ";") %>% 
+  str_to_lower() %>% 
+  str_squish() %>% 
+  str_replace("astroturf", "mass;astroturf") %>% 
+  str_replace("^indi.*al$", "individual")
+
+comments_coded %<>% mutate(comment_type = comment_type %>% clean_org_type() %>% 
+                             str_replace("gov", "org") %>%
+                             str_remove(";.*|-.*| o.*"),
+                           org_type = org_type %>% clean_org_type() %>% 
+                             str_replace("business", "corp") %>% 
+                             str_replace("nonprofit", "ngo") %>% 
+                             str_replace("^union", "ngo;union") %>%
+                             str_replace("^tribe", "gov;tribe")) %>% 
+  ungroup()
+
+comments_coded %>% count(comment_type, sort =T) %>% 
+  kablebox()
+
+comments_coded %>% filter(is.na(comment_type)) %>% 
+  count(docket_id)
+
+comments_coded %>% count(docket_id, comment_type, sort =T) %>% 
+  drop_na(comment_type) %>% 
+  filter(!comment_type %in% c("ngo", "astroturf", "corp", "corp group", "gov", "elected", "mass", "individual", "house", "senate", "org", "congress")) %>%  
+  kablebox()
+
+# org type 
+
+comments_coded %>% count(org_type, sort =T) %>% 
+  kablebox()
+
+comments_coded %>% count(docket_id, org_type, comment_type, sort =T) %>% 
+  drop_na(org_type) %>% 
+  filter(comment_type != "elected",
+         !str_detect(org_type, str_c("ngo", "astroturf", "corp", "corp group", "gov", 
+                                     "elected", "mass", "individual", 
+                                     "house", "senate", "state", "city", "assembly", "org", "congress", sep = "|"))) %>%  
+  kablebox()
 
 # missing success
 # I know some of these are in progress, but FYI these sheets are missing “success” for some org comments
@@ -108,6 +156,7 @@ d_coalitions %>% kablebox()
 
 # diognostics 
 d_all %>% ungroup() %>%
+  filter(!(is.na(coalition_type) & coalition_comment == "FALSE")) %>% 
   drop_na(docket_id) %>% 
   group_by(docket_id) %>% 
   distinct(coalition_comment, coalition_type) %>% 
@@ -117,11 +166,28 @@ d_all %>% ungroup() %>%
 
 # coalitions with no main orgs
 d_all %>%
-  mutate(success = mean(success,na.rm = T))  %>% 
+  mutate(success = mean(success,na.rm = T),
+         coalition_comment = coalition_comment %>% 
+           str_squish() %>% str_to_upper())  %>% 
   distinct(coalition_comment, success) %>% 
   select(docket_id, everything()) %>% 
   filter(is.na(success), coalition_comment != "FALSE", !is.na(coalition_comment)) %>% 
   kablebox()
+
+d_all %>%
+  ungroup() %>% 
+  group_by(coalition_comment, docket_id) %>% 
+  mutate(success = success %>% as.numeric() %>%  mean(na.rm = T),
+         coalition_comment = coalition_comment %>% 
+           str_squish() %>% str_to_upper())  %>% 
+  distinct(coalition_comment, success) %>% 
+  select(docket_id, everything()) %>% 
+  filter(is.na(success), coalition_comment != "FALSE", !is.na(coalition_comment)) %>% 
+  ungroup() %>% 
+  arrange(docket_id) %>% 
+  kablebox()
+
+d_all %>% filter(str_dct(coalition_comment, "greyhound")) %>% select(success) %>% mutate(success = mean(success))
 
 coalitions_coded <- d_coalitions 
 
