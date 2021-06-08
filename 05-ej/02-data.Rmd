@@ -69,7 +69,7 @@ make dubious claims to represent broad segments of the public [@Seifter2016UCLA]
 > "the expertise a group claims is often based on its ability to convey a particular constituency's perspective, experience, or concerns...A group that does not have or engage with a membership cannot reliably convey those sorts of constituency-based insights. Moreover, even when a group's assertions seem independent of a constituency---say, the results of a scientific study---information about second-order participation matters. Understanding the group's sources, funding, and potential biases is important to assessing the reliability of its information and its contribution to agency expertise" [@Seifter2016UCLA, pg. 1306].
 
 
-Examining second-order representation is thus required to assess "what contemporary participation does and does not achieve" [@Seifter2016UCLA, pg. 1306]---for example, the extent to which EJ concerns (and any potential policy response) indicate genuine social movement advocacy and influence. Recall that EJ is a contested concept used to evoke different distributive claims by different groups. The prevalence and impact of EJ concerns in the policy process is only meaningful against the backdrop of who exactly is using EJ rhetoric.
+Examining second-order representation is thus required to assess "what contemporary participation does and does not achieve" [@Seifter2016UCLA, pg. 1306]---for example, the extent to which EJ concerns (and any potential policy response) indicate genuine social movement advocacy and influence. Recall that EJ is a contested concept used to evoke different distributive claims by different groups. The prevalence and impact of EJ concerns in the policy process are only meaningful against the backdrop of who exactly is using EJ rhetoric.
 
 I examine who is raising EJ concerns in two ways.
 First, I identify the top organizational commenters such as tribes,
@@ -85,7 +85,7 @@ To explore who raises EJ concerns, I first identify the organization behind each
 
 <!-- TODO insert table -->
 
-The top mobilizer of comments mentioning "environmental justice" between 1993 and 2020 was the Sierra Club, with over 340,000 comments mentioning EJ on dozens of rules. The Sierra Club a membership organization whose members pay dues, elect the leaders of local chapters, and have some say in local advocacy efforts. However, its policy work is directed by a more traditional national advocacy organization funded by donations, including over $174 million from Bloomberg Philanthropies that funded several of the public pressure campaigns in these data. The Sierra Club does have a major program arm dedicated to Environmental Justice that works with local partners "to foster the growth of the environmental justice movement so that oppressed communities will find justice and everyone can experience the benefits of a healthy and sustainable future." The extent to which those individuals have a formal say in the national organization's lobbying decisions varies across campaigns. The National Board of Directors adopted a statement on social justice in 1993 and principles on environmental justice in 2001. The national website does contain regular Spanish language content. As a federated organization with many local efforts, it is difficult to generalize about second-order representation.
+The top mobilizer of comments mentioning "environmental justice" between 1993 and 2020 was the Sierra Club, with over 340,000 comments mentioning EJ on dozens of rules. The Sierra Club a membership organization whose members pay dues, elect the leaders of local chapters and have some say in local advocacy efforts. However, its policy work is directed by a more traditional national advocacy organization funded by donations, including over $174 million from Bloomberg Philanthropies that funded several of the public pressure campaigns in these data. The Sierra Club does have a major program arm dedicated to Environmental Justice that works with local partners "to foster the growth of the environmental justice movement so that oppressed communities will find justice and everyone can experience the benefits of a healthy and sustainable future." The extent to which those individuals have a formal say in the national organization's lobbying decisions varies across campaigns. The National Board of Directors adopted a statement on social justice in 1993 and principles on environmental justice in 2001. The national website does contain regular Spanish language content. As a federated organization with many local efforts, it is difficult to generalize about second-order representation.
 
 The second most prolific organizer of EJ comments was Earthjustice, with over 175,000 comments on many of the same rules that the Sierra Club lobbied on. Earthjustice is primarily engaged in litigation on
 behalf of environmental causes. Their website boasts 2.2 million
@@ -96,7 +96,7 @@ who work on more local or targeted campaigns, such as environmental conditions
 for the incarcerated. The EJ language used on the
 main page is relatively vague. For example, "We are fighting for a future
 where children can breathe clean air, no matter where they live."
-[@Earthjustice2017]. The website does contain some Spanish language content.
+[@Earthjustice2017]. The website does contain some Spanish-language content.
 
 The Natural Resources Defense Council is similar to Earthjustice--a
 national nonprofit funded by donations and focused on litigation--but
@@ -191,7 +191,7 @@ Environmental Justice required all parts of the federal government
 to make "addressing disproportionately high and adverse human health or
 environmental effects of programs, policies, and activities on minority
 populations and low-income populations" a core aspect of their mission.
-This meant considering disproportionate effects of policies by race and income during rulemaking.
+This meant considering the disproportionate effects of policies by race and income during rulemaking.
 
 In 2005, Environmental Protection Agency (EPA) political appointees reinterpreted the Order, removing race as a factor in identifying and prioritizing populations. This move was criticized by activists and two reports by EPA's own Office of Inspector General. 
 
@@ -202,7 +202,7 @@ restrictions on power plant pollution, the Trump EPA acknowledged that
 "low-income and minority communities located in proximity to [power
 plants] may have experienced an improvement in air quality as a result
 of the emissions reductions." Because the Obama EPA discussed
-EJ when promulgating the Clean Power Plan rule--- stating that "climate change is an environmental justice issue" ---, the Trump EPA attempted to reframe rather than ignore environmental justice. The Trump EPA contended that the Obama EPA "did not address lower household energy bills for low-income households [and that] workers losing jobs in regions or occupations with weak labor markets would have been most vulnerable" (EPA 2017). Like regulated industry commenters, these statements frame the distribution of jobs and electricity costs as EJ issues to push back against policies that would equalize the distribution of health impacts from pollution. 
+EJ when promulgating the Clean Power Plan rule--- stating that "climate change is an environmental justice issue" ---, the Trump EPA attempted to reframe rather than ignore environmental justice. The Trump EPA contended that the Obama EPA "did not address lower household energy bills for low-income households [and that] workers losing jobs in regions or occupations with weak labor markets would have been most vulnerable" (EPA 2017). Like regulated industry commenters, these statements frame the distribution of jobs and electricity costs as EJ issues in order to push back against policies that would equalize the distribution of health impacts from pollution. 
 
 The central conflict over the role of race in policy analyses is just one of many conflicts that the environmental justice movement has caused to be fought somewhat on its terms. The next section briefly reviews the decades-long policy fight over regulating Mercury pollution to illustrate how these definitional conflicts shape rules and rulemaking. This case and other examples in this article emerged from reading hundreds of rulemaking documents where agencies did and did not respond to comments raising EJ concerns. Their purpose is to assess whether the cases in the quantitative analysis are plausibly what they appear to be: that changes in rule text are, sometimes, causally related to public comments and that non-changes are cases of agencies disregarding comments, not some accident of the data or measures. 
 The qualitative reading also confirmed other key assumptions, such as the fact that advocates do, in fact, use "environmental justice" when they raise distributional concerns, even on many rules that are not about issues traditionally considered "environmental."
@@ -289,7 +289,7 @@ cultural discrimination against tribes and their members" (Sprague
 2011). 
 
 Did comments like these play a role in EPA's changed analysis of
-whom Mercury limits should aim to protect?
+whom should Mercury limits aim to protect?
 Given the many potential sources of influence, it may be difficult to
 attribute causal effects of particular comments on a given policy.
 However, comments may serve as a good proxy for the general mobilization
@@ -309,7 +309,7 @@ next seems to be in response to activist pressure.
 
 ### Measuring Policy Change
 
-Having shown how public comments and pressure can influence policy texts, I assess the general relationship between comments and policy texts across all rules. I use two indicators of responsiveness to model the effect of public comments on policy documents: *whether* a rule addresses EJ and change in *how* it addresses EJ, i.e., change in portions of the text discussing EJ. Both measures represent a relatively low bar, indicating whether the agency explicitly paid any attention to EJ. This is similar to measures of "proceedural responsiveness" used by @Balla2020. The low empirical bar is appropriate given that prior research shows little to no effect of public comments from advocacy groups [@Yackee2006JOP; @Balla2020] and low levels of attention to EJ concerns in particular [CITE].
+Having shown how public comments and pressure can influence policy texts, I assess the general relationship between comments and policy texts across all rules. I use two indicators of responsiveness to model the effect of public comments on policy documents: *whether* a rule addresses EJ and change in *how* it addresses EJ, i.e., change in portions of the text discussing EJ. Both measures represent a relatively low bar, indicating whether the agency explicitly paid any attention to EJ. This is similar to measures of "procedural responsiveness" used by @Balla2020. The low empirical bar is appropriate given that prior research shows little to no effect of public comments from advocacy groups [@Yackee2006JOP; @Balla2020] and low levels of attention to EJ concerns in particular [CITE].
 
 Examples in the previous section illustrate how text mentioning "environmental justice" might be added or change. Carefully tracing a few rulemaking processes also helped to avoid analytic pitfalls. For example, one case where an agency did an EJ analysis and then appeared not to respond to a comment discussing EJ was, in fact, due to the fact that the commenter included an annotated version of the draft rule their comment, adding only "no comment" next to the 12898 section. To correct this, I removed text copied from the proposed rule from comments in pre-processing. 
 

@@ -11,7 +11,7 @@ Tracing ideas like environmental justice (EJ) through policy processes reveals t
 
 I assess the impact of the EJ movement qualitatively and quantitatively. Tracing the evolution of EJ analyses through several policy processes shows that the concept is hotly contested and rarely addressed by agencies in ways that activists find acceptable. Activist pressure affected how policies addressed EJ in some cases but failed to affect other policies. 
 
-Examining all rules published by 40 agencies to regulations.gov between 1993 and 2020, I find that activist mobilization affected policy discourse, even under administrations that were explicitly hostile to their cause. When public comments raise EJ concerns, these concerns are more likely to be addressed in policy documents. Specifically, the number of comments mobilized (both overall and by EJ advocates specifically) is positively correlated with agencies adding language addressing EJ to policies where the draft policy did not mention EJ. When comments raise EJ concerns, sections of policies that do address EJ are also more likely to change.
+Examining all rules published by 40 agencies to regulations.gov between 1993 and 2020, I find that activist mobilization affected policy discourse, even under administrations explicitly hostile to their cause. When public comments raise EJ concerns, these concerns are more likely to be addressed in policy documents. Specifically, the number of comments mobilized (both overall and by EJ advocates specifically) is positively correlated with agencies adding language addressing EJ to policies where the draft policy did not mention EJ. When comments raise EJ concerns, sections of policies that do address EJ are also more likely to change.
 Furthermore, the correlation between EJ activist mobilization and policy changes is largest for agencies with missions focused on "environmental" and distributive policy---the kinds of policymakers we may expect to have institutional and cognitive processes primed to be most responsive to EJ concerns.
 
 
@@ -33,7 +33,7 @@ surprisingly little to say about this kind of civic participation.
 Social movement pressure is a major driver of policy change (Dahl 1956; Piven & Cloward 1977; Lipsky 1968; Tarrow 1994; Andrews 1997; McAdam 1982, 2001; McAdam & Su 2002, McCammon et al. 2011; Cress & Snow 2000; Weldon 2002). 
 This is especially true for policies that redistribute wealth or other social privileges. "From the very beginning, redistributive policies have been associated with social classes and social movements" [@Lowi2015]. The organizational forms that mobilize and channel movement pressure (often called social movement organizations by those who study their organization and advocacy organizations or pressure groups by those who study their effects) are essential features of modern politics and lawmaking [@Baumgartner2001; @Coglianese2001]. Conversely, the lack of broad-based support for and movement pressure can be the failure of a policy effort [@Skocpol2013].
 
-Scholars have also shown the effect of specific pressure tactics. For example, protests affect policy [@Gillion2013].  Activists reshape political parties to enact new policy agendas [@Schattschneider1942; @Cohen2008; @Schlozman2015; @Skocpol2016]. Petition campaigns, in particular, can both build the organizational capacity and political coalitions required to to affect policy and place issues on national agendas. As @CarpenterPetitions finds, both of Indigenous governments and activists have long used opportunities to build coalitions and raise concerns to the fedral goverment: 
+Scholars have also shown the effect of specific pressure tactics. For example, protests affect policy [@Gillion2013].  Activists reshape political parties to enact new policy agendas [@Schattschneider1942; @Cohen2008; @Schlozman2015; @Skocpol2016]. Petition campaigns, in particular, can both build the organizational capacity and political coalitions required to affect policy and place issues on national agendas. As @CarpenterPetitions finds, both Indigenous governments and activists have long used opportunities to build coalitions and raise concerns to the federal government: 
 
 > Because they assisted in recruiting tribal communities and allies to Indigenous causes,  these petitioning moments enhanced organizational democracy. They also advanced procedural democracy by effectively placing Indigenous issues on local, ecclesiastical, tribal, state, and national agendas." [@CarpenterPetitions, pg. 119] 
 
@@ -92,7 +92,7 @@ non-experts in at least two ways. First, mobilizing new actors to participate in
 
 #### Information About a Policy's Disparate Effects
 
-First, while specific *data* on disparate impacts of policy may require expertise, anyone can highlight a community of concern or potential distributive effects of a policy. Just as @Nelson2012 found regarding the mobilizing of diverse experts, mobilizing diverse communities affected by a policy may introduce new claims from new actors about how the communities that a policy may benefit or harm should be constructed. Indeed, telling a policymaker how a particular set of stakeholders will be affected or what they think is a lobbying tactic. Instead of bolstering *scientific* claims, such comments focusing on a policy's disparate impacts bolster *political* claims about who counts and even *who exists* as a distinct, potentially affected group that deserves policymakers' attention. 
+First, while specific *data* on disparate impacts of policy may require expertise, anyone can highlight a community of concern or potential distributive effects of a policy. Just as @Nelson2012 found regarding mobilizing diverse experts, mobilizing diverse communities affected by a policy may introduce new claims from new actors about how the communities that a policy may benefit or harm should be constructed. Indeed, telling a policymaker how a particular set of stakeholders will be affected or what they think is a lobbying tactic. Instead of bolstering *scientific* claims, such comments focusing on a policy's disparate impacts bolster *political* claims about who counts and even *who exists* as a distinct, potentially affected group that deserves policymakers' attention. 
 
 The political construction of policy-relevant groups through the policy process has long interested administrative law scholars. @Gellhorn1972 argues that "individuals and groups willing to assist administrative agencies in identifying interests deserving protection" (p. 403) improve the policy process. @Seifter2016UCLA argues that policymaker's beliefs about who is lobbying them and who those groups represent ought to be (and likely is) key to how they respond. 
 
@@ -106,7 +106,7 @@ Public comment periods in agency rulemaking are formally more "identity neutral"
 
 
 <!--CBA-->
-Bureaucratic policymaking in the United States is dominated by cost-benefit analysis, which requires defining groups that are benefited or harmed by a policy and may even weigh or prioritize benefits or costs to certain groups. Agencies have many reasons to consider the distributional effects of policy and often do. For example, president Biden issued a memorandum instructing the Director of the Office of Management and Budget to propose recommendations for "procedures that take into account the distributional consequences of regulations." <!--[CITE https://www.theregreview.org/2021/04/26/adler-factoring-equity-benefit-cost-analysis/]-->
+Bureaucratic policymaking in the United States is dominated by cost-benefit analysis, which requires defining groups that are benefited or harmed by a policy and may even weigh or prioritize benefits or costs to certain groups. Agencies have many reasons to consider the distributional effects of policy and often do. For example, President Biden issued a memorandum instructing the Director of the Office of Management and Budget to propose recommendations for "procedures that take into account the distributional consequences of regulations." <!--[CITE https://www.theregreview.org/2021/04/26/adler-factoring-equity-benefit-cost-analysis/]-->
 Thus, comments raising distributive concerns provide potentially influential political information.
 
 This distributive information raises claims of distributive justice. 
@@ -135,7 +135,7 @@ an attentive public [@Key1961] or issue public [@Converse1964].
 While scholars have generally distinguished the participation of groups from individual citizens (see @Yackee2019 for a review), "it can be difficult to distinguish an individual's independent contribution from an interest-group-generated form letter" [@Seifter2016UCLA, pg. 1313]. I argue that we should view the participation of individuals as a direct result of interest group mobilization. As [@Rossi1997, pg. 194] argues, "individuals are most likely to participate in agency decisions
 by virtue of their membership in interest groups." Indeed, nearly all individual comments on proposed policies are mobilized by interest groups [@judgelord2019SPSA]. The small number of unaffiliated individuals, disconnected from any organized lobbying effort, can be safely ignored empirically. <!--Indeed, efforts to broaden citizen participation that seek *unmediated* participation are likely infeasible.--> Interest groups are the unit of analysis, and individual participants are best understood as measuring an amplitude of support for their efforts.
 
-Because many politically active groups are "memberless" or run by professionals who lobby with little input from their members [@Baumgartner2001; @Skocpol2003; @Schlozman2012], evidence of an actual constituency is valuable political information. Petition signatures and form letters are among the only ways that a pressure group can demonstrate an engaged and issue-specific constituency on whose behalf they claim to advocate. While lobbying disclosure requirements could provide other information about how well groups represent the constituencies they claim to represent [@Seifter2016UCLA], letter-writing campaigns are one of the only strategies currently available to demonstrate issue-specific congruence between the positions of groups and the people they claim to represent [@judgelord2019SPSA]. 
+Because many politically active groups are "memberless" or run by professionals who lobby with little input from their members [@Baumgartner2001; @Skocpol2003; @Schlozman2012], evidence of an actual constituency is valuable political information. Petition signatures and form letters are among the only ways a pressure group can demonstrate an engaged and issue-specific constituency on whose behalf they claim to advocate. While lobbying disclosure requirements could provide other information about how well groups represent the constituencies they claim to represent [@Seifter2016UCLA], letter-writing campaigns are one of the only strategies currently available to demonstrate issue-specific congruence between the positions of groups and the people they claim to represent [@judgelord2019SPSA]. 
 
 Finally, expanding the scope of conflict by mobilizing public attention to rulemaking may shift policymakers' attention away from the technical information provided by the "usual suspects" and toward the distributive effects of policy. The "fire alarm" role that interest groups play in the policy process [@McCubbins1984] may have different effects when sounding the alarm also involves "going public" [@judgelord2019SPSA]. 
 
@@ -168,28 +168,12 @@ The competing intuition to the *Policy Receptivity Hypothesis* is that policymak
 <!--TODO-->
 If policymakers respond to public pressure, policy should be more likely to change when more people comment on a draft policy. This follows the intuition that policy is most likely to move in high-salience policy processes [@Leech2010].
 
-The competing intuition against the *General Pressure Hypothesis* is again that large numbers of comments indicate policy processes that were already salient before the public pressure campaign. Policymakers anticipate public scrutiny and are thus more likely to have stated their final position in the draft policy.  If this is the case, policies with more public comments should be *less* likely to change. Public attention could also be unrelated to policy change, meaning that policymakers are neither anticipating nor responding to public attention in writing or revising policy documents.
+The competing intuition against the *General Pressure Hypothesis* is again that large numbers of comments indicate policy processes that were already salient before the public pressure campaign. Policymakers anticipate public scrutiny and are thus more likely to have stated their final position in the draft policy.  If this is the case, policies with more public comments should be *less* likely to change. Public attention could also be unrelated to policy change, meaning that policymakers neither anticipate nor respond to public attention in writing or revising policy documents.
 
 > *Specific Pressure Hypothesis*:  Policies are more likely to address an issue when they receive more public attention (e.g., more public comments) *and* at least one comment raises that issue.
 
 This hypothesis asserts that the overall level of public attention will condition policy responses to specific claims--it is the interaction between the number of total public comments and at least one of those comments raising EJ concerns that makes policy more likely to address EJ. 
 
 The competing intuition against the *Specific Pressure Hypothesis* is again that large numbers of comments indicate high-salience rulemakings where policymakers are more likely to anticipate public scrutiny, including how they did or did not address specific issues like environmental justice. If policymakers anticipate public scrutiny, they may be more likely to preempt EJ concerns and state their final position in the draft policy.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
