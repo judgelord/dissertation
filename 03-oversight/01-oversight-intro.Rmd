@@ -145,7 +145,7 @@ Because members of Congress are some of the most relevant political principals f
 
 
 
-$$Pr(Comment_i) \sim \beta_0 + \beta_1 text{Number of comments} + \eta X_i 
+$$logit(Pr(Comment_i)) = \beta_0 + \beta_1 Number\ of\ comments + \eta X_i + \epsilon_i
 (\#eq:oversight1)$$
 
 
@@ -162,11 +162,11 @@ reduce oversight from opponents. The more comments opposing a position,
 the less likely principals holding that position are to engage.
 ```
 
-The probability that a legislator will comment, given their position $p$ on a proposed rule ($Pr(Comment_i|p_i)$), is modeled in equasion \@ref(eq:oversight2). Hypothesis \@ref(hyp:beacon) implies that $\beta_1$ is positive and
+The probability that legislator $i$ will comment, given their position $p_i$ on a proposed rule ($Pr(Comment_i|p_i)$), is modeled in equation \@ref(eq:oversight2). Hypothesis \@ref(hyp:beacon) implies that $\beta_1$ is positive and
 Hypothesis \@ref(hyp:warning) implies that $\beta_2$ is negative.
 
 
-$$Pr(Comment_i|p_i) \sim \beta_0 + \beta_1 \text{Comments supporting } p_i + \beta_2 \text{Comments opposing } p_i + \eta X_i
+$$logit(Pr(Comment_i|p_i)) = \beta_0 + \beta_1 \text{Comments supporting } p_i + \beta_2 \text{Comments opposing } p_i + \eta X_i + \epsilon_i
 (\#eq:oversight2)$$
 
 
