@@ -94,7 +94,7 @@ public-pressure-as-a-resource
 second-order-representation
 lobbying-in-bureaucratic-policymaking
 why-mobilize
-ususal-suspects-or-underdogs
+usual-suspects-or-underdogs
 the-conditions-under-which-public-and-private-interests-mobilize
 types-of-pressure-campaign-motivations
 hypotheses-about-the-drivers-of-mass-mobilization
@@ -133,7 +133,7 @@ the-main-predictor-variable
 explanatory-variables
 examples-of-hand-coded-lobbying-success
 summary-statistics-for-hand-coded-data
-summary-statisticas-for-machine-coded-data
+summary-statistics-for-machine-coded-data
 modeling-the-direct-relationship-between-public-pressure-and-lobbying-success
 modeling-congressional-support-as-a-mediator-of-lobbying-success
 influence-results

@@ -29,7 +29,7 @@ Mobilizing citizens and generating new political information (information about 
 #### Forms and Drivers of Civic Participation 
 
 Classic examples of civic engagement include participation in letter-writing, signing petitions, protesting, or attending hearings [@Verba1987]. Importantly, @Verba1987 distinguish "citizen-initiated contacts" with government from "cooperative activity" (pg. 54).
-Political behavior research tends to focus on the choices of individuals. For example, survey research on political participation often studies activities like letter-writing as is they are citizen-initiated contacts rather than a group activity. 
+Political behavior research tends to focus on the choices of individuals. For example, survey research on political participation often studies activities like letter-writing as if they are citizen-initiated contacts rather than a group activity. 
 Administrative law scholarship often discusses individual participants in rulemaking in a similar light.
 @Cuellar2005 finds that members of the "lay public" raise important new concerns beyond those raised by interest groups. He advocates for institutional reforms that would make it easier for individuals to participate and increase the sophistication of individual comments on proposed policies. 
 
@@ -224,7 +224,7 @@ I argue that mass engagement produces potentially valuable political information
 
 In this section, I first develop two theories about the drivers of public participation in bureaucratic policymaking, one rooted in theories of group conflict and democratic politics and the other rooted in existing theories of interest-group lobbying in bureaucratic policymaking. I then offer a theory that specifies the conditions under which we should see different kinds of public pressure campaigns. 
 
-#### "Ususal Suspects" or "Underdogs"
+#### "Usual Suspects" or "Underdogs"
 
 Existing scholarship suggests two possible reasons why agencies may receive millions of public comments. From a conflict expansion perspective, groups that are disadvantaged by the status quo ought to utilize public pressure campaigns. Existing theories of lobbying the bureaucracy suggest that well-resourced and concentrated interests will dominate. 
 Political information may thus play two distinct roles in policymaking with opposite effects depending on who mobilized it. The normative and empirical import of public pressure campaigns thus turns on who is behind them. 
@@ -313,7 +313,7 @@ Instead of a public pressure campaign aimed at mobilizing supporters, a lobby or
 
 The potential effects of public pressure campaigns depend, in part, on the aims of a
 campaign. Campaigns may pursue four distinct aims: (1) to win concessions by *going public*, (2) to *disrupt a perceived consensus*, or (3) to satisfy some audience other than policymakers by *going down fighting* when they anticipate losing or (4) to satisfy some audience other than policymakers by *credit claiming* when they anticipate winning. Going public and disrupting a perceived consensus are, respectively, forms of proactive and reactive outside lobbying. Going down fighting and credit claiming to describe
-situations where the organization mobilizes for reasons other than influencing policy, like engaging or recruiting members. In many cases, "going public" as a lobbying strategy is simultaneously an opportunity to engage and recruit members, so organizations **going public** to influence policy and engage in power-building tactics, especially *credit claiming*. For example, Sierra club organized several campaigns around thanking the Obama EPA for new draft environmental policies and the agency to not back down, thus simultaneously engaging members, implying that the Sierra Club had advanced its policy agenda, and pressure policymakers to hold course or strengthen policy rather than bend to industry pressures.
+situations where the organization mobilizes for reasons other than influencing policy, like engaging or recruiting members. In many cases, "going public" as a lobbying strategy is simultaneously an opportunity to engage and recruit members, so organizations **going public** to influence policy and engage in power-building tactics, especially *credit claiming*. For example, Sierra club organized several campaigns thanking the Obama EPA for new draft environmental policies and the agency to not back down, thus simultaneously engaging members, implying that the Sierra Club had advanced its policy agenda, and pressure policymakers to hold course or strengthen policy rather than bend to industry pressures.
 
 **Going public.** Coalitions "go public" when they believe that
 expanding the scope of conflict gives them an advantage. As coalitions that "go public" should believe they have more intense public
@@ -351,8 +351,8 @@ petition are its signatories" rather than the policymakers to whom they are addr
 campaigns are rooted in logics that are internal to the organization,
 including member retention or recruitment, fundraising, or satisfying a
 board of directors. For example, as Figure \@ref(fig:sierra) shows, the Sierra Club uses campaigns to collect
-contact information of supporters and potential members. Given the executive-branch transition between 2010 when the rule was
-initiated and 2017 when it was delayed, the Sierra Club may have had
+contact information of supporters and potential members. Given the executive-branch transition between 2010, when the rule was
+initiated, and 2017 when it was delayed, the Sierra Club may have had
 little hope of protecting methane pollution standards. Still, for members
 of the public who wanted to voice their opinion, the Sierra Club created
 an easy way to do so, as long as users consented to "receive periodic
@@ -460,7 +460,7 @@ The observable implications of the theory described above suggest several testab
 The solicitation on regulations.gov--"Let your voice be heard"--suggests that individuals are expressing themselves directly. Indeed, anyone can write a letter or type a comment in the text box on regulations.gov, and many people do. Individuals acting on their own submit content ranging from obscenities and memes to detailed personal accounts of how a policy would affect them and even poetry aimed at changing officials' hearts and minds. 
 Comments submitted by individuals acting along should not have a large share of text copied from elsewhere. They should not reference an organization or be mailed or uploaded in bulk by an organization.
 
-In contrast, to the extent that participation is mediated through public pressure campaigns as my theory suggests, we should consider public commenting to be a "cooperative activity."  While observers frequently talk about ordinary people engaging in policymaking as individuals, political science theory suggests that an organized group will almost always mediate the participation of individuals who are not professional policy influencers. Political science has shown that national politics in the United States is the terrain of organized groups. Given the technocratic nature of bureaucratic policymaking, "citizen-initiated contacts" should be especially rare.
+In contrast, to the extent that participation is mediated through public pressure campaigns, as my theory suggests, we should consider public commenting to be a "cooperative activity."  While observers frequently talk about ordinary people engaging in policymaking as individuals, political science theory suggests that an organized group will almost always mediate the participation of individuals who are not professional policy influencers. Political science has shown that national politics in the United States is the terrain of organized groups. Given the technocratic nature of bureaucratic policymaking, "citizen-initiated contacts" should be especially rare.
 
 <!--1-->
 ```{hypothesis, meditated, echo = TRUE}
@@ -542,14 +542,14 @@ Mobilizing people just for a particular policy fight requires a significant orga
 Public pressure campaigns targeting national policy are most often run by large national policy advocacy organizations.
 ```
 
-If, instead, lay commenters are mobilized through their membership organizations as @Kerwin2011 suggest, a large campaign of, say one million people, would generally require a large collection of membership organizations. Very few organizations have a million members. Those who do are unlikely to mobilize all of them, so mobilizing many people through membership organizations would likely require a large coalition of membership organizations. We would expect commenters to identify themselves as members of these many organizations.
+If, instead, lay commenters are mobilized through their membership organizations, as @Kerwin2011 suggest, a large campaign of, say, one million people would generally require a large collection of membership organizations. Very few organizations have a million members. Those who do are unlikely to mobilize all of them, so mobilizing many people through membership organizations would likely require a large coalition of membership organizations. We would expect commenters to identify themselves as members of these many organizations.
 
 <!--6-->
 If conflict expansion theory is correct, narrow private interests only have incentives to mobilize public support to counteract an opposing campaign.
 If private interest groups like businesses primarily use public pressure campaigns to counter a message of public consensus advanced by an opposing lobbying coalition, we should rarely see private interest groups lobbying unopposed. 
 
 ```{hypothesis, disrupt, echo = TRUE}
-If narrow private interest groups (e.g., businesses) lunch public pressure campaigns, it is a response to an opposing campaign. 
+If narrow private interest groups (e.g., businesses) launch public pressure campaigns, it is a response to an opposing campaign. 
 ```
 
 Hypothesis \@ref(hyp:disrupt) would be supported by evidence that public interest group coalitions more often lobby unopposed than private interest groups.

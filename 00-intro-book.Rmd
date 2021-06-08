@@ -1,8 +1,9 @@
 
 <!-- DEMOCRACY has problems and bureaucratic solutions-->
-Large democracies face two big problems. First, they are vulnerable to fleeting passions and demagogues. To combat this, many decisions are left to experts who, ideally, exercise judgment loosely guided by the public. Second, everyone cannot vote on every decision. We thus delegate power to representatives (who then delegate it to deputies), create temporary mini-publics, or solicit input from those most affected or moved by a public decision.^[As imagined by @Dahl1989, mini-publics are representative, selected at random, and deliberative. Besides juries, however, randomly selected deliberative bodies are rare. Instead, citizens more often engage in government decisions when given opportunities to opt-in, such as hearings, petitions, and public comment periods. These mechanisms of engagement generate a different, more contentious flavor of public input than the discourse imagined by scholars who focus on deliberation.] Most policy is then made by bureaucrats, supposedly guided indirectly through elected representatives and directly by limited public input. Of the thousand of policies that the institutoins of government make each year, direct public input tends to be limited to only the very most contentious policy debates.
+Large democracies face two big problems. First, they are vulnerable to fleeting passions and demagogues. To combat this, many decisions are left to experts who, ideally, exercise judgment loosely guided by the public. Second, everyone cannot vote on every decision. We thus delegate power to representatives (who then delegate it to deputies), create temporary mini-publics, or solicit input from those most affected or moved by a public decision.^[As imagined by @Dahl1989, mini-publics are representative, selected at random, and deliberative. Besides juries, however, randomly selected deliberative bodies are rare. Instead, citizens more often engage in government decisions when given opportunities to opt-in, such as hearings, petitions, and public comment periods. These mechanisms of engagement generate a different, more contentious flavor of public input than the discourse imagined by scholars who focus on deliberation.] Most policy is then made by bureaucrats, supposedly guided indirectly through elected representatives and directly by limited public input. Of the thousands of policies that the institutions of government make each year, direct public input tends to be limited to only the very most contentious policy debates.
 
-Both of these problems converge in the bureaucracy. Bureacracies are run by experts who are deputized by elected officials (or by their deputy's deputy's deputy). Many bureacracies also have procedures that create opportunities for public input, and it is far from clear how bureaucratic decisions are to balance expertise, accountability to elected officials, and responsiveness to public input in decisionmaking. 
+Both of these problems converge in the bureaucracy. Bureaucracies are run by experts who are deputized by elected officials (or by their deputy's deputy's deputy). Many bureaucracies also have procedures that create opportunities for public input, and it is far from clear how bureaucratic decisions are to balance expertise, accountability to elected officials, and responsiveness to public input in policymaking. 
+ 
 
 
 ```{r child = here::here("intro.md")}
@@ -18,8 +19,7 @@ provide political oversight opportunities [@Balla1998; @McCubbins1984],
 democratic legitimacy [@Croley2003; @Rosenbloom2003], and new technical
 information [@Yackee2006JPART; @Nelson2012]. While recent scholarship on
 agency policymaking has shed light on the sophisticated lobbying by
-businesses and political insiders, we know surprisingly little about the
-vast majority of public comments which are submitted by ordinary people
+businesses and political insiders, we know surprisingly little about the vast majority of public comments which are submitted by ordinary people
 as part of public pressure campaigns.
 
 In 2018, the Administrative Conference of the United States (ACUS)
@@ -43,8 +43,7 @@ Activists frequently target
 agency policymaking with letter-writing campaigns, petitions, protests,
 and mobilizing people to attend hearings, all classic examples of "civic
 engagement" [@Verba1987]. As I show in \@ref{why-results}, most comments submitted to
-    regulations.gov are form comments, more akin to petition signatures
-    than sophisticated lobbying. Indeed, approximately 40 million out of
+    regulations.gov are form comments, more akin to petition signatures than sophisticated lobbying. Indeed, approximately 40 million out of
     50 million (80%) of these public comments mobilized by just 100
     advocacy organizations.
     Yet civic engagement remains poorly understood

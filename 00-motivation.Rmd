@@ -1,11 +1,11 @@
 ## Motivation {-}
 
 Leading models of influence in bureaucratic policymaking focus on two key political forces: sophisticated interest group lobbying and political oversight. 
-As bureaucrats learn about policy problems and balance interest-group demands, public comment processes allow lobbying organizations to provide useful technical information and inform decisionmakers of their preferences on draft policies. 
+As bureaucrats learn about policy problems and balance interest-group demands, public comment processes allow lobbying organizations to provide useful technical information and inform decision-makers of their preferences on draft policies. 
 Agencies may then update policy positions within constraints imposed by their political principals.
 
-While this may describe most cases of bureaucratic policymaking, these models neither explain nor account for the contentious politics that occasionally inspire millions of ordinary people to respond to calls for public input on draft agency policies. Mass engagement in bureaucratic policymaking has thus largely been ignored by political scientists, leaving a weak empirical base for normative and prescriptive work. 
-Like other forms of mass political participation, such as protests and letter writing campaigns, 
+While this may describe most cases of bureaucratic policymaking, these models neither explain nor account for the contentious politics that occasionally inspire millions of ordinary people to respond to calls for public input on draft agency policies. Thus, political scientists have largely ignored mass engagement in bureaucratic policymaking, leaving a weak empirical base for normative and prescriptive work. 
+Like other forms of mass political participation, such as protests and letter-writing campaigns, 
 mass public comments on draft agency rules provide no new technical information. <!--%In this sense, they are not useful. -->
 Nor do they wield any formal authority to reward or sanction bureaucrats, as comments from a Members of Congress might. 
 The number on each side, be it ten or ten million, has no legal import for an agency's response. 
@@ -14,18 +14,18 @@ The number on each side, be it ten or ten million, has no legal import for an ag
 % Policymakers may very well pay no attention to them. 
 %Instead, scholars focus on the sophisticated lobbying efforts of powerful interest groups, whose role in shaping policy has been theoretically developed and empirically tested.
 % If our models and conventional wisdom is correct, why do
-Yet agencies occasionally receive input from a large number of ordinary people. %Why? 
+Yet, agencies occasionally receive input from a large number of ordinary people. %Why? 
 --> 
 
 How, if at all, should scholars incorporate mass engagement into models of bureaucratic policymaking? 
 
-I take up a part of this question in each of the following chapters. Each draws on different but overlapping literatures to better understand bureaucratic policymaking. Chapter \@ref(macro) brings in literature on public opinion and the attention of parties to different issues over time, zooming out to the broadest relationships between mass politics and policy outputs. Chapter \@ref(whymail) brings the focus to specific policy fights, bringing in literature interest-group mobilization to understand why public pressure campaigns target agencies in the first place. Chapter \@ref(influence) focuses squarely on the classic bureaucratic politics question of interest group influence in policymaking but expanded to account for public pressure campaigns. Chapter \ref(ej) then zooms out again, this time bringing in literature on social movement pressure. As these chapters address literatures on public opinion, party politics, interest groups, lobbying, and social movements in turn, my review of these literatures in this introdcution is brief. My aim is to provide a general foundation.
+I take up a part of this question in each of the following chapters. Each draws on different but overlapping literatures to better understand bureaucratic policymaking. Chapter \@ref(macro) brings in the literature on public opinion and the attention of parties to different issues over time, zooming out to the broadest relationships between mass politics and policy outputs. Chapter \@ref(whymail) brings the focus to specific policy fights, bringing in literature interest-group mobilization to understand why public pressure campaigns target agencies in the first place. Chapter \@ref(influence) focuses squarely on the classic bureaucratic politics question of interest group influence in policymaking but expanded to account for public pressure campaigns. Chapter \ref(EJ) then zooms out again, this time bringing in the literature on social movement pressure. As these chapters address the literature on public opinion, party politics, interest groups, lobbying, and social movements in turn, my review of this literature in this introduction is brief. My aim is to provide a general foundation.
 
 > TODO: intro to pol-sci lit that is too broad for elsewhere? 
 
 ## Rulemaking {-}
 
-The theories about the drivers of public participation and the mechanisms by which it may effect policy that I advance and test in following chapters may apply to many contexts where public pressure is aimed at decisionmakers. My empirical terrian, however, is policymaking by U.S. federal agencies, specifically a policymaking process called Notice-and-comment rulemaking perscribed in the Administrative Proceedures Act. The APA governs the process by which federal agencies develop and issue legally-binding policy. It requires agencies to publish proposed (draft) and final policies (rules) in the Federal Register and provide opportunities for the public to comment on draft rules.
+The theories about the drivers of public participation and the mechanisms by which it may affect policy that I advance and test in the following chapters may apply to many contexts where public pressure is aimed at decision-makers. My empirical terrain, however, is policymaking by U.S. federal agencies, specifically a policymaking process called Notice-and-comment rulemaking prescribed in the Administrative Procedures Act. The APA governs the process by which federal agencies develop and issue legally binding policies. It requires agencies to publish proposed (draft) and final policies (rules) in the Federal Register and provide opportunities for the public to comment on draft rules.
 
 > TODO: General into to scholarship on rulemaking, @Yackee2019, @Potter2016, @PotterShipan2019
 
