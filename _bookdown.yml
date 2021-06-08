@@ -1,11 +1,11 @@
 book_filename: "judgelord"
-output_dir: "docs"  # pandoc -s docs/outline.tex -o outline.docx
+output_dir: "docs"  
 language:
   ui:
     chapter_name: "Chapter "
 urlcolor: blue
 new_session: no
-delete_merged_file: false
+delete_merged_file: no
 knit_root_dir: "/Users/devin/dissertation" # `r here::here()` #https://stackoverflow.com/questions/62578811/error-input-files-not-all-in-same-directory-please-supply-explicit-wd
 # rmd_subdir: true # this worked in the demo but not here. file paths workaround is fine (probably more clear)
 rmd_files:
@@ -14,7 +14,7 @@ rmd_files:
   - 00-motivation.Rmd
   - 00-intro-adlaw.md
   - 00-outline.Rmd
-  - 01-rulemaking/00-abstract.Rmd # macro theory 
+  - 01-rulemaking/00-abstract.Rmd # macro
   - 01-rulemaking/01-macro-intro.Rmd
   - 02-pressure/00-abstract.Rmd # whymail
   - 02-pressure/01-why-intro.Rmd 
@@ -36,6 +36,6 @@ rmd_files:
   - 05-ej/03-methods.Rmd
   - 05-ej/04-results.Rmd
   - 05-ej/05-conclusion.Rmd
-  - 06-policy.Rmd # policy recs
+  - 06-policy.Rmd # policy
   - conclusion.md
   - 99-references.Rmd
