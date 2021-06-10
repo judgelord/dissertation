@@ -237,9 +237,44 @@ coalitions_coded %>%
 
 # Descriptives
 
+```{hypothesis, meditated, echo = TRUE}
+Most people engage in national policy processes as a result of organized public pressure campaigns.
+```
+
+```{hypothesis, coalitions, echo = TRUE}
+Public pressure campaigns are organized by *coalitions* that include groups that engage in sophisticated technical lobbying.
+```
+
+
+```{hypothesis, public, echo = TRUE}
+Public interest group coalitions mobilize *more often* than private interest group (e.g., business-led) coalitions.
+```
+
+
+```{hypothesis, public-success, echo = TRUE}
+Public interest group coalitions mobilize *more successfully* than private interest group (e.g., business-led) coalitions. 
+```
+
+
+```{hypothesis, resources, echo = TRUE}
+Public pressure campaigns targeting national policy are most often run by large national policy advocacy organizations.
+```
+
+
+```{hypothesis, disrupt, echo = TRUE}
+If narrow private interest groups (e.g., businesses) launch public pressure campaigns, it is a response to an opposing campaign. 
+```
+
+
 
 
 # Models of influence/success
+
+```{hypothesis oversight, echo = TRUE}
+The scale of public engagement moderates elected officials' engagement in agency rulemaking
+engagement.
+```
+
 
 ## Challenges for inference
 

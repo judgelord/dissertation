@@ -24,7 +24,7 @@
 <meta name="author" content="Devin Judge-Lord" />
 
 
-<meta name="date" content="2021-06-08" />
+<meta name="date" content="2021-06-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -185,8 +185,9 @@ div.csl-indent {
 <li class="chapter" data-level="3.3.5" data-path="influence.html"><a href="influence.html#examples-of-hand-coded-lobbying-success"><i class="fa fa-check"></i><b>3.3.5</b> Examples of hand-coded lobbying success</a></li>
 <li class="chapter" data-level="3.3.6" data-path="influence.html"><a href="influence.html#summary-statistics-for-hand-coded-data"><i class="fa fa-check"></i><b>3.3.6</b> Summary Statistics for Hand-coded Data</a></li>
 <li class="chapter" data-level="3.3.7" data-path="influence.html"><a href="influence.html#summary-statistics-for-machine-coded-data"><i class="fa fa-check"></i><b>3.3.7</b> Summary Statistics for Machine-coded Data</a></li>
-<li class="chapter" data-level="3.3.8" data-path="influence.html"><a href="influence.html#modeling-the-direct-relationship-between-public-pressure-and-lobbying-success"><i class="fa fa-check"></i><b>3.3.8</b> Modeling the Direct Relationship Between Public Pressure and Lobbying Success</a></li>
-<li class="chapter" data-level="3.3.9" data-path="influence.html"><a href="influence.html#modeling-congressional-support-as-a-mediator-of-lobbying-success"><i class="fa fa-check"></i><b>3.3.9</b> Modeling Congressional Support as a Mediator of Lobbying Success</a></li>
+<li class="chapter" data-level="3.3.8" data-path="influence.html"><a href="influence.html#limitations-1"><i class="fa fa-check"></i><b>3.3.8</b> Limitations</a></li>
+<li class="chapter" data-level="3.3.9" data-path="influence.html"><a href="influence.html#modeling-the-direct-relationship-between-public-pressure-and-lobbying-success"><i class="fa fa-check"></i><b>3.3.9</b> Modeling the Direct Relationship Between Public Pressure and Lobbying Success</a></li>
+<li class="chapter" data-level="3.3.10" data-path="influence.html"><a href="influence.html#modeling-congressional-support-as-a-mediator-of-lobbying-success"><i class="fa fa-check"></i><b>3.3.10</b> Modeling Congressional Support as a Mediator of Lobbying Success</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="influence.html"><a href="influence.html#influence-results"><i class="fa fa-check"></i><b>3.4</b> Results</a>
 <ul>
@@ -3387,21 +3388,23 @@ Figure 3.7: Number of Comments Linked to Hand-Coded Coalitions
 <p>IN PROGRESS</p>
 </blockquote>
 <p><strong>Dependent variable:</strong> <em>The percent change in policy text</em>…</p>
-<p><strong>Explanatory variables:</strong> The <em>total number of comments</em>…
-### Limitations</p>
+<p><strong>Explanatory variables:</strong> The <em>total number of comments</em>…</p>
+</div>
+<div id="limitations-1" class="section level3" number="3.3.8">
+<h3><span class="header-section-number">3.3.8</span> Limitations</h3>
 <p>The two main limitations of this design both bias estimates of public pressure campaign influence toward zero.</p>
 <p>First, lobbying success may take forms other than changes in policy texts. Agencies may speed up or delay finalizing a rule, extend the comment period, or delay the date at which the rule goes into effect. Indeed, commenters often request speedy or delayed rule finalization, comment period extensions, or delayed effective dates. I capture these potential outcomes in my hand-coding but not in the two automated methods, which apply only to observations with a final rule text. Likewise, when there is no change between draft and final rule, both automated methods necessarily record lobbying success as 0, even if a comment asks an agency to publish a rule without change.</p>
 <p>Second, bureaucrats may anticipate public pressure campaigns when writing draft rules, muting the observed relationship between public pressure and rule change at the final rule stage of the policy process. This is a limitation of all studies of influence during rulemaking comment periods.</p>
 </div>
-<div id="modeling-the-direct-relationship-between-public-pressure-and-lobbying-success" class="section level3" number="3.3.8">
-<h3><span class="header-section-number">3.3.8</span> Modeling the Direct Relationship Between Public Pressure and Lobbying Success</h3>
+<div id="modeling-the-direct-relationship-between-public-pressure-and-lobbying-success" class="section level3" number="3.3.9">
+<h3><span class="header-section-number">3.3.9</span> Modeling the Direct Relationship Between Public Pressure and Lobbying Success</h3>
 <p>For all three measures of lobbying success, I assess the relationship between lobbying success and mass comments by modeling coalition <span class="math inline">\(i\)</span>’s lobbying success, <span class="math inline">\(y_i\)</span> as a combination of the relative length of the (lead) organizations comment, whether the coalition is unopposed, the coalition’s size, whether it is a business coalition, and the logged number of mass comments. I estimate these relationships using OLS regression. I also estimate hand-coded lobbying success with beta regression and ordered logit, which is more appropriate but less interpretable. For the automated measures of lobbying success, I estimate beta regression models with the same variables.]</p>
 <p><span class="math display">\[
 y_i = \beta_0 + \beta_1 log(comments_i) + \beta_2 length_i + \beta_3 unopposed_i + \beta_4 size_i + \beta_5 business_i + \epsilon_i
 \]</span></p>
 </div>
-<div id="modeling-congressional-support-as-a-mediator-of-lobbying-success" class="section level3" number="3.3.9">
-<h3><span class="header-section-number">3.3.9</span> Modeling Congressional Support as a Mediator of Lobbying Success</h3>
+<div id="modeling-congressional-support-as-a-mediator-of-lobbying-success" class="section level3" number="3.3.10">
+<h3><span class="header-section-number">3.3.10</span> Modeling Congressional Support as a Mediator of Lobbying Success</h3>
 <p>To estimate mediated effects, I estimate the average conditional marginal effect (ACME) and the proportion of the total effect attributed to mediation through congressional support (comments or other communication from Members of Congress supporting the coalition’s position on the proposed rule). As developed by Imai et al. (2010), this involves first estimating a model of the potential mediator as a combination of covariates, <span class="math inline">\(X\)</span> (<em>length</em>, <em>unopposed</em>, <em>size</em>, and <em>business</em>) and then the outcome as a combination of the mediator, <em>congressional support</em>, and covariates, <span class="math inline">\(X\)</span>.</p>
 <p>The bold arrow in figure <a href="influence.html#fig:causal-oversight">3.8</a> indicates the key relationship
 that I test in this step: the relationship between the scale of
