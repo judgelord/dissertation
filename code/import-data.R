@@ -21,7 +21,13 @@ d1 <- read_sheet_c(s[1,])
 # map
 d <- map_dfr(s$id, possibly(read_sheet_c, otherwise = head(d1)))
 
+
 unique(d$docket_id)
+
+dtemp <- d
+
+d <- dtemp
+
 
 sum(is.na(d$coalition_type))
 
@@ -32,8 +38,9 @@ str_remove(s$name,"_.*")
 
 d %>% filter(str_dct(coalition_comment, "greyhound")) %>% pull(success)
 
+library(tidyverse)
 # some dups with varitions in docket title 
-d %<>% select(-docket_title) %>% distinct()
+d %<>% ungroup() %>% dplyr::select(-docket_title) %>% distinct()
 
 # class
 d %<>%
@@ -69,7 +76,11 @@ clean_org_type <- . %>%
 
 # groups in more than one coalition 
 d %<>% 
-  mutate(coalition_comment = str_split(coalition_comment, ";") ) %>%
+  mutate(coalition_comment = coalition_comment %>%
+           # drop double-coded coalitions 
+           str_remove("environmentalists;|environmental;|environment;|energy industry;") %>%
+           # split group in multiple coalitoins
+           str_split(";") ) %>%
   unnest(coalition_comment) 
 
 sum(is.na(d$coalition_type))
@@ -92,7 +103,10 @@ d %<>%
   mutate(coalitions = unique(coalition_comment) %>% length(),
          coalition_unopposed = abs(max(position, na.rm = T)-min(position,na.rm = T)) < 2,
          comments = number_of_comments_received %>% replace_na(1), #FIXME
-         congress = str_dct(org_type, "congress|house|senate")) %>% 
+         congress = str_dct(org_type, "congress|house|senate") & comment_type == "elected") %>% 
+  mutate(org_type = ifelse(congress, str_replace_all(org_type, ";", ";;;;"), org_type)) %>%
+  mutate(org_type = str_split(org_type, ";;;;")) %>% 
+  unnest(org_type) %>% 
   group_by(docket_id, coalition_comment) #TODO all coalition vars here 
   
 sum(is.na(d$coalition_type))
@@ -104,6 +118,10 @@ d$congress %<>% replace_na(FALSE)
 comment_errors <- d %>% filter(is.na(position), !is.na(org_type)) 
 
 comments_coded <- d %>% drop_na(position)
+
+d %>% filter(comment_type == "mass", is.na(coalition_comment))
+
+d %>% filter(number_of_comments_received>99, is.na(coalition_comment))
 
 d %>% ungroup() %>%
   filter(!is.na(coalition_type),coalition_comment != "FALSE") %>% 
@@ -163,7 +181,7 @@ d %>%
 # where coalition = FALSE, but coalition_type is not blank
 d %>% 
   filter(coalition_comment == "FALSE", !is.na(coalition_type)) %>%
-  select(document_id, org_name, coalition_comment, coalition_type) %>% 
+  dplyr::select(document_id, org_name, coalition_comment, coalition_type) %>% 
   kablebox()
 
 
@@ -175,7 +193,8 @@ d %>%
 
 d$comments %>% range(na.rm = T)
 d$position %>% unique()
-d$positions %>% unique()
+
+
 d$coalition_unopposed %>% unique()
 d$congress %>% unique()
 
@@ -274,7 +293,7 @@ sum(is.na(comments_coded$coalition_type))
 
 coalitions_coded <- comments_coded %>% 
   drop_na(coalition_comment) %>% 
-  select(starts_with("docket"), starts_with("coalition")) %>%
+  dplyr::select(starts_with("docket"), starts_with("coalition")) %>%
   distinct()
 
 # # post-hoc corrections 
@@ -307,7 +326,7 @@ coalitions_coded %<>% mutate(Comments = case_when(
   coalition_comments > 100 ~ "More than 100"
 ))
 
-d %>% filter(success > 2) %>% select(document_id, success)
+d %>% filter(success > 2) %>% dplyr::select(document_id, success)
 
 ggplot(coalitions_coded, aes(x = coalition_success)) + geom_histogram()+ labs(x = "Coalition Success")
 
