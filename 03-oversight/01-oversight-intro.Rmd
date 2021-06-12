@@ -140,13 +140,6 @@ The scale of public engagement moderates elected officials' engagement in agency
 engagement.
 ```
 
-Because members of Congress are some of the most relevant political principals for federal policymakers, I focus on these principals. The relationship between public engagement and legislator engagement can be modeled by Equation \@ref(eq:oversight1) where $Pr(Comment_i)$ is the probability that legislator $i$ comments on a proposed rule, $\beta1$ is the total number of public comments, and $\eta$ is a vector of coefficients on other factors ($X_i$) that may affect whether a legislator engages.
-
-
-
-$$logit(Pr(Comment_i)) = \beta_0 + \beta_1 Number\ of\ comments + \eta X_i + \epsilon_i
-(\#eq:oversight1)$$
-
 
 
 ```{hypothesis beacon, echo = TRUE}
@@ -155,18 +148,14 @@ oversight from allies. The more comments supporting a position, the more
 likely principals holding that position are to engage.
 ```
 
+
+
 ```{hypothesis warning, echo = TRUE}
 Public pressure campaigns
 reduce oversight from opponents. The more comments opposing a position,
 the less likely principals holding that position are to engage.
 ```
 
-The probability that legislator $i$ will comment, given their position $p_i$ on a proposed rule ($Pr(Comment_i|p_i)$), is modeled in equation \@ref(eq:oversight2). Hypothesis \@ref(hyp:beacon) implies that $\beta_1$ is positive and
-Hypothesis \@ref(hyp:warning) implies that $\beta_2$ is negative.
-
-
-$$logit(Pr(Comment_i|p_i)) = \beta_0 + \beta_1 \text{Comments supporting } p_i + \beta_2 \text{Comments opposing } p_i + \eta X_i + \epsilon_i
-(\#eq:oversight2)$$
 
 
 If Hypothesis \@ref(hyp:beacon) is correct, it would suggest a supplement to Hall

@@ -28,7 +28,8 @@ rmd_files:
   - 04-influence/01-influence-intro.Rmd 
   - 04-influence/02-influence-theory.Rmd 
   - 03-oversight/01-oversight-intro.Rmd
-  - 04-influence/03-influence-methods.Rmd 
+  - 04-influence/03-influence-data.Rmd 
+  - 04-influence/04-influence-methods.Rmd 
   - 04-influence/05-influence-results.Rmd 
   - 05-ej/00-abstract.Rmd # ej
   - 05-ej/01-intro.Rmd

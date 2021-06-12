@@ -1,0 +1,92 @@
+### Data: A Census of Public Comments {#influence-data}
+
+```{r influence-data}
+
+
+load(here::here("data", "rules_metadata.Rdata"))
+
+# alternatively 
+#rules <- dbGetQuery(con, "SELECT * FROM rules")
+
+#FIXME REPLACE WITH date 
+d <- rules %>% mutate(year = str_sub(posted_date, 1,4) %>% as.numeric()) %>%
+  filter(year > 2004, year < 2021, document_type %in% c("Proposed Rule", "Rule"))
+
+load(here::here("data", "comments_min.Rdata"))
+
+# hand coded 
+load(here::here("data", "coalitions_coded.Rdata"))
+load(here::here("data", "comments_coded.Rdata"))
+#load(here::here("data", "mass_coded.Rdata"))
+
+# common names 
+comments_coded %<>% 
+  mutate(coalition = coalition_comment,
+         agency = str_remove(docket_id, "-.*"))%>%
+  mutate(org_name = org_name %>% str_to_title())%>%
+  mutate(coalition = coalition %>% str_to_title())
+
+# common names 
+coalitions_coded %<>% 
+  mutate(coalition = coalition_comment,
+         comments = coalition_comments,
+         Comments = Coalition_comments,
+         agency = str_remove(docket_id, "-.*"))%>%
+  mutate(coalition = coalition %>% str_to_title())
+
+# coalitions_coded %<>% mutate(across(whereis.character, str_to_title)
+
+# TODO merge in mass comments that were not hand-coded 
+```
+
+To examine the relationship between public pressure campaigns and lobbying success, I use an original dataset (introduced in \@ref(whymail-data)) that combines several data sources on U.S. federal agency rulemaking.
+
+Up to `r max(rules$posted_date, na.rm = T) %>% str_remove(",")`, these data include `r unique(rules$docket_id) %>% length()`
+dockets,
+`r rules %>% filter(docket_type == "Rulemaking") %>% distinct(docket_id) %>% nrow()`
+rulemaking dockets. These dockets received
+approximately `r sum(rules$number_of_comments_received, na.rm = T)`
+comments.
+
+The core data for this analysis are the texts of draft and final rules and public comments on these proposed rules. 
+This includes all proposed rules from `r d %>% filter(number_of_comments_received >0) %>% pull(agency_id) %>% unique() %>% length()` agencies that were open for comment on regulations.gov between 2005 and 2020, received at least one comment from an organization, and saw a final agency action between 2005 and 2020.  These 
+`r d %>% filter(docket_type == "Rulemaking") %>% distinct(docket_id) %>% nrow()`
+rulemaking dockets received a total of
+`r d %>% filter(docket_type == "Rulemaking") %>% pull(number_of_comments_received) %>% sum(na.rm = T)`
+comments.
+
+
+<!--TODO: This should be a short review and addition to the data section in whymail-->
+
+I collected draft and final rule texts from federalregister.gov and comments submitted as attachments or by mail from regulations.gov. 
+I retrieve comments submitted directly on regulations.gov and metadata on rules and comments (such as the dates that the proposed rule was open for comment and whether the agency identified the organization submitting the comment) from the regulations.gov API. 
+I add additional metadata on rules (such as whether the rule was considered "significant") from the Unified Agenda published by the Office of Information and Regulatory Affairs (reginfo.gov). 
+
+<!--
+Finally, to better capture positions expressed by Members of Congress on proposed rules, I supplement congressional comments posted on regulations.gov with Freedom of Information Act Requests for all communication from Members of Congress to each agency on proposed rules from 2007 to 2019.^[Many agencies provided records of their congressional correspondence going back to 2005 or earlier.]
+-->
+
+I attempt to identify the organization(s) that submitted or mobilized each comment by extracting all organization names from the comment text. For comments that do not reference an organization, I can often identify organizations with an internet search using the comment's text. I then identify lobbying coalitions both by hand and by textual similarity. Co-signed comments are always assigned to the same coalition. Likewise, form-letter comments are always assigned to the same coalition.^[For more on how I identify organizations and coalitions, see \@ref(whymail-methods).]
+
+Because my hypotheses are about the influence of organizations and coalitions, I collapse these data to one observation per organization or coalition per proposed rule for analysis. I then identify the main substantive comment submitted by each organization's staff or lawyers, which are usually much longer than supporting comments like form letters. 
+For hand-coding, I first select a random sample of proposed rules with a mass-comment campaign. I then selected all comments that were likely to be from organizations.^[Through an iterative process, I developed software and methods to select comments that were most likely submitted by organizations rather than by individuals. For example, I include all comments submitted as file attachments rather than typed into the textbox.]
+The hand-coding process included identifying the organization responsible for each comment submitted by an organization (e.g., a business, nonprofit, or government). 
+
+I then select a sample of proposed rules on which the same organizations commented without a mass comment campaign. <!--Matching prioritizes, presidential administration, policy area (following Policy Agendas Project coding), rule significance, department, agency, subagency, and proposed rule length, respectively.^[For more on policy area coding, see Chapter \@ref(macro).]--> 
+This hand-coded sample is several times larger than leading studies using hand-coding and includes rules with very large and small numbers of comments that previous studies exclude.
+
+
+The most direct way to assess the hypothesis that mass engagement increases lobbying success is to assess the relationship between the number of comments that a coalition mobilizes and its lobbying success. However, public pressure campaigns may only be effective under certain conditions. Thus, I first assess the main relationship and then assess evidence for or against different potential causal pathways of influence. The main indirect pathway by which campaigns may influence agency policymaking is through engaging members of Congress.
+
+Through the iterative combination of automated search methods and hand-coding described above, I also identify comments submitted by elected officials, with special attention to members of the U.S. Congress.
+
+Figure \@ref(fig:congress) shows the number of comments from members of Congress received during rulemaking by a sample of federal agencies. Oversight letters are frequently co-signed by multiple members from the Senate, House, or both chambers. 
+
+```{r congress, fig.cap = "Number of Letters from Members of Congress Received During Rulemaking per Year", out.width = "100%"}
+knitr::include_graphics(here::here("figs", "comments-congress.png"))
+```
+
+```{r}
+#FIXME make figure not depend on this
+d <- comments_coded
+```

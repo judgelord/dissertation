@@ -1,22 +1,25 @@
-
 ## Introduction
 
-There is little overlap between scholarship on interest group influence and scholarship on mass public pressure. Studies and models of interest group lobbying rarely include pubic pressure as a tactic. Studies of public pressure rarely include specific policy outcomes as their dependent variable. When they do, they tend to focus on landmark policies.
+There is little overlap between scholarship on interest group influence and scholarship on mass public pressure. Studies and models of interest group lobbying rarely include public  pressure as a tactic [see @Yackee2019 for a recent review].  Conversely, studies of public pressure rarely include specific policy outcomes as their dependent variable [@Burnstein2019. When they do, they tend to focus on landmark legislation [e.g. @Gillion2013] or a few illustrative cases [@Mansbridge1992; @Rochon1993; @Yackee2009PSJ].
 
-> TODO 
 
 ### Interest Group Influence
 
-> TODO  For studies attempting to study interest group influence, measuring lobbying success is a major challenge [@Mahoney2007JPP, @Yackee2006JOP, @RashinXXXX].
+<!-- > TODO  -->
+
+Interest groups--particularly the distinction between those that represent broad and narrow interests--foundational scholarship in both American politics [@Lowi1969 ] and bureaucracy.
+Wilson's famous typology of government agencies is fundamentally linked to the kinds of interest group pressures agencies may face. For example a client agency, formed to support a sector of activity will deal with narrow groups while a regulatory agency may struggle to persist if the broad-based public interest groups that support it loses power.  
 
 > "A client agency will have to struggle mightily to avoid having its work influenced by the single, organized group with which it must deal on a daily basis. Many do not succeed; a few do not even try." [@Wilson1989, pg.79]
 
+> SECOND WILSON QUOTE 
+
+For studies attempting to study interest group influence, measuring lobbying success is a major challenge [@Mahoney2007JPP, @Yackee2006JOP, @Rashin2017].
 
 ### Public Pressure
 
 > TODO Review theory section.
 
-Social movements and activist pressure occasionally lead to the creation of new agencies, but these agencies may be left vulnerable when pressure wanes. 
 
 Public engagement in rulemaking is highly
 clustered on a few rules made salient by public pressure campaigns. 
@@ -32,7 +35,7 @@ Responding to public pressure campaigns, agency officials often reject the notio
 It is
 plausible that at least some of the time, these campaigns aim to
 influence policy. It is also plausible that thousands of people engaging
-may alter the politics of these policy processes, but this hypothesis
+may alter the politics of these policy processes [@, but this hypothesis
 remains untested.
 
 <!--To address this gap, -->
