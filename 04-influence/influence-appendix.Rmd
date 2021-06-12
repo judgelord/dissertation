@@ -70,6 +70,8 @@ comments.
 
 ## Comments from legislators
 
+One mechanism by which campaigns may influence policy is by mobilizing members of Congress. Thus, I identify comments submitted by members of Congress and count the number of legislators in each lobbying coalition. 
+
 ```{r congress, fig.cap = "Number of Letters from Members of Congress Received During Rulemaking per Year", out.width = "100%", fig.height=6}
 load(here::here("data", "comments_congress.Rdata"))
 
@@ -96,9 +98,21 @@ comments_congress %>%
         panel.grid.major.x = element_blank())
 ```
 
+## Clustering with text reuse
+
+My theoretical approach requires that I *attribute* form letter comments to the organizations, campaigns, and broader coalitions that mobilized them. To do so, I identify comments that share text. I find that a 10-word phrase repeated across more than a few comments is always either text copied from the proposed policy or a form letter provided by a campaign. Thus, for the text of each comment, I first remove all 10-word phrases that appear in the proposed rule (including the preamble and call for comments). Then, I identify all comments that share ten-word phrases with 99 or more other comments. I collapse these form letter comments to one representative sample for hand-coding. 
+
+
 ## Hand-coded sample
 
-My approach of identifying the dimensions of the conflict by comments has benefits and downsides. Compared to other potentail measures of success, it is more likely to focus on things that commenters care about. For example, one could measure success by the number of times a comment is mentioned in the agency's response to comments. However, this may capture stratigic responsiveness by agencies choosing to discuss some issues more than others. It also counts explicit rejections toward the measure of responsiveness. One could also measure success by focusing on a-priory potential aspects of the policy. @Balla2020 count five factors: (1) the number of regulated entities, (2) number of activities or substances being regulated, (3) the level of pollution standards, (4) the compliance and effective deadlines of the regulation, and (5) the monitoring and reporting requirements. Each takes one value (increasing or decreasing) and each is weighted equally in the analysis. In contrast, starting with comments allows commenters to highlight the issues they care most about.
+To estimate the influence of public comments on policy, I code almost all* comments on a random sample of rules, recording the type of organization, the lobbying coalition to which each belongs, the type of coalition (primarily public or private interests), their policy demands, and the extent to which the change between draft and final rule aligned with their demands. This level of alignment between policy asks and policy outcomes is my measure of lobbying success. It does not identify a causal relationship--true policy influence, but it is state of the art with these kinds of observational data (see Yackee and Yackee 2006). 
+
+*On each selected rule, I code all comments submitted as file attachments or emails, but only some comments typed in a text box. I include comments typed in a text box if they share text with other comments (see above). This includes nearly all comments on most rules, excluding entirely unique text-box content, which is marginal both qualitatively and quantitatively. For comments sharing text, I code one sample document for all versions of the form letter. 
+
+My approach to measuring lobbying success starts with policy demands raised in comments. I code the general regulatory/deregulatory direction of the policy change, but the dimensions of conflict on which I judge lobbying success are those identified by commenters. They do not emerge from a reading of the policy or not any a priori concept. Instead, I read the change between draft and policy with an eye for alignment with commenters' requests (including requests that specific parts of the draft policy do not change.)
+
+
+My approach of identifying the dimensions of the conflict by comments has benefits and downsides. Compared to other potential measures of success, it is more likely to focus on things that commenters care about. For example, one could measure success by the number of times a comment is mentioned in the agency's response to comments. However, this may capture strategic responsiveness by agencies choosing to discuss some issues more than others. It also counts explicit rejections toward the measure of responsiveness. One could also measure success by focusing on a-priory potential aspects of the policy. @Balla2020 count five factors: (1) the number of regulated entities, (2) number of activities or substances being regulated, (3) the level of pollution standards, (4) the compliance and effective deadlines of the regulation, and (5) the monitoring and reporting requirements. Each takes one value (increasing or decreasing), and each is weighted equally in the analysis. In contrast, starting with comments allows commenters to highlight the issues they care most about.
 
 ```{r data-hand-coded}
 load(here::here("data", "coalitions_coded.Rdata"))
@@ -114,6 +128,7 @@ comments_coded %<>%
 coalitions_coded %<>% 
   mutate(coalition = coalition_comment,
          comments = coalition_comments,
+         Comments = Coalition_comments,
          agency = str_remove(docket_id, "-.*"))
 
 # coalitions_coded %<>% mutate(across(whereis.character, str_to_title)
@@ -123,9 +138,8 @@ coalitions_coded %<>%
 
 # merge coded org comments and coded mass comments
 d <- comments_coded %>% 
-  select(comment_url, success, docket_id, org_name, position, coalition_comment, coalition_type, org_type, number_of_comments_received) %>%
-  full_join(mass_coded  %>%  distinct(comment_url, success, docket_id, org_name, position, coalition_comment, coalition_type, org_type, number_of_comments_received)) %>% 
-  mutate(coalition = coalition_comment)
+  dplyr::select(document_id, success, docket_id, org_name, position, coalition_comment, coalition_type, org_type, number_of_comments_received) 
+
 ```
 
 
@@ -214,7 +228,7 @@ ggplot(d, aes( x= log(comments))) +
 
 ---
 
-Coalitions by type (public interest vs private interest)
+Coalitions by type (public interest vs. private interest)
 
 ```{r hist-coalitions-type}
 ggplot(d %>% drop_na(coalition_type)) + 
@@ -240,32 +254,76 @@ ggplot(coalitions_coded %>% filter(!is.na(coalition_type)), aes(x = Comments)) +
 
 ---
 
-```{r coded-coalition-congress, fig.cap= "Lobbying Success by Number of Supportive Comments"}
+```{r coded-coalition-congress, include=FALSE, fig.cap= "Lobbying Success by Number of Supportive Comments"}
+#FIXME include when I have more MOCs
 coalitions_coded %>% 
-  # filter(!is.na(coalition_type), coalition_type != "na") %>% 
-  drop_na(coalition_type) %>% 
-  distinct(coalition_comment, coalition_type, coalition_size, coalition_congress, comments, agency) %>% 
-  mutate(comments = comments) %>% 
+  drop_na(coalition_type, Coalition_Position) %>% 
+  distinct(coalition_comment, coalition_type, coalition_size, coalition_congress, comments, agency, Coalition_Position) %>% 
   ungroup() %>%
   ggplot() +
-  aes(x = coalition_congress, y = log(comments + 1), color = coalition_type) +
+  aes(y = coalition_congress, x = log(comments), color = coalition_type) +
   geom_jitter(aes(size = coalition_size), alpha = .5) +
-  geom_smooth(se = FALSE) + 
-  labs(x = "Number of Members of Congress in Coalition")#+ facet_wrap("agency", scales = "free_y")
+  geom_smooth(se = FALSE, method = "lm")+ 
+  facet_grid(Coalition_Position ~ .) 
 ```
 
-```{r coded-coalition-success, fig.cap= "Lobbying Success by Number of Supportive Comments"}
+
+#### Number of supportive comments
+
+```{r coded-coalition-success-comments, fig.cap= "Lobbying Success by Number of Supportive Comments"}
 coalitions_coded %>% 
-  # filter(!is.na(coalition_type), coalition_type != "na") %>% 
-  drop_na(coalition_type) %>% 
-  distinct(coalition_comment, coalition_type, coalition_size, coalition_success, comments, agency) %>% 
+  drop_na(coalition_type, Coalition_Position) %>% 
+  distinct(coalition_comment, coalition_type, coalition_size, coalition_success, comments, agency, Coalition_Position) %>% 
+  ungroup() %>%
+  ggplot() +
+  aes(y = coalition_success, x = log(comments), color = coalition_type) +
+  geom_jitter(aes(size = coalition_size), alpha = .5) +
+  geom_smooth(se = FALSE, method = "lm")+ 
+  facet_grid(Coalition_Position ~ .)
+
+coalitions_coded %>% 
+  drop_na(coalition_type, Coalition_Position) %>% 
+  distinct(coalition_comment, coalition_type, coalition_size, coalition_success, comments, agency, president, Coalition_Position) %>% 
   mutate(comments = comments) %>% 
   ungroup() %>%
   ggplot() +
-  aes(x = coalition_success, y = log(comments + 1), color = coalition_type) +
+  aes(y = coalition_success, x = log(comments), color = coalition_type) +
   geom_jitter(aes(size = coalition_size), alpha = .5) +
-  geom_smooth(se = FALSE) #+ facet_wrap("agency", scales = "free_y")
+  geom_smooth(se = FALSE, method = "lm") + 
+  #facet_wrap("president")  + 
+  facet_grid(Coalition_Position ~ president)
 ```
+
+#### Coalition Size
+
+(number of supportive organizations)
+
+```{r coded-coalition-success-size, fig.cap= "Lobbying Success by Number of Supportive Comments"}
+coalitions_coded %>% 
+  drop_na(coalition_type, Coalition_Position) %>% 
+  distinct(coalition_comment, coalition_type, coalition_size, coalition_success, comments, agency, president, Coalition_Position) %>% 
+  ungroup() %>%
+  ggplot() +
+  aes(y = coalition_success, x = coalition_size, color = coalition_type) +
+  geom_jitter(aes(size = comments ), alpha = .5) +
+  geom_smooth(se = FALSE, method = "lm") + 
+  facet_grid(Coalition_Position ~ .)+ 
+  scale_size_continuous(labels = comma)
+
+coalitions_coded %>% 
+  drop_na(coalition_type, Coalition_Position) %>% 
+  distinct(coalition_comment, coalition_type, coalition_size, coalition_success, comments, agency, president, Coalition_Position) %>% 
+  ungroup() %>%
+  ggplot() +
+  aes(y = coalition_success, x = coalition_size, color = coalition_type) +
+  geom_jitter(aes(size = comments ), alpha = .5) +
+  geom_smooth(se = FALSE, method = "lm") + 
+  #facet_wrap("president") + 
+  facet_grid(Coalition_Position ~ president)+ 
+  scale_size_continuous(labels = comma)
+```
+
+
 
 ## Machine-coded Data
 
@@ -279,6 +337,33 @@ coalitions_coded %>%
 
 ```{hypothesis, meditated, echo = TRUE}
 Most people engage in national policy processes as a result of organized public pressure campaigns.
+```
+
+Hand-coded sample [in progress]
+
+```{r}
+comments_coded %>% 
+  # split out mass comments submitted with org comments
+  mutate(comment_type = ifelse(comment_type == "org" & comments > 99,
+         "org;mass", 
+         comment_type) %>% 
+  str_split(";")) %>% 
+  unnest(comment_type) %>% 
+  mutate(comments = ifelse(comment_type == "org",
+                           1, 
+                           comments)) %>% 
+  group_by(comment_type) %>% 
+  tally(comments)
+```
+
+Full data [in progress]
+```{r}
+# massive undercount of mass
+#TODO include new, further collapsed data
+comments_min %>% 
+  mutate(mass = number_of_comments_received > 99) %>% 
+  group_by(mass) %>% 
+  tally(number_of_comments_received)
 ```
 
 ```{hypothesis, coalitions, echo = TRUE}
@@ -328,18 +413,31 @@ If narrow private interest groups (e.g., businesses) launch public pressure camp
 
 ## DV = Comments from members of Congress
 
-The relationship between public engagement and legislator engagement can be modeled by Equation \@ref(eq:oversight1) where $Pr(Comment_i)$ is the probability that legislator $i$ comments on a proposed rule, $\beta1$ is the total number of public comments, and $\eta$ is a vector of coefficients on other factors ($X_i$) that may affect whether a legislator engages.
-
-
-
-$$logit(Pr(Comment_i)) = \beta_0 + \beta_1 Number\ of\ comments + \eta X_i + \epsilon_i
-(\#eq:oversight1)$$
-
 
 ```{hypothesis oversight, echo = TRUE}
 The scale of public engagement moderates elected officials' engagement in agency rulemaking
 engagement.
 ```
+
+
+The simplest model of the relationship between congressional attention and public attention would to model the count of legislator letters as a function of features of a rulemaking, including the total number of public comments. The number of letters from members of congress would be a count process, this would be a poisson or negative binomial regression.
+
+I equasion \@ref(eq:oversight1) $y_{j}$ is a count of the number of legislator comments on a proposed rule $j$, $\beta_1$ is the effect of a one unit increase in the logged number of public comments on proposed rule $j$, and $\eta$ is a vector of coefficients on other factors ($X_{j}$) that may lead legislators to comment.
+
+$$
+y_{j}= \beta_0 + \beta_1 \text{log(Public comments)}_{j} + \eta X_{j} + \epsilon_{j} (\#eq:oversight)
+$$
+---
+
+Alternatively, if we want to control for legislator charateristics that may make them more or less likely to comment on a rule, we can make members of Congress the unit of analysis. The dependent variable is now whether or not a given legislator $i$ commented on proposed rule $j$. The relationship between public engagement and legislator engagement can be modeled by Equation \@ref(eq:oversight2) where $Pr(Comment_{ij})$ is the probability that legislator $i$ comments on a proposed rule $j$, $\beta_1$ is the effect of a one unit increase in the logged number of public comments on proposed rule $j$, and $\eta$ is a vector of coefficients on other factors ($X_{ij}$) that may affect whether a legislator engages.
+
+
+$$logit(Pr(\text{Legislator comment}_{ij})) = \beta_0 + \beta_1 \text{log(Public comments)}_{ij} + \eta X_{ij} + \epsilon_{ij}
+(\#eq:oversight2)$$
+
+
+
+---
 
 ```{hypothesis beacon, echo = TRUE}
 Public pressure campaigns attract
@@ -353,21 +451,31 @@ reduce oversight from opponents. The more comments opposing a position,
 the less likely principals holding that position are to engage.
 ```
 
-The probability that legislator $i$ will comment, given their position $p_i$ on a proposed rule ($Pr(Comment_i|p_i)$), is modeled in equation \@ref(eq:oversight2). Hypothesis \@ref(hyp:beacon) implies that $\beta_1$ is positive and
+The simplest model of the relationship between congressional attention and public support or opposition to a propopsed rule would to model the net count of legislator letters supporting and opposing the proposed as a function of features of a rulemaking, including the net number of public comments supporting and opposing. As the number of letters from members of congress would be a count process, this would be Poisson or negative binomial regression.
+
+The model is the same as equasion \@ref(eq:oversight1) except that $y_{j}$ is now the *net* number of legislator comments supporting a proposed rule $j$, and $\beta_1$ is now the effect of a one unit increase in the logged *net* number of public comments supporting proposed rule $j$.
+
+---
+
+With a measure of the likely position on each rule (for example, if promulgated by a co-partisan administration), the individual legislator can be the unit of anlysis. The probability that legislator $i$ will comment on rule $j$, given their position $p_{ij}$ on a proposed rule $j$ ($Pr(Comment_{ij}i|p_{ij})$), is modeled in equation \@ref(eq:oversight4). Hypothesis \@ref(hyp:beacon) implies that $\beta_1$ is positive and
 Hypothesis \@ref(hyp:warning) implies that $\beta_2$ is negative.
 
 
-$$logit(Pr(Comment_i|p_i)) = \beta_0 + \beta_1 \text{Comments supporting } p_i + \beta_2 \text{Comments opposing } p_i + \eta X_i + \epsilon_i
-(\#eq:oversight2)$$
+$$logit(Pr(\text{Legislator Comment}_{ij}|p_{ij})) = \beta_0 + \beta_1 \text{Comments supporting } p_{ij} + \beta_2 \text{Comments opposing } p_{ij} + \eta X_{ij} + \epsilon_{ij}
+(\#eq:oversight4)$$
+
+---
+
+## DV = Lobbying success
+
+For all three measures of lobbying success, I assess the relationship between lobbying success and mass comments by modeling coalition $i$'s lobbying success in a rulemaking $j$, $y_{ij}$ as a combination of 
+<!--gthe relative length of the (lead) organizations comment,--> 
+whether the coalition is unopposed, the coalition's size, whether it is a business coalition, and the logged number of mass comments. I estimate these relationships using OLS regression. I also estimate hand-coded lobbying success with beta regression and ordered logit, which is more appropriate but less interpretable. For the automated measures of lobbying success, I estimate beta regression models with the same variables.] 
 
 
-## DV = Lobbying succcess
+$Y_{ij} = \boldsymbol{\beta}_1 \textbf{log(Comments)}_{ij} + {\beta}_2\text{Size}_{ij} + {\beta}_3\text{Unopposed}_{ij}  + {\beta}_3\text{Coalition Type}_{ij} + \epsilon_{ij}$
 
-For all three measures of lobbying success, I assess the relationship between lobbying success and mass comments by modeling coalition $i$'s lobbying success, $y_i$ as a combination of the relative length of the (lead) organizations comment, whether the coalition is unopposed, the coalition's size, whether it is a business coalition, and the logged number of mass comments. I estimate these relationships using OLS regression. I also estimate hand-coded lobbying success with beta regression and ordered logit, which is more appropriate but less interpretable. For the automated measures of lobbying success, I estimate beta regression models with the same variables.] 
-
-$$
-y_i = \beta_0 + \beta_1 log(comments_i) + \beta_2 length_i + \beta_3 unopposed_i + \beta_4 size_i + \beta_5 business_i + \epsilon_i
-$$
+I use two related measures of coalition type. Models 1 and 3 use my classification of coalitions as primarily public or private interests. Models 2 and 4 use a related measure--the share of coalition members that are buisnesses or trade associations. Models 3 and 4 include interact each measure of the coalition's type with a dummy for president Trump rather than President Obama's administration. Bush-era rules are dropped from these models for simplicity. 
 
 
 ### Challenges for inference{-}
@@ -380,27 +488,62 @@ The hand-coded sample includes `r nrow(comments_coded)` hand-coded documents rep
 
 #### Coalitions lobbying on rules
 
-The fact that several coalitions may lobby on the same rule is lesser form of dependence among observations. One coalition's lobbying success is only correlated with another coalitions lobbying success to the extent that they are asking for the same or contradicting things. Because we have grouped organizations into coalitions, the causally-related asks (those organzations lobbying *because* another organization is) are largely accounted for. 
+The fact that several coalitions may lobby on the same rule creates a lesser form of dependence among observations. One coalition's lobbying success is correlated with another coalition's lobbying success to the extent that they are asking for the same or contradicting things. Because we have grouped organizations into coalitions, the causally-related asks (those organizations lobbying *because* another organization is) are largely accounted for. 
 
 
 
 ### DV = Coalition success
 
+Model 1: 
+$$
+y_ij = \beta_0 + \beta_1 log(comments_i) + \beta_2 length_i + \beta_3 unopposed_i + \beta_4 size_i + \beta_5 \text{Public Coalition}_i + \epsilon_i
+$$
+
+Model 2:
 $$
 y_i = \beta_0 + \beta_1 log(comments_i) + \beta_2 length_i + \beta_3 unopposed_i + \beta_4 size_i + \beta_5 business_i + \epsilon_i
 $$
 
 
 ```{r model-success, cache=FALSE}
-m <- lm(coalition_success ~ 
+m_business <- lm(coalition_success ~ 
           log(comments) + 
           #comment_length + 
           coalition_business +  
           coalition_size + 
           coalition_unopposed, 
-        data = d) 
+        data = coalitions_coded) 
 
-modelsummary(m, stars = TRUE)
+m <- lm(coalition_success ~ 
+          log(comments) + 
+          #comment_length + 
+          coalition_type +  
+          coalition_size + 
+          coalition_unopposed, 
+        data = coalitions_coded) 
+
+m_business_president <- lm(coalition_success ~ 
+          log(comments) + 
+          #comment_length + 
+          coalition_business*president +  
+          coalition_size + 
+          coalition_unopposed, 
+        data = coalitions_coded %>% filter(president != "Bush")) 
+
+m_president <- lm(coalition_success ~ 
+          log(comments) + 
+          #comment_length + 
+          coalition_type*president +  
+          coalition_size + 
+          coalition_unopposed, 
+        data = coalitions_coded %>% filter(president != "Bush")) 
+
+models <- list(m, 
+               m_business, 
+               m_president,
+               m_business_president)
+
+modelsummary(models, stars = TRUE)
 ```
 
 
@@ -528,8 +671,68 @@ The Total Effect of a one-unit increase in the logged number of comments is ` ro
 
 ### DV = organzation success
 
-While it would not be appropriate to compare the lobbying success of organizations *within* a rule (because many belong to the same coalition), it may be appropriate to compare the lobbying success within the same organzation *across* rules. This limits the analysis to organzations that lobbying on multiple policies. The key variation of interest is when organzations lobby with a large amount of public support. 
+While it would not be appropriate to compare the lobbying success of organizations *within* a rulemaking (because many organizations belong to the same coalition), it may be appropriate to compare the lobbying success *within* the same organization *across* rules. This limits the analysis to organizations that lobbying on multiple policies. The key variation of interest is when organizations lobby with a large amount of public support versus when they do not.
+
+
+There is still a (lesser) problem with the i.i.d. assumption here because two organizations lobbying in a coalition on one rule may mobilize each other to lobby in coalition in a different rule (in my data, lobbying coalitions are at the policy-level, since they differ from policy to policy). 
+
+```{r}
+orgs <- comments_coded %>% 
+  filter(comment_type == "org") %>% 
+  distinct(org_name, docket_id, success, Position, coalition_size, coalition_comments, president) %>% 
+  count(org_name, sort = T) %>% 
+  filter(n >1, !is.na(org_name)) %>%
+  mutate(org_name = org_name %>% str_to_title())
+
+orgs %>% kablebox()
+```
+
+`r nrow(orgs)` organizations lobbied on more than one rule in the hand-coded data, some on as many as `r max(orgs$n)` rulemaking dockets. This yields a total of `r sum(orgs$n)` observations of an organization lobbying on a docket that also lobbied on some other docket. 
+(Note: this is a undercount due to imperfect standardization of organization names).
+
+
+At the organization level, the appropriate analysis is a difference-in-difference design. We know the success of each organization when it does and does not participate in a lobbying coalition that mobilizes public pressure (at least each organization that I can use for this analysis). The difference within an organization is now the key variation.  
+
+$Y_{ij} = \boldsymbol{\beta}_1 \textbf{Comments}_{ij} + \gamma_{i} + {\beta}_2\text{Coalition Size}_{ij} + {\beta}_3\text{Support}_{ij}  + {\beta}_4\text{President}_{j} + \epsilon_{ij}$
+
+<!--+ {\beta}_5\text{Coalition Type}_{ij} +{\beta}_6\text{Coalition Type}_{ij}*\text{President}_{j} -->
+
+Where $Y_{it}$ represents the level of success that organization $i$. $\gamma_{ij}$ is a fixed effect for
+the organization. This fixed effect accounts for the organization's
+characteristics. This difference-in-difference design ensures that
+coefficient $\boldsymbol{\beta}_1$ captures variation related to changes
+in levels of public pressure, not other factors that may vary
+across organizations. <!--The model also accounts for
+the different periods for which data were available from each agency.
+$\delta_{jt}$ is an agency-year fixed effect, takes into account
+agency-level common shocks across commenters in responsiveness to comment.-->
 
 
 
+${\beta}_2$ captures the effect of coalition size on lobbying success of organization $i$ on rule $j$. ${\beta}_3$ captures the difference in the success of organization $i$ when they support proposed policy $j$ rather than oppose it. ${President}_{j}$ is a dummy for whether policy $j$ was proposed by President Trump rather then-president Obama's administration.
+
+Assuming that organizations have parallel trends in their level of success given a level of support, $\boldsymbol{\beta}$ represents the average effect of changing levels of public pressure on an organization's lobbying success.
+
+Estimates in the table below show the results of this model. It suggests that the same organization was less effective when it mobilized more comments, more successful when they supported the rule, and less successful under president Trump than President Obama. 
+
+The negative correlation between lobbying success and the number of mass comments is likely due to campaigns "going down fighting"--not trying to influence policy. The fact that organizations are more likely to get the outcome they seek when they already support the rule makes sense because the agency is more likely to be sympathetic to their requests. The fact that the average organization was less likely to see its desired policy changes under President Trump is likely due to asymmetry in mobilizing organizations, with more organizations on the left than the right in this sample of rules. (Note: this may change in the broader sample.)
+
+<!--
+Model 2 shows a similar model, adding a fixed effect for the rulemaking docket (i.e., each policy on which an organization comments). Because I consider policies published by different administrations to be distinct, regardless of the docket id number used, the president does not vary across dockets, and it no longer makes sense to include the president dummy. 
+
+This model also shows ....
+Because relatively few campaigns mobilize on any given rulemaking docket, there is little variation within dockets.
+-->
+```{r m-coded-org-success-did}
+library(fixest)
+
+m_fe_org = feols(success ~ log(coalition_comments) + coalition_size + Position + president | org_name,
+               data = comments_coded %>% 
+  filter(comment_type == "org") %>% 
+  distinct(org_name, docket_id, success, Position, coalition_size, coalition_comments, president) %>% filter(president != "Bush"))
+
+models <- list("Lobbying Success" = m_fe_org)
+
+modelsummary(models, stars = T)
+```
 
