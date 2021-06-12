@@ -35,7 +35,7 @@ library(modelsummary)
 
 # overide defaults
 knitr::opts_chunk$set(echo = TRUE, 
-                      cache = FALSE,
+                      cache = TRUE,
                       fig.path='../figs/')
 ```
 
@@ -94,50 +94,12 @@ comments.
 
 ---
 
-## Comments from legislators
-
-One mechanism by which campaigns may influence policy is by mobilizing members of Congress. Thus, I identify comments submitted by members of Congress and count the number of legislators in each lobbying coalition. 
-
-```{r congress, fig.cap = "Number of Letters from Members of Congress Received During Rulemaking per Year", out.width = "100%", fig.height=6}
-load(here::here("data", "comments_congress.Rdata"))
-
-comments_congress$Year %<>% as.numeric()
-
-breaks <- seq(2000, 2020,by = 2)
-
-comments_congress %>% 
-  as_tibble() %>%
-  filter(Year %>% as.numeric() > 2000,
-         Year %>% as.numeric() < 2021) %>% 
-  add_count(agency, name = "agency_n") %>%
-  filter(agency_n > 88) %>% 
-  count(Year, Chamber, agency, sort = TRUE) %>%
-  ggplot() +
-  aes(x = Year, y = n, fill = Chamber) + 
-  geom_col(position = "stack") + 
-  facet_wrap("agency", scales = "free") + 
-  labs(x = "" ,
-       y = "Number of Rulemaking Comments from Members of Congress") + 
-  scale_x_continuous(breaks = breaks) + 
-  theme(axis.text.x = element_text(angle = 90),
-        axis.ticks.x = element_blank(),
-        panel.grid.major.x = element_blank())
-
-# table 
-# elected comments by type
-comments_coded %>% 
-  filter(comment_type == "elected") %>%  
-  mutate(org_type = str_remove(org_type, "-.*|;.*| .*")) %>%
-  count(org_type,  sort =T) %>% 
-  rename(elected_type = org_type) %>%
-  kablebox()
-```
 
 ## Clustering with text reuse
 
-My theoretical approach requires that I *attribute* form letter comments to the organizations, campaigns, and broader coalitions that mobilized them. To do so, I identify comments that share text. I find that a 10-word phrase repeated across more than a few comments is always either text copied from the proposed policy or a form letter provided by a campaign. Thus, for the text of each comment, I first remove all 10-word phrases that appear in the proposed rule (including the preamble and call for comments). Then, I identify all comments that share ten-word phrases with 99 or more other comments. I collapse these form letter comments to one representative sample for hand-coding. 
+My theoretical approach requires that I *attribute* form letter comments to the organizations, campaigns, and broader coalitions that mobilized them. To do so, I identify comments that share text. I find that a 10-word phrase repeated across more than a few comments is always either text copied from the proposed policy or a form letter provided by a campaign. Thus, for the text of each comment, I first remove all 10-word phrases that appear in the proposed rule (including the preamble and call for comments). Then, I identify all comments that share ten-word phrases with 99 or more other comments. Finally, I collapse these form letter comments to one representative sample for hand-coding. 
 
-For each comment on a rulemaking docket^[Where a new presidential administration used the same docket number to solicit comments on a proposed rule that a previous administration used, I count these as separate rulemaking dockets. I do so because the second policy is usually reversing or going in the opposite direction as the policy on which the previous administration solicited comments. The same organizations often comment but with the opposition positions. Support becomes opposition and vice versa.], I identify the percent of words it shares with other comments using a 10-word (or
+For each comment on a rulemaking docket^[Where a new presidential administration used the same docket number to solicit comments on a proposed rule that a previous administration used, I count these as separate rulemaking dockets. I do so because the second policy is usually reversing or going in the opposite direction as the previous administration's policy solicited comments. The same organizations often comment but with the opposition positions. Support becomes opposition and vice versa.], I identify the percent of words it shares with other comments using a 10-word (or
 "10-gram") moving window function, looping over each
 possible pair of texts to identify matches.^[For more about n-gram window functions and comparisons with related partial matching methods such as the Smith-Waterman algorithm, see @Casas2017 and @Judge-Lord2017.]
 When actors sign onto the same comment, it is clear that they are
@@ -355,6 +317,47 @@ coalitions_coded %>%
 
 **Explanatory variables:** The *total number of comments*...
 
+
+## Comments from legislators
+
+One mechanism by which campaigns may influence policy is by mobilizing members of Congress. Thus, I identify comments submitted by members of Congress and count the number of legislators in each lobbying coalition. 
+
+```{r congress, fig.cap = "Number of Letters from Members of Congress Received During Rulemaking per Year", out.width = "100%", fig.height=6}
+load(here::here("data", "comments_congress.Rdata"))
+
+comments_congress$Year %<>% as.numeric()
+
+breaks <- seq(2000, 2020,by = 2)
+
+comments_congress %>% 
+  as_tibble() %>%
+  filter(Year %>% as.numeric() > 2000,
+         Year %>% as.numeric() < 2021) %>% 
+  add_count(agency, name = "agency_n") %>%
+  filter(agency_n > 88) %>% 
+  count(Year, Chamber, agency, sort = TRUE) %>%
+  ggplot() +
+  aes(x = Year, y = n, fill = Chamber) + 
+  geom_col(position = "stack") + 
+  facet_wrap("agency", scales = "free") + 
+  labs(x = "" ,
+       y = "Number of Rulemaking Comments from Members of Congress") + 
+  scale_x_continuous(breaks = breaks) + 
+  theme(axis.text.x = element_text(angle = 90),
+        axis.ticks.x = element_blank(),
+        panel.grid.major.x = element_blank())
+
+# table 
+# elected comments by type
+comments_coded %>% 
+  filter(comment_type == "elected") %>%  
+  mutate(org_type = str_remove(org_type, "-.*|;.*| .*")) %>%
+  count(org_type,  sort =T) %>% 
+  rename(elected_type = org_type) %>%
+  kablebox()
+```
+
+
 # Descriptives
 
 ```{hypothesis, meditated, echo = TRUE}
@@ -447,9 +450,9 @@ engagement.
 ```
 
 
-The simplest model of the relationship between congressional attention and public attention would to model the count of legislator letters as a function of features of a rulemaking, including the total number of public comments. The number of letters from members of congress would be a count process, this would be a poisson or negative binomial regression.
+The simplest model of the relationship between congressional attention and public attention would be to model the count of legislator letters as a function of features of the rulemaking, including the total number of public comments. The number of letters from members of congress would be a count process; this would be a Poisson or negative binomial regression.
 
-In equasion \@ref(eq:oversight1), $y_{j}$ is a count of the number of legislator comments on a proposed rule $j$, $\beta_1$ is the effect of a one unit increase in the logged number of public comments on proposed rule $j$, and $\eta$ is a vector of coefficients on other factors ($X_{j}$) that may lead legislators to comment.
+In equation \@ref(eq:oversight1), $y_{j}$ is a count of the number of legislator comments on a proposed rule $j$, $\beta_1$ is the effect of a one-unit increase in the logged number of public comments on proposed rule $j$, and $\eta$ is a vector of coefficients on other factors ($X_{j}$) that may lead legislators to comment.
 
 $$
 y_{j}= \beta_0 + \beta_1 \text{log(Public comments)}_{j} + \eta X_{j} + \epsilon_{j} (\#eq:oversight1)
@@ -457,7 +460,7 @@ $$
 
 ---
 
-Alternatively, if we want to control for legislator charateristics that may make them more or less likely to comment on a rule, we can make members of Congress the unit of analysis. The dependent variable is now whether or not a given legislator $i$ commented on proposed rule $j$. The relationship between public engagement and legislator engagement can be modeled by Equation \@ref(eq:oversight2) where $Pr(Comment_{ij})$ is the probability that legislator $i$ comments on a proposed rule $j$, $\beta_1$ is the effect of a one unit increase in the logged number of public comments on proposed rule $j$, and $\eta$ is a vector of coefficients on other factors ($X_{ij}$) that may affect whether a legislator engages.
+Alternatively, if we want to control for legislator characteristics that may make them more or less likely to comment on a rule, we can make members of Congress the unit of analysis. The dependent variable is now whether or not a given legislator $i$ commented on proposed rule $j$. The relationship between public engagement and legislator engagement can be modeled by Equation \@ref(eq:oversight2), where $Pr(Comment_{ij})$ is the probability that legislator $i$ comments on a proposed rule $j$, $\beta_1$ is the effect of a one-unit increase in the logged number of public comments on proposed rule $j$, and $\eta$ is a vector of coefficients on other factors ($X_{ij}$) that may affect whether a legislator engages.
 
 
 $$logit(Pr(\text{Legislator comment}_{ij})) = \beta_0 + \beta_1 \text{log(Public comments)}_{ij} + \eta X_{ij} + \epsilon_{ij}
@@ -479,13 +482,13 @@ reduce oversight from opponents. The more comments opposing a position,
 the less likely principals holding that position are to engage.
 ```
 
-The simplest model of the relationship between congressional attention and public support or opposition to a propopsed rule would to model the net count of legislator letters supporting and opposing the proposed as a function of features of a rulemaking, including the net number of public comments supporting and opposing. As the number of letters from members of congress would be a count process, this would be Poisson or negative binomial regression.
+The simplest model of the relationship between congressional attention and public support or opposition to a proposed rule would be to model the net count of legislator letters supporting and opposing the proposed as a function of features of the rulemaking, including the net number of public comments supporting and opposing. As the number of letters from members of congress would be a count process, this would be Poisson or negative binomial regression.
 
-The model is the same as equasion \@ref(eq:oversight1) except that $y_{j}$ is now the *net* number of legislator comments supporting a proposed rule $j$, and $\beta_1$ is now the effect of a one unit increase in the logged *net* number of public comments supporting proposed rule $j$.
+The model is the same as equation \@ref(eq:oversight1) except that $y_{j}$ is now the *net* number of legislator comments supporting a proposed rule $j$, and $\beta_1$ is now the effect of a one-unit increase in the logged *net* number of public comments supporting proposed rule $j$.
 
 ---
 
-With a measure of the likely position on each rule (for example, if promulgated by a co-partisan administration), the individual legislator can be the unit of anlysis. The probability that legislator $i$ will comment on rule $j$, given their position $p_{ij}$ on a proposed rule $j$ ($Pr(Comment_{ij}i|p_{ij})$), is modeled in equation \@ref(eq:oversight4). Hypothesis \@ref(hyp:beacon) implies that $\beta_1$ is positive and
+With a measure of the likely position on each rule (for example, if promulgated by a co-partisan administration), the individual legislator can be the unit of analysis. The probability that legislator $i$ will comment on rule $j$, given their position $p_{ij}$ on a proposed rule $j$ ($Pr(Comment_{ij}i|p_{ij})$), is modeled in equation \@ref(eq:oversight4). Hypothesis \@ref(hyp:beacon) implies that $\beta_1$ is positive and
 Hypothesis \@ref(hyp:warning) implies that $\beta_2$ is negative.
 
 
@@ -503,7 +506,7 @@ whether the coalition is unopposed, the coalition's size, whether it is a busine
 
 $Y_{ij} = \boldsymbol{\beta}_1 \textbf{log(Comments)}_{ij} + {\beta}_2\text{Size}_{ij} + {\beta}_3\text{Unopposed}_{ij}  + {\beta}_3\text{Coalition Type}_{ij} + \epsilon_{ij}$
 
-I use two related measures of coalition type. Models 1 and 3 use my classification of coalitions as primarily public or private interests. Models 2 and 4 below use a related measure--the share of coalition members that are buisnesses or trade associations. Models 3 and 4 include interact each measure of the coalition's type with a dummy for president Trump rather than President Obama's administration. Bush-era rules are dropped from these models for simplicity. 
+I use two related measures of coalition type. Models 1 and 3 use my classification of coalitions as primarily public or private interests. Models 2 and 4 below use a related measure: the share of coalition members that are businesses or trade associations. Models 3 and 4 include interacting each measure of the coalition's type with a dummy for president Trump rather than President Obama's administration. Bush-era rules are dropped from these models for simplicity. 
 
 
 ### Challenges for inference{-}
@@ -523,9 +526,9 @@ The fact that several coalitions may lobby on the same rule creates a lesser for
 
 ### DV = Coalition success
 
-> Note: these models include coalitions of 1 (organizations lobbying alone), but results are similar if I exclude them, except that coalition size has a much weaker correlated with success. 
+> Note: these models include coalitions of 1 (organizations lobbying alone), but results are similar if I exclude them, except that coalition size has a much weaker correlation with success. 
 
-> NOTE: At this time, the sample is mostly rules that recieved an unusual number of comments, so these results are based on variation with high-salience rulemakings. 
+> NOTE: At this time, the sample mostly rules that received an unusual number of comments, so these results are based on variation with high-salience rulemakings. 
 
 ```{r model-success, cache=FALSE}
 m_business <- lm(coalition_success ~ 
@@ -652,7 +655,7 @@ m_president %>%
 
 #### Modeling Congressional Support as a Mediator of Lobbying Success
 
-To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME, conditional on the number of comments from Members of Congress) and average direct effect (ADE) of mass comments using mediation analysis. Model 3 in table \@ref(tab:mediation) replaces the dependent variable (lobbying success) with the mediator variable (the number of supportive members of Congress). Model 1 is the same as Model 1 above. Model 1 is the same, but includes the proposed mediator, the number of supportive comments from members of Congress.
+To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME, conditional on the number of comments from Members of Congress) and average direct effect (ADE) of mass comments using mediation analysis. Model 3 in table \@ref(tab:mediation) replaces the dependent variable (lobbying success) with the mediator variable (the number of supportive members of Congress). Model 1 is the same as Model 1 above. Model 2 is the same but includes the proposed mediator, the number of supportive comments from members of Congress.
 
 ```{r causal-oversight, fig.cap = "The Mediator Model: The Relationship Between Public Pressure and Congressional Oversight"}
 #TODO add headers, cut out demands, add political information box, shift principal comments over
@@ -669,20 +672,27 @@ $$
 $$
 
 ```{r model-oversight, cache=FALSE}
-# model predicting mediator
-model.m <- glm(coalition_congress ~  log(comments) + #comment_length +
+# poisson correct model 
+m_congress <- glm(coalition_congress ~  log(comments) + #comment_length +
                 coalition_type +  log(coalition_size) + coalition_unopposed,
                family = "poisson",
                data = coalitions_coded %>% filter(!is.na(coalition_success))) 
 
+# model predicting mediator
+model.m <- lm(coalition_congress ~  log(comments) + #comment_length +
+                coalition_type +  log(coalition_size) + coalition_unopposed,
+               data = coalitions_coded %>%
+                filter(!is.na(coalition_success))) 
 
-mediator <- list("Members of Congress in Coalition" = model.m)
+
+mediator <- list("Members of Congress in Coalition (OLS)" = model.m, "Members of Congress in Coalition (Poisson)" = m_congress)
 
 modelsummary(mediator, stars = TRUE)
 ```
 
 
-```{r model-oversight-plot, cache=FALSE,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS Model of the Numeber of Members of Congress Per Coalition with Hand-coded Data"}
+```{r model-oversight-plot, eval=FALSE, cache=FALSE,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS Model of the Numeber of Members of Congress Per Coalition with Hand-coded Data"}
+# FIXME include = TRUE when more obs
 model.m %>%
   tidy(conf.int = TRUE) %>% 
   filter(term != "(Intercept)") %>% 
@@ -731,7 +741,10 @@ model.y <- lm(coalition_success ~ log(comments) +
               data = coalitions_coded) 
 
 # Mediation 
-med.cont <- mediate(model.m, model.y, sims=1000, treat = "log(comments)", mediator = "coalition_congress")
+med.cont <- mediate(model.m, model.y,
+                    sims=1000, 
+                    treat = "log(comments)", 
+                    mediator = "coalition_congress")
 
 summary(med.cont)
 
