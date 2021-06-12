@@ -7,6 +7,8 @@ bibliography: '`r here::here("assets/dissertation.bib")`'
 biblio-style: '`r here::here("assets/apsr.bst")`'
 link-citations: yes
 citecolor: black
+editor_options: 
+  chunk_output_type: console
 output:
     bookdown::html_document2:
       highlight: zenburn
@@ -16,20 +18,27 @@ output:
     # pdf_document:
     #   toc: true
     #   keep_tex: true
-editor_options: 
-  chunk_output_type: console
-knit: (function(input, ...) {
-    rmarkdown::render(
-      input,
-      output_file = paste0(
-        xfun::sans_ext(input), '.html'
-      ),
-      envir = globalenv()
-    )
-  })
+#     bookdown::pdf_document2:
+#       latex_engine: pdflatex
+#       keep_tex: true
+#       #template: ../assets/article-template.tex
+#       toc: false
+#       fig_caption: true
+#       citation_package: natbib
+#       spacing: doublespacing
+# header-includes:
+#    - \input{../assets/preamble.tex}
+#    - \let\footnote=\endnote
+#    - \renewcommand{\footnotesize}{\normalsize}
+#    - \renewcommand{\normalsize}{\large}
 ---
 
+\doublespacing
+\RaggedRight
+\large
+
 ```{r global.options, include=FALSE}
+# rmarkdown::render("04-influence/influence-appendix.Rmd")
 source(here::here("code", "setup.R"))
 library(modelsummary)
 
@@ -39,10 +48,14 @@ knitr::opts_chunk$set(echo = TRUE,
                       fig.path='../figs/')
 ```
 
+# [Download as PDF](https://github.com/judgelord/dissertation/blob/master/04-influence/influence-appendix.pdf) {-}
+
+(R code is only in the [HTML version](https://judgelord.github.io/dissertation/influence-appendix.html)) 
+
 # Data
 
 Replication data are available in SQL and Rdata at
-<https://github.com/judgelord/rulemaking>
+<https://github.com/judgelord/rulemaking>.
 
 ```{r data}
 load(here::here("data", "rules_metadata.Rdata"))
@@ -64,14 +77,17 @@ load(here::here("data", "comments_coded.Rdata"))
 # common names 
 comments_coded %<>% 
   mutate(coalition = coalition_comment,
-         agency = str_remove(docket_id, "-.*"))
+         agency = str_remove(docket_id, "-.*"))%>%
+  mutate(org_name = org_name %>% str_to_title())%>%
+  mutate(coalition = coalition %>% str_to_title())
 
 # common names 
 coalitions_coded %<>% 
   mutate(coalition = coalition_comment,
          comments = coalition_comments,
          Comments = Coalition_comments,
-         agency = str_remove(docket_id, "-.*"))
+         agency = str_remove(docket_id, "-.*"))%>%
+  mutate(coalition = coalition %>% str_to_title())
 
 # coalitions_coded %<>% mutate(across(whereis.character, str_to_title)
 
@@ -113,7 +129,7 @@ Comments [91130](https://www.regulations.gov/document?D=CFPB-2016-0025-91130) th
 
 ```{r percent-match, fig.show = "hold", out.width = "100%", fig.cap="Percent of Matching Text in a Sample of Public Comments"}
 
-knitr::include_graphics(here::here("Figs/comment_percent_match_plot-1.png")  )
+knitr::include_graphics(here::here("docs", "Figs", "comment_percent_match_plot-1.png")  )
 ```
 
 
@@ -394,6 +410,9 @@ comments_min %>%
   kablebox()
 ```
 
+---
+
+
 ```{hypothesis, coalitions, echo = TRUE}
 Public pressure campaigns are organized by *coalitions* that include groups that engage in sophisticated technical lobbying.
 ```
@@ -415,17 +434,26 @@ comments_coded %>%
   kablebox()
 ```
 
+---
+
+
 ```{hypothesis, public, echo = TRUE}
 Public interest group coalitions mobilize *more often* than private interest group (e.g., business-led) coalitions.
 ```
 
 > Yes, but not as much as I expected.
 
+---
+
+
 ```{hypothesis, public-success, echo = TRUE}
 Public interest group coalitions mobilize *more successfully* than private interest group (e.g., business-led) coalitions. 
 ```
 
 > Yes, by far.
+
+---
+
 
 ```{hypothesis, resources, echo = TRUE}
 Public pressure campaigns targeting national policy are most often run by large national policy advocacy organizations.
@@ -438,6 +466,9 @@ If narrow private interest groups (e.g., businesses) launch public pressure camp
 ```
 
 > Yes.
+
+---
+
 
 # Models of influence/success
 
@@ -529,6 +560,8 @@ The fact that several coalitions may lobby on the same rule creates a lesser for
 > Note: these models include coalitions of 1 (organizations lobbying alone), but results are similar if I exclude them, except that coalition size has a much weaker correlation with success. 
 
 > NOTE: At this time, the sample mostly rules that received an unusual number of comments, so these results are based on variation with high-salience rulemakings. 
+
+> TODO: Add specification with agency fixed effects?
 
 ```{r model-success, cache=FALSE}
 m_business <- lm(coalition_success ~ 
@@ -721,11 +754,11 @@ knitr::include_graphics(here::here("figs", "causal-oversight-2.png"))
 
 
 
-($y_{ij} = \text{Lobbying\ success}_{ij}$) \@ref(eq:outcome):
+($y_{ij} = \text{Lobbying success}_{ij}$) \@ref(eq:outcome):
 
 
 $$
-y_{ij} = \beta_0 + \beta_1 log(\text{Comments)_{ij}) + \beta_2 congressional\ support_{ij} + \beta_{3-n} X_{ij} + \epsilon_{ij} 
+y_{ij} = \beta_0 + \beta_1 log(\text{Comments}_{ij}) + \beta_2 \text{Congressional support}_{ij} + \beta_{3-n} X_{ij} + \epsilon_{ij} 
 (\#eq:outcome)
 $$
 
@@ -803,8 +836,7 @@ orgs <- comments_coded %>%
   filter(comment_type == "org") %>% 
   distinct(org_name, docket_id, success, Position, coalition_size, coalition_comments, president) %>% 
   count(org_name, sort = T) %>% 
-  filter(n >1, !is.na(org_name)) %>%
-  mutate(org_name = org_name %>% str_to_title())
+  filter(n >1, !is.na(org_name)) 
 
 orgs %>% kablebox()
 ```
