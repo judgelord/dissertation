@@ -24,7 +24,7 @@ Organized groups play at least two key functions in a large democracy: (1) organ
 
 ### The Mobilization of Interest
 
-Mobilizing citizens and generating new political information (information about the distribution and intensity of policy preferences and demands) are key functions of interest groups in a democracy [@Mansbridge1992; @Mahoney2007].
+Mobilizing citizens and generating new political information (information about the distribution and intensity of policy preferences and demands) are key functions of interest groups in a democracy. In doing so, public interest groups provide countervailing forces to business interest groups [@Mansbridge1992]. Policy outcomes depend on the distribution of power among interest groups [@Dur2007]. Engaging citizens to participate in the policy process is a common strategy for groups to gain and exercise power, and thus a major driver of civic engagement [@Dur2007; @Mahoney2007]. Conflict among pressure groups, even those representing private interests, can lead to more majoritatian policy outcomes [@Yackee2009PSJ]. Indeed, pluralist theories of democracy rely on interest groups to represent segments of the population in policymaking [@Dahl1958; ;Dahl1961], though they may do so poorly [@McFarland2007; @Seifter2016UCLA]. 
 
 #### Forms and Drivers of Civic Participation 
 
@@ -35,15 +35,15 @@ Administrative law scholarship often discusses individual participants in rulema
 
 Cooperative activities are coordinated and mediated through an organization.
 By coordinating political action, public pressure campaigns expand civic participation in policymaking.^[I follow @Verba1987 in defining "civic participation" as "acts aimed at influencing governmental decisions" (pg. 2). Some argue that
-participation only counts if it is deliberative, which mass comment campaigns are not, at least not at the individual level.<!--@Goodin2006-->
+participation only counts if it is deliberative, which mass comment campaigns are not, at least not at the individual level.<!--@Goodin2006, Rossi1997 = skeptic civic repubican-->
 Other criteria posed by normative theorists that participation should be "genuine," "informed," or "reasoned" are more difficult to assess. Normative theorists debate whether deliberation among a small number of people is preferable to a large number of people simply expressing their preferences. But empirically, public participation in bureaucratic policymaking is much more the latter [@Shapiro2008b].]
 
 Self-selection may not be ideal for representation, but
 opt-in forms of participation---including voting, attending a hearing, or
 commenting on proposed a policy---are often one of the few heuristics decisionmakers have
 about public preferences. As with public opinion on most
-specific policy issues, most members of the public and their elected
-representatives may only learn about the issue and take a position as a
+specific policy issues, most members of the public may only learn about the issue and take a position as a result of a public pressure campaign. Likewise, elected
+officials may only learn about the issue and take a position as a
 result of a public pressure campaign [@Hutchings2003]. Campaigns inform agencies about the
 distribution and intensity of opinions that are often too nuanced to
 estimate a priori.  Many questions that arise in rulemaking lack
@@ -51,13 +51,13 @@ analogous public opinion polling questions, making mass commenting a
 unique source of political information.  However limited and slanted, this information is directed at policymakers who may often be unclear how the public and other political actors will react to their policy decisions.
 
 
-Forms of civic participation beyond voting, such as protests and petitioning, offer unique opportunities for minority interests in particular. Protests to be an effective mechanism for minority interests to communicate preferences to policymakers when electoral mechanisms fail to do so. Policymakers learn and take informational cues from political behaviors like protests [@Gillion2013]. @CarpenterPetitions finds similar potential for petitions to serve as a channel to raise "new claims" and influence policy beyond elections: "Petition democracy offer another model of aggregation, where numerical minorities could still make a case of quantitive relevance" (pg. 479). Numbers matter for protests and petitions, regardless of whether they represent a majority. These modes of preference aggregation often claim to represent a substantial segment of the public, perhaps a larger portion than those as passionately opposed to them.
+Forms of civic participation beyond voting, such as protests and petitioning, offer unique opportunities for minority interests in particular. Protests can be an effective mechanism for minority interests to communicate preferences to policymakers when electoral mechanisms fail to do so. Policymakers learn and take informational cues from political behaviors like protests [@Gillion2013]. @CarpenterPetitions finds similar potential for petitions to serve as a channel to raise "new claims" and influence policy beyond elections: "Petition democracy offers another model of aggregation, where numerical minorities could still make a case of quantitative relevance" (pg. 479). Numbers matter for protests and petitions, regardless of whether they represent a majority. These modes of preference aggregation often claim to represent a substantial segment of the public, perhaps a larger portion than those as passionately opposed to them.
 
 
 #### Pluralism and Group Conflict in Democratic Theory 
 
 
-<!--conflicgt expansion-->
+<!--conflict expansion-->
 An organization and can reshape the political environment by expanding the scope of conflict [@Schattschneider1975]. 
 <!--going public-->
 Political actors bring new people into a political fight by using press releases, mass mailing, and phonebanking to drum up and channel public support [@Cooper1985]. Conflict expansion strategies that attempt to engage the broader public are known as "going public" [@Kollman1998].  "Going public," "outside lobbying," or an "outside strategy" contrasts with insider lobbying. Political actors "go public" when they expand the scope of conflict beyond the usual cadre of political actors. This strategy is used by Presidents [@Kernell2007], Members of Congress [@Malecha2012], interest groups
@@ -65,7 +65,7 @@ Political actors bring new people into a political fight by using press releases
     For example, when presidents face difficult negotiations with Congress, they often use their bully pulpit to mobilize segments of the public to pressure elected representatives. Likewise, interest groups mobilize segments of the public to pressure policymakers as part of their lobbying strategy.
 The ability to mobilize a large number of people can thus be a valuable political resource. 
 
-Organizations that mobilize people to engage in policy debates (e.g., through letter-writing campaigns) go by many names, each with slightly different connotations. These include pressure groups, policy advocacy groups [@Potter2017], citizen groups [@Berry1999], policy change organizations [@McNutt2005]. 
+Organizations that mobilize people to engage in policy debates (e.g., through letter-writing campaigns) go by many names, each with slightly different connotations. These include pressure groups, policy advocacy groups [@Potter2017], citizen groups [@Berry1999], and policy change organizations [@McNutt2005]. 
 
 
 <!--congress -- annual review?-->
@@ -102,9 +102,9 @@ lobbying by different business coalitions. While they focus on
 mobilizing experts, I argue that @Nelson2012 describe a dynamic that can be extended
 to public pressure campaigns:
 
-> "strategic recruitment, we theorize, mobilizes new actors to participate in the policymaking process, bringing with them novel technical and political information. In other words, when an expanded strategy is employed, leaders activate individuals and organizations to participate in the policymaking process who, without the coordinating efforts of the leaders, would otherwise not lobby. This activation is important because it implies that coalition lobbying can generate new information and new actors---beyond simply the 'usual suspects' ---relevant to policy decisionmakers."
+> "Strategic recruitment, we theorize, mobilizes new actors to participate in the policymaking process, bringing with them novel technical and political information. In other words, when an expanded strategy is employed, leaders activate individuals and organizations to participate in the policymaking process who, without the coordinating efforts of the leaders, would otherwise not lobby. This activation is important because it implies that coalition lobbying can generate new information and new actors---beyond simply the 'usual suspects' ---relevant to policy decisionmakers."
 
-Regarding political information, I extend this logic extends to
+Regarding political information, I extend this logic to
 non-experts. The number and distribution of ordinary supporters may
 matter because it suggests a *public* consensus, at least among some segments of the attentive public. Instead of bolstering
 *scientific* claims, a perceived public consensus bolsters *political*
@@ -133,11 +133,11 @@ While political science theories often assume that membership organizations advo
 
 Mobilizing people to write or sign comments is one way--perhaps the best way---for organizations to provide evidence that they represent who they say they do
 For example, the Natural Resources Defense Council (NRDC), a top mobilizer of public comments, often claims to represent "3 million members
-and online activists" (https://www.nrdc.org/about), presumably including anyone who has donated to or participated in one of its campaigns. Mobilizing comments is one way that NRDC can demonstrate real support for their specific position on any given issue. To be sure, officials may better understand the true number and politics of people who support NRDC than those claimed by the Poker Players Alliance. Still, the scale and intensity with which the attentive public responds to a pressure campaign may provide information about the politics of the issue. A large showing for a campaign supporting a proposed policy may give bureaucrats a talking point with their political superiors. A surprising level of opposition may raise questions about political tactics.
+and online activists" (https://www.nrdc.org/about) –– a figure that presumably includes anyone who has donated to or participated in one of its campaigns. Mobilizing comments is one way that NRDC can demonstrate real support for their specific position on any given issue. To be sure, officials may better understand the true number and politics of people who support NRDC than those claimed by the Poker Players Alliance. Still, the scale and intensity with which the attentive public responds to a pressure campaign may provide information about the politics of the issue. A large showing for a campaign supporting a proposed policy may give bureaucrats a talking point with their political superiors. A surprising level of opposition may raise questions about political tactics.
 
 Furthermore, if D.C. professionals primarily make advocacy group decisions, these
-advocates themselves may be unsure how broadly their claims resonate
-until potentially attentive segments of the public are engaged. A large amount of support my encourage professional policy influences to push officials harder to accommodate their requests.
+advocates themselves may be unsure of how broadly their claims resonate
+until potentially attentive segments of the public are engaged. A large amount of support may encourage professional policy influences to push officials harder to accommodate their requests.
 
 Theorists debate whether signing a petition of support without
 having a role in crafting the appeal is a meaningful voice and whether
@@ -147,7 +147,7 @@ distinguish themselves from truly narrower ones. It suggests that the organizati
 
 The credibility of the signal that mass engagement provides may be complicated by "astroturf" campaigns, where organizations aim to project the image of a larger base of support than they truly have [@McNutt2007, @RashinXXXX]. To the extent that support can be effectively faked or inflated using "astroturf" tactics, the political information that pressure campaigns provide will be less accurate and thus less valuable to decisionmakers. 
 
-Astroturf campaigns that utilize faked evidence of mass support (e.g., faked petition signatures) bypass the public pressure and mass engagement step entirely, manifesting false political information. However, in a model where political information complements technical information, supporting sophisticated lobbying efforts, providing fake political information is a risky strategy. Organizations lobbying in repeated interactions with agencies, and an organization's reputation--critical to its ability to provide credible technical information--may be harmed if policymakers lean that an organization provided false political information. One observable implication is that astroturf campaigns will often be anonymous or by organizations that do not also engage in sophisticated lobbying.  This may provide sophisticated lobbying organizations plausible deniability. However, because policymakers may rationally discount petitions submitted anonymously or by groups that lack reputations for credibility, fraudulent campaigns have little hope of influencing policy in this model and may thus be fairly rare compared to a model where political information is not mediated by groups that also engage in sophisticated lobbying. 
+Astroturf campaigns that utilize faked evidence of mass support (e.g., faked petition signatures) bypass the public pressure and mass engagement step entirely, manifesting false political information. However, in a model where political information complements technical information, supporting sophisticated lobbying efforts, providing fake political information is a risky strategy. Organizations lobbying in repeated interactions with agencies, and an organization's reputation--critical to its ability to provide credible technical information--may be harmed if policymakers learn that an organization provided false political information. One observable implication is that astroturf campaigns will often be anonymous or led by organizations that do not also engage in sophisticated lobbying.  This may provide sophisticated lobbying organizations plausible deniability. However, because policymakers may rationally discount petitions submitted anonymously or by groups perceived to  lack credibility, fraudulent campaigns have little hope of influencing policy in this model and may thus be fairly rare compared to a model where political information is not mediated by groups that also engage in sophisticated lobbying. 
 
 
 
@@ -591,4 +591,3 @@ opportunities. For example, @Moore2017 finds that agencies that use high
 levels of expertise (as defined by @Selin2015) receive fewer comments,
 possibly because mobilizing organizations perceive these rules to be
 less open to influence.-->
-

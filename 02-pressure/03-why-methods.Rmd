@@ -107,8 +107,9 @@ public interest, even when true motivations are private
 I describe my classification methods in section \@ref{classify-public-private}. To provide empirical context, this subsection sketches out the range of public and private campaigns with some concrete examples of "public" pressure campaigns that primarily advance private interests.
 
 There is a spectrum of organizing the unorganized. The poles might be labeled "grassroots" and "astroturf." On the grassroots end, engagement is driven by a combination of passionate volunteerism and a supportive, attentive segment of the public. In practice, most campaigns on the grassroots end of the spectrum in federal rulemaking are not pure volunteerism but are organized by policy change organizations like MoveOn and Organizing For American on the left and Americans for Prosperity on the right.
-These organizations have large mailing lists and media operations, providing the capacity to mobilize large numbers of people for a particular policy fight.
+These organizations have large mailing lists and media operations, providing the capacity to mobilize large numbers of people for a particular policy fight. Both public and private interest groups pay for mobilizing services and software. Some providers are non-profits (e.g. Care2); others are for-profit lobbying and campaign consultants (e.g. Nationbuilder, SoftEdge, Mandate Media). Most of these services have strong partisan ties, as is generally the case with lobbying firms [@Furnas2017].
 Membership organizations like the Sierra Club often mobilize "members and supporters" beyond their official membership base, thereby taking the form of a policy change organization as well. 
+
 Like people mobilized through their membership organizations, people mobilized by policy change organizations will often cite the mobilizing organization.
 Unlike those mobilized through membership organizations, mobilization by policy change organizations is more likely to be concentrated in a few large organizations with the specific resources for running campaigns that engage passionate or interested but unaffiliated or loosely affiliated segments of the public. 
 
