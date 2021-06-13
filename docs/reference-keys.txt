@@ -31,10 +31,8 @@ fig:causal-classic2
 fig:causal-whymail2
 fig:causal-oversight-2
 hyp:oversight
-eq:oversight1
 hyp:beacon
 hyp:warning
-eq:oversight2
 fig:congress
 fig:coded-coalition-success
 tab:data-coded
@@ -44,7 +42,6 @@ fig:causal-oversight
 eq:mediator
 eq:outcome
 fig:model-success-plot
-fig:model-oversight-plot
 tab:mediation
 fig:ej-data
 fig:ej-data-agencies100
@@ -126,8 +123,8 @@ oversight-theory
 principal-agent-relationships-during-rulemaking
 incorporating-political-information-into-models-of-political-oversight
 oversight-hypotheses
-testing-the-theory
 influence-data
+testing-the-theory
 the-dependent-variable-lobbying-success
 the-main-predictor-variable
 explanatory-variables
@@ -137,9 +134,12 @@ summary-statistics-for-machine-coded-data
 limitations-1
 modeling-the-direct-relationship-between-public-pressure-and-lobbying-success
 modeling-congressional-support-as-a-mediator-of-lobbying-success
-influence-results
-preliminary-findings
-conclusion-2
+results-lobbying-success
+coalition-success-as-the-dependent-variable
+modeling-congressional-support-as-a-mediator-of-lobbying-success-1
+mediator-model-refeqmediator
+outcome-model
+organzation-success-as-the-dependent-variable
 ej
 introduction-2
 theory-1
@@ -168,7 +168,7 @@ are-final-rules-more-likely-to-address-environmental-justice-after-comments-do-s
 the-predicted-probability-of-added-text
 are-rules-more-likely-to-change-how-they-address-environmental-justice-when-comments-mention-it
 the-predicted-probability-of-changed-text
-conclusion-3
+conclusion-2
 policy
 re-thinking-public-participation-in-bureaucratic-policymaking
 reforms
@@ -176,4 +176,4 @@ the-debate-in-administrative-law
 challenges
 astroturf
 reforms-1
-conclusion-4
+conclusion-3

@@ -17,7 +17,7 @@ I use two related measures of coalition type. Models 1 and 3 use my classificati
 
 > TODO: Add specification with agency fixed effects?
 
-```{r model-success, cache=FALSE}
+```{r model-success}
 m_business <- lm(coalition_success ~ 
           log(comments) + 
           #comment_length + 
@@ -60,7 +60,7 @@ modelsummary(models, stars = TRUE)
 
 My preferred model is model 3: 
 
-```{r model-success-plot, cache=FALSE,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS Model of Coalition Lobbying Sucess with Hand-coded Data"}
+```{r model-success-plot,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS Model of Coalition Lobbying Sucess with Hand-coded Data"}
 # model-success-plot
 m_president %>%
   tidy(conf.int = TRUE) %>% 
@@ -80,7 +80,7 @@ m_president %>%
 <!--
 **Excluding** coalitions of 1 (organizations lobbying alone):
 
-```{r model-success-restricted, cache=FALSE}
+```{r model-success-restricted}
 m_business <- lm(coalition_success ~ 
           log(comments) + 
           #comment_length + 
@@ -122,7 +122,7 @@ modelsummary(models, stars = TRUE)
 ```
 
 
-```{r model-success-plot-restricted, cache=FALSE,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS Model of Coalition Lobbying Sucess with Hand-coded Data"}
+```{r model-success-plot-restricted,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS Model of Coalition Lobbying Sucess with Hand-coded Data"}
 # model-success-plot
 m_president %>%
   tidy(conf.int = TRUE) %>% 
@@ -152,7 +152,7 @@ $$
 \text{Congressional support}_{ij} = \beta_0 + \beta_1 log(\text{Comments}_{ij}) + \beta_{2-n} X_{ij} + \epsilon_{ij} (\#eq:mediator)
 $$
 
-```{r model-oversight, cache=FALSE}
+```{r model-oversight}
 # poisson correct model 
 m_congress <- glm(coalition_congress ~  log(comments) + #comment_length +
                 coalition_type +  log(coalition_size) + coalition_unopposed,
@@ -172,7 +172,7 @@ modelsummary(mediator, stars = TRUE)
 ```
 
 
-```{r model-oversight-plot, eval=FALSE, cache=FALSE,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS Model of the Numeber of Members of Congress Per Coalition with Hand-coded Data"}
+```{r model-oversight-plot, eval=FALSE,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS Model of the Numeber of Members of Congress Per Coalition with Hand-coded Data"}
 # FIXME include = TRUE when more obs
 model.m %>%
   tidy(conf.int = TRUE) %>% 
@@ -206,7 +206,7 @@ $$
 
 
 
-```{r mediation, cache=FALSE}
+```{r mediation}
 # model predicting DV
 model.y <- lm(coalition_success ~ log(comments) + 
                 coalition_congress + #comment_length + 

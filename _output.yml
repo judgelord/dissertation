@@ -13,7 +13,8 @@ bookdown::gitbook:
       after: "DRAFT" #--DO NOT CITE WITHOUT PERMISSION"
   #edit: https://github.com/judgelord/dissertation/edit/master/%s
 bookdown::pdf_book:
-  spacing: 2
+#  linestretch: 2
+  spacing: double
   number_sections: true
   fig_caption: true
   dev: png
@@ -34,6 +35,13 @@ bookdown::pdf_book:
   - \usepackage{float}
   - \floatsetup[figure]{capposition=top}
   - \floatsetup[table]{capposition=top}
+  - \usepackage{setspace}
+# FOR DAVE
+# - \usepackage[RaggedRight]{ragged2e}
+# - \usepackage{endnotes}
+# - \let\footnote=\endnote
+# - \renewcommand{\footnotesize}{\normalsize}
+# - \renewcommand{\normalsize}{\large}
 bookdown::word_document2:
   toc: true
   #toc_depth: 3

@@ -7,6 +7,8 @@ output: bookdown::gitbook
 documentclass: memoir
 classoption: oneside
 fontsize: 12pt
+#linestretch: 2
+spacing: double
 geometry: "left = 1.25in, right = 1.25in, top = 1.25in, bottom = 1.25in"
 bibliography: "assets/dissertation.bib"
 biblio-style: "assets/apsr.bst"
@@ -58,6 +60,8 @@ I extensively cite public records, including policy documents and public comment
 
 
 \newpage
+
+\DoubleSpacing
 
 # Introduction {-}
 
