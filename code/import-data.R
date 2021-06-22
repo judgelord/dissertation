@@ -206,7 +206,7 @@ d %>%
 
 # Coalitions without leader 
 d %>%
-  mutate(leader = coalition_comment %in% c(org_name, org_name_short)) %>% 
+  mutate(leader = coalition_comment %in% c(org_name, str_to_lower(org_name_short))) %>% 
   distinct(leader) %>%
   add_count() %>% 
   filter(n<2, coalition_comment != FALSE, !leader) %>% 
@@ -309,6 +309,28 @@ comments_coded %<>% mutate(business = org_type %in% c("corp", "corp group"),
 sum(is.na(comments_coded$coalition_type))
 
 
+# bad elected
+comments_coded %>% 
+  filter(comment_type == "elected") %>% 
+  count(org_type %>% str_remove("-.*|;.*"), sort = T) %>% kablebox()
+
+comments_coded %>% 
+  mutate(org_type = org_type %>% str_remove("-.*|;.*")) %>% 
+  filter(comment_type == "elected",
+         org_type %in% c("congress", "elected", "gov", "house of representatives", 
+                         "representative robert c. scott house", 
+                         "senator patty murray senate",
+                         "senators lamar alexander senate",
+                         "") |
+           str_dct(org_type, "^rep|^senator")
+         ) %>% 
+  select(document_id, org_type) %>% 
+  distinct() %>% 
+
+  kablebox()
+
+
+
 # replace missing/non coalitions with org name 
 comments_coded %<>% mutate(coalition_comment = ifelse(coalition_comment=="FALSE", org_name, coalition_comment))
 
@@ -324,7 +346,7 @@ comments_coded %<>%
             coalition_business = sum(business),
             #coalition_type =  median(coalition_type, na.rm = T) %>% as.character(),
             coalition_success = mean(success %>% as.numeric(), na.rm = T), # average success of coalition
-            org_lead = coalition_comment %in% c(org_name, org_name_short),
+            org_lead = coalition_comment %in% c(org_name, str_to_lower(org_name_short)),
             coalition_leader_success = ifelse(org_lead, success, NA) %>% mean(na.rm = T) %>% coalesce(coalition_success),
             coalition_comments = sum(comments, na.rm = T)) %>%
   ungroup() %>% 
