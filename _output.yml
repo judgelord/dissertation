@@ -44,5 +44,4 @@ bookdown::pdf_book:
 # - \renewcommand{\normalsize}{\large}
 bookdown::word_document2:
   toc: true
-  #toc_depth: 3
 bookdown::epub_book: default

@@ -1,4 +1,5 @@
 ---
+# rmarkdown::render("02-pressure/pressure-appendix.Rmd")
 title: "Public Pressure: Why Do Agencies (sometimes) Get So Much Mail?"
 subtitle: "Appendix and Replication Code" 
 author: "Devin Judge-Lord"
@@ -13,93 +14,109 @@ output:
       code_folding: hide
 editor_options: 
   chunk_output_type: console
-  markdown: 
-    wrap: 72
 ---
 
 ```{r global.options, include=FALSE}
+# load defaults
+source(here::here("code", "setup.R"))
+
+# overide defaults
 knitr::opts_chunk$set(echo = TRUE, 
-                      cache = FALSE, 
-                      fig.width=8.5, 
-                      split = T,
-                      fig.align = 'center', 
-                      fig.path='../figs/',
-                      warning=FALSE, 
-                      message=FALSE)
-
-library(modelsummary)
-library(fixest)
-library(tidyverse)
-library(broom)
-library(magrittr)
-library(tidytext)
-library(knitr)
-library(kableExtra)
-
-library(ggplot2); theme_set(theme_bw());
-  options(
-    ggplot2.continuous.color = "viridis",
-    ggplot2.continuous.fill = "viridis"
-  )
-  scale_color_discrete <- function(...){
-    scale_color_viridis_d(..., direction = -1, 
-                          begin = 0, end = .6, option = "plasma")}
-  scale_fill_discrete <- function(...){
-    scale_fill_viridis_d(..., direction = -1, 
-                         begin = 0, end = .6, option = "plasma")}
-  
-  scale_color_continuous <- function(...){
-    scale_color_viridis_c(..., direction = -1, 
-                          option = "plasma")}
-  scale_fill_continuous <- function(...){
-    scale_fill_viridis_c(..., direction = -1, 
-                         option = "plasma")}
-  
-  
-kablebox <- . %>% 
-  head(100) %>% 
-  knitr::kable(digits = 3) %>% 
-  kable_styling() %>% 
-  scroll_box(height = "400px")
+                      cache = FALSE)
 ```
 
-# Data
 
-Replication data are available in SQL and Rdata at
-<https://github.com/judgelord/rulemaking>
 
-```{r data}
+
+
+<!-- 02-pressure-data.Rmd-->
+
+### Data: A Census of Public Pressure Campaigns {#pressure-data}
+
+```{r influence-data}
 load(here::here("data", "rules_metadata.Rdata"))
 
-# alternatively 
+# Replication data are available in SQL and Rdata at <https://github.com/judgelord/rulemaking>.
 #rules <- dbGetQuery(con, "SELECT * FROM rules")
 
-#FIXME REPLACE WITH date 
-d <- rules %>% mutate(year = str_sub(posted_date, 1,4) %>% as.numeric()) %>%
+#FIXME move date var to rulemaking repo
+rules %<>%
+  mutate(comment_start_date = comment_start_date %>% as.Date(),
+         comment_due_date = comment_due_date %>% as.Date(),
+         date = coalesce(posted_date, comment_start_date, comment_due_date),
+         year = str_sub(date, 1,4),
+         year2 = str_remove(docket_id, ".*[A-Z]-") %>%
+           str_remove("-.*"),
+         year = coalesce(year, year2) %>% as.numeric()
+                      ) %>%
+  select(-year2) 
+
+# d is rules subset to study years
+d <- rules %>% 
   filter(year > 2004, year < 2021, document_type %in% c("Proposed Rule", "Rule"))
 
 load(here::here("data", "comments_min.Rdata"))
 
+# add docket_id
+comments_min %<>% 
+  mutate(docket_id = id %>% str_remove("-[0-9]*$"))
+
+# hand coded 
+load(here::here("data", "coalitions_coded.Rdata"))
+load(here::here("data", "comments_coded.Rdata"))
+# load(here::here("data", "mass_coded.Rdata"))
+
+# common names 
+comments_coded %<>% 
+  mutate(coalition = coalition_comment,
+         agency = str_remove(docket_id, "-.*"))%>%
+  mutate(org_name = org_name %>% str_to_title())%>%
+  mutate(coalition = coalition %>% str_to_title())
+
+# common names 
+coalitions_coded %<>% 
+  mutate(coalition_comments = coalition_comments - coalition_size +1 , coalition = coalition_comment,
+         comments = coalition_comments,
+         Comments = Coalition_comments,
+         agency = str_remove(docket_id, "-.*"))%>%
+  mutate(coalition = coalition %>% str_to_title())
+
+# inspect
+# coalitions_coded$coalition_comments %>% min()
+
+comments_coded %<>% mutate(across(where(is.character), str_to_title))
+coalitions_coded %<>% mutate(across(where(is.character), str_to_title))
+
+# TODO merge in mass comments that were not hand-coded 
 ```
 
-These data currently include `r unique(rules$docket_id) %>% length()`
+To examine the relationship between public pressure campaigns and lobbying success, I use an original dataset (introduced in \@ref(whymail-data)) that combines several data sources on U.S. federal agency rulemaking.
+
+Up to 2020, these data include `r unique(rules$docket_id) %>% length()`
 dockets,
 `r rules %>% filter(docket_type == "Rulemaking") %>% distinct(docket_id) %>% nrow()`
-rulemaking dockets from `r min(rules$posted_date, na.rm = T)` to
-`r max(rules$posted_date, na.rm = T)`. These dockets received
+rulemaking dockets. These dockets received
 approximately `r sum(rules$number_of_comments_received, na.rm = T)`
 comments.
 
-This analysis relies of data from 2005 through 2020, which include
-`r unique(d$docket_id) %>% length()` dockets. These dockets received
-approximately `r sum(d$number_of_comments_received, na.rm = T)`
-comments. Of these,
+The core data for this analysis are the texts of draft and final rules and public comments on these proposed rules published from 2005 to 2020. 
+This includes all proposed rules from `r d %>% filter(number_of_comments_received >0) %>% pull(agency_id) %>% unique() %>% length()` agencies that were open for comment on regulations.gov between 2005 and 2020, received at least one comment from an organization, and saw a final agency action between 2005 and 2020.  These 
 `r d %>% filter(docket_type == "Rulemaking") %>% distinct(docket_id) %>% nrow()`
-rulemaking dockets received
+rulemaking dockets received a total of
 `r d %>% filter(docket_type == "Rulemaking") %>% pull(number_of_comments_received) %>% sum(na.rm = T)`
 comments.
 
-## Dockets
+<!--TODO: This should be a short review and addition to the data section in whymail-->
+
+I collected draft and final rule texts from federalregister.gov and comments submitted as attachments or by mail from regulations.gov. 
+I retrieve comments submitted directly on regulations.gov and metadata on rules and comments (such as the dates that the proposed rule was open for comment and whether the agency identified the organization submitting the comment) from the regulations.gov API. 
+I add additional metadata on rules (such as whether the rule was considered "significant") from the Unified Agenda published by the Office of Information and Regulatory Affairs (reginfo.gov). 
+
+Where a new presidential administration used the same docket number to solicit comments on a proposed rule that a previous administration used, I count these as separate rulemaking dockets. I do so because the second policy usually reverses or goes in the opposite direction as the previous administration's policy solicited comments. The same organizations often comment but with the opposition positions. Support becomes opposition and vice versa.
+
+
+
+#### Dockets
 
 ```{r dockets}
 d %>% 
@@ -122,11 +139,11 @@ d %>%
   facet_wrap("agency_id", scales = "free_y")
 ```
 
-## Proposed and Final Rules
+#### Proposed and Final Rules
 
 > TODO
 
-## Comments per rule
+#### Comments per rule
 
 ```{r comments-per-rule}
 d %>% 
@@ -149,7 +166,7 @@ d %>%
   facet_wrap("agency_id", scales = "free_y") #+  scale_y_log10()
 ```
 
-## Comments
+#### Comments
 
 Figure \@ref(fig:comment-from) shows the sources of incoming comments
 
@@ -157,7 +174,7 @@ Figure \@ref(fig:comment-from) shows the sources of incoming comments
 knitr::include_graphics(here::here("Figs", "comments-from.pdf"))
 ```
 
-## Organizations
+#### Organizations
 
 Organizations Mobilizing the Most Public Comments 2005-2020
 
@@ -234,7 +251,7 @@ org_comments_summary %>%
 save(org_comments_summary, file =  here::here("data", "org_comments_summary.Rdata"))
 ```
 
-### The American Petroleum Institute
+##### The American Petroleum Institute
 
 ```{r}
 org_comments %>% 
@@ -243,9 +260,36 @@ org_comments %>%
   arrange(-comments) %>% kablebox()
 ```
 
-# Methods
 
-## Oganization types
+---
+
+
+### Methods
+
+#### Clustering with text reuse
+
+My theoretical approach requires that I *attribute* form letter comments to the organizations, campaigns, and broader coalitions that mobilized them. To do so, I identify comments that share text. I find that a 10-word phrase repeated across more than a few comments is always either text copied from the proposed policy or a form letter provided by a campaign. Thus, for the text of each comment, I first remove all 10-word phrases that appear in the proposed rule (including the preamble and call for comments). Then, I identify all comments that share ten-word phrases with 99 or more other comments. Finally, I collapse these form letter comments to one representative document for hand-coding. 
+
+For each comment on a rulemaking docket, I identify the percent of words it shares with other comments using a 10-word (or
+"10-gram") moving window function, looping over each
+possible pair of texts to identify matches.^[For more about n-gram window functions and comparisons with related partial matching methods such as the Smith-Waterman algorithm, see @Casas2017 and @Judge-Lord2017.]
+When actors sign onto the same comment, it is clear that they are
+lobbying together. However, various businesses, advocacy groups, and
+citizens often comment separately, even when they are aligned. Text-reuse (using the same ten-word phrases) captures this alignment. 
+
+Figure \@ref(fig:percent-match) shows the percent of shared text for a sample of 50 comments on the Consumer Financial Protection Bureau's 2016 Rule regulating Payday Loans. Comments are arranged by the document identifier assigned by regulations.gov on both axes. 
+The black tiles on the diagonal indicates that each document has a perfect overlap with itself. Black tiles off the diagonal indicate additional pairs of identical documents. For example, 100% of the words from Comment 95976 are part of some tengram that also appears in 95977 because the exact same comment was uploaded twice. 
+The cluster of grey tiles indicates a coalition of commenters using some identical text.
+Comments [91130](https://www.regulations.gov/document?D=CFPB-2016-0025-91130) through [91156](https://www.regulations.gov/document?D=CFPB-2016-0025-91154) are all partial or exact matches. All are part of a mass comment campaign by Access Financial. The percent of the identical text is lower than many mass-comment campaigns because these are hand-written comments, but the n-gram method still picks up overlap in the OCRed text in the header and footer. Tengrams that appear in 100 or more comments indicate a mass comment campaign. Some agencies use similar "de-duping" software [CITE] and only provide a representative sample comment. In these cases, my linking method assumes that the example comment is representative, and I link these comments to others based on the text of the sample comment provided.
+
+```{r percent-match, fig.show = "hold", out.width = "100%", fig.cap="Percent of Matching Text in a Sample of Public Comments"}
+
+knitr::include_graphics(here::here("Figs", "comment_percent_match_plot-1.png")  )
+```
+
+
+
+#### Oganization types
 
 Membership organization comments to look like this comment from the
 NorthEast Hook Fisherman's Association:
@@ -263,7 +307,7 @@ NorthEast Hook Fisherman's Association:
 Similar groups, narrowly concerned about shrimp and halibut catch
 limits, also commented on this rule on behalf of their members.
 
-### Membership Organizations
+##### Membership Organizations
 
 Membership organizations exist to serve their members interests. Unions
 frequently lobbying rulemaking.
@@ -291,7 +335,7 @@ membership.
 > Transactions."
 > ([IRS-2016-0015-0127](%5Bhttps://www.regulations.gov/comment/IRS-2016-0015-0127))](<https://www.regulations.gov/comment/IRS-2016-0015-0127>)))
 
-## Classifying comments with text reuse
+#### Classifying comments with text reuse
 
 Figure \@ref(fig:comments-classified) shows all comments posted on
 regulations.gov over time by whether they are exact or partial copies of
@@ -316,18 +360,125 @@ knitr::include_graphics(here::here("Figs", "comments-mass-1.png"))
 knitr::include_graphics(here::here("Figs", "toporgs.png"))
 ```
 
-------------------------------------------------------------------------
+---
 
-# Results
+## Results
 
-## Most people engage in the policy process as a result of organized public pressure campaigns.
+The hypotheses set out in [Chapter 2](https://judgelord.github.io/dissertation/whymail.html) are largely descriptive. 
 
-## Public pressure campaigns are organized by *coalitions* that include groups that engage in sophisticated technical lobbying.
+```{hypothesis, meditated, echo = TRUE}
+Most people engage in national policy processes as a result of organized public pressure campaigns.
+```
 
-## Public interest group coalitions mobilize *more often* than private interest group (e.g., business-led) coalitions.
+> Yes, large majorities of both the hand-coded sample of comments and full dataset are form letters.
 
-## Public interest group coalitions mobilize *more successfully* than private interest group (e.g., business-led) coalitions.
+The hand-coded sample generally excludes individuals who are not clearly associated with a mass comment campaign. However, these excluded comments are a minority of the `r comments_min %>% filter(docket_id %in% comments_coded$docket_id) %>%  tally(number_of_comments_received)` comments on the hand-coded rules. Even without looking at the excluded comments (many of which may also be part of pressure campaigns), most commenters are part of organized campaigns. 
 
-## Public pressure campaigns targeting national policy are most often run by large national policy advocacy organizations.
+```{r}
+comments_coded %>% 
+  # split out mass comments submitted with org comments
+  mutate(comment_type = ifelse(comment_type == "org" & comments > 99,
+         "org;mass", 
+         comment_type) %>% 
+  str_split(";")) %>% 
+  unnest(comment_type) %>% 
+  mutate(comments = ifelse(comment_type == "org",
+                           1, 
+                           comments)) %>% 
+  group_by(comment_type) %>% 
+  tally(comments) %>% 
+  kable3(caption = " ")
+```
 
-## If narrow private interest groups (e.g., businesses) lunch public pressure campaigns, it is a response to an opposing campaign.
+---
+
+Comments that I have thus far attributed to mass comment campaigns are also a majority of the full data. In addition, many of the comments that I have yet to classify are also part of mass comment campaigns.
+
+```{r}
+# massive undercount of mass
+#TODO include new, further collapsed data
+comments_min %>% 
+  mutate(mass = number_of_comments_received > 99) %>% 
+  group_by(mass) %>% 
+  tally(number_of_comments_received)%>% 
+  kable3(caption = " ")
+```
+
+---
+
+
+```{hypothesis, coalitions, echo = TRUE}
+Public pressure campaigns are organized by *coalitions* that include groups that engage in sophisticated technical lobbying.
+```
+
+>Nearly all mass comments in the hand-coded rules were mobilized by a group that also engaged in sophisticated lobbying.
+
+Organizations (if any) affilitated with different types of comments in the hand-coded data:
+
+```{r}
+comments_coded %>% 
+  group_by(docket_id, coalition, coalition_comments, coalition_type) %>% 
+  mutate(comment_type = comment_type %>% as.factor()) %>%
+  count(comment_type) %>%
+  ungroup() %>% 
+  drop_na(comment_type) %>% 
+  filter(!comment_type %in% c("NA", "coalition", "mass")) %>% 
+  pivot_wider(names_from =  comment_type, values_from = n) %>%
+  arrange(-coalition_comments) %>% 
+  kable3(caption = " ")
+```
+
+---
+
+
+```{hypothesis, public, echo = TRUE}
+Public interest group coalitions mobilize *more often* than private interest group (e.g., business-led) coalitions.
+```
+
+> Yes, public interest coalitions use public pressure campaigns more often, both in the absolute number of campaigns and the share of lobbying efforts that involve a pressure campaign.
+
+```{r}
+coalitions_coded %>%
+  mutate(mass_comment_campaign = coalition_comments > 99) %>% 
+  count(coalition_type, mass_comment_campaign) %>% 
+  drop_na(coalition_type) %>%
+  kable3(caption = " ")
+```
+
+---
+
+
+```{hypothesis, public-success, echo = TRUE}
+Public interest group coalitions mobilize *more successfully* than private interest group (e.g., business-led) coalitions. 
+```
+
+> Yes, public interest coalitions mobilize far more comments and far more comments on average.
+
+```{r}
+coalitions_coded %>% group_by(coalition_type) %>% 
+  summarise(total_comments = sum(coalition_comments),
+            average_comments = mean(comments)) %>% drop_na(coalition_type) %>% kable3(caption = " ")
+```
+
+---
+
+
+```{hypothesis, resources, echo = TRUE}
+Public pressure campaigns targeting national policy are most often run by large national policy advocacy organizations.
+```
+
+> Yes.
+
+```{hypothesis, disrupt, echo = TRUE}
+If narrow private interest groups (e.g., businesses) launch public pressure campaigns, it is a response to an opposing campaign. 
+```
+
+> TBD: In these data (high salience rules), almost all coalitions are opposed. 
+
+```{r}
+coalitions_coded %>% 
+  count(coalition_type, coalition_unopposed) %>% drop_na(coalition_type) %>% 
+  kable3(caption = " ")
+```
+
+

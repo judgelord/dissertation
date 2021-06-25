@@ -1,18 +1,24 @@
-## Testing the Theory
-
+### Methods 
 
 ### The Dependent Variable: Lobbying Success
 
 The dependent variable is the extent to which a lobbying coalition got the policy outcome they sought, which I measure in several ways.
 
 First, on a sample of rules, I hand-code lobbying success for each organization or elected official, comparing the change between the draft and final rule to each organization's demands on a five-point scale from "mostly as requested" to "significantly different/opposite than requested."
-For each organization, I identify the main overall demand, the top three specific demands, and the corresponding parts of the draft and final rule texts.^[This does not capture rule changes on which an organization did not comment. 
-The codebook is available [here](https://docs.google.com/document/d/1o1hi0z9O-G9xsgkspOFG2VWzh0wQKjiezzoVpItaCxU/edit?usp=sharing). See examples of coded cases [here](https://judgelord.github.io/dissertation/influence_coding_examples.pdf).]  
+For each organization, I identify the main overall demand, the top three specific demands, and the corresponding parts of the draft and final rule texts. This does not capture rule changes on which an organization did not comment. 
+
 I then code overall lobbying success and lobbying success on each specific demand for each organization and coalition. Both the overall score and average score across specific demands both fall on the interval from -2 ("significantly different") to 2 ("mostly as requested"). 
 A team of undergraduate research assistants then applied the codebook to all comments likely to be from organizations or elected officials on a random sample of rules. Several rules were double-coded by the whole team. Intercoder reliability was XX. I also double-coded all comments that were part of mass comment campaigns with more than XX comments.
 
+The codebook and a sample of coded cases are available in appendix sections \@ref(codebook) and  \@ref(cases).
 
-In the models below, *coalition success* is the mean of hand-coded lobbying success on a five-point scale ({-2, -1, 0, 1, 2}, recoded to {-1, -.5, 0, .5, 1} for more straightforward model interpretation. 
+
+In the models below, *coalition success* is the mean of hand-coded lobbying success on a five-point scale ({-2, -1, 0, 1, 2}. <!--, recoded to {-1, -.5, 0, .5, 1} for more straightforward model interpretation. --> 
+
+```{r}
+#FIXME make figure not depend on this
+d <- comments_coded
+```
 
 The average hand-coded success per organizational comment is `r mean(d$success, na.rm = T) %>% round()` (N = `r nrow(d)`). The average success for organizational comments with a mass comment campaign is `r comments_coded %>% filter(comments > 99) %>% pull(success) %>% mean(na.rm = T) %>% round(3)` (N = `r nrow(comments_coded %>% filter(comments > 99))`).
 
@@ -93,29 +99,10 @@ For the State of Oregon's coalition, the dependent variable, *coalitions success
 
 For the EarthJustice coalition, the dependent variable, *coalitions success* is 1, *coalition size* is 3, *business coalition* is 0, *comment length* is 7/85, `r round(7/85, 2)`, and *log mass comments* is 0.
 
-> TODO: MORE EXAMPLES
 
 
 
-### Summary Statistics for Hand-coded Data
 
-These hand-coded data include `r nrow(comments_coded)` unique comments, some of which have identical copies for a total of `r sum(comments_coded$number_of_comments_received %>% as.numeric(),na.rm = T )` comments. These comments represent `r nrow(coalitions_coded)` distinct lobbying coalitions ranging in size from 2 to `r max(coalitions_coded$coalition_size)` organizations. Figure \@ref(fig:hist-coalitions) shows that coalitions are fairly balanced between those that succeed and fail to get the changes they seek in the final rule. `r percent( sum(coalitions_coded$coalition_business, na.rm = T)/nrow(coalitions_coded) )` are business-led coalitions. 
-
-Table \@ref(tab:data-coded) shows a sample of coded data, summarized at the coalition level.
-
-```{r data-coded, cache = FALSE}
-d <- coalitions_coded %>% 
-  drop_na(coalition_business) %>%
-  filter(coalition_comment != "FALSE") %>% 
-  distinct() %>% 
-  dplyr::select(-coalitions)
-
-d %>% group_by(docket_id) %>% 
-  slice_max(comments, n = 2) %>%
-  dplyr::select(docket_id, coalition_id, everything()) %>% 
-  distinct() %>% 
-  kable3(caption = "A Sample of Hand-Coded Data Summarized by Coaltion") 
-```
 
 ```{r hist-coalitions, fig.width=2, fig.height=2,  out.width = "30%", fig.cap="Hand-coded Data by Coalition", cache=FALSE}
 ggplot(d, aes(x = coalition_success)) + 
@@ -143,6 +130,15 @@ ggplot(d, aes( x= log(comments))) +
 
 ```
 
+```{r hist-congress,  fig.width=3, fig.height=2, out.width = "49%", fig.cap="Number of Comments from Members of Congress Linked to Hand-Coded Coalitions"}
+#TODO
+#ggplot(d, aes( x= comment_length)) + geom_histogram()+ labs(x = "% (Comment length/proposed rule length)*100")
+ggplot(d, aes( x= coalition_congress)) + 
+  geom_histogram() + 
+  labs(x = "Comments from Members of Congress")
+```
+
+<!--
 ### Summary Statistics for Machine-coded Data
 
 > IN PROGRESS
@@ -151,7 +147,7 @@ ggplot(d, aes( x= log(comments))) +
 
 **Explanatory variables:** The *total number of comments*...
 
-
+--> 
 
 
 ### Limitations
@@ -173,7 +169,7 @@ $$
 
 ### Modeling Congressional Support as a Mediator of Lobbying Success
 
-To estimate mediated effects, I estimate the average conditional marginal effect (ACME) and the proportion of the total effect attributed to mediation through congressional support (comments or other communication from Members of Congress supporting the coalition's position on the proposed rule). As developed by Imai et al. (2010), this involves first estimating a model of the potential mediator as a combination of covariates, $X$ (*length*, *unopposed*, *size*, and *business*) and then the outcome as a combination of the mediator, *congressional support*, and covariates, $X$.
+To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME) and the proportion of the total effect attributed to mediation through congressional support (comments or other communication from Members of Congress supporting the coalition's position on the proposed rule). As developed by Imai et al. (2010), this involves first estimating a model of the potential mediator as a combination of covariates, $X$ (*length*, *unopposed*, *size*, and *business*) and then the outcome as a combination of the mediator, *congressional support*, and covariates, $X$.
 
 The bold arrow in figure \@ref(fig:causal-oversight) indicates the key relationship
 that I test in this step: the relationship between the scale of

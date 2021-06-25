@@ -1,8 +1,14 @@
 ## Results: Lobbying success
 
-I assess the relationship between lobbying success and mass comments by modeling coalition $i$'s lobbying success in a rulemaking $j$, $y_{ij}$ as a combination of
+This section leverages data on a sample for agency rules for which I have hand-coded nearly all public comments.  Comment-level observations are nested within an organization, within a coalition, within a rule, within an agency, within an administration. Thus, I use hierarchical models. I use data at the organization level and rolled up to the coalition level (coalitions range from 1 to 200 organizations in size) with random effects to account for dependence among observations at heigher levels of analysis.
+
+The dependent variable for most analysis is the organization or coalition's lobbying success, hand-coded on the interval between 2 (policy changed as requested) to -2 (policy changed in the opposite direction requested). 
+
+The main variable of interest is the total number of form-letter public comments that a lobbying coalition generated. 
+
+I assess the relationship between lobbying success and public pressure by modeling coalition $i$'s lobbying success in a rulemaking $j$, $y_{ij}$ as a combination of
 <!--the relative length of the (lead) organizations comment,--> 
-whether the coalition is unopposed, the coalition's size, whether it is a business coalition, and the logged number of mass comments. I estimate these relationships using OLS regression. <!--I also estimate hand-coded lobbying success with beta regression and ordered logit, which is more appropriate but less interpretable. For the automated measures of lobbying success, I estimate beta regression models with the same variables.-->
+the coalition's size, and the number of mass comments (logged in some specifications), the type of coalition (e.g. a business or public interest coalition), whether the coalition supported the proposed rule, and whether the coalition lobbied unopposed. I estimate these relationships using OLS regression. Other estimators yield similar results (see appendix). <!--I also estimate hand-coded lobbying success with beta regression and ordered logit, which is more appropriate but less interpretable. For the automated measures of lobbying success, I estimate beta regression models with the same variables.-->
 
 
 $Y_{ij} = \boldsymbol{\beta}_1 \textbf{log(Comments)}_{ij} + {\beta}_2\text{Size}_{ij} + {\beta}_3\text{Unopposed}_{ij}  + {\beta}_3\text{Coalition Type}_{ij} + \epsilon_{ij}$

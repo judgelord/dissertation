@@ -7,7 +7,8 @@ requires <- c("tidyverse",
               "msm",
               "kableExtra",
               "modelsummary",
-              "mediation")
+              "mediation",
+              "lme4")
 to_install <- c(requires %in% rownames(installed.packages()) == FALSE)
 install.packages(c(requires[to_install], "NA"), repos = "https://cloud.r-project.org/" )
 rm(requires, to_install)
@@ -20,6 +21,8 @@ library(msm)
 library(knitr)
 library(kableExtra)
 library(mediation)
+library(lme4)
+library(fixest)
 library(modelsummary)
 library(tidyverse)
 
@@ -75,7 +78,7 @@ kable2 <- function(x, file){
 library(flextable)
 
 # A function to trim and format tables for different outputs 
-kable3 <- function(x, caption){
+kable3 <- function(x, caption = ""){
   if(knitr:::is_html_output()) {
     x %>% 
       slice_head(n = 100) %>%
@@ -105,14 +108,16 @@ knit_hooks$set(inline = function(x) {
   prettyNum(x, big.mark=",")
 })
 
+fig.path <- here("figs")
+
 ## Sets defaults for R chunks
-knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that your code will show
+knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that code will show
                       cache = TRUE,
                       warning = FALSE,
                       message = FALSE,
                       fig.show="hold",
                       fig.pos= "htbp",
-                      #fig.path = "Figs/",
+                      fig.path = fig.path,
                       fig.align='center',
                       fig.cap = '   ',
                       fig.retina = 6,

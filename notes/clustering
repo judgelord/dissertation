@@ -1,0 +1,41 @@
+<!--  ### Identifying coalitions using clustering methods
+
+I use statistical models of text to classify comments into coalitions. I cluster
+documents by the frequency with which they use different words. Being
+classified together does not mean that the documents all address the same distribution of substantive issues, just that they use similar
+words relative to the full set of documents. I start by modeling all
+comments on each rule (collapsing identical comments to one document)
+with two and three clusters, which I then inspect to see how well the
+comments of named organizations were classified. If the two-cluster model most sensibly describes the conflict, I label these clusters "pro" and "con" If the three-cluster model more sensibly describes the
+conflict, I label these clusters as "pro, con, other." If neither fits
+well, I increase the number of clusters as needed.
+
+"`{r kmeans, fig.cap = "K-means clustering fails to capture coalitions when nearly all comments oppose a regulation"}
+
+knitr::include_graphics(here::here("Figs", "kmeans.png"))
+```
+
+
+The asymmetry in expressed support for most rules presents challenges
+for unsupervised clustering because much of the variation in comment
+texts is within-coalition variation. For example, one of the most common
+clustering methods, k-means clustering, often captures within-coalition
+variation. Figure \@ref(fig:kmeans) shows k-means clusters based on a normalized
+measure of word frequency (term-frequency/inverse-document-frequency)
+compared to two principal components of variation. Neither k-means nor
+principal components analysis is well suited to identifying the small
+number of comments supporting the Park Service's proposed restrictions
+on protests in Washington DC.
+
+Two strategies may improve clustering. First, even partial text reuse
+generally indicates that comments belong to the same coalition. For
+example, as seen at the top of Figure
+\@ref(fig:kmeans), models may be restricted to cluster the large number of comments beginning with
+"As a citizen who has frequently participated" in the same coalition
+even if they go on to add different personal anecdotes about why protest
+rights are important to them. Thus, clustering methods could be
+restricted to group partially copied texts, as well as entirely copied
+texts. Second, a Bayesian mixture model may better recover pro and con
+clusters, especially with strong priors comments using positive and
+negative sentiment words belong together.
+-->

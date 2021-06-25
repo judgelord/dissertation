@@ -66,7 +66,9 @@ d %<>%
   # fix missing docket id
   mutate(docket_id2 = document_id %>% str_remove("-[0-9]+$")) %>% 
   mutate(docket_id = coalesce(docket_id, docket_id2),
-         docket_url = str_c("https://www.regulations.gov/docket/", docket_id))# %>%  mutate(across(starts_with("success")), as.numeric )
+         docket_url = str_c("https://www.regulations.gov/docket/", docket_id)) %>%
+  # remove temp docket id from documents
+  select(-docket_id2)# %>%  mutate(across(starts_with("success")), as.numeric )
 
 # FAILED TO IMPORT 
 s$name[!s$name %>% str_remove("_.*") %in% d$docket_id]
