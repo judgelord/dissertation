@@ -38,7 +38,7 @@ knitr::include_graphics(here::here("Figs", "ej-PR-winrate-agency-1.png"))
 ### Estimating *Whether* "Environmental Justice" is Added to Final Rule
 -->
 
-To account for differences across presidents, agencies, and the number of comments, I estimate logit regression. For models 1 and 2 in Table \@ref(tab:tables), the outcome is whether the agency added environmental justice to the final rule. The predictors are
+To account for differences across presidents, agencies, and the number of comments, I estimate logit regression. For models 1 and 2 in Table \@ref(tab:ej-tables), the outcome is whether the agency added environmental justice to the final rule. The predictors are
 whether comments raised EJ concerns, the number of unique (non-form letter) comments addressing EJ, the total number of comments (including form letters), and the interaction between the total number of comments and whether any comments raised EJ concerns. Models 3 and 4 are the same as models 1 and 2, except that the outcome is whether the policy text changed how EJ is discussed (described in the next section). All models include fixed effects for the presidential administration. Models 2 and 4 also include fixed effects for agency. Thus, estimates in Models 1 and 3 include variation *across* agencies, whereas estimates in models 2 and 4 only rely on variation *within* agencies. All estimates rely on variation *within* each presidential administration. 
 <!--The base equation for model 1 is shown below.-->
 All predicted probabilities shown below include agency fixed effects, models 2 and 4.
@@ -48,7 +48,7 @@ load(here::here("05-ej", "ej_models.Rdata"))
 #equatiomatic::extract_eq(m_PR)
 ```
 
-```{r tables, eval=TRUE}
+```{r ej-tables, eval=TRUE}
 modelsummary::modelsummary( models, 
                             title = 'Logit Regression Predicting Change in Rule Text',
                             stars = TRUE, 

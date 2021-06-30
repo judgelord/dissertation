@@ -1,5 +1,6 @@
 
-requires <- c("tidyverse",
+requires <- c("bookdown",
+              "tidyverse",
               "scales",
               "magrittr",
               "broom",
@@ -7,8 +8,16 @@ requires <- c("tidyverse",
               "msm",
               "kableExtra",
               "modelsummary",
+              "dotwhisker",
               "mediation",
-              "lme4")
+              "lme4",
+              "lmerTest",
+              "fixest",
+              "flextable",
+              "magick",
+              "equatiomatic", 
+              "tidytext",
+              "latex2exp")
 to_install <- c(requires %in% rownames(installed.packages()) == FALSE)
 install.packages(c(requires[to_install], "NA"), repos = "https://cloud.r-project.org/" )
 rm(requires, to_install)
@@ -16,12 +25,13 @@ rm(requires, to_install)
 library(scales)
 library(magrittr)
 library(broom)
+library(dotwhisker)
 library(here)
-library(msm)
 library(knitr)
 library(kableExtra)
 library(mediation)
-library(lme4)
+#library(lme4)
+library(lmerTest)
 library(fixest)
 library(modelsummary)
 library(tidyverse)
@@ -51,10 +61,7 @@ options(
   ggplot2.continuous.color = "viridis",
   ggplot2.continuous.fill = "viridis"
 )
-scale_color_discrete <- function(...)
-  scale_color_viridis_d(...)
-scale_fill_discrete <- function(...)
-  scale_fill_viridis_d(...)
+
 
 
 # Table formatting
