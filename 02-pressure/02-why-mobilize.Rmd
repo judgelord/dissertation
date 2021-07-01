@@ -288,9 +288,7 @@ The public
 response to the campaign (observed as the sale of public engagement in the policy process) depends on the extent that the attentive public
 is passionate about the issue. A broader and more passionate attentive public will yield a larger scale of mass engagement than a narrower, less passionate segment base of public support. Thus the observed scale of mass engagement on a given side of a conflict can reveal political information about segments of the public. Large-scale engagement may produce several types of relevant political
 information. The most direct and obvious is the expressed "public
-opinion" that policymakers observe.^[I address other types of political information that mass engagement may create elsewhere. For an expanded model, see Figure
-    \@ref(fig:causal-full). 
-]
+opinion" that policymakers observe.^[I address other types of political information that mass engagement may create elsewhere. For an expanded model, see Figure \@ref(fig:causal-full). ] <!--TODO-->
 
 The causal process visualized in Figure
 \@ref(fig:causal-whymail) may only operate under certain conditions. For example, the success of a mobilizing effort depends on whether a group's perception of latent public demands (the diagonal arrow between "Latent Public Demands" and "Lobbying Strategy") reflects the public response to a mobilizing effort (the horizontal arrow between "Latent Public Demands" and "Mass Engagement"). Additionally, policymaking institutions have different mechanisms for processing and incorporating technical and political information (the arrows between "technical information" or "political information" and "policy response").
@@ -312,7 +310,7 @@ Instead of a public pressure campaign aimed at mobilizing supporters, a lobby or
 <!--should this be in theory?-->
 
 The potential effects of public pressure campaigns depend, in part, on the aims of a
-campaign. Campaigns may pursue four distinct aims: (1) to win concessions by *going public*, (2) to *disrupt a perceived consensus*, or (3) to satisfy some audience other than policymakers by *going down fighting* when they anticipate losing or (4) to satisfy some audience other than policymakers by *credit claiming* when they anticipate winning. Going public and disrupting a perceived consensus are, respectively, forms of proactive and reactive outside lobbying. Going down fighting and credit claiming to describe
+campaign. Campaigns may pursue three distinct aims: (1) to win concessions by *going public*, (2) to *disrupt a perceived consensus*, or (3) to satisfy some audience other than policymakers by *going down fighting* when they anticipate losing or by *credit claiming* when they anticipate winning. Going public and disrupting a perceived consensus are, respectively, forms of proactive and reactive outside lobbying. Going down fighting and credit claiming to describe
 situations where the organization mobilizes for reasons other than influencing policy, like engaging or recruiting members. In many cases, "going public" as a lobbying strategy is simultaneously an opportunity to engage and recruit members, so organizations **going public** to influence policy and engage in power-building tactics, especially *credit claiming*. For example, Sierra club organized several campaigns thanking the Obama EPA for new draft environmental policies and the agency to not back down, thus simultaneously engaging members, implying that the Sierra Club had advanced its policy agenda, and pressure policymakers to hold course or strengthen policy rather than bend to industry pressures.
 
 **Going public.** Coalitions "go public" when they believe that
@@ -397,6 +395,7 @@ Table: (\#tab:campaigns-patterns) Observable Differences in Lobbying Strategies
   --------------------- ----------------------- -------------------- --------- -----------
 -->
 
+\SingleSpacing
 Table: (\#tab:campaigns-patterns) Observable Differences in Lobbying Strategies
   
 | | Inside lobbying (e.g., technical information provided) | Outside lobbying (e.g., the number of comments from a public pressure campaign) |
@@ -405,7 +404,7 @@ Table: (\#tab:campaigns-patterns) Observable Differences in Lobbying Strategies
 | "Going public" | High | High |
 | "Disrupting consensus" | High | Low | 
 | "Credit claiming" or Going down fighting" | Low | High |
-
+\DoubleSpacing
 <!-- table layout is confusing -->
 
 

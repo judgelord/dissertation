@@ -50,7 +50,7 @@ source(here::here("code", "setup.R"))
 
 - A **public pressure campaign** is an effort to influence policy by mobilizing a segment of the public to pay attention to and express their opinions to decision-makers. It can be an astroturf campaign or grassroots campaign on behalf of public or private interests.
 
-- **Responsiveness** is observable attention that government officials pay to public input. This can be either discursive influence (similar to what [@Balla2020] call "procedural responsiveness") or substantive policy influence.
+- **Responsiveness** is observable attention that government officials pay to public input. This can be either discursive influence (similar to what @Balla2020 call "procedural responsiveness") or substantive policy influence.
 
 
 
@@ -65,5 +65,4 @@ I extensively cite public records, including policy documents and public comment
 
 # Introduction {-}
 
-
-Does civic engagement through public pressure campaigns affect agency rulemaking? I examine who participates in public pressure campaigns and why, whether they affect congressional oversight, and whether they affect policy. Answering these questions informs our understanding of bureaucratic politics and interest group lobbying, organizing, and mobilizing tactics. If ordinary people have a voice in bureaucratic policymaking, I argue, it is through public pressure campaigns. Thus, understanding the nature and effects of these campaigns is key to understanding modern democracy. 
+Does civic engagement through public pressure campaigns affect agency rulemaking? I examine who participates in public pressure campaigns and why, whether they affect congressional oversight, and whether they affect policy. Answering these questions informs our understanding of bureaucratic politics and interest group lobbying, organizing, and mobilizing tactics. At a time when the vast majority of federal policy is made in the bureaucracy, the relationship between citizens and government depends on bureaucratic policymaking.  If ordinary people have a voice in bureaucratic policymaking, I argue, it is through public pressure campaigns. The capacities required to influence national-level policy are those of organized groups, not individuals acting alone. Thus, understanding the nature and effects of these campaigns is key to understanding modern democracy. 

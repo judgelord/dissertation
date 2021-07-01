@@ -44,8 +44,8 @@ tab:data-coded-agencies
 fig:data-coded-support
 tab:data-coalition-comments
 tab:coalition-types
-tab:congress
 fig:congress
+tab:data-coded-elected
 fig:coded-coalition-success
 fig:hist-coalitions
 fig:hist-comments

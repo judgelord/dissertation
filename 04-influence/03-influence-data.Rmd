@@ -112,7 +112,7 @@ comments_coded %>% ungroup() %>%
   slice_head(n = 2) %>%
   ungroup() %>% 
   arrange(coalition) %>% 
-  kable3(caption = "A Sample of Organzation-Level Hand-Coded Public Comment Data")
+  kable3(caption = "A Sample of Organzation-Level Hand-Coded Public Comment Data", latex_options = "scale_down")
 ```
 
 ```{r org-count}
@@ -140,6 +140,7 @@ comments_coded %>%
             Coalitions = paste(docket_id, coalition) %>% unique() %>% length(),
             Organizations = unique(org_name) %>% length(),
             Comments = sum(comments)) %>% 
+  filter(Documents > 10) %>% 
   arrange(-Rules) %>% 
   kable3(caption = "Hand-coded Data By Agency")
 ```
@@ -188,7 +189,7 @@ coalitions_coded %>%
          Type = coalition_type,
          Unopposed = coalition_unopposed,
          `Mass comments` = coalition_comments) %>% 
-  kable3(caption = "A Sample of Hand-Coded Data Summarized by Coaltion") 
+  kable3(caption = "A Sample of Hand-Coded Data Summarized by Coaltion", latex_options = "scale_down") 
 ```
 
 ```{r coalition-types}
@@ -209,7 +210,7 @@ Finally, to better capture positions expressed by Members of Congress on propose
 
 #### Comments from Legislators
 
-One mechanism by which campaigns may influence policy is by mobilizing members of Congress. Thus, I identify comments submitted by members of Congress and count the number of legislators in each lobbying coalition. Table \@ref(fig:congress) shows the number of comments from the most common types of elected officials. Members of the U.S. House and Senate are the most common.  Figure \@ref(fig:congress) shows the number of comments from members of Congress received during rulemaking by a sample of federal agencies. Oversight letters are frequently co-signed by multiple members from the Senate, House, or both chambers. 
+One mechanism by which campaigns may influence policy is by mobilizing members of Congress. Thus, I identify comments submitted by members of Congress and count the number of legislators in each lobbying coalition. Table \@ref(tab:data-coded-elected) shows the number of comments from the most common types of elected officials. Members of the U.S. House and Senate are the most common.  Figure \@ref(fig:congress) shows the number of comments from members of Congress received during rulemaking by a sample of federal agencies. Oversight letters are frequently co-signed by multiple members from the Senate, House, or both chambers. 
 
 ```{r congress, fig.cap = "Number of Rulemaking Comments from Members of Congress per Year, 2005-2020 to the Bureau of Ocean Energy Management (BOEM), Consumer Financial Protection Bureau (CFPB), Department of Education (ED), Office of Energy Efficiency and Renewable Energy (EERE), Federal Aviation Administration (FAA), Federal Railroad Administration (FRA), Fish and Wildlife Service (FWS), Department of Health and Human Services (HHS), Office of the Comptroller of the Currency (OCC), Occupational Safety and Health Administration (OSHA), Social Security Administration (SSA), US Trade Representative (USTR)", out.width = "100%", fig.height=4}
 load(here::here("data", "comments_congress.Rdata"))
@@ -235,8 +236,10 @@ comments_congress %>%
   theme(axis.text.x = element_text(angle = 90),
         axis.ticks.x = element_blank(),
         panel.grid.major.x = element_blank())
+```
 
-# table 
+```{r data-coded-elected}
+# table data-coded-elected
 # elected comments by type
 comments_coded %>% 
   filter(comment_type == "Elected") %>%  
@@ -312,11 +315,11 @@ The second major difference between my approach and previous research is that I 
 
 #### Other predictor variables
 
-Other predictors of lobbying success in the models below include <!-- the length of the (lead) organization's comment,--> whether the coalition is lobbying unopposed, the size of the lobbying coalition, and whether the coalition is majority businesses and trade associations. 
+Other predictors of lobbying success in the models below include <!-- the length of the (lead) organization's comment,--> the *size* of the lobbying coalition, and whether the coalition is a *business coalition*, and whether the coalition is lobbying *unopposed*. 
 <!--
 *Comment length* is normalized by dividing the number of words in the comment by the number of words in the proposed rule, thus capturing the complexity of the comment relative to the complexity of the proposed rule.
 -->
-The number and type(s) of organization(s) is an attribute of each coalition (e.g., a *business* coalition with *N* organizational members). *Coalition size* (a count) is the number of organizations lobbying together on the rule, i.e., the number of distinct commenting organizations in each coalition. For organizations lobbying alone, coalition *coalition size* is 1. *Coalition* is an indicator variable for whether the organization is lobbying in a coalition. It takes a value of 0 when *coalition size* is 1 and 1 otherwise.
+The number and type(s) of organization(s) is an attribute of each coalition (e.g., a *business* coalition with *N* organizational members). *Coalition size* is a count of the number of organizations lobbying together on the rule, i.e., the number of distinct commenting organizations in each coalition. For organizations lobbying alone, coalition *coalition size* is 1. *Coalition* is an indicator variable for whether the organization is lobbying in a coalition. It takes a value of 0 when *coalition size* is 1 and 1 otherwise.
 A coalition is *unopposed* when no opposing organizations comment. This is only for the hand-coded sample where we have coded the spatial position of each comment. 
 
 I code a coalition as a *business* coalition if the majority of commenting organizations are for-profit businesses and trade associations.^[For more on how I identify types of organizations and coalitions, see \@ref(why-methods)]  *Business coalition* is binomial. Alternternative models in the Appendix use the share of businesses in a coalition instead.
