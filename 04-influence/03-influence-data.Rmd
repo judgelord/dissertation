@@ -146,7 +146,7 @@ comments_coded %>%
 
 Figure \@ref(fig:data-coded-support) shows hand-coded support and opposition to proposed rules by different types of commenters and presidential administration. Support and opposition coding come from the spatial position regarding the draft and final rule, as shown in Figure \@ref(fig:spatial-coding). Elected officials write in more often in opposition than in support of a proposed rule across administrations. In contrast, individuals, organizations, and the mass comments these organizations mobilize overwhelmingly supported rules under President Obama, but mass and individual comments overwhelmingly opposed rules under President Trump. This reflects the partisan asymmetry in mobilizing organizations.  
 
-```{r data-coded-support, out.width= "70%", fig.width=5, fig.height=3.5, fig.cap="Hand-coded Comments By Type and Position on Proposed Rule"}
+```{r data-coded-support, out.width= "80%", fig.width=5, fig.height=3.5, fig.cap="Hand-coded Comments By Type and Position on Proposed Rule"}
 comments_coded %>% 
   mutate(comments = ifelse(comment_type == "Org", 1, comments)) %>%
   group_by(president, comment_type, Position) %>% 
