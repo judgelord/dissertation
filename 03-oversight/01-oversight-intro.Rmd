@@ -145,7 +145,7 @@ The scale of public engagement moderates elected officials' engagement in agency
 engagement.
 ```
 
-
+If Hypothesis \@ref(hyp:oversight) is correct, we should observe more members of Congress engaging in policy processes with larger public pressure campaigns. This hypothesis is difficult to test because legislators being mobilized directly by interest groups is often observationally equivalent to legislators being mobilized indirectly due to the response to a public pressure campaign. Above, I offer anecdotal evidence that legislators are aware of and pressure campaigns and see comments from their constituents as important. Still, evidence of correlation is not strong evidence of a causal effect. If, however, we can reject Hypothesis \@ref(hyp:oversight), this is strong evidence that rulemaking comments from members of Congress are not affected by the scale of public attention.  
 
 ```{hypothesis beacon, echo = TRUE}
 Public pressure campaigns attract

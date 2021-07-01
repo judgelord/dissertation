@@ -205,15 +205,44 @@ As this sample is disproportionately draft rules that received an unusual number
 
 #### Congressional Support as a Mediator of Lobbying Success
 
-To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME, conditional on the number of comments from Members of Congress) and average direct effect (ADE) of mass comments using mediation analysis. To do this, I estimate a model predicting the proposed mediator using both OLS and Poisson regression. Because the dependent variable, the number of supportive comments from members of Congress, is a count, a Poisson model is more appropriate. The dispersion parameter is not significantly above 1.  
+To test Hypothesis \@ref(hyp:oversight), I calculate the simple correlation between the number of comments from members of Congress and all other comments on each rule. I also calculate this correlation, ommitting rules where no legislators commented, making it more plausable that legislators were aware of the rulemaking and thus faced the choice of whether to comment or not. Figure \@ref(fig:congress-corr) shows both of these correlations. The dashed line showes the relationship for all rules and the solid line shows the relationship for rules where at least one legislator commented. The left-hand pannel shows this same plot with both axes on a log scale. There is a strong correlation between mass comments and legislator attention. However, for resons disccussed in \@ref(oversight-hypotheses), this is not strong evidence of a causal effect. 
 
+```{r congress-corr, fig.width=2.5, fig.height=2.5, out.width="40%", fig.cap="Correlation Between Mass Comments and Comments from Members of Congress"}
+c <- comments_congress %>% 
+  group_by(docket_id) %>% 
+  count() %>% 
+  full_join(rules) %>% 
+  mutate(n = replace_na(n, 0)) %>%
+  distinct(docket_id, n, number_of_comments_received) %>% 
+  filter(number_of_comments_received > n) %>% 
+  mutate(comments = number_of_comments_received - n + 1)
 
-The first two models in table \@ref(tab:mediation) are similar to those in Table \@ref(tab:mc-success), but the dependent variable is now the mediator variable (the number of supportive members of Congress). The outcome model is the same as Model 1 in Table \@ref(tab:mc-success) but includes the proposed mediator, the number of supportive comments from members of Congress. (See Equation  \@ref(eq:mediator)).
+cplot <- c %>% 
+  #filter(n > 0) %>% 
+  ggplot() + 
+  aes(x = comments, y = n) +
+  geom_point(alpha = .5) + 
+    geom_smooth(method = "lm", linetype = 2, data = c %>% mutate(n = n+1)) + 
+  geom_smooth(method = "lm", data =  c %>% filter(n > 0)) + 
+  labs(x = "All Other Comments", 
+       y = "Comments from\nMembers of Congress")
+
+cplot
+
+cplot + 
+  scale_x_log10() + 
+  scale_y_log10()
+```
+
+To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME, conditional on the number of comments from Members of Congress) and average direct effect (ADE) of mass comments using mediation analysis. To do this, I estimate a model predicting the proposed mediator using both OLS and Poisson regression. Because the dependent variable (the number of supportive comments from members of Congress) is a count, a Poisson model is more appropriate. The dispersion parameter is not significantly above 1.  
+
+The first two models in table \@ref(tab:model-oversight) are similar to those in Table \@ref(tab:mc-success), but the dependent variable is now the mediator variable (the number of supportive members of Congress). The outcome model is the same as Model 1 in Table \@ref(tab:mc-success) but includes the proposed mediator, the number of supportive comments from members of Congress. (See Equation  \@ref(eq:mediator)).
 
 By definition, only organizations lobbying in coalition with others have members of Congress in their coalition. Thus I exclude the "coalitions" of 1 organization and omit the indicator of whether the group is lobbying in the coalition from the model. I also subtract the number of members of Congress from the coalition size. 
 
 
 OLS and Poisson regression results differ significantly, likely because the Poisson model drops coalitions with zero members of Congress. The Poisson results suggest that there is a large positive association between a pressure campaign and the number of members of Congress joining a coalition, but only for private-interest coalitions (the coefficient on the interaction between Pressure Campaign and Public Interest Coalition is negative and nearly equivalent to the main effect of Pressure campaigns). Public interest coalitions without pressure campaigns enjoy more support from members of Congress than private interest campaigns. 
+These mixed results make it difficult to assess \@ref(hyp:beacon).
 
 
 

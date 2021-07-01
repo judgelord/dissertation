@@ -145,9 +145,9 @@ comments_coded %>%
   kable3(caption = "Hand-coded Data By Agency")
 ```
 
-Figure \@ref(fig:data-coded-support) shows hand-coded support and opposition to proposed rules by different types of commenters and presidential administration. Support and opposition coding come from the spatial position regarding the draft and final rule, as shown in Figure \@ref(fig:spatial-coding). Elected officials write in more often in opposition than in support of a proposed rule across administrations. In contrast, individuals, organizations, and the mass comments these organizations mobilize overwhelmingly supported rules under President Obama, but mass and individual comments overwhelmingly opposed rules under President Trump. This reflects the partisan asymmetry in mobilizing organizations.  
+Figure \@ref(fig:coded-support) shows hand-coded support and opposition to proposed rules by different types of commenters and presidential administration. Support and opposition coding come from the spatial position regarding the draft and final rule, as shown in Figure \@ref(fig:spatial-coding). Elected officials write in more often in opposition than in support of a proposed rule across administrations. In contrast, individuals, organizations, and the mass comments these organizations mobilize overwhelmingly supported rules under President Obama, but mass and individual comments overwhelmingly opposed rules under President Trump. This reflects the partisan asymmetry in mobilizing organizations.  
 
-```{r data-coded-support, out.width= "80%", fig.width=5, fig.height=3.5, fig.cap="Hand-coded Comments By Type and Position on Proposed Rule"}
+```{r coded-support, out.width= "80%", fig.width=5, fig.height=3.5, fig.cap="Hand-coded Comments By Type and Position on Proposed Rule"}
 comments_coded %>% 
   mutate(comments = ifelse(comment_type == "Org", 1, comments)) %>%
   group_by(president, comment_type, Position) %>% 
@@ -173,6 +173,7 @@ Lobbying coalitions range in size from 2 to `r max(coalitions_coded$coalition_si
 
 
 ```{r data-coalition-comments}
+#data-coalition-comments
 coalitions_coded %>% 
   drop_na(coalition_business) %>%
   filter(coalition_comment != "FALSE", nchar(coalition) < 20) %>% 
@@ -193,6 +194,7 @@ coalitions_coded %>%
 ```
 
 ```{r coalition-types}
+#coalition-types
 coalitions_coded %>% 
   count(coalition_type, Coalition_business) %>% 
   drop_na() %>%
@@ -210,33 +212,37 @@ Finally, to better capture positions expressed by Members of Congress on propose
 
 #### Comments from Legislators
 
-One mechanism by which campaigns may influence policy is by mobilizing members of Congress. Thus, I identify comments submitted by members of Congress and count the number of legislators in each lobbying coalition. Table \@ref(tab:data-coded-elected) shows the number of comments from the most common types of elected officials. Members of the U.S. House and Senate are the most common.  Figure \@ref(fig:congress) shows the number of comments from members of Congress received during rulemaking by a sample of federal agencies. Oversight letters are frequently co-signed by multiple members from the Senate, House, or both chambers. 
+One mechanism by which campaigns may influence policy is by mobilizing members of Congress. Thus, I identify comments submitted by members of Congress and count the number of legislators in each lobbying coalition.  Figure \@ref(fig:data-congress) shows the number of comments from members of Congress received during rulemaking by a sample of federal agencies. Oversight letters are frequently co-signed by multiple members from the Senate, House, or both chambers. Some of the rules on which members of Congress commented appear in the hand-coded sample. Table \@ref(tab:data-coded-elected) shows the number of comments from the most common types of elected officials in the hand-coded data. Members of the U.S. House and Senate are the most common. 
 
-```{r congress, fig.cap = "Number of Rulemaking Comments from Members of Congress per Year, 2005-2020 to the Bureau of Ocean Energy Management (BOEM), Consumer Financial Protection Bureau (CFPB), Department of Education (ED), Office of Energy Efficiency and Renewable Energy (EERE), Federal Aviation Administration (FAA), Federal Railroad Administration (FRA), Fish and Wildlife Service (FWS), Department of Health and Human Services (HHS), Office of the Comptroller of the Currency (OCC), Occupational Safety and Health Administration (OSHA), Social Security Administration (SSA), US Trade Representative (USTR)", out.width = "100%", fig.height=4}
+```{r data-congress, fig.cap = "Number of Rulemaking Comments from Members of Congress per Year, 2005-2020 to the Bureau of Ocean Energy Management (BOEM), Consumer Financial Protection Bureau (CFPB), Department of Education (ED), Office of Energy Efficiency and Renewable Energy (EERE), Federal Aviation Administration (FAA), Fish and Wildlife Service (FWS),  Office of the Comptroller of the Currency (OCC), Occupational Safety and Health Administration (OSHA), Social Security Administration (SSA), US Trade Representative (USTR)", fig.height=4}
+#congress
+#, Federal Aviation Administration (FAA), Federal Railroad Administration (FRA), Department of Health and Human Services (HHS),
+
 load(here::here("data", "comments_congress.Rdata"))
 
 comments_congress$Year %<>% as.numeric()
 
-breaks <- seq(2000, 2020,by = 2)
+breaks <- seq(2004, 2020,by = 2)
 
 comments_congress %>% 
   as_tibble() %>%
-  filter(Year %>% as.numeric() > 2000,
+  filter(Year %>% as.numeric() > 2004,
          Year %>% as.numeric() < 2021) %>% 
   add_count(agency, name = "agency_n") %>%
-  filter(agency_n > 88) %>% 
+  filter(agency_n > 111) %>% 
   count(Year, Chamber, agency, sort = TRUE) %>%
   ggplot() +
   aes(x = Year, y = n, fill = Chamber) + 
   geom_col(position = "stack") + 
   facet_wrap("agency", scales = "free_y") + 
   labs(x = "" ,
-       y = "Number of Rulemaking Comments from Members of Congress") + 
+       y = "Number of Rulemaking Comments\nfrom Members of Congress") + 
   scale_x_continuous(breaks = breaks) + 
   theme(axis.text.x = element_text(angle = 90),
         axis.ticks.x = element_blank(),
         panel.grid.major.x = element_blank())
 ```
+
 
 ```{r data-coded-elected}
 # table data-coded-elected
@@ -376,18 +382,18 @@ ggplot(coalitions_coded, aes(x = coalition_size)) +
 
 ```
 
-```{r hist-comments,  fig.width=3, fig.height=2, out.width = "49%", fig.cap="Number of Comments Linked to Hand-Coded Coalitions", cache=FALSE}
+```{r hist-comments,  fig.width=3, fig.height=2, out.width = "49%", fig.cap="Number of Comments Linked to Hand-Coded Coalitions"}
 #TODO
 #ggplot(coalitions_coded, aes( x= comment_length)) + geom_histogram()+ labs(x = "% (Comment length/proposed rule length)*100")
-
-ggplot(coalitions_coded, aes( x= log(comments))) + 
-  geom_histogram() + 
-  labs(x = "Log(Mass Comments)",
-       y = "Number of Coalitions")
 
 ggplot(coalitions_coded, aes( x= coalition_congress)) + 
   geom_histogram() + 
   labs(x = "Comments from Members of Congress",
+       y = "Number of Coalitions")
+
+ggplot(coalitions_coded, aes( x= log(comments))) + 
+  geom_histogram() + 
+  labs(x = "Log(Mass Comments)",
        y = "Number of Coalitions")
 ```
 
