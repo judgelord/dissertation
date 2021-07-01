@@ -230,7 +230,7 @@ To assess whether organizations and their broader coalitions lobby in opposition
 
 
 
-```{r spatial-coding, fig.cap= "Coding the Spatial Position of Comments on Proposed Policy Changes"}
+```{r spatial-coding, fig.cap= "Coding the Spatial Position of Comments on Proposed Policy Changes", fig.height=1}
 library(latex2exp)
 
 tibble(x = c(1,2,3,4,5,6, 7),

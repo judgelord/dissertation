@@ -43,7 +43,7 @@ whether comments raised EJ concerns, the number of unique (non-form letter) comm
 <!--The base equation for model 1 is shown below.-->
 All predicted probabilities shown below include agency fixed effects, models 2 and 4.
 
-```{r ej-m-PR}
+```{r ej-m-PR, cache=FALSE}
 load(here::here("05-ej", "ej_models.Rdata"))
 #equatiomatic::extract_eq(m_PR)
 ```
@@ -55,8 +55,9 @@ modelsummary::modelsummary( models,
                             coef_map = cm,
                             add_rows = rows,
                             notes = "") %>% 
-  #row_spec(row = 1, hline_after = TRUE) %>% #kable2(file = "ej-tables") #%>% 
-  kable_styling(latex_options = c(scale_down = TRUE)) 
+  #row_spec(row = 1, hline_after = TRUE) %>% 
+  kable2(file = "ej-tables") #%>% 
+  #kable_styling(latex_options = c("scale_down")) 
 ```
 
 
