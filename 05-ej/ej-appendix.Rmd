@@ -1,4 +1,5 @@
 ---
+#rmarkdown::render("05-ej/ej-appendix.Rmd")
 title: "The Environmental Justice Movement's Impact in Agency Rulemaking"
 subtitle: "Appendix and Replication Code" 
 author: "Devin Judge-Lord"

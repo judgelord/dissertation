@@ -75,7 +75,7 @@ kablebox <- . %>%
 # a function to format kables for different formats 
 kable2 <- function(x, file){
   if(knitr:::is_html_output() | knitr::is_latex_output() ){
-      kable_styling(x, latex_options = c("scale_down"))
+      x %>% kable_styling(latex_options = c("scale_down"))
   } else{
     kableExtra::as_image(x, width = 6.5, file = paste0("figs/", file, ".png"))
     }
@@ -88,6 +88,7 @@ library(flextable)
 kable3 <- function(x, caption = ""){
   if(knitr:::is_html_output()) {
     x %>% 
+      ungroup() %>% 
       slice_head(n = 100) %>%
       knitr::kable(caption = caption) %>% 
       kable_styling() %>% 
@@ -95,10 +96,12 @@ kable3 <- function(x, caption = ""){
   } else{
     if(knitr::is_latex_output() ){
       x %>% 
+        ungroup() %>% 
         slice_head(n = 20) %>%
         knitr::kable(caption = caption) %>% 
-        kable_styling(latex_options = c("scale_down"))
+        kable_styling(font_size = 10)
     } else{x %>% 
+        ungroup() %>% 
         slice_head(n = 20) %>%
         flextable() %>% 
         set_caption(caption) %>% 
@@ -119,18 +122,19 @@ fig.path <- here("figs")
 
 ## Sets defaults for R chunks
 knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that code will show
+                      #cache = FALSE,
                       cache = TRUE,
                       warning = FALSE,
                       message = FALSE,
                       fig.show="hold",
                       fig.pos= "htbp",
-                      fig.path = fig.path,
+                      fig.path = "figs/",
                       fig.align='center',
                       fig.cap = '   ',
                       fig.retina = 6,
                       fig.height = 3,
                       fig.width = 7,
-                      out.width = "100%",
+                      # out.width = "100%",
                       out.extra = "")
 
 options(stringsAsFactors = FALSE)

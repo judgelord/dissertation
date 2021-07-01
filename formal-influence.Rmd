@@ -1,8 +1,12 @@
-Formally, political information requires several crucial amendments to
-existing information-based models of rulemaking. In the most
+In the most
 sophisticated model of notice-and-comment rulemaking to date,
-@Libgober2018 posits a utility function for policymaker $G$ as
-$u_G(x_F) = \alpha_0 x_f^2 + \sum_{i=1}^N \alpha_i u_i (x_f)$ where
+@Libgober2018 posits a utility function for policymaker $G$ as shown in Equation \@ref(eq:formal-libgober)
+
+\begin{equation}
+u_G(x_F) = \alpha_0 x_f^2 + \sum_{i=1}^N \alpha_i u_i (x_f) (\#eq:formal-libgober)
+\end{equation}
+
+where
 $x_f$ is the spatial location of the final policy, $u_i$ is the
 preference of "potential commenter" $i$, and
 $\alpha$ is a vector of "allocational bias"---i.e. how much the agency decisionmakers
@@ -12,7 +16,7 @@ idea of their mission against their desire to be responsive. In
 Libgober's model, $\alpha$ is a fixed "taste" for responsiveness to each
 member of society, so agency decisions simply depend on their answer to
 the question "what do people want?"
-Incorporating the insight about the power of technical information , we might consider $\alpha_0$ (the policymakers' understanding of their own prefrences) to be affected by technical information. Including political information
+Incorporating the insight about the power of technical information, we might consider $\alpha_0$ (the policymakers' understanding of their own prefrences) to be affected by technical information. Including political information
 requires two additional parameters related to a second question "why
 would agency officials care?" <!--CITE THIS IN EJ CHAPTER--> 
 
@@ -25,8 +29,12 @@ the number of people a group represents or the intensity or legitimacy
 of their policy demands. Let this direct shift in allocations be $\alpha_d$. Let policymakers' immutable taste now be $\alpha_t$. Having decomposed an policymaker's
 allocative bias into three parts (its fixed tastes, shifting strategic
 environment, and potential to be convinced), the policymaker's utility
-function is now
-$u_G(x_F) =  (\alpha_{t0} + \alpha_{s0} + \alpha_{d0}) x_f^2 + \sum_{i=1}^N (\alpha_{ti} + \alpha_{si} + \alpha_{di}) u_i (x_f)$.
+function is now Equation \@ref(eq:formal).
+
+\begin{equation}
+u_G(x_F) =  (\alpha_{t0} + \alpha_{s0} + \alpha_{d0}) x_f^2 + \sum_{i=1}^N (\alpha_{ti} + \alpha_{si} + \alpha_{di}) u_i (x_f) (\#eq:formal)
+\end{equation}
+
 If, after the comment period, the strategic environment is
 unchanged and officials remains unpersuaded about which segments of society
 deserve favor, $\alpha_s$ and $\alpha_d$ are 0, and the model collapses

@@ -18,7 +18,7 @@ description: "Draft"
 always_allow_html: true
 ---
 
-```{r setup, echo = FALSE, include = FALSE}
+```{r setup, echo = FALSE, include = FALSE, cache=FALSE}
 source(here::here("code", "setup.R"))
 ```
 

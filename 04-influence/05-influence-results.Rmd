@@ -1,0 +1,402 @@
+## Results: Lobbying Success
+
+This section leverages a random sample of agency rules for which I have hand-coded nearly all public comments. Table \@ref(tab:mc-success) presents estimates of the direct relationship between public pressure and lobbying success. \@ref(tab:mediation) presents results of mediation analysis, assessing the support from members of Congress as a mediator for the success of public pressure campaigns. Finally, \@ref(tab:mo-success-dnd) presents estimates of factors affecting within-organization levels of lobbying success using a difference-in-difference design.
+
+### Coalition-level Lobbying Success
+
+Table \@ref(tab:mc-success) present results estimating coalition-level lobbying success described in Equation \@ref(eq:success).
+
+Models 1 and 2 use a binary measure of public pressure--did the coalition sponsor a public pressure campaign or not?  Models 2-6 use continuous measures of public pressure. Models 3 and 4 use the logged number of mass comments, reflecting the intuition that one additional comment matters more for smaller campaigns. Models 5 and 6 include both linear and quadratic terms for the number of comments to allow for a wider set of possible relationships. 
+
+I use two related measures of coalition type. Models 1, 3, and 5 use my classification of coalitions as primarily public or private interests. Private interest is the omitted category, so coefficients are estimates of the difference in lobbying success for public interest coalitions compared to private interest coalitions. Models 2, 4, and 6 use a related, more objective measure: whether the majority of coalition members are businesses or trade associations. These two measures diverge in cases where public interest coalitions mobilize a large number of business allies or where private interest coalitions mobilize a large number of non-business allies.
+
+All models include fixed effects for agency and president to allow for differing average levels of lobbying success at different agencies and political conditions.^[A parallel set of models with random effects accounting for different levels of responsiveness to public comments in different agencies and administrations is available in the Appendix.]. 
+<!-- TODO president interaction models in appendix
+To account for partisan asymmetry in mobilizing groups, I also estimate a term for the interaction between the president and coalition type.  Bush-era rules are dropped from these models for simplicity. -->
+
+These models include coalitions of 1 (organizations lobbying alone), but excluding them yields similar results, except that coalition size has a much weaker correlation with lobbying success. 
+
+
+```{r mc-success}
+#mc-success
+
+# coalition success with agency and president FE
+mc1 <- feols(coalition_success ~ 
+          campaign_*coalition_type + 
+          # campaign_*coalition_business_ +
+          # log(comments + 1)*coalition_type
+          # log(comments + 1)*coalition_business_ + 
+          # comments * coalition_type + 
+          # comments^2 * coalition_type +
+          # comments^2 * coalition_business +
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president, #+ president, 
+        data = coalitions_coded)
+
+mc2 <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president, #+ president, 
+        data = coalitions_coded)
+
+mc3 <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president,# + president, 
+        data = coalitions_coded)
+
+mc4 <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          #campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president,# + president, 
+        data = coalitions_coded)
+
+mc5 <- feols(coalition_success ~ 
+          # campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency , 
+        data = coalitions_coded)
+
+mc6 <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president, 
+        data = coalitions_coded)
+
+# coef map to rename vars 
+cm = c("campaign_TRUE" = "Pressure Campaign",
+       "campaign_TRUE:presidentObama" ="Pressure Campaign × Obama",
+         "campaign_TRUE:presidentTrump" = "Pressure Campaign × Trump",
+       "campaign_TRUE:presidentBush" = "Pressure Campaign × Bush",
+       "campaign_TRUE:coalition_typePublic:presidentObama" = "Pressure Campaign × presidentObama",
+       "campaign_TRUE:coalition_business_TRUE" = "Pressure Campaign × Business",
+       "campaign_TRUE:coalition_typePublic" = "Pressure Campaign × Public Interest",
+       "campaign_TRUE:coalition_typePublic:presidentTrump" = "Pressure Campaign × Public Interest × Trump",
+              "log(comments + 1):coalition_typePublic" = "Log(Mass Comments) × Public Interest",
+       "log(comments + 1):coalition_business_TRUE" = "Log(Mass Comments) × Business Coalition",
+       "coalition_TRUE" = "Coalition",
+       "log(coalition_size)" = "Log(Coalition Size)",
+       "coalition_size" = "Coalition Size",
+       "coalition_typePublic" = "Public Interest",
+       "coalition_business_TRUE" = "Business Coalition",
+       "Coalition_PositionSupports Rule" = "Supports Rule",
+       "coalition_unopposedTRUE" = "Unopposed",
+       "PositionSupports Rule" = "Supports Rule",
+       "comments" = "Mass Comments",
+       "log(comments + 1)"= "Log(Mass Comments)",
+       "log(comments + 1):presidentTrump"= "Log(Mass Comments) × Trump",
+       "log(comments + 1):presidentBush"= "Log(Mass Comments) × Bush",
+       "I(comments^2)" = "Mass Comments^2",
+       "agency" = "Agency",
+       "president" = "President",
+       "presidentTrump" = "Trump",
+       "presidentObama" = "Obama",
+       "presidentBush" = "Bush",
+       "coalition_typePublic:presidentObama" = "Public Interest × Obama",
+       "coalition_typePublic:presidentTrump" = "Public Interest × Trump",
+       "coalition_business_TRUE:presidentTrump" = "Business Coalition × Trump",
+       "coalition_business_TRUE:presidentBush" = "Business Coalition × Bush",
+       "coalition_typePublic:presidentBush" = "Public Interest × Bush",
+       "partyRepublican" = "Republican President",
+       "coalition_typePublic:partyRepublican" = "Republican President × Public Interest",
+       "log(comments + 1):coalition_business_TRUE:presidentTrump"= "Log(Mass Comments) × Business Coalition × Trump",
+       "log(comments + 1):coalition_business_TRUE:presidentBush"= "Log(Mass Comments) × Business Coalition × Bush",
+       "log(comments + 1):coalition_typePublic:presidentTrump"= "Log(Mass Comments) × Public Interest × Trump",
+       "log(comments + 1):coalition_typePublic:presidentBush"= "Log(Mass Comments) × Public Interest × Bush",
+       "acme_0" = "Average Conditional Marginal Effect",
+       "ade_0" = "Average Direct Effect")
+
+# coef map as tibble
+cm2<- tibble(term = names(cm),
+       Term = cm)
+
+modelsFE <- list(mc1, mc2, mc3, mc4, mc5, mc6)
+
+rowsFE <- tibble(
+  term = c("Dependent Variable"),
+  `1` = c("Lobbying Success"), 
+  `2` =c("Lobbying Success"), 
+  `3`  = c("Lobbying Success"), 
+  `4` = c("Lobbying Success"),
+  `5`  = c("Lobbying Success"), 
+  `6`  = c("Lobbying Success")
+)
+
+attr(rowsFE, 'position') <- c(0)
+
+# paper table fixest
+modelsummary::modelsummary( modelsFE, 
+                            stars = TRUE, 
+                            #coef_map =
+                            coef_rename =  cm,
+                            gof_omit = "R2 .*",
+                          add_rows = rowsFE, 
+                          title = "OLS Models of Coalition-Level Lobbying Success",
+                          notes = "") %>% 
+  row_spec(row = 1, bold = T) %>% 
+  kable2(file = "mc-success")
+```
+
+
+Table \@ref(tab:mc-success) shows that the main effect $\beta_1$ is `r mc1$coefficients[1] %>% round(2)` (S.E. = `r mc1$se[1] %>% round(2)`) on the five-point scale of lobbying success. Estimates are inconsistant across specifications and not statistically significant. 
+
+The strongest predictor of lobbying success is whether the organization supported the rule. These coalitions had an average success `r `mc1$coefficients[5] %>% round(2)` points greater than those that opposed the rule (S.E. = `r mc1$se[5] %>% round(2)`).  This result reflects a combination of several related dynamics. First, rules often do not change between draft and final. Organizations that support the rule are thus likely to "succeed" when the status quo prevails. Second, organizations that support a proposed rule are necessarily aligned with agency officials' preferred policy direction. If the agency officials change the final rule to go future in their preferred direction, such changes often align with organizations that supported the rule. Finally, by selecting proposed rules that had a final rule rather than being withdrawn, this sample is missing some lobbying success by organizations that requested a proposed rule be withdrawn. 
+
+The limited size of this sample means that we lack statistical power to have confidence in the effect of other variables.
+
+
+<!--
+The main coefficient of interest (the estimated relationship between the number of comments and lobbying success) is negative across model specifications, suggesting the larger pressure campaigns are less likely to win. 
+
+The other result apparent from these models is that public interest groups were more likely to win under president Obama and less likely to win under President Trump. Likewise, business-led coalitions were less likely to win under President Obama than under President Trump. 
+
+-->
+
+As this sample is disproportionately draft rules that received an unusual number of comments, these results are largely based on variation with high-salience rulemakings. 
+
+#### Congressional Support as a Mediator of Lobbying Success
+
+To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME, conditional on the number of comments from Members of Congress) and average direct effect (ADE) of mass comments using mediation analysis. To do this, I estimate a model predicting the proposed mediator using both OLS and Poisson regression. Because the dependent variable, the number of supportive comments from members of Congress, is a count, a Poisson model is more appropriate. The dispersion parameter is not significantly above 1.  
+
+
+The first two models in table \@ref(tab:mediation) are similar to those in Table \@ref(tab:mc-success), but the dependent variable is now the mediator variable (the number of supportive members of Congress). The outcome model is the same as Model 1 in Table \@ref(tab:mc-success) but includes the proposed mediator, the number of supportive comments from members of Congress. (See Equation  \@ref(eq:mediator)).
+
+By definition, only organizations lobbying in coalition with others have members of Congress in their coalition. Thus I exclude the "coalitions" of 1 organization and omit the indicator of whether the group is lobbying in the coalition from the model. I also subtract the number of members of Congress from the coalition size. 
+
+
+OLS and Poisson regression results differ significantly, likely because the Poisson model drops coalitions with zero members of Congress. The Poisson results suggest that there is a large positive association between a pressure campaign and the number of members of Congress joining a coalition, but only for private-interest coalitions (the coefficient on the interaction between Pressure Campaign and Public Interest Coalition is negative and nearly equivalent to the main effect of Pressure campaigns). Public interest coalitions without pressure campaigns enjoy more support from members of Congress than private interest campaigns. 
+
+
+
+```{r model-oversight, cache=FALSE}
+#model-oversight
+
+# original model, dropping na congress obs
+mc1 <- fixest::feols(coalition_success ~ 
+          campaign_*coalition_type + 
+          log(coalition_size) +
+          Coalition_Position + 
+          coalition_unopposed 
+          # Agency and president FE 
+          | agency + president, 
+          data = coalitions_coded %>% 
+            filter(coalition_,
+                   !is.na(coalition_congress) ) )
+
+
+# full model
+mc1_congress <- fixest::feols(coalition_success ~ 
+          campaign_*coalition_type + 
+          log(coalition_size) +
+          Coalition_Position + 
+          coalition_unopposed + 
+            coalition_congress# Agency and president FE 
+          | agency + president, 
+               data = coalitions_coded%>% 
+            filter(coalition_) )
+
+# model predicting mediator
+mc_congress_ols <- fixest::feols(coalition_congress ~ 
+          campaign_*coalition_type +
+            log(coalition_size) +
+          Coalition_Position + 
+          coalition_unopposed# Agency and president FE 
+          | agency + president, 
+               data = coalitions_coded%>% 
+            filter(coalition_,
+                   !is.na(coalition_success) ) )
+
+# poisson model with dummies
+mc_congress_pois <- glm(coalition_congress ~ 
+          campaign_*coalition_type + 
+          coalition_ + log(coalition_size) +
+          Coalition_Position + 
+          coalition_unopposed + president + agency + president, 
+               family = "poisson",
+               data = coalitions_coded%>% filter(coalition_))
+
+#library(AER)
+#dispersiontest(mc_congress_pois)
+               
+# poisson model with FE
+mc_congress_pois <- feglm(coalition_congress ~ 
+          campaign_*coalition_type + 
+          coalition_ + log(coalition_size) +
+          Coalition_Position + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president, 
+               family = "poisson",
+               data = coalitions_coded %>% filter(coalition_))
+
+
+
+
+
+mediator <- list( "Mediator Model (OLS)" = mc_congress_ols, "Mediator Model (Poisson)" = mc_congress_pois, "Outcome Model (OLS)" = mc1_congress )
+
+rowsMediation <- tibble(
+  term = c("Dependent Variable"),
+  `Mediator Model (OLS)` = c("Members of Congress in Coalition "), 
+  `Mediator Model (Poisson)` =c("Members of Congress in Coalition "), 
+  `Outcome Model (OLS)`  = c("Lobbying Success"), 
+)
+
+attr(rowsMediation, 'position') <- c(0)
+
+modelsummary(mediator, 
+             stars = TRUE, 
+             add_rows = rowsMediation,
+             coef_rename = cm,
+             title = "Models of Congressional Support and Lobbying Success for Mediation Analysis") %>% 
+  kable2(file = "model-oversight")
+```
+
+
+```{r model-oversight-plot, eval=FALSE, cache=FALSE,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "Number of Members of Congress per Coalition with Hand-coded Data"}
+# FIXME include = TRUE when more obs
+mc_congress_pois %>%
+  tidy(conf.int = TRUE) %>% 
+  filter(term != "(Intercept)") %>% 
+  left_join(cm2) %>% 
+  ggplot() + 
+  geom_hline(yintercept = 0, color = "grey") + 
+  aes(x = Term, 
+      y = estimate, 
+      ymin = conf.low, 
+      ymax = conf.high) + 
+  geom_pointrange( )  + 
+  coord_flip() +
+  labs(y = "Number of Legislator Comments", 
+       x = "") 
+```
+
+
+The outcome model results are similar to the results of Model 1 in Table \@ref(tab:mc-success). Adding congressional support to the model improves the R-squared and log-likelihood. The number of letters from members of Congress is associated with a $\beta_2$ = `r mc1_congress$coefficients[6] %>% round(2)` point increase in lobbying success (S.E. = `r mc1_congress$se[6] %>% round(2)`)`
+
+
+
+```{r mediation, warning=FALSE, message=FALSE}
+# model predicting DV
+model.m <- lm(coalition_congress ~ campaign_ + 
+                #comment_length + 
+                coalition_type +  
+                log(coalition_size) + 
+                coalition_unopposed, 
+              data = coalitions_coded %>% filter(coalition_, !is.na(coalition_success))) 
+
+# model predicting DV
+model.y <- lm(coalition_success ~ campaign_ + 
+                coalition_congress +
+                  #comment_length + 
+                coalition_type +  
+                log(coalition_size) + 
+                coalition_unopposed, 
+              data = coalitions_coded %>% filter(coalition_)) 
+models <- list(model.m, model.y)
+# modelsummary(models)
+
+# Mediation 
+med.cont <- mediate(model.m, model.y,
+                    sims=1000, 
+                    treat = "campaign_", 
+                    mediator = "coalition_congress")
+
+modelsummary(list("Mediation Analysis" = med.cont), stars = T, coef_rename = cm,
+             coef_omit =  ".*_1",
+             gof_omit = ".*",
+             title = "Mediation Analysis with Pressure Campaign as Treatment and Congressional Support as Mediator for Lobbying Success")
+```
+
+For mediation analysis, I use the OLS version of both mediator and outcome models.
+The average effect of a public pressure campaign on lobbying success, conditional on letters from members of Congress (the ACME) is `r round(med.cont$d.avg, 2)` on the 5-point scale, with a p-value of `r round(med.cont$d0.p, 4)`.
+
+The average direct effect (ADE) of a public pressure campaign on lobbying success is `r round(med.cont$z0, 2)`, with a p-value of `r round(med.cont$z0.p, 4)`.
+
+The Total Effect of a public pressure campaign is `r round(med.cont$tau.coef, 2)`, with a p value of `r round(med.cont$tau.p, 2)`. `r round(med.cont$n0, 2)` of this is mediated through mobilizing congressional attention (p-value = `r round(med.cont$n0.p, 2)`).
+
+
+### Difference in Differences in Organization-level Lobbying Success
+
+Estimates in Table \@ref(tab:mo-success-dnd) show the results of estimating model \@ref(eq:dnd). Because  These results suggest that the organizations were less successful when they mobilized more comments, more successful when they supported the rule, and less successful under president Trump than President Obama. 
+
+The negative correlation between lobbying success and the number of mass comments is likely due to campaigns "going down fighting"---not trying to influence policy. The fact that organizations are more likely to get the outcome they seek when they already support the rule makes sense because the agency is more likely to be sympathetic to their requests. The fact that the average organization was less likely to see its desired policy changes under President Trump is likely due to asymmetry in mobilizing organizations, with more organizations on the left than the right in this sample of rules. (Note: this may change in the broader sample.)
+
+<!--
+Model 2 shows a similar model, adding a fixed effect for the rulemaking docket (i.e., each policy on which an organization comments). Because I consider policies published by different administrations to be distinct, regardless of the docket id number used, the president does not vary across dockets, and it no longer makes sense to include the president dummy. 
+
+This model also shows...
+Because relatively few campaigns mobilize on any given rulemaking docket, there is little variation within dockets.
+-->
+```{r mo-success-did}
+mo1 = feols(success ~ campaign_ + 
+                   coalition_ + 
+                   log(coalition_size) + 
+                   Position 
+                 # fixed effects
+                 | org_name + agency + president,
+               data = comments_coded %>% 
+  filter(comment_type == "Org") %>% 
+  distinct(agency, org_name, docket_id, success, Position, 
+           coalition_, coalition_size, coalition_comments, president, campaign_) )
+
+models <- list("Lobbying Success" = mo1)
+
+modelsummary(models, 
+             stars = T, 
+             coef_rename = cm,
+             title = "Difference-in-Difference Model of Lobbying Success Within Organizations") %>% 
+  kable2(file = "mo-success-did")
+```
+
+
+## Conclusion {#influence-conclusion}

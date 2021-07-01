@@ -1,6 +1,6 @@
 <!--## Introduction {#oversight-intro}-->
 
-### Congressional oversight as a mediator of interest-group influence {#oversight-theory}
+### Congressional Oversight as a Mediator of Interest-group Influence {#oversight-theory}
 
 When George W. Bush replaced Bill Clinton as president, career
 bureaucrats at the Federal Trade Commission (FTC) knew that this meant a
@@ -108,9 +108,9 @@ Figure \@ref(fig:causal-oversight) incorporates these insights to the model set 
 <!-- move to influence eventually -->
 When lobbying organizations use a public pressure strategy, the political information they create (e.g., about the scale and intensity of public support) may affect agency policymakers directly. Perceived level of public support may also affect policy indirectly if it affects the behavior of an agency's political principles. When political principals engage, they create at least two additional kinds of political information. First, they express their opinion on what they think the agency should do, which may have normative power for bureaucrats. Second, principles signal political consequences that agencies may want to avoid [@Potter2017].
 
-```{r causal-oversight-2, fig.cap = "Integrating Public Pressure and Congressional Oversight into a Model of Lobbying in Bureaucratic Policymaking"}
+```{r causal-oversight, fig.cap = "Integrating Public Pressure and Congressional Oversight into a Model of Lobbying in Bureaucratic Policymaking"}
 #TODO label "Public Pressure" and "Oversight" portions. 
-knitr::include_graphics(here::here("figs", "causal-oversight-2.png"))
+knitr::include_graphics(here::here("figs", "causal-oversight-draft.png"))
 ```
 
 Public pressure campaigns in bureaucratic policymaking may affect the behavior of
@@ -188,12 +188,12 @@ evidence against Hypothesis \@ref(hyp:beacon) and
 Hypothesis \@ref(hyp:warning), respectively.
 
 I thus build on the classic model of
-political oversight in two ways. First, I suggest that elected officials' comments during rulemaking are a particularly relevant oversight behavior and a
-mechanism by which bureaucrats learn and update beliefs about their
-principals' demands. This is represented by the arrow between "Political Information" (including principal opinions and perceived political consequences) and "Policy Response" in Figure \@ref(fig:causal-oversight). 
-Second, I suggest that such oversight behaviors
+political oversight in two ways. First, I suggest that such oversight behaviors
 maybe affected by public pressure campaigns because of the impressions of public
-opinion (i.e., the political information) they create. 
-This is represented by the arrow between "Perceived Public Opinion" and "Principal Comments" in Figure \@ref(fig:causal-oversight). 
+opinion (i.e., the political information) they create. This is represented by the arrow between "Organization generates political information" and "Political principals contact agency officials" in Figure \@ref(fig:causal-oversight). 
+
+Second, I suggest that elected officials' comments during rulemaking are a particularly relevant oversight behavior and a
+mechanism by which bureaucrats learn and update beliefs about their
+principals' demands. This is represented by the arrow between "Political principals contact agency officials" and "Agency officials revise policy" in Figure \@ref(fig:causal-oversight). The mechanism is labeled "Information persuades agency officials," which includes information about principal opinions and perceived political consequences.
 
 

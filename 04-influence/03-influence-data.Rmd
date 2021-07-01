@@ -1,8 +1,9 @@
-## Testing the Theory
+## Testing the Theory {#influence-data-methods}
 
 ### Data: A Census of Public Comments {#influence-data}
 
 ```{r influence-data}
+#source("code", "setup.R")
 load(here::here("data", "rules_metadata.Rdata"))
 
 # alternatively 
@@ -35,13 +36,15 @@ load(here::here("data", "coalitions_coded.Rdata"))
 load(here::here("data", "comments_coded.Rdata"))
 ```
 
-To examine the relationship between public pressure campaigns and lobbying success, I use an original dataset (introduced in \@ref(whymail-data)) that combines several data sources on U.S. federal agency rulemaking.
+To examine the relationship between public pressure campaigns and lobbying success, I use an original dataset (introduced in \@ref(why-data)) that combines several data sources on U.S. federal agency rulemaking.
 
+<!-- RULES DATA IS NOW TRIMMED
 Up to 2020, these data include `r unique(rules$docket_id) %>% length()`
 dockets,
 `r rules %>% filter(docket_type == "Rulemaking") %>% distinct(docket_id) %>% nrow()`
 rulemaking dockets. These dockets received `r sum(rules$number_of_comments_received, na.rm = T)`
 comments.
+-->
 
 The core data for this analysis are the texts of draft and final rules and public comments on these proposed rules published from 2005 to 2020. 
 This includes all proposed rules from `r d %>% filter(number_of_comments_received >0) %>% pull(agency_id) %>% unique() %>% length()` agencies that were open for comment on regulations.gov between 2005 and 2020, received at least one comment from an organization, and saw a final agency action between 2005 and 2020.  These 
@@ -57,15 +60,15 @@ I collected draft and final rule texts from federalregister.gov and comments sub
 I also retrieve comments submitted directly on regulations.gov and metadata on rules and comments (such as the dates that the proposed rule was open for comment and whether the agency identified the organization submitting the comment) from the regulations.gov API. 
 I add additional metadata on rules (such as whether the rule was considered "significant") from the Unified Agenda published by the Office of Information and Regulatory Affairs (reginfo.gov). 
 
-Where a new presidential administration used the same docket number to solicit comments on a proposed rule that a previous administration used, I count these as separate rulemaking dockets. I do so because the second policy usually reverses or moves policy in the opposite direction as the previous administration's policy. The same organizations often comment on both policies but with the opposition positions. Support becomes opposition and vice versa.
+Where a new presidential administration used the same docket number to solicit comments on a proposed rule that a previous administration used, I count these as separate rulemaking dockets. I do so because the second policy usually reverses or moves policy in the opposite direction of the previous administration. The same organizations often comment on both policies but with the opposition positions. Support becomes opposition and vice versa.
 
 #### Clustering with text reuse
 
 My theoretical approach requires that I *attribute* form letter comments to the organizations, campaigns, and broader coalitions that mobilized them. To do so, I identify comments that share text. I find that a 10-word phrase repeated across more than a few comments is always either text copied from the proposed policy or a form letter provided by a campaign. Thus, for the text of each comment, I first remove all 10-word phrases that appear in the proposed rule (including the preamble and call for comments). Then, I identify all comments that share ten-word phrases with 99 or more other comments. Finally, I collapse these form letter comments to one representative document for hand-coding. 
 
-I attempt to identify the organization(s) that submitted or mobilized each comment by extracting all organization names from the comment text. For comments that do not reference an organization, I can often identify organizations with an internet search using portions of the comment's text. I then identify lobbying coalitions both by hand and by textual similarity. Co-signed comments are always assigned to the same coalition. Likewise, form-letter comments are always assigned to the same coalition.^[For more on how I identify organizations and coalitions, see \@ref(whymail-methods).]
+I attempt to identify the organization(s) that submitted or mobilized each comment by extracting all organization names from the comment text. For comments that do not reference an organization, I can often identify organizations with an internet search using portions of the comment's text. I then identify lobbying coalitions both by hand and by textual similarity. Co-signed comments are always assigned to the same coalition. Likewise, form-letter comments are always assigned to the same coalition.^[For more on how I identify organizations and coalitions, see \@ref(why-methods).]
 
-Through the iterative combination of automated search methods and hand-coding I attribute each comment to the organization behind it (it's author if submitted by the organization or the mobilizing organzation for form letters). I also identify comments submitted by elected officials, with special attention to members of the U.S. Congress.
+Through the iterative combination of automated search methods and hand-coding, I attribute each comment to the organization behind it (its author if submitted by the organization or the mobilizing organization for form letters). I also identify comments submitted by elected officials, with special attention to members of the U.S. Congress.
 
 Because my hypotheses are about the influence of organizations and coalitions, I collapse these data to one observation per organization or coalition per proposed rule for analysis. I then identify the main substantive comment submitted by each organization's staff or lawyers, which are usually much longer than supporting comments like form letters. 
 
@@ -74,14 +77,14 @@ Because my hypotheses are about the influence of organizations and coalitions, I
 
 #### Hand-coded sample
 
-To estimate the influence of public comments on policy, I code almost all comments on a random sample of `r nrow(distinct(comments_coded, docket_id))` rules, recording the type of organization, the lobbying coalition to which each belongs, the type of coalition (primarily public or private interests), their policy demands, and the extent to which the change between draft and final rule aligned with their demands. This level of alignment between policy asks and policy outcomes is my measure of lobbying success. It does not identify a causal relationship--true policy influence, but it is standard approach for assessing lobbying success with these kinds of observational data [see @Yackee2006JOP]. 
+To estimate the influence of public comments on policy, I code almost all comments on a random sample of `r nrow(distinct(comments_coded, docket_id))` rules, recording the type of organization, the lobbying coalition to which each belongs, the type of coalition (primarily public or private interests), their policy demands, and the extent to which the change between draft and final rule aligned with their demands. This level of alignment between policy asks and policy outcomes is my measure of lobbying success. It does not identify a causal relationship--true policy influence, but it is the standard approach for assessing lobbying success with these kinds of observational data [see @Yackee2006JOP]. 
 
 I first select a random sample of proposed rules with both a mass-comment campaign and a final rule. I then selected all comments that were likely to be from organizations.^[Through an iterative process, I developed software and methods to select comments that were most likely submitted by organizations rather than by individuals. For example, I include all comments submitted as file attachments rather than typed into the textbox.]
 The hand-coding process included identifying the organization responsible for each comment submitted by an organization (e.g., a business, nonprofit, or government). 
 
 I then select a sample of proposed rules on which the same organizations commented without a mass comment campaign. <!--Matching prioritizes, presidential administration, policy area (following Policy Agendas Project coding), rule significance, department, agency, subagency, and proposed rule length, respectively.^[For more on policy area coding, see Chapter \@ref(macro).]--> 
 
-On each selected rule, I code all comments submitted as file attachments or emails, but only some comments typed in a text box. I include comments typed in a text box if they share text with other comments (see above). This includes nearly all comments on most rules, excluding entirely unique text-box contents or text-box comments shorter than 10 words. For example, I code a comment stating "This sucks" submitted as a file attachment, but exclude such comments from the hand-coded sample if they were submitted in the regulations.gov text-box. As illustrated by this example, extremely short and unique text-box comments are marginal both qualitatively and quantitatively. For comments sharing text, I code one sample document for all versions of the form letter. 
+On each selected rule, I code all comments submitted as file attachments or emails, but only some comments typed in a text box. I include comments typed in a text box if they share text with other comments (see above). This includes nearly all comments on most rules, excluding entirely unique textbox contents or textbox comments shorter than ten words. For example, I code a comment stating "This sucks" submitted as a file attachment but exclude such comments from the hand-coded sample if submitted in the regulations.gov textbox. As illustrated by this example, extremely short and unique textbox comments are marginal both qualitatively and quantitatively. For comments sharing text, I code one sample document for all versions of the form letter. 
 
 My approach to measuring lobbying success starts with policy demands raised in comments. I code the general regulatory/deregulatory direction of the policy change, but the dimensions of conflict on which I judge lobbying success are those identified by commenters. They do not emerge from a reading of the policy or not any a priori concept. Instead, I read the change between draft and policy with an eye for alignment with commenters' requests (including requests that specific parts of the draft policy do not change.)
 
@@ -89,21 +92,26 @@ My approach to measuring lobbying success starts with policy demands raised in c
 Using commenter requests to identify the dimensions of the conflict has benefits and downsides. Compared to other potential measures of success, it is more likely to focus on things that commenters care about and miss policy issues that other, non-commenting segments of the public might care about. 
 
 
-Other approaches to identifying commenter's relationship with polich change have different strenghts and weakenesses. For example, one could measure success by the number of times a comment is mentioned in the agency's response to comments. However, this measure may be affected by strategic responsiveness by agencies choosing to discuss some issues more than others. It also counts explicit rejections toward the measure of responsiveness. One could also measure success by focusing on a-priory potential aspects of the policy. @Balla2020 count five factors: (1) the number of regulated entities, (2) number of activities or substances being regulated, (3) the level of pollution standards, (4) the compliance and effective deadlines of the regulation, and (5) the monitoring and reporting requirements. Each takes one value (increasing or decreasing), and each is weighted equally in the analysis. In contrast, starting with comments allows commenters to highlight the issues they care most about.
+Other approaches to identifying the commenter's relationship with policy changes have different strengths and weaknesses. For example, one could measure success by the number of times a comment is mentioned in the agency's response to comments. However, this measure may be affected by strategic responsiveness by agencies choosing to discuss some issues more than others. It also counts explicit rejections toward the measure of responsiveness. One could also measure success by focusing on a-priory potential aspects of the policy. @Balla2020 count five factors: (1) the number of regulated entities, (2) number of activities or substances being regulated, (3) the level of pollution standards, (4) the compliance and effective deadlines of the regulation, and (5) the monitoring and reporting requirements. Each takes one value (increasing or decreasing), and each is weighted equally in the analysis. In contrast, starting with comments allows commenters to highlight the issues they care most about.
 
-The hand-coded sample includes `r nrow(comments_coded)` hand-coded documents representing over `r sum(comments_coded$comments)/1000000 %>% round()` million comments. on `r nrow(comments_coded %>% distinct(docket_id, president))` rules from `nrow(comments_coded %>% distinct(agency, president))` agencies, several times larger than leading studies using hand-coding. Unlikely previous research, my sampling approach includes rules with very large and small numbers of comments that previous studies exclude. Table \@ref(tab:data-org-comments) shows a sample of the hand-coded data. 
+The hand-coded sample includes `r nrow(comments_coded)` hand-coded documents representing over `r sum(comments_coded$comments)/1000000 %>% round(1)` million comments. on `r nrow(comments_coded %>% distinct(docket_id, president))` rules from `r nrow(comments_coded %>% distinct(agency, president))` agencies, several times larger than leading studies using hand-coding. Unlikely previous research, my sampling approach includes rules with very large and small numbers of comments that previous studies exclude. Table \@ref(tab:data-org-comments) shows a sample of the hand-coded data. 
 
 ```{r data-org-comments}
+comments_coded %<>%   
+  fill(success) %>% 
+  fill(success, .direction = "up") 
+
 comments_coded %>% ungroup() %>% 
-  filter(coalition_size>1) %>% 
+  filter(coalition_size>1, 
+         nchar(coalition) < 15, 
+         nchar(org_name) < 15) %>% 
   dplyr::select(document_id, comment_type , org_name, org_type, Position, success, coalition) %>% 
   mutate(coalition = coalition %>% str_to_upper() ) %>% 
   group_by(coalition) %>% 
-  fill(success) %>% 
-  fill(success, .direction = "up") %>% 
   slice_head(n = 2) %>%
+  ungroup() %>% 
   arrange(coalition) %>% 
-  kable3(caption = "Sample of Organzation-Level Hand-Coded Public Comment Data")
+  kable3(caption = "A Sample of Organzation-Level Hand-Coded Public Comment Data")
 ```
 
 
@@ -121,9 +129,9 @@ orgs <- comments_coded %>%
 orgs %>% kable3(caption = "Organizations by Number of Rules on which they Commented")
 ```
 
-`r nrow(orgs)` organizations lobbied on more than one rule in the hand-coded data, some on as many as `r max(orgs$n)` rulemaking dockets. 
+`r nrow(orgs)` organizations lobbied on more than one rule in the hand-coded data, some on as many as `r max(orgs$Rules)` rulemaking dockets. 
 
-Table \@ref(tab:coded-agencies) shows the number of hand-coded rules, documents, the coalitions and organzations to which those documents belong, and the total number of comments they represent for a sample of agencies. My method of collapsing documents with repeated text to one representative document allows me to reduce the number of documents requiring hand-codeing by several orders of magnitude (compare the "Documents" and "Comments" columns). 
+Table \@ref(tab:data-coded-agencies) shows the number of hand-coded rules, documents, the coalitions and organizations to which those documents belong, and the total number of comments they represent for a sample of agencies. My method of collapsing documents with repeated text to one representative document allows me to reduce the number of documents requiring hand-coding by several orders of magnitude (compare the "Documents" and "Comments" columns). 
 
 ```{r data-coded-agencies}
 comments_coded %>%
@@ -138,9 +146,9 @@ comments_coded %>%
   kable3(caption = "Hand-coded Data By Agency")
 ```
 
-Figure \@ref(fig:data-coded-support) shows hand-coded support and opposition to proposed rules by different types of commenters and presidential administration. Support and opposition coding comes from the spatial position with respect to the draft and final rule as shown in Figure \@ref(fig:spatial-coding). While elected officials write in more offen in opposition than in support of a proposed rule across administrations, individuals, organizations, and the mass comments these organizations mobilize overwhelmingly supported rules under President Obama, but mass and individual comments overwhelmingly opposed rules under President Trump. This reflects the paritsan asymatry in mobilizing organizations.  
+Figure \@ref(fig:data-coded-support) shows hand-coded support and opposition to proposed rules by different types of commenters and presidential administration. Support and opposition coding come from the spatial position regarding the draft and final rule, as shown in Figure \@ref(fig:spatial-coding). Elected officials write in more often in opposition than in support of a proposed rule across administrations. In contrast, individuals, organizations, and the mass comments these organizations mobilize overwhelmingly supported rules under President Obama, but mass and individual comments overwhelmingly opposed rules under President Trump. This reflects the partisan asymmetry in mobilizing organizations.  
 
-```{r data-coded-support, out.width= "50%", fig.width=4, fig.height=3.5, fig.cap="Hand-coded Comments By Type and Position on Proposed Rule"}
+```{r data-coded-support, out.width= "70%", fig.width=5, fig.height=3.5, fig.cap="Hand-coded Comments By Type and Position on Proposed Rule"}
 comments_coded %>% 
   mutate(comments = ifelse(comment_type == "Org", 1, comments)) %>%
   group_by(president, comment_type, Position) %>% 
@@ -156,11 +164,11 @@ comments_coded %>%
         axis.ticks = element_blank())
 ```
 
-Most of these comments belong to lobbying coalitions and are thus not independent observations. When Friends of Earth and the Sierra Club lobbying together on a rule, the success of each depends on the other. Thus, I group comments into coalitions. The hand-coded sample includes `r nrow(coalitions_coded)` "coalitions," `r coalitions_coded %>% filter(coalition_size == 1) %>% nrow()` of which are single-organization "coalitions" (not coalitions), leaving `r coalitions_coded %>% filter(coalition_size > 1) %>% nrow()` true coalitions of multiple organizations lobbing together. 
+Most of these comments belong to lobbying coalitions and are thus not independent observations. When Friends of Earth and the Sierra Club lobbying together on a rule, the success of each depends on the other. Thus, I group comments into coalitions. The hand-coded sample includes `r nrow(coalitions_coded)` "coalitions," `r coalitions_coded %>% filter(coalition_size == 1) %>% nrow()` of which are single-organization "coalitions" (not coalitions), leaving `r coalitions_coded %>% filter(coalition_size > 1) %>% nrow()` true coalitions of multiple organizations lobbying together. 
 
 
 
-Lobbying coalitions range in size from 2 to `r max(coalitions_coded$coalition_size)` organizations. Figure \@ref(fig:hist-coalitions) shows that this sample is fairly balanced between coalitions that succeed and fail to get the changes they seek in the final rule. `r percent( sum(coalitions_coded$coalition_business_, na.rm = T)/nrow(coalitions_coded) )` are majority business coalitions. `r percent( sum(coalitions_coded$coalition_type == "Public", na.rm = T)/nrow(coalitions_coded) )` are public-interest coalitions. Table \@ref(tab:coalition-types) shows the number of coalitions coded as "public interest" and "private interest" by whether the majority of organizations in the coalition are businesses or non-busisnesses.
+Lobbying coalitions range in size from 2 to `r max(coalitions_coded$coalition_size)` organizations. Figure \@ref(fig:hist-coalitions) shows that this sample is fairly balanced between coalitions that succeed and fail to get the changes they seek in the final rule. `r percent( sum(coalitions_coded$coalition_business_, na.rm = T)/nrow(coalitions_coded) )` are majority business coalitions. `r percent( sum(coalitions_coded$coalition_type == "Public", na.rm = T)/nrow(coalitions_coded) )` are public-interest coalitions. Table \@ref(tab:coalition-types) shows the number of coalitions coded as "public interest" and "private interest" by whether the majority of organizations in the coalition are for-profit businesses and trade associations or non-busisnesses (governments and nonprofits).
 
 
 ```{r coalition-types}
@@ -168,7 +176,7 @@ coalitions_coded %>%
   count(coalition_type, Coalition_business) %>% 
   drop_na() %>%
   pivot_wider(names_from = Coalition_business, values_from = n) %>%
-  kable3(caption = "Types of Coalitions in Hand-Coded Data")
+  kable(caption = "Types of Coalitions in Hand-Coded Data")
 ```
 
 Several coalitions may lobby on the same rule. One coalition's lobbying success is correlated with another coalition's lobbying success to the extent that they are asking for the same or contradicting policy changes. However, by grouping organizations into coalitions, I account for many of the causally-related policy requests (those organizations lobbying on an issue *because* another organization is lobbying on that issue). 
@@ -183,21 +191,27 @@ Table \@ref(tab:data-coalition-comments) shows a sample of coded data, summarize
 ```{r data-coalition-comments}
 coalitions_coded %>% 
   drop_na(coalition_business) %>%
-  filter(coalition_comment != "FALSE") %>% 
+  filter(coalition_comment != "FALSE", nchar(coalition) < 20) %>% 
   distinct()  %>% 
   ungroup() %>% 
   group_by(docket_id) %>% 
   slice_max(coalition_comments, n = 2) %>%
-  dplyr::select(docket_id, coalition, coalition_size, coalition_business, Coalition_business, coalition_type, coalition_comments, coalition_unopposed) %>% 
+  ungroup() %>% 
+  dplyr::select(docket_id, coalition, coalition_size, coalition_business, Coalition_business, coalition_type, coalition_comments, coalition_unopposed) %>%
   distinct() %>% 
+  rename(size = coalition_size,
+         businesses = coalition_business,
+         business = Coalition_business,
+         type = coalition_type,
+         unopposed = coalition_unopposed) %>% 
   kable3(caption = "A Sample of Hand-Coded Data Summarized by Coaltion") 
 ```
 
-#### Comments from legislators
+#### Comments from Legislators
 
-One mechanism by which campaigns may influence policy is by mobilizing members of Congress. Thus, I identify comments submitted by members of Congress and count the number of legislators in each lobbying coalition. Figure \@ref(fig:congress) shows the number of comments from members of Congress received during rulemaking by a sample of federal agencies. Oversight letters are frequently co-signed by multiple members from the Senate, House, or both chambers. 
+One mechanism by which campaigns may influence policy is by mobilizing members of Congress. Thus, I identify comments submitted by members of Congress and count the number of legislators in each lobbying coalition. Table \@ref(fig:congress) shows the number of comments from the most common types of elected officials. Members of the U.S. House and Senate are the most common.  Figure \@ref(fig:congress) shows the number of comments from members of Congress received during rulemaking by a sample of federal agencies. Oversight letters are frequently co-signed by multiple members from the Senate, House, or both chambers. 
 
-```{r congress, fig.cap = "Number of Rulemaking Comments from Members of Congress per Year, 2005-2020", fig.subcap= "Bureau of Ocean Energy Management (BOEM), Consumer Financial Protection Bureau (CFPB), Department of Education (ED), Office of Energy Efficiency and Renewable Energy (EERE), Federal Aviation Administration (FAA), Federal Railroad Administration (FRA), Fish and Wildlife Servicwe (FWS), Department of Health and Human Services (HHS), Office of the Comptroller of the Currency (OCC), Occupational Safety and Health Administration (OSHA), Social Security Adminisration (SSA), US Trade Representative (USTR)", out.width = "100%", fig.height=6}
+```{r congress, fig.cap = "Number of Rulemaking Comments from Members of Congress per Year, 2005-2020 to the Bureau of Ocean Energy Management (BOEM), Consumer Financial Protection Bureau (CFPB), Department of Education (ED), Office of Energy Efficiency and Renewable Energy (EERE), Federal Aviation Administration (FAA), Federal Railroad Administration (FRA), Fish and Wildlife Service (FWS), Department of Health and Human Services (HHS), Office of the Comptroller of the Currency (OCC), Occupational Safety and Health Administration (OSHA), Social Security Administration (SSA), US Trade Representative (USTR)", out.width = "100%", fig.height=4}
 load(here::here("data", "comments_congress.Rdata"))
 
 comments_congress$Year %<>% as.numeric()
@@ -214,7 +228,7 @@ comments_congress %>%
   ggplot() +
   aes(x = Year, y = n, fill = Chamber) + 
   geom_col(position = "stack") + 
-  facet_wrap("agency", scales = "free") + 
+  facet_wrap("agency", scales = "free_y") + 
   labs(x = "" ,
        y = "Number of Rulemaking Comments from Members of Congress") + 
   scale_x_continuous(breaks = breaks) + 
@@ -225,11 +239,12 @@ comments_congress %>%
 # table 
 # elected comments by type
 comments_coded %>% 
-  filter(comment_type == "elected") %>%  
+  filter(comment_type == "Elected") %>%  
   mutate(org_type = str_remove(org_type, "-.*|;.*| .*")) %>%
   count(org_type,  sort =T) %>% 
-  rename(elected_type = org_type) %>%
-  kable3(caption = " ")
+  filter(n > 1) %>% 
+  rename(`Elected Official Type` = org_type) %>%
+  kable3(caption = "Comments from Elected Officials in the Hand-Coded Data")
 ```
 
 #### The Dependent Variable: Lobbying Success
@@ -240,12 +255,12 @@ First, on a sample of rules, I hand-code lobbying success for each organization 
 For each organization, I identify the main overall demand, the top three specific demands, and the corresponding parts of the draft and final rule texts. This does not capture rule changes on which an organization did not comment. 
 
 I then code overall lobbying success and lobbying success on each specific demand for each organization and coalition. Both the overall score and average score across specific demands both fall on the interval from -2 ("significantly different") to 2 ("mostly as requested"). 
-A team of undergraduate research assistants then applied the codebook to all comments likely to be from organizations or elected officials on a random sample of rules. Several rules were double-coded by the whole team. Intercoder reliability was XX. I also double-coded all comments that were part of mass comment campaigns with more than XX comments.
+A team of undergraduate research assistants then applied the codebook to all comments likely to be from organizations or elected officials on a random sample of rules. Several rules were double-coded by the whole team. <!--Intercoder reliability was XX. I also double-coded all comments that were part of mass comment campaigns with more than XX comments.
 
-The codebook and a sample of coded cases are available in appendix sections \@ref(codebook) and  \@ref(cases).
+<!--The codebook and a sample of coded cases are available in appendix sections \@ref(codebook) and  \@ref(cases).-->
 
 
-In the models below, *coalition success* is the mean of hand-coded lobbying success on a five-point scale ({-2, -1, 0, 1, 2}. <!--, recoded to {-1, -.5, 0, .5, 1} for more straightforward model interpretation. --> 
+In the models below, *coalition lobbying success* is the mean of hand-coded lobbying success on a five-point scale, {-2, -1, 0, 1, 2}. <!--, recoded to {-1, -.5, 0, .5, 1} for more straightforward model interpretation. --> 
 
 ```{r}
 #FIXME make figure not depend on this
@@ -267,7 +282,9 @@ To assess the performance of these automated methods (text-reuse and word-freque
 
 The number of supportive comments generated by a public pressure campaign (the main variable of interest) is a tally of all comments mobilized by each organization or coalition that ran a mass-comment campaign on a proposed rule.  Because the marginal impact of additional comments likely diminishes, the number of comments is logged. This includes the main substantive comments submitted by an organization's staff or lawyers. If an organization mobilizes more than 1000 comments or 100 identical comments on a proposed rule, I code that organization, its coalition, and the proposed rule as having a mass comment campaign. Where a broader campaign does not support organizational comments, *log mass comments* takes a value of 0.
 
-```{r coded-coalition-success, fig.cap= "Lobbying Success by Number of Supportive Comments"}
+Figure \@ref(fig:coded-coalition-success) shows the coalitions by the number of mass comments they mobilize and their level of lobbying success (ranging from total success to total loss). The size of each point represents the size of each coalition, and the color indicates whether the coalition is led by private or public interest groups. 
+
+```{r coded-coalition-success, fig.height=3, fig.width=5, fig.cap= "Lobbying Success by Number of Supportive Comments"}
 d %>% 
   group_by(coalition_comment, coalition_type, success) %>%
   mutate(agency = str_remove(docket_id, "-.*"),
@@ -293,17 +310,16 @@ This approach is significantly different than that employed in previous studies 
 
 The second major difference between my approach and previous research is that I do not compare policymakers' responses to sophisticated comments to policymakers' responses to mass comments. Rather, I *attribute* mass comments to organizations and coalitions that also submit sophisticated technical comments. The set of comparisons one makes is critical to any study of responsiveness or policy influence. Researchers may reach different conclusions if they compare different things. Consider a study comparing how agencies respond to Sierra Club form letters to how they respond to the Sierra Club's sophisticated comments. Now consider a study that compares responsiveness to the Sierra Club's sophisticated comments between rules where they did and did not run a mass comment campaign. A study comparing the average influence of form-letter comments to the average influence of sophisticated comments is very different from a study that compares the influence of two sets of sophisticated comments with different *levels* of public pressure behind them. By measuring comments per coalition, both through hand-coding and text reuse, I capture different levels of public pressure than we would see if we were to look only at comments per organization. 
 
-#### Explanatory variables
+#### Other predictor variables
 
-Other predictors of lobbying success in the models below are the length of the (lead) organization's comment, whether the coalition lobbies unopposed, the size of the lobbying coalition, and whether the coalition is business-led. 
-
-*Comment length* is normalized by dividing the number of words in the comment by the number of words in the proposed rule, thus capturing the complexity of the comment relative to the complexity of the proposed rule. 
-
-The number and type(s) of organization(s) is an attribute of each coalition (e.g., a *business-led* coalition with *N* organizational members). *Coalition size* (a count) is the number of organizations lobbying together on the rule, i.e., the number of distinct commenting organizations in each coalition. For organizations lobbying alone, coalition *coalition size* is 1. 
-
+Other predictors of lobbying success in the models below include <!-- the length of the (lead) organization's comment,--> whether the coalition is lobbying unopposed, the size of the lobbying coalition, and whether the coalition is majority businesses and trade associations. 
+<!--
+*Comment length* is normalized by dividing the number of words in the comment by the number of words in the proposed rule, thus capturing the complexity of the comment relative to the complexity of the proposed rule.
+-->
+The number and type(s) of organization(s) is an attribute of each coalition (e.g., a *business* coalition with *N* organizational members). *Coalition size* (a count) is the number of organizations lobbying together on the rule, i.e., the number of distinct commenting organizations in each coalition. For organizations lobbying alone, coalition *coalition size* is 1. *Coalition* is an indicator variable for whether the organization is lobbying in a coalition. It takes a value of 0 when *coalition size* is 1 and 1 otherwise.
 A coalition is *unopposed* when no opposing organizations comment. This is only for the hand-coded sample where we have coded the spatial position of each comment. 
 
-I code a coalition as *business-led* if the majority of commenting organizations are for-profit businesses, or if upon investigation, I find it to be primarily led or sponsored by for-profit businesses.^[For more on how I identify types of organizations and coalitions, see \@ref(whymail-methods)]  *Business coalition* is binomial.
+I code a coalition as a *business* coalition if the majority of commenting organizations are for-profit businesses and trade associations.^[For more on how I identify types of organizations and coalitions, see \@ref(why-methods)]  *Business coalition* is binomial. Alternternative models in the Appendix use the share of businesses in a coalition instead.
 
 #### Examples of hand-coded lobbying success
 
@@ -320,59 +336,56 @@ A coalition of 15 environmental organizations mobilized over 944,000 comments. O
 
 The final rule moved in the direction requested by NRDC's coalition, but to a lesser extent than requested--what I code as "some desired changes." As NRDC et al. requested, the final rule retained the language protecting tributaries and adjacent waters and added some protections for "other waters" like prairie potholes and vernal pools.  EPA did not alter the exemptions for ditches and waste treatment systems. 
 
+<!-- TODO
 Comparing the draft and final with text reuse allows us to count the number of words that belong to 10-word phrases that appear in both the draft and final, those that appear only in the draft, and those that appear only in the final. For the 2015 Waters Of The U.S. rule, 15 thousand words were deleted, 37 thousand words were added, and 22 thousand words were kept the same. This means that more words "changed" than remained the same. Specifically, 69% of words appearing in the draft or final were either deleted or added.
+-->
 
-For this coalition, the dependent variable, *coalitions success* is 1, *coalition size* is 15, *business coalition* is 0, *comment length* is 69/88, `r round(69/88,2)`, and *log mass comments* is log(943,931), `r round(log(943931), 2)`.
+For this coalition, the dependent variable, *coalitions success* is 1, *coalition size* is 15, *business coalition* is 0, <!--*comment length* is 69/88, `r round(69/88,2)`,--> *pressure campaign* is 1, and the number of *mass comments* is 943,931.
 
 **2009 Fine Particle National Ambient Air Quality Standards:** In 2008, the EPA proposed a rule expanding air quality protections. Because measuring small particles of air pollution was once difficult, large particulates were allowed as a surrogate measure for fine particles under the EPA's 1977 PM10 Surrogate Policy. EPA proposed eliminating this policy, requiring regulated entities and state regulators to measure and enforce limits on much finer particles of air pollution. 
 
-EPA received 163 comments on the rule, 129 from businesses, business associations such as the American Petroleum Institute and The Chamber of Commerce, and state regulators that opposed the rule. Most of these were short and cited their support for the 63-page comment from the PM Group, "an ad hoc group of industry trade associations" that opposed the regulation of fine particulate matter. Six state regulators, including Oregon's, only requested delayed implication of the rule until the next revised their State Implementation Plans (SIPs) for Prevention of Significant Deterioration (PSD). EarthJustice supported the rule but opposed the idea that the cost of measuring fine particles should be a consideration. On behalf of the Sierra Club, the Clean Air Task Force, EarthJustice commented: "We support EPA’s proposal to get rid of the policy but reject the line of questioning as to the benefits and costs associated with ending a policy that is illegal." The EarthJustice-led coalition also opposed delaying implementation: "EPA must immediately end any use of the Surrogate Policy – either by "grandfathered" sources or sources in states with SIP‐approved PSD programs – and may not consider whether some flexibility or transition is warranted by policy considerations."
+EPA received 163 comments on the rule, 129 from businesses, business associations such as the American Petroleum Institute and The Chamber of Commerce, and state regulators that opposed the rule. Most of these were short and cited their support for the 63-page comment from the PM Group, "an ad hoc group of industry trade associations" that opposed the regulation of fine particulate matter. Six state regulators, including Oregon's, only requested delayed implication of the rule until the next revised their State Implementation Plans (SIPs) for Prevention of Significant Deterioration (PSD). EarthJustice supported the rule but opposed the idea that the cost of measuring fine particles should be a consideration. On behalf of the Sierra Club, the Clean Air Task Force, EarthJustice commented: "We support EPA’s proposal to get rid of the policy but reject the line of questioning as to the benefits and costs associated with ending a policy that is illegal." The EarthJustice-led coalition also opposed delaying implementation: "EPA must immediately end any use of the Surrogate Policy --- either by "grandfathered" sources or sources in states with SIP‐approved PSD programs --- and may not consider whether some flexibility or transition is warranted by policy considerations."
 
 The final rule did eliminate the Surrate Policy but allowed states to delay implementation and enforcement until the next scheduled revision of their Implementation Plans. I code this as the EarthJustice coalition getting most of what they requested, but not a complete loss for the regulated coalition.
 
-For the PM Group coalition, the dependent variable, *coalitions success* is -1, *coalition size* is 129, *business coalition* is 1, *comment length* is 63/85, `r round(63/85, 2)`, and *log mass comments* is 0.
+For the PM Group coalition, the dependent variable, *coalitions success* is -1, *coalition size* is 129, *business coalition* is 1, *comment length* is 63/85, `r round(63/85, 2)`, *pressure campaign* is 0, and the number of *mass comments* is 0.
+For the State of Oregon's coalition, the dependent variable, *coalitions success* is 2, *coalition size* is 6, *business coalition* is 0, *comment length* is 5/85, `r round(5/85, 2)`, *pressure campaign* is 0, and the number of *mass comments* is 0.
+For the EarthJustice coalition, the dependent variable, *coalitions success* is 1, *coalition size* is 3, *business coalition* is 0, *comment length* is 7/85, `r round(7/85, 2)`, *pressure campaign* is 0, and the number of *mass comments* is 0.
 
-For the State of Oregon's coalition, the dependent variable, *coalitions success* is 2, *coalition size* is 6, *business coalition* is 0, *comment length* is 5/85, `r round(5/85, 2)`, and *log mass comments* is 0.
-
-For the EarthJustice coalition, the dependent variable, *coalitions success* is 1, *coalition size* is 3, *business coalition* is 0, *comment length* is 7/85, `r round(7/85, 2)`, and *log mass comments* is 0.
-
-
-
-
-
+Figure \@ref(fig:hist-coalitions) shows the distribution of values for coalition-level variables in the hand-coded data.
 
 ```{r hist-coalitions, fig.width=2, fig.height=2,  out.width = "30%", fig.cap="Hand-coded Data by Coalition", cache=FALSE}
-ggplot(d, aes(x = coalition_success)) + 
+ggplot(comments_coded, aes(x = coalition_success)) + 
   geom_histogram() + 
-  labs(x = "Coalition Success")
+  labs(x = "Coalition Success",
+       y = "Number of Coalitions")
 
-ggplot(d) + 
+ggplot(comments_coded) + 
   aes(x = as.numeric(coalition_business)) + 
   geom_histogram() + 
-  labs(x = "Business Coalition")
+  labs(x = "Business Coalition",
+       y = "Number of Coalitions")
 
-ggplot(d, aes(x = coalition_size)) + 
+ggplot(coalitions_coded, aes(x = coalition_size)) + 
   geom_histogram() + 
-  labs(x = "Coalition size")
+  labs(x = "Coalition size",
+       y = "Number of Coalitions")
 
 ```
 
 ```{r hist-comments,  fig.width=3, fig.height=2, out.width = "49%", fig.cap="Number of Comments Linked to Hand-Coded Coalitions", cache=FALSE}
 #TODO
-#ggplot(d, aes( x= comment_length)) + geom_histogram()+ labs(x = "% (Comment length/proposed rule length)*100")
+#ggplot(coalitions_coded, aes( x= comment_length)) + geom_histogram()+ labs(x = "% (Comment length/proposed rule length)*100")
 
-ggplot(d, aes( x= log(comments))) + 
+ggplot(coalitions_coded, aes( x= log(comments))) + 
   geom_histogram() + 
-  labs(x = "Log(comments)")
+  labs(x = "Log(Mass Comments)",
+       y = "Number of Coalitions")
 
-```
-
-```{r hist-congress,  fig.width=3, fig.height=2, out.width = "49%", fig.cap="Number of Comments from Members of Congress Linked to Hand-Coded Coalitions"}
-#TODO
-#ggplot(d, aes( x= comment_length)) + geom_histogram()+ labs(x = "% (Comment length/proposed rule length)*100")
-ggplot(d, aes( x= coalition_congress)) + 
+ggplot(coalitions_coded, aes( x= coalition_congress)) + 
   geom_histogram() + 
-  labs(x = "Comments from Members of Congress")
+  labs(x = "Comments from Members of Congress",
+       y = "Number of Coalitions")
 ```
 
 <!--

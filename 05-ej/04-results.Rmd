@@ -1,4 +1,4 @@
-## Results
+## Results {#influence-results}
 
 ### Are final rules more likely to address environmental justice after comments do so?
 
@@ -48,15 +48,15 @@ load(here::here("05-ej", "ej_models.Rdata"))
 #equatiomatic::extract_eq(m_PR)
 ```
 
-```{r ej-tables, eval=TRUE}
+```{r ej-tables, eval=FALSE}
 modelsummary::modelsummary( models, 
                             title = 'Logit Regression Predicting Change in Rule Text',
                             stars = TRUE, 
                             coef_map = cm,
                             add_rows = rows,
                             notes = "") %>% 
-  row_spec(row = 1, #bold = T, 
-           hline_after = TRUE) %>% kable2(file = "ej-tables") #%>% kable_styling(latex_options = c(scale_down = TRUE)) 
+  #row_spec(row = 1, hline_after = TRUE) %>% #kable2(file = "ej-tables") #%>% 
+  kable_styling(latex_options = c(scale_down = TRUE)) 
 ```
 
 
@@ -115,7 +115,7 @@ Research agencies, including the Nuclear Regulatory Commission (NRC), National O
 ### Are rules more likely to change how they address environmental justice when comments mention it?
 
 Turning to rules that do address EJ in the draft, we also see responsiveness to comments raising EJ concerns, now measured as whether any sentences containing "environmental justice" changed between draft and final rule.
-Models 3 and 4 in Table \@ref(tab:tables) are the same as Models 1 and 2, except that the dependent variable is now whether any sentences mentioning EJ changed between the draft and final rule.
+Models 3 and 4 in Table \@ref(tab:ej-tables) are the same as Models 1 and 2, except that the dependent variable is now whether any sentences mentioning EJ changed between the draft and final rule.
 
 
 <!-- WINRATE CHANGE 

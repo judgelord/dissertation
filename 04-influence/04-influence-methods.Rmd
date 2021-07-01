@@ -1,70 +1,82 @@
-### Methods 
+### Methods {#influence-methods}
 
-The most direct way to assess the hypothesis that mass engagement increases lobbying success is to assess the relationship between the number of comments that a coalition mobilizes and its lobbying success. However, public pressure campaigns may only be effective under certain conditions. Thus, I first assess the main relationship and then assess evidence for or against different potential causal pathways of influence. The main indirect pathway by which campaigns may influence agency policymaking is through engaging members of Congress. Finally, is use a difference-in-difference design to assess variation in success *within* organzations lobbying that lobby on multiple rules.
+The most direct way to assess the hypothesis that mass engagement increases lobbying success is to assess the relationship between the number of comments that a coalition mobilizes and its lobbying success. The dependent variable for most analysis is the organization or coalition's lobbying success, hand-coded on the interval between 2 (total success; the policy changed as requested) to -2 (total loss; the policy changed in the opposite direction requested).  However, public pressure campaigns may only be effective under certain conditions. Specifically, pressure campaigns may help some types of coalitions more than others. Thus, I assess both the main relationship between pressure campaigns and lobbying success and the interaction between campaigns and coalition type. I then assess evidence for or against different potential causal pathways of influence. The main indirect pathway by which campaigns may influence agency policymaking is through engaging members of Congress. 
 
-### Modeling the Direct Relationship Between Public Pressure and Lobbying Success
+These data have a hierarchical structure. Comment-level observations are nested within an organization, within a coalition, within a rule, within an agency, and an administration. I use a combination of fixed and random effects to account for dependence among observations at higher levels of analysis. The main models use data rolled up to the coalition level. Coalitions range from 1 to over 200 organizations in size and may include anywhere from 1 to over a million comments. Finally, I use a difference-in-difference design to assess variation in success *within* organizations lobbying that lobby on multiple rules.
 
-I assess the relationship between lobbying success and the scale of public pressure it mobilizes by modeling the success of coalition $i$, $y_i$, as a function of the number of mass comments supporting that coalition, $commnets_i$. All models use either the logged number of comments or include a quadradic term to account for the different marginal effect of additional public comments for smaller and larger campaigns. The main specifications include president and agency fixed effects and control for <!-- of the relative length of the (lead) organizations comment, --> 
-whether the coalition is lobbying unopposed, the coalition's size (the number of distinct organizations and elected officials), and the type of coalition (e.g. whether it is a business-led coalition or a public-interest coalition) and include agency fixed effects. I estimate these relationships using OLS regression. <!--I also estimate hand-coded lobbying success with beta regression and ordered logit, which is more appropriate but less interpretable. For the automated measures of lobbying success, I estimate beta regression models with the same variables.-->
+#### Modeling Coalition-level Lobbying Success
 
+##### Modeling the Direct Relationship Between Public Pressure and Lobbying Success
 
+The dependent variable, $Y$, is the lobbying success of each coalition. I assess the relationship between lobbying success and the scale of public pressure it mobilizes by modeling the success of coalition $i$ lobbying a rule $j$ published by an agency $k$ under a president $p$. Each coalition is unique to a rule; each rule is unique to an agency (I assigned joint rules to the lead agency only) and presidential administration. I thus use the simpler notation $y_i$ rather than the equivalent, more specific notation $y_{ijkp}$. 
+
+The main variable of interest is the total number of form-letter public comments that a lobbying coalition mobilized.
+The base model (Equation \@ref(eq:success)) uses an indicator for whether coalition $i$ used a public pressure campaign, i.e., mobilized mass comments (by definition, more than 99 mass comments). $\beta_1$ estimates the difference in lobbying success when coalition $i$ uses a pressure campaign compared to when it does not. Other models use either the logged number of comments or a quadradic term to account for the different marginal effects of additional public comments for smaller and larger campaigns. 
 
 
 \begin{equation} 
-y_{ijp} = \beta_1 log(comments_{ijp}) + \beta_3 unopposed_{ijp} + \beta_4 size_{ijp} + \beta_5 business_{ijp} +  \alpha_j + \gamma_p + \epsilon_{ijp} (\#eq:success)
+Y_{i} = \beta_1 \textbf{Pressure campaign}_{i} + \beta_{2:n} X_i +  \gamma_j + \delta_p + \epsilon_{i} (\#eq:success)
 \end{equation} 
 
 
-
-Comment-level observations are nested within an organization, within a coalition, within a rule, within an agency, within an administration. I use a combination of fixed and random effects to account for dependence among observations at higher levels of analysis. The main models use data at the organization level and rolled up to the coalition level (coalitions range from 1 to 200 organizations in size).
-
-The dependent variable for most analysis is the organization or coalition's lobbying success, hand-coded on the interval between 2 (total success; the policy changed as requested) to -2 (total loss; the policy changed in the opposite direction requested). 
-
-The main variable of interest is the total number of form-letter public comments that a lobbying coalition generated. 
-
-I assess the relationship between lobbying success and public pressure by modeling coalition $i$'s lobbying success in a rulemaking $j$, $y_{ij}$ as a combination of
-<!--the relative length of the (lead) organizations comment,--> 
-the coalition's size, and the number of mass comments (logged in some specifications), the type of coalition (e.g. a business or public interest coalition), whether the coalition supported the proposed rule, and whether the coalition lobbied unopposed. I estimate these relationships using OLS regression. Other estimators yield similar results. <!--I also estimate hand-coded lobbying success with beta regression and ordered logit, which is more appropriate but less interpretable. For the automated measures of lobbying success, I estimate beta regression models with the same variables.-->
+The base models include agency and president fixed effects ($ \alpha_k + \gamma_p$) and control for other coalition-level factors that may affect a coalition's lobbying success, $X_i$. Controls include <!-- of the relative length of the (lead) organizations comment, -->
+whether the coalition is lobbying unopposed, the coalition's size (the number of distinct organizations and elected officials), and the type of coalition (e.g., whether it is a business coalition or a public-interest coalition) and include agency fixed effects. I estimate these relationships using OLS regression. <!--I also estimate hand-coded lobbying success with beta regression and ordered logit, which is more appropriate but less interpretable. For the automated measures of lobbying success, I estimate beta regression models with the same variables.-->
 
 
+##### Modeling Congressional Support as a Mediator of Lobbying Success
+
+To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME) and the proportion of the total effect attributed to mediation through congressional support (comments or other communication from Members of Congress supporting the coalition's position on the proposed rule). As developed by Imai et al. (2010), this involves first estimating a model of the potential mediator as a combination of the main predictor, public pressure, and covariates, $X_i$.
+
+<!--
+The bold arrow in figure \@ref(fig:causal-oversight) indicates the key relationship
+that I test in this step:-->
+
+The mediator model (Equation \@ref(eq:mediator)) estimates the relationship between the scale of public pressure and the number of comments from members of Congress, who may
+receive political information (e.g., about the level of public attention or public opinion) from public pressure campaigns.
 
 
-
-y_{ijp} = \beta_0 + \beta_1 log(comments_{ijp}) + \beta_{2:n} X_{ijp} +  \alpha_j + \gamma_p + \epsilon_{ijp} (\#eq:successFE)
+\begin{equation}
+\textbf{Congressional Support}_{i} = \beta_0 + \beta_1 \textbf{Pressure Campaign}_{i}) + \beta_{2-n} X_{i} + \gamma_k + \delta_p + \epsilon_{i} (\#eq:mediator)
 \end{equation}
+
+The outcome model (Equation \@ref(eq:outcome)) is the same as Equation \@ref(eq:success), except that it now includes the number of supportive comments from members of Congress as a predictor. $y_i$ is Lobbying success of coalition $i$ on rule published by agency $k$ under president $p$, Pressure Campaign$_{i}$ is whether the coalition organized a pressure campaign, Congressional Support$_{i}$ is the number of members of Congress supporting the coalition, and $X_{i}$ are other coalition-level predictors of lobbying success.
 
 \begin{equation} 
-Y_{ij} = \boldsymbol{\beta}_1 \textbf{log(Comments)}_{ij} + {\beta}_2\text{Size}_{ij} + {\beta}_3\text{Unopposed}_{ij}  + {\beta}_3\text{Coalition Type}_{ij} + \epsilon_{ij}
-\end{equation}
-
-
-
-
-### Modeling Congressional Support as a Mediator of Lobbying Success
-
-To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME) and the proportion of the total effect attributed to mediation through congressional support (comments or other communication from Members of Congress supporting the coalition's position on the proposed rule). As developed by Imai et al. (2010), this involves first estimating a model of the potential mediator as a combination of covariates, $X$ (*length*, *unopposed*, *size*, and *business*) and then the outcome as a combination of the mediator, *congressional support*, and covariates, $X$.
-
-The bold arrow in figure \@ref(fig:causal-oversight) indicates the key relationship
-that I test in this step: the relationship between the scale of
-public engagement and engagement from members of Congress, who may
-receive political information (e.g., about the level of public attention or public opinion) from public pressure campaigns and the resulting mass commenting.
-
-```{r causal-oversight, fig.cap = "The Mediator Model: The Relationship Between Public Pressure and Congressional Oversight"}
-#TODO add headers, cut out demands, add political information box, shift principal comments over
-#TODO add outcome model
-knitr::include_graphics(here::here("figs", "causal-oversight-1.png"))
-```
-
-Mediator model \@ref(eq:mediator):
-
-\begin{equation}
-\text{Congressional support}_{ij} = \beta_0 + \beta_1 log(\text{Pressure Campaign}_{ij}) + \beta_{2-n} X_{ij} + \gamma_k + \delta_p + \epsilon_{ij} (\#eq:mediator)
-\end{equation}
-
-The outcome model (Equasion \@ref(eq:outcome)) is the same as Equasion \@ref(eq:success), except that it now includes the number of supportive comments from members of Congress as a predictor. $y_i$ is Lobbying success of coalition $i$ on rule $j$ published by agency $k$ under president $p$, Pressure Campaign$_{ijk}$ is whether the coalition organized a pressure campaign, Congressional Support$_{ikj}$ is the number of members of Congress supporting the coalition, and $X_{ijk}$ are other coalition-level predictors of lobbying success.
-
-\begin{equation}
-Y_{ijk} = \beta_0 + \beta_1 \text{Pressure Campaign}_{ijk} + \beta_2 \text{Congressional Support}_{ijk} \beta_{2-n} X_{ijk} + \gamma_k + \delta_p + \epsilon_{ijk} (\#eq:outcome)
-\end{equation}
+Y_{i} = \beta_1 \textbf{Pressure campaign}_{i} + \beta_2 \textbf{Congressional Support}_{i} + \beta_{3:n} X_i +  \gamma_j + \delta_p + \epsilon_{i} (\#eq:outcome)
+\end{equation} 
 
 The next section presents results from estimating the above models using the hand-coded data. 
+
+
+#### Difference in Differences in Organization-level Lobbying Success
+
+While it would not be appropriate to compare the lobbying success of organizations *within* a rulemaking (because many organizations belong to the same coalition), we can compare the lobbying success *within* the same organization *across* rules. This limits the analysis to organizations that lobbying on multiple policies. The key variation of interest is when organizations lobby with a large amount of public support versus when they do not.
+
+
+There is still a (lesser) problem with the i.i.d. assumption here because two organizations lobbying in a coalition on one rule may mobilize each other to lobby in coalition in a different rule (in my data, lobbying coalitions are at the policy-level, since they differ from policy to policy). 
+
+
+
+
+At the organization level, the appropriate analysis is a difference-in-difference design. We know the success of each organization when it does and does not participate in a lobbying coalition that mobilizes public pressure (at least each organization that I can use for this analysis). The difference within an organization is now the key variation.  
+
+\begin{equation}
+Y_{ij} =  \alpha_i + \beta_1 \textbf{Pressure Campaign}_{i}) + \beta_{2-n} X_{ij} + \gamma_k + \delta_p + \epsilon_{i}
+(\#eq:dnd)
+\end{equation}
+<!--+ {\beta}_5\text{Coalition Type}_{ij} +{\beta}_6\text{Coalition Type}_{ij}*\text{President}_{j} -->
+
+Equation \@ref(eq:dnd) is similar to the model of coalition-level success except that  $y_{ij}$ is now the lobbying success of *organization* $i$ in coalition $j$ and $X_ij$ is now a vector of organization- and coalition-level controls.  Additionally, Equation \@ref(eq:dnd) adds  $\alpha_{i}$, a fixed effect for
+each organization. This fixed effect accounts for the organization's
+characteristics that do not vary over time as it lobbies on multiple rules. This difference-in-difference design ensures that
+coefficient $\boldsymbol{\beta}_1$ captures variation related to changes
+in levels of public pressure and other factors that vary within each organization, not other factors that may vary
+across organizations. <!--The model also accounts for
+the different periods for which data were available from each agency.
+$\delta_{jt}$ is an agency-year fixed effect, takes into account
+agency-level common shocks across commenters in responsiveness to comment.-->
+
+
+${\beta}_{2:n}$ captures estimates the effects of other factors that may affect an organization's lobbying success, including coalition size, the difference in the success of organization $i$ when they support proposed policy $j$ rather than oppose it. ${President}_{j}$ is a dummy for whether policy $j$ was proposed by President Trump or Bush rather than President Obama's administration.
+
+Assuming that organizations have parallel trends in their level of success given a level of support, $\boldsymbol{\beta}$ represents the average effect of changing levels of public pressure on an organization's lobbying success.

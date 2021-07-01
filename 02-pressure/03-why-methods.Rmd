@@ -263,7 +263,9 @@ ggplot() +
 
     labs(color = "",
          shape = "",
-         subtitle = TeX("Coding the Position ($p$) of Commenter $i$ on Proposed Policy $x_2$ Given Existing Policy $x_1$")) +
+         title = "Spatial Positions of Public Comments",
+         subtitle = TeX("Coding the Position ($p$) of Commenter $i$ on Proposed Policy $x_2$ Given Existing Policy $x_1$")
+         ) +
   scale_color_discrete()# + 
     #coding scheme
     #geom_text(aes(label = code, x = position, color = label), vjust = 1.5) + 
