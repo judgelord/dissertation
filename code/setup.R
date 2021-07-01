@@ -86,7 +86,7 @@ kable2 <- function(x, file){
 library(flextable)
 
 # A function to trim and format tables for different outputs 
-kable3 <- function(x, caption = ""){
+kable3 <- function(x, caption = "", latex_options = "repeat_header"){
   if(knitr:::is_html_output()) {
     x %>% 
       ungroup() %>% 
@@ -100,7 +100,7 @@ kable3 <- function(x, caption = ""){
         ungroup() %>% 
         slice_head(n = 20) %>%
         knitr::kable(caption = caption) %>% 
-        kable_styling(font_size = 10)
+        kable_styling(font_size = 10, latex_options = latex_options)
     } else{x %>% 
         ungroup() %>% 
         slice_head(n = 20) %>%
@@ -123,8 +123,8 @@ fig.path <- here("figs")
 
 ## Sets defaults for R chunks
 knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that code will show
-                      #cache = FALSE,
-                      cache = TRUE,
+                      cache = FALSE,
+                      #cache = TRUE,
                       warning = FALSE,
                       message = FALSE,
                       fig.show="hold",
