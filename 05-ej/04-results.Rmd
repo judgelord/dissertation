@@ -48,7 +48,7 @@ load(here::here("05-ej", "ej_models.Rdata"))
 #equatiomatic::extract_eq(m_PR)
 ```
 
-```{r ej-tables, eval=FALSE}
+```{r ej-tables}
 modelsummary::modelsummary( models, 
                             title = 'Logit Regression Predicting Change in Rule Text',
                             stars = TRUE, 

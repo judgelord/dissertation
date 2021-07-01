@@ -230,45 +230,40 @@ To assess whether organizations and their broader coalitions lobby in opposition
 
 
 
-```{r spatial-coding, fig.cap= "Coding the Spatial Position of Comments on Proposed Policy Changes", fig.height = 1}
+```{r spatial-coding, fig.cap= "Coding the Spatial Position of Comments on Proposed Policy Changes"}
 library(latex2exp)
 
 tibble(x = c(1,2,3,4,5,6, 7),
        position = c(1,2,3.5,4,5,NA, 7),
        code = c(1,2,3,4,5,NA, 6),
        label = c("Oppose","Oppose",  "Support","Support","Support","Support","Oppose")) %>%
-ggplot() + 
+ ggplot() +
     aes(y = 0, yend = 0,  x = x) +
-    geom_point(shape = "|", aes(y = 2, yend = 2)) +
-    geom_segment(x = 0, xend = 8, y = 2, yend = 2, arrow = arrow(ends = "both", type = "closed", length = unit(0.1, "cm"))) + 
-    geom_segment(aes(color = label), x = 0, xend = 8, arrow = arrow(ends = "both", type = "closed", length = unit(0.1, "cm"))) + 
-    geom_line(aes(color = label)) +
-    annotate("text", x=2, y=2.5, label=TeX("$x_1$"), parse=TRUE) +
-    annotate("text", x=2, y= .5, label=TeX("$p_i = x_1$"), parse=TRUE) +
-    annotate("text", x=4, y=2.5, label=TeX("$x_2$"), parse=TRUE) +
-    annotate("text", x=4, y= .5, label=TeX("$p_i = x_2$"), parse=TRUE) +
-    annotate("text", x=7, y=2.5, label=TeX("$x_3$"), parse=TRUE) +
-    annotate("text", x=7, y= .5, label=TeX("$p_i = x_3$"), parse=TRUE) +
-  geom_point(x = 2, y = 2) +
-     geom_point(x = 4, y = 2) +
-  geom_point(x = 7, y = 2, shape = 21) +
-    geom_point(x = 2, aes(color = label)) +
-    geom_point(x = 4, aes(color = label[4])) +
-  geom_point(x = 7, aes(color = label)) +
-    geom_point(x = 3, fill = "white", color = "white") + #, shape = 21) +
-     geom_point(x = 6, fill = "white", color = "white") + #, shape = 21) +
-    scale_x_continuous(limits = c(-1,8))+
-    scale_y_continuous(limits = c(-2,3))+
-    theme_void() +
-
-    labs(color = "",
-         shape = "",
-         title = "Spatial Positions of Public Comments",
-         subtitle = TeX("Coding the Position ($p$) of Commenter $i$ on Proposed Policy $x_2$ Given Existing Policy $x_1$")
-         ) +
-  scale_color_discrete()# + 
-    #coding scheme
-    #geom_text(aes(label = code, x = position, color = label), vjust = 1.5) + 
+  geom_point(shape = "|", aes(y = 2)) +
+    geom_segment(x = 0, xend = 8, y = 2, yend = 2, arrow = arrow(ends = "both", type = "closed", length = unit(0.1, "cm"))) +
+    geom_segment(aes(color = label), x = 0, xend = 8, arrow = arrow(ends = "both", type = "closed", length = unit(0.1, "cm"))) +
+   geom_line(aes(color = label)) +
+annotate("text", x=2, y=2.5, label=TeX("$x_1$"), parse=TRUE) +
+annotate("text", x=2, y= .5, label=TeX("$p_i = x_1$"), parse=TRUE) +
+annotate("text", x=4, y=2.5, label=TeX("$x_2$"), parse=TRUE) +
+annotate("text", x=4, y= .5, label=TeX("$p_i = x_2$"), parse=TRUE) +
+annotate("text", x=7, y=2.5, label=TeX("$x_3$"), parse=TRUE) +
+annotate("text", x=7, y= .5, label=TeX("$p_i = x_3$"), parse=TRUE) +
+geom_point(x = 2, y = 2) +
+   geom_point(x = 4, y = 2) +
+geom_point(x = 7, y = 2, shape = 21) +
+  geom_point(x = 2, aes(color = label)) +
+  geom_point(x = 4, aes(color = label[4])) +
+geom_point(x = 7, aes(color = label)) +
+  geom_point(x = 3, fill = "white", color = "white") + #, shape = 21) +
+   geom_point(x = 6, fill = "white", color = "white") + #, shape = 21) +
+  scale_x_continuous(limits = c(-1,8))+
+  scale_y_continuous(limits = c(-2,3))+
+  theme_void() +
+labs(color = "",
+     #title = "Spatial Positions of Public Comments",
+     subtitle = TeX("Coding the Position (p) of Commenter $i$ on Proposed Policy $x_2$ Given Existing Policy $x_1$"),
+     shape = "")
 ```
 
 Having identified the coalition lobbying on each proposed rule and the position of each organization, I assign the position of each coalition as the position of the lead organization. For robustness, I also calculate the coalition's average position as the average position of its members. Coalition members usually have nearly identical positions, but occasionally, some take more extreme positions than others. For example, while all coalition members may have the same policy demands, some may ask for additional changes. I consider diverging interests to be one coalition only if the asks are entirely compatible with the position of organizations that did not ask for them. Incompatible policy demands indicate different coalitions.

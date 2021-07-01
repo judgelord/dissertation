@@ -16,6 +16,7 @@ requires <- c("bookdown",
               "flextable",
               "magick",
               "equatiomatic", 
+              "latex2exp",
               "tidytext",
               "latex2exp")
 to_install <- c(requires %in% rownames(installed.packages()) == FALSE)
@@ -134,7 +135,7 @@ knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that code will show
                       fig.retina = 6,
                       fig.height = 3,
                       fig.width = 7,
-                      # out.width = "100%",
+                      out.width = "100%",
                       out.extra = "")
 
 options(stringsAsFactors = FALSE)

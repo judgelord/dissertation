@@ -94,7 +94,7 @@ Using commenter requests to identify the dimensions of the conflict has benefits
 
 Other approaches to identifying the commenter's relationship with policy changes have different strengths and weaknesses. For example, one could measure success by the number of times a comment is mentioned in the agency's response to comments. However, this measure may be affected by strategic responsiveness by agencies choosing to discuss some issues more than others. It also counts explicit rejections toward the measure of responsiveness. One could also measure success by focusing on a-priory potential aspects of the policy. @Balla2020 count five factors: (1) the number of regulated entities, (2) number of activities or substances being regulated, (3) the level of pollution standards, (4) the compliance and effective deadlines of the regulation, and (5) the monitoring and reporting requirements. Each takes one value (increasing or decreasing), and each is weighted equally in the analysis. In contrast, starting with comments allows commenters to highlight the issues they care most about.
 
-The hand-coded sample includes `r nrow(comments_coded)` hand-coded documents representing over `r sum(comments_coded$comments)/1000000 %>% round(1)` million comments. on `r nrow(comments_coded %>% distinct(docket_id, president))` rules from `r nrow(comments_coded %>% distinct(agency, president))` agencies, several times larger than leading studies using hand-coding. Unlikely previous research, my sampling approach includes rules with very large and small numbers of comments that previous studies exclude. Table \@ref(tab:data-org-comments) shows a sample of the hand-coded data. 
+
 
 ```{r data-org-comments}
 comments_coded %<>%   
@@ -105,7 +105,8 @@ comments_coded %>% ungroup() %>%
   filter(coalition_size>1, 
          nchar(coalition) < 15, 
          nchar(org_name) < 15) %>% 
-  dplyr::select(document_id, comment_type , org_name, org_type, Position, success, coalition) %>% 
+  dplyr::select(document_id, comment_type , org_name, #org_type,
+                Position, success, coalition) %>% 
   mutate(coalition = coalition %>% str_to_upper() ) %>% 
   group_by(coalition) %>% 
   slice_head(n = 2) %>%
@@ -113,10 +114,6 @@ comments_coded %>% ungroup() %>%
   arrange(coalition) %>% 
   kable3(caption = "A Sample of Organzation-Level Hand-Coded Public Comment Data")
 ```
-
-
-Table \@ref(tab:org-count) shows the organizations that commented on the most rules in the hand-coded sample.
-
 
 ```{r org-count}
 orgs <- comments_coded %>% 
@@ -129,6 +126,7 @@ orgs <- comments_coded %>%
 orgs %>% kable3(caption = "Organizations by Number of Rules on which they Commented")
 ```
 
+The hand-coded sample includes `r nrow(comments_coded)` hand-coded documents representing over `r sum(comments_coded$comments)/1000000 %>% round(1)` million comments. on `r nrow(comments_coded %>% distinct(docket_id, president))` rules from `r nrow(comments_coded %>% distinct(agency, president))` agencies, several times larger than leading studies using hand-coding. Unlikely previous research, my sampling approach includes rules with very large and small numbers of comments that previous studies exclude. Table \@ref(tab:data-org-comments) shows a sample of the hand-coded data. Table \@ref(tab:org-count) shows the organizations that commented on the most rules in this sample.
 `r nrow(orgs)` organizations lobbied on more than one rule in the hand-coded data, some on as many as `r max(orgs$Rules)` rulemaking dockets. 
 
 Table \@ref(tab:data-coded-agencies) shows the number of hand-coded rules, documents, the coalitions and organizations to which those documents belong, and the total number of comments they represent for a sample of agencies. My method of collapsing documents with repeated text to one representative document allows me to reduce the number of documents requiring hand-coding by several orders of magnitude (compare the "Documents" and "Comments" columns). 
@@ -168,8 +166,30 @@ Most of these comments belong to lobbying coalitions and are thus not independen
 
 
 
-Lobbying coalitions range in size from 2 to `r max(coalitions_coded$coalition_size)` organizations. Figure \@ref(fig:hist-coalitions) shows that this sample is fairly balanced between coalitions that succeed and fail to get the changes they seek in the final rule. `r percent( sum(coalitions_coded$coalition_business_, na.rm = T)/nrow(coalitions_coded) )` are majority business coalitions. `r percent( sum(coalitions_coded$coalition_type == "Public", na.rm = T)/nrow(coalitions_coded) )` are public-interest coalitions. Table \@ref(tab:coalition-types) shows the number of coalitions coded as "public interest" and "private interest" by whether the majority of organizations in the coalition are for-profit businesses and trade associations or non-busisnesses (governments and nonprofits).
+Lobbying coalitions range in size from 2 to `r max(coalitions_coded$coalition_size)` organizations. Table \@ref(tab:data-coalition-comments) shows a sample of coded data, summarized at the coalition level.
+ Figure \@ref(fig:hist-coalitions) shows that this sample is fairly balanced between coalitions that succeed and fail to get the changes they seek in the final rule. `r percent( sum(coalitions_coded$coalition_business_, na.rm = T)/nrow(coalitions_coded) )` are majority business coalitions. `r percent( sum(coalitions_coded$coalition_type == "Public", na.rm = T)/nrow(coalitions_coded) )` are public-interest coalitions. Table \@ref(tab:coalition-types) shows the number of coalitions coded as "public interest" and "private interest" by whether the majority of organizations in the coalition are for-profit businesses and trade associations or non-busisnesses (governments and nonprofits).
 
+
+
+```{r data-coalition-comments}
+coalitions_coded %>% 
+  drop_na(coalition_business) %>%
+  filter(coalition_comment != "FALSE", nchar(coalition) < 20) %>% 
+  distinct()  %>% 
+  ungroup() %>% 
+  group_by(docket_id) %>% 
+  slice_max(coalition_comments, n = 2) %>%
+  ungroup() %>% 
+  dplyr::select(docket_id, coalition, coalition_size, coalition_business, Coalition_business, coalition_type, coalition_comments, coalition_unopposed) %>%
+  distinct() %>% 
+  rename(Size = coalition_size,
+         Businesses = coalition_business,
+         Business = Coalition_business,
+         Type = coalition_type,
+         Unopposed = coalition_unopposed,
+         `Mass comments` = coalition_comments) %>% 
+  kable3(caption = "A Sample of Hand-Coded Data Summarized by Coaltion") 
+```
 
 ```{r coalition-types}
 coalitions_coded %>% 
@@ -186,26 +206,6 @@ Several coalitions may lobby on the same rule. One coalition's lobbying success 
 Finally, to better capture positions expressed by Members of Congress on proposed rules, I supplement congressional comments posted on regulations.gov with Freedom of Information Act Requests for all communication from Members of Congress to each agency on proposed rules from 2007 to 2019.^[Many agencies provided records of their congressional correspondence going back to 2005 or earlier.]
 -->
 
-Table \@ref(tab:data-coalition-comments) shows a sample of coded data, summarized at the coalition level.
-
-```{r data-coalition-comments}
-coalitions_coded %>% 
-  drop_na(coalition_business) %>%
-  filter(coalition_comment != "FALSE", nchar(coalition) < 20) %>% 
-  distinct()  %>% 
-  ungroup() %>% 
-  group_by(docket_id) %>% 
-  slice_max(coalition_comments, n = 2) %>%
-  ungroup() %>% 
-  dplyr::select(docket_id, coalition, coalition_size, coalition_business, Coalition_business, coalition_type, coalition_comments, coalition_unopposed) %>%
-  distinct() %>% 
-  rename(size = coalition_size,
-         businesses = coalition_business,
-         business = Coalition_business,
-         type = coalition_type,
-         unopposed = coalition_unopposed) %>% 
-  kable3(caption = "A Sample of Hand-Coded Data Summarized by Coaltion") 
-```
 
 #### Comments from Legislators
 
@@ -284,7 +284,7 @@ The number of supportive comments generated by a public pressure campaign (the m
 
 Figure \@ref(fig:coded-coalition-success) shows the coalitions by the number of mass comments they mobilize and their level of lobbying success (ranging from total success to total loss). The size of each point represents the size of each coalition, and the color indicates whether the coalition is led by private or public interest groups. 
 
-```{r coded-coalition-success, fig.height=3, fig.width=5, fig.cap= "Lobbying Success by Number of Supportive Comments"}
+```{r coded-coalition-success, fig.height=3, fig.width=5.5, fig.cap= "Lobbying Success by Number of Supportive Comments"}
 d %>% 
   group_by(coalition_comment, coalition_type, success) %>%
   mutate(agency = str_remove(docket_id, "-.*"),
@@ -298,7 +298,7 @@ d %>%
   geom_jitter(aes(size = n), alpha = .5) +
   #geom_smooth(se = FALSE) + 
   labs(size = "Coalition Size\n(number of organizations)",
-       color = "Coalition type",
+       color = "Coalition Type",
        x = "Number of Mass Comments per Coalition (log scale)",
        y = "Lobbying Success") + facet_wrap("president") +
   scale_color_discrete()  + 

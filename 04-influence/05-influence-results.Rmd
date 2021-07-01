@@ -1,6 +1,6 @@
 ## Results: Lobbying Success
 
-This section leverages a random sample of agency rules for which I have hand-coded nearly all public comments. Table \@ref(tab:mc-success) presents estimates of the direct relationship between public pressure and lobbying success. \@ref(tab:mediation) presents results of mediation analysis, assessing the support from members of Congress as a mediator for the success of public pressure campaigns. Finally, \@ref(tab:mo-success-dnd) presents estimates of factors affecting within-organization levels of lobbying success using a difference-in-difference design.
+This section leverages a random sample of agency rules for which I have hand-coded nearly all public comments. Table \@ref(tab:mc-success) presents estimates of the direct relationship between public pressure and lobbying success. \@ref(tab:mediation) presents results of mediation analysis, assessing the support from members of Congress as a mediator for the success of public pressure campaigns. Finally, \@ref(tab:mo-success-did) presents estimates of factors affecting within-organization levels of lobbying success using a difference-in-difference design.
 
 ### Coalition-level Lobbying Success
 
@@ -189,7 +189,7 @@ modelsummary::modelsummary( modelsFE,
 
 Table \@ref(tab:mc-success) shows that the main effect $\beta_1$ is `r mc1$coefficients[1] %>% round(2)` (S.E. = `r mc1$se[1] %>% round(2)`) on the five-point scale of lobbying success. Estimates are inconsistant across specifications and not statistically significant. 
 
-The strongest predictor of lobbying success is whether the organization supported the rule. These coalitions had an average success `r `mc1$coefficients[5] %>% round(2)` points greater than those that opposed the rule (S.E. = `r mc1$se[5] %>% round(2)`).  This result reflects a combination of several related dynamics. First, rules often do not change between draft and final. Organizations that support the rule are thus likely to "succeed" when the status quo prevails. Second, organizations that support a proposed rule are necessarily aligned with agency officials' preferred policy direction. If the agency officials change the final rule to go future in their preferred direction, such changes often align with organizations that supported the rule. Finally, by selecting proposed rules that had a final rule rather than being withdrawn, this sample is missing some lobbying success by organizations that requested a proposed rule be withdrawn. 
+The strongest predictor of lobbying success is whether the organization supported the rule. These coalitions had an average success `r mc1$coefficients[5] %>% round(2)` points greater than those that opposed the rule (S.E. = `r mc1$se[5] %>% round(2)`).  This result reflects a combination of several related dynamics. First, rules often do not change between draft and final. Organizations that support the rule are thus likely to "succeed" when the status quo prevails. Second, organizations that support a proposed rule are necessarily aligned with agency officials' preferred policy direction. If the agency officials change the final rule to go future in their preferred direction, such changes often align with organizations that supported the rule. Finally, by selecting proposed rules that had a final rule rather than being withdrawn, this sample is missing some lobbying success by organizations that requested a proposed rule be withdrawn. 
 
 The limited size of this sample means that we lack statistical power to have confidence in the effect of other variables.
 
@@ -321,7 +321,7 @@ mc_congress_pois %>%
 ```
 
 
-The outcome model results are similar to the results of Model 1 in Table \@ref(tab:mc-success). Adding congressional support to the model improves the R-squared and log-likelihood. The number of letters from members of Congress is associated with a $\beta_2$ = `r mc1_congress$coefficients[6] %>% round(2)` point increase in lobbying success (S.E. = `r mc1_congress$se[6] %>% round(2)`)`
+The outcome model results are similar to the results of Model 1 in Table \@ref(tab:mc-success). Adding congressional support to the model improves the R-squared and log-likelihood. The number of letters from members of Congress is associated with a $\beta_2$ = `r mc1_congress$coefficients[6] %>% round(2)` point increase in lobbying success (S.E. = `r mc1_congress$se[6] %>% round(2)`).
 
 
 
@@ -359,15 +359,13 @@ modelsummary(list("Mediation Analysis" = med.cont), stars = T, coef_rename = cm,
 
 For mediation analysis, I use the OLS version of both mediator and outcome models.
 The average effect of a public pressure campaign on lobbying success, conditional on letters from members of Congress (the ACME) is `r round(med.cont$d.avg, 2)` on the 5-point scale, with a p-value of `r round(med.cont$d0.p, 4)`.
-
 The average direct effect (ADE) of a public pressure campaign on lobbying success is `r round(med.cont$z0, 2)`, with a p-value of `r round(med.cont$z0.p, 4)`.
-
 The Total Effect of a public pressure campaign is `r round(med.cont$tau.coef, 2)`, with a p value of `r round(med.cont$tau.p, 2)`. `r round(med.cont$n0, 2)` of this is mediated through mobilizing congressional attention (p-value = `r round(med.cont$n0.p, 2)`).
 
 
 ### Difference in Differences in Organization-level Lobbying Success
 
-Estimates in Table \@ref(tab:mo-success-dnd) show the results of estimating model \@ref(eq:dnd). Because  These results suggest that the organizations were less successful when they mobilized more comments, more successful when they supported the rule, and less successful under president Trump than President Obama. 
+Estimates in Table \@ref(tab:mo-success-did) show the results of estimating model \@ref(eq:dnd). Because  These results suggest that the organizations were less successful when they mobilized more comments, more successful when they supported the rule, and less successful under president Trump than President Obama. 
 
 The negative correlation between lobbying success and the number of mass comments is likely due to campaigns "going down fighting"---not trying to influence policy. The fact that organizations are more likely to get the outcome they seek when they already support the rule makes sense because the agency is more likely to be sympathetic to their requests. The fact that the average organization was less likely to see its desired policy changes under President Trump is likely due to asymmetry in mobilizing organizations, with more organizations on the left than the right in this sample of rules. (Note: this may change in the broader sample.)
 
@@ -394,9 +392,14 @@ models <- list("Lobbying Success" = mo1)
 modelsummary(models, 
              stars = T, 
              coef_rename = cm,
-             title = "Difference-in-Difference Model of Lobbying Success Within Organizations") %>% 
-  kable2(file = "mo-success-did")
+             title = "Difference-in-Difference Model of Lobbying Success Within Organizations") # %>% kable2(file = "mo-success-did")
 ```
 
 
 ## Conclusion {#influence-conclusion}
+
+I find little evidence that public pressure campaigns increase lobbying success. If anything, mass comment campaigns may be associated with lower average levels of lobbying success. There are several possible explanations for this result. First, it could be that many mass comment campaigns are not aimed at influencing policy. Second, agencies may not be persuaded by political information, either because of the institutions for dealing with public input or decisionmakers' biases. Finally, the relatively small sample may simply lack the power to reliably estimate small effects. 
+
+I do find evidence that lobbying coalitions are more successful when they mobilize more members of Congress, but legislators disproportionately align with private interest (e.g., business-led) coalitions, not the public interest coalitions that run most public pressure campaigns.
+
+I do find evidence that lobbying coalitions are more successful when they mobilize more members of Congress, but legislators disproportionately align with private interest (e.g., business-led) coalitions, not the public interest coalitions that run most public pressure campaigns. 
