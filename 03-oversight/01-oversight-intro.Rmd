@@ -104,9 +104,12 @@ credit the public support mobilized by public pressure campaigns with the politi
 
 The fire alarm, beacon, and warning sight mechanisms have a common thread; political oversight is affected by interest group's public pressure campaigns. To the extent that this is strategic, pressure campaigns aim to influence policy indirectly by affecting the behavior of elected officials.
 
-Figure \@ref(fig:causal-oversight) incorporates these insights to the model set out in \@ref(fig:causal-whymail2). Specifically, it considers how elected officials' decisions to engage in agency rulemaking are affected by political information created by public pressure campaigns *and* creates new, additional political information. 
+Figure \@ref(fig:causal-oversight) incorporates these insights to the model set out in \@ref(fig:causal-whymail2). Specifically, it considers how elected officials' decisions to engage in agency rulemaking are affected by political information created by public pressure campaigns *and* create new, additional political information. 
+Figure \@ref(fig:causal-oversight) shows two pathways by which lobbying organizations may cause elected officials to contact agency officials. The upper pathway represents the classic "fire alarm" role that interest groups may play in altering elected officials to oversight opportunities. It also captures the related dynamic where interest groups alert elected officials to opportunities to support agency actions. 
+
 <!-- move to influence eventually -->
-When lobbying organizations use a public pressure strategy, the political information they create (e.g., about the scale and intensity of public support) may affect agency policymakers directly. Perceived level of public support may also affect policy indirectly if it affects the behavior of an agency's political principles. When political principals engage, they create at least two additional kinds of political information. First, they express their opinion on what they think the agency should do, which may have normative power for bureaucrats. Second, principles signal political consequences that agencies may want to avoid [@Potter2017].
+The lower causal pathway represents the additional role that I suggest interest groups play in political oversight by generating political information through public pressure campaigns.
+When lobbying organizations use a public pressure strategy, the political information they create (e.g., about the scale and intensity of public support) may affect agency policymakers directly, as shown in \@ref(fig:causal-whymail2). Additionally, levels of public support may also affect policy indirectly if it affects the behavior of an agency's political principles. When political principals contact agency officials, they create at least two additional kinds of political information. First, they express their opinion on what they think the agency should do, which may have normative power for bureaucrats. Second, principles signal political consequences that agencies may want to avoid [@Potter2017]. Both types of information may persuade agency officials to revise policy documents to address their principals' comments.
 
 ```{r causal-oversight, fig.cap = "Integrating Public Pressure and Congressional Oversight into a Model of Lobbying in Bureaucratic Policymaking"}
 #TODO label "Public Pressure" and "Oversight" portions. 
@@ -122,10 +125,11 @@ important for officials to take popular positions and avoid unpopular
 ones. Thus, when a coalition goes public, especially if it generates a
 perceived consensus in expressed public sentiments, elected officials
 may be more likely to intervene on their behalf and less likely to
-intervene against them. Hypotheses \@ref(hyp:beacon) and \@ref(hyp:warning) set out these intuitions.
+intervene against them. Hypotheses \@ref(hyp:beacon) and \@ref(hyp:warning) reflect these intuitions.
 
 ### Hypotheses about the relationship between mass engagement and oversight {#oversight-hypotheses}
 
+<!--
 It may be the case that both principals and most commenters
 hold the same position simply because it is popular. Thus, to assess the
 "fire-alarm," "beacon," and "warning sign" mechanisms, it is important

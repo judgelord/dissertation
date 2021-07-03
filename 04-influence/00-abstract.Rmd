@@ -4,6 +4,7 @@
 
 #### Abstract {-}
 
+\SingleSpacing
 ```{r child = here::here("04-influence/abstract.txt")}
 ```
-
+\DoubleSpacing

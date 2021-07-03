@@ -1,4 +1,4 @@
-## Results: Lobbying Success
+## Results: Lobbying Success {#influence-results}
 
 This section leverages a random sample of agency rules for which I have hand-coded nearly all public comments. Table \@ref(tab:mc-success) presents estimates of the direct relationship between public pressure and lobbying success. \@ref(tab:mediation) presents results of mediation analysis, assessing the support from members of Congress as a mediator for the success of public pressure campaigns. Finally, \@ref(tab:mo-success-did) presents estimates of factors affecting within-organization levels of lobbying success using a difference-in-difference design.
 
@@ -119,14 +119,14 @@ cm = c("campaign_TRUE" = "Pressure Campaign",
        "campaign_TRUE:presidentBush" = "Pressure Campaign × Bush",
        "campaign_TRUE:coalition_typePublic:presidentObama" = "Pressure Campaign × presidentObama",
        "campaign_TRUE:coalition_business_TRUE" = "Pressure Campaign × Business",
-       "campaign_TRUE:coalition_typePublic" = "Pressure Campaign × Public Interest",
-       "campaign_TRUE:coalition_typePublic:presidentTrump" = "Pressure Campaign × Public Interest × Trump",
-              "log(comments + 1):coalition_typePublic" = "Log(Mass Comments) × Public Interest",
-       "log(comments + 1):coalition_business_TRUE" = "Log(Mass Comments) × Business Coalition",
+       "campaign_TRUE:coalition_typePublic" = "Pressure Campaign × Public",
+       "campaign_TRUE:coalition_typePublic:presidentTrump" = "Pressure Campaign × Public × Trump",
+              "log(comments + 1):coalition_typePublic" = "Log(Mass Comments) × Public",
+       "log(comments + 1):coalition_business_TRUE" = "Log(Mass Comments) × Business",
        "coalition_TRUE" = "Coalition",
        "log(coalition_size)" = "Log(Coalition Size)",
        "coalition_size" = "Coalition Size",
-       "coalition_typePublic" = "Public Interest",
+       "coalition_typePublic" = "Public",
        "coalition_business_TRUE" = "Business Coalition",
        "Coalition_PositionSupports Rule" = "Supports Rule",
        "coalition_unopposedTRUE" = "Unopposed",
@@ -141,17 +141,17 @@ cm = c("campaign_TRUE" = "Pressure Campaign",
        "presidentTrump" = "Trump",
        "presidentObama" = "Obama",
        "presidentBush" = "Bush",
-       "coalition_typePublic:presidentObama" = "Public Interest × Obama",
-       "coalition_typePublic:presidentTrump" = "Public Interest × Trump",
-       "coalition_business_TRUE:presidentTrump" = "Business Coalition × Trump",
-       "coalition_business_TRUE:presidentBush" = "Business Coalition × Bush",
-       "coalition_typePublic:presidentBush" = "Public Interest × Bush",
+       "coalition_typePublic:presidentObama" = "Public × Obama",
+       "coalition_typePublic:presidentTrump" = "Public × Trump",
+       "coalition_business_TRUE:presidentTrump" = "Business × Trump",
+       "coalition_business_TRUE:presidentBush" = "Business × Bush",
+       "coalition_typePublic:presidentBush" = "Public × Bush",
        "partyRepublican" = "Republican President",
-       "coalition_typePublic:partyRepublican" = "Republican President × Public Interest",
-       "log(comments + 1):coalition_business_TRUE:presidentTrump"= "Log(Mass Comments) × Business Coalition × Trump",
-       "log(comments + 1):coalition_business_TRUE:presidentBush"= "Log(Mass Comments) × Business Coalition × Bush",
-       "log(comments + 1):coalition_typePublic:presidentTrump"= "Log(Mass Comments) × Public Interest × Trump",
-       "log(comments + 1):coalition_typePublic:presidentBush"= "Log(Mass Comments) × Public Interest × Bush",
+       "coalition_typePublic:partyRepublican" = "Republican President × Public",
+       "log(comments + 1):coalition_business_TRUE:presidentTrump"= "Log(Mass Comments) × Business × Trump",
+       "log(comments + 1):coalition_business_TRUE:presidentBush"= "Log(Mass Comments) × Business × Bush",
+       "log(comments + 1):coalition_typePublic:presidentTrump"= "Log(Mass Comments) × Public × Trump",
+       "log(comments + 1):coalition_typePublic:presidentBush"= "Log(Mass Comments) × Public × Bush",
        "acme_0" = "Average Conditional Marginal Effect",
        "ade_0" = "Average Direct Effect")
 
@@ -182,7 +182,6 @@ modelsummary::modelsummary( modelsFE,
                           add_rows = rowsFE, 
                           title = "OLS Models of Coalition-Level Lobbying Success",
                           notes = "") %>% 
-  row_spec(row = 1, bold = T) %>% 
   kable2(file = "mc-success")
 ```
 
@@ -325,6 +324,7 @@ attr(rowsMediation, 'position') <- c(0)
 modelsummary(mediator, 
              stars = TRUE, 
              add_rows = rowsMediation,
+             gof_omit = ".*",
              coef_rename = cm,
              title = "Models of Congressional Support and Lobbying Success for Mediation Analysis") %>% 
   kable2(file = "model-oversight")
@@ -396,7 +396,7 @@ The Total Effect of a public pressure campaign is `r round(med.cont$tau.coef, 2)
 
 Estimates in Table \@ref(tab:mo-success-did) show the results of estimating model \@ref(eq:dnd). Because  These results suggest that the organizations were less successful when they mobilized more comments, more successful when they supported the rule, and less successful under president Trump than President Obama. 
 
-The negative correlation between lobbying success and the number of mass comments is likely due to campaigns "going down fighting"---not trying to influence policy. The fact that organizations are more likely to get the outcome they seek when they already support the rule makes sense because the agency is more likely to be sympathetic to their requests. The fact that the average organization was less likely to see its desired policy changes under President Trump is likely due to asymmetry in mobilizing organizations, with more organizations on the left than the right in this sample of rules. (Note: this may change in the broader sample.)
+The negative correlation between lobbying success and the number of mass comments is likely due to campaigns "going down fighting"---not trying to influence policy. The fact that organizations are more likely to get the outcome they seek when they already support the rule makes sense because the agency is more likely to be sympathetic to their requests. The fact that the average organization was less likely to see its desired policy changes under President Trump is likely due to asymmetry in mobilizing organizations, with more organizations on the left than the right in this sample of rules.
 
 <!--
 Model 2 shows a similar model, adding a fixed effect for the rulemaking docket (i.e., each policy on which an organization comments). Because I consider policies published by different administrations to be distinct, regardless of the docket id number used, the president does not vary across dockets, and it no longer makes sense to include the president dummy. 

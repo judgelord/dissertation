@@ -3,7 +3,7 @@ sophisticated model of notice-and-comment rulemaking to date,
 @Libgober2018 posits a utility function for policymaker $G$ as shown in Equation \@ref(eq:formal-libgober)
 
 \begin{equation}
-u_G(x_F) = \alpha_0 x_f^2 + \sum_{i=1}^N \alpha_i u_i (x_f) (\#eq:formal-libgober)
+u_G(x_f) = \alpha_0 x_f^2 + \sum_{i=1}^N \alpha_i u_i (x_f) (\#eq:formal-libgober)
 \end{equation}
 
 where
@@ -13,30 +13,35 @@ $\alpha$ is a vector of "allocational bias"---i.e. how much the agency decisionm
 care about their own preferences $\alpha_0$ relative to accommodating the
 preferences of others $\alpha_{i=1:N}$. Bureaucrats balance their own
 idea of their mission against their desire to be responsive. In
-Libgober's model, $\alpha$ is a fixed "taste" for responsiveness to each
-member of society, so agency decisions simply depend on their answer to
+Libgober's model, $\alpha_{1:N}$ is a fixed "taste" for responsiveness to each
+member of society (i.e., each potential commenter), so policy decisions simply depend on their answer to
 the question "what do people want?"
-Incorporating the insight about the power of technical information, we might consider $\alpha_0$ (the policymakers' understanding of their own prefrences) to be affected by technical information. Including political information
+
+Incorporating insight about the power of technical information, we might consider $\alpha_0$ (the policymakers' understanding of their own prefrences) to be affected by technical information. Including political information
 requires two additional parameters related to a second question "why
 would agency officials care?" <!--CITE THIS IN EJ CHAPTER--> 
 
-Like other lobbying strategies, public attention and pressure may shift the
-strategic environment, leading policymakers to shift their allocation in
-favor of some groups and away from others. Let this strategic shift in allocation be a
-vector $\alpha_s$. Second, campaigns may directly persuade agency officials to
+First, like other lobbying strategies, public attention and pressure may shift the strategic environment, leading policymakers to stratigically shift their allocation in favor of some groups and away from others. Let this strategic shift in allocation be a vector $\alpha_s$. For example, interest groups may mobilize elected officials to support their lobbying efforts. If these elected officials can sanction or reward agency officials or veto the agnecy's policy, their involvement may reshape agency officials' stratigic calculations. Agency officials my then stratigicaly adjust their policy. 
+
+
+Second, campaigns may directly persuade agency officials to
 adjust their allocational bias, for example by supporting claims about
-the number of people a group represents or the intensity or legitimacy
-of their policy demands. Let this direct shift in allocations be $\alpha_d$. Let policymakers' immutable taste now be $\alpha_t$. Having decomposed an policymaker's
-allocative bias into three parts (its fixed tastes, shifting strategic
-environment, and potential to be convinced), the policymaker's utility
+the number of people an organization represents or the intensity or legitimacy
+of their policy demands. Let this direct shift in allocations be $\alpha_d$. This peramater captures persuasion on normative grounds and beliefs about which segements of society (i.e., which potential commenters) deserve the benenifts or government policy or should be responsible for bearing the costs. Policies allocate costs and benefits across groups. If a group makes a persuasive agument for distributional justice or if an organization shows that they represent a large segment of the public, officials may update their beliefs and biases about how to alocate costs and benefits.
+
+<!--TODO ELLIE "You need a few sentences here to explain and defend the idea of policymaker's immutable taste.  How is this different from their ideal point? "-->
+
+Let policymakers' original, immutable taste now be $\alpha_t$. Having decomposed the policymaker's
+allocative bias into three parts (its fixed tastes $\alpha_t$, shifting strategic
+environment $\alpha_s$, and potential to be convinced $alpha_d$), the policymaker's utility
 function is now Equation \@ref(eq:formal).
 
 \begin{equation}
-u_G(x_F) =  (\alpha_{t0} + \alpha_{s0} + \alpha_{d0}) x_f^2 + \sum_{i=1}^N (\alpha_{ti} + \alpha_{si} + \alpha_{di}) u_i (x_f) (\#eq:formal)
+u_G(x_f) =  (\alpha_{t0} + \alpha_{s0} + \alpha_{d0}) x_f^2 + \sum_{i=1}^N (\alpha_{ti} + \alpha_{si} + \alpha_{di}) u_i (x_f) (\#eq:formal)
 \end{equation}
 
 If, after the comment period, the strategic environment is
-unchanged and officials remains unpersuaded about which segments of society
+unchanged and officials remain unpersuaded to change their beliefs about which segments of society
 deserve favor, $\alpha_s$ and $\alpha_d$ are 0, and the model collapses
 to the original information game based on fixed tastes. This outcome is less
 plausible when groups go public and expand the scope of conflict.

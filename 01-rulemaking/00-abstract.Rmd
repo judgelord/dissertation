@@ -1,8 +1,11 @@
 # Agency Rulemaking in American Politics {#macro}
 
-<!--See the working paper version of this chapter [_here_](https://judgelord.github.io/dissertation/MacroRulemaking.pdf).
+<!--
+See the working paper version of this chapter [_here_](https://judgelord.github.io/dissertation/MacroRulemaking.pdf).
 
 #### Abstract {-}
 
-`readLines(here::here("01-rulamaking/abstract.txt"))` -->
-
+\SingleSpacing
+`readLines(here::here("01-rulamaking/abstract.txt"))` 
+\DoubleSpacing
+-->

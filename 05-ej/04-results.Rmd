@@ -1,4 +1,4 @@
-## Results {#influence-results}
+## Results {#ej-results}
 
 ### Are final rules more likely to address environmental justice after comments do so?
 
@@ -55,7 +55,6 @@ modelsummary::modelsummary( models,
                             coef_map = cm,
                             add_rows = rows,
                             notes = "") %>% 
-  #row_spec(row = 1, hline_after = TRUE) %>% 
   kable2(file = "ej-tables") #%>% 
   #kable_styling(latex_options = c("scale_down")) 
 ```

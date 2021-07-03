@@ -2,4 +2,6 @@
 
 #### Abstract {-}
 
+\SingleSpacing
 `r readLines(here::here("03-oversight/abstract.tex"))`
+\DoubleSpacing

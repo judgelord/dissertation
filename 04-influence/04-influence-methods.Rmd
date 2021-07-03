@@ -8,6 +8,8 @@ These data have a hierarchical structure. Comment-level observations are nested 
 
 ##### Modeling the Direct Relationship Between Public Pressure and Lobbying Success
 
+<!--TODO ELLIE: "Also how does this connect to your formal model from earlier in the chapter? -->
+
 The dependent variable, $Y$, is the lobbying success of each coalition. I assess the relationship between lobbying success and the scale of public pressure it mobilizes by modeling the success of coalition $i$ lobbying a rule $j$ published by an agency $k$ under a president $p$. Each coalition is unique to a rule; each rule is unique to an agency (I assigned joint rules to the lead agency only) and presidential administration. I thus use the simpler notation $y_i$ rather than the equivalent, more specific notation $y_{ijkp}$. 
 
 The main variable of interest is the total number of form-letter public comments that a lobbying coalition mobilized.
@@ -61,12 +63,12 @@ There is still a (lesser) problem with the i.i.d. assumption here because two or
 At the organization level, the appropriate analysis is a difference-in-difference design. We know the success of each organization when it does and does not participate in a lobbying coalition that mobilizes public pressure (at least each organization that I can use for this analysis). The difference within an organization is now the key variation.  
 
 \begin{equation}
-Y_{ij} =  \alpha_i + \beta_1 \textbf{Pressure Campaign}_{i}) + \beta_{2-n} X_{ij} + \gamma_k + \delta_p + \epsilon_{i}
+Y_{ij} =  \alpha_i + \beta_0 + \beta_1 \textbf{Pressure Campaign}_{ij}) + \beta_{2-n} X_{ij} + \gamma_k + \delta_p + \epsilon_{ij}
 (\#eq:dnd)
 \end{equation}
 <!--+ {\beta}_5\text{Coalition Type}_{ij} +{\beta}_6\text{Coalition Type}_{ij}*\text{President}_{j} -->
 
-Equation \@ref(eq:dnd) is similar to the model of coalition-level success except that  $y_{ij}$ is now the lobbying success of *organization* $i$ in coalition $j$ and $X_ij$ is now a vector of organization- and coalition-level controls.  Additionally, Equation \@ref(eq:dnd) adds  $\alpha_{i}$, a fixed effect for
+Equation \@ref(eq:dnd) is similar to the model of coalition-level success except that  $y_{ij}$ is now the lobbying success of *organization* $i$ in coalition $j$ and $X_{ij}$ is now a vector of organization- and coalition-level controls.  Additionally, Equation \@ref(eq:dnd) adds  $\alpha_{i}$, a fixed effect for
 each organization. This fixed effect accounts for the organization's
 characteristics that do not vary over time as it lobbies on multiple rules. This difference-in-difference design ensures that
 coefficient $\boldsymbol{\beta}_1$ captures variation related to changes
