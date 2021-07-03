@@ -6,11 +6,11 @@ These data have a hierarchical structure. Comment-level observations are nested 
 
 #### Modeling Coalition-level Lobbying Success
 
-##### Modeling the Direct Relationship Between Public Pressure and Lobbying Success
+##### The Direct Relationship Between Public Pressure and Lobbying Success
 
 <!--TODO ELLIE: "Also how does this connect to your formal model from earlier in the chapter? -->
 
-The dependent variable, $Y$, is the lobbying success of each coalition. I assess the relationship between lobbying success and the scale of public pressure it mobilizes by modeling the success of coalition $i$ lobbying a rule $j$ published by an agency $k$ under a president $p$. Each coalition is unique to a rule; each rule is unique to an agency (I assigned joint rules to the lead agency only) and presidential administration. I thus use the simpler notation $y_i$ rather than the equivalent, more specific notation $y_{ijkp}$. 
+The dependent variable, $Y$, is the lobbying success of each coalition. To estiate the relationship between a coalition's lobbying success and the scale of public pressure it mobilizes, I modeling the success of each coalition $i$ lobbying a rule $j$ published by an agency $k$ under a president $p$. Each coalition is unique to a rule; each rule is unique to an agency (I assigned joint rules to the lead agency only) and presidential administration. I thus use the simpler notation $y_i$ rather than the equivalent, more specific notation $y_{ijkp}$. 
 
 The main variable of interest is the total number of form-letter public comments that a lobbying coalition mobilized.
 The base model (Equation \@ref(eq:success)) uses an indicator for whether coalition $i$ used a public pressure campaign, i.e., mobilized mass comments (by definition, more than 99 mass comments). $\beta_1$ estimates the difference in lobbying success when coalition $i$ uses a pressure campaign compared to when it does not. Other models use either the logged number of comments or a quadradic term to account for the different marginal effects of additional public comments for smaller and larger campaigns. 
@@ -25,7 +25,7 @@ The base models include agency and president fixed effects ($ \alpha_k + \gamma_
 whether the coalition is lobbying unopposed, the coalition's size (the number of distinct organizations and elected officials), and the type of coalition (e.g., whether it is a business coalition or a public-interest coalition) and include agency fixed effects. I estimate these relationships using OLS regression. <!--I also estimate hand-coded lobbying success with beta regression and ordered logit, which is more appropriate but less interpretable. For the automated measures of lobbying success, I estimate beta regression models with the same variables.-->
 
 
-##### Modeling Congressional Support as a Mediator of Lobbying Success
+##### Congressional Support as a Mediator of Lobbying Success
 
 To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME) and the proportion of the total effect attributed to mediation through congressional support (comments or other communication from Members of Congress supporting the coalition's position on the proposed rule). As developed by Imai et al. (2010), this involves first estimating a model of the potential mediator as a combination of the main predictor, public pressure, and covariates, $X_i$.
 
@@ -51,8 +51,9 @@ The next section presents results from estimating the above models using the han
 
 
 #### Difference in Differences in Organization-level Lobbying Success
+<!--I'm not sold on this design in this situation. I'd need to think more about it but basically you're looking to see when say the Sierra group does mobilize vs when they don't mobilize.  But isn't that basically looking at the effectiveness not just of mobilization but at the constellation of factors that influence the decision to mobilize on different issues? (Popular support for that issue, etc.)? presumably the organization's decision to mobilize public pressure has to do with a number of issue/rule specific conditions? Whether it's a popular issue, etc.  -->
 
-While it would not be appropriate to compare the lobbying success of organizations *within* a rulemaking (because many organizations belong to the same coalition), we can compare the lobbying success *within* the same organization *across* rules. This limits the analysis to organizations that lobbying on multiple policies. The key variation of interest is when organizations lobby with a large amount of public support versus when they do not.
+While it would not be appropriate to compare the lobbying success of organizations *within* a rulemaking (because many organizations belong to the same coalition), we can compare the lobbying success *within* the same organization *across* rules. This limits the analysis to organizations that lobbying on multiple policies. The key variation of interest is when organizations lobby with a public pressure campaign versus when they do not.
 
 
 There is still a (lesser) problem with the i.i.d. assumption here because two organizations lobbying in a coalition on one rule may mobilize each other to lobby in coalition in a different rule (in my data, lobbying coalitions are at the policy-level, since they differ from policy to policy). 

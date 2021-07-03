@@ -1,21 +1,22 @@
 ## Results: Lobbying Success {#influence-results}
 
-This section leverages a random sample of agency rules for which I have hand-coded nearly all public comments. Table \@ref(tab:mc-success) presents estimates of the direct relationship between public pressure and lobbying success. \@ref(tab:mediation) presents results of mediation analysis, assessing the support from members of Congress as a mediator for the success of public pressure campaigns. Finally, \@ref(tab:mo-success-did) presents estimates of factors affecting within-organization levels of lobbying success using a difference-in-difference design.
+This section leverages a random sample of agency rules for which I have hand-coded nearly all public comments. The first subsection presents estimates of the direct relationship between public pressure and lobbying success (Table \@ref(tab:mc-success)). The next subsection presents results of mediation analysis, assessing the support from members of Congress as a mediator for the success of public pressure campaigns (Tables \@ref(tab:oversight) and \@ref(tab:mediation)). The third subsection presents estimates of factors affecting within-organization levels of lobbying success using a difference-in-difference design (Table \@ref(tab:mo-success-did).
 
 ### Coalition-level Lobbying Success
 
-Table \@ref(tab:mc-success) present results estimating coalition-level lobbying success described in Equation \@ref(eq:success).
+Table \@ref(tab:mc-success) present results estimating coalition-level lobbying success as a function of public pressure, coalition size, coalition type, whether the coalition supports the proposed rule, and whether there is an opposing coalition, as described in Equation \@ref(eq:success).
 
-Models 1 and 2 use a binary measure of public pressure--did the coalition sponsor a public pressure campaign or not?  Models 2-6 use continuous measures of public pressure. Models 3 and 4 use the logged number of mass comments, reflecting the intuition that one additional comment matters more for smaller campaigns. Models 5 and 6 include both linear and quadratic terms for the number of comments to allow for a wider set of possible relationships. 
+Models 1 and 2 use a binary measure of public pressure--did the coalition sponsor a public pressure campaign or not?  Models 2-6 use continuous measures of public pressure. Models 3 and 4 use the logged number of mass comments, reflecting the intuition that one additional comment matters more for smaller campaigns. Models 5 and 6 include both linear and quadratic terms for the number of comments to allow for a wider arrary of possible non-linear relationships. 
 
-I use two related measures of coalition type. Models 1, 3, and 5 use my classification of coalitions as primarily public or private interests. Private interest is the omitted category, so coefficients are estimates of the difference in lobbying success for public interest coalitions compared to private interest coalitions. Models 2, 4, and 6 use a related, more objective measure: whether the majority of coalition members are businesses or trade associations. These two measures diverge in cases where public interest coalitions mobilize a large number of business allies or where private interest coalitions mobilize a large number of non-business allies.
+I use two related measures of coalition type. Models 1, 3, and 5 use my classification of coalitions as primarily public or private interests. Private interest is the omitted category, so coefficients are estimates of the difference in lobbying success for public interest coalitions compared to private interest coalitions. Models 2, 4, and 6 use a related, more objective measure: whether the majority of coalition members are businesses or trade associations.
 
-All models include fixed effects for agency and president to allow for differing average levels of lobbying success at different agencies and political conditions.^[A parallel set of models with random effects accounting for different levels of responsiveness to public comments in different agencies and administrations is available in the Appendix.]. 
+All models include fixed effects for agency and president to allow for differing average levels of lobbying success at different agencies and political conditions.^[The Appendix includes a parallel set of models with random effects accounting for different levels of responsiveness to public comments in different agencies and administrations. The main results are similar]. 
 <!-- TODO president interaction models in appendix
 To account for partisan asymmetry in mobilizing groups, I also estimate a term for the interaction between the president and coalition type.  Bush-era rules are dropped from these models for simplicity. -->
 
 These models include coalitions of 1 (organizations lobbying alone), but excluding them yields similar results, except that coalition size has a much weaker correlation with lobbying success. 
 
+<!-- TODO ELLIE: "Is your design more likely to capture support for the rule? Rather than successful change given the difficulty/method of measuring change? "-->
 
 ```{r mc-success}
 #mc-success
@@ -94,7 +95,7 @@ mc5 <- feols(coalition_success ~
           # comment_length + 
           coalition_unopposed
           # Agency and president FE 
-          | agency , 
+          | agency + president, 
         data = coalitions_coded)
 
 mc6 <- feols(coalition_success ~ 
@@ -200,11 +201,13 @@ The other result apparent from these models is that public interest groups were 
 
 -->
 
-As this sample is disproportionately draft rules that received an unusual number of comments, these results are largely based on variation with high-salience rulemakings. 
+As this sample is disproportionately draft rules that received an unusual number of comments, these results are largely based on variation within high-salience rulemakings.
+
+I now turn to a key variable ommitted from the models in Table \@ref(tab:success), the level of attention and support from an agency's political principals---specificaly, members of Congress, which may mediate the effect of public pressure campaings. 
 
 #### Congressional Support as a Mediator of Lobbying Success
 
-To test Hypothesis \@ref(hyp:oversight), I calculate the simple correlation between the number of comments from members of Congress and all other comments on each rule. I also calculate this correlation, ommitting rules where no legislators commented, making it more plausable that legislators were aware of the rulemaking and thus faced the choice of whether to comment or not. Figure \@ref(fig:congress-corr) shows both of these correlations. The dashed line showes the relationship for all rules and the solid line shows the relationship for rules where at least one legislator commented. The left-hand pannel shows this same plot with both axes on a log scale. There is a strong correlation between mass comments and legislator attention. However, for resons disccussed in \@ref(oversight-hypotheses), this is not strong evidence of a causal effect. 
+To test Hypothesis \@ref(hyp:oversight)---that the overall level of public attention to a proposed rule moderates the level of attention from members of Congress---, I calculate the simple correlation between the number of comments from members of Congress and all other comments on each rule. I also calculate this correlation, ommitting rules where no legislators commented, making it more plausable that legislators were aware of the rulemaking and thus faced the choice of whether to comment or not. Figure \@ref(fig:congress-corr) shows both of these correlations. The dashed line showes the relationship for all rules and the solid line shows the relationship for rules where at least one legislator commented. The right-hand pannel shows this same plot with both axes on a log scale. There is a strong correlation between mass comments and legislator attention. However, for resons disccussed in \@ref(oversight-hypotheses), this should not be taken as strong evidence of a causal effect. 
 
 ```{r congress-corr, fig.width=2.5, fig.height=2.5, out.width="40%", fig.cap="Correlation Between Mass Comments and Comments from Members of Congress"}
 c <- comments_congress %>% 
@@ -394,12 +397,11 @@ The Total Effect of a public pressure campaign is `r round(med.cont$tau.coef, 2)
 
 ### Difference in Differences in Organization-level Lobbying Success
 
-Estimates in Table \@ref(tab:mo-success-did) show the results of estimating model \@ref(eq:dnd). Because  These results suggest that the organizations were less successful when they mobilized more comments, more successful when they supported the rule, and less successful under president Trump than President Obama. 
-
-The negative correlation between lobbying success and the number of mass comments is likely due to campaigns "going down fighting"---not trying to influence policy. The fact that organizations are more likely to get the outcome they seek when they already support the rule makes sense because the agency is more likely to be sympathetic to their requests. The fact that the average organization was less likely to see its desired policy changes under President Trump is likely due to asymmetry in mobilizing organizations, with more organizations on the left than the right in this sample of rules.
+Estimates in Table \@ref(tab:mo-success-did) show the results of estimating model \@ref(eq:dnd). <!--These results suggest that the organizations were less successful when they mobilized more comments, more successful when they supported the rule, and less successful under president Trump than President Obama. -->
+The negative correlation between lobbying success and the number of mass comments is likely due to campaigns "going down fighting"---not trying to influence policy. The fact that organizations are more likely to get the outcome they seek when they already support the rule makes sense because the agency is more likely to be sympathetic to their requests. <!--The fact that the average organization was less likely to see its desired policy changes under President Trump is likely due to asymmetry in mobilizing organizations, with more organizations on the left than the right in this sample of rules.-->
 
 <!--
-Model 2 shows a similar model, adding a fixed effect for the rulemaking docket (i.e., each policy on which an organization comments). Because I consider policies published by different administrations to be distinct, regardless of the docket id number used, the president does not vary across dockets, and it no longer makes sense to include the president dummy. 
+Model 2 shows a similar model, adding a fixed effect for the rulemaking docket (i.e., each policy on which an organization comments). Because I consider policies published by different administrations to be distinct, regardless of the docket id number used, the president and agency does not vary across dockets, and it no longer makes sense to include the these variables. 
 
 This model also shows...
 Because relatively few campaigns mobilize on any given rulemaking docket, there is little variation within dockets.
@@ -408,20 +410,55 @@ Because relatively few campaigns mobilize on any given rulemaking docket, there 
 mo1 = feols(success ~ campaign_ + 
                    coalition_ + 
                    log(coalition_size) + 
+              coalition_congress+
                    Position 
                  # fixed effects
                  | org_name + agency + president,
                data = comments_coded %>% 
   filter(comment_type == "Org") %>% 
-  distinct(agency, org_name, docket_id, success, Position, 
+  distinct(agency, org_name, docket_id, success, Position, coalition_congress,
            coalition_, coalition_size, coalition_comments, president, campaign_) )
 
-models <- list("Lobbying Success" = mo1)
+mo2 = feols(success ~ campaign_ + 
+                   coalition_ + 
+                   log(coalition_size) + 
+              coalition_congress+
+                   Position 
+                 # fixed effects
+                 | org_name + docket_id,
+               data = comments_coded %>% 
+  filter(comment_type == "Org") %>% 
+  distinct(agency, org_name, docket_id, success, Position, coalition_congress,
+           coalition_, coalition_size, coalition_comments, president, campaign_) )
 
-modelsummary(models, 
+mo3 = feols(success ~ campaign_*president + 
+                   coalition_ + 
+                   log(coalition_size) + 
+              coalition_congress+
+                   Position 
+                 # fixed effects
+                 | org_name + agency,
+               data = comments_coded %>% 
+  filter(comment_type == "Org") %>% 
+  distinct(agency, org_name, docket_id, success, Position, coalition_type, coalition_congress,
+           coalition_, coalition_size, coalition_comments, president, campaign_) )
+
+models_o_success <- list(mo1, mo, m3)
+
+rows_o_success <- tibble(
+  term = c("Dependent Variable"),
+  `1` = c("Lobbying Success"), 
+  `2` =c("Lobbing Success"),
+  `3` =c("Lobbing Success") )
+
+attr(rows_o_success, 'position') <- c(0)
+
+
+modelsummary(models_o_success, 
              stars = T, 
+             add_rows = rows_o_success,
              coef_rename = cm,
-             title = "Difference-in-Difference Model of Lobbying Success Within Organizations") # %>% kable2(file = "mo-success-did")
+             title = "Difference-in-Difference Model of Lobbying Success Within Organizations") %>% kable2(file = "mo-success-did")
 ```
 
 

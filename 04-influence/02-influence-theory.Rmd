@@ -215,18 +215,18 @@ principals' specific policy positions using the best data available
 before the draft rule's publication.
 -->
 
-Hypothesis \@ref(hyp:hc-success) sets out the most direct implication of my theory. If public pressure campaigns generate political information that affects policy, lobbying coalitions that use pressure campaigns should more win more often. Rather than compare form letters to techical comments, I attributed form letter to the broader lobbying efforts they support. Thus, assessing Hypothesis \@ref(hyp:hc-success) requires comparing lobbying success when coalitions do and do not opt to use a pressure campaign to support their more technical lobbying effort. The power of a pressure campaign in my theory rests in its ability to make a coalition more successful in achieving its policy goals that are more precicely articulated in techical comments. Lobbying success is thus the extent to which the a coalition got the specific policy changes it sought. 
+Hypothesis \@ref(hyp:c-success) sets out the most direct implication of my theory. If public pressure campaigns generate political information that affects policy, lobbying coalitions that use pressure campaigns should more win more often. Rather than compare form letters to techical comments, I attributed form letter to the broader lobbying efforts they support. Thus, assessing Hypothesis \@ref(hyp:c-success) requires comparing lobbying success when coalitions do and do not opt to use a pressure campaign to support their more technical lobbying effort. The power of a pressure campaign in my theory rests in its ability to make a coalition more successful in achieving its policy goals that are more precicely articulated in techical comments. Lobbying success is thus the extent to which the a coalition got the specific policy changes it sought. 
 
 <!--TODO ELLIE "You might want to clarify this is more likely to succeed when use public pressure campaigns as opposed to not using public pressure campaigns.  Rather than a comparison between public pressure campaigns (political info) and an alternative strategy of providing technical information."-->
-```{hypothesis hc-success, echo = TRUE}
+```{hypothesis c-success, echo = TRUE}
 Lobbying coalitions are more likely to succeed when they use public pressure campaigns compared to when they do not.
 ```
 
-If Hypothesis \@ref(hyp:hc-success) is correct lobbying coalitions with public pressure campaigns should have higher average levels of lobbying success than coalitions that do not.
+If Hypothesis \@ref(hyp:c-success) is correct lobbying coalitions with public pressure campaigns should have higher average levels of lobbying success than coalitions that do not.
 
 Building on the intuitions about the reasons that organizations launch pressure campaigns set out in \@ref(why-theory), the effect of pressure campaigns may depend on the reason for mobilizing. Public interest groups more often have incentives to mobilize for reasons other than influencing policy than private interest groups. As I show in \@ref(why-results), this means that campaigns are overwhelmingly dominated by public interest groups. In contrast, private interest groups such as businesses only have incentives to mobilize public pressure when they expect it to affect policy. This dynamic creates a selection effect whereby pressure campaigns by private interest groups should be more likely to influence policy because they are more concentrated on policies that can be influenced. 
 
-```{hypothesis hc-success-private, echo = TRUE}
+```{hypothesis c-success-private, echo = TRUE}
 On average, public pressure campaigns are more highly correlated with lobbying success for private interests than public interest groups. 
 ```
 
@@ -234,11 +234,11 @@ On average, public pressure campaigns are more highly correlated with lobbying s
 Finally, we can think about lobbying success at the organizational level. 
 <!-- TODO ELLIE: "I don't fully understand the distinction between 3.1 and 3.3.  Might be helpful to flesh out the distinction between organizations and lobbying coalitions. I think there are also some words missing in 3.3.  "when they lobbying in a coalition" "  -->
 
-```{hypothesis ho-success, echo = TRUE}
+```{hypothesis o-success, echo = TRUE}
 Organizations are more likely to succeed when they lobbying in a coalition that uses a public pressure campaign.
 ```
 
-If Hypothesis \@ref(hyp:ho-success) is correct pressure campaigns should be positively correlated with lobbying success *within* organizations. That is, organizations ought to be more likely to have their policy demands met when they lobbying in a coalition that uses a public pressure campaign. 
+If Hypothesis \@ref(hyp:o-success) is correct pressure campaigns should be positively correlated with lobbying success *within* organizations. That is, organizations ought to be more likely to have their policy demands met when they lobbying in a coalition that uses a public pressure campaign. 
 
 Understanding civic participation in rulemaking as a mediated process aimed at generating political information posits a different role for mass comment campaigns than that posited by existing (albeit limited) literature on this topic. While the hypotheses address a similar question--do mass comments matter, my theory implies a different way of answering that question. Rather than an alternative to lobbying strategies that rely on more "sophisticated"--e.g., technical-- information, my framework posits mass comment campaigns (at least those aimed at influencing policy) as a part of a broader strategy that includes providing both technical and political information to decisionmakers.
 
