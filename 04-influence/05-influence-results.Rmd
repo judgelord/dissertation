@@ -1,6 +1,6 @@
 ## Results: Lobbying Success {#influence-results}
 
-This section leverages a random sample of agency rules for which I have hand-coded nearly all public comments. The first subsection presents estimates of the direct relationship between public pressure and lobbying success (Table \@ref(tab:mc-success)). The next subsection presents results of mediation analysis, assessing the support from members of Congress as a mediator for the success of public pressure campaigns (Tables \@ref(tab:oversight) and \@ref(tab:mediation)). The third subsection presents estimates of factors affecting within-organization levels of lobbying success using a difference-in-difference design (Table \@ref(tab:mo-success-did).
+This section leverages a random sample of agency rules for which I have hand-coded nearly all public comments. The first subsection presents estimates of the direct relationship between public pressure and lobbying success (Table \@ref(tab:mc-success)). The next subsection presents results of mediation analysis, assessing the support from members of Congress as a mediator for the success of public pressure campaigns (Tables \@ref(tab:model-oversight)). The third subsection presents estimates of factors affecting within-organization levels of lobbying success using a difference-in-difference design (Table \@ref(tab:mo-success-did).
 
 ### Coalition-level Lobbying Success
 
@@ -207,9 +207,7 @@ I now turn to a key variable ommitted from the models in Table \@ref(tab:success
 
 #### Congressional Support as a Mediator of Lobbying Success
 
-To test Hypothesis \@ref(hyp:oversight)---that the overall level of public attention to a proposed rule moderates the level of attention from members of Congress---, I calculate the simple correlation between the number of comments from members of Congress and all other comments on each rule. I also calculate this correlation, ommitting rules where no legislators commented, making it more plausable that legislators were aware of the rulemaking and thus faced the choice of whether to comment or not. Figure \@ref(fig:congress-corr) shows both of these correlations. The dashed line showes the relationship for all rules and the solid line shows the relationship for rules where at least one legislator commented. The right-hand pannel shows this same plot with both axes on a log scale. There is a strong correlation between mass comments and legislator attention. However, for resons disccussed in \@ref(oversight-hypotheses), this should not be taken as strong evidence of a causal effect. 
-
-```{r congress-corr, fig.width=2.5, fig.height=2.5, out.width="40%", fig.cap="Correlation Between Mass Comments and Comments from Members of Congress"}
+```{r}
 c <- comments_congress %>% 
   group_by(docket_id) %>% 
   count() %>% 
@@ -219,6 +217,13 @@ c <- comments_congress %>%
   filter(number_of_comments_received > n) %>% 
   mutate(comments = number_of_comments_received - n + 1)
 
+c2 <- c %>% filter(n > 0)
+```
+
+Hypothesis \@ref(hyp:oversight)---that the overall level of public attention to a proposed rule moderates the level of attention from members of Congress---implies a correlation between the number of comments from members of Congress and all other comments on each rule. We should assess this correlation both across all rules and rules where at least one legislator commented, making it more plausable that legislators were aware of the rulemaking and thus faced the choice of whether to comment or not. Figure \@ref(fig:congress-corr) shows both of these relationships. The dashed line showes the relationship for all rules and the solid line shows the relationship for rules where at least one legislator commented. The right-hand pannel shows this same plot with both axes on a log scale. There is a strong correlation between mass comments and legislator attention (Speareman's rank correlation, $\rho$ = `r cor(c$comments, c$n, method = c("spearman")) %>% round(2)`, p-value =  `r cor.test(c$comments, c$n, method = c("spearman"))$p.value %>% round(2)`. However, for resons disccussed in \@ref(oversight-hypotheses), this should not be taken as strong evidence of a causal effect. 
+
+```{r congress-corr, fig.width=2.5, fig.height=2.5, out.width="40%", fig.cap="Correlation Between Mass Comments and Comments from Members of Congress"}
+# congress-corr
 cplot <- c %>% 
   #filter(n > 0) %>% 
   ggplot() + 
@@ -234,6 +239,14 @@ cplot
 cplot + 
   scale_x_log10() + 
   scale_y_log10()
+
+# glm(n ~ comments,
+#     family = "poisson",
+#     data = c) %>% tidy()
+# 
+# glm(n ~ log(comments + 1),
+#     family = "poisson",
+#     data = c) %>% tidy()
 ```
 
 To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME, conditional on the number of comments from Members of Congress) and average direct effect (ADE) of mass comments using mediation analysis. To do this, I estimate a model predicting the proposed mediator using both OLS and Poisson regression. Because the dependent variable (the number of supportive comments from members of Congress) is a count, a Poisson model is more appropriate. The dispersion parameter is not significantly above 1.  
@@ -250,6 +263,7 @@ These mixed results make it difficult to assess \@ref(hyp:beacon).
 
 ```{r model-oversight, cache=FALSE}
 #model-oversight
+coalitions_coded %<>% mutate(coalition_size = coalition_size - coalition_congress)
 
 # original model, dropping na congress obs
 mc1 <- fixest::feols(coalition_success ~ 
@@ -276,7 +290,7 @@ mc1_congress <- fixest::feols(coalition_success ~
             filter(coalition_) )
 
 # model predicting mediator
-mc_congress_ols <- fixest::feols(coalition_congress ~ 
+mc_congress_ols <- fixest::feols(coalition_congress +1 ~ 
           campaign_*coalition_type +
             log(coalition_size) +
           Coalition_Position + 
@@ -287,38 +301,82 @@ mc_congress_ols <- fixest::feols(coalition_congress ~
                    !is.na(coalition_success) ) )
 
 # poisson model with dummies
-mc_congress_pois <- glm(coalition_congress ~ 
+mc_congress_pois_dummy <- glm(coalition_congress + 1 ~ 
           campaign_*coalition_type + 
-          coalition_ + log(coalition_size) +
+          coalition_ + 
+            log(coalition_size) +
           Coalition_Position + 
-          coalition_unopposed + president + agency + president, 
+          coalition_unopposed + 
+            agency + 
+            president, 
                family = "poisson",
-               data = coalitions_coded%>% filter(coalition_))
+               data = coalitions_coded%>% filter(coalition_,
+                   !is.na(coalition_success) ))
 
 #library(AER)
 #dispersiontest(mc_congress_pois)
                
 # poisson model with FE
-mc_congress_pois <- feglm(coalition_congress ~ 
+mc_congress_pois <- feglm(coalition_congress + 1 ~ 
           campaign_*coalition_type + 
-          coalition_ + log(coalition_size) +
+          log(coalition_size) +
           Coalition_Position + 
           coalition_unopposed
           # Agency and president FE 
           | agency + president, 
                family = "poisson",
-               data = coalitions_coded %>% filter(coalition_))
+               data = coalitions_coded %>% filter(coalition_,
+                   !is.na(coalition_success) ))
+
+
+coalitions_coded %<>% 
+  ungroup() %>% 
+  group_by(president, docket_id) %>% 
+  mutate(congress_total = sum(coalition_congress)) %>%
+  group_by(president, docket_id, Coalition_Position) %>% 
+  mutate(coalition_congress_position = sum(coalition_congress),
+         coalition_congress_opposed = congress_total - coalition_congress_position) %>%
+  ungroup()
+
+# coalitions_coded %>% select(docket_id, coalition, congress_total, coalition_congress_position, coalition_congress_opposed)
+
+# OLS model with FE predicting opposing
+mc_congress_ols_warning <- feols(coalition_congress_opposed + 1 ~ 
+          campaign_*coalition_type + 
+          log(coalition_size) +
+          Coalition_Position
+          #coalition_unopposed
+          # Agency and president FE 
+          | agency + president, 
+               data = coalitions_coded %>% filter(coalition_,
+                   !is.na(coalition_success) ))
+
+# poisson model with FE predicting opposing
+mc_congress_pois_warning <- feglm(coalition_congress_opposed + 1  ~ 
+          campaign_*coalition_type + 
+          log(coalition_size) +
+          Coalition_Position
+          #coalition_unopposed
+          # Agency and president FE 
+          | agency + president, 
+               family = "poisson",
+               data = coalitions_coded %>% filter(coalition_,
+                   !is.na(coalition_success) ))
 
 
 
-
-
-mediator <- list( "Mediator Model (OLS)" = mc_congress_ols, "Mediator Model (Poisson)" = mc_congress_pois, "Outcome Model (OLS)" = mc1_congress )
+mediator <- list(# '"Fire alarm"/"Beacon" Mediator Model (OLS)' = mc_congress_ols, 
+                  '"Fire alarm"/"Beacon" Mediator Model (Poisson)' = mc_congress_pois, 
+#                  '"Warning Sign" Mediator Model (OLS)' = mc_congress_ols_warning, 
+                  '"Warning Sign" Mediator Model (Poisson)' = mc_congress_pois_warning, 
+                  "Outcome Model (OLS)" = mc1_congress )
 
 rowsMediation <- tibble(
   term = c("Dependent Variable"),
-  `Mediator Model (OLS)` = c("Members of Congress in Coalition "), 
-  `Mediator Model (Poisson)` =c("Members of Congress in Coalition "), 
+#  `"Fire alarm"/"Beacon" Mediator Model (OLS)` = c("Members of Congress in Coalition"), 
+  `"Fire alarm"/"Beacon" Mediator Model (Poisson)` =c("Members of Congress in Coalition"), 
+#  `"Warning sign" Mediator Model (OLS)` = c("Members of Congress Oposing Coalition "), 
+  `"Warning sign" Mediator Model (Poisson)` =c("Members of Congress Opposing Coalition"), 
   `Outcome Model (OLS)`  = c("Lobbying Success"), 
 )
 
@@ -327,7 +385,7 @@ attr(rowsMediation, 'position') <- c(0)
 modelsummary(mediator, 
              stars = TRUE, 
              add_rows = rowsMediation,
-             gof_omit = ".*",
+             #gof_omit = ".*",
              coef_rename = cm,
              title = "Models of Congressional Support and Lobbying Success for Mediation Analysis") %>% 
   kable2(file = "model-oversight")
@@ -357,7 +415,7 @@ The outcome model results are similar to the results of Model 1 in Table \@ref(t
 
 
 
-```{r mediation, warning=FALSE, message=FALSE}
+```{r mediation, warning=FALSE, message=FALSE, eval = false}
 # model predicting DV
 model.m <- lm(coalition_congress ~ campaign_ + 
                 #comment_length + 
@@ -365,6 +423,15 @@ model.m <- lm(coalition_congress ~ campaign_ +
                 log(coalition_size) + 
                 coalition_unopposed, 
               data = coalitions_coded %>% filter(coalition_, !is.na(coalition_success))) 
+
+model.m.pois <- glm(coalition_congress ~ campaign_ + 
+                #comment_length + 
+                coalition_type +  
+                log(coalition_size) + 
+                coalition_unopposed,
+               family = "poisson",
+              data = coalitions_coded %>% filter(coalition_, !is.na(coalition_success))) 
+
 
 # model predicting DV
 model.y <- lm(coalition_success ~ campaign_ + 
@@ -382,6 +449,9 @@ med.cont <- mediate(model.m, model.y,
                     sims=1000, 
                     treat = "campaign_", 
                     mediator = "coalition_congress")
+#med.cont %<>% tidy()
+
+tidy(med.cont)
 
 modelsummary(list("Mediation Analysis" = med.cont), stars = T, coef_rename = cm,
              coef_omit =  ".*_1",
@@ -390,12 +460,15 @@ modelsummary(list("Mediation Analysis" = med.cont), stars = T, coef_rename = cm,
 ```
 
 For mediation analysis, I use the OLS version of both mediator and outcome models.
-The average effect of a public pressure campaign on lobbying success, conditional on letters from members of Congress (the ACME) is `r round(med.cont$d.avg, 2)` on the 5-point scale, with a p-value of `r round(med.cont$d0.p, 4)`.
-The average direct effect (ADE) of a public pressure campaign on lobbying success is `r round(med.cont$z0, 2)`, with a p-value of `r round(med.cont$z0.p, 4)`.
-The Total Effect of a public pressure campaign is `r round(med.cont$tau.coef, 2)`, with a p value of `r round(med.cont$tau.p, 2)`. `r round(med.cont$n0, 2)` of this is mediated through mobilizing congressional attention (p-value = `r round(med.cont$n0.p, 2)`).
+The average effect of a public pressure campaign on lobbying success, conditional on letters from members of Congress (the ACME) is `r round(med.cont$d.avg, 2)` on the 5-point scale, with a p-value of `r round(med.cont$d0.p, 4)`. This 
+The Average Direct Effect (ADE) of a public pressure campaign on lobbying success is `r round(med.cont$z0, 2)`, with a p-value of `r round(med.cont$z0.p, 4)`.
+
+<!--The Total Effect (ADE + ACME) of a public pressure campaign is `r round(med.cont$tau.coef, 2)`, with a p value of `r round(med.cont$tau.p, 2)`. `r round(med.cont$n0, 2)` of this is mediated through mobilizing congressional attention (p-value = `r round(med.cont$n0.p, 2)`).-->
 
 
 ### Difference in Differences in Organization-level Lobbying Success
+
+<!--TODO ELLIE "Say more about what you mean here? The organizations know they're going to lose and they're trying to do something to signal to their members that they tried? Or the organizations think they're going to lose but launch a pressure campaign as a hail mary? "-->
 
 Estimates in Table \@ref(tab:mo-success-did) show the results of estimating model \@ref(eq:dnd). <!--These results suggest that the organizations were less successful when they mobilized more comments, more successful when they supported the rule, and less successful under president Trump than President Obama. -->
 The negative correlation between lobbying success and the number of mass comments is likely due to campaigns "going down fighting"---not trying to influence policy. The fact that organizations are more likely to get the outcome they seek when they already support the rule makes sense because the agency is more likely to be sympathetic to their requests. <!--The fact that the average organization was less likely to see its desired policy changes under President Trump is likely due to asymmetry in mobilizing organizations, with more organizations on the left than the right in this sample of rules.-->
@@ -407,7 +480,7 @@ This model also shows...
 Because relatively few campaigns mobilize on any given rulemaking docket, there is little variation within dockets.
 -->
 ```{r mo-success-did}
-mo1 = feols(success ~ campaign_ + 
+mo1 = feols(success ~ campaign_*coalition_type + 
                    coalition_ + 
                    log(coalition_size) + 
               coalition_congress+
@@ -416,10 +489,10 @@ mo1 = feols(success ~ campaign_ +
                  | org_name + agency + president,
                data = comments_coded %>% 
   filter(comment_type == "Org") %>% 
-  distinct(agency, org_name, docket_id, success, Position, coalition_congress,
+  distinct(agency, org_name, docket_id, success, Position, coalition_congress, coalition_type,
            coalition_, coalition_size, coalition_comments, president, campaign_) )
 
-mo2 = feols(success ~ campaign_ + 
+mo2 = feols(success ~ campaign_*coalition_type + 
                    coalition_ + 
                    log(coalition_size) + 
               coalition_congress+
@@ -428,10 +501,10 @@ mo2 = feols(success ~ campaign_ +
                  | org_name + docket_id,
                data = comments_coded %>% 
   filter(comment_type == "Org") %>% 
-  distinct(agency, org_name, docket_id, success, Position, coalition_congress,
+  distinct(agency, org_name, docket_id, success, Position, coalition_congress, coalition_type,
            coalition_, coalition_size, coalition_comments, president, campaign_) )
 
-mo3 = feols(success ~ campaign_*president + 
+mo3 = feols(success ~ campaign_*president*coalition_type + 
                    coalition_ + 
                    log(coalition_size) + 
               coalition_congress+
@@ -443,7 +516,7 @@ mo3 = feols(success ~ campaign_*president +
   distinct(agency, org_name, docket_id, success, Position, coalition_type, coalition_congress,
            coalition_, coalition_size, coalition_comments, president, campaign_) )
 
-models_o_success <- list(mo1, mo, m3)
+models_o_success <- list(mo1, mo2, mo3)
 
 rows_o_success <- tibble(
   term = c("Dependent Variable"),
@@ -464,6 +537,9 @@ modelsummary(models_o_success,
 
 ## Conclusion {#influence-conclusion}
 
-I find little evidence that public pressure campaigns increase lobbying success. If anything, mass comment campaigns may be associated with lower average levels of lobbying success. There are several possible explanations for this result. First, it could be that many mass comment campaigns are not aimed at influencing policy. Second, agencies may not be persuaded by political information, either because of the institutions for dealing with public input or decisionmakers' biases. Finally, the relatively small sample may simply lack the power to reliably estimate small effects. 
+I find little evidence that public pressure campaigns increase lobbying success. If anything, mass comment campaigns may be associated with lower average levels of lobbying success. There are several possible explanations for this result. First, it could be that many mass comment campaigns are not aimed at influencing policy. 
+Second, agencies may not be persuaded by political information, either because of the institutions for dealing with public input or decisionmakers' biases. Finally, the relatively small sample may simply lack the power to reliably estimate small effects. 
+
+<!--TODO ELLIE: "Or that they only launch mass comment compaigns on the "difficult" issues when they think simple technocratic comments from the org won't be enough.  Or they know that opposition is/will be mobilized, etc.  "-->
 
 I do find evidence that lobbying coalitions are more successful when they mobilize more members of Congress, but legislators disproportionately align with private interest (e.g., business-led) coalitions, not the public interest coalitions that run most public pressure campaigns.

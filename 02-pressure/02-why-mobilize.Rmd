@@ -3,6 +3,19 @@ Who are these well-resourced groups?
 Do they lobby in other venues (like congressional policymaking)?  
 Why should we consider these very select groups and their actions democratizing?  Perhaps they – themselves – are quite elitist?  Take this question head-on.  Maybe digging into the literature on membership groups would help here.  
 Are super mobilizers different from others?
+
+TODO: SUSAN: 
+-more about very few “policy advocacy organizations” that organize much of the mass commenting activity AND the “ordinary citizens” that are activated to submit a comment.  We need at least 1 or 2 very meaty paragraph(s) with many citations to past literature.  For example, “XXX (2013) used data on ___ to investigate policy advocacy organizations and found that they tend to ____.  In contrast, XXX (1975; see also XX, XX, XX) demonstrate that aren’t typically membership organizations because _____.  In sum, the interest group literature points to ____ as major factors in driving ____(see:  XXX, XXX, and XXX), but we still don’t fully understand how activity by these types of organizations might matter to bureaucracy policymaking, especially rulemaking.”  Put differently, what does the literature tell us about these groups and their lobbying?  This should explain what we currently know.  
+
+These groups seem special, but I don’t know how (other than they are mostly environmental groups).  
+
+Also, there must be policy advocacy organizations that don’t participate in rulemaking.  Why?  
+
+Do all policy advocacy organizations use mass campaigns sometimes?  
+
+why is this so focused on environmental politics?  
+
+is there a threshold effect – groups need to have some funds to organize mass commenting campaigns.  What does that look like?  If that’s the case, then should we really consider them “less resourced” (see abstract on page 42)?  How are we supposed to understand more or less resourced (or is this just a proxy for private versus public)? CITE LOBBYING DONATIONS
 -->
 
 ## Theory: Interest Groups as Mobilizers and Influencers {#why-theory}
@@ -106,7 +119,8 @@ to public pressure campaigns:
 
 Regarding political information, I extend this logic to
 non-experts. The number and distribution of ordinary supporters may
-matter because it suggests a *public* consensus, at least among some segments of the attentive public. Instead of bolstering
+matter because it suggests a *public* consensus, at least among some segments of the attentive public. (By "ordinary" people, I simply mean people who are not
+professional policy influencers.) Instead of bolstering
 *scientific* claims, a perceived public consensus bolsters *political*
 claims. To understand why groups
 organize public pressure campaigns, we must understand mass mobilization as a tactic
@@ -203,12 +217,44 @@ congressional and judicial checks on executive power, the groups that
 participate in rulemaking represent only certain (if any) segments of
 the public and may not represent them well [@Seifter2016UCLA].-->
 
-
 The contentious politics of mobilizing and countermobilizing that inspires most public engagement in policymaking have no place in leading models of bureaucratic policymaking and have largely been ignored by political scientists. 
-<!--To the extent that scholars of bureaucratic policymaking address the input of ordinary people at all, both
-existing theory and empirical scholarship suggest skepticism that non-sophisticated actors merit scholarly attention. (By "ordinary" people, I simply mean people who are not
-professional policy influencers.) -->
+To the extent that scholars of bureaucratic policymaking address the input of ordinary people and public pressure campaigns, both
+existing theory and empirical scholarship suggest skepticism that non-sophisticated actors merit scholarly attention. 
 
+#### What We Know About Mass Comment Campaigns
+
+The concept of political information that I build upon comes from studies of lobbying coalitions and tactics [Furlong1997; @Nelson2012]. However, this core scholarship on bureaucratic poicymaking does not explicitly adresss mass comment campaings. Indeed, nearly all scholarship on rulemaking excludes mass comments from both theory and data. Even studies that aim to assess the impact of the number of comments on each side exclude mass comments [e.g. @McKay2007]. To the exent that scholarship on the politics of rulemaking addresses the quantaty rather than quality of comments, most focus on the size of lobbying coalitions (i.e., the number of organizations) rather than the scale of public attention or pressure [@Yackee2006JOP, @Nelson2012].
+
+
+Most theoretical and empirical work addressing mass comment campaigns to date has come from administrative law scholars. @Golden1998 examines eleven rules randomly-selected from three agencies, finding "a dearth of citizen commenters." Cuellar2005 examines three different rules and found a great deal of comments from the "lay public" raising issues relevant to agency mandates. However, comments from the lay public were much less sophisticated than the comments of organizations and thus less likely to be cited by agencies. @Mendelson2011
+finds that agencies often discard non-technical comments but argues that
+they should be given more weight. While commenting and mobilizing
+others to comment has become easier, @Coglianese2006 finds that little
+else about the rulemaking process changed. @Sunstein2001 finds that the growth of the internet primarily facilitate more of the same kind of engagement among the like-minded
+(i.e. mass-commenting). Like most administrative law scholars, both Coglianese and Sunstein worry that mass commenting
+distracts agencies from  good policy and the broader public interest. @Farina2012 [p. 112] claims that "[Mass] comments
+typically are neither factually informative nor reliable indicators of
+citizens' informed value preferences." Some even call them "spam"
+[@Balla2018; @Noveck2004].
+TODO @Golden1998; @Noveck2004; @Noveck2009; @Cuellar2005; @Coglianese2006; @Mendelson2011,@Farina2012; @Farina2014), 
+
+Political science scholarship on mass comment campaigns is limited to a few published articles [@Shapiro2008b; @Balla2018; @Balla2020], two unpublished dissertations [@Moore2017; @Cook2017]^[The published article [Cook2018] contains less about mass comment campaigns.], and a blog post [@Potter2017]. There is also an adjecent literature on fraud in the public comment process [@]. @Shapiro2008b investigates whether the number of public comments relates to the time between the draft and final rule. With only nine observations, this study was unable to uncover general patterns, but suggests that mass comments may be related to longer rulemaking processs. @Moore2017 finds that agencies that use high
+levels of expertise (as defined by @Selin2015) receive fewer comments,
+possibly because mobilizing organizations perceive these rules to be
+less open to influence.
+
+@Cook2017 examines three controversial Environmental Protection Agency (EPA) rules during the Obama administration. He found that high levels of public attention made it difficult for any one interest group to dominate (in contrast to most rulemakings, where regulated business groups often dominate, often lobbying uncontested [@Yackee2006JOP]). Representatives of both environmental and industry groups reported that mass comment campaigns were important. And the EPA noted that majority of comments supported the proposed rule in all three cases.
+
+One of the most theortically-developed and systematic studies to date is a short Brookings Institutions report [@Potter2017] that also focused on Obama-era EPA rules. Across 359 EPA rules, @Potter2017 finds that 16% were subject to a mass comment campaign. She concludes that "advocacy groups and industry pursue different strategies with respect to comment campaigns." In contrast to most forms of lobbying (which are dominated by industry groups), pressure campaigns are a tool mostly used by advocacy groups. Here a "campaign" is a form-letter comments associated with an organization (as identified by the EPA). On average, campaigns by advocacy organizations generated twice as many comments as industry-sponsored campaigns. Industry-sponsored campaigns were smaller and less likely to identify the sponsoring organization. Industry groups were much less likely to lobbying unopposed than advocacy groups. That is, industry groups almost never sponsored campaigns on rules where environmental groups had not, but environmental groups sponsored campaigns even when industry groups did not. @Potter also finds that most mass comment campaigns supported EPA rules under Obama, with advocacy organzations in support and industry campaigns split beteen support and opposition.
+
+<!--MOVE TO NEXT CHAPTER?-->
+In addition to estending Potter's empirical work distinguishing the behavior of advocacy organizations and industry groups, I build on her theorizing about the possible reasons for sponsoring campaigns. Potter argues that public pressure campaigns can expand the scope of conflict, help grow and maintain advocacy organizations, and give agency leaders political cover to pursue politicies in the face of opposition. This chapter explicitly builds on these first two intuitions in this chapter and the third in Chapter \@ref(influence). 
+
+@Balla2018, also focuses on Obama-era EPA rules. They find campaigns occur across issue areas, including complex and economically significant actions. They find broad societal constituencies---such as environmentalists--to be more active in sponsoring campaigns than narrow interests. When industry-led campaigns occure, they divide along sectoral lines, with industries anticipating benefits arguing in favor of stringent regulations and industries forecast to bear the brunt of such actions sponsoring campaigns in opposition to the proposed rules.
+
+Building on their previous work, @Balla2020 study 22 EPA and identify 1,049 "campaigns" on these rules--here, a "campaign" means a batch of form-letter comments associated with an organization, which they code as "regulated" (e.g., a power plant)  or a "regulatory beneficiary" (e.g., environmental groups). They find that the agency was more likely to reference the more sophisticated comments that groups submit than form letters. They also find that several types of observed policy changes (e.g., changes in the number of regulated entities and date the rule goes into effect) better align with changes requested by sophisticated interest group comments than those found in form letters. They conclude that "legal imperatives trump political considerations in conditioning agency responsiveness, given that mass comment campaigns – relative to other comments – generally contain little 'relevant matter'" (@Balla2020, pg 1).
+
+While @Balla2020 recognize the political nature of public pressure campaigns, they follow many of the administrative law scholars in comparing form letters to sophisticated technical comments. For example, their model compares the number of times the agency references the lengthy comments drafted by the Sierra Club's Legal Team to the number of times the agency references the short form letters drafted by the Sierra Club's Digital Team. In contrast, I argue that we should understand the form letters as a tactic aimed at gaining power for coalitions and organizations that also submit sophisticated technical comments. Public pressure is not an alternative to sophisticated lobbying efforts; it is a resource.
 
 <!--These bursts of civic participation may affect
 rulemaking [@Coglianese2001], but **this intuition has yet to be tested.**-->

@@ -1,3 +1,5 @@
+### Administrative Law Scholarship {-} 
+
 In contrast to political scientists, legal scholars have long debated
 what to make of mass commenting in rulemaking. Many focus on reforms to
 help agencies collect more useful information
@@ -50,18 +52,17 @@ sense, the "quality" of discourse has not improved.
 
 Even scholars who suggest reforms aimed at "regulatory democracy" aim to
 increase the "sophistication" of ordinary peoples' comments
-[@Cuellar2014; @Johnson2013]. For example, Beth Simone Noveck
-[@Noveck2004] is critical of "notice and spam," arguing instead for
+[@Cuellar2014; @Johnson2013]. For example, @Noveck2004 is critical of "notice and spam," arguing instead for
 "participative practices---methods for 'doing democracy' that build the
 skills and capacity necessary for citizens, experts, and organizations
 to speak and to be heard. Rulemaking, after all, is a communicative
 process involving a dialogue between regulators and those affected by
-regulation" @Noveck2005 [p. 3].
+regulation" [@Noveck2005, pg. 3].
 
 This scholarship has improved the theory and practice of policy learning
 in rulemaking. But a focus on sophisticated deliberation and technical
 information overlooks the potential role of political information.^[But see insights from @Golden1998, @Nelson2012, @Rauch2016, and
-    @Potter2017 on political information, @Cuellar2014 on participation
+    @Potter2017 on political information, @Cuellar2005 on participation
     and voice, and @Reich1966 and @Seifter2016UCLA on representation,
     which I review elsewhere.]
 Whereas administrative law scholars have focused on "how technology can
