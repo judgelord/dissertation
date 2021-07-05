@@ -1,0 +1,394 @@
+---
+#rmarkdown::render("01-rulemaking/rulemaking-appendix.Rmd")
+title: "Agency Rulemaking in American Politics"
+subtitle: "Appendix and Replication Code" 
+author: "Devin Judge-Lord"
+output:
+    # pdf_document:
+    #   toc: true
+    #   keep_tex: true
+    html_document:
+      highlight: zenburn
+      toc: true
+      toc_float: true
+      code_folding: hide
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r global.options, include=FALSE, cache=FALSE}
+source(here::here("code", "setup.R"))
+
+knitr::opts_chunk$set(echo = TRUE, 
+                      cache = FALSE)
+```
+
+# Data
+
+Replication data are available in SQL and Rdata at https://github.com/judgelord/rulemaking 
+
+```{r data, fig.height=11}
+load(here("data", "OIRAandUA.Rdata") %>% str_replace("dissertation", "rulemaking"))
+
+#FIXME MOVE
+# consolidate ORIA and UA DATES
+#class(regs$DATE_RECEIVED)
+
+regs %<>% 
+  mutate(UnifiedAgendaDate = coalesce(UnifiedAgendaDate, as.Date(DATE_RECEIVED)),
+         WithdrawalPublished = WITHDRAWAL %>% as.Date(format = "%Y-%m-%d"))
+#sum(is.na(regs$UnifiedAgendaDate))
+
+# select one observation per RIN 
+regs %<>%
+  dplyr::group_by(RIN) %>%
+  dplyr::top_n(n = 1, UnifiedAgendaDate) %>%
+  dplyr::ungroup()
+
+regs$Year <- str_sub(regs$UnifiedAgendaDate, 1,4) %>% as.numeric()
+
+source(here("code", "UA-policy-area.R") %>% str_replace("dissertation", "rulemaking"))
+
+ua <- regs
+
+
+## REGULATIONS.GOV
+load(here("data", "rules_metadata.Rdata"))
+
+
+rules %<>% filter(document_type %in% c("Proposed Rule", "Rule"),
+                  # rulemaking dockets only
+                  docket_type == "Rulemaking" ) %>%
+  # one document per docket (drop additional PRs )
+  group_by(document_type, docket_id) %>%
+  slice_max(number_of_comments_received)
+
+rules %<>%
+  mutate(comment_start_date = comment_start_date %>% as.Date(),
+         comment_due_date = comment_due_date %>% as.Date(),
+         date = coalesce(posted_date, comment_start_date, comment_due_date),
+         year = str_sub(date, 1,4),
+         year2 = str_remove(docket_id, ".*[A-Z]-") %>%
+           str_remove("-.*"),
+         year = coalesce(year, year2) %>% as.numeric()
+                      ) %>%
+  select(-year2) 
+
+rules %<>% filter(year >2004)
+```
+
+### Regulations.gov Documents
+
+
+```{r data-documenttype, fig.height=3.2}
+# ej-data-documenttype
+# document type over time
+rules %>% 
+  ggplot() + 
+  aes(x = year, fill = document_type) +
+  geom_bar(alpha = .7, position = "dodge") + 
+  labs(y  = "Number of Documents",
+       x = "",
+       fill = "") + 
+  scale_fill_viridis_d(option="cividis", begin = .3, end = .7, direction = -1, ) + 
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank())
+```
+
+## Party control data from Brookings 
+
+```{r}
+party_control <- read_csv(here("data", "1-20.csv")) 
+
+party_control %<>% 
+  mutate(Seats = as.numeric(Seats),
+         congress = as.numeric(Congress)) %>%
+  pivot_wider(id_cols = c("congress", "Chamber"), names_from = PartyStatus, values_from = Seats)
+  
+
+party_control %<>%
+  mutate(party_control = case_when(
+    Democrat > Republican ~ "Democrat",
+    Republican > Democrat ~ "Republican"
+  )) 
+
+party_control %<>% 
+  pivot_wider(id_cols = congress, names_from = Chamber, values_from = party_control)
+
+party_control$President <- NA
+# president's party
+party_control %<>% 
+  mutate(President = case_when(
+  # Carter elected with the 95th
+    congress >94 & congress < 97 ~ "Democrat",
+      # Regan elected with the 97th
+    congress > 96 & congress < 101  ~ "Republican",
+    # BUSH elected with the 101st
+      congress > 100 & congress < 103 ~ "Republican",
+  # CLINTON elected with 103th
+  congress >102 & congress < 107 ~ "Democrat",
+  # Bush elected with 107th
+  congress >106 & congress < 111 ~ "Republican",
+  # OBAMA elected with 111th
+  congress >110 & congress < 115 ~ "Democrat",
+  # TRUMP elected with 115th
+  congress > 114 & congress <117 ~ "Republican",
+  # BIDEN
+  congress > 116 ~ "Democrat"))
+
+party_control %<>% mutate(Senate = ifelse(is.na(Senate), President, Senate))
+
+congress_years<- function(congress){
+        years<- c(congress*2 + 1787, congress*2 + 1788 )
+        return(years)
+}
+
+party_control %<>% 
+  pivot_longer(cols = c("House", "Senate", "President")) %>%
+  group_by(congress) %>% 
+  mutate(year = congress %>% congress_years %>% unique() %>% list()) %>% 
+  unnest(year)
+
+
+party_control %<>% rename(Party = value) 
+
+party_control %<>% 
+  filter(year %in% regs$Year) %>% 
+  mutate(name = name %>% str_replace("Sen", " Sen"))
+
+ breaks = seq( 1980, max(ua$Year), by = 2)
+
+ tile <- party_control %>%
+  ggplot() +
+  aes(x = year, y = name, fill = Party) + 
+  geom_tile(color = "white") + 
+  scale_fill_viridis_d(option = "plasma", end = .6) + 
+  labs(y = "", x = "", fill = "") +
+        scale_x_continuous(breaks = breaks) +
+  theme_minimal() +
+  theme(panel.grid = element_blank()) + 
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1#, vjust = 1
+                                   )) 
+
+#tile
+```
+
+
+## Unified Agenda Documents
+
+```{r ua-Aall, fig.height=3.2}
+# functions to plot
+macro_scatterplot <- function(policy){
+ua %>% 
+  filter(policy_code == policy) %>% 
+ggplot() + 
+  aes(y=RIN) +
+  labs(title = paste(unique(policy), 'Rulemaking'),
+                y = "RIN",
+                x = "Year")+
+  #geom_linerange(aes(ymin=initiated, ymax=enddate, color="black"), size=.1) +
+  geom_point(aes(x=UnifiedAgendaDate, color="black"), shape = 15, size=1) + 
+  geom_point(aes(x=WithdrawalPublished, color="red"), shape = 4, size=.5) + 
+  scale_x_date(lim = c(as.Date("1981-08-11"), as.Date("2016-06-01")),
+               breaks=date_breaks(width = "2 year"), labels = date_format("%y"),
+               minor_breaks=NULL)+
+  scale_color_identity("",guide="legend",
+                       labels=c("Rule Published",
+                                "Rule Withdrawn")) +
+  theme(axis.text.x =
+          element_text(size  =2,
+                       angle = 90,
+                       hjust = 1,
+                       vjust = .5)) #+  facet_wrap("AGENCY", scales = "free_y")
+}
+
+ua %<>% mutate(Status = ifelse(is.na(WITHDRAWAL) | !str_detect(WITHDRAWAL, "-"), "Published", "Withdrawn"))
+
+p <- ua %>% 
+    count(Year, Status) %>%
+    ggplot() + 
+    aes(x = as.integer(Year), y = n, fill = Status) + 
+    geom_col() +
+    labs(#title = paste('"Significant"', unique(policy), 'Rulemaking Projects'),
+                x = "",
+         y = "Number of Rules") +
+      theme(panel.border = element_blank(),
+            axis.text.x =
+          element_text(#size  =2,
+                       angle = 45,
+                       hjust = 1)) +#, vjust = .5)) + 
+        scale_x_continuous(breaks = breaks) +
+    scale_fill_viridis_d(option = "cividis", end = .6, direction = -1)
+
+library(cowplot)
+plot_grid(p, tile, align = "v", nrow = 2, rel_heights = c(2.2,1))
+
+ua %<>% mutate(PARENT_AGENCY = coalesce(PARENT_AGENCY, AGENCY))
+
+macro_hist <- function(policy){
+ 
+  
+  x <- ua %>% 
+    filter(policy_code == policy)
+  
+  
+  x$PARENT_AGENCY %>% unique() %>% str_remove_all("^[0-9]*|[A-Z]*$")%>% print()
+  x$AGENCY %>% unique() %>% print()
+  
+p <- x  %>% 
+    count(Year, Status) %>%
+    ggplot() + 
+    aes(x = as.integer(Year), y = n, fill = Status) + 
+    geom_col() +
+    labs(title = paste(unique(policy), 'Rulemaking'),
+         subtitle = paste0("(", 
+                           paste(x$PARENT_AGENCY %>%
+                                   unique() %>% str_remove_all("^[0-9]*|[A-Z]*$"), sep = "and"),
+                           ")"),
+                x = "",
+         y = "Number of Rules") +
+      scale_x_continuous(breaks = breaks) +
+    #theme_minimal() + 
+  theme(panel.border = element_blank(),
+        axis.text.x = element_text(angle = 45,
+                                   hjust = 1)) + 
+    scale_fill_viridis_d(option = "cividis", end = .6, direction = -1)
+#p
+library(cowplot)
+plot_grid(p, tile, align = "v", nrow = 2, rel_heights = c(2,1))
+}
+
+
+
+macro_hist2 <- function(policy){
+  breaks = seq( 1980, max(ua$Year), by = 2)
+  
+  x <- ua %>% 
+    filter(policy_type == policy)
+  
+  
+  x$PARENT_AGENCY %>% unique() %>% str_remove_all("^[0-9]*|[A-Z]*$")%>% print()
+  x$AGENCY %>% unique() %>% print()
+  
+p <- x  %>% 
+    count(Year, Status) %>%
+    ggplot() + 
+    aes(x = as.integer(Year), y = n, fill = Status) + 
+    geom_col() +
+    labs(title = paste(unique(policy), 'Rulemaking'),
+                x = "",
+         y = "Number of Rules") +
+      scale_x_continuous(breaks = breaks) +
+    #theme_minimal() + 
+  theme(panel.border = element_blank(),
+        axis.text.x = element_text(angle = 45,
+                                   hjust = 1)) + 
+    scale_fill_viridis_d(option = "cividis", end = .6, direction = -1)
+#p
+library(cowplot)
+plot_grid(p, tile, align = "v", nrow = 2, rel_heights = c(2,1))
+}
+
+```
+
+```{r ua-Economic Policy, fig.height=3.2, cache=FALSE}
+policy <- "Economic Policy"
+
+macro_hist2(policy)
+```
+
+```{r ua-Social Policy, fig.height=3.2, cache=FALSE}
+policy <- "Social Policy"
+
+macro_hist2(policy)
+```
+
+
+```{r ua-Foreign Poicy, fig.height=3.2, cache=FALSE}
+policy <- "Foreign Poicy"
+
+macro_hist2(policy)
+```
+
+```{r ua-Transportation, fig.height=3.2, cache=FALSE}
+policy <- "Transportation"
+
+macro_hist(policy)
+```
+
+
+```{r ua-Agriculture, fig.height=3.2, cache=FALSE}
+policy <- "Agriculture"
+
+macro_hist(policy)
+```
+
+```{r ua-Commerce & Treasury, fig.height=3.2, cache=FALSE}
+policy <- "Commerce & Treasury"
+
+macro_hist(policy)
+```
+
+```{r ua-Defense, fig.height=3.2, cache=FALSE}
+policy <- "Defense"
+
+macro_hist(policy)
+```
+
+```{r ua-Welfare, fig.height=3.2, cache=FALSE}
+policy <- "Welfare"
+
+macro_hist(policy)
+```
+
+```{r ua-Public-Lands, fig.height=3.2, cache=FALSE}
+policy <- "Public Lands"
+
+macro_hist(policy)
+```
+
+```{r ua-Justice, fig.height=3.2, cache=FALSE}
+policy <- "Justice"
+
+macro_hist(policy)
+```
+
+```{r ua-Labor, fig.height=3.2, cache=FALSE}
+policy <- "Labor"
+
+macro_hist(policy)
+```
+
+```{r ua-Foriegn, fig.height=3.2, cache=FALSE}
+policy <- "Foriegn"
+
+macro_hist(policy)
+```
+
+```{r ua-Education, fig.height=3.2, cache=FALSE}
+policy <- "Education"
+
+macro_hist(policy)
+```
+
+```{r ua-Energy, fig.height=3.2, cache=FALSE}
+policy <- "Energy"
+
+macro_hist(policy)
+```
+
+```{r ua-Civil-Rights, fig.height=3.2, cache=FALSE}
+policy <- "Civil Rights"
+
+macro_hist(policy)
+```
+
+```{r ua-Environment, fig.height=3.2, cache=FALSE}
+policy <- "Environment"
+
+macro_hist(policy)
+```
