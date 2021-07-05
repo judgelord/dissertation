@@ -7,18 +7,22 @@ Legally binding regulations give specific meaning and force to legislation and p
 
 As the substantive outputs of policy processes, if changes in public attention or opinion and elected leaders' priorities matter for policy, we should expect to see these changes borne out in the number and type of agency rules published. Changes in outputs may reflect changes in the substantive inputs---sometimes called the "issue structure" ---or changes in how issues are filtered and activated by the institutional structures of policymaking. 
 
-This chapter martials data on federal agency policymaking from 1980 to 2020 to sketch broad trends in federal policymaking. Broad theories of American politics suggest three types of predictions: (1) patterns in the substantive issues addressed by policy, (2) patterns in the relationship between partisan control and issue attention, and (3) patterns in the pace of policy change. The systematic data on agency rulemaking that I introduce here permit us to assess the extent to which broad theories of American politics explain the substance, timing, and volume of policy outputs. 
+This chapter martials data on federal agency policymaking from 1981 to 2018 to sketch broad trends in federal policymaking. Broad theories of American politics suggest three types of predictions: (1) patterns in the substantive issues addressed by policy, (2) patterns in the relationship between partisan control and issue attention, and (3) patterns in the pace of policy change. The systematic data on agency rulemaking that I introduce here permit us to assess the extent to which broad theories of American politics explain the substance, timing, and volume of policy outputs. 
 
-This exercise has two purposes. First, I aim to introduce a large new dataset on federal policymaking and situate these data in the broader context of American politics. Second, I contrast the hard data with broad political science theories. This assessment is descriptive and intended to be provocative---an attempt to stretch the conceptual ground of theories of American politics to include a large volume of often-neglected policy outcomes. The extent to which the match between theory and data is unsatisfying may point toward opportunities for theorizing, a narrow portion of which I take up in the following chapters that focus squarely on expanding theories of bureaucratic policymaking.
+This exercise has two purposes. First, I aim to introduce a large new dataset on federal policymaking and situate these data in the broader context of American politics. Second, I contrast the hard data with broad political science theories. This assessment is descriptive and intended to be provocative---an attempt to stretch the conceptual ground of theories of American politics to include a large volume of often-neglected policy outcomes. The extent to which the match between theory and data is unsatisfying may point toward opportunities for theorizing, a narrow portion of which I take up in the following chapters that focus squarely on expanding theories of bureaucratic policymaking. 
+
+This chapter's brief sketch of possible alignments and disconnects between theories of mass and party poltics and bureaucratic politics aims to be a call to scholars of public opinion and party politics to see rulemaking as a relevent dependent variable. Likewise, it is a call for scholars of bureaucratic politics to consider how mass politics and social movements may impact the policy outcomes we study. 
 
 ## Theory
 
+<!-- > TODO: 
 ### The Policy Agenda
 
-> TODO: how congressional enacting legislation, president's priorities, and the bureaucracy's lag time in writing rules interface with these larger agenda issues.  Should we expect to see this type of direct translation into the agency's rulemaking production without congressional mediation?  Why or why not?  
+how congressional enacting legislation, president's priorities, and the bureaucracy's lag time in writing rules interface with these larger agenda issues.  Should we expect to see this type of direct translation into the agency's rulemaking production without congressional mediation?  Why or why not?  -->
 
-There are many causal pathways between public opinion and attention and policy outcomes, but most are long and complex. Before exploring the extent to which these shifts observed in public opinion polls and party agendas show up in policy outputs is the subject of the present investigation, we must consider what we know about the pathways by which this may or may not occur.
+There are many causal pathways between public opinion or attention and policy outcomes. Most are long and complex. Before exploring the extent to which these shifts observed in public opinion polls and party agendas show up in policy outputs, I briefly review we know about the pathways by which this may or may not occur.
 
+<!--TODO
 #### Congressional Enactments and Bureaucratic Policymaking
 
 > TODO: @Golden2000 finds punctuated progress on issues after congressional authorizations.
@@ -31,18 +35,20 @@ There are many causal pathways between public opinion and attention and policy o
 
 > TODO
 
-
+-->
 ### Party Control and Policy Issues
 
 The role that parties play in the making of regulations is unclear. Parties may have the greatest effect on agency rules through presidential platforms and agendas [@Yackee2009bush]. Still, partisan control of Congress also matters [@Yackee2009RegGov], especially when Congress is making policy [@West2013] or when agencies fear that a hostile Congress will override their policies [@Potter2016]. We may think of agency policymaking as consistently affected by presidential agendas, with Congress providing shocks and constraints.
 
+<!--
 #### Policymaking Under Unified and Divided Government 
 
 > TODO: Discuss @PotterShipan2019
 
-#### Issue Ownership and the Politics of Attention
 
-Concerning the anticipated level of attention paid to different policy areas, theories of American politics that focus on substance can be lumped into two types: (1) those that generally predict that both parties pay attention to the same issues at the same time (theories of partisan alignment (e.g., Sundquist) and (2) those that generally predict that parties pay attention to different issues (including both theories of party ideologies (@Gerring1998) and theories of party coalitions [@Schlozman2015]. In each case, the particular issues may vary more or less dramatically depending on how sharply one defines historical periods (compare the issue evolution perspectives [@Carmines1989] with critical elections perspectives [@Key1961]). Indeed as Shafer (2016) notes, some periods may end quickly and others slowly. Given the limited time period of this paper, I focus on the dominant policy issues, their relationship to party control, and the pace of policymaking rather than the timing or pace of transition between periods. 
+#### Issue Ownership and the Politics of Attention-->
+
+Concerning the anticipated level of attention paid to different policy areas, theories of American politics that focus on substance can be lumped into two types: (1) those that generally predict that both parties pay attention to the same issues at the same time (theories of partisan alignment (e.g., Sundquist) and (2) those that generally predict that parties pay attention to different issues (including both theories of party ideologies [@Gerring1998] and theories of party coalitions [@Schlozman2015]. In each case, the particular issues may vary more or less dramatically depending on how sharply one defines historical periods (compare the issue evolution perspectives [@Carmines1989] with critical elections perspectives [@Key1961]). Indeed as @Shafer2016 notes, some periods may end quickly and others slowly. Given the limited time period of this paper, I focus on the dominant policy issues, their relationship to party control, and the pace of policymaking rather than the timing or pace of transition between periods. 
 
 These two types of theories generate broadly contrasting predictions about what we expect the government to do under various configurations of party control. 
 
@@ -58,9 +64,9 @@ Realignment theories suggest that certain policy areas consistently dominate all
 
 #### The Implications of Issue Ownership and Party Coalitions
 
-The second type focuses on the differences of party ideologies, and its predictions are less clear. Gerring identifies distinct and consistent ideologies in both parties. Rather than a dominant dimension of conflict where parties respond to each other (as in alignment theories) or an underlying dimension of issue structure (e.g., Claggett and Shafer 2010), for Gerring, party ideologies are the policy agendas of party elites. "Party constituencies were generally conservative forces, whereas party elites were the agents of change" [@Gerring1998, pg. 272]. 
+The second type focuses on the differences of party ideologies, and its predictions are less clear. Gerring identifies distinct and consistent ideologies in both parties. Rather than a dominant dimension of conflict where parties respond to each other (as in alignment theories) or an underlying dimension of issue structure [e.g., @Claggett2010], for Gerring, party ideologies are the policy agendas of party elites. "Party constituencies were generally conservative forces, whereas party elites were the agents of change" [@Gerring1998, pg. 272]. 
 
-In the current era, Gerring argues, Republicans are driven by Neoliberalism and Democrats by Universalism. Like others, Gerring sees social values (behavioral norms) playing a prominent role in Republican policy agendas from 1980 to when the book was published in 1996 (see pg. 277). Yet, he argues, the platform's core was neo-liberal opposition to the welfare state and promotion of free markets. In contrast, Gerring identifies the Democratic platform in this period as consistently emphasizing broad unifying issues like Medicare and education. While this more clearly suggests the policy areas likely to receive attention under Democrats than Republicans, it generally implies that the policy agendas will be different, not simply opposite. 
+In the current era, Gerring argues, Republicans are driven by Neoliberalism and Democrats by Universalism. Like others, Gerring sees social values (behavioral norms) playing a prominent role in Republican policy agendas from 1980 to when the book was published in 1996 (see pg. 277). Yet, he argues, the platform's core was neo-liberal opposition to the welfare state and promotion of free markets. In contrast, Gerring identifies the Democratic platform in this period as consistently emphasizing broad unifying issues like Medicare and education. @Grossman2021 reach a similar conclusion: The Republican Party represents business interests while the Democratic Party represents middle-class opinions and advocacy groups.  While thse theories of party ideologies and coalitions more clearly suggests the policy areas likely to receive attention under Democrats than Republicans, it generally implies that the policy agendas will be different, not simply opposite. 
 
 Under theories emphasizing party ideologies and interests, the volume of policymaking at different agencies may very well change substantially when a different party captures the presidency. Specifically, if @Gerring1998 correctly identified the party ideologies of the current era, we would expect significantly more civil rights and welfare policymaking under Democratic administrations and more neoliberal economic policy under Republican administrations, especially when presidents' co-partisans have majorities in Congress. Gerring's distinction between Democrats' statism and Republicans' anti-statism may also suggest more rulemaking overall in Democrat administrations. 
 
@@ -70,7 +76,7 @@ The above perspectives emphasize party difference, either on ideology (on the sa
 
 ### Policymaking and Policy Outcomes On Different Issues 
 
-*The American Political Pattern: Party Balance, Ideological Polarization, and Substantive Conflict, 1932-2016* (Shafer 2016) attempts to integrate the issue structure of politics and party control of the government. Patterns of the substance of conflict and balance of party control produce patterns of policymaking. Most clearly, Shafer observes a pattern of consistent major policymaking between 1980 and 1992 and a pattern of punctuated equilibrium after 1992. Such patterns of policymaking should be visible in patterns of rulemaking. Importantly, *The American Political Pattern* discusses not only landmark policies and agendas but also identifies distinct patterns of policymaking. The "Era of Divided Government" (1969-1992) saw a steady flow of major policies, especially regarding the economy and the environment, and was dominated by social welfare and cultural values and cross-partisan coalitions, suggesting that the volume of policy outputs should be concentrated on social policy and civil rights be fairly consistent across configurations of party control.  
+In *The American Political Pattern: Party Balance, Ideological Polarization, and Substantive Conflict, 1932-2016* @Shafer2016 attempts to integrate the issue structure of politics and party control of the government. Patterns of the substance of conflict and balance of party control produce patterns of policymaking. Most clearly, Shafer observes a pattern of consistent major policymaking between 1980 and 1992 and a pattern of punctuated equilibrium after 1992. To the extent that congressional policy making drives rulemaking, such patterns of policymaking should be visible in patterns of rulemaking. Importantly, @Shafer2016 discusses not only landmark policies and agendas but also identifies distinct patterns of policymaking. The "Era of Divided Government" (1969-1992) saw a steady flow of major policies, especially regarding the economy and the environment, and was dominated by social welfare and cultural values and cross-partisan coalitions, suggesting that the volume of policy outputs should be concentrated on social policy and civil rights be fairly consistent across configurations of party control.  
 
 In contrast, the "Era of Partisan Volatility" (1992 through the present) is characterized by periods of policy stability and punctuation. This chapter aims to assess the extent to which patterns of agency policymaking fit these patterns.^[Shafer is clear that his periods are characterized by their policy process, not policy outputs. Nevertheless, given a certain intersection of dominant issues and type of policy process, we should expect to see a pattern of policy outputs.] 
 Schafer characterizes this era by long stretches of policy stasis punctuated by spikes of activity. If these broad patterns explain policy outputs, we would expect to see a pattern of lulls and spikes in rulemaking. Furthermore, party control may lead to different types of policymaking moving together depending on partisan control. The observation of punctuated equilibrium in legislative policymaking could also suggest a pattern where, in the absence of new legislation, the president may have a larger effect over patterns of agency rulemaking. 
@@ -80,17 +86,18 @@ Scholarship thus gives us predictions regarding the issues that dominate America
 
 ### Observed Patterns in Policy Issues
 
-Following Mayhew (1991, 2008), Claggett and Shafer (2010) argue that the policy issues driving American politics vary over time. Drawing on public opinion polls and presidential platforms, they distinguish four broad categories of political issues: welfare, international relations, civil rights, and cultural issues. These categories are constructed to have policy-relevant content. Still, they do not perfectly align with how the government is organized, limiting our ability to categorize agency rules by their conceptual scheme. Nevertheless, their findings regarding the issue structure of American politics have observable implications for the quantity and substance of federal rulemaking. 
+Following @Mayhew2000, @Claggett2010 argue that the policy issues driving American politics vary over time. Drawing on public opinion polls and presidential platforms, they distinguish four broad categories of political issues: welfare, international relations, civil rights, and cultural issues. These categories are constructed to have policy-relevant content. Still, they do not perfectly align with how the government is organized, limiting our ability to categorize agency rules by their conceptual scheme. Nevertheless, their findings regarding the issue structure of American politics have observable implications for the quantity and substance of federal rulemaking. 
 
-Claggett and Shafer (2010) find that National Security was a major issue in 1984 but then faded until it emerged as the dominant issue of the 2004 election. Regarding their relationship with partisan control of the government, opinions on Foreign Engagement reversed the direction of correlation with presidential vote choice, suggesting that the first Bush and Clinton administrations may be more similar in their attention to foreign policy than the second Bush administration. 
+@Claggett2010 find that National Security was a major issue in 1984 but then faded until it emerged as the dominant issue of the 2004 election. Regarding their relationship with partisan control of the government, opinions on Foreign Engagement reversed the direction of correlation with presidential vote choice, suggesting that the first Bush and Clinton administrations may be more similar in their attention to foreign policy than the second Bush administration. 
 
-Welfare was also a top issue in 1984 but continued to be salient and the dominant issue in several subsequent elections. If politics affects the volume of policymaking, agency policymaking (e.g., the number of agency rules) should reflect this finding that social welfare is a major feature of American politics (Sundquist 1968, Claggett and Shafer 2010).
+Welfare was also a top issue in 1984 but continued to be salient and the dominant issue in several subsequent elections. If politics affects the volume of policymaking, agency policymaking (e.g., the number of agency rules) should reflect this finding that social welfare is a major feature of American politics [@Sundquist1973; @Claggett2010].
 
-Claggett and Shafer found civil rights to be mildly salient in 1988, 1992, and 2000 but not elsewhere.
+@Claggett2010 found civil rights to be mildly salient in 1988, 1992, and 2000 but not elsewhere.
 They find cultural issues (operationalized through a concept of "Behavioral Norms") to be highly salient from 1992 to 2000. Unfortunately, what Claggett and Shafer call behavioral norms is either so distant from policy (e.g., women's roles) or so fragmented across agencies (e.g., school prayer and abortion) that it is not possible to make predictions of the location of policymaking from patterns on this issue.
 
+<!--
 > TODO: Citations for environmental policy salience steadily decreasing in the 80s and 90s, uptick starting around 2010 or so. 
-
+-->
 
 In sum, if the issue structure of politics shapes policy, past scholarship suggests that social welfare should be the leading policy type over all periods and for both parties. Social welfare is identified as a dominant dimension of party alignment and issue structure in public opinion. 
 
@@ -113,41 +120,46 @@ Regulation Identification Numbers are allocated by agency, allowing me to disagg
 
 ## Methods
 
-I visually present rulemaking activity over time in three different ways. The simplest visualization is a histogram in Figure \@ref(fig:macro-hist). In these plots, red lines mark transitions to a new Republican president, and blue lines mark transitions to a new Democratic president.
+To assess the relationship between partisan control and rulemaking outcomes, I visually present a count of the number of rules alongside partisan control. The top part of Figure \@ref(fig:ua-all) shows the number of rules published each year. The bottome half shows partisan control of the presidency and each chamber of Congress.
+Figure \@ref(fig:ua-all) shows a fairly consistant level of rulemaking activity over time. The y-axis is the total number of published or withdrawn rules ase reported in the Unified Agenda or by OIRA. Several years are affected by data that is either missing (2004 and 2015) or influenced by changes in reporting requirments (1994), but these figures still reveal broad trends in policymaking. On net there is
 
 
-```{r macro-hist, fig.cap = "Number of Final Rules Published per Year", out.width = "10%"}
-
-knitr::include_graphics(here::here("Figs", "todo.png") )
+```{r ua-all, fig.cap = "Number of Final Rules Published and Withdrawn per Year"}
+knitr::include_graphics(here::here("Figs", "ua-all-1.png") )
 ```
 
+<!--
 ### Scatterplots of Rulemaking
 
 In addition to histograms of the number of rules, we can see patterns in rulemaking by plotting the date a rule is finalized or withdrawn on a scatterplot. On the y-axis is the Regulation Identification Number (RIN). RIN numbers are assigned in temporal order within each bureau or sub-agency. For example, the lower half of \@ref(fig:macro-cms-scatter) shows a high and steady rate of rulemaking by the Centers for Medicare and Medicaid, and the upper half shows a very modest rate of rulemaking at the Social Security Administration until the passage of the 2003 Medicare Modernization Act, which gave it a more prominent role in administering Medicare.
 
-```{r macro-cms-scatter, fig.cap = "Number of Final Rules Published per Year", out.width = "10%"}
+```{r macro-cms-scatter, fig.cap = "Number of Final Rules Published per Year"}
 
 knitr::include_graphics(here::here("Figs", "todo.png") )
 ```
 
-Other major political events can be seen in the scatterplots of agency rulemaking. For example, the gap in rulemaking activity between 1995-1996 reflects the government shutdown. We also see the abrupt end of agencies and departments, including those in the Department of Justice and Department of Transportation, reflecting their reorganization into the Department of Homeland Security after the attacks of September 11, 2001. This included the Coast Guard and Transportation Security Administration from the Department of Transportation and several agencies, including the Immigration and Naturalization Service from the Department of Justice (see scatterplots in the Appendix). <!--TODO-->
+-->
+<!--
+Other major political events can be seen in Figure \@ref(fig:ua-all). For example, the gap in rulemaking activity between 1995-1996 reflects the government shutdown. <!--We also see the abrupt end of agencies and departments, including those in the Department of Justice and Department of Transportation, reflecting their reorganization into the Department of Homeland Security after the attacks of September 11, 2001. This included the Coast Guard and Transportation Security Administration from the Department of Transportation and several agencies, including the Immigration and Naturalization Service from the Department of Justice (see scatterplots in the Appendix). <!--TODO-->
 
-There is a stark increase in the number of rules being withdrawn across policy areas beginning with the election of George W. Bush and continuing into the Obama administration. Withdrawals may indicate that the draft regulations started by the previous administration are being canceled, that new legislation is passed, or, more likely, that there is simply a more systematic practice of reporting withdrawals. 
+There is a stark increase in the number of rules being withdrawn across policy areas beginning with the election of George W. Bush and continuing into the Obama and Trump administrations. Withdrawals may indicate that the draft regulations started by the previous administration are being canceled, that new legislation is passed. In these data, however, this sudden change is simply the beginning of a more systematic practice of reporting withdrawals. 
 
+<!--
 In any of these figures, one can observe the general rate of rulemaking in each bureau as the slope of the line of black squares. Points below the line are rules that took longer than usual to finalize. Thus, these figures allow us to see the relative rate of rule finalization and withdrawal as well as the variance in how long agency rules take to work through the policy process. 
 
 ### The Likelihood of Rulemaking over Time
 
 Finally, we can estimate statistical trend lines for different policy types. While many statistical approaches may be appropriate, I opt to use a proportional hazard model. This method estimates a baseline hazard rate–the likelihood a rule will be published given the number of days since a draft was released. I then estimate the effect of calendar time on this baseline hazard rate. The effect of calendar time on the likelihood of rule finalization is fit using a smoothing spline for every two years (every Congress) in the dataset. These splines estimate a cubic polynomial function that best captures the effect of a given date on the likelihood of rulemaking over the spline interval (a Congress) while also smoothly connecting to the intervals on either side. This gives us a smoothed function estimating the likelihood of rulemaking over time (Figure \@ref(fig:macro-likelihood)). 
 
-```{r macro-likelihood, fig.cap = "Smoothed Likelihood that a Rule is Published on a Given Day 1980-2020", out.width = "10%"}
+```{r macro-likelihood, fig.cap = "Smoothed Likelihood that a Rule is Published on a Given Day 1981-2018"}
 
 knitr::include_graphics(here::here("Figs", "todo.png") )
 ```
 
 By including the date that the draft rule was published, this approach captures two things not well-captured by histograms and scatterplots. First, it accounts for the pace of rulemaking (i.e., the time it takes from draft to completion). Second, it accounts for the likelihood that long-delayed rules will be finalized. Both of these indicate that the issue is politically salient. Compared to the raw number of rules finalized in a year, looking at the likelihood that a rule is finalized accounts for the denominator---the number of rules in progress and yet to be finalized in a given policy space.
+-->
 
-Two notes are important for interpreting these figures. First, in 1994, President Clinton issued an executive order making only significant rules subject to ORIA review. Unfortunately, this coincides with the dramatic 1994 election that broke Democratic control of Congress, so inferences about this time are limited. It may be safest to assume that the universal dip in the likelihood of policymaking around 1994 is an artifact of this executive order and thus to imagine trend lines going forward from 1994 shifted up to have a mean of the value at 1994 to account for the increase in rules omitted from OIRA data. Second, this method is sensitive to outliers at the ends of the distribution. We should be especially cautious in making inferences from the first years that agencies were required to report these data as they may have been inconsistent. Thus, it is safest to look at the period between 1985 and 2015. 
+Two notes are important for interpreting these figures. First, in 1994, President Clinton issued an executive order making only significant rules subject to ORIA review. Unfortunately, this coincides with the dramatic 1994 election that broke Democratic control of Congress, so inferences about this time are limited. It may be safest to assume that the any dip in policymaking around 1994 is an artifact of this executive order and the increase in rules omitted from OIRA data. Second, this method is sensitive to outliers at the ends of the distribution. We should also be especially cautious in making inferences from the first years that agencies were required to report these data as they may have been inconsistent. Thus, it is safest to look at the period after 1985. 
 
 ## Policy Substance in Regulations
 
@@ -156,22 +168,24 @@ This section presents selected figures and brief commentary on the extent to whi
 ### Social Policy, Economic Policy, and Foreign Policy
 
 I start with the broadest categorizations of social policy and economic policy. 
-My social policy category is not equivalent to "social issues" as described by Shafer and Spady (2014) or Carmines, Ensley, and Wagner (2012). Social policy is also broader than welfare. I include not only Medicare, Medicaid, Social Security, and food and housing assistance but also public education, labor, and civil rights. More specifically, I combine the departments of Education, Health and Human Services, Labor, Veterans Affairs, and Justice, as well as the Social Security Administration, Centers for Medicare and Medicaid, and a variety of other departments dealing with health, poverty, and civil rights. 
+My social policy category is not equivalent to "social issues" as described by @Shafer2016a or @Carmines2011. Social policy is also broader than welfare. I include not only Medicare, Medicaid, Social Security, and food and housing assistance but also public education, labor, and civil rights. More specifically, I combine the departments of Education, Health and Human Services, Labor, Veterans Affairs, and Justice, as well as the Social Security Administration, Centers for Medicare and Medicaid, and a variety of other departments dealing with health, poverty, and civil rights. 
 My economic policy category includes the Departments of Commerce, Treasury, Energy, Transportation, Agriculture, and Interior. 
 
-The likelihood plots in Figure \@ref(fig:macro-social-econ) are not clear evidence for or against theories that suggest Democrats and Republicans should differ in their emphasis on these two broad categories. On the one hand, the patterns are not noticeably different before the 2000 election, and both George W. Bush and Barack Obama appear to have made more economic policy in their first term than in their second. On the other hand, there is a marked increase in the likelihood of social policy under the Obama administration, as suggested by the party ideology perspective put forward by Gerring (1998) and others. Social policy will be disaggregated to more specifically consider welfare, labor, and civil rights policymaking in the subsections below, but first, I turn to a third broad category of policymaking, foreign policy. 
+The likelihood plots in Figure \@ref(fig:macro-social-econ) are not clear evidence for or against theories that suggest Democrats and Republicans should differ in their emphasis on these two broad categories. On the one hand, the patterns are not noticeably different before the 2000 election, and both George W. Bush and Barack Obama appear to have made more economic policy in their first term than in their second. On the other hand, there is a marked increase in the likelihood of social policy under the Obama administration, as suggested by the party ideology perspective put forward by @Gerring1998 and others. Social policy will be disaggregated to more specifically consider welfare, labor, and civil rights policymaking in the subsections below, but first, I turn to a third broad category of policymaking, foreign policy. 
 
-```{r macro-social-econ, fig.cap = "Social and Economic Policy Final Rules Published per Year 1980-2020", out.width = "10%"}
+```{r macro-social-econ, fig.cap = "Social and Economic Policy Final Rules Published per Year 1981-2018"}
 
-knitr::include_graphics(here::here("Figs", "todo.png") )
+knitr::include_graphics(here::here("Figs", "ua-Social-Policy-1.png") )
+
+knitr::include_graphics(here::here("Figs", "ua-Economic-Policy-1.png") )
+
 ```
 
 The histogram for foreign affairs (the Department of State and International Trade Administration) in Figure \@ref(fig:macro-foreign) differs from the Department of Defense, but the only clear pattern is the increased rulemaking after 1996, predating the dramatic increase in its budget after 2001 and significantly predating the 2004 election when Claggett and Shafer (2010) identify national security as emerging as an issue. 
 The likelihood plot suggests partisan effects, with two peaks occurring during the 103rd and 111th Congresses, the only periods where Democrats had control of both houses and the presidency. This aligns with findings by @Farhang2016 that rulemaking is more likely to be concentrated in a single agency rather than fragmented across agencies under a unified government. There are smaller bumps that appear to correspond to the reelection of these two presidents when facing an oppositional Congress (but also no longer thinking about reelection). 
 
-```{r macro-foreign, fig.cap = "Social and Economic Policy Final Rules Published per Year, 1980-2020", out.width = "10%"}
-
-knitr::include_graphics(here::here("Figs", "todo.png") )
+```{r macro-foreign, fig.cap = "Social and Economic Policy Final Rules Published per Year, 1981-2018"}
+knitr::include_graphics(here::here("Figs", "ua-Foreign-Policy-1.png") )
 ```
 
 
@@ -180,37 +194,36 @@ knitr::include_graphics(here::here("Figs", "todo.png") )
 
 A connection between labor and the Democratic party [@Schlozman2015] is not obvious in the volume of Department of Labor regulations. If anything, Republican administrations seem to make more labor policy. Looking at the scatterplot in Figure \@ref(fig:macro-labor), policymaking appears remarkably constant across sub-agencies within the Department of Labor, barring a marked pulse of rule withdrawals in 2001. 
 
-```{r macro-labor, fig.cap = "Labor Policy Final Rules Published per Year, 1980-2020", out.width = "10%"}
+```{r macro-labor, fig.cap = "Labor Policy Final Rules Published per Year, 1981-2018"}
 
-knitr::include_graphics(here::here("Figs", "todo.png") )
+knitr::include_graphics(here::here("Figs", "ua-Labor-1.png") )
 ```
    
 Clear peaks in welfare rulemaking (Social Security, Medicare, and Medicaid) reflect the 2003 Medicare Modernization Act and the 2010 Affordable Care Act. The histogram in Figure \@ref(fig:macro-welfare) suggests that policymaking both increased and became more variable after 2000. This pattern is most consistent with Shafer's characterization of the Era of Partisan Volatility. We do not see clear patterns associations with party balance, but this may be because we are looking at the amount of policy rather than its direction. The scatterplot shows significant numbers of rules withdrawn after 2001, which may indicate partisan disagreement.
    
-```{r macro-welfare, fig.cap = "Welfare Policy (Social Security, Medicare, and Medicaid) Final Rules 1980-2020", out.width = "10%"}
+```{r macro-welfare, fig.cap = "Welfare Policy (Social Security, Medicare, and Medicaid) Final Rules 1981-2018"}
 
-knitr::include_graphics(here::here("Figs", "todo.png") )
+knitr::include_graphics(here::here("Figs", "ua-Welfare-1.png") )
 ```
 
 
 ### Civil Rights
 
-Among others, Mayhew (1991) and Claggett and Shafer (2010) identify civil rights as one of the major new issues on the post-war American policy agenda. Rulemaking, however, likely presents a poor measure of this policy issue, and classifying rules by agency only makes this problem worse. Only a few sub-agencies unambiguously address only civil rights issues. The figures below reflect the Department of Agriculture Office of Civil Rights, The Department of Housing and Urban Development's Fair Housing and Equal Opportunity bureau, and the Equal Employment Opportunity Commission, none of which make many regulations. Little can be said about so little data, but rulemaking activity does appear to peak near the beginning of the Clinton administration and remain nearly non-existent since the beginning of the George W. Bush administration.^[Future research could search for additional activity using keywords in rule abstracts.] It is possible that civil rights, anti-discrimination policy issues are meaningful for structuring votes and local policy but still poorly reflected in the volume of federal rules.
+Among others, @Mayhew2000 identifies civil rights as one of the major new issues on the post-war American policy agenda. Rulemaking, however, likely presents a poor measure of this policy issue, and classifying rules by agency only makes this problem worse. Only a few sub-agencies unambiguously address only civil rights issues. The figures below reflect the Department of Agriculture Office of Civil Rights, The Department of Housing and Urban Development's Fair Housing and Equal Opportunity bureau, and the Equal Employment Opportunity Commission, none of which make many regulations. Little can be said about so little data, but rulemaking activity does appear to peak near the beginning of the Clinton administration and remain nearly non-existent since the beginning of the George W. Bush administration.^[Future research could search for additional activity using keywords in rule abstracts.] It is possible that civil rights, anti-discrimination policy issues are meaningful for structuring votes and local policy but still poorly reflected in the volume of federal rules.
    
-```{r macro-civil, fig.cap = "Civil Rights Policy Final Rules, 1980-2020", out.width = "10%"}
-
-knitr::include_graphics(here::here("Figs", "todo.png") )
+```{r ua-Civil-Rights, fig.cap = "Civil Rights Policy Final Rules, 1981-2018"}
+knitr::include_graphics(here::here("Figs", "ua-Civil-Rights-1.png") )
 ```
 
 
 ### Environment
 
 The cleanest way to capture environmental issues is to focus only on the Environmental Protection Agency. This is what the plots in Figure \@ref(fig:macro-environment). However, environmental issues are also spread throughout the Departments of Agriculture, Energy, Defense, and, increasingly, state. 
-Claggett and Shafer (2010), among others, identify environmental issues as anomalous or off-dimension issues that may not cluster well with other issues. Shafer 2016 identifies environmental issues as a major policy issue until the 1990s. The rulemaking data in Figure \@ref(fig:macro-environment), especially the histogram, do not contradict these interpretations. Unlike any other policy areas, the peak of environmental rules in this timeframe is when Reagan took office (probably capturing the end of the era of new landmark environmental legislation) and declines dramatically by the end of his term to a much lower level for the next three decades.
+@Claggett2010, among others, identify environmental issues as anomalous or off-dimension issues that may not cluster well with other issues. Shafer 2016 identifies environmental issues as a major policy issue until the 1990s. The rulemaking data in Figure \@ref(fig:macro-environment), especially the histogram, do not contradict these interpretations. Unlike any other policy areas, the peak of environmental rules in this timeframe is when Reagan took office (probably capturing the end of the era of new landmark environmental legislation) and declines dramatically by the end of his term to a much lower level for the next three decades.
 
-```{r macro-environment, fig.cap = "Environmental Policy Final Rules, 1980-2020", out.width = "10%"}
+```{r ua-Environmental, fig.cap = "Environmental Policy Final Rules, 1981-2018"}
 
-knitr::include_graphics(here::here("Figs", "todo.png") )
+knitr::include_graphics(here::here("Figs", "ua-Environmental-1.png") )
 ```
    
 
@@ -242,7 +255,7 @@ that a great deal of spending is directed by rulemaking. Furthermore, rule publi
 In the end, the relationships between rulemaking and the nature of change in public opinion and party power over time demands more detailed study. Linking macro-level politics to the concrete substance of policy is not an easy task, but the fruits of such research are critical to understanding
 which of American politics' many moving parts most affect the concrete laws that govern daily life and, in many cases, feedback to reshape the terrain of American politics.
 
-The following chapters in this dissertation focus on one narrow piece of this broad project to incorporate bureaucratic policymaking into theories of American politics. They use similar data but approach the problem from the other side. I start with theories of bureaucratic policymaking and begin to incorporate theories of civic engagement, pressure politics, legislative behavior, and social movement power in order to explain and account for the occasional bursts of public attention and engagement in agency rulemaking. In these policy fights, the politics of agency rulemaking begins to look more like the American politics described above---dominated by durable yet shifting coalitions of social movements, organized interests, politicians, and the attentive public.
+The following chapters in this dissertation focus on one narrow piece of this broad project to better integrate bureaucratic policymaking into theories of American politics. They use similar data but approach the problem from the other side. I start with theories of bureaucratic policymaking and begin to incorporate theories of civic engagement, pressure politics, legislative behavior, and social movement power in order to explain and account for the occasional bursts of public attention and engagement in agency rulemaking. In these policy fights, the politics of agency rulemaking begins to look more like the American politics described above---dominated by durable yet shifting coalitions of social movements, organized interests, politicians, and the attentive public.
 
 <!-- References {-}
 

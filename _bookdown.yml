@@ -11,7 +11,6 @@ knit_root_dir: "/Users/devin/dissertation" # `r here::here()` #https://stackover
 rmd_files:
   - index.Rmd
   - 00-intro-book.Rmd
-  - 00-motivation.Rmd
   - 00-intro-adlaw.md
   - 00-outline.Rmd
   - 01-rulemaking/00-abstract.Rmd # macro

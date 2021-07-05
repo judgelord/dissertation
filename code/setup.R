@@ -76,7 +76,8 @@ kablebox <- . %>%
 # a function to format kables for different formats 
 kable2 <- function(x, file){
   if(knitr:::is_html_output() | knitr::is_latex_output() ){
-      x %>% kable_styling(latex_options = c("scale_down"))
+      x %>% row_spec(row = 1, bold = T, hline_after = TRUE) %>% 
+      kable_styling(font_size = 10, full_width = TRUE)
   } else{
     kableExtra::as_image(x, width = 6.5, file = paste0("figs/", file, ".png"))
     }
@@ -86,7 +87,7 @@ kable2 <- function(x, file){
 library(flextable)
 
 # A function to trim and format tables for different outputs 
-kable3 <- function(x, caption = "", latex_options = "repeat_header"){
+kable3 <- function(x, caption = "", full_width = TRUE, latex_options = "repeat_header"){
   if(knitr:::is_html_output()) {
     x %>% 
       ungroup() %>% 
@@ -100,7 +101,7 @@ kable3 <- function(x, caption = "", latex_options = "repeat_header"){
         ungroup() %>% 
         slice_head(n = 20) %>%
         knitr::kable(caption = caption) %>% 
-        kable_styling(font_size = 10, latex_options = latex_options)
+        kable_styling(font_size = 10, full_width = TRUE, latex_options = latex_options)
     } else{x %>% 
         ungroup() %>% 
         slice_head(n = 20) %>%

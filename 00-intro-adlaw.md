@@ -1,17 +1,23 @@
 ### Administrative Law Scholarship {-} 
 
 In contrast to political scientists, legal scholars have long debated
-what to make of mass commenting in rulemaking. Many focus on reforms to
+what to make of mass commenting in rulemaking. In 2018, the Administrative Conference of the United States (ACUS)
+    identified public pressure campaigns ("mass commenting")" as a top issue in administrative law. In
+    their report to ACUS, @SantAmbrogio2018 conclude, 
+    
+> "The 'mass
+    comments' occasionally submitted in great volume in highly salient
+    rulemakings are one of the more vexing challenges facing agencies in
+    recent years. Mass comments are typically the result of orchestrated
+    campaigns by advocacy groups to persuade members or other
+    like-minded individuals to express support for or opposition to an
+    agency's proposed rule." 
+
+Most administrative law scholars focus on reforms to
 help agencies collect more useful information
-[@Farina2011; @Farina2014; @Rauch2016]. In 2018, "Public engagement" was
-main project of the Administrative Conference of the United States
-(ACUS) committee on Rulemaking: The project
-
-> "explores agency strategies to enhance public engagement prior to and
-> during informal rulemaking. It seeks to ensure that agencies invest
-> resources in a way that maximizes the probability that rulewriters
-> obtain high-quality public information."
-
+[@Farina2011; @Farina2014; @Rauch2016]. The ACUS report "explores agency strategies to enhance public engagement prior to and during informal rulemaking. It seeks to ensure that agencies invest
+ resources in a way that maximizes the probability that rulewriters
+ obtain high-quality public information."
 Among other things, this committee is debating how best to gather
 "quality public information," how "to get new people/groups into the
 real or virtual room" [@Farina2018], and whether broad engagement is
@@ -52,7 +58,7 @@ sense, the "quality" of discourse has not improved.
 
 Even scholars who suggest reforms aimed at "regulatory democracy" aim to
 increase the "sophistication" of ordinary peoples' comments
-[@Cuellar2014; @Johnson2013]. For example, @Noveck2004 is critical of "notice and spam," arguing instead for
+[@Cuellar2005; @Johnson2013]. For example, @Noveck2004 is critical of "notice and spam," arguing instead for
 "participative practices---methods for 'doing democracy' that build the
 skills and capacity necessary for citizens, experts, and organizations
 to speak and to be heard. Rulemaking, after all, is a communicative
@@ -64,7 +70,7 @@ in rulemaking. But a focus on sophisticated deliberation and technical
 information overlooks the potential role of political information.^[But see insights from @Golden1998, @Nelson2012, @Rauch2016, and
     @Potter2017 on political information, @Cuellar2005 on participation
     and voice, and @Reich1966 and @Seifter2016UCLA on representation,
-    which I review elsewhere.]
+    which I review in \@ref(why-theory).]
 Whereas administrative law scholars have focused on "how technology can
 connect the expertise of the many to the power of the few"
 [@Noveck2009], I ask whether it may also connect the power of the many

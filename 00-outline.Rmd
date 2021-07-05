@@ -1,7 +1,5 @@
 ## Outline of the book {-}
 
-This dissertation explores the effects of public pressure campaigns on agency rulemaking, a technocratic policy process where "public participation" is usually limited to sophisticated lobbying but occasionally includes millions of people mobilized by public pressure campaigns. Public comment periods on proposed policies purport to provide democratic accountability. Yet theories of bureaucratic policymaking largely ignore the occasional bursts of civic engagement that generate the vast majority of public comments on proposed rules. To fill this gap, I build and test theories about the role of public pressure in policymaking. I collect and analyze millions of public comments to develop the first systematic measures of civic engagement and influence in bureaucratic policymaking. 
-
 ```{r child = here::here("outline.md")}
 ```
 

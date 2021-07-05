@@ -4,9 +4,6 @@ title: "Agency Rulemaking in American Politics"
 subtitle: "Appendix and Replication Code" 
 author: "Devin Judge-Lord"
 output:
-    # pdf_document:
-    #   toc: true
-    #   keep_tex: true
     html_document:
       highlight: zenburn
       toc: true
@@ -21,7 +18,8 @@ editor_options:
 source(here::here("code", "setup.R"))
 
 knitr::opts_chunk$set(echo = TRUE, 
-                      cache = FALSE)
+                      cache = FALSE,
+                      fig.path = "../figs/")
 ```
 
 # Data
@@ -41,14 +39,41 @@ regs %<>%
 #sum(is.na(regs$UnifiedAgendaDate))
 
 # select one observation per RIN 
-regs %<>%
-  dplyr::group_by(RIN) %>%
-  dplyr::top_n(n = 1, UnifiedAgendaDate) %>%
-  dplyr::ungroup()
 
 regs$Year <- str_sub(regs$UnifiedAgendaDate, 1,4) %>% as.numeric()
 
+regs %<>% mutate(Stage = case_when(
+  str_detect(STAGE, "Final Rule|Completed") ~ "Final Rule",
+  str_detect(STAGE, "Withdrawal|Terminat") ~ "Withdrawal",
+  str_detect(STAGE, "Pre|Prop") ~ "Proposed"
+))
+
+regs %<>% drop_na(Stage)
+
+regs %<>% distinct(UnifiedAgendaDate,RIN, AGENCY, PARENT_AGENCY, RIN, Stage, Year)
+
+regs %<>%
+  ungroup() %>% 
+  dplyr::group_by(RIN, Year) %>%
+  dplyr::top_n(n = 1, UnifiedAgendaDate) %>%
+  dplyr::ungroup() %>% 
+  distinct()
+
+# FIXME will need to add date back in for other plots
+regs %<>% distinct(Year,RIN, AGENCY, PARENT_AGENCY, RIN, Stage, Year)
+
+
+count(regs, Stage)
+
+count(regs, RIN,sort = T) 
+
+count(regs, RIN, Stage, sort = T) 
+
+
+
+
 source(here("code", "UA-policy-area.R") %>% str_replace("dissertation", "rulemaking"))
+
 
 ua <- regs
 
@@ -87,11 +112,11 @@ rules %<>% filter(year >2004)
 rules %>% 
   ggplot() + 
   aes(x = year, fill = document_type) +
-  geom_bar(alpha = .7, position = "dodge") + 
+  geom_bar(alpha = .7) + 
   labs(y  = "Number of Documents",
        x = "",
        fill = "") + 
-  scale_fill_viridis_d(option="cividis", begin = .3, end = .7, direction = -1, ) + 
+  scale_fill_viridis_d(option="cividis", begin = .1, end = .7, direction = -1, ) + 
   theme(axis.text.x = element_text(angle = 45,
                                    hjust = 1, vjust = .5),
         panel.grid.major.x = element_blank(),
@@ -180,7 +205,7 @@ party_control %<>%
 
 ## Unified Agenda Documents
 
-```{r ua-Aall, fig.height=3.2}
+```{r ua-all, fig.height=4}
 # functions to plot
 macro_scatterplot <- function(policy){
 ua %>% 
@@ -206,13 +231,15 @@ ggplot() +
                        vjust = .5)) #+  facet_wrap("AGENCY", scales = "free_y")
 }
 
-ua %<>% mutate(Status = ifelse(is.na(WITHDRAWAL) | !str_detect(WITHDRAWAL, "-"), "Published", "Withdrawn"))
+
+# UA ALL BY STATUS 
+#ua %<>% mutate(Status = ifelse(Stage == "Withdrawal"|!str_detect(WITHDRAWAL, "-"), "Published", "Withdrawn"))
 
 p <- ua %>% 
-    count(Year, Status) %>%
+    count(Year, Stage) %>%
     ggplot() + 
-    aes(x = as.integer(Year), y = n, fill = Status) + 
-    geom_col() +
+    aes(x = as.integer(Year), y = n, fill = Stage) + 
+    geom_col(alpha = .6) +
     labs(#title = paste('"Significant"', unique(policy), 'Rulemaking Projects'),
                 x = "",
          y = "Number of Rules") +
@@ -222,33 +249,52 @@ p <- ua %>%
                        angle = 45,
                        hjust = 1)) +#, vjust = .5)) + 
         scale_x_continuous(breaks = breaks) +
-    scale_fill_viridis_d(option = "cividis", end = .6, direction = -1)
-
+    scale_fill_viridis_d(option = "cividis", end = 1, direction = -1)
 library(cowplot)
-plot_grid(p, tile, align = "v", nrow = 2, rel_heights = c(2.2,1))
+plot_grid(p, tile, align = "v", nrow = 2, rel_heights = c(2.5,1))
+
+
+# UA ALL BY AGENCY 
+p <- ua %>% 
+  mutate(Agency = str_remove_all(PARENT_AGENCY, "Department of |the |^[0-9]*|[A-Z]*$")) %>%
+  mutate(Agency = Agency %>% replace_na(" Other")) %>% 
+      count(Year, Agency) %>%
+    ggplot() + 
+    aes(x = as.integer(Year), y = n, fill = Agency) + 
+    geom_col(alpha = .6) +
+    labs(#title = paste('"Significant"', unique(policy), 'Rulemaking Projects'),
+                x = "",
+         y = "Number of Rules") +
+      theme(panel.border = element_blank(),
+            axis.text.x =
+          element_text(#size  =2,
+                       angle = 45,
+                       hjust = 1)) +#, vjust = .5)) + 
+        scale_x_continuous(breaks = breaks) +scale_fill_viridis_d()
+p
 
 ua %<>% mutate(PARENT_AGENCY = coalesce(PARENT_AGENCY, AGENCY))
 
+# PLOT BY POLICY CODE 
 macro_hist <- function(policy){
- 
   
   x <- ua %>% 
     filter(policy_code == policy)
   
   
-  x$PARENT_AGENCY %>% unique() %>% str_remove_all("^[0-9]*|[A-Z]*$")%>% print()
+  x$PARENT_AGENCY %>% unique() %>% str_remove_all("^[0-9]*|[A-Z]*$")%>% discard(is.na) %>% print()
   x$AGENCY %>% unique() %>% print()
   
 p <- x  %>% 
-    count(Year, Status) %>%
+    count(Year, Stage) %>%
     ggplot() + 
-    aes(x = as.integer(Year), y = n, fill = Status) + 
-    geom_col() +
-    labs(title = paste(unique(policy), 'Rulemaking'),
-         subtitle = paste0("(", 
+    aes(x = as.integer(Year), y = n, fill = Stage) + 
+    geom_col(alpha = .6) +
+    labs(#title = paste(unique(policy), 'Rulemaking'),
+         subtitle = paste0(#"(", 
                            paste(x$PARENT_AGENCY %>%
-                                   unique() %>% str_remove_all("^[0-9]*|[A-Z]*$"), sep = "and"),
-                           ")"),
+                                   unique() %>% discard(is.na)  %>% str_remove_all("^[0-9]*|[A-Z]*$"), collapse = " and ")#,")"
+                           ),
                 x = "",
          y = "Number of Rules") +
       scale_x_continuous(breaks = breaks) +
@@ -256,7 +302,8 @@ p <- x  %>%
   theme(panel.border = element_blank(),
         axis.text.x = element_text(angle = 45,
                                    hjust = 1)) + 
-    scale_fill_viridis_d(option = "cividis", end = .6, direction = -1)
+    scale_fill_viridis_d(option = "cividis", end = .9, direction = -1)
+
 #p
 library(cowplot)
 plot_grid(p, tile, align = "v", nrow = 2, rel_heights = c(2,1))
@@ -275,10 +322,10 @@ macro_hist2 <- function(policy){
   x$AGENCY %>% unique() %>% print()
   
 p <- x  %>% 
-    count(Year, Status) %>%
+    count(Year, Stage) %>%
     ggplot() + 
-    aes(x = as.integer(Year), y = n, fill = Status) + 
-    geom_col() +
+    aes(x = as.integer(Year), y = n, fill = Stage) + 
+    geom_col(alpha = .6) +
     labs(title = paste(unique(policy), 'Rulemaking'),
                 x = "",
          y = "Number of Rules") +
@@ -287,7 +334,7 @@ p <- x  %>%
   theme(panel.border = element_blank(),
         axis.text.x = element_text(angle = 45,
                                    hjust = 1)) + 
-    scale_fill_viridis_d(option = "cividis", end = .6, direction = -1)
+    scale_fill_viridis_d(option = "cividis", end = .9, direction = -1)
 #p
 library(cowplot)
 plot_grid(p, tile, align = "v", nrow = 2, rel_heights = c(2,1))
@@ -295,24 +342,27 @@ plot_grid(p, tile, align = "v", nrow = 2, rel_heights = c(2,1))
 
 ```
 
-```{r ua-Economic Policy, fig.height=3.2, cache=FALSE}
+```{r ua-Economic-Policy, fig.height=3.2, cache=FALSE}
 policy <- "Economic Policy"
 
 macro_hist2(policy)
 ```
 
-```{r ua-Social Policy, fig.height=3.2, cache=FALSE}
+```{r ua-Social-Policy, fig.height=3.2, cache=FALSE}
 policy <- "Social Policy"
 
 macro_hist2(policy)
 ```
 
+```{r ua-Foreign-Policy, fig.height=3.2, cache=FALSE}
+policy <- "Foreign Policy"
 
-```{r ua-Foreign Poicy, fig.height=3.2, cache=FALSE}
-policy <- "Foreign Poicy"
+macro_hist(policy)
 
-macro_hist2(policy)
+macro_hist2(policy) # 
 ```
+
+
 
 ```{r ua-Transportation, fig.height=3.2, cache=FALSE}
 policy <- "Transportation"
@@ -363,12 +413,6 @@ policy <- "Labor"
 macro_hist(policy)
 ```
 
-```{r ua-Foriegn, fig.height=3.2, cache=FALSE}
-policy <- "Foriegn"
-
-macro_hist(policy)
-```
-
 ```{r ua-Education, fig.height=3.2, cache=FALSE}
 policy <- "Education"
 
@@ -387,8 +431,8 @@ policy <- "Civil Rights"
 macro_hist(policy)
 ```
 
-```{r ua-Environment, fig.height=3.2, cache=FALSE}
-policy <- "Environment"
+```{r ua-Environmental, fig.height=3.2, cache=FALSE}
+policy <- "Environmental"
 
 macro_hist(policy)
 ```

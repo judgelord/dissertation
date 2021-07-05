@@ -415,7 +415,7 @@ The outcome model results are similar to the results of Model 1 in Table \@ref(t
 
 
 
-```{r mediation, warning=FALSE, message=FALSE, eval = false}
+```{r mediation, warning=FALSE, message=FALSE}
 # model predicting DV
 model.m <- lm(coalition_congress ~ campaign_ + 
                 #comment_length + 
@@ -451,15 +451,16 @@ med.cont <- mediate(model.m, model.y,
                     mediator = "coalition_congress")
 #med.cont %<>% tidy()
 
-tidy(med.cont)
+#tidy(med.cont) %>% kable3(caption = "Mediation Analysis with Pressure Campaign as Treatment and Congressional Support as Mediator for Lobbying Success"))
 
-modelsummary(list("Mediation Analysis" = med.cont), stars = T, coef_rename = cm,
-             coef_omit =  ".*_1",
-             gof_omit = ".*",
-             title = "Mediation Analysis with Pressure Campaign as Treatment and Congressional Support as Mediator for Lobbying Success")
+# modelsummary(list("Mediation Analysis" = med.cont), stars = T, coef_rename = cm,
+#              coef_omit =  ".*_1",
+#              gof_omit = ".*",
+#              title = "Mediation Analysis with Pressure Campaign as Treatment and Congressional Support as Mediator for Lobbying Success")
 ```
 
-For mediation analysis, I use the OLS version of both mediator and outcome models.
+<!--For mediation analysis, I use the OLS version of both mediator and outcome models.-->
+
 The average effect of a public pressure campaign on lobbying success, conditional on letters from members of Congress (the ACME) is `r round(med.cont$d.avg, 2)` on the 5-point scale, with a p-value of `r round(med.cont$d0.p, 4)`. This 
 The Average Direct Effect (ADE) of a public pressure campaign on lobbying success is `r round(med.cont$z0, 2)`, with a p-value of `r round(med.cont$z0.p, 4)`.
 
