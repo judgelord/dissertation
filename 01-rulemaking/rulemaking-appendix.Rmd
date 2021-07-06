@@ -77,6 +77,8 @@ source(here("code", "UA-policy-area.R") %>% str_replace("dissertation", "rulemak
 
 ua <- regs
 
+save(ua, file = here("data","ua.Rdata"))
+
 
 ## REGULATIONS.GOV
 load(here("data", "rules_metadata.Rdata"))

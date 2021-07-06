@@ -93,7 +93,7 @@ clustered on a few rules made salient by these campaigns.
 Just ten rulemaking dockets account for `r percent(sum(top10$comments)/sum(rules$number_of_comments_received), accuracy = .01)` (`r sum(top10$comments)`), of comments (Figure
 \@ref(fig:topdockets)). Because public pressure requires resources and capacity, policy issues of interest to organizations with the resources and capacity to launch a campaign receive disproportionate amounts of public attention.
 
-```{r topdockets, fig.width = 1, fig.cap = "Top 10 Dockets Receiving the Most Comments on regulations.gov and the top 20 Mobilizers"}
+```{r topdockets, fig.width = 1, fig.cap = "Dockets Receiving the Most Comments on Regulations.gov and the top Mobilizing Organizations"}
 
 knitr::include_graphics(here::here("Figs", "topdockets.png"))
 ```
@@ -113,7 +113,7 @@ and do not always indicate support for or opposition to a rule. Still, given the
 changing regulatory agenda due to the change in the presidential
 administration. 
 
-```{r comments-support, out.width = "79%", fig.cap = 'Comments Containing "Support" or "Oppose" on Draft Rules Posted to Regulations.gov 2006-2018'}
+```{r comments-support, out.width = "79%", fig.cap = 'Comments Containing ``Support" or ``Oppose" on Draft Rules Posted to Regulations.gov, 2006-2018'}
 #FIXME just use mass and not-mass
 knitr::include_graphics(here::here("Figs", "comments-mass-support-vs-oppose-1.png"))
 ```

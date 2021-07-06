@@ -28,8 +28,8 @@ bookdown::pdf_book:
       - assets/preamble-memoir.tex
   latex_engine: xelatex
   citation_package: natbib
-  urlcolor: blue
-  linkcolor: blue
+  urlcolor: black
+  linkcolor: black
   header-includes:
   - \usepackage{floatrow}
   - \usepackage{float}

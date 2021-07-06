@@ -181,7 +181,7 @@ modelsummary::modelsummary( modelsFE,
                             coef_rename =  cm,
                             gof_omit = "R2 .*",
                           add_rows = rowsFE, 
-                          title = "OLS Models of Coalition-Level Lobbying Success",
+                          title = "OLS Model of Coalition-Level Lobbying Success",
                           notes = "") %>% 
   kable2(file = "mc-success")
 ```
@@ -387,7 +387,7 @@ modelsummary(mediator,
              add_rows = rowsMediation,
              #gof_omit = ".*",
              coef_rename = cm,
-             title = "Models of Congressional Support and Lobbying Success for Mediation Analysis") %>% 
+             title = "Regression Models of Congressional Support and Lobbying Success for Mediation Analysis") %>% 
   kable2(file = "model-oversight")
 ```
 

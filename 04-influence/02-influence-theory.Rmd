@@ -20,24 +20,20 @@ An entrepreneurial agency may struggle to persist if the broad-based public inte
 
 > "An agency created as the result of entrepreneurial politics is in a precarious position: since it was born out of an attack on the interests it is now supposed to regulate, its employees must worry that the social movements that created their tasks may desert the fledgling agency because of shifting interests or waning passions, leaving it to confront a hostile interest group alone and unprotected." 
 
-Whether representing broad or narrow interests, many interest groups exist primarily to influence policy.
+Whether representing broad or narrow interests, many interest groups exist primarily to influence policy. With renewed attention to the role of policy advocacy groups policymaking, the dichotomy between accountabiity to political principals and "capture" is being replaced by studies that focus on numerous mechanisms of interesg group influence in policymaking. 
 Measuring lobbying success is a major challenge for studies attempting to study interest group influence [@Mahoney2007JPP; @Yackee2006JOP; @Rashin2017].
 As @Potter2017 put it "discerning influence from any kind of lobbying is a notoriously elusive exercise because of the difficulty in knowing the counterfactual scenario."
 
+
 Scholars of bureaucratic policymaking have focused either on
 the sophisticated lobbying efforts of powerful interest groups such as
-business coalitions or principal-agent dynamics, especially with respect to Congress. This section first discusses the "classic model" of interest group influence. I then amend this model to incorporate public pressure campaigns. Specifically, I allow policymakers to be persuaded by both technical and political information. Thus, lobbying organizations may have incentives to adopt both tactics to influence policy. 
-
+business coalitions or principal-agent dynamics, especially with respect to Congress. 
+This section first discusses the "classic model" of interest group influence. I then amend this model to incorporate public pressure campaigns. Specifically, I allow policymakers to be persuaded by both technical and political information. Thus, lobbying organizations may have incentives to adopt both tactics to influence policy. 
 Next, I incorporate public pressure campaigns into a simple principal-agent model. The result is one model of interest group influence that includes interactions among sophisticated lobbying strategies, political principals, and public pressure campaigns.
 
 A key insight from scholarship on interest group lobbying in bureaucratic policymaking is that
 technical information is the currency of insider lobbying. 
 <!--TODO-->
-
-
-
-
-
 Figure
 \@ref(fig:causal-classic2) illustrates the classic causal
 model of insider lobbying that describes most rulemakings and nearly all

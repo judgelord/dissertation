@@ -1,5 +1,0 @@
-## Outline of the book {-}
-
-```{r child = here::here("outline.md")}
-```
-

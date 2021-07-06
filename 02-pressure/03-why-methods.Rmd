@@ -1,11 +1,6 @@
 ## Testing the Theory {#why-data-methods}
 
-To assess my theory about which groups should mobilize public participation in bureaucratic policymaking, I use public comments in federal agency rulemaking. However, my theories and methods should also apply to other kinds of political engagement such as through social media or protests as well as to other political decisions, including state-level rulemaking.^[Social media
-    engagement may be especially important if agencies implement the
-    recommendations of @ACUS2018 that "Agencies should consider using
-    social media before or in connection with direct final rulemaking to
-    quickly identify whether there are significant or meaningful
-    objections" (p. 34).]
+To assess my theory about which groups should mobilize public participation in bureaucratic policymaking, I use public comments in federal agency rulemaking. However, my theories and methods should also apply to other kinds of political engagement such as through social media or protests as well as to other political decisions, including state-level rulemaking.
     
 ### Data {#why-data}
 
@@ -45,15 +40,15 @@ I then linked these comments to other data on the rules from the Unified
 Agenda and Office of Information and Regulatory Affairs Reports. Summary statistics for these data are
 available in the Appendix.
 
-From 2005 to  2020, agencies posted `r nrow(distinct(rules, docket_id))` rulemaking dockets to regulations.gov. and solicited public comments on `r nrow(distinct(rules %>% filter(open), docket_id))`. Only `r nrow(distinct(mass, docket_id))` of these rulemaking dockets received more than 100 comments, but this small share of rules garnered `r percent(sum(mass$number_of_comments_received)/sum(rules$number_of_comments_received), accuracy = .01)` (`r sum(mass$number_of_comments_received)`) of the comments. The top 10 rulemaking dockets account for `r percent(sum(top10$comments)/sum(rules$number_of_comments_received), accuracy = .01)` (`r sum(top10$comments)`), of the comments.
+From 2005 to  2020, agencies posted `r nrow(distinct(rules, docket_id))` rulemaking dockets to regulations.gov. and solicited public comments on `r nrow(distinct(rules %>% filter(open), docket_id))`. Only `r nrow(distinct(mass, docket_id))` of these rulemaking dockets received more than 100 comments, but this small share of rules garnered `r percent(sum(mass$number_of_comments_received)/sum(rules$number_of_comments_received), accuracy = .01)` (`r sum(mass$number_of_comments_received)`) of the comments. The top 10 rulemaking dockets account for `r percent(sum(top10$comments)/sum(rules$number_of_comments_received), accuracy = .01)` (`r sum(top10$comments)`), of the comments. Nearly all of these are form letters.
 
 
 
 
 Figure
-\@ref(fig:comments-density) shows a sample of rules matched to Office of Information and Regulatory Affairs coding for major and non-major rules. The modal number of comments for all types of rules, including major and economically significant rules, is less than ten. Indeed, the majority of rules that are open for public comment received no comments. 
+\@ref(fig:comments-density) shows the relative number of comments received on a sample of rules matched to data from the Office of Information and Regulatory Affairs (OIRA). OIRA mostly reports on "significant" rules and classifies them as "major" and "non-major" rules. The top part of \@ref(fig:comments-density) shows the distribution of proposed rules over the number of comments they received (the x-axis). The lower part of \@ref(fig:comments-density) shows a scatterplot of the number of rules with a given number of comments. The key takeaway is that there is a great deal of diversity in commenting, with most rules receiving very few comments. Nearly 8,000 of the 20,000 non-major rules (37%) received no comments. The modal number of comments for all types of rules, including major and economically significant rules, is less than ten. Indeed, the majority of rules that are open for public comment received no comments. 
 
-```{r comments-density, out.width = "99%", fig.cap = "Comments on Posted to Regulations.gov on Rules Reviewed by OIRA 2005-2020"}
+```{r comments-density, out.width = "99%", fig.cap = "Comments Posted to Regulations.gov on Rules Reviewed by OIRA 2005-2020"}
 
 knitr::include_graphics(here::here("Figs", "major-comments-density-1.png"))
 ```
@@ -107,7 +102,7 @@ public interest, even when true motivations are private
 I describe my classification methods in section \@ref{classify-public-private}. To provide empirical context, this subsection sketches out the range of public and private campaigns with some concrete examples of "public" pressure campaigns that primarily advance private interests.
 
 There is a spectrum of organizing the unorganized. The poles might be labeled "grassroots" and "astroturf." On the grassroots end, engagement is driven by a combination of passionate volunteerism and a supportive, attentive segment of the public. In practice, most campaigns on the grassroots end of the spectrum in federal rulemaking are not pure volunteerism but are organized by policy change organizations like MoveOn and Organizing For American on the left and Americans for Prosperity on the right.
-These organizations have large mailing lists and media operations, providing the capacity to mobilize large numbers of people for a particular policy fight. Both public and private interest groups pay for mobilizing services and software. Some providers are non-profits (e.g. Care2); others are for-profit lobbying and campaign consultants (e.g. Nationbuilder, SoftEdge, Mandate Media). Most of these services have strong partisan ties, as is generally the case with lobbying firms [@Furnas2017].
+These organizations have large mailing lists and media operations, providing the capacity to mobilize large numbers of people for a particular policy fight. Both public and private interest groups pay for mobilizing services and software. Some providers are nonprofits (e.g., Care2); others are for-profit lobbying and campaign consultants (e.g., Nationbuilder, SoftEdge, Mandate Media). Most of these services have strong partisan ties, as is generally the case with lobbying firms [@Furnas2017].
 Membership organizations like the Sierra Club often mobilize "members and supporters" beyond their official membership base, thereby taking the form of a policy change organization as well. 
 
 Like people mobilized through their membership organizations, people mobilized by policy change organizations will often cite the mobilizing organization.
@@ -194,7 +189,7 @@ The black on the diagonal indicates that each document has a perfect overlap wit
 The cluster of grey tiles indicates a coalition of commenters using some identical text.
 Comments [91130](https://www.regulations.gov/document?D=CFPB-2016-0025-91130) through [91156](https://www.regulations.gov/document?D=CFPB-2016-0025-91154) are all partial or exact matches. All are part of a mass comment campaign by Access Financial. The percent of the identical text is lower than many mass-comment campaigns because these are hand-written comments, but the n-gram method still picks up overlap in the OCRed text in the header and footer. Tengrams that appear in 100 or more comments indicate a mass comment campaign. Some agencies use similar "de-duping" software [@Rinfret2021] and only provide a representative sample comment. In these cases, my linking method assumes that the example comment is representative, and I link these comments to others based on the text of the sample comment provided.
 
-```{r percent-match, fig.show = "hold", out.width = "100%", fig.cap="Percent of Matching Text in a Sample of Public Comments"}
+```{r percent-match, fig.show = "hold", out.width = "100%", fig.cap="Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments"}
 
 knitr::include_graphics("Figs/comment_percent_match_plot.png")  
 ```
@@ -220,7 +215,7 @@ I classify all organizations that appear in the hand-coded samples as businesses
 Classifying coalitions as primarily driven by private or public interest provides analytic leverage, but scholars have not converged on an approach to do so. @Potter2017 distinguishes "advocacy groups" from "industry groups." @Berry1999 calls these groups "citizen groups" and emphasizes conflict over cultural issues. Some public interest groups focus on conservative or progressive cultural issues, like religious education, immigration, or endangered species. Others are more focused on the public provision or protection of public goods such as national parks, consumer product safety standards, air quality, drinking water, and public safety. Types of membership organizations that are both broad and focused on material outcomes for their members (such as labor unions) are especially difficult to classify. @Potter2017 puts unions in the "Industry" category. I take a different approach based on the coalition with whom such groups lobby. If a union lobbies alongside businesses [see @Mildenberger2020], I classify this as a private interest-driven coalition. If a union lobbies with public interest groups on public health or safety issues, I classify this as a public interest group coalition.
 
 <!-- step 3 public vs private coalitions-->
-I code each coalition as primarily advancing an idea of the public interest or more narrow private interests. Public interest coalitions are almost always entirely nonprofits and governments, and private interest coalitions tend to be companies and industry associations. Still, some nonprofits lobby on behalf of companies, and some companies join forces with public interest groups. These can create "hard" cases. For example, a coalition of environmental groups mobilized recreational fishing businesses ([NOAA-NMFS-2012-0059-0185](https://www.regulations.gov/comment/NOAA-NMFS-2012-0059-0185)) and sustainable seafood restaurants to help push for stricter commercial fishing regulations. We know environmental groups mobilized the restaurants because they used a form letter from a nonprofit called the Gulf Restoration Network. I coded this as a public interest coalition. If, instead, the businesses had led this lobbying effort and enlisted a few nonprofits to help protect their business interests, I would have coded this as a private interest coalition. The vast majority of coalitions were much more straightforward to code as public or private.
+I code each coalition as primarily advancing an idea of the public interest or more narrow private interests. Public interest coalitions are almost always entirely nonprofits and governments, and private interest coalitions tend to be companies and industry associations. Still, some nonprofits lobby on behalf of companies, and some companies join forces with public interest groups. These can create "hard" cases. For example, a coalition of environmental groups mobilized recreational fishing businesses ([NOAA-NMFS-2012-0059-0185](https://www.regulations.gov/comment/NOAA-NMFS-2012-0059-0185)) and sustainable seafood restaurants to help push for stricter commercial fishing regulations. We know environmental groups mobilized the restaurants because they used a form letter from a nonprofit called the Gulf Restoration Network. I coded this as a public interest coalition. If instead, the businesses had led this lobbying effort and enlisted a few nonprofits to help protect their business interests, I would have coded this as a private interest coalition. The vast majority of coalitions were much more straightforward to code as public or private.
 
 <!-- DOES ASTROTURF SECTION BELONG HERE?-->
 
@@ -309,7 +304,7 @@ The second major difference between my approach and previous research is that I 
 I measure variation in engagement in three ways that provide estimates of the three types of comments described above.
 
 **Volume.** 
-First, I count the total number of comments per organization, coalition, and rule. This captures the number of supporters who invested at least the minimal level of effort.
+First, I count the total number of comments per organization, coalition, and rule. This captures the number of supporters who invested at least a minimal level of effort.
 The process that generates mass comments involves several steps. First, a group must decide to
 lobby. Then, a group must decide to mobilize public pressure. Finally, the resulting number of comments depends on the response to the
 campaign. There may be many cases where groups may have had

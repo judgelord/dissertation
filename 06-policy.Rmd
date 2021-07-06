@@ -1,8 +1,7 @@
 # Reforming the Policy Process {#policy}
 
 Each week, students in my public policy class must write to an elected official or comment on a proposed agency rule and then post about it in the class forum. 
-
-But college students should not be the target demographic for notice and comment rulemaking---they are too informed and have too much time to write thoughtful comments. If we wish to realize the ideals of the APA, we must broaden participation. Can we do this? Is it worthwhile? Many scholars assume not, but the data offer some hope. 
+But college students should not be the target demographic for notice and comment rulemaking---they are too informed and have too much time to write thoughtful comments. If we wish to realize the ideals of the Administrative Procedure Act, we must broaden participation. Can we do this? Is it worthwhile? Many scholars assume not, but the data offer some hope. 
 
 This chapter reviews dominant ways of thinking about public comments and proposed reforms to participatory processes in light of the empirical evidence in the previous chapters. I start with a sketch of the various positions staked out by administrative law scholars, each rooted in different theories of democracy. I then review several specific challenges and proposed reforms to the policy process. <!--Finally, I extend -->
 
@@ -37,9 +36,7 @@ Agencies also regularly refer to form comments as petitions. When the Bureau of 
 The organizations running public pressure campaigns are even more explicit that they consider mass comments to be petition signatures, frequently citing mass comments as "Letters in support of [our organization's] Comments" ([NOAA-NMFS-2012-0059-0023](https://www.regulations.gov/comment/NOAA-NMFS-2012-0059-0023)), a "petition from World Wildlife Fund-US (WWF-US), signed by 271,893 WWF-US supporters" ([BOEM-2016-0003-2556](https://www.regulations.gov/comment/BOEM-2016-0003-2556)),
 The files containing comments collected by organizations are often named "signatures."
 
-## Reforms
-
-###  The Debate in Administrative Law 
+##  The Debate in Administrative Law 
 
 Scholars vary significantly in both the value they place on political information and the extent to which they believe that meaningfully engaging large numbers of people is possible. 
 
@@ -107,6 +104,7 @@ However, Sherouse was also wary about dismissing mass comments.
 
 The most skeptical camp goes even further, arguing that open solicitations to the general public should be abolished. 
 
+<!--
 ### Challenges 
 
 #### Fraud  {-}
@@ -117,9 +115,11 @@ The most skeptical camp goes even further, arguing that open solicitations to th
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">At the State of the Net conference, <a href="https://twitter.com/JRosenworcel?ref_src=twsrc%5Etfw">@JRosenworcel</a> says people from across the USA, across politics persuasions, have found their names &amp; identities stolen &amp; used in the <a href="https://twitter.com/FCC?ref_src=twsrc%5Etfw">@FCC</a> net neutrality rule making. 2 million total. ~500K from Russian email addresses. <a href="https://twitter.com/hashtag/sotn2018?src=hash&amp;ref_src=twsrc%5Etfw">#sotn2018</a> <a href="https://t.co/zCUNlssA54">pic.twitter.com/zCUNlssA54</a></p>&mdash; Alex Howard (@digiphile) <a href="https://twitter.com/digiphile/status/958084755605553152?ref_src=twsrc%5Etfw">January 29, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 --> 
 
+<!--
 #### Astroturf 
 
 > TODO
+--> 
 
 <!--
 A key feature of astroturf lobbying is its covert nature. On December 19, 1995, President Bill Clinton signed into law the Lobbying Disclosure Act of 1995, establishing new registration and reporting requirements for lobbyists working for corporations, charities, and other nonprofit organizations engaged in efforts to influence legislative and executive branch decisions. The 1995 act was the first major legislation on lobbying in nearly 50 years and was designed to provide transparency in the lobbying process. Early drafts of the Lobbying Disclosure Act included provisions requiring the registration of firms engaged in astroturf lobbying and the reporting of the expenditures made on those actions. Those provisions, however, failed to make it out of committee. As the bill's sponsor, Senator Carl Levin, testified before a House committee considering the bill: “Every reference to grassroots lobbying—and even to paid efforts to stimulate artificial grassroots lobbying—has been deleted from the bill…I am personally disappointed that we were unable to do anything to address the issue of a form of grassroots lobbying referred to as astroturf lobbying, in which lobbyists hire professional experts to run phone banks and generate mail in support of their efforts. In my view, these paid, professional astroturf campaigns bear nothing in common with the genuine grassroots activities…I…hope that the House will reconsider the disclosure of such lobbying.
@@ -127,7 +127,7 @@ A key feature of astroturf lobbying is its covert nature. On December 19, 1995, 
 
 
 
-### Reforms 
+## Reforms 
 
 Can the unwashed masses provide useful information to agencies? My answer is yes. Will this information be biased? Yes, but all information provided by lobbying groups has a bias, the task is to make biases transparent, and reforms could do this. 
 
@@ -135,12 +135,15 @@ Can the unwashed masses provide useful information to agencies? My answer is yes
 
 
 
-2. Critics may argue that opening the door wider to petition campaigns lets in biases. Indeed we know that people who opt to participate are disproportionately privileged. In an unequal society, we have unequal participation, but higher barriers to entry only make this worse.  More problematic is the idea that a well-funded group that typically dominates rulemaking [@Yackee2006JOP] will sponsor astroturf campaigns, thus creating a false impression of public support. This is a real concern. If dark money can secretly drive impressions of support for a policy, the case for expanding participation is weaker.  Hopefully, my analysis suggests that this is uncommon. the fast 
-The fact that we do not observe it now does not mean it will not occur, but agencies could b
+2. Critics may argue that opening the door wider to petition campaigns lets in biases. Indeed we know that people who opt to participate are disproportionately privileged. In an unequal society, we have unequal participation, but higher barriers to entry only make this worse.  
 
-Reforms along the lines have been suggested. ___ would like polls. Nationally representative polling may be a good investment for some rules, but we know from polling research that individuals do not always have clearly formed opinions, and much depends on question wording. The reality is that American politics is animated through groups--people rely on organizations they trust to keep them informed and engaged. In classic pluralist fashion, organizations claim to represent segments of the population in rulemaking. <1--Because these organizations 
+More problematic is the concern that a well-funded group that typically dominates rulemaking [@Yackee2006JOP] will sponsor astroturf campaigns, thus creating a false impression of public support. This is a real concern. If dark money can secretly drive impressions of support for a policy, the case for expanding participation is weaker. My analysis suggests that this is uncommon.
+<!--
+The fact that we do not observe it now does not mean it will not occur, but agencies could ... -->
 
-Raso suggests similar reforms. 
+Reforms along these lines have been suggested. @Rauch2016 would make comment periods more like polls. Nationally representative polling may be a good investment for some rules, but we know from polling research that individuals do not always have clearly formed opinions, and much depends on question wording. The reality is that American politics is animated through groups--people rely on organizations they trust to keep them informed and engaged. In classic pluralist fashion, organizations claim to represent segments of the population in rulemaking. <!--Because these organizations... -->
+
+@Raso2020 suggest a similar reform whereby people could "upvote" comments with which they agree. @Raso2020 lament the "mail from the public dumped on the agency’s doorstep" and claim that "upvoting" would "make rulemaking more interactive. The happy result would bring us closer to the deliberative national town meeting." In contrast, I argue that, empirically, mass comment campaigns already act as a poll or upvote. An upvoting feature would thus codify existing dynamic, not fundamentally depart from it. Either way, the possibilities for "deliberation" with the mass public likely exists in the historical push and pull of pressure groups and government institutions over time, not among millions of people upvoting their policy position in a single rulemaking process.
 
 <!--
 as others have pointed out 
@@ -148,7 +151,7 @@ as others have pointed out
 As the moderator of my class's forum, I can co-sign research on discursive democracy initiatives that realizing transformative discourse is difficult. The ideal of "transformed into something" is laudable, but people are busy, and any barrier to participation will massively reduce participation. Participation already follows a log scale distribution, with most rules receiving no comments--even major rules, on average, receive less than 10. 
 -->
 
-#### Aims of reform {-}
+### Aims of Reform {-}
 
 **Lower barriers to participation.**
 
@@ -156,29 +159,36 @@ The main barrier to participation in rulemaking is information. Even people with
 
 > "they might only find out about a proposed regulation when they're presented with one of these mass comments.  And they might not have time to go back and investigate and then write a full comment letter right before the comment period is going to close.  Because there aren't a lot of small business owners who read the Federal Register every day...writing a detailed comment letter is hard work." - Oliver Sherhouse (GSA 2019a, p. 33)
 
-**Increase transparency.**
+<!--**Increase transparency.**-->
 
 **Reduce the cost of extracting information from comments.** Reformers often highlight the value of linking comments to particular questions or sections of a draft rule. Technology can certainly improve sophisticated debates about a rule's technical provisions. Indeed, sophisticated commentors have adopted track-changes technology to provide marked-up versions of draft rules.
 
 New technologies may provide an even more important role in gleaning political information from the "torrents of email" and "vexing challenge" posed by mass comment campaigns. 
 
-**Gaurd against fraud.**
+<!--**Gaurd against fraud.**-->
 
-#### Parsing the questions {-}
+### Parsing the questions {-}
 
 Agencies often specifically ask questions and solicit comments on specific topics in an NPRM. These topics offer an initial structure to allow commenters to self-identify the topics of their comments. The American Bar Association's Section of Administrative Law and Regulatory Practice recommends "technology that would allow agencies to identify categories that commenters could select when submitting comments." To stay open to new ideas, lobbying groups should be allowed to petition the agency to add topics to the menu or ask additional questions. 
 
 For example, agencies may encourage groups to mobilize in support of the groups' answers to the questions that agencies ask. Given past trends, this will likely take the form of petition campaigns, and agencies should have a mechanism to receive those comments as such. 
 
-#### Offering answers {-}
+### Offering answers {-}
 
 Agencies could also lower the bar to participation by posting answers to their questions from different organizations and allow people to co-sign them or disagree with them. This is both easier for participants and requires less work for agencies to interpret where the commenter stands. 
 
-2) The risk of astroturf is real under any public comment system (including the current one), but transparency requirements can go a long way. Organizations or individuals acting in their professional capacity as organizations (not individuals) should be required to disclose where the money they paid for them to produce their comments came from. Likewise, organizations running campaigns should disclose the sources of funding for the campaigns and how much they spent mobilizing public support. These numbers will provide a helpful denominator for agencies to gauge public enthusiasm.
+Social media
+    engagement may be especially important if agencies implement the
+    recommendations of @ACUS2018 that "Agencies should consider using
+    social media before or in connection with direct final rulemaking to
+    quickly identify whether there are significant or meaningful
+    objections" (p. 34).
+    
+The risk of astroturf is real under any public comment system (including the current one), but transparency requirements can go a long way. Organizations or individuals acting in their professional capacity as organizations (not individuals) should be required to disclose where the money they paid for them to produce their comments came from. Likewise, organizations running campaigns should disclose the sources of funding for the campaigns and how much they spent mobilizing public support. These numbers will provide a helpful denominator for agencies to gauge public enthusiasm.
 
 ---
 
-
+<!--
 
 #### ACUS Report {-}
 
@@ -197,7 +207,7 @@ Another important feature of this policy area is its tight-knit epistemic commun
 <!-- > And we've very much kind of what, I would consider power users of the regulatory process. We have a clear point of view for the manufacturing sector.  We infrequently weigh in agency actions across the entire federal family, whether they're independent agencies or executive agencies and departments.  So we have quite a lot of experience and exposure to the tools that really underpin the system.  And there's a lot of value in those tools.-->
   
 
-#### Gaurding against fraud {-}
+### Gaurding against fraud {-}
 
 As with any form of public participation, fraud merits attention. If organizations submit comments on behalf of people who do not exist or did not consent, this is akin to fraudulent petition signatures or fake constituent letters being sent to Members of Congress. 
 
@@ -205,7 +215,7 @@ As with any form of public participation, fraud merits attention. If organizatio
 
 The most secure approach that allows third parties to gather comments may be to authenticate each comment by asking each commenter to provide an email address or phone number at which to receive a message asking them to confirm the text of their comment. 
 
-Asking for a second interaction with the agency raises the cost of participation but may also make participation a slightly richer experience (as Dan Walters suggested on Twitter). People may be more likely to feel that their voice was heard. Of course, many people will fail to confirm their authenticate their comment, but like mass comments themselves, the number of people willing to take the time to authenticate offers information on the intensity of genuine support. Unauthenticated comments need not be discounted, but authenticated comments may indicate stronger preferences. 
+Asking for a second interaction with the agency raises the cost of participation but may also make participation a slightly richer experience. <!--(as Dan Walters suggested on Twitter).--> People may be more likely to feel that their voice was heard. Of course, many people will fail to confirm their authenticate their comment, but like mass comments themselves, the number of people willing to take the time to authenticate offers information on the intensity of genuine support. Unauthenticated comments need not be discounted, but authenticated comments may indicate stronger preferences. 
 
 More importantly, authentication guards against identity theft. It is difficult to provide a large number of fake phone numbers, and real phone numbers used fraudulently would likely generate complaints, alerting the agency that the campaign may be engaging in fraud. Again, fraud complaints need not discount an entire campaign. Opponents of a campaign by the Sierra Club, for example, could submit fraudulent comments through their system in order to complain when asked to authenticate and thus cast doubt over the campaign. However, a legitimate campaign will also have a portion that will authenticate, allowing rough estimates of the scale of true support versus fraud. 
 
@@ -213,9 +223,9 @@ Some means of authentication, such as email, maybe slightly more open to fraud t
 
 Because mass comment campaigns include a fairly large number of individuals, especially if the barriers to participation are lower, there are many opportunities to identify fraud of any significant scale, and the stakes of a few fraudulent comments slipping through the cracks are low. 
 
-**Should agencies accept anonymous comments?**
+#### Should agencies accept anonymous comments?
 
-There are good reasons to accept technical information from anonymous sources. For example, they may fear retaliation. However, anonymous comments should not be used to infer political information. This distinction supports two tracks with distinct requirements. An agency may want to allow sophisticated anonymous comments to be co-signed by large numbers of authenticated supporters, thus allowing insiders with the necessary knowledge to make sophisticated arguments, but also much to lose to put ideas into public and the agency to gauge public reaction to those ideas. 
+There are good reasons to accept technical information from anonymous sources. For example, they may fear retaliation. However, anonymous comments should not be used to infer political information. This distinction supports two tracks with distinct requirements. An agency may want to allow sophisticated anonymous comments to be co-signed by large numbers of authenticated supporters, thus allowing insiders with the necessary knowledge to make sophisticated arguments, but also to put ideas into public and the agency to gauge public reactions to those ideas. 
 
 <!---
 
