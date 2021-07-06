@@ -185,13 +185,13 @@ Foundational scholarship on rulemaking [@Furlong2005; @Furlong1997; @Furlong1998
 Figure
 \@ref(fig:causal-classic) illustrates the classic causal
 model of insider lobbying that describes most rulemakings and nearly all
-scholarship on lobbying in bureaucratic policymaking to date.^[Diamonds indicate observable choices, ovals indicate latent preferences and rectangles indicate information.]
+scholarship on lobbying in bureaucratic policymaking to date.<!--^[Diamonds indicate observable choices, ovals indicate latent preferences and rectangles indicate information.]
 <!---However, mass engagement has no place in this model. I aim to fill this
 gap.-->
 
 ```{r causal-classic, fig.cap = "The `Classic Model' of Interest Group Lobbying in Bureaucratic Policymaking"}
 
-knitr::include_graphics(here::here("Figs", "causal-classic.png"))
+knitr::include_graphics(here::here("Figs", "causal-classic-draft.png"))
 ```
 
 
@@ -329,21 +329,21 @@ organizations that lobby. If they believe the attentive public could be rallied 
 to policymakers by launching a public pressure campaign. That is, the extent to which latent public demands align with a group's demands will affect its lobbying strategy, specifically whether it decides to launch a public pressure campaign. 
 
 Figure \@ref(fig:causal-whymail) amends the "Classic Model" of interest
-group lobbying from Figure \@ref(fig:causal-classic) to incorporate public pressure campaigns and political information about the attentive public. *In addition to* providing technical information through sophisticated comments, an organization may mobilize supporters to produce political information. This is a key feature of the model: political information is mobilized * to support* a lobbying coalition's sophisticated legal or technical lobbying effort, not as an alternative to sophisticated lobbying. 
+group lobbying from Figure \@ref(fig:causal-classic) to incorporate public pressure campaigns and political information about the attentive public. *In addition to* providing technical information through sophisticated comments, an organization may mobilize supporters to produce political information about their lobbying coalition. This is a key feature of the model: political information is mobilized *to support* a lobbying coalition's sophisticated legal or technical lobbying effort, not as an alternative to sophisticated lobbying. 
 
 The more latent public support a group has, the more successful this mobilization effort will be. 
 The public
-response to the campaign (observed as the sale of public engagement in the policy process) depends on the extent that the attentive public
-is passionate about the issue. A broader and more passionate attentive public will yield a larger scale of mass engagement than a narrower, less passionate segment base of public support. Thus the observed scale of mass engagement on a given side of a conflict can reveal political information about segments of the public. Large-scale engagement may produce several types of relevant political
-information. The most direct and obvious is the expressed "public
-opinion" that policymakers observe.^[I address other types of political information that mass engagement may create elsewhere. For an expanded model, see Figure \@ref(fig:causal-full). ] <!--TODO-->
+response to the campaign (observed as the scale of public engagement in the policy process) depends on the extent to which the attentive public
+is passionate about the issue. A broader and more passionate attentive public will yield a larger scale of mass engagement than a narrower, less passionate  base of public support. Thus the observed scale of mass engagement on a given side of a conflict can reveal political information about segments of the public. Large-scale engagement may produce several types of relevant political
+information. The most direct is the expressed "public
+opinion" that policymakers observe. I address other types of political information that mass engagement may create in \@ref(influence-theory). <!--TODO-->
 
 The causal process visualized in Figure
-\@ref(fig:causal-whymail) may only operate under certain conditions. For example, the success of a mobilizing effort depends on whether a group's perception of latent public demands (the diagonal arrow between "Latent Public Demands" and "Lobbying Strategy") reflects the public response to a mobilizing effort (the horizontal arrow between "Latent Public Demands" and "Mass Engagement"). Additionally, policymaking institutions have different mechanisms for processing and incorporating technical and political information (the arrows between "technical information" or "political information" and "policy response").
+\@ref(fig:causal-whymail) may only operate under certain conditions. <!--For example, the success of a mobilizing effort depends on whether a group's perception of latent public demands (the diagonal arrow between "Latent Public Demands" and "Lobbying Strategy") reflects the public response to a mobilizing effort (the horizontal arrow between "Latent Public Demands" and "Mass Engagement"). Additionally, --> Policymaking institutions have different mechanisms for processing and incorporating technical and political information (the arrows between "Organization provides technical information" or "Organization provides political information" and "Agency officials revise policy").
 
 ```{r causal-whymail, fig.cap = "Incorporating Political Information into Models of Interest Group Lobbying in Bureaucratic Policymaking"}
 
-knitr::include_graphics(here::here("Figs", "causal-whymail.png"))
+knitr::include_graphics(here::here("Figs", "causal-whymail-draft.png"))
 
 ```
 
