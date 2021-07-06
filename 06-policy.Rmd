@@ -188,13 +188,13 @@ The risk of astroturf is real under any public comment system (including the cur
 
 ---
 
+
 <!--
 
-#### ACUS Report {-}
+ACUS Report {-}
 
 
 
----
 
 #### Increasing transparency and public participation (GSA-2019-02) {-}
 
@@ -204,7 +204,10 @@ Another important feature of this policy area is its tight-knit epistemic commun
 
 > "it's a little alarming to me in some respects to see that, looking out into the crowd, I think I know about half of you on a first-name basis. So, we probably need a little bit more fresh blood in this regulatory nerd community." - Patrick Hedren, National Association of Manufacturers.
 
-<!-- > And we've very much kind of what, I would consider power users of the regulatory process. We have a clear point of view for the manufacturing sector.  We infrequently weigh in agency actions across the entire federal family, whether they're independent agencies or executive agencies and departments.  So we have quite a lot of experience and exposure to the tools that really underpin the system.  And there's a lot of value in those tools.-->
+-->
+
+<!-- 
+> And we've very much kind of what, I would consider power users of the regulatory process. We have a clear point of view for the manufacturing sector.  We infrequently weigh in agency actions across the entire federal family, whether they're independent agencies or executive agencies and departments.  So we have quite a lot of experience and exposure to the tools that really underpin the system.  And there's a lot of value in those tools.-->
   
 
 ### Gaurding against fraud {-}
@@ -223,9 +226,7 @@ Some means of authentication, such as email, maybe slightly more open to fraud t
 
 Because mass comment campaigns include a fairly large number of individuals, especially if the barriers to participation are lower, there are many opportunities to identify fraud of any significant scale, and the stakes of a few fraudulent comments slipping through the cracks are low. 
 
-#### Should agencies accept anonymous comments?
-
-There are good reasons to accept technical information from anonymous sources. For example, they may fear retaliation. However, anonymous comments should not be used to infer political information. This distinction supports two tracks with distinct requirements. An agency may want to allow sophisticated anonymous comments to be co-signed by large numbers of authenticated supporters, thus allowing insiders with the necessary knowledge to make sophisticated arguments, but also to put ideas into public and the agency to gauge public reactions to those ideas. 
+**Should agencies accept anonymous comments?** There are good reasons to accept technical information from anonymous sources. For example, they may fear retaliation. However, anonymous comments should not be used to infer political information. This distinction supports two tracks with distinct requirements. An agency may want to allow sophisticated anonymous comments to be co-signed by large numbers of authenticated supporters, thus allowing insiders with the necessary knowledge to make sophisticated arguments, but also to put ideas into public and the agency to gauge public reactions to those ideas. 
 
 <!---
 
