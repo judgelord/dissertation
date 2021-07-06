@@ -13,8 +13,9 @@ knitr::include_graphics(here::here("Figs", "comments-mass-vs-unique.pdf"))
 
 
 
-
+<!--
 > TODO show this more clearly
+-->
 
 ### Most Comments and Campaigns are Mobilized by Public Interest Coalitions
 
@@ -27,26 +28,60 @@ Just 100 organizations mobilized over 80% of comments on proposed rules posted t
 load(here("data", "org_comments_summary.Rdata"))
 
 org_comments_summary %>% # kablebox()
+  rename(Organization = org_name,
+         Comments = comments,
+         Rules = rules, 
+         Campaigns = campaigns,
+         Percent = percent, 
+         Average = average) %>% 
   kable3(caption = "Organizations Mobilizing the Most Public Comments 2005-2020")
 ```
 
 
+Table \@ref(tab:toporgs) shows the top organizers of comments posted to regulations.gov.
+In line with Hypothesis \@ref(hyp:public), nearly all of these top mobilizing organizations lobby together in public interest coalitions, especially on environmental issues. These coalitions include organizations that engage in sophisticated lobbying. Indeed, many of the most prolific organizers of public pressure campaigns also engage in sophisticated lobbying themselves. Public pressure is a compliment, not an alternative to sophisticated technical lobbying.  
 
-In line with Hypothesis \@ref(hyp:public), nearly all of these top mobilizing organizations lobby together in public interest coalitions, especially on environmental issues. These coalitions include organizations that engage in sophisticated lobbying. Indeed, many of the most prolific organizers of public pressure campaigns also engage in sophisticated lobbying themselves. Public pressure is a compliment, not an alternative to sophisticated technical lobbying.  Table \@ref(tab:toporgs) shows the top organizers of comments posted to regulations.gov.
+The percent of rules on which each organization lobbies with a pressure campaign rather than without one (the "Percent" column in Table \@ref(tab:toporgs)) shows only a few organizations using pressure campaigns the majority of the time they lobby. Most lobbying organizations use pressure campaigns a small percentage of the time they lobby in rulemaking. The most extreme example is the American Petroleum Institute (API), which lobbied on hundreds of rules between 2005 and 2020, more than most of the other top mobilizing organizations. Yet it almost never uses public pressure campaigns (at least in its own name). While API does frequently sponsor astroturf campaigns, it does so relatively rarely. Almost all of these top mobilizing organizations usually rely on their legal and policy teams alone. The fact that so many of the top mobilizers are also highly sophisticated lobbying organizations like the Sierra Club and API lends support to my argument that public pressure campaigns are one tool that advocacy organizations may use in addition to more insider tactics. 
 
 
+<!--
 > TODO: MORE ON ORG TYPES  
 1. Update with 2019-2020 data   
 2. ADD TABLE OF TOP ORGS AND DESCRIPTIVES ABOUT HOW MANY ARE MEMBERSHIP VS ADVOCACY ORGS  
 3. BRING IN HAND-CODED SAMPLE 
+-->
 
-> TODO: In line with Hypothesis \@ref(hyp:public), XX percent of public pressure campaigns are led by public interest coalitions, with only XX% led by private interest coalitions. 
+```{r}
+load(here("data", "coalitions_coded.Rdata"))
 
-In line with Hypothesis \@ref(hyp:public-success), public interest campaigns, on average, garner a larger response. The average number of comments for a public interest campaign is XXXX. In contrast, the average number of comments for a private interest campaign is XXX. On rules where both public and private interest coalitions ran campaigns, the average response to the public interest campaign was XXX. The private interest campaigns were only XX.
+x <- coalitions_coded %>% count(coalition_type)
+
+percent_public <- ( x$n[2]/sum(x$n[1:2]) ) %>% percent()
+percent_private <- ( x$n[1]/sum(x$n[1:2]) ) %>% percent()
+
+x <- coalitions_coded %>% filter(campaign_) %>% group_by(coalition_type) %>%
+  summarise(mean = mean(comments))
+
+types <- coalitions_coded %>%  
+  filter(campaign_) %>% 
+  group_by(docket_id, president) %>% 
+  mutate(types = str_c(coalition_type, collapse = ";")) %>% 
+  mutate(both = str_detect(types, ";")) 
+  
+  
+both <- filter(types, both) %>%
+  group_by(coalition_type) %>%
+  summarise(mean = mean(comments))
+```
+
+
+In line with Hypothesis \@ref(hyp:public), `r percent_public` percent of public pressure campaigns are led by public interest coalitions, with only `r percent_private` led by private interest coalitions. 
+
+In line with Hypothesis \@ref(hyp:public-success), public interest mass comment campaigns, on average, garner a larger response. The average number of comments for a public interest campaign is `r x$mean[2] %>% round()`. In contrast, the average number of comments for a private interest campaign is `r x$mean[1] %>% round()`. On rules where both public and private interest coalitions ran campaigns, the average response to the public interest campaign was `r both$mean[2] %>% round()`. The private interest campaigns were only `r both$mean[1] %>% round()`.
 
 
 
-In line with Hypothesis \@ref(hyp:resources), large national policy advocacy organizations are responsible for most pressure campaigns targeting national policy. These organizations have both the incentive and the resources and organizational capacity to launch campaigns.
+In line with Hypothesis \@ref(hyp:resources), large national policy advocacy organizations are responsible for most pressure campaigns targeting national policy. These organizations have the incentive as well as the resources and organizational capacity to launch campaigns.
 
 
 ### Private Interests Rarely Use Public Pressure
@@ -57,9 +92,11 @@ The only other private-interest coalition leader among the top 100 mobilizing or
 TODO INVESTIGATE! 
 TODO INVESTIGATE WOTUS RULE CAMPAIGNS -->
 
-In line with Hypothesis \@ref(hyp:disrupt), private interest coalitions are less likely than public interest coalitions to lobby unopposed, suggesting that they often launch pressure campaigns in response to an opposing campaign. 
+In line with Hypothesis \@ref(hyp:disrupt), private interest coalitions are less likely than public interest coalitions to lobby unopposed, suggesting that they often launch pressure campaigns in response to an opposing campaign. Of `r nrow(types)` coalition-scale pressure campaigns in the hand-coded sample, only `r types %>% filter(coalition_type == "Private", !both)%>% nrow()` private interest coalition ran a pressure campaign when they were not up against a public interest group's campaign. Yet `r types %>% filter(coalition_type == "Public", !both)%>% nrow()` public interest coalitions ran a pressure campaign when they were not up against a private interest group's campaign.
 
+<!--
 > TODO: SUMMARIZE DATA ON THIS.
+-->
 
 Table \@ref(tab:toporgs) shows the most commented-on dockets. The most prolific mobilizers are
 national environmental organizations. A coalition of environmental organizations and their allies mobilized a majority of public comments five out of the top ten dockets (Figure \@ref(fig:topdockets). In part, this is because the
@@ -90,8 +127,8 @@ In short, I find more grassroots participation than astroturf.
 One consequence of the dominance of a few national policy advocacy organizations is that public pressure campaigns target a narrow subset of the wide range of issues addressed by agency rulemaking. 
 Public engagement in rulemaking is highly
 clustered on a few rules made salient by these campaigns. 
-Just ten rulemaking dockets account for `r percent(sum(top10$comments)/sum(rules$number_of_comments_received), accuracy = .01)` (`r sum(top10$comments)`), of comments (Figure
-\@ref(fig:topdockets)). Because public pressure requires resources and capacity, policy issues of interest to organizations with the resources and capacity to launch a campaign receive disproportionate amounts of public attention.
+Just ten rulemaking dockets account for `r percent(sum(top10$comments)/sum(rules$number_of_comments_received), accuracy = .01)` of comments (`r sum(top10$comments)`). Figure
+\@ref(fig:topdockets) shows these ten dockets and the share of comments from each of the top twenty mobilizing organizations (see the legend on the right). The first pane is mass comments (99 or more form letters or copied text). The vast majority of the total comments come from this category (notice the x-axis is scaled to each pane). Partially unique and small batches of form letters (less than 99) are a tiny fraction of the total and concentrated on a few rules where different audiences were engaged.  Because public pressure requires resources and capacity, policy issues of interest to organizations with the resources and capacity to launch a campaign receive disproportionate amounts of public attention.
 
 ```{r topdockets, fig.width = 1, fig.cap = "Dockets Receiving the Most Comments on Regulations.gov and the top Mobilizing Organizations"}
 
@@ -135,7 +172,7 @@ flavor of information.
 The political information generated by public pressure campaigns is not a substitute for sophisticated with technical information; public pressure campaigns almost always explicitly support a more sophisticated lobbying effort.
 
 <!--hyp:public hyp:public-success-->
-A few public interest organizations mobilize the vast majority of civic engagement in bureaucratic policymaking. Few campaigns push for narrow private interests. Even fewer are astroturf, which are often anonymous, making it more difficult for them to support lobbying efforts. Compared to the usual suspects found lobbying, especially in rulemaking, both the participants and organizations that mobilized them represent broader segments of the public. However, astroturf campaigns are most likely to occur precisely when public pressure is most decisive, so they may still present a normative concern.
+A few public interest organizations mobilize the vast majority of civic engagement in bureaucratic policymaking. Few campaigns push for narrow private interests. Even fewer are astroturf campaigns, which are often anonymous, making it more difficult for them to support lobbying efforts. Compared to the usual suspects found lobbying, especially in rulemaking, both the participants and organizations that mobilized them represent broader segments of the public. However, astroturf campaigns are most likely to occur precisely when public pressure is most decisive, so they may still present a normative concern.
 
 <!--hyp:disrupt-->
 When private interest coalitions use public pressure tactics, it is almost always in response to a much larger effort by public interest groups. They are never unopposed. I argue that this is because narrow private interests do not generally have incentives to expand the scope of conflict; their campaigns merely aim to disrupt any potential perceptions of a public consensus. In contrast, public interest group campaigns often go unopposed. I argue that this is because public interest groups often have incentives to mobilize supporters, even when their opponents do not.

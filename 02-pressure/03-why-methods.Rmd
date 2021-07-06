@@ -11,25 +11,37 @@ TODO: CODE
 -->
 
 
-
 ```{r}
 load(here::here("data","rules_metadata.Rdata"))
 
+
+rules %<>% mutate(open = !is.na(comment_start_date)|!is.na(comment_due_date)|number_of_comments_received > 0)
 # min(rules$posted_date, na.rm = T)
 # max(rules$posted_date, na.rm = T)
 
+# inspect example - clean power plan 
+# look <- rules %>% filter(docket_id == "EPA-HQ-OAR-2013-0602")
+
+rules %<>% ungroup() %>%
+  group_by(id) %>% 
+  slice_max(number_of_comments_received, with_ties = F)
+
+#save(rules, file =  here("data", "rules_metadata.Rdata"))
+  
+
 dockets <- rules %<>% 
+  distinct(docket_title, posted_date, docket_id, docket_type, number_of_comments_received, open) %>% 
     filter(docket_title != "EPA Training Docket") %>%
     group_by(docket_id) %>%
   mutate(year = str_sub(posted_date, 1, 4) %>% as.numeric(),
          comments = sum(number_of_comments_received),
-         open = !is.na(comment_start_date)|!is.na(comment_due_date)|number_of_comments_received > 0,
          open = sum(open, na.rm = T) > 0
 )
 
-rules %<>% filter(year >2004, year <2021, docket_type == "Rulemaking")
+# trim rules
+rules  %<>% filter(year >2004, year <2021, docket_type == "Rulemaking")
 
-mass <- filter(rules, comments > 100)
+mass <- filter(rules, comments > 99)
 
 top10 <- slice_max(mass %>% ungroup() %>% distinct(docket_id, comments), order_by =  comments, n = 10) 
 ```
@@ -42,11 +54,15 @@ available in the Appendix.
 
 From 2005 to  2020, agencies posted `r nrow(distinct(rules, docket_id))` rulemaking dockets to regulations.gov. and solicited public comments on `r nrow(distinct(rules %>% filter(open), docket_id))`. Only `r nrow(distinct(mass, docket_id))` of these rulemaking dockets received more than 100 comments, but this small share of rules garnered `r percent(sum(mass$number_of_comments_received)/sum(rules$number_of_comments_received), accuracy = .01)` (`r sum(mass$number_of_comments_received)`) of the comments. The top 10 rulemaking dockets account for `r percent(sum(top10$comments)/sum(rules$number_of_comments_received), accuracy = .01)` (`r sum(top10$comments)`), of the comments. Nearly all of these are form letters.
 
+```{r}
+
+n <- dockets %>% ungroup() %>%  filter(open) %>% count(number_of_comments_received, sort = T)
+```
 
 
 
 Figure
-\@ref(fig:comments-density) shows the relative number of comments received on a sample of rules matched to data from the Office of Information and Regulatory Affairs (OIRA). OIRA mostly reports on "significant" rules and classifies them as "major" and "non-major" rules. The top part of \@ref(fig:comments-density) shows the distribution of proposed rules over the number of comments they received (the x-axis). The lower part of \@ref(fig:comments-density) shows a scatterplot of the number of rules with a given number of comments. The key takeaway is that there is a great deal of diversity in commenting, with most rules receiving very few comments. Nearly 8,000 of the 20,000 non-major rules (37%) received no comments. The modal number of comments for all types of rules, including major and economically significant rules, is less than ten. Indeed, the majority of rules that are open for public comment received no comments. 
+\@ref(fig:comments-density) shows the relative number of comments received on a sample of rules matched to data from the Office of Information and Regulatory Affairs (OIRA). OIRA mostly reports on "significant" rules and classifies them as "major" and "non-major" rules. The top part of Figure \@ref(fig:comments-density) shows the distribution of proposed rules over the number of comments they received (the x-axis). The lower part of Figure \@ref(fig:comments-density) shows a scatterplot of the number of rules with a given number of comments. The key takeaway is that there is a great deal of diversity in commenting, with most rules receiving very few comments. Indeed, overall (including non-significant proposed rules), the majority (`r n$n[1]` of `r nrow(dockets %>% filter(open))`) of proposed rules that are open for public comment received no comments.  Nearly 8,000 of the 20,000  (37%) of the non-major rules reviewed by OIRA received no comments. Even a quarter of "major" receive no comments. The modal number of comments for all types of rules, including major and economically significant rules, is less than ten. 
 
 ```{r comments-density, out.width = "99%", fig.cap = "Comments Posted to Regulations.gov on Rules Reviewed by OIRA 2005-2020"}
 
@@ -54,38 +70,41 @@ knitr::include_graphics(here::here("Figs", "major-comments-density-1.png"))
 ```
 
 
-Table \@ref(tab:dockets) shows the rules that received the most comments on regulations.gov.
+Table \@ref(tab:dockets) shows the rules that received the most comments on regulations.gov.  Proposed rules that have attracted the most public attention have
+    been published by the Environmental Protection Agency (EPA),
+    the Department of Interior (DOI), the Bureau of Ocean Energy
+    Management (BOEM), the Consumer Financial Protection Bureau (CFPB),
+    and Fish and Wildlife Service (FWS). 
+    The most commented-on rule was the 2013 "Clean Power Plan"---the Obama administration's flagship climate policy. 
 
 ```{r dockets}
 # Include plot of draft and final rules over time, report number of pairs
-rules %>%  
+dockets %>%  
   filter(open) %>% 
     distinct(docket_title, comments) %>%
     ungroup() %>%
     group_by(docket_id) %>% 
     slice(n = 1, with_ties = FALSE) %>% 
-    ungroup() %>%
+    ungroup() %>% #count(docket_id, sort= T)
     arrange(-comments) %>% # filter(comments < 1)
-    head(100) %>%
+    head(10) %>%
     mutate(docket_title = docket_title %>% #str_replace_all(";|:|–|--", ";\n") %>% 
-               str_sub(0,70)) %>%
-    mutate(docket_title = ifelse(nchar(docket_title) == 70, str_c(docket_title, "..."), docket_title) ) %>%# pull(docket_title)
+               str_sub(0,50)) %>%
+    mutate(docket_title = ifelse(nchar(docket_title) == 50, str_c(docket_title, "..."), docket_title) ) %>%# pull(docket_title)
     # ggplot() +
     # aes(x = docket_id, y = comments) +
     # geom_col() + 
     # coord_flip()
     #kablebox()
+  rename(`Docket ID` = docket_id,
+         `Docket Title` = docket_title,
+          Comments = comments) %>%
     kable3(caption = "Rulemaking Dockets by Number of Comments on regulations.gov, 2005-2020")
 ```
 
 
-Figure \@ref(fig:comments-per-year) shows an exponential increase in the number of comments per rule over time. Note that comments per rule are on a
-logarithmic scale on the y-axis. Proposed rules that have attracted the most public attention have
-    been published by the Federal Communications Commission (FCC,
-    omitted from this plot), the Environmental Protection Agency (EPA),
-    the Department of Interior (DOI), the Bureau of Ocean Energy
-    Management (BOEM), the Consumer Financial Protection Bureau (CFPB),
-    and Fish and Wildlife Service (FWS). Increasingly, a large number of people are
+Figure \@ref(fig:comments-per-year) shows an exponential increase in the number of rules receiving a large number of comments from 2005 to 2013. Note that comments per rule (the y-axis) are on a
+logarithmic scale. Increasingly, a large number of people are
 paying attention to agency policymaking.
 
 ```{r comments-per-year, fig.cap = "Number of Comments (log scale) per Proposed Rule 2005-2020", out.width = "55%", fig.show = "hold"}
@@ -201,12 +220,11 @@ knitr::include_graphics("Figs/comment_percent_match_plot.png")
 <!-- step 2 org type and coalitions-->
 Second, I hand-code several samples of comments. One sample contains at least one comment from each cluster (coalition) of 100 or more similar comments. This census of form-letter comments allows me to make valid observations about public pressure campaigns across agencies and over time. A second sample includes nearly all comments on a random sample of rules.  A third sample includes nearly all comments on another random sample of rules, weighted by the number of comments they received. These last two samples allow me to make inferences about lobbying coalitions that do and do not use public pressure campaigns. 
 
-Through an iterative process of hand-coding and computational methods, I then identify the organization submitting or responsible for mobilizing each comment (if any) in all three samples of comments. I identify the organizations responsible for over `r 40` million comments, including all organizations responsible for mobilizing 100 or more comments with repeated text--either identical text or partially unique texts that contain shared language. I then searched all remaining comment texts for
-mentions of these organizations' names to complete missing information
-on the mobilizing organization.  
+Through an iterative process of hand-coding and computational methods, I then identify the organization submitting or responsible for mobilizing each comment (if any) in all three samples of comments. This process involves using regular expressions to search comment texts and metadata for possible names. With a team of research assistants, I inspect a sample and link it or add it to a growing list of organizations known to comment. This corpus of known organizations is then included in the next text search. 
+
+With this approach, I identify the organizations responsible for over `r 40` million comments, including all organizations responsible for mobilizing 100 or more comments with repeated text--either identical text or partially unique texts that contain shared language.
 
 I classify all organizations that appear in the hand-coded samples as businesses, industry associations, other nonprofits, governments, or individual elected officials and a range of sub-types within these broader categories. 
-
 
 
 #### Classifying Public and Private Interests {#classify-public-private}

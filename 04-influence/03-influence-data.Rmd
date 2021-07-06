@@ -406,8 +406,8 @@ For the PM Group coalition, the dependent variable, *coalition lobbying success*
 For the State of Oregon's coalition, the dependent variable, *coalition lobbying success* is 2, *coalition size* is 6, *business coalition* is 0, <!--*comment length* is 5/85, `r round(5/85, 2)`,--> *pressure campaign* is 0, and the number of *mass comments* is 0.
 For the EarthJustice coalition, the dependent variable, *coalition lobbying success* is 1, *coalition size* is 3, *business coalition* is 0, <!--*comment length* is 7/85, `r round(7/85, 2)`,--> *pressure campaign* is 0, and the number of *mass comments* is 0.
 
-These examples are broadly consistant with the overal data--lobbying success in these two examples is the same, despited the large difference in public pressure. This is inconsistant with Hypotheses \@ref(hyp:c-success) or \@hyp(hyp:o-success) that anticipated higher lobbying success with more public pressure.
-Figures \@ref(fig:hist-coalitions) \@ref(fig:hist-coalition-comments) show the distribution of values for coalition-level variables in the hand-coded data.
+These examples are broadly consistant with the overal data--lobbying success in these two examples is the same, despited the large difference in public pressure. This is inconsistant with Hypotheses \@ref(hyp:c-success) or \@ref(hyp:o-success) that anticipated higher lobbying success with more public pressure.
+Figures \@ref(fig:hist-coalitions) and \@ref(fig:hist-coalition-comments) show the distribution of values for coalition-level variables in the hand-coded data.
 
 ```{r hist-coalitions, fig.width=2, fig.height=2,  out.width = "30%", fig.cap="Hand-coded Data by Coalition"}
 ggplot(comments_coded, aes(x = coalition_success)) + 
