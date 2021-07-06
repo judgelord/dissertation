@@ -3000,7 +3000,7 @@ Access Community Credit Union
 </div>
 <p>The hand-coded sample includes 6,541 hand-coded documents representing over 21.34105 million comments on 65 rules from 41 agencies, several times larger than leading studies using hand-coding. Unlikely previous research, my sampling approach includes rules with very large and small numbers of comments that previous studies exclude. Table <a href="influence.html#tab:data-org-comments">3.1</a> shows a sample of the hand-coded data. Table <a href="influence.html#tab:org-count">3.2</a> shows the organizations that commented on the most rules in this sample.
 363 organizations lobbied on more than one rule in the hand-coded data, some on as many as 10 rulemaking dockets.</p>
-<p>Table <a href="influence.html#tab:data-coded-agencies">3.3</a> shows the number of hand-coded rules, documents, the coalitions and organizations to which those documents belong, and the total number of comments they represent for a sample of agencies. As expected with a random sample, the agencies with most rules in the sample are also those with the most final rules posted to regulations.gov. The Environmental Protection Agency (EPA), Fish and Wildlife Service (FWS), and National Oceanic and Atmospheric Agency (NOAA), Department of Transportation (DOT), and Internal Revenue Service (IRS) are all in top ten agencies by number of rulemaking dockets on regulations.gov. The Bureau of Safety and Environmental Enforcement, Consumer Financial Protection Bureau (CFPB), and Wage and Hour Division (WHD) of the Department of Labor are all above average and have a disproprtionate number of rules with a large number of comments, making these agencies more likely to be slected into the weighted sample. This figure also illustrates how my method of collapsing documents with repeated text to one representative document allows me to reduce the number of documents requiring hand-coding by several orders of magnitude (compare the “Documents” and “Comments” columns).</p>
+<p>Table <a href="influence.html#tab:data-coded-agencies">3.3</a> shows the number of hand-coded rules, documents, the coalitions and organizations to which those documents belong, and the total number of comments they represent for a sample of agencies. As expected with a random sample, the agencies with most rules in the sample are also those with the most final rules posted to regulations.gov. The Environmental Protection Agency (EPA), Fish and Wildlife Service (FWS), and National Oceanic and Atmospheric Agency (NOAA), Department of Transportation (DOT), and Internal Revenue Service (IRS) are all in top ten agencies by number of rulemaking dockets on regulations.gov. The Bureau of Safety and Environmental Enforcement, Consumer Financial Protection Bureau (CFPB), and Wage and Hour Division (WHD) of the Department of Labor are all above average and have a disproprtionate number of rules with a large number of comments, making these agencies more likely to be slected into the weighted sample. Table <a href="influence.html#tab:data-coded-agencies">3.3</a> also illustrates how my method of collapsing documents with repeated text to one representative document allows me to reduce the number of documents requiring hand-coding by several orders of magnitude (compare the “Documents” and “Comments” columns).</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -6363,8 +6363,8 @@ agency-level common shocks across commenters in responsiveness to comment.--></p
 <p>This section leverages a random sample of agency rules for which I have hand-coded nearly all public comments. The first subsection presents estimates of the direct relationship between public pressure and lobbying success (Table <a href="influence.html#tab:mc-success">3.7</a>). The next subsection presents results of mediation analysis, assessing the support from members of Congress as a mediator for the success of public pressure campaigns (Tables <a href="influence.html#tab:model-oversight">3.8</a>). The third subsection presents estimates of factors affecting within-organization levels of lobbying success using a difference-in-difference design (Table <a href="influence.html#tab:mo-success-did">3.9</a>.</p>
 <div id="coalition-level-lobbying-success" class="section level3" number="3.4.1">
 <h3><span class="header-section-number">3.4.1</span> Coalition-level Lobbying Success</h3>
-<p>Table <a href="influence.html#tab:mc-success">3.7</a> present results estimating coalition-level lobbying success as a function of public pressure, coalition size, coalition type, whether the coalition supports the proposed rule, and whether there is an opposing coalition, as described in Equation <a href="influence.html#eq:success">(3.3)</a>.</p>
-<p>Models 1 and 2 use a binary measure of public pressure–did the coalition sponsor a public pressure campaign or not? Models 2-6 use continuous measures of public pressure. Models 3 and 4 use the logged number of mass comments, reflecting the intuition that one additional comment matters more for smaller campaigns. Models 5 and 6 include both linear and quadratic terms for the number of comments to allow for a wider arrary of possible non-linear relationships.</p>
+<p>Table <a href="influence.html#tab:mc-success">3.7</a> presents results estimating coalition-level lobbying success as a function of public pressure, coalition size, coalition type, whether the coalition supports the proposed rule, and whether there is an opposing coalition, as described in Equation <a href="influence.html#eq:success">(3.3)</a>.</p>
+<p>Models 1 and 2 use a binary measure of public pressure–did the coalition sponsor a public pressure campaign or not? Models 2-6 use continuous measures of public pressure. Models 3 and 4 use the logged number of mass comments, reflecting the intuition that one additional comment matters more for smaller campaigns. Models 5 and 6 include both linear and quadratic terms for the number of comments to allow for a wider array of possible non-linear relationships.</p>
 <p>I use two related measures of coalition type. Models 1, 3, and 5 use my classification of coalitions as primarily public or private interests. Private interest is the omitted category, so coefficients are estimates of the difference in lobbying success for public interest coalitions compared to private interest coalitions. Models 2, 4, and 6 use a related, more objective measure: whether the majority of coalition members are businesses or trade associations.</p>
 <p>All models include fixed effects for agency and president to allow for differing average levels of lobbying success at different agencies and political conditions.<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a>.
 <!-- TODO president interaction models in appendix
@@ -7017,52 +7017,6 @@ R2
 </tr>
 <tr>
 <td style="text-align:left;">
-AIC
-</td>
-<td style="text-align:center;">
-766.5
-</td>
-<td style="text-align:center;">
-659.3
-</td>
-<td style="text-align:center;">
-766.6
-</td>
-<td style="text-align:center;">
-657.8
-</td>
-<td style="text-align:center;">
-772.4
-</td>
-<td style="text-align:center;">
-662.2
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-BIC
-</td>
-<td style="text-align:center;">
-873.9
-</td>
-<td style="text-align:center;">
-758.0
-</td>
-<td style="text-align:center;">
-874.0
-</td>
-<td style="text-align:center;">
-756.4
-</td>
-<td style="text-align:center;">
-879.9
-</td>
-<td style="text-align:center;">
-760.8
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 Log.Lik.
 </td>
 <td style="text-align:center;">
@@ -7169,31 +7123,29 @@ X
 </tr>
 </tfoot>
 </table>
-<p>Table <a href="influence.html#tab:mc-success">3.7</a> shows that the main effect, <span class="math inline">\(\beta_1\)</span>, in Model 1 is -0.55 (S.E. = 0.71) on the five-point scale of lobbying success. Because these models include interactions with coalition type, the main effect is the estiated effect for the omitted caegory. In Model 1 this is the effect or a pressure campaign for a private interest group coalition. For public interst groups, the estimate is and -0.3993899 (<span class="math inline">\(\beta_1 + \beta_6\)</span>). Estimates are inconsistant across specifications and not statistically significant.</p>
-<p>The strongest predictor of lobbying success is whether the organization supported the rule. These coalitions had an average success 1.34 points greater than those that opposed the rule (S.E. = 0.21). This result reflects a combination of several related dynamics. First, rules often do not change between draft and final. Organizations that support the rule are thus likely to “succeed” when the status quo prevails. Second, organizations that support a proposed rule are necessarily aligned with agency officials’ preferred policy direction. If the agency officials change the final rule to go future in their preferred direction, such changes often align with organizations that supported the rule. Finally, by selecting proposed rules that had a final rule rather than being withdrawn, this sample is missing some lobbying success by organizations that requested a proposed rule be withdrawn.</p>
-<p>The limited size of this sample means that we lack statistical power to have confidence in the effect of other variables.</p>
+<p>Table <a href="influence.html#tab:mc-success">3.7</a> shows that the main effect, <span class="math inline">\(\beta_1\)</span>, in Model 1 is -0.55 (S.E. = 0.71) on the five-point scale of lobbying success. Because these models include interactions with coalition type, the main effect is the estimated effect for the omitted category. In Model 1, this is the effect of a pressure campaign for a private interest group coalition. For public interest groups, the estimate is <span class="math inline">\(\beta_1 + \beta_6\)</span> = -0.4. Estimates are inconsistent across specifications. As both the main effect and interaction term are negative. This is certainly not evidence that pressure campaigns (either public or private) are linked to lobbying success. If anything, there may be an overall negative relationship between campaigns that organize a large number of people and lobbying success.</p>
+<p>The strongest predictor of lobbying success across all models is whether the organization supported the rule. In Model 1, these coalitions had an average success 1.34 points greater than those that opposed the rule (S.E. = 0.21). This result reflects a combination of several related dynamics. First, rules often do not change between draft and final. Organizations that support the rule are thus likely to “succeed” when the status quo prevails. Second, organizations that support a proposed rule are necessarily aligned with agency officials’ preferred policy direction. If the agency officials change the final rule to go future in their preferred direction, such changes often align with organizations that supported the rule. Finally, by selecting proposed rules that had a final rule rather than being withdrawn, this sample is missing some lobbying success by organizations that requested a proposed rule be withdrawn.</p>
+<p>The limited size of this sample means that we lack statistical power to have confidence in the estimates of other variables.</p>
 <!--
 The main coefficient of interest (the estimated relationship between the number of comments and lobbying success) is negative across model specifications, suggesting the larger pressure campaigns are less likely to win. 
 
 The other result apparent from these models is that public interest groups were more likely to win under president Obama and less likely to win under President Trump. Likewise, business-led coalitions were less likely to win under President Obama than under President Trump. 
 
 -->
-<p>As this sample is disproportionately draft rules that received an unusual number of comments, these results are largely based on variation within high-salience rulemakings.</p>
-<p>I now turn to a key variable ommitted from the models in Table <a href="#tab:success"><strong>??</strong></a>, the level of attention and support from an agency’s political principals—specificaly, members of Congress, which may mediate the effect of public pressure campaings.</p>
+<p>As this sample is disproportionately draft rules that received an unusual number of comments, these results are largely based on the variation within high-salience rulemakings.</p>
+<p>I now turn to a key variable omitted from the models in Table <a href="influence.html#tab:mc-success">3.7</a>: the level of attention and support from an agency’s political principals—specifically, members of Congress, which may mediate the effect of public pressure campaigns.</p>
 <div id="congressional-support-as-a-mediator-of-lobbying-success-1" class="section level4" number="3.4.1.1">
 <h4><span class="header-section-number">3.4.1.1</span> Congressional Support as a Mediator of Lobbying Success</h4>
-<p>Hypothesis <a href="influence.html#hyp:oversight">3.4</a>—that the overall level of public attention to a proposed rule moderates the level of attention from members of Congress—implies a correlation between the number of comments from members of Congress and all other comments on each rule. We should assess this correlation both across all rules and rules where at least one legislator commented, making it more plausable that legislators were aware of the rulemaking and thus faced the choice of whether to comment or not. Figure <a href="influence.html#fig:congress-corr">3.9</a> shows both of these relationships. The dashed line showes the relationship for all rules and the solid line shows the relationship for rules where at least one legislator commented. The right-hand pannel shows this same plot with both axes on a log scale. There is a strong correlation between mass comments and legislator attention (Speareman’s rank correlation, <span class="math inline">\(\rho\)</span> = 0.27, p-value = 0. However, for resons disccussed in <a href="influence.html#oversight-hypotheses">3.2.7</a>, this should not be taken as strong evidence of a causal effect.</p>
+<p>Hypothesis <a href="influence.html#hyp:oversight">3.4</a>—that the overall level of public attention to a proposed rule moderates the level of attention from members of Congress—implies a correlation between the number of comments from members of Congress and all other comments on each rule. We should assess this correlation both across all rules and rules where at least one legislator commented, making it more plausible that legislators were aware of the rulemaking and thus faced the choice of whether to comment or not. Figure <a href="influence.html#fig:congress-corr">3.9</a> shows both of these relationships. The dashed line shows the relationship for all rules, and the solid line shows the relationship for rules where at least one legislator commented. The right-hand panel shows this same plot with both axes on a log scale. There is a strong correlation between mass comments and legislator attention (Spearman’s rank correlation, <span class="math inline">\(\rho\)</span> = 0.27, p-value = 0). However, for reasons discussed in <a href="influence.html#oversight-hypotheses">3.2.7</a>, this should not be taken as strong evidence of a causal effect.</p>
 <div class="figure" style="text-align: center"><span id="fig:congress-corr"></span>
 <img src="Figs/congress-corr-1.png" alt="Correlation Between Mass Comments and Comments from Members of Congress" width="40%"  /><img src="Figs/congress-corr-2.png" alt="Correlation Between Mass Comments and Comments from Members of Congress" width="40%"  />
 <p class="caption">
 Figure 3.9: Correlation Between Mass Comments and Comments from Members of Congress
 </p>
 </div>
-<p>To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME, conditional on the number of comments from Members of Congress) and average direct effect (ADE) of mass comments using mediation analysis. To do this, I estimate a model predicting the proposed mediator using both OLS and Poisson regression. Because the dependent variable (the number of supportive comments from members of Congress) is a count, a Poisson model is more appropriate. The dispersion parameter is not significantly above 1.</p>
-<p>The first two models in table <a href="influence.html#tab:model-oversight">3.8</a> are similar to those in Table <a href="influence.html#tab:mc-success">3.7</a>, but the dependent variable is now the mediator variable (the number of supportive members of Congress). The outcome model is the same as Model 1 in Table <a href="influence.html#tab:mc-success">3.7</a> but includes the proposed mediator, the number of supportive comments from members of Congress. (See Equation <a href="influence.html#eq:mediator">(3.4)</a>).</p>
+<p>To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME, conditional on the number of comments from Members of Congress) and average direct effect (ADE) of mass comments using mediation analysis. To do this, I estimate a model predicting the proposed mediator. Because the dependent variable (the number of supportive comments from members of Congress) is a count and the dispersion parameter is not significantly above 1, a Poisson model is most appropriate.</p>
+<p>The first two models in Table <a href="influence.html#tab:model-oversight">3.8</a> are similar to those in Table <a href="influence.html#tab:mc-success">3.7</a>, but the dependent variable is now the mediator variable (the number of supportive members of Congress). The outcome model is the same as Model 1 in Table <a href="influence.html#tab:mc-success">3.7</a> but includes the proposed mediator, the number of supportive comments from members of Congress. (See Equation <a href="influence.html#eq:mediator">(3.4)</a>).</p>
 <p>By definition, only organizations lobbying in coalition with others have members of Congress in their coalition. Thus I exclude the “coalitions” of 1 organization and omit the indicator of whether the group is lobbying in the coalition from the model. I also subtract the number of members of Congress from the coalition size.</p>
-<p>OLS and Poisson regression results differ significantly, likely because the Poisson model drops coalitions with zero members of Congress. The Poisson results suggest that there is a large positive association between a pressure campaign and the number of members of Congress joining a coalition, but only for private-interest coalitions (the coefficient on the interaction between Pressure Campaign and Public Interest Coalition is negative and nearly equivalent to the main effect of Pressure campaigns). Public interest coalitions without pressure campaigns enjoy more support from members of Congress than private interest campaigns.
-These mixed results make it difficult to assess <a href="influence.html#hyp:beacon">3.5</a>.</p>
 <table style="NAborder-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto; font-size: 10px; margin-left: auto; margin-right: auto;" class="table table">
 <caption style="font-size: initial !important;">
 <span id="tab:model-oversight">Table 3.8: </span>Regression Models of Congressional Support and Lobbying Success for Mediation Analysis
@@ -7390,7 +7342,7 @@ Pressure Campaign × Public
 </tr>
 <tr>
 <td style="text-align:left;">
-coalition_congress
+Members of Congress
 </td>
 <td style="text-align:center;">
 </td>
@@ -7567,7 +7519,10 @@ X
 </tr>
 </tfoot>
 </table>
-<p>The outcome model results are similar to the results of Model 1 in Table <a href="influence.html#tab:mc-success">3.7</a>. Adding congressional support to the model improves the R-squared and log-likelihood. The number of letters from members of Congress is associated with a <span class="math inline">\(\beta_2\)</span> = 0.24 point increase in lobbying success (S.E. = 0.21).</p>
+<p>The results shown in Table <a href="influence.html#tab:mc-success">3.7</a> do not offer much support for hypotheses <a href="influence.html#hyp:beacon">3.5</a> or <a href="influence.html#hyp:warning">3.6</a>. If <a href="influence.html#hyp:beacon">3.5</a> were correct, pressure campaigns should be correlated with the number of supportive letters from members of Congress (the DV in the first column). The coefficient on <em>Pressure Campaign</em> in the “Fire alarm”/”Beacon” Mediator model is small and not statistically significant. If <a href="influence.html#hyp:warning">3.6</a> were correct, pressure campaigns should be negatively correlated with the number of opposing comments from members of Congress (the DV in the second column). The coefficient on <em>Pressure Campaign</em> in the “Warning Sign” Mediator model is the wrong sign and not statistically significant.</p>
+<p>There is some evidence for relationships other than those hypothesized. Public interest coalitions may be more likely to receive support and less likely to be opposed by members of Congress, all else equal. Public interest coalitions have -0.13 more supportive comments from members of Congress and have 0.26 fewer comments opposing them.</p>
+<p>Because members of Congress are overall more likely to oppose proposed than organizations and pressure campaigns (see Figure <a href="influence.html#fig:coded-support">3.4</a> ), there is a negative relationship between supporting a proposed rule and the number of comments from members of Congress in one’s coalition. Likewise, there is a positive relationship between supporting a proposed rule and the number of members of Congress opposing one’s coalition.</p>
+<p>The outcome model results (the third column in Table <a href="influence.html#tab:mc-success">3.7</a>) are similar to the results of Model 1 in Table <a href="influence.html#tab:mc-success">3.7</a>, despite dropping organizations lobbying alone. Adding congressional support to the model improves the R-squared and log-likelihood over Model 1 in Table <a href="influence.html#tab:mc-success">3.7</a>. The number of supportive comments from members of Congress is associated with a <span class="math inline">\(\beta_2\)</span> = 0.24 point increase in lobbying success (S.E. = 0.21). This is a statistically significant and somewhat substantive increase on the 5-point scale of lobbying success. This strong relationship between congressional support and lobbying success and lobbying success (controlling for other factors, including support for the proposed rule) is the most notable result from <a href="influence.html#tab:mc-success">3.7</a>.</p>
 <!--For mediation analysis, I use the OLS version of both mediator and outcome models.-->
 <p>The average effect of a public pressure campaign on lobbying success, conditional on letters from members of Congress (the ACME) is 0.03 on the 5-point scale, with a p-value of 0.598. This
 The Average Direct Effect (ADE) of a public pressure campaign on lobbying success is -0.72, with a p-value of 0.042.</p>
@@ -7576,15 +7531,10 @@ The Average Direct Effect (ADE) of a public pressure campaign on lobbying succes
 </div>
 <div id="difference-in-differences-in-organization-level-lobbying-success-1" class="section level3" number="3.4.2">
 <h3><span class="header-section-number">3.4.2</span> Difference in Differences in Organization-level Lobbying Success</h3>
-<!--TODO ELLIE "Say more about what you mean here? The organizations know they're going to lose and they're trying to do something to signal to their members that they tried? Or the organizations think they're going to lose but launch a pressure campaign as a hail mary? "-->
+<!--TODO ELLIE "Say more about what you mean here? The organizations know they're going to lose, and they're trying to do something to signal to their members that they tried? Or the organizations think they're going to lose but launch a pressure campaign as a hail mary? "-->
 <p>Estimates in Table <a href="influence.html#tab:mo-success-did">3.9</a> show the results of estimating model <a href="influence.html#eq:dnd">(3.6)</a>. <!--These results suggest that the organizations were less successful when they mobilized more comments, more successful when they supported the rule, and less successful under president Trump than President Obama. -->
-The negative correlation between lobbying success and the number of mass comments is likely due to campaigns “going down fighting”—not trying to influence policy. The fact that organizations are more likely to get the outcome they seek when they already support the rule makes sense because the agency is more likely to be sympathetic to their requests. <!--The fact that the average organization was less likely to see its desired policy changes under President Trump is likely due to asymmetry in mobilizing organizations, with more organizations on the left than the right in this sample of rules.--></p>
-<!--
-Model 2 shows a similar model, adding a fixed effect for the rulemaking docket (i.e., each policy on which an organization comments). Because I consider policies published by different administrations to be distinct, regardless of the docket id number used, the president and agency does not vary across dockets, and it no longer makes sense to include the these variables. 
-
-This model also shows...
-Because relatively few campaigns mobilize on any given rulemaking docket, there is little variation within dockets.
--->
+The negative correlation between lobbying success and the number of mass comments is likely due to campaigns “going down fighting”—not trying to influence policy. The fact that organizations are more likely to get the outcome they seek when they already support the rule makes sense because the agency is more likely to be sympathetic to their requests.</p>
+<p>The model in the third column of Table <a href="influence.html#tab:mo-success-did">3.9</a> includes the president as a dummy variable interacted with the indicators for the pressure campaign and coalition type. It shows that the average organization was less likely to see its desired policy changes under Presidents Bush Trump than President Obama, though these estimates are no significant at conventional levels. This is likely due to asymmetry in mobilizing organizations, with far more organizations on the political left than the political right in this sample of rules. There is a significant interaction between the indicators for a pressure campaign and for President Trump (<em>Pressure Campaign × Trump</em>). However, it important to note that this is the estimate for campaigns by organizations lobbying in private coalitions (the omitted category of coalition type). When we add the coefficients for the terms that account for an organization’s coalition being led by public interest groups (and the interaction with the Trump indicator)—all of which are negative—we see that organizations lobbying in public interest coalitions were no more likely to succeed during the Trump administration. This evidence of responsiveness to private but not public interest pressure campaigns aligns with the business-friendly image that president-Trump projected.</p>
 <table style="NAborder-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto; font-size: 10px; margin-left: auto; margin-right: auto;" class="table table">
 <caption style="font-size: initial !important;">
 <span id="tab:mo-success-did">Table 3.9: </span>Difference-in-Difference Model of Lobbying Success Within Organizations
@@ -7729,7 +7679,7 @@ Log(Coalition Size)
 </tr>
 <tr>
 <td style="text-align:left;">
-coalition_congress
+Members of Congress
 </td>
 <td style="text-align:center;">
 0.303
@@ -7902,7 +7852,7 @@ Pressure Campaign × Bush
 </tr>
 <tr>
 <td style="text-align:left;">
-presidentTrump:coalition_typePublic
+Trump × Public
 </td>
 <td style="text-align:center;">
 </td>
@@ -7925,7 +7875,7 @@ presidentTrump:coalition_typePublic
 </tr>
 <tr>
 <td style="text-align:left;">
-presidentBush:coalition_typePublic
+Bush × Public
 </td>
 <td style="text-align:center;">
 </td>
@@ -7948,7 +7898,7 @@ presidentBush:coalition_typePublic
 </tr>
 <tr>
 <td style="text-align:left;">
-campaign_TRUE:presidentTrump:coalition_typePublic
+Campaign × Public × Trump
 </td>
 <td style="text-align:center;">
 </td>
@@ -8158,7 +8108,7 @@ X
 <h2><span class="header-section-number">3.5</span> Conclusion</h2>
 <p>I find little evidence that public pressure campaigns increase lobbying success. If anything, mass comment campaigns may be associated with lower average levels of lobbying success. There are several possible explanations for this result. First, it could be that many mass comment campaigns are not aimed at influencing policy.
 Second, agencies may not be persuaded by political information, either because of the institutions for dealing with public input or decisionmakers’ biases. Finally, the relatively small sample may simply lack the power to reliably estimate small effects.</p>
-<!--TODO ELLIE: "Or that they only launch mass comment compaigns on the "difficult" issues when they think simple technocratic comments from the org won't be enough.  Or they know that opposition is/will be mobilized, etc.  "-->
+<!--TODO ELLIE: "Or that they only launch mass comment campaigns on the "difficult" issues when they think simple technocratic comments from the org won't be enough.  Or they know that opposition is/will be mobilized, etc.  "-->
 <p>I do find evidence that lobbying coalitions are more successful when they mobilize more members of Congress, but legislators disproportionately align with private interest (e.g., business-led) coalitions, not the public interest coalitions that run most public pressure campaigns.</p>
 
 </div>
