@@ -331,7 +331,7 @@ to policymakers by launching a public pressure campaign. That is, the extent to 
 Figure \@ref(fig:causal-whymail) amends the "Classic Model" of interest
 group lobbying from Figure \@ref(fig:causal-classic) to incorporate public pressure campaigns and political information about the attentive public. *In addition to* providing technical information through sophisticated comments, an organization may mobilize supporters to produce political information about their lobbying coalition. This is a key feature of the model: political information is mobilized *to support* a lobbying coalition's sophisticated legal or technical lobbying effort, not as an alternative to sophisticated lobbying. 
 
-The more latent public support a group has, the more successful this mobilization effort will be. 
+The more latent public support a group has, the more successful this mobilization effort will be.
 The public
 response to the campaign (observed as the scale of public engagement in the policy process) depends on the extent to which the attentive public
 is passionate about the issue. A broader and more passionate attentive public will yield a larger scale of mass engagement than a narrower, less passionate  base of public support. Thus the observed scale of mass engagement on a given side of a conflict can reveal political information about segments of the public. Large-scale engagement may produce several types of relevant political
