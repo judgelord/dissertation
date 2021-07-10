@@ -1,3 +1,12 @@
+load(here("data", "comments_min.Rdata"))
+
+#FIXME move
+comments_mass <- comments_min %>% 
+  mutate(year = date %>% str_sub(1,4)) %>%
+  filter(number_of_comments_received  > 99) 
+
+save(comments_mass, file = here("data", "comments_mass.Rdata"))
+
 
 
 

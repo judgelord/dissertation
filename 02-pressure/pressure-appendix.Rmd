@@ -7,7 +7,7 @@ output:
     # pdf_document:
     #   toc: true
     #   keep_tex: true
-    html_document:
+    bookdown::html_document2:
       highlight: zenburn
       toc: true
       toc_float: true
@@ -16,28 +16,33 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r global.options, include=FALSE}
+```{r global.options, include=FALSE, cache= FALSE}
 # load defaults
 source(here::here("code", "setup.R"))
 
 # overide defaults
 knitr::opts_chunk$set(echo = TRUE, 
-                      cache = FALSE)
+                      cache = FALSE,
+                      fig.path = "../figs/")
 ```
-
-
-
-
 
 <!-- 02-pressure-data.Rmd-->
 
-### Data: A Census of Public Pressure Campaigns {#pressure-data}
+# Data: A Census of Public Pressure Campaigns {#pressure-data}
 
-```{r influence-data}
-load(here::here("data", "rules_metadata.Rdata"))
 
-# Replication data are available in SQL and Rdata at <https://github.com/judgelord/rulemaking>.
-#rules <- dbGetQuery(con, "SELECT * FROM rules")
+```{r data, cache = TRUE}
+# rules metadata is raw from rulemaking repo API pull
+load(here::here("data","rules_metadata.Rdata"))
+
+# for paper data, add vars to rules, then d is subset to 2005-2020
+rules %<>% mutate(open = !is.na(comment_start_date)|!is.na(comment_due_date)|number_of_comments_received > 0)
+# min(rules$posted_date, na.rm = T)
+# max(rules$posted_date, na.rm = T)
+
+# inspect example - clean power plan 
+# look <- rules %>% filter(docket_id == "EPA-HQ-OAR-2013-0602")
+
 
 #FIXME move date var to rulemaking repo
 rules %<>%
@@ -51,43 +56,140 @@ rules %<>%
                       ) %>%
   select(-year2) 
 
-# d is rules subset to study years
-d <- rules %>% 
-  filter(year > 2004, year < 2021, document_type %in% c("Proposed Rule", "Rule"))
+# SUBSET TO ONE OBS PER DOCUMENT 
+rules %<>% ungroup() %>%
+  group_by(id) %>% 
+  slice_max(number_of_comments_received, with_ties = F) %>% 
+  ungroup()
 
-load(here::here("data", "comments_min.Rdata"))
+  
+# SUBSET TO NEEDED VARS
+rules %<>% 
+  distinct(docket_title, posted_date, docket_id, docket_type, document_type, id, number_of_comments_received, open, date, year) %>% 
+    filter(docket_title != "EPA Training Docket") %>%
+    group_by(docket_id) %>%
+  mutate(agency = docket_id %>% str_remove("-.*|_.*"),
+         agency_id = agency,
+         docket_comments = sum(number_of_comments_received), # comments on docket!
+         open = sum(open, na.rm = T) > 0 # if any item on docket was open
+) %>% 
+  ungroup()
 
-# add docket_id
-comments_min %<>% 
-  mutate(docket_id = id %>% str_remove("-[0-9]*$"))
 
+# trim rules
+d <- rules  %>% filter(year >2004, year <2021, 
+                   docket_type == "Rulemaking",
+                   document_type %in% c("Rule", "Proposed Rule"))
+
+
+
+# mass campaign 
+load(here("data", "comments_min.Rdata"))
+
+comments_min %<>% mutate(docket_id = id %>% str_remove("-[0-Z]*$"))
+
+# comments on rulemaking dockets
+comments_rulemaking <- filter(comments_min, docket_id %in% d$docket_id)
+
+# step 1
+comments_mass <- comments_min %>% filter(number_of_comments_received > 99)
+
+rules %<>% 
+    mutate(campaign = docket_id %in% unique(comments_mass$docket_id),
+           campaign = campaign | number_of_comments_received > 999)
+
+mass <- filter(rules,campaign)
+
+# second step
+comments_mass <- comments_min %>% filter(number_of_comments_received > 99 | docket_id %in% mass$docket_id)
+#FIXME
+
+
+# SUBSET TO ONE OBS PER DOCUMENT 
+rules %<>% ungroup() %>%
+  group_by(id) %>% 
+  slice_max(number_of_comments_received, with_ties = F) %>% 
+  ungroup()
+
+# RULES DATA FOR PAPER 
+save(rules, file =  here("data", "rules.Rdata"))
+
+
+# trim rules
+d <- rules  %>% filter(year >2004, year <2021, 
+                   docket_type == "Rulemaking",
+                   document_type %in% c("Rule", "Proposed Rule"))
+
+# remake mass
+mass <- filter(d,campaign)
+
+
+# DOCKETS 
+topdockets <- slice_max(mass %>% ungroup() %>% distinct(docket_id, docket_comments), order_by =  docket_comments, n = 10) 
+
+save(topdockets, file =  here("data", "topdockets.Rdata"))
+
+# AGENCIES 
+topagencies1 <-  mass %>% 
+  ungroup() %>% 
+  count(agency, sort = T) %>%
+  head(6) %>%
+  pull(agency)
+
+
+
+topagencies2 <-  d %>% 
+  filter(open) %>% 
+  ungroup() %>% 
+  count(agency, sort = T) %>%
+  head(6) %>%
+  pull(agency)
+
+topagencies = tibble(agency = unique(c(topagencies1, topagencies2) ))
+
+topagencies  %<>% 
+  mutate(Agency =
+           case_when(
+             agency == "CMS" ~ 'Medicare & Medicaid\n  Services (CMS)',
+             agency == "FAA" ~ "Federal Aviation\n  Adminisration (FAA)",
+             agency == 'EPA' ~'Environmental Protection\n  Agency (EPA)',
+             agency == 'FCC' ~'Federal Communications\n  Commission (FCC)',
+             agency == 'FDA'  ~'Food and Drug\n  Administration (FDA)',
+             agency =='FNS' ~'Food and Nutrition\n  Service (FNS)', 
+             agency =='FWS'  ~ 'U.S. Fish & Wildlife\n  Service (FWS)', 
+             agency == 'IRS'~ 'Internal Revenue\n  Service (IRS)', 
+             agency == "NOAA" ~'National Oceanic &\n  Atmospheric Admin. (NOAA)', 
+             agency == 'USCG' ~ 'U.S. Coast Guard (USCG)'
+           ))
+
+#topagencies %<>% mutate(Agency = Agency %>%str_replace("\n", " ") %>% str_squish())
+
+topagencies %>% kablebox()
+
+save(topagencies, file =  here("data", "topagencies.Rdata"))
+```
+
+
+```{r data-hand-coded}
 # hand coded 
 load(here::here("data", "coalitions_coded.Rdata"))
 load(here::here("data", "comments_coded.Rdata"))
-# load(here::here("data", "mass_coded.Rdata"))
-
-# common names 
-comments_coded %<>% 
-  mutate(coalition = coalition_comment,
-         agency = str_remove(docket_id, "-.*"))%>%
-  mutate(org_name = org_name %>% str_to_title())%>%
-  mutate(coalition = coalition %>% str_to_title())
-
-# common names 
-coalitions_coded %<>% 
-  mutate(coalition_comments = coalition_comments - coalition_size +1 , coalition = coalition_comment,
-         comments = coalition_comments,
-         Comments = Coalition_comments,
-         agency = str_remove(docket_id, "-.*"))%>%
-  mutate(coalition = coalition %>% str_to_title())
-
-# inspect
-# coalitions_coded$coalition_comments %>% min()
-
-comments_coded %<>% mutate(across(where(is.character), str_to_title))
-coalitions_coded %<>% mutate(across(where(is.character), str_to_title))
-
-# TODO merge in mass comments that were not hand-coded 
+# # load(here::here("data", "mass_coded.Rdata"))
+# 
+# # common names 
+# comments_coded %<>% 
+#   mutate(coalition = coalition_comment,
+#          agency = str_remove(docket_id, "-.*"))%>%
+#   mutate(org_name = org_name %>% str_to_title())%>%
+#   mutate(coalition = coalition %>% str_to_title())
+# 
+# # common names 
+# coalitions_coded %<>% 
+#   mutate(coalition_comments = coalition_comments - coalition_size +1 , coalition = coalition_comment,
+#          comments = coalition_comments,
+#          Comments = Coalition_comments,
+#          agency = str_remove(docket_id, "-.*"))%>%
+#   mutate(coalition = coalition %>% str_to_title())
 ```
 
 To examine the relationship between public pressure campaigns and lobbying success, I use an original dataset (introduced in \@ref(whymail-data)) that combines several data sources on U.S. federal agency rulemaking.
@@ -116,15 +218,23 @@ Where a new presidential administration used the same docket number to solicit c
 
 
 
-#### Dockets
+## Dockets
 
 ```{r dockets}
-d %>% 
-  distinct(docket_id, year, docket_type) %>% 
-  count(year, docket_type) %>%
+rules %>% 
+  filter(year > 2005, year < 2022, document_type != "Notice") %>%
+  distinct(docket_id, year, document_type, docket_type) %>% 
+  count(year, docket_type, document_type) %>%
   ggplot() +
-  aes(x = year, y = n, fill = docket_type) +
-  geom_col()
+  aes(x = year, y = n, fill = document_type) +
+  geom_col(position = "dodge")+
+  facet_wrap("docket_type", scales = "free_y") + 
+  labs(fill = "",
+       x = "") + 
+  scale_x_continuous(breaks = seq(2006, 2020, by = 2)) +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1))
+
 
 d %>% 
   distinct(docket_id, year, docket_type, agency_id) %>% 
@@ -139,11 +249,71 @@ d %>%
   facet_wrap("agency_id", scales = "free_y")
 ```
 
-#### Proposed and Final Rules
+## Proposed and Final Rules
 
-> TODO
+```{r rules-by-campaign, fig.height= 3.5, fig.width = 5.5, fig.cap= "Proposed Rules Open for Comment on Regulations.gov 2005-2020"}
+#rules-by-campaign
+d %>% 
+  ungroup() %>% 
+  left_join(topagencies) %>% 
+  filter(open, document_type  == "Proposed Rule") %>% 
+  distinct(docket_id, year, campaign, Agency) %>%
+  mutate(campaign = ifelse(campaign, "Targeted by a\nPressure Campaign",
+                           "Not Targeted by a\nPressure Campaign"),
+         Agency = Agency %>% replace_na("All other agencies")) %>% 
+  ggplot(  ) +
+  aes(x = year, fill = Agency) + 
+  geom_bar() + 
+  labs(y = "Number of Proposed Rules", 
+       x = "",
+       caption = "") + 
+  facet_grid(campaign ~ ., scale = "free_y") +
+  scale_x_continuous(breaks = seq(2006, 2020, by = 2)) +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1) ,
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank()) +
+  scale_fill_viridis_d(option = "turbo")
+
+
+d %>% 
+  ungroup() %>% 
+  left_join(topagencies) %>% 
+  filter(open, document_type  == "Proposed Rule") %>% 
+  distinct(docket_id, year, campaign, Agency) %>%
+  mutate(campaign = ifelse(campaign, "Targeted by a\nPressure Campaign",
+                           "Not Targeted by a\nPressure Campaign"),
+         Agency = Agency %>% replace_na("All other agencies")) %>% 
+  ggplot(  ) +
+  aes(x = year, fill = Agency) + 
+  geom_bar() + 
+  labs(y = "Number of Proposed Rules", 
+       x = "",
+       caption = "") + 
+  facet_grid(. ~ campaign, scale = "free_y") +
+  scale_x_continuous(breaks = seq(2006, 2020, by = 2)) +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1)) +
+  scale_fill_viridis_d(option = "turbo")
+```
 
 #### Comments per rule
+
+```{r}
+n <- d %>% ungroup() %>%  filter(open) %>% count(number_of_comments_received, sort = T)
+```
+
+
+
+Figure
+\@ref(fig:comments-density) shows the relative number of comments received on a sample of rules matched to data from the White House Office of Information and Regulatory Affairs (OIRA), which reviews rules that it or the agency identify as "significant."  Under the Congressional Review Act, the OIRA Administrator then determines if each "significant" rule is "major" (in general, having an annual economic effect of over \$100,000,000), and thus subject to special provisions of that Act. Figure
+\@ref(fig:comments-density) shows average number of comments "major" rules in red and "non-major" rules in blue. The top part of Figure \@ref(fig:comments-density) shows the distribution of proposed rules over the number of comments they received (the x-axis). The grey lines show the density and mean of the overall sample of rules reviewed by OIRA, including those that did not get a classification. The lower part of Figure \@ref(fig:comments-density) shows a scatterplot of the number of rules with a given number of comments. The key takeaway is that there is a great deal of diversity in commenting, with most rules receiving very few comments. Indeed, overall (including non-significant proposed rules), the majority (`r n$n[1]` of `r nrow(rules %>% filter(open))`) of proposed rules that are open for public comment received no comments.  Nearly 8,000 (37%)  of the 20,000 significant but non-major rules reviewed by OIRA received no comments. Even a quarter of "major" rules receive no comments. The modal number of comments for all types of rules, including major and economically significant rules, is less than ten. 
+
+```{r comments-density, out.width = "99%", fig.cap = 'Comments Posted to Regulations.gov on "Significant" Rules Reviewed by OIRA 2005-2020'}
+
+knitr::include_graphics(here::here("Figs", "major-comments-density-1.png"))
+```
+
 
 ```{r comments-per-rule}
 d %>% 
@@ -236,7 +406,7 @@ org_comments_summary <- org_comments %>%
          average = round(comments/campaigns)) %>% 
   filter(!str_dct(org_name, "^NA$|unknown|individuals|n/a|^N$")) %>%
   arrange(-comments)  %>% 
-  filter(comments > 100) 
+  filter(comments > 100)
 
 # need to do better
 nrow(org_comments_summary)
@@ -247,6 +417,15 @@ org_comments_summary$org_name
 org_comments_summary %>% 
   kablebox() 
 #kable3(caption = "Organizations Mobilizing the Most Public Comments 2005-2020")
+
+# Pretty up for presentation
+org_comments_summary %<>%
+  rename(Organization = org_name,
+         Comments = comments,
+         `Rules Lobbied On` = rules, 
+         `Pressure Campaigns` = campaigns,
+         `Percent (Campaigns/Rules)` = percent, 
+         Average = average)
 
 save(org_comments_summary, file =  here::here("data", "org_comments_summary.Rdata"))
 ```
@@ -264,9 +443,9 @@ org_comments %>%
 ---
 
 
-### Methods
+# Methods
 
-#### Clustering with text reuse
+## Clustering with text reuse
 
 My theoretical approach requires that I *attribute* form letter comments to the organizations, campaigns, and broader coalitions that mobilized them. To do so, I identify comments that share text. I find that a 10-word phrase repeated across more than a few comments is always either text copied from the proposed policy or a form letter provided by a campaign. Thus, for the text of each comment, I first remove all 10-word phrases that appear in the proposed rule (including the preamble and call for comments). Then, I identify all comments that share ten-word phrases with 99 or more other comments. Finally, I collapse these form letter comments to one representative document for hand-coding. 
 
@@ -284,12 +463,30 @@ Comments [91130](https://www.regulations.gov/document?D=CFPB-2016-0025-91130) th
 
 ```{r percent-match, fig.show = "hold", out.width = "100%", fig.cap="Percent of Matching Text in a Sample of Public Comments"}
 
-knitr::include_graphics(here::here("Figs", "comment_percent_match_plot-1.png")  )
+knitr::include_graphics(here::here("Figs", "comment_percent_match_plot.png")  )
 ```
 
 
+<!-- step 4 success TODO-->
 
-#### Oganization types
+##Measuring Intensity of Preferences
+
+> TODO 
+
+<!--
+Finally, I develop computational methods to measure the intensity of preferences
+expressed by those mobilized by public pressure campaigns. 
+To measure the mobilizing success of each campaign, I measure
+the scale and intensity of support and potential for the movement to grow. To measure
+intensity, I examine the ratio of high-effort and low-effort comments.
+To measure the potential to grow, I measure the number of comments mobilized
+indirectly by the campaign (i.e., those that support a campaign but do
+not include text provided by the campaign). The result is several new
+measures of participation in bureaucratic policymaking.
+
+-->
+
+## Oganization types
 
 Membership organization comments to look like this comment from the
 NorthEast Hook Fisherman's Association:
@@ -307,7 +504,7 @@ NorthEast Hook Fisherman's Association:
 Similar groups, narrowly concerned about shrimp and halibut catch
 limits, also commented on this rule on behalf of their members.
 
-##### Membership Organizations
+#### Membership Organizations
 
 Membership organizations exist to serve their members interests. Unions
 frequently lobbying rulemaking.
@@ -335,7 +532,79 @@ membership.
 > Transactions."
 > ([IRS-2016-0015-0127](%5Bhttps://www.regulations.gov/comment/IRS-2016-0015-0127))](<https://www.regulations.gov/comment/IRS-2016-0015-0127>)))
 
-#### Classifying comments with text reuse
+## Hand-coding 
+
+```{r spatial-coding, fig.cap= "Coding the Spatial Position of Comments on Proposed Policy Changes", fig.height=4, fig.width=5.5}
+library(latex2exp)
+
+tibble(x = c(1,2,3,4,5,6, 7),
+       position = c(1,2,3.5,4,5,NA, 7),
+       code = c(1,2,3,4,5,NA, 6),
+       label = c("Oppose","Oppose",  "Support","Support","Support","Support","Oppose")) %>%
+ ggplot() +
+    aes(y = 0, yend = 0,  x = x) +
+  # Rule 
+  geom_point(shape = "|", aes(y = 2)) +
+    geom_segment(x = 0, xend = 8, y = 2, yend = 2, arrow = arrow(ends = "both", type = "closed", length = unit(0.1, "cm"))) +
+  geom_segment(y = 2.5, yend = 2.5, x = 2.5, xend = 3.5, arrow = arrow(ends = "last", type = "closed",length = unit(0.1, "cm")), alpha = .2) +
+
+annotate("text", x=2, y=2.5, label=TeX("$x_1$"), parse=TRUE) +
+  annotate("text", x=4, y=2.5, label=TeX("$x_2$"), parse=TRUE) +
+annotate("text", x=6, y=2.5, label=TeX("$x_3$"), parse=TRUE) +
+  geom_point(x = 6, y = 2, shape = 21) +
+    geom_point(x = 2, y = 2) +
+   geom_point(x = 4, y = 2) +
+    # plot-level
+  geom_vline(xintercept = 2, alpha = .2, linetype = 2) + 
+  geom_vline(xintercept = 4, alpha = .2) + 
+  scale_x_continuous(limits = c(0,8))+
+  scale_y_continuous(limits = c(-5.1,2.6))+
+  scale_color_viridis_d(option = "plasma", begin = 0, end = .6, direction = -1) + 
+  theme_void() +
+labs(color = "",
+     #title = "Spatial Positions of Public Comments",
+     subtitle = TeX("Position of Commenter $i$ ($p_i$) on Proposed Policy $x_2$, Given Current Policy $x_1$"),
+     shape = "") +
+  # commenter  2
+annotate("text", x=4, y= .5, label=TeX("Comment asks for no change from current policy, $p_i = x_1$:"), parse=TRUE) +
+      geom_segment(aes(color = label), x = 0, xend = 8, arrow = arrow(ends = "both", type = "closed", length = unit(0.1, "cm"))) +
+  geom_line(aes(color = label)) +
+   geom_point(x = 2, aes(color = label)) +
+        # 1
+annotate("text", x=4, y= 1.5, label=TeX("Comment asks for policy to move in the opposite direction, $p_1 < x_1$:"), parse=TRUE) +
+  geom_point(x = 1, y = 1, aes(color = label)) +
+  geom_segment(aes(color = label), y = 1, yend = 1, x = 0, xend = 8, arrow = arrow(ends = "both", type = "closed", length = unit(0.1, "cm"))) +
+   geom_line(aes(color = label), y = 1, yend = 1,) +
+  #geom_point(x = 3, fill = "white", color = "white") + #, shape = 21) +
+   #geom_point(x = 6, fill = "white", color = "white") + #, shape = 21) +
+  # NA
+annotate("text", x=4, y= -.5, label=TeX("Comment asks for policy much closer to current policy, $x_1 > p_3 > x_2$:"), parse=TRUE) +
+  geom_point(x = 2.5, y = -1, aes(color = label)) +
+  geom_segment(aes(color = label), y = -1, yend = -1, x = 0, xend = 8, arrow = arrow(ends = "both", type = "closed", length = unit(0.1, "cm"))) +
+   geom_line(aes(color = label), y = -1, yend = -1,) +
+      # 3
+annotate("text", x=4, y= -1.5, label=TeX("Comment asks for policy slightly closer to current policy, $x_1 > p_3 > x_2$:"), parse=TRUE) +
+  geom_point(x = 3.5, y = -2, aes(color = label[4])) +
+  geom_segment(aes(color = label), y = -2, yend = -2, x = 0, xend = 8, arrow = arrow(ends = "both", type = "closed", length = unit(0.1, "cm"))) +
+   geom_line(aes(color = label), y = -2, yend = -2,) +
+    # 4
+annotate("text", x=4, y= -2.5, label=TeX("Comment asks for the proposed policy as is, p_i = x_2$:"), parse=TRUE) +
+  geom_point(x = 4, y = -3, aes(color = label[4])) +
+  geom_segment(aes(color = label), y = -3, yend = -3, x = 0, xend = 8, arrow = arrow(ends = "both", type = "closed", length = unit(0.1, "cm"))) +
+   geom_line(aes(color = label), y = -3, yend = -3,) +
+      # 5
+annotate("text", x=4, y= -3.5, label=TeX("Comment asks for more change than the proposed policy, $p_i > x_2$:"), parse=TRUE) +
+  geom_point(x = 5, y = -4, aes(color = label[4])) +
+  geom_segment(aes(color = label), y = -4, yend = -4, x = 0, xend = 8, arrow = arrow(ends = "both", type = "closed", length = unit(0.1, "cm"))) +
+   geom_line(aes(color = label), y = -4, yend = -4,) +
+        # 6
+annotate("text", x=4, y= -4.5, label=TeX("Comment rejects policy as an insufficient change, $p_i > x_3$:"), parse=TRUE) +
+  geom_segment(aes(color = label), y = -5, yend = -5, x = 0, xend = 8, arrow = arrow(ends = "both", type = "closed", length = unit(0.1, "cm"))) +
+   geom_line(aes(color = label), y = -5, yend = -5,) +
+  geom_point(x = 7, y = -5, aes(color = label)) 
+```
+
+## Classifying comments with text reuse
 
 Figure \@ref(fig:comments-classified) shows all comments posted on
 regulations.gov over time by whether they are exact or partial copies of
@@ -362,7 +631,7 @@ knitr::include_graphics(here::here("Figs", "toporgs.png"))
 
 ---
 
-## Results
+# Results
 
 The hypotheses set out in [Chapter 2](https://judgelord.github.io/dissertation/whymail.html) are largely descriptive. 
 

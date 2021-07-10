@@ -1,9 +1,9 @@
-# Introduction {-}
+# Introduction
 
 <!-- OLD INTRO 
 This dissertation explores the role of public pressure campaigns in U.S. federal agency rulemaking, a technocratic policy process where "public participation" is usually limited to sophisticated lobbying but occasionally includes millions of people mobilized by public pressure campaigns. Public comment periods on proposed policies purport to provide democratic accountability. Yet, theories of bureaucratic policymaking largely ignore the occasional bursts of civic engagement that generate the vast majority of public comments on proposed rules. To fill this gap, I build and test theories about the role of public pressure in policymaking. I collect and analyze millions of public comments to develop the first systematic measures of civic engagement and influence in bureaucratic policymaking. -->
 
-This dissertation is about public pressure campaigns that target U.S. federal agency rulemaking, technocratic policy processes where public participation is usually limited to a few policy insiders but that occasionally explode into the most contentious policy conflicts of our time. I examine who organizes public pressure campaigns and why, whether these campaigns affect congressional oversight, and whether they affect policy. Answering these questions informs our understanding of bureaucratic politics and interest group lobbying, organizing, and mobilizing tactics. At a time when the vast majority of federal policy is made in the bureaucracy, the relationship between citizens and government depends on bureaucratic policymaking. If ordinary people have a voice in bureaucratic policymaking, I argue, it is through public pressure campaigns. The capacities required to influence national-level policy are those of organized groups, not individuals acting alone. Thus, understanding the nature and effects of these campaigns is key to understanding modern democracy. 
+This dissertation is about public pressure campaigns that target U.S. federal agency rulemaking, a technocratic policy process where public participation is usually limited to a few policy insiders. Occasionally, however, public pressure campaings help make agency rules some of the most hotly contested policies of our time. I examine who organizes public pressure campaigns and why, whether these campaigns affect congressional oversight, and whether they affect policy. Answering these questions informs our understanding of bureaucratic politics and interest group lobbying, organizing, and mobilizing tactics. At a time when the vast majority of federal policy is made in the bureaucracy, the relationship between citizens and government depends on bureaucratic policymaking. If ordinary people have a voice in bureaucratic policymaking, I argue, it is through public pressure campaigns. The capacities required to influence national-level policy are those of organized groups, not individuals acting alone. Thus, understanding the nature and effects of these campaigns is key to understanding modern democracy. 
 
 With the rise of the administrative state, U.S. federal agencies have
 become a major site of policymaking and political conflict. By some
@@ -13,7 +13,6 @@ statutory law [@Wagner2017]. In the years or decades between
 legislative enactments, federal agencies make legally binding rules
 interpreting and reinterpreting old statutes to address emerging issues
 and priorities. 
-
 Examples are striking: Many effects of the Dodd-Frank Wall
 Street Reform and Consumer Protection Act were largely unknown until the
 specific regulations were written, and U.S. policy on banking continues to change as these
@@ -30,7 +29,7 @@ for parole. In 2016, the Bureau withdrew this rule and announced it
 would require fewer contracts with prison companies,
 precipitating a 50% loss of industry stock value. Six months later, a
 new administration announced these policies would again be reversed,
-leading to a 130% increase in industry stock value. Agency clearly rulemaking
+leading to a 130% increase in industry stock value. Agency rulemaking rulemaking
 matters.
 
 Less clear, however, is how the new centrality of agency rulemaking fits
@@ -41,15 +40,15 @@ constituent groups may even provide agency officials with a degree of "autonomy"
 
 <!-- DEMOCRACY has problems and bureaucratic solutions-->
 Bureaucratic organization is a core feature of nearly all ambitious human projects, including modern democracies. 
-Bureaucracy---and agency rulemaking in particular---responds to two major challenges faced by large democracies. 
+Bureaucracy---and bureaucratic policymaking in particular---responds to two major challenges faced by large democracies. 
 First, large democracies are vulnerable to the fleeting passions of the mass public. To combat this, many decisions are left to unelected experts who, ideally, exercise judgment loosely guided by the public. 
 Second, not everyone can vote on every policy decision. We thus delegate power to elected representatives (who then delegate it to deputies), create temporary mini-publics, or solicit input from those most affected or moved by a public decision.^[
     As imagined by @Dahl1989, mini-publics are deliberative and representative bodies of individuals selected at random. Besides juries, however, randomly selected deliberative bodies are rare. Instead, citizens more often engage in government decisions when given opportunities to opt-in, such as hearings, petitions, and public comment periods. These mechanisms of civic engagement generate a different, more contentious flavor of public input than the discourse imagined by scholars who focus on deliberation.] 
 Most policy in large democracies is thus made by bureaucrats, supposedly guided indirectly through elected representatives and directly by limited public input. 
 
 While bureaucracies address both problems---they institutionalize expert counterweights to mass politics and make larger volumes of policy than any plebiscite could---they do not resolve them. 
-Both problems persist in bureaucratic policymaking. Using bureaucracy to address problems as diverse resisting populism and ensuring representation creates contradictions in the tasks assigned to government officials [@Wilson1989].
-Bureaucracies are run by experts who are often embedded in professional networks [@Carpenter2001; @Carpenter2014]. At the same time, officials are deputized by and thus accountable to elected officials. Moreover, many bureaucracies also have procedures that create opportunities for public input.  The result is the famous "Bureaucracy Problem" [@Wilson1967]; it is far from clear how bureaucratic decisions are to balance expertise, accountability to elected officials, and responsiveness to public input in policymaking. 
+Both problems are especialy accute in bureaucratic policymaking. Using bureaucracy to address problems as diverse resisting populism and ensuring representation creates contradictions in the tasks assigned to government officials [@Wilson1989].
+Bureaucracies are run by experts who are often embedded in professional networks [@Carpenter2001; @Carpenter2014]. At the same time, officials are deputized by and thus accountable to elected officials. Moreover, many bureaucracies also have procedures that create opportunities for direct public input, such as public comment periods on draft policies.  The result is the apogee of the famous "Bureaucracy Problem" [@Wilson1967]; it is far from clear how bureaucratic decisions are to balance expertise, accountability to elected officials, and responsiveness to public input in policymaking. 
  
 
 <!--
@@ -62,10 +61,7 @@ provide political oversight opportunities [@Balla1998; @McCubbins1984],
 democratic legitimacy [@Croley2003; @Rosenbloom2003], and new forms of expertise and technical
 information [@Yackee2006JPART; @Nelson2012; @Wagner2010].
 
-Activists, politicians, and the press often discuss comments periods as if they were an inherently majoritarian or pluralist institution. After one particularly controversial policy battle, coverage in the New York Times reporters wrote that "The purpose of the public comment period was to objectively gauge Americans sentiment before changing a policy that could profoundly affect their lives." It is clear that rulemaking profoundly affects lives. The extent to which public comment periods gauge public sentiment is much less clear.  Of the thousands of policies that government institutions make each year, direct public input tends to be limited to only the most contentious policy debates. Even elected officials in positions to oversee bureaucratic policymaking infrequently play any role in bureaucratic policymaking. While recent scholarship on
-agency policymaking has shed light on the sophisticated lobbying by
-businesses and political insiders [@Yackee2006JOP], we know surprisingly little about the vast majority of public comments, which are submitted by ordinary people
-as part of public pressure campaigns.
+Activists, politicians, and the press often discuss comments periods as if they are an inherently majoritarian or pluralist institution. After one particularly controversial policy battle, reporters in the New York Times wrote that "The purpose of the public comment period was to objectively gauge Americans sentiment before changing a policy that could profoundly affect their lives." It is clear that rulemaking profoundly affects lives. The extent to which public comment periods gauge public sentiment is much less clear.  Of the thousands of policies that government institutions make each year, direct public input tends to be limited to only the most contentious policy debates. Even elected officials in positions to oversee bureaucratic policymaking infrequently play any role in bureaucratic policymaking. 
     
 Activists frequently target
 agency policymaking with letter-writing campaigns, petitions, protests,
@@ -75,13 +71,18 @@ engagement" [@Verba1987]. As I show in \@ref(why-results), most comments submitt
     50 million (80%) of these public comments were mobilized by just 100
     advocacy organizations.
     Yet civic engagement remains poorly understood
-in the context of bureaucratic policymaking.
+in the context of bureaucratic policymaking. While recent scholarship on
+agency policymaking has shed light on the sophisticated lobbying by
+businesses and political insiders [@Yackee2006JOP], we know surprisingly little about the vast majority of public comments, which are submitted by ordinary people
+as part of public pressure campaigns.
 
 The occasional bursts of civic engagement in bureaucratic policymaking that public pressure campaigns generate
 raise practical and theoretical questions for the practice of
 democracy. 
 These practical and theoretical questions hinge on unanswered empirical
 questions: Who is behind these campaigns? Do they affect policy? If so, by what mechanisms?
+
+
 Existing research finds that commenters believe their comments matter
 [@Yackee2015JPART] and that the number of public comments varies across
 agencies and policy processes
@@ -102,11 +103,11 @@ Leading models of influence in bureaucratic policymaking focus on two key politi
 As bureaucrats learn about policy problems and balance interest-group demands, public comment processes allow lobbying organizations to provide useful technical information and inform decision-makers of their preferences on draft policies. 
 Agencies may then update policy positions within constraints imposed by their political principals.
 
-While this may describe most cases of bureaucratic policymaking, these models neither explain nor account for the contentious politics that occasionally inspire millions of ordinary people to respond to calls for public input on draft agency policies. Political scientists have largely ignored mass engagement in bureaucratic policymaking, leaving a weak empirical base for normative and prescriptive work. 
+While this may describe most cases of bureaucratic policymaking, these models neither explain nor account for the contentious politics that occasionally inspire millions of people to respond to calls for public input on draft agency policies. 
 Like other forms of mass political participation, such as protests and letter-writing campaigns, 
 mass public comments on draft agency rules provide no new technical information. <!--%In this sense, they are not useful. -->
 Nor do they wield any formal authority to reward or sanction bureaucrats, as comments from members of Congress might. 
-The number on each side, be it ten or ten million, has no legal import for an agency's response. 
+The number on each side, be it ten or ten million, has no legal import for an agency's response. Given their lack of both technical information and formal authority, Political scientists largely dismiss public pressure campaigns as epiphenonmal to interest group bargianing and principal-agent constraints. As a result, normative and prescriptive debates over the role of mass public engagement in buruacratic policymaking have little empirical evidence to draw upon.
 
 <!--
 % Policymakers may very well pay no attention to them. 
@@ -117,7 +118,7 @@ Yet, agencies occasionally receive input from a large number of ordinary people.
 
 How, if at all, should scholars incorporate mass engagement into models of bureaucratic policymaking? 
 
-I take up a part of this question in each of the following chapters. Each draws on different kinds of literature to better understand bureaucratic policymaking. Chapter \@ref(macro) brings in the literature on public opinion and the attention of parties to different issues over time, setting pressure campaigns aside and zooming out to the broadest relationships between mass politics and policy outputs. Chapter \@ref(whymail) brings the focus to specific policy fights, integrating literature on interest-group mobilization and bureaucratic politics to understand why public pressure campaigns target agencies in the first place. Chapter \@ref(influence) focuses squarely on the classic bureaucratic politics question of interest group influence in policymaking but expanded to account for public pressure campaigns. Chapter \@ref(EJ) then zooms out again, this time bringing in the literature on social movement pressure to show that pressure campaigns are more than a lobbying tactic; they are also an institutionalized form of contentious politics. These chapters address the literature on public opinion, party politics, interest groups, lobbying, and social movements in turn.<!--TODO, my review of these literatures in this introduction is brief. My aim is to provide a general foundation.-->
+I take up a part of this question in each of the following chapters. Each draws on different kinds of literature to better understand bureaucratic policymaking.  Chapter \@ref(whymail) brings the focus to specific policy fights, integrating literature on interest-group mobilization and bureaucratic politics to understand why public pressure campaigns target agencies in the first place. Chapter \@ref(influence) focuses squarely on the classic bureaucratic politics question of interest group influence in policymaking but expanded to account for public pressure campaigns. Chapter \@ref(ej) then zooms out again, this time bringing in the literature on social movement pressure to show that pressure campaigns are more than a lobbying tactic; they are also an institutionalized form of contentious politics. These chapters address the literature on public opinion, party politics, interest groups, lobbying, and social movements in turn.<!--TODO, my review of these literatures in this introduction is brief. My aim is to provide a general foundation.-->
 
 <!-- TODO: intro to pol-sci lit that is too broad for elsewhere? -->
 
@@ -149,7 +150,7 @@ The theories about the drivers of public participation and the mechanisms by whi
 
 ## Outline of the book {-}
 
-In Chapters \@ref(whymail)-\@ref(EJ), I develop and test theories about the roles of individuals, organizations, coalitions, and social movements in bureaucratic policymaking. Chapter \@ref(macro) first introduces the scale of policymaking and the types of policies that federal agencies make, examining how patterns in bureaucratic policymaking do and do not align with shifts in the broader political system. Chapter \@ref(policy) concludes with remarks about the implications for my analysis for ongoing debates over potential reforms to the policy process. 
+In Chapters \@ref(whymail)-\@ref(ej), I develop and test theories about the roles of individuals, organizations, coalitions, and social movements in bureaucratic policymaking.  Chapter \@ref(policy) concludes with remarks about the implications for my analysis for ongoing debates over potential reforms to the policy process. 
 
 ```{r child = here::here("outline.md")}
 ```

@@ -2,16 +2,14 @@
 
 ### Most Comments Result from Public Pressure Campaigns
 
-In line with Hypothesis \@ref(hyp:meditated), most people engage in the policy process due to organized public pressure campaigns. Figure
+Hypothesis \@ref(hyp:meditated) posited that most people engage in the policy process due to organized public pressure campaigns. This is overwhelminingly true.  Figure
 \@ref(fig:comments-mass) shows that every year since 2007, the vast majority of
-comments on draft regulations posted to regulations.gov were a result of a public pressure campaign.^[See Section \@ref(why-methods) and the online appendix for my definition and methods for identifying mass comments.]
+comments on draft regulations posted to regulations.gov were a result of a public pressure campaign.
 
 
 ```{r comments-mass, fig.cap = "Public Comments 2005-2020", out.width = "79%", fig.show = "hold"}
 knitr::include_graphics(here::here("Figs", "comments-mass-vs-unique.pdf"))
 ```
-
-
 
 <!--
 > TODO show this more clearly
@@ -19,27 +17,22 @@ knitr::include_graphics(here::here("Figs", "comments-mass-vs-unique.pdf"))
 
 ### Most Comments and Campaigns are Mobilized by Public Interest Coalitions
 
-In line with Hypothesis \@ref(hyp:coalitions), public pressure campaigns are almost exclusively organized by coalitions that include groups that engage in sophisticated technical lobbying.
-Just 100 organizations mobilized over 80% of comments on proposed rules posted to regulations.gov. <!--These top 100 mobilizing organizations each mobilized between `r 55` thousand and `r 4.2` million comments. --> 
+Public pressure campaigns are almost exclusively organized by coalitions that include groups that engage in sophisticated technical lobbying. This supports Hypothesis \@ref(hyp:coalitions). 
+Indeed, just 100 organizations mobilized over 80% of comments on proposed rules posted to regulations.gov. <!--These top 100 mobilizing organizations each mobilized between `r 55` thousand and `r 4.2` million comments. --> 
 
+<!--BIRING IN DATA-->
 
 ```{r toporgs}
 # code in the appendix
 load(here("data", "org_comments_summary.Rdata"))
 
-org_comments_summary %>% # kablebox()
-  rename(Organization = org_name,
-         Comments = comments,
-         Rules = rules, 
-         Campaigns = campaigns,
-         Percent = percent, 
-         Average = average) %>% 
+org_comments_summary %>% 
   kable3(caption = "Organizations Mobilizing the Most Public Comments 2005-2020")
 ```
 
 
 Table \@ref(tab:toporgs) shows the top organizers of comments posted to regulations.gov.
-In line with Hypothesis \@ref(hyp:public), nearly all of these top mobilizing organizations lobby together in public interest coalitions, especially on environmental issues. These coalitions include organizations that engage in sophisticated lobbying. Indeed, many of the most prolific organizers of public pressure campaigns also engage in sophisticated lobbying themselves. Public pressure is a compliment, not an alternative to sophisticated technical lobbying.  
+In line with Hypothesis \@ref(hyp:public), nearly all of these top mobilizing organizations lobby together in public interest coalitions, especially on environmental issues. These coalitions include organizations that engage in sophisticated lobbying. Indeed, many of the most prolific organizers of public pressure campaigns also engage in sophisticated lobbying themselves. Public pressure is a complement, not an alternative to sophisticated technical lobbying.  
 
 The percent of rules on which each organization lobbies with a pressure campaign rather than without one (the "Percent" column in Table \@ref(tab:toporgs)) shows only a few organizations using pressure campaigns the majority of the time they lobby. Most lobbying organizations use pressure campaigns a small percentage of the time they lobby in rulemaking. The most extreme example is the American Petroleum Institute (API), which lobbied on hundreds of rules between 2005 and 2020, more than most of the other top mobilizing organizations. Yet it almost never uses public pressure campaigns (at least in its own name). While API does frequently sponsor astroturf campaigns, it does so relatively rarely. Almost all of these top mobilizing organizations usually rely on their legal and policy teams alone. The fact that so many of the top mobilizers are also highly sophisticated lobbying organizations like the Sierra Club and API lends support to my argument that public pressure campaigns are one tool that advocacy organizations may use in addition to more insider tactics. 
 
@@ -54,11 +47,13 @@ The percent of rules on which each organization lobbies with a pressure campaign
 ```{r}
 load(here("data", "coalitions_coded.Rdata"))
 
+# coalitions by type 
 x <- coalitions_coded %>% count(coalition_type)
 
 percent_public <- ( x$n[2]/sum(x$n[1:2]) ) %>% percent()
 percent_private <- ( x$n[1]/sum(x$n[1:2]) ) %>% percent()
 
+# mass coalitions by type 
 x <- coalitions_coded %>% filter(campaign_) %>% group_by(coalition_type) %>%
   summarise(mean = mean(comments))
 
@@ -82,6 +77,8 @@ In line with Hypothesis \@ref(hyp:public-success), public interest mass comment 
 
 
 In line with Hypothesis \@ref(hyp:resources), large national policy advocacy organizations are responsible for most pressure campaigns targeting national policy. These organizations have the incentive as well as the resources and organizational capacity to launch campaigns.
+
+<!--concluding paragraph where you summaries how your results matched up with your hypotheses. -->
 
 
 ### Private Interests Rarely Use Public Pressure
@@ -127,7 +124,7 @@ In short, I find more grassroots participation than astroturf.
 One consequence of the dominance of a few national policy advocacy organizations is that public pressure campaigns target a narrow subset of the wide range of issues addressed by agency rulemaking. 
 Public engagement in rulemaking is highly
 clustered on a few rules made salient by these campaigns. 
-Just ten rulemaking dockets account for `r percent(sum(top10$comments)/sum(rules$number_of_comments_received), accuracy = .01)` of comments (`r sum(top10$comments)`). Figure
+Just ten rulemaking dockets account for `r percent(sum(topdockets$comments)/sum(rules$number_of_comments_received), accuracy = .01)` of comments (`r sum(topdockets$comments)`). Figure
 \@ref(fig:topdockets) shows these ten dockets and the share of comments from each of the top twenty mobilizing organizations (see the legend on the right). The first pane is mass comments (99 or more form letters or copied text). The vast majority of the total comments come from this category (notice the x-axis is scaled to each pane). Partially unique and small batches of form letters (less than 99) are a tiny fraction of the total and concentrated on a few rules where different audiences were engaged.  Because public pressure requires resources and capacity, policy issues of interest to organizations with the resources and capacity to launch a campaign receive disproportionate amounts of public attention.
 
 ```{r topdockets, fig.width = 1, fig.cap = "Dockets Receiving the Most Comments on Regulations.gov and the top Mobilizing Organizations"}

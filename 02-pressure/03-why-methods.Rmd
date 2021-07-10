@@ -11,63 +11,26 @@ TODO: CODE
 -->
 
 
-```{r}
-load(here::here("data","rules_metadata.Rdata"))
-
-
-rules %<>% mutate(open = !is.na(comment_start_date)|!is.na(comment_due_date)|number_of_comments_received > 0)
-# min(rules$posted_date, na.rm = T)
-# max(rules$posted_date, na.rm = T)
-
-# inspect example - clean power plan 
-# look <- rules %>% filter(docket_id == "EPA-HQ-OAR-2013-0602")
-
-rules %<>% ungroup() %>%
-  group_by(id) %>% 
-  slice_max(number_of_comments_received, with_ties = F)
-
-#save(rules, file =  here("data", "rules_metadata.Rdata"))
-  
-
-dockets <- rules %<>% 
-  distinct(docket_title, posted_date, docket_id, docket_type, number_of_comments_received, open) %>% 
-    filter(docket_title != "EPA Training Docket") %>%
-    group_by(docket_id) %>%
-  mutate(year = str_sub(posted_date, 1, 4) %>% as.numeric(),
-         comments = sum(number_of_comments_received),
-         open = sum(open, na.rm = T) > 0
-)
+```{r pressure-data}
+load(here::here("data","rules.Rdata"))
+load(here::here("data","topdockets.Rdata"))
+load(here::here("data","topagencies.Rdata"))
 
 # trim rules
-rules  %<>% filter(year >2004, year <2021, docket_type == "Rulemaking")
+d  <- rules %>% filter(year >2004, year <2021, 
+                   docket_type == "Rulemaking",
+                   document_type %in% c("Rule", "Proposed Rule"))
 
-mass <- filter(rules, comments > 99)
-
-top10 <- slice_max(mass %>% ungroup() %>% distinct(docket_id, comments), order_by =  comments, n = 10) 
+mass <- filter(rules,campaign)
 ```
 
-I collected a corpus of over `r dockets$number_of_comments_received %>% sum() %>% {./1000000} %>% round()` million public comments via the
-regulations.gov API. `r rules$number_of_comments_received %>% sum() %>% {./1000000} %>% round()` million of these comments are on rulemaking dockets.
+I collected a corpus of over `r rules$number_of_comments_received %>% sum() %>% {./1000000} %>% round()` million public comments via the
+regulations.gov API. `r d$number_of_comments_received %>% sum() %>% {./1000000} %>% round()` million of these comments are on rulemaking dockets.
 I then linked these comments to other data on the rules from the Unified
 Agenda and Office of Information and Regulatory Affairs Reports. Summary statistics for these data are
 available in the Appendix.
 
-From 2005 to  2020, agencies posted `r nrow(distinct(rules, docket_id))` rulemaking dockets to regulations.gov. and solicited public comments on `r nrow(distinct(rules %>% filter(open), docket_id))`. Only `r nrow(distinct(mass, docket_id))` of these rulemaking dockets received more than 100 comments, but this small share of rules garnered `r percent(sum(mass$number_of_comments_received)/sum(rules$number_of_comments_received), accuracy = .01)` (`r sum(mass$number_of_comments_received)`) of the comments. The top 10 rulemaking dockets account for `r percent(sum(top10$comments)/sum(rules$number_of_comments_received), accuracy = .01)` (`r sum(top10$comments)`), of the comments. Nearly all of these are form letters.
-
-```{r}
-
-n <- dockets %>% ungroup() %>%  filter(open) %>% count(number_of_comments_received, sort = T)
-```
-
-
-
-Figure
-\@ref(fig:comments-density) shows the relative number of comments received on a sample of rules matched to data from the Office of Information and Regulatory Affairs (OIRA). OIRA mostly reports on "significant" rules and classifies them as "major" and "non-major" rules. The top part of Figure \@ref(fig:comments-density) shows the distribution of proposed rules over the number of comments they received (the x-axis). The lower part of Figure \@ref(fig:comments-density) shows a scatterplot of the number of rules with a given number of comments. The key takeaway is that there is a great deal of diversity in commenting, with most rules receiving very few comments. Indeed, overall (including non-significant proposed rules), the majority (`r n$n[1]` of `r nrow(dockets %>% filter(open))`) of proposed rules that are open for public comment received no comments.  Nearly 8,000 of the 20,000  (37%) of the non-major rules reviewed by OIRA received no comments. Even a quarter of "major" receive no comments. The modal number of comments for all types of rules, including major and economically significant rules, is less than ten. 
-
-```{r comments-density, out.width = "99%", fig.cap = "Comments Posted to Regulations.gov on Rules Reviewed by OIRA 2005-2020"}
-
-knitr::include_graphics(here::here("Figs", "major-comments-density-1.png"))
-```
+From 2005 to  2020, agencies posted `r nrow(distinct(d, docket_id))` rulemaking dockets to regulations.gov and solicited public comments on `r nrow(distinct(d %>% filter(open), docket_id))`. Only `r nrow(distinct(mass, docket_id))` of these rulemaking dockets were targeted by one or more public pressure campaings, but this small share of rules garnered `r percent(sum(mass$number_of_comments_received)/sum(d$number_of_comments_received), accuracy = .01)` (`r sum(mass$number_of_comments_received)`) of all comments. Nearly all of these comments are form letters. The top 10 rulemaking dockets account for `r percent(sum(topdockets$docket_comments)/sum(d$number_of_comments_received), accuracy = .01)` (`r sum(topdockets$docket_comments)`), of the comments. Again, nearly all of these are form letters.
 
 
 Table \@ref(tab:dockets) shows the rules that received the most comments on regulations.gov.  Proposed rules that have attracted the most public attention have
@@ -79,33 +42,41 @@ Table \@ref(tab:dockets) shows the rules that received the most comments on regu
 
 ```{r dockets}
 # Include plot of draft and final rules over time, report number of pairs
-dockets %>%  
+d %>%  
   filter(open) %>% 
-    distinct(docket_title, comments) %>%
+    distinct(docket_title, docket_comments, docket_id) %>%
     ungroup() %>%
     group_by(docket_id) %>% 
     slice(n = 1, with_ties = FALSE) %>% 
-    ungroup() %>% #count(docket_id, sort= T)
-    arrange(-comments) %>% # filter(comments < 1)
+    ungroup() %>%
+    arrange(-docket_comments) %>% 
     head(10) %>%
-    mutate(docket_title = docket_title %>% #str_replace_all(";|:|–|--", ";\n") %>% 
-               str_sub(0,50)) %>%
-    mutate(docket_title = ifelse(nchar(docket_title) == 50, str_c(docket_title, "..."), docket_title) ) %>%# pull(docket_title)
-    # ggplot() +
-    # aes(x = docket_id, y = comments) +
-    # geom_col() + 
-    # coord_flip()
-    #kablebox()
+  # trim docket title 
+    #mutate(docket_title = docket_title %>% str_sub(0,50)) %>%
+    mutate(docket_title = ifelse(nchar(docket_title) == 50, str_c(docket_title, "..."), docket_title) ) %>%
+  mutate(docket_comments = docket_comments %>%  prettyNum(big.mark=",")) %>%
   rename(`Docket ID` = docket_id,
          `Docket Title` = docket_title,
-          Comments = comments) %>%
+          Comments = docket_comments) %>%
     kable3(caption = "Rulemaking Dockets by Number of Comments on regulations.gov, 2005-2020")
 ```
 
 
-Figure \@ref(fig:comments-per-year) shows an exponential increase in the number of rules receiving a large number of comments from 2005 to 2013. Note that comments per rule (the y-axis) are on a
+
+
+Figure \@ref(fig:rules-by-campaign) shows a massive rise in the number of proposed rules targeted by public pressure campaigns (the right panel), greater than  the overall increase in the number of proposed rules posted for comment on regulations.gov (the left panel).  To some extent the increase from 2005 to 2010  is a result of agencies using regulations.gov more systematically in the years after its launch in 2003. But the ease of online organizing has also increased the frequency of public pressure campaings. As mentioned earlier, less than 5 percent of proposed rules each year are targeted by a pressure campaign (note the necessery difference in the y-axes). However, this share is growning.
+
+Colors show a handful of agencies that publish the majority of proposed rules on regulations.gov (out of the the `r count(rules, agency) %>% nrow() ` federal agencies that use regulations.gov). For the most part, these are also the agencies that are most often targeted by public pressure campaigns, but some agencies are relatively more and less likely to be targeted than others. For example, the Fish and Wildlife Service (dark red) publishes a small share of all rules, but a large share of rules that are targeted by public pressure campaigns (many protecting threatened and endangered spieces habitat). In contrast, the US Coast Gaurd (red) and Federal Aviation Administraion (light blue) both publish a large number of rule (mostly regulating transportation safety) but are rarely targeted by pressure campaigns.  
+
+
+```{r rules-by-campaign, fig.cap = "Proposed Rules Open for Comment on Regulations.gov 2005-2020"}
+include_graphics(here("figs", "rules-by-campaign-1.png"))
+```
+
+
+Figure \@ref(fig:comments-per-year) also shows a massive increase in the number of rules receiving a large number of comments from 2005 to 2020. Note that comments per rule (the y-axis) are on a
 logarithmic scale. Increasingly, a large number of people are
-paying attention to agency policymaking.
+engaging in agency policymaking.
 
 ```{r comments-per-year, fig.cap = "Number of Comments (log scale) per Proposed Rule 2005-2020", out.width = "55%", fig.show = "hold"}
 # TODO alpha = .5, shape = "-", facet_wrap("president")
@@ -118,7 +89,7 @@ knitr::include_graphics(here::here("Figs", "rules-comments-per-year-1.png"))
 Testing my hypotheses requires that I classify campaigns as driven primarily by public or private interest groups. This is a challenge because appeals to the government are almost always couched in the language of
 public interest, even when true motivations are private
 [@Schattschneider1975]. Public pressure campaigns are no exception, and mobilizing organizations almost always evoke some version of the public interest. Classifying thus involves judgment calls. 
-I describe my classification methods in section \@ref{classify-public-private}. To provide empirical context, this subsection sketches out the range of public and private campaigns with some concrete examples of "public" pressure campaigns that primarily advance private interests.
+I describe my classification methods in section \@ref(classify-public-private). To provide empirical context, this subsection sketches out the range of public and private campaigns with some concrete examples of "public" pressure campaigns that primarily advance private interests.
 
 There is a spectrum of organizing the unorganized. The poles might be labeled "grassroots" and "astroturf." On the grassroots end, engagement is driven by a combination of passionate volunteerism and a supportive, attentive segment of the public. In practice, most campaigns on the grassroots end of the spectrum in federal rulemaking are not pure volunteerism but are organized by policy change organizations like MoveOn and Organizing For American on the left and Americans for Prosperity on the right.
 These organizations have large mailing lists and media operations, providing the capacity to mobilize large numbers of people for a particular policy fight. Both public and private interest groups pay for mobilizing services and software. Some providers are nonprofits (e.g., Care2); others are for-profit lobbying and campaign consultants (e.g., Nationbuilder, SoftEdge, Mandate Media). Most of these services have strong partisan ties, as is generally the case with lobbying firms [@Furnas2017].
@@ -131,7 +102,7 @@ Unlike those mobilized through membership organizations, mobilization by policy 
 Toward the astroturf end of the spectrum, well-funded efforts gather signatures from a much less passionate and attentive population. Where grassroots organizing relies on existing underlying interests that merely need to be given an opportunity to engage, people engaged by astroturf campaigns are generally disinterested in the policy and engage merely because of paid ads or petition gathering, often involving some deception (e.g., intentionally misled about the policy or its likely effects) to get people to take action on an issue that they would not take if the issue were presented more clearly. Likewise, the organizations collecting the signatures would have no interest in doing so if they were not paid. The aim is to give an appearance of support.
 To the extent they mobilize real people, astroturf campaigns are thus a form of outside lobbying intended to create a deceptive appearance of public support. In the extreme, astroturf campaigns may use the names of fake or non-consenting individuals---inside lobbying discussed as outside lobbying. 
 
-For example, in 2016, the Bureau of Ocean Energy Management received several USB drives with hundreds of thousands of comments on its National Outer Continental Shelf Oil and Gas Leasing Program from Joe Jansen. Jansen did not disclose who he worked for. These form letters, each identical except for the signature, resembled press releases from the American Petroleum Institute (API), the main industry association for oil and gas companies. According to a LinkedIn profile and [Congressional Directory](https://www.govinfo.gov/content/pkg/CDIR-2011-12-01/pdf/CDIR-2011-12-01-OH-H-1.pdf), Joe Jansen was a former legislative director for a Republican member of Congress who now worked in Government Relations.  Unlike more "grassroots" campaigns, no information was provided about who the signatories were or why they cared about oil and gas leasing. Joe Jansen, however, is also associated with other campaigns targeting the EPA and Department of State, several of which identified themselves as organized by the groups "Energy Citizens" and "Energy Nation." These organization's websites are paid for by the American Petroleum Institute. The photos they post on social media almost exclusively show employees handing out shirts, hats, and water at fairs, bars, and conferences in exchange for signatures.^[https://www.flickr.com/photos/energycitizens/18274218500/in/photostream/] Though Energy Citizens and Energy Nation submitted slightly different comments as separate organizations, most of the individual signatories were the same on both sets of comments, and many were submitted twice in order to inflate the number of pro-API comments on the rule. Energy Citizens has attracted media attention for bussing in paid protesters and attendees at town halls,^[https://www.nytimes.com/2009/08/19/business/energy-environment/19climate.html] paying actors to pose as concerned citizens, and skirting Facebook's policy against deceptive advertising.^[https://www.propublica.org/article/how-big-oil-dodges-facebooks-new-ad-transparency-rules]
+For example, in 2016, the Bureau of Ocean Energy Management received several USB drives with hundreds of thousands of comments on its National Outer Continental Shelf Oil and Gas Leasing Program from Joe Jansen. Jansen did not disclose who he worked for, but the form letters, each identical except for the signature, resembled press releases from the American Petroleum Institute (API), the main industry association for oil and gas companies. According to a LinkedIn profile and [Congressional Directory](https://www.govinfo.gov/content/pkg/CDIR-2011-12-01/pdf/CDIR-2011-12-01-OH-H-1.pdf), Joe Jansen was a former legislative director for a Republican member of Congress who now worked in Government Relations.  Unlike more "grassroots" campaigns, no information was provided about who the signatories were or why they cared about oil and gas leasing. Joe Jansen, however, was also associated with other campaigns targeting the EPA and Department of State, several of which identified themselves as organized by the groups "Energy Citizens" and "Energy Nation." These organization's websites are paid for by the American Petroleum Institute. The photos they post on social media almost exclusively show employees handing out shirts, hats, and water at fairs, bars, and conferences in exchange for signatures [@EnergyCitizen2014astroturf]. Though Energy Citizens and Energy Nation submitted slightly different comments as separate organizations, most of the individual signatories were the same on both sets of comments, and many were submitted twice by each organization in order to inflate the number of pro-API comments on the rule. Energy Citizens has attracted media attention for bussing in paid protesters and attendees at town halls to oppose regulations @NYT2009astroturf], paying actors to pose as concerned citizens, and skirting Facebook's policy against deceptive advertising [@ProPublica2018astroturf].
 
 In a more complex example, Axcess Financial and other payday lending companies sponsored several campaigns targeting a regulation proposed by Consumer Financial Protection Bureau in 2016. First, Axcess Financial had storefront employees solicit comments from customers, which Axcess then uploaded to regulations.gov.  The customer comments suggest that they had not been told much about the rule, which limited interest rates, fees, and the number of times short-term loans could be compounded. Most customers wrote some version of "Do not close this store" or "I have been told that payday loans would not exist in my community if the government's proposed regulations went into effect."---a few even complained about exactly the issues that CFPB's regulation aimed to address. One customer wrote, "Although some of the fees are a bit high, it should be my choice whether to get a loan or not" (Access Financial Comment 91130). Another wrote, "I need to keep receiving my Check'n'Go loans so I can have the time to start paying them back in the next 1 1/2 to 2 years" (Axcess Financial Comment 91130), indicating that Check'n'Go (a subsidiary of Axcess Financial) was engaged in serial re-lending that put this customer deeper in debt. In their own comments, Axcess claimed that it did not do this kind of serial re-lending. To the extent that this campaign relied on deception and not the customer's genuine interests (even as the customers understood them), this would count as astroturf. Second, Axcess sponsored an effort to gather signatures at churches. Finally, Axcess and other payday loan companies uploaded supportive notes from community organizations to which they had given money. These people had no reason to comment except that they had received money from the regulated companies. 
 
@@ -201,7 +172,7 @@ For each comment on a rulemaking docket^[Where a new presidential administration
 possible pair of texts to identify matches.^[For more about n-gram window functions and comparisons with related partial matching methods such as the Smith-Waterman algorithm, see @Casas2017 and @Judge-Lord2017.]
 When actors sign onto the same comment, it is clear that they are
 lobbying together. However, various businesses, advocacy groups, and
-citizens often comment separately, even when they are aligned. Text-reuse (using the same ten-word phrases) captures this alignment. 
+citizens often comment separately, even when they are aligned. Text-reuse (using the same ten-word phrases) captures this alignment. When individuals use identical wording I interpret that to mean they're endorsing the same policy position as part of a lobbying coalition.
 
 Figure \@ref(fig:percent-match) shows the percent of shared text for a sample of 50 comments on the Consumer Financial Protection Bureau's 2016 Rule regulating Payday Loans. Comments are arranged by the document identifier assigned by regulations.gov on both axes. 
 The black on the diagonal indicates that each document has a perfect overlap with itself. Black squares off the diagonal indicate additional pairs of identical documents. For example, 100% of the words from Comment 95976 are part of some tengram that also appears in 95977 because the exact same comment was uploaded twice. 
@@ -239,64 +210,17 @@ I code each coalition as primarily advancing an idea of the public interest or m
 
 #### Coding Policy Positions
 
-To assess whether organizations and their broader coalitions lobby in opposition to other interests or unopposed, I code the position of each organization on each proposed policy given the direction of change from the current policy. In Figure \@ref(fig:spatial-coding), $x_1$ is the current policy $x_2$ is the new proposed policy. Let $p_i$ be commenter $i$'s ideal policy. In spatial models, whether an organization supports or opposes a proposed policy change often depends on whether it is moving closer or further from its ideal policy. For example, if the ideal point of the commenter $i$ is the current policy ($p_i = x_1$) or close to it, they will oppose any change. If the ideal point of commenter $i$ is the new proposed policy ($p_i = x_1$) or closer to it, they likely support the proposal. While incompatible with an assumption of single-peaked preferences assumed by most models, commenters do occasionally oppose a policy change for moving insufficiently in their preferred direction (e.g., describing the proposal as "too little" or "insufficient" to gain their support). For example, if a commenter's prefers a more extreme change ($p_i = x_1$), they may oppose $x_2$ as "insufficient." This is likely a result of the repeated game nature of policymaking, where commenters believe that rejecting a small change in their preferred direction ($x_2$) now is likely to result in a more extreme change ($x_3$) later.
+To assess whether organizations and their broader coalitions lobby in opposition to other interests or unopposed, I code the position of each organization on each proposed policy given the direction of change from the current policy. Specifically, I trained research assistants to place comments on a spatial scale  relative to change between the status quo and proposed rule like the one shown in Figure \@ref(fig:spatial-coding). In Figure \@ref(fig:spatial-coding), $x_1$ is the current (status quo) policy and $x_2$ is the new proposed policy on which commenters are commenting. Let $p_i$ be commenter $i$'s ideal policy. In spatial models, whether an organization supports or opposes a proposed policy change generally depends on whether policy is moving closer or further from its ideal policy. For example, if the ideal point of the commenter $1$ is the current policy ($p_1 = x_1$) or close to it, they will oppose any change. If the ideal point of commenter $2$ is the new proposed policy ($p_2 = x_2$) or closer to it, they likely support the proposal. While incompatible with an assumption of single-peaked preferences assumed by most models, commenters do occasionally oppose a policy change for moving insufficiently in their preferred direction (e.g., describing the proposal as "too little" or "insufficient" to gain their support). For example, if a commenter's prefers a more extreme change and will not accept anything less than a certian level of change ($p_i \ge x_3$), they may oppose $x_2$ as "insufficient." This is likely a result of the repeated game nature of policymaking, where commenters believe that rejecting a small change in their preferred direction ($x_2$) now is likely to result in a more extreme and preferred change ($x_3$) later.
 
 
 
-```{r spatial-coding, fig.cap= "Coding the Spatial Position of Comments on Proposed Policy Changes", fig.height=1}
-library(latex2exp)
-
-tibble(x = c(1,2,3,4,5,6, 7),
-       position = c(1,2,3.5,4,5,NA, 7),
-       code = c(1,2,3,4,5,NA, 6),
-       label = c("Oppose","Oppose",  "Support","Support","Support","Support","Oppose")) %>%
- ggplot() +
-    aes(y = 0, yend = 0,  x = x) +
-  geom_point(shape = "|", aes(y = 2)) +
-    geom_segment(x = 0, xend = 8, y = 2, yend = 2, arrow = arrow(ends = "both", type = "closed", length = unit(0.1, "cm"))) +
-    geom_segment(aes(color = label), x = 0, xend = 8, arrow = arrow(ends = "both", type = "closed", length = unit(0.1, "cm"))) +
-   geom_line(aes(color = label)) +
-annotate("text", x=2, y=2.5, label=TeX("$x_1$"), parse=TRUE) +
-annotate("text", x=2, y= .5, label=TeX("$p_i = x_1$"), parse=TRUE) +
-annotate("text", x=4, y=2.5, label=TeX("$x_2$"), parse=TRUE) +
-annotate("text", x=4, y= .5, label=TeX("$p_i = x_2$"), parse=TRUE) +
-annotate("text", x=7, y=2.5, label=TeX("$x_3$"), parse=TRUE) +
-annotate("text", x=7, y= .5, label=TeX("$p_i = x_3$"), parse=TRUE) +
-geom_point(x = 2, y = 2) +
-   geom_point(x = 4, y = 2) +
-geom_point(x = 7, y = 2, shape = 21) +
-  geom_point(x = 2, aes(color = label)) +
-  geom_point(x = 4, aes(color = label[4])) +
-geom_point(x = 7, aes(color = label)) +
-  geom_point(x = 3, fill = "white", color = "white") + #, shape = 21) +
-   geom_point(x = 6, fill = "white", color = "white") + #, shape = 21) +
-  scale_x_continuous(limits = c(-1,8))+
-  scale_y_continuous(limits = c(-2,3))+
-  theme_void() +
-labs(color = "",
-     #title = "Spatial Positions of Public Comments",
-     subtitle = TeX("Coding the Position (p) of Commenter $i$ on Proposed Policy $x_2$ Given Existing Policy $x_1$"),
-     shape = "")
+```{r spatial-coding, fig.cap= "Coding the Spatial Position of Comments on Proposed Policy Changes", fig.height=4, fig.width=5.5}
+include_graphics(here("figs", "spatial-coding-1.png"))
 ```
 
 Having identified the coalition lobbying on each proposed rule and the position of each organization, I assign the position of each coalition as the position of the lead organization. For robustness, I also calculate the coalition's average position as the average position of its members. Coalition members usually have nearly identical positions, but occasionally, some take more extreme positions than others. For example, while all coalition members may have the same policy demands, some may ask for additional changes. I consider diverging interests to be one coalition only if the asks are entirely compatible with the position of organizations that did not ask for them. Incompatible policy demands indicate different coalitions.
 
-<!-- step 4 success TODO-->
 
-<!--
-#### Measuring Intensity of Preferences
-
-Finally, I develop computational methods to measure the intensity of preferences
-expressed by those mobilized by public pressure campaigns. 
-To measure the mobilizing success of each campaign, I measure
-the scale and intensity of support and potential for the movement to grow. To measure
-intensity, I examine the ratio of high-effort and low-effort comments.
-To measure the potential to grow, I measure the number of comments mobilized
-indirectly by the campaign (i.e., those that support a campaign but do
-not include text provided by the campaign). The result is several new
-measures of participation in bureaucratic policymaking.
-
--->
 
 #### Differences with Prior Studies
 

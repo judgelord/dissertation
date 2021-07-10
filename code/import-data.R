@@ -29,14 +29,16 @@ d1 <- read_sheet_c(s[1,])
 d <- map_dfr(s$id, possibly(read_sheet_c, otherwise = head(d1)))
 
 # FAILED TO IMPORT? OR BAD ID
-s$name[!s$name %>% str_remove("_.*") %in% d$docket_id]
-
+fails <- s$name[!s$name %>% str_remove("_.*") %in% d$docket_id]
+fails 
 # in case some fail, try again?
+if(length(fails) > 0){
 d2 <- map_dfr(s$id, possibly(read_sheet_c, otherwise = head(d1)))
 
 d %<>% full_join(d2) %>% distinct()
+}
 
-# FAILED TO IMPORT? OR BAD ID
+# STILL FAILED TO IMPORT? OR BAD ID
 s$name[!s$name %>% str_remove("_.*") %in% d$docket_id]
 
 # remove extra white space
@@ -116,6 +118,7 @@ d %<>% select(-docket_type)
 
 # duplicates 
 d %>% 
+  filter(comment_type != "elected") %>% 
   count(document_id, docket_id, sort = T) %>% 
   filter(n>1) %>% 
   group_by(docket_id) %>% 
@@ -124,7 +127,9 @@ d %>%
 
 d %>% 
   add_count(document_id, sort = T) %>% 
-  filter(n>1) %>% 
+  filter(n>1, # more than one 
+         comment_type != "elected" # excluding split electeds 
+         ) %>% 
   kablebox()
 
 sum(is.na(d$document_id))
@@ -146,6 +151,7 @@ d %<>% ungroup() %>% dplyr::select(-docket_title) %>% distinct()
 d %<>%
   na_if("NA") %>% 
   na_if("na") %>% 
+  na_if("NaN") %>% 
   # fix ids
   mutate(document_id = document_id %>% str_remove("-1.pdf") %>% str_squish(),
          comment_url = str_c("https://www.regulations.gov/comment/", document_id)) %>% 
@@ -154,7 +160,8 @@ d %<>%
   mutate(docket_id = coalesce(docket_id, docket_id2),
          docket_url = str_c("https://www.regulations.gov/docket/", docket_id),
          agency_acronym2 = str_remove(docket_id, "-[0-9].*"),
-         agency_acronym = coalesce(agency_acronym, agency_acronym2)) %>%
+         agency_acronym = coalesce(agency_acronym, agency_acronym2),
+         agency = agency_acronym) %>%
   # remove temp docket id from documents
   select(-docket_id2)# %>%  mutate(across(starts_with("success")), as.numeric )
 
@@ -179,7 +186,19 @@ d$success %<>% as.numeric()
 d$position %<>% str_squish() %>% as.numeric() 
 d$number_of_comments_received %<>% str_squish() %>% as.numeric()
   
+sum(is.na(d$number_of_comments_received))
 
+# add missing comments 
+d %<>% 
+  left_join(comments_min %>% 
+              dplyr::select(document_id = id, ncomments = number_of_comments_received) %>% 
+              distinct())
+
+d %<>% mutate(number_of_comments_received = coalesce(number_of_comments_received, ncomments)) %>% 
+  select(-ncomments)
+
+# check, should be 0 now
+sum(is.na(d$number_of_comments_received))
 
 # add dates
 d %<>% 
@@ -243,7 +262,8 @@ duplicates <- d %>% filter(n_obs>1) %>%
 duplicates
 
 #FIXME - track down source of duplicates 
-d %>% mutate(source = replace_na(source, "datasheet")) %>%
+d %>% ungroup() %>% 
+  mutate(source = replace_na(source, "datasheet")) %>%
   group_by(document_id) %>% 
   slice(n = 1) %>%
   ungroup()
@@ -273,16 +293,21 @@ sum(is.na(d$coalition_type))
 d$congress %<>% replace_na(FALSE)
 
 # diognostics 
-comment_errors <- d %>% filter(is.na(position), !is.na(org_type)) 
+missing_position <- d %>% 
+  filter(is.na(position), !is.na(org_type)) 
 
-comment_errors %>% filter(is.na(source)) %>% ungroup() %>% 
+comment_errors %>% 
+  filter(is.na(source)) %>% 
+  ungroup() %>% 
   select(document_id, comment_type, starts_with("org"), position) %>% kablebox()
 
-comments_coded <- d %>% drop_na(position)
+
+
 
 d %>% filter(comment_type == "mass", is.na(coalition_comment))
 
-d %>% filter(number_of_comments_received>99, is.na(coalition_comment))
+
+
 
 d %>% ungroup() %>%
   filter(!is.na(coalition_type),coalition_comment != "FALSE") %>% 
@@ -356,6 +381,8 @@ d$comments %>% range(na.rm = T)
 
 d %>% filter(comments == 999999) %>% pull(comment_url)
 
+d %<>% filter(comment_url != "https://www.regulations.gov/comment/FMCSA-1997-2350-23794")
+
 d %<>% mutate(comments = ifelse(document_id == "FWS-HQ-IA-2013-0091-1605",
                     1013942,
                     comments))
@@ -374,8 +401,9 @@ d$congress %>% unique()
 comments_coded <- d %>% mutate(comment_type = comment_type %>% clean_org_type() %>% 
                              str_replace("gov", "org") %>% 
                                str_replace("astroturf", "mass") %>% 
+                               str_replace("mass;corp campaign", "corp;corp campaign") %>%
                                str_replace("^indi.*al$", "individual") %>%
-                             str_remove(";.*|-.*| o.*"),
+                             str_remove(";.*|-.*| o.*| .*"),
                            org_type = org_type %>% clean_org_type() %>% 
                              str_replace("business", "corp") %>% 
                              str_replace("nonprofit", "ngo") %>% 
@@ -387,6 +415,17 @@ comments_coded <- d %>% mutate(comment_type = comment_type %>% clean_org_type() 
                              str_replace("^tribe", "gov;tribe")) %>% 
   ungroup()
 
+
+comments_coded %<>% 
+  group_by(president, docket_id, coalition_comment) %>%
+  fill(position, .direction = c("downup")  ) %>% 
+  ungroup()
+
+# still no position, that is
+# no one in the coalition has a position
+comments_coded %>% filter(is.na(position)) %>% 
+  distinct(document_id, coalition_comment, position) %>% 
+  kablebox()
 
 comments_coded %>% count(comment_type, sort =T) %>% 
   kablebox()
@@ -404,11 +443,18 @@ comments_coded %>% count(docket_id, comment_type, sort =T) %>%
 comments_coded %>% count(org_type, sort =T) %>% 
   kablebox()
 
-filter(comments_coded, comment_type == "org", is.na(org_type)) %>% 
-  select(docket_id, comment_type, starts_with("org"), coalition_comment, source) %>% 
+# missing org type 
+filter(comments_coded, 
+       comment_type == "org", 
+       is.na(org_type) , is.na(source) # not from mass sheet
+       ) %>% 
+  select(docket_id, comment_type, 
+         starts_with("org"), coalition_comment) %>% 
   kablebox()
 
-comments_coded %>% count(docket_id, org_type, comment_type, sort =T) %>% 
+# incorrect or or comment types 
+comments_coded %>% 
+  count(docket_id, org_type, comment_type, source, sort =T) %>% 
   drop_na(org_type) %>% 
   filter(comment_type != "elected",
          !str_detect(org_type, str_c("ngo", "astroturf", "corp", "corp group", "gov", 
@@ -423,7 +469,7 @@ comments_coded %>%
   group_by(docket_id, coalition_comment) %>% 
   summarise(percent_success_coded = sum(!is.na(success))/n()) %>% 
   ungroup() %>%
-  arrange(percent_success_coded) %>% kablebox()
+  arrange(percent_success_coded, docket_id) %>% kablebox()
 
 comments_coded %>% 
   filter(!is.na(ask)) %>% 
@@ -498,7 +544,8 @@ comments_coded %<>%
             org_lead = coalition_comment %in% c(org_name, str_to_lower(org_name_short)),
             coalition_leader_success = ifelse(org_lead, success, NA) %>% mean(na.rm = T) %>% coalesce(coalition_success),
             coalition_comments = sum(comments, na.rm = T) - coalition_size,
-         coalition_campaign_ = "mass" %in% unique(comment_type) | coalition_comments > 99,
+         coalition_comment_types = unique(comment_type) %>% discard(is.na) %>% str_c(collapse = ";"),
+         coalition_campaign_ = str_dct(coalition_comment_types, "mass") | coalition_comments > 99,
          coalition_ = coalition_size > 1,
          coalition_business_ = coalition_business/coalition_size > .5) %>%
   ungroup() %>% 
@@ -507,7 +554,18 @@ comments_coded %<>%
            as.numeric()) %>%
   distinct()
 
-distinct(comments_coded, coalition_id, coalition_type)
+comments_coded %>% 
+  distinct(comment_type, coalition_comment_types, coalition_comment) %>%
+  filter(is.na(coalition_comment_types)) %>% kablebox()
+
+comments_coded %>% filter(!coalition_campaign_, str_dct(comment_type, "mass")) %>%
+  distinct(comment_type, coalition_comment_types, coalition_comment, coalition_campaign_) %>% kablebox()
+
+distinct(comments_coded, coalition_id, coalition_type, coalition_comment)
+
+distinct(comments_coded, docket_id, coalition_type, coalition_comment) %>% 
+  filter(is.na(coalition_type), !is.na(coalition_comment)) %>% kablebox()
+
 
 comments_coded %>% filter(is.na(coalition_type))
 
@@ -577,28 +635,46 @@ comments_coded %>% select(-comment_text)
 
 comments_coded %>% group_by(document_id) %>% slice_head()
 
+
+comments_coded %<>% 
+  mutate(party = ifelse(president == "Obama", "Democrat", "Republican"),
+         president = as_factor(president) %>% relevel(ref = "Obama"))
+
+#FIXME move up? 
+comments_coded %<>% 
+  mutate(across(where(is.character), str_to_title),
+         across(starts_with(c("doc", "agency")), str_to_upper)) 
+
+# proxi for mass where number is not reported
+comments_coded %<>% mutate(comments =  ifelse(str_dct(comment_type, "mass") & comments < 100, comments + 99, comments))
+
+
+
+
+
+
+
+
+
+
+##########################################################################
 # MAKE COALITIONS 
+# (anything after here should be coalition-specific)
 coalitions_coded <- comments_coded %>% 
   drop_na(coalition_comment) %>% 
-  dplyr::select(president, agency, starts_with("docket"), starts_with("coalition")) %>%
+  dplyr::select(president, party, agency, starts_with("docket"), starts_with("coalition")) %>%
   distinct()
 
-# # post-hoc corrections 
-# coalitions_coded %<>% 
-#   add_count(docket_id, coalition_comment) %>% 
-#   filter(!(is.na(coalition_business) & n >1)) %>% 
-#   dplyr::select(-n) %>% 
-#   add_count(docket_id, coalition_comment) 
+# just to make sure 
+comments_coded %<>% distinct() %>% ungroup()
+coalitions_coded %<>% distinct() %>% ungroup()
 
 
 
+
+##########################################################
+# inspect - FROM HERE DOWN, JUST INSPECTING
 coalitions_coded %>% kablebox()
-
-
-# Drop coalition = FALSE 
-# coalitions_coded %<>% filter(coalition_comment != "FALSE")
-
-
 
 d %>% filter(success > 2) %>% dplyr::select(document_id, success)
 
@@ -637,17 +713,21 @@ coalitions_coded %>% add_count(coalition_id) %>%
   arrange(coalition_id) %>%
   filter(n > 1)# %>% kablebox()
 
-comments_coded %<>% distinct() %>% ungroup()
-coalitions_coded %<>% distinct()
 
-comments_coded %>% add_count(document_id, sort = T) %>% 
-  filter(n>1) %>% 
+# duplicates 
+duplicates  <- comments_coded %>% add_count(document_id, sort = T) %>% 
+  filter(n>1, comment_type != "Elected")
+
+duplicates %>% kablebox()
+
+duplicates %>% 
   count(docket_id)
 
+# Obama dockets that Trump used 
+coalitions_coded %>% add_count(docket_id, coalition_comment, sort = T) %>% 
+  filter(n>1) %>% arrange(coalition_comment) %>% distinct(president, docket_id)
 
-
-
-look <- coalitions_coded %>% add_count(docket_id, coalition_comment, sort = T) %>% 
+look <- coalitions_coded %>% add_count(docket_id, president, coalition_comment, sort = T) %>% 
   filter(n>1) %>% arrange(coalition_comment) %>% distinct()
 
 look %>% distinct(docket_id, coalition_comment, coalition_type)
@@ -660,13 +740,10 @@ s$name[!s$name %>% str_remove("_.*") %in% coalitions_coded$docket_id]
 unique(comments_coded$president)
 unique(coalitions_coded$president)
 
-#FIXME move up
-comments_coded %<>% 
-  mutate(across(where(is.character), str_to_title),
-         across(starts_with(c("doc", "agency")), str_to_upper)) 
-coalitions_coded %<>% 
-  mutate(across(where(is.character), str_to_title),
-         across(starts_with(c("doc", "agency")), str_to_upper)) 
+
+# MUST BE DONE AFTER MAKING COALTIONS
+comments_coded %<>%   
+  fill(success, .direction = "updown") 
 
 # common names 
 comments_coded %<>% 
@@ -685,10 +762,13 @@ coalitions_coded %<>%
   mutate(coalition = coalition %>% str_to_title())%>% 
   mutate(campaign_ = coalition_campaign_)
 
-# inspect
-coalitions_coded$coalition_comments %>% min()
+#/INSPECT 
 
 # TODO merge in mass comments that were not hand-coded 
+
+# just to make sure 
+comments_coded %<>% distinct() %>% ungroup()
+coalitions_coded %<>% distinct() %>% ungroup()
 
 save(comments_coded, file = here::here("data", "comments_coded.Rdata"))
 save(coalitions_coded, file = here::here("data", "coalitions_coded.Rdata"))
@@ -696,7 +776,34 @@ save(mass_coded, file = here::here("data", "mass_coded.Rdata"))
 
 comments_coded$docket_id %>% unique()
 
+comments_coded %>% distinct(campaign_, comments, coalition)
+
+#FIXME missing number of comments, odd since number of comments recieved is not NA, not sure where NA is coming from
+comments_coded %>% 
+  filter(is.na(comments)|comments == "NA") %>% 
+  filter(document_id %in% comments_min$id) %>% # check both ways
+  select(document_id, comment_url, org_name, coalition, comments, number_of_comments_received, campaign_, success)
 
 
+#1 PRIORITY TO CODE!!!
+d %>% filter(number_of_comments_received>99 | comment_type == "mass", 
+             is.na(source), 
+             is.na(coalition_comment)) %>% select(document_id, comments) %>%  kablebox()
 
+# including mass
+d %>% filter(number_of_comments_received>99, 
+             is.na(coalition_comment)) %>% count(docket_id)
 
+# hand-coded dockets 
+dockets<- comments_coded %>% filter(is.na(source)) %>% pull(docket_id) %>% unique()
+
+#2 Priority, in mass sheet
+mass_raw %>% 
+  filter(docket_id %in% dockets, is.na(coalition_comment)) %>% 
+  count(docket_id, comment_url) %>% kablebox()
+
+mass_raw %>% 
+  filter(docket_id %in% dockets, is.na(coalition_comment)) %>% 
+  count(docket_id, sort = T) %>% kablebox()
+
+mass_raw$number_of_comments_received %>% as.numeric() %>% sum(na.rm  = T)

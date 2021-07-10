@@ -11,8 +11,8 @@ knit_root_dir: "/Users/devin/dissertation" # `r here::here()` #https://stackover
 rmd_files:
   - index.Rmd
   - 00-intro-book.Rmd
-  - 01-rulemaking/00-abstract.Rmd # macro
-  - 01-rulemaking/01-macro-intro.Rmd
+#  - 01-rulemaking/00-abstract.Rmd # macro
+#  - 01-rulemaking/01-macro-intro.Rmd
   - 02-pressure/00-abstract.Rmd # whymail
   - 02-pressure/01-why-intro.Rmd 
   - 02-pressure/02-why-mobilize.Rmd

@@ -37,6 +37,26 @@ library(fixest)
 library(modelsummary)
 library(tidyverse)
 
+fig.path <- here("figs/")
+
+## Sets defaults for R chunks
+knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that code will show
+                      #cache = FALSE,
+                      cache = TRUE,
+                      warning = FALSE,
+                      message = FALSE,
+                      fig.show="hold",
+                      fig.pos= "htbp",
+                      fig.path = "figs/",
+                      fig.align='center',
+                      fig.cap = '   ',
+                      fig.retina = 6,
+                      fig.height = 3,
+                      fig.width = 7,
+                      out.width = "100%",
+                      out.extra = "")
+
+# defaults for plots
 library(ggplot2); theme_set(theme_bw());
 options(
   ggplot2.continuous.color = "viridis",
@@ -55,13 +75,6 @@ scale_color_continuous <- function(...){
 scale_fill_continuous <- function(...){
   scale_fill_viridis_c(..., direction = -1, 
                        option = "plasma")}
-
-
-
-options(
-  ggplot2.continuous.color = "viridis",
-  ggplot2.continuous.fill = "viridis"
-)
 
 
 
@@ -86,22 +99,37 @@ kable2 <- function(x, file){
 
 library(flextable)
 
+pretty_num <- . %>% prettyNum(big.mark = ",")
+
 # A function to trim and format tables for different outputs 
-kable3 <- function(x, caption = "", full_width = TRUE, latex_options = "repeat_header"){
+kable3 <- function(x, 
+                   caption = "", 
+                   height = '400px',
+                   full_width = F,
+                   align = 'l',
+                   font_size = 11,
+                   latex_options = "repeat_header"){
   if(knitr:::is_html_output()) {
     x %>% 
       ungroup() %>% 
       slice_head(n = 100) %>%
+      mutate(across(where(is.numeric), pretty_num)  ) %>%
       knitr::kable(caption = caption) %>% 
       kable_styling() %>% 
-      scroll_box(height = "400px")
+      scroll_box(height = height)
   } else{
     if(knitr::is_latex_output() ){
       x %>% 
         ungroup() %>% 
         slice_head(n = 20) %>%
-        knitr::kable(caption = caption) %>% 
-        kable_styling(font_size = 10, full_width = TRUE, latex_options = latex_options)
+        mutate(across(where(is.numeric), pretty_num)  ) %>%
+        knitr::kable(caption = caption,
+                     booktabs = T,
+                     align = align,
+                     linesep = "\\addlinespace") %>%
+        kable_styling(font_size = font_size, 
+                      full_width = full_width,
+                      latex_options = latex_options)
     } else{x %>% 
         ungroup() %>% 
         slice_head(n = 20) %>%
@@ -120,24 +148,7 @@ knit_hooks$set(inline = function(x) {
   prettyNum(x, big.mark=",")
 })
 
-fig.path <- here("figs")
 
-## Sets defaults for R chunks
-knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that code will show
-                      #cache = FALSE,
-                      cache = TRUE,
-                      warning = FALSE,
-                      message = FALSE,
-                      fig.show="hold",
-                      fig.pos= "htbp",
-                      fig.path = "figs/",
-                      fig.align='center',
-                      fig.cap = '   ',
-                      fig.retina = 6,
-                      fig.height = 3,
-                      fig.width = 7,
-                      out.width = "100%",
-                      out.extra = "")
 
 options(stringsAsFactors = FALSE)
 
