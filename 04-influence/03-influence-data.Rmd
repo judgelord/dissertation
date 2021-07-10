@@ -176,18 +176,13 @@ Table \@ref(tab:coalition-types) shows the number of coalitions coded as "public
 
 ```{r data-coalition-comments}
 #data-coalition-comments
-coalitions_coded %>% 
+comments_coded %>% 
   drop_na(coalition_business, coalition_type) %>%
   filter(coalition_comment != "FALSE", 
          !is.na(coalition_success),
-         #nchar(coalition) < 10, 
+         nchar(coalition) < 10, 
          coalition_comments >99 | coalition_comments == 0) %>% 
-  distinct()  %>% 
-  ungroup() %>% 
-  arrange(-comments) %>%  select(docket_id, comments, campaign_)
-  group_by(docket_id) %>% 
-  slice_max(order_by = -coalition_comments, n = 2) %>%
-  ungroup() %>% 
+    ungroup() %>% 
   dplyr::select(docket_id, coalition, 
                 Position = Coalition_Position, 
                 coalition_size, 
@@ -195,6 +190,10 @@ coalitions_coded %>%
                 coalition_type, 
                 coalition_comments, coalition_unopposed) %>%
   distinct() %>% 
+  #arrange(-comments) %>%  distinct(docket_id, coalition_comments, campaign_)
+  group_by(docket_id) %>% 
+  slice_max(order_by = coalition_comments, n = 2) %>%
+  ungroup() %>% 
   rename(`Docket ID` = docket_id,
          Coalition = coalition,
          Size = coalition_size,
