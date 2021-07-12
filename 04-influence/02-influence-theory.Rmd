@@ -11,7 +11,7 @@ TODO SUSAN: "a skeptical reader may still say, I still don’t know why a bureau
 
 <!-- > TODO  -->
 
-Interest groups--particularly the distinction between those that represent broad and narrow interests--foundational scholarship on both American politics [@Lowi1969] and bureaucracy [@Wilson1989].
+Interest groups---particularly the distinction between those that represent broad and narrow interests---foundational scholarship on both American politics [@Lowi1969] and bureaucracy [@Wilson1989].
 Wilson's famous typology of government agencies is fundamentally linked to the kinds of interest group pressures agencies may face. For example, a "client-agency"--- formed to support a sector or activity---will deal with narrow groups. 
 
 > "A client-agency will have to struggle mightily to avoid having its work influenced by the single, organized group with which it must deal on a daily basis. Many do not succeed; a few do not even try." [@Wilson1989, pg.79]
@@ -20,7 +20,14 @@ An entrepreneurial agency may struggle to persist if the broad-based public inte
 
 > "An agency created as the result of entrepreneurial politics is in a precarious position: since it was born out of an attack on the interests it is now supposed to regulate, its employees must worry that the social movements that created their tasks may desert the fledgling agency because of shifting interests or waning passions, leaving it to confront a hostile interest group alone and unprotected." 
 
-Whether representing broad or narrow interests, many interest groups exist primarily to influence policy. With renewed attention to the role of policy advocacy groups policymaking, the dichotomy between accountabiity to political principals and "capture" is being replaced by studies that focus on numerous mechanisms of interesg group influence in policymaking. 
+Whether representing broad or narrow interests, many interest groups exist primarily to influence policy. Policymakers face strong interest-group demands [@Yackee2006JPART]. Businesses and their associations are the most active and influential lobbying organizations [@Yackee2006JOP].
+
+<!--TODO-->
+
+Policy outcomes depend on the distribution of power among interest groups [@Dur2007]. 
+
+
+With renewed attention to the role of policy advocacy groups policymaking, the dichotomy between accountabiity to political principals and "capture" is being replaced by studies that focus on numerous mechanisms of interesg group influence in policymaking. 
 Measuring lobbying success is a major challenge for studies attempting to study interest group influence [@Mahoney2007JPP; @Yackee2006JOP; @Rashin2017].
 As @Potter2017 put it "discerning influence from any kind of lobbying is a notoriously elusive exercise because of the difficulty in knowing the counterfactual scenario."
 

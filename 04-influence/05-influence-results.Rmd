@@ -1,6 +1,6 @@
 ## Results: Lobbying Success {#influence-results}
 
-This section leverages a random sample of agency rules for which I have hand-coded nearly all public comments. The first subsection presents estimates of the direct relationship between public pressure and lobbying success (Table \@ref(tab:mc-success)). The next subsection presents results of mediation analysis, assessing the support from members of Congress as a mediator for the success of public pressure campaigns (Tables \@ref(tab:model-oversight)). The third subsection presents estimates of factors affecting within-organization levels of lobbying success using a difference-in-difference design (Table \@ref(tab:mo-success-did).
+This section leverages a random sample of agency rules for which I have hand-coded nearly all public comments. The first subsection presents estimates of the direct relationship between public pressure and lobbying success (Table \@ref(tab:mc-success)). The next subsection presents results of mediation analysis, assessing the support from members of Congress as a mediator for the success of public pressure campaigns (Tables \@ref(tab:model-oversight)). The third subsection presents estimates of factors affecting within-organization levels of lobbying success using a difference-in-difference design (Table \@ref(tab:mo-success-did)).
 
 ### Coalition-level Lobbying Success
 
@@ -20,6 +20,9 @@ These models include coalitions of 1 (organizations lobbying alone), but excludi
 
 ```{r mc-success}
 #mc-success
+coalitions_coded %<>% mutate(
+  comments = ifelse(comments < 0, 0, comments), #FIXME double subtracing coalition size? 
+  comments100k = comments / 100000)
 
 # coalition success with agency and president FE
 mc1 <- feols(coalition_success ~ 
@@ -88,7 +91,7 @@ mc5 <- feols(coalition_success ~
           # campaign_*coalition_business_ + # m2
           # log(comments + 1)*coalition_type + # m3
           # log(comments + 1)*coalition_business_ + # m4
-          comments + comments^2 + coalition_type + #m5
+          comments100k + comments100k^2 + coalition_type + #m5
           # comments + comments^2 + coalition_business_ + #m6
           coalition_ + log(coalition_size) + #  coalition_size^2 + 
           Coalition_Position + 
@@ -104,7 +107,7 @@ mc6 <- feols(coalition_success ~
           # log(comments + 1)*coalition_type + # m3
           # log(comments + 1)*coalition_business_ + # m4
           # comments + comments^2 + coalition_type + #m5
-          comments + comments^2 + coalition_business_ + #m6
+          comments100k + (comments100k)^2 + coalition_business_ + #m6
           coalition_ + log(coalition_size) + #  coalition_size^2 + 
           Coalition_Position + 
           # comment_length + 
@@ -132,11 +135,11 @@ cm = c("campaign_TRUE" = "Pressure Campaign",
        "Coalition_PositionSupports Rule" = "Supports Rule",
        "coalition_unopposedTRUE" = "Unopposed",
        "PositionSupports Rule" = "Supports Rule",
-       "comments" = "Mass Comments",
+       "comments100k" = "Mass Comments",
        "log(comments + 1)"= "Log(Mass Comments)",
        "log(comments + 1):presidentTrump"= "Log(Mass Comments) × Trump",
        "log(comments + 1):presidentBush"= "Log(Mass Comments) × Bush",
-       "I(comments^2)" = "Mass Comments^2",
+       "I(comments100k^2)" = "Mass Comments^2",
        "agency" = "Agency",
        "president" = "President",
        "presidentTrump" = "Trump",
@@ -329,13 +332,16 @@ mc_congress_pois <- feglm(coalition_congress + 1 ~
                data = coalitions_coded %>% filter(coalition_,
                    !is.na(coalition_success) ))
 
-
+# calculate number of members opposed to coalition
 coalitions_coded %<>% 
   ungroup() %>% 
   group_by(president, docket_id) %>% 
+  # total on rule 
   mutate(congress_total = sum(coalition_congress)) %>%
+  # total with shared position
   group_by(president, docket_id, Coalition_Position) %>% 
   mutate(coalition_congress_position = sum(coalition_congress),
+         # total with opposed position 
          coalition_congress_opposed = congress_total - coalition_congress_position) %>%
   ungroup()
 

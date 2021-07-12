@@ -3,13 +3,14 @@ library(googledrive)
 library(googlesheets4)
 
 # all comment data from ______
+if(!exists("comments_min")){
 load(here("data", "comments_min.Rdata"))
 
 comments_min %<>% 
   group_by(id) %>%
   slice_max(order_by = number_of_comments_received, n = 1) %>% 
   ungroup()
-
+}
 
 gs4_auth(email = "devin.jl@gmail.com")
 drive_auth(email = "devin.jl@gmail.com")
@@ -282,7 +283,7 @@ d %>% filter(str_detect(coalition_comment, ";"))
 d %<>% 
   mutate(coalition_comment = coalition_comment %>%
            # drop double-coded coalitions 
-           str_remove("farmers;|hunters;|environmentalists;|environmental;|environment;|energy industry;") %>%
+           str_rm_all("Commercial Fishing;|Ocean Industries;|Sustainable Fisheries;|Fishing Industry;|Native Americans;|Regional Councils;|Government;|Auditors;|farmers;|hunters;|environmentalists;|environmental;|environment;|energy industry;") %>%
            # split group in multiple coalitoins
            str_split(";") ) %>%
   unnest(coalition_comment) 
@@ -315,6 +316,24 @@ d %>% ungroup() %>%
   slice(n = 1) %>%
   ungroup()
 
+# Missingness 
+missingness <- d %>%
+  filter(!str_dct(comment_type, "Individual"),
+         is.na(position) |is.na(coalition_comment) | is.na(org_type))%>% 
+  select(document_id, position, coalition_comment, org_type, success, source) %>%
+  distinct()
+
+# High priority to fix
+missingness %>% 
+  filter(!is.na(success)) %>% 
+  kablebox()
+
+d %>%
+  filter(is.na(position) &is.na(coalition_comment) & is.na(success) & is.na(org_type)) %>% 
+  select(position, coalition_comment, success, org_type) %>%
+  distinct() %>% 
+  kablebox()
+
 # docket - level summary vars
 d %<>%
   filter(!is.na(position) |!is.na(coalition_comment) | !is.na(success) | !is.na(org_type)) %>% 
@@ -343,22 +362,24 @@ d$congress %<>% replace_na(FALSE)
 missing_position <- d %>% 
   filter(is.na(position), !is.na(org_type)) 
 
-comment_errors %>% 
-  filter(is.na(source)) %>% 
+missing_position %>% 
+  filter(source =="datasheet") %>% 
   ungroup() %>% 
   select(document_id, comment_type, starts_with("org"), position) %>% kablebox()
 
 
 
+# uncoded mass 
+d %>% filter(comment_type == "mass", 
+             #source == "datasheet",
+             is.na(coalition_comment)) %>%
+  count(docket_id)
 
-d %>% filter(comment_type == "mass", is.na(coalition_comment))
 
 
-
-
+# COALITIONS CODED BOTH WAYS
 d %>% ungroup() %>%
   filter(!is.na(coalition_type),coalition_comment != "FALSE") %>% 
-  drop_na(docket_id) %>% 
   group_by(docket_id) %>% 
   distinct(coalition_comment, coalition_type) %>% 
   add_count(coalition_comment) %>% 
@@ -367,11 +388,14 @@ d %>% ungroup() %>%
 
 # coalitions with no main orgs coded 
 d %>%
+  filter(source == "datasheet") %>% 
   mutate(success = mean(success, na.rm = T))  %>% 
   distinct(coalition_comment, success) %>% 
   dplyr::select(docket_id, everything()) %>% 
   filter(is.na(success), coalition_comment != "FALSE", !is.na(coalition_comment)) %>% 
   kablebox()
+
+d %>% filter(str_dct( coalition_comment, "gulf")) %>% select(success)
 
 # coalitions with positive and negative success
 d %>%
@@ -478,6 +502,7 @@ comments_coded %>% filter(is.na(position)) %>%
 comments_coded %>% count(comment_type, sort =T) %>% 
   kablebox()
 
+# breakdown of types
 comments_coded %>% filter(is.na(comment_type) & comment_type %in% c("Org", "Elected")) %>% 
   count(docket_id, sort =  T)
 
@@ -494,7 +519,7 @@ comments_coded %>% count(org_type, sort =T) %>%
 # missing org type 
 filter(comments_coded, 
        comment_type == "org", 
-       is.na(org_type) , is.na(source) # not from mass sheet
+       is.na(org_type) , source =="datasheet" # not from mass sheet
        ) %>% 
   select(docket_id, comment_type, 
          starts_with("org"), coalition_comment) %>% 
@@ -574,15 +599,12 @@ comments_coded %>%
 
 # Missing mass 
 comments_coded %>% 
-  filter(str_dct(comment_type, "mass"),
-         comments < 100,
-         is.na(source)) %>% 
-  distinct(comment_type, coalition_comment, comment_url)
+  filter(str_dct(comment_type, "mass") | number_of_comments_received > 100,
+         is.na(coalition_comment),
+         source =="datasheet") %>% 
+  distinct(comment_type, coalition_comment, document_id, number_of_comments_received) %>% 
   kablebox() 
 
-
-# proxi for mass where number is not reported
-comments_coded %<>% mutate(comments =  ifelse(str_dct(comment_type, "mass") & comments < 100, comments + 99, comments))
 
 # replace missing/non coalitions with org name 
 comments_coded %<>% mutate(coalition_comment = ifelse(coalition_comment=="FALSE", org_name, coalition_comment))
@@ -602,7 +624,7 @@ comments_coded %<>%
             coalition_success = mean(success %>% as.numeric(), na.rm = T), # average success of coalition
             org_lead = coalition_comment %in% c(org_name, str_to_lower(org_name_short)),
             coalition_leader_success = ifelse(org_lead, success, NA) %>% mean(na.rm = T) %>% coalesce(coalition_success),
-            coalition_comments = sum(comments, na.rm = T) - coalition_size,
+            coalition_comments = sum(comments, na.rm = T) - coalition_size, # subtracts coalition size
          coalition_comment_types = unique(comment_type) %>% discard(is.na) %>% str_c(collapse = ";"),
          coalition_campaign_ = str_dct(coalition_comment_types, "mass") | coalition_comments > 99,
          coalition_ = coalition_size > 1,
@@ -613,9 +635,16 @@ comments_coded %<>%
            as.numeric()) %>%
   distinct()
 
+
+# lower bound proxi for mass where number is not reported
+comments_coded %<>% mutate(coalition_comments =  ifelse(str_dct(coalition_comment_types, "mass") & coalition_comments < 100, coalition_comments + 100, coalition_comments))
+
+# don't count duplicate uploads as mass 
+comments_coded %<>% mutate(coalition_comments =  ifelse(!str_dct(coalition_comment_types, "mass") & coalition_comments < 100, 0, coalition_comments))
+
 # inspect
 comments_coded %>% 
-  filter(is.na(source)) %>% 
+  filter(source =="datasheet") %>% 
   distinct(docket_id,
            coalition_comment_types, 
            coalition_comment, 
@@ -784,7 +813,7 @@ ggplot(coalitions_coded, aes(x = coalition_size)) + geom_histogram()+ labs(x = "
 
 #ggplot(coalitions_coded, aes( x= comment_length)) + geom_histogram()+ labs(x = "% (Comment length/proposed rule length)*100")
 
-ggplot(coalitions_coded, aes( x= log(coalition_comments))) + geom_histogram() + labs(x = "Log(comments)")
+ggplot(coalitions_coded, aes( x= log(coalition_comments + 1))) + geom_histogram() + labs(x = "Log(comments) + 1")
 
 # these should be the same
 d$number_of_comments_received %>% sum(na.rm = T) 
@@ -821,6 +850,9 @@ look %>% distinct(docket_id, coalition_comment, coalition_type)
 s$name[!s$name %>% str_remove("_.*") %in% comments_coded$docket_id]
 s$name[!s$name %>% str_remove("_.*") %in% coalitions_coded$docket_id]
 
+# CHECK THESE IN PROGRESS, AS OF 7/11, not coded
+# "USCIS-2015-0008_org_comments" "DEA-2020-0023_org_comments"   "WHD-2015-0001_org_comments"  
+
 unique(comments_coded$president)
 unique(coalitions_coded$president)
 
@@ -849,10 +881,14 @@ comments_coded %>%
   filter(document_id %in% comments_min$id) %>% # check both ways
   select(document_id, comment_url, org_name, coalition, comments, number_of_comments_received, campaign_, success)
 
+filter(coalitions_coded, coalition_comments < 0)
+filter(coalitions_coded, comments < 0)
+filter(comments_coded, coalition_comments < 0)
+coalitions_coded$comments
 
 #1 PRIORITY TO CODE!!!
 d %>% filter(number_of_comments_received>99 | comment_type == "mass", 
-             is.na(source), 
+             source =="datasheet", 
              is.na(coalition_comment)) %>% select(document_id, comments) %>%  kablebox()
 
 # including mass
@@ -860,7 +896,7 @@ d %>% filter(number_of_comments_received>99,
              is.na(coalition_comment)) %>% count(docket_id)
 
 # hand-coded dockets 
-dockets<- comments_coded %>% filter(is.na(source)) %>% pull(docket_id) %>% unique()
+dockets<- comments_coded %>% filter(source =="datasheet") %>% pull(docket_id) %>% unique()
 
 #2 Priority, in mass sheet
 mass_raw %>% 
@@ -872,3 +908,4 @@ mass_raw %>%
   count(docket_id, sort = T) %>% kablebox()
 
 mass_raw$number_of_comments_received %>% as.numeric() %>% sum(na.rm  = T)
+
