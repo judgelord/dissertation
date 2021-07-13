@@ -1,6 +1,8 @@
 
 % --- title page design -----------------------
 
+\pagenumbering{roman}
+\thispagestyle{empty}
 \usepackage{titling}
 \pretitle{\centering \LARGE \sffamily \bfseries}
 \posttitle{\rmfamily \par}
@@ -30,12 +32,13 @@
    \end{center} 
 
   \begin{center}
-  DRAFT
-  
-  \newpage 
-  
-
-  \hfill
+%  DRAFT
+ %  
+ % \newpage 
+ %  
+ %  \thispagestyle{empty}
+ % 
+ %  \hfill
   
  % $for(signature)$  \\[24pt] \noindent $signature$ \hrulefill $endfor$
 
@@ -56,4 +59,5 @@
   \end{center}
   \newpage
 
-} 
+}
+

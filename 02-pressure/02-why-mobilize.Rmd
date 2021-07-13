@@ -105,7 +105,7 @@ an attentive public [@Key1961] or issue public [@Converse1964].
 Here I build on two insights. First, @Furlong1997 and @Kerwin2011
 identify mobilization as a tactic. The organizations they surveyed
 reported that forming coalitions and mobilizing large numbers of people
-were among the most effective lobbying tactics.  Studies of rulemaking stress the importance of issue networks [@Gormley1986; @Golden1998] and coalitions [@Yackee2006JOP; @Nelson2012; @Dwidar2019]. Other studies have described how organizations are behind form letter campaigns [@Potter2017; @Balla201; @Balla2020]. Scholars have thus measured coalitions of organized groups and, seperately, attached form letters to mobilizing organizations I combine both of these approaches: defining mass mobilization as one tactic in coalition lobbying. I consider the lobbying coalition as the unit of analysis and thus, unlike prior studies, attribute citizen comments to the coalition that mobilized them (not just the organization).
+were among the most effective lobbying tactics.  Studies of rulemaking stress the importance of issue networks [@Gormley1986; @Golden1998] and coalitions [@Yackee2006JOP; @Nelson2012; @Dwidar2019]. Other studies have described how organizations are behind form letter campaigns [@Potter2017; @Balla2018; @Balla2020]. Scholars have thus measured coalitions of organized groups and, seperately, attached form letters to mobilizing organizations I combine both of these approaches: defining mass mobilization as one tactic in coalition lobbying. I consider the lobbying coalition as the unit of analysis and thus, unlike prior studies, attribute citizen comments to the coalition that mobilized them (not just the organization).
 
 Second, @Nelson2012 identify political information as a potentially influential result of
 lobbying by different business coalitions. While they focus on
@@ -342,7 +342,7 @@ Instead of a public pressure campaign aimed at mobilizing supporters, an organiz
 
 The potential effects of public pressure campaigns depend, in part, on the aims of a
 campaign. Campaigns may pursue two distinct aims: (1) to advance policy goals or (2) to satisfy some audience other than policymakers (e.g., potential members or donors). Within each goal, campaings can be further distinguished by whether they are on the wining or losing side of a policy conflict. Some groups have incentives to pursue policy goals *proactively* launching a campaing, i.e. by "going public." Others only have incentives to launch a campaign *reactively*, after some other group as already expanded the scope of conflict. When groups aim to satisfy audiences other than poicymakers and they expect to win the policy conflict, campaigns are a form of *credit claiming.* Conversely, when a group anticipates losing the particular policy fight, but still sees benefits in launching a campaign targeting non-policymaker audiences. I call this *going down fighting.* Proactively going public and reactively mobilizing after the other side has expanded the scope of conflict forms of outside lobbying. Credit claiming and going down fighting describe
-situations where an organization mobilizes for reasons other than influencing policy, like engaging or recruiting members. 
+situations where an organization mobilizes for reasons other than influencing the policy at hand, like engaging or recruiting members. 
 
 
 **Proactive campaigns.** Coalitions "go public" when they believe that
@@ -375,7 +375,9 @@ In the extreme, these campaigns may rely on various forms of deception (i.e., as
 **Credit claiming** and **going down fighting**. Finally, campaigns may target audiences other than
 policymakers. When they expect to win, organizations may launch a "credit claiming" campaign to draw attention to and associate their organization with a positive policy development.  When they expect to lose, organizations may "go down fighting" to fulfill
 supporters' expectations. These more performative reasons for organizing a campaign may help engage existing supporters and recruit new members.  For example, @CarpenterPetitions finds that many anti-slavery petitions were this type of campaign, where "the most important readers of a
-petition are its signatories" rather than the policymakers to whom they are addressed. "Credit claiming" and "going down fighting" 
+petition are its signatories" rather than the policymakers to whom they are addressed. 
+
+"Credit claiming" and "going down fighting" 
 campaigns may target member retention or recruitment, fundraising, or satisfying a
 board of directors. For example, as Figure \@ref(fig:sierra) shows, the Sierra Club uses campaigns to collect
 contact information of supporters and potential members. Given the executive-branch transition between 2010, when the rule was
@@ -383,14 +385,10 @@ initiated, and 2017 when it was delayed, the Sierra Club likely saw
 little hope of protecting methane pollution standards. Still, for members
 of the public who wanted to voice their opinion, the Sierra Club created
 an easy way to do so, as long as users consented to "receive periodic
-communication from the Sierra Club." While this campaign may have had little hope if influenceing these policies, it may have increased awarness of air pollution and built contact lists that could help the Sierra Club raise funds and mobilize in future policy fights.
+communication from the Sierra Club." While this campaign may have had little hope if influenceing these particular  policies, it may have increased awarness of air pollution and built contact lists that could help the Sierra Club raise funds and mobilize in future policy fights. 
 
+While "Credit claiming" and "going down fighting"  are unlikely to have immediate policy effects, they may affect future policies. Becasse both interest groups and agencies both expect "repeat endlessly" the policymaking process [@Lindblom1967], power built or demonstrated in one policy process may also be a political resource in future policy fights. Political support for a policy may depend on actors’ experiences with previous policies and their perceived relationship to the policy in question [@Weir1989]. "going down fighting" may be a particularly effective strategy in building awarness and power for future fights. For example if one administartion makes a policy that a large segment of the public can be mobilized to oppose, it may help organiztions put the repeal of that policy on the agenda of the next administration. 
 
-```{r sierra, out.width="40%",fig.cap = "The Sierra Club Builds Contact Lists Through Public Pressure Campaigns"}
-
-knitr::include_graphics(here::here("Figs", "sierra2.jpeg"))
-
-```
 
 While more performative campaigns may engage many people, they are unlikely to inspire countermobilization. 
 To the extent that an organization

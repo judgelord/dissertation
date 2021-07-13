@@ -47,7 +47,7 @@ model of insider lobbying that describes most rulemakings and nearly all
 scholarship on lobbying in bureaucratic policymaking to date. Diamonds indicate observable choices, <!---ovals indicate latent preferences,--> and rectangles indicate information--the mechanism of influence in this model.
 
 The first broadly observable step in the rulemaking process is usually an agency publishing a draft rule in the Federal Register.^[As agency rulemaking is my empirical case of policymaking,  I use "rule" and "policy" interchangeably.]
-While organized groups certainly shape the content of draft policies [@West2004]<!--@Harter1982; @Chubb1983; -->, the public portion of the policy process begins when the draft is officially published. When an agency finalizes a proposed rule, organized groups' latent policy preferences take the form of concrete demands for changes to the draft policy document. These demands lead to a lobbying strategy that research may, in theory, observe. 
+While organized groups certainly shape the content of draft policies [@West2004]<!--@Harter1982; @Chubb1983; -->, the public portion of the policy process begins when the draft is officially published.  Taking the publication of a draft policy as my starting point builds on the idea that "new policies create politics" [@Schattschneider1935]. When an agency finalizes a proposed rule, organized groups' latent policy preferences take the form of concrete demands for changes to the draft policy document. These demands lead organizations to form lobbyign coalitions and lobbying strategy that research may, in theory, observe. 
 
 One lobbying strategy (often the only strategy in models of lobbying the bureaucracy) is for an organization to provide technical or legal information such as data, analyses, or legal arguments. There are many reasons to believe that this is a powerful strategy for organized groups to affect policymaking, especially in the bureaucracy. Bureaucrats may be particularly likely to be persuaded by technical information that leads them to update their beliefs about the policy language that would best achieve desired policy outcomes. 
 
@@ -301,7 +301,7 @@ existing information-based models of rulemaking. Specifically, I argue that info
 
 It is not the aim of this chapter to test the implications of formal models. Rather I briefly review the necessary modifications to one leading formal model in order to illustrate the importance of political information to theories of policymaking. The statistical tests of my theory that I propose in section \@ref(influence-methods) require that policymakers can be persuaded by political information. My aim in this subsection is to illustrate the implications of my argument and results for formal theory.
 
-```{r child = here::here("formal-influence.Rmd")}
+```{r child = here::here("formal", "formal-influence.Rmd")}
 ```
 
 Thus far, I have mostly focused on more direct ways that pressure campaigns may inform and persuade bureaucratic policymakers. However, interest groups and the public attention they mobilize also affect an agency's strategic environment indirectly by affecting elected officials' behavior. 

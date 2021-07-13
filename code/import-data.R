@@ -909,3 +909,9 @@ mass_raw %>%
 
 mass_raw$number_of_comments_received %>% as.numeric() %>% sum(na.rm  = T)
 
+# no mass comments 
+comments_coded %>% 
+  group_by(docket_id) %>% 
+  summarise(docket_comment_types = str_c(unique(comment_type), collapse = ";"),
+         docket_comments = sum(comments)) %>% 
+  filter(!str_dct(docket_comment_types, "mass")) 

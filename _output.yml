@@ -6,21 +6,20 @@ bookdown::gitbook:
     search: true
     split_bib: no 
     sharing: no
-    download: ["pdf", "epub", "docx"]
+    download: ["pdf"] #, "epub", "docx"]
     toc:
       before: |
         <li><a href="./index.html">Public Pressure Campaigns and Bureaucratic Policymaking</a></li>
       after: "DRAFT" #--DO NOT CITE WITHOUT PERMISSION"
   #edit: https://github.com/judgelord/dissertation/edit/master/%s
+
 bookdown::pdf_book:
-#  linestretch: 2
-#  spacing: double
   number_sections: true
   fig_caption: true
   dev: png
-  toc: true
-  lot: true
-  lof: true
+  toc: false
+  #lot: true
+  #lof: true
   keep_tex: true
   includes: 
     in_header: 
@@ -42,6 +41,6 @@ bookdown::pdf_book:
 # - \let\footnote=\endnote
 # - \renewcommand{\footnotesize}{\normalsize}
 # - \renewcommand{\normalsize}{\large}
-bookdown::word_document2:
-  toc: true
-bookdown::epub_book: default
+# bookdown::word_document2:
+#   toc: true
+# bookdown::epub_book: default

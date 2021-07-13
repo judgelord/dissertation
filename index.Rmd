@@ -7,23 +7,33 @@ output: bookdown::gitbook
 documentclass: memoir
 classoption: oneside
 fontsize: 12pt
-#linestretch: 2
-spacing: double
 geometry: "left = 1.25in, right = 1.25in, top = 1.25in, bottom = 1.25in"
 bibliography: "assets/dissertation.bib"
 biblio-style: "assets/apsr.bst"
 link-citations: yes
-github-repo: https://github.com/judgelord/dissertation
-description: "Draft"
+# github-repo: https://github.com/judgelord/dissertation
+# description: "Draft"
 always_allow_html: true
+# csl: assets/ajps.csl # need to clean bib
 ---
 
 ```{r setup, echo = FALSE, include = FALSE, cache=FALSE}
 source(here::here("code", "setup.R"))
 ```
 
-  \listoftables
+
+<!--\OnehalfSpacing-->
+
+
+  \setcounter{page}{1}
   
+  \cleardoublepage
+  \tableofcontents
+  
+  \clearpage
+  \listoftables 
+  
+  \clearpage
   \listoffigures
   
 # List of Key  Terms {-}
@@ -57,8 +67,9 @@ source(here::here("code", "setup.R"))
 I cite public records, including policy documents and public comments, using government-issued identification numbers. Citations to documents published in the Federal Register include an agency acronym, the year the document was published, and a document number (usually five digits, e.g., "CFPB-2020-14935"). If citing a specific paragraph, the citation will appear as "CFPB-2020-14935/p-134." Federal Register documents can be accessed by adding "federalregister.gov/d/" before the id number, for example, "federalregister.gov/d/2020-14935/p-134". Citations to documents posted to regulations.gov begin with a rulemaking docket number, including an agency acronym and the year the rulemaking process officially began, followed by a unique document number (e.g., "IRS-2016-0015-0125"). Regulations.gov documents can be accessed by adding "regulations.gov/document/" before the document id number, for example, "regulations.gov/document/IRS-2016-0015-0125").
 
 
-\newpage
 
+\mainmatter
+\pagenumbering{arabic}
 \DoubleSpacing
-
 \setlength{\parindent}{2ex}
+\newpage
