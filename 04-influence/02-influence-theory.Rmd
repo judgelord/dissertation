@@ -27,7 +27,7 @@ Whether representing broad or narrow interests, many interest groups exist prima
 Policy outcomes depend on the distribution of power among interest groups [@Dur2007]. 
 
 
-With renewed attention to the role of policy advocacy groups policymaking, the dichotomy between accountabiity to political principals and "capture" is being replaced by studies that focus on numerous mechanisms of interesg group influence in policymaking. 
+With renewed attention to the role of policy advocacy groups policymaking [@Grossmann2012], the dichotomy between accountabiity to political principals and "capture" is being replaced by studies that focus on numerous mechanisms of interesg group influence in policymaking. 
 Measuring lobbying success is a major challenge for studies attempting to study interest group influence [@Mahoney2007JPP; @Yackee2006JOP; @Rashin2017].
 As @Potter2017 put it "discerning influence from any kind of lobbying is a notoriously elusive exercise because of the difficulty in knowing the counterfactual scenario."
 
@@ -118,26 +118,14 @@ organizations mobilize their membership. I expand on this understanding of mobil
 Here I build on three insights. First, @Furlong1997 and @Kerwin2011
 identify mobilization as a tactic. The organizations that they surveyed
 reported that forming coalitions and mobilizing large numbers of people
-are among the most effective lobbying tactics. The theory and empirical strategies below build on work showing that the size lobbying coalitions (the number of organizations lobbying together) predicts lobbying success [@Yackee2006JOP, @McKay2007, @Nelson2012].
+are among the most effective lobbying tactics. Organizations surveyed by @English2019APSA also reported being organzized into coalitions. The theory and empirical strategies below build on work showing that the size lobbying coalitions (the number of organizations lobbying together) predicts lobbying success [@Yackee2006JOP; @McKay2007; @Nelson2012; @Dwidar2021].
 
 <!-- attribute of coalitions -->
 Second, I argue that the same mechanism by which scholars understand coalition size to matter should apply to public pressure campaigns as well. As a tactic, public pressure campaigns generate political support and information about the coalition that mobilized it. @Nelson2012
 identify political information as a potentially influential result of
 lobbying by different business coalitions. While they focus on
 mobilizing experts, I argue that @Nelson2012 describe a dynamic that can be extended
-to mass commenting:
-
-> "strategic recruitment, we theorize, mobilizes new actors to
-> participate in the policymaking process, bringing with them novel
-> technical and political information. In other words, when an expanded
-> strategy is employed, leaders activate individuals and organizations
-> to participate in the policymaking process who, without the
-> coordinating efforts of the leaders, would otherwise not lobby. This
-> activation is important because it implies that coalition lobbying can
-> generate new information and new actors---beyond simply the 'usual
-> suspects'---relevant to policy decisionmakers. Thus, we theorize
-> consensus, coalition size, and composition matter to policy change."
-
+to mass commenting.
 Concerning political information, this logic extends to
 non-experts. The number and distribution of ordinary supporters may
 matter because it suggests a *public* consensus. Instead of bolstering

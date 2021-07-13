@@ -533,6 +533,9 @@ modelsummary(models_o_success,
 
 ## Conclusion {#influence-conclusion}
 
+Public pressure campaigns appear to help private interests more than public interests. however, this correlation could have at least two  observationaly equivilant causes. First, my theory predicts a strong selection effect. By nature public interest groups need to build grassroots power, contact lists, and a donor base to persist to fight the next day. Unlike busineses, public interest organizations thus have incentives to launch pressure campaigns even when they have little hope of influncing policy. Second, pressure campaigns from business groups are more rare and perhaps more surprising. Formal models of bureacuratic policymaking suggest that policymakers should be most affected by surprising information. Policymakers may be more likely to expect campaigns from public interest groups and even have prior beliefs that the public is on their side. A large segment of the public voicing support for a cause that bureucrats percieved as narrow may be more likely to make them question or revise their prior beliefs about the public or the politics of their proposed policy.
+
+Even among private interest groups and businesses, however, 
 I find little evidence that public pressure campaigns increase lobbying success. If anything, mass comment campaigns may be associated with lower average levels of lobbying success. There are several possible explanations for this result. First, it could be that many mass comment campaigns are not aimed at influencing policy. 
 Second, agencies may not be persuaded by political information, either because of the institutions for dealing with public input or decisionmakers' biases. Finally, the relatively small sample may simply lack the power to reliably estimate small effects. 
 

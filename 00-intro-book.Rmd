@@ -3,7 +3,7 @@
 <!-- OLD INTRO 
 This dissertation explores the role of public pressure campaigns in U.S. federal agency rulemaking, a technocratic policy process where "public participation" is usually limited to sophisticated lobbying but occasionally includes millions of people mobilized by public pressure campaigns. Public comment periods on proposed policies purport to provide democratic accountability. Yet, theories of bureaucratic policymaking largely ignore the occasional bursts of civic engagement that generate the vast majority of public comments on proposed rules. To fill this gap, I build and test theories about the role of public pressure in policymaking. I collect and analyze millions of public comments to develop the first systematic measures of civic engagement and influence in bureaucratic policymaking. -->
 
-This dissertation is about public pressure campaigns that target U.S. federal agency rulemaking, a technocratic policy process where public participation is usually limited to a few policy insiders. Occasionally, however, public pressure campaings help make agency rules some of the most hotly contested policies of our time. I examine who organizes public pressure campaigns and why, whether these campaigns affect congressional oversight, and whether they affect policy. Answering these questions informs our understanding of bureaucratic politics as well as interest group lobbying, organizing, and mobilizing tactics. At a time when the vast majority of policy is made in bureaucracies, the relationship between citizens and government depends on bureaucratic policymaking. If ordinary people have a voice in bureaucratic policymaking, I argue, it is through public pressure campaigns. The capacities required to influence national-level policy are those of organized groups, not individuals acting alone. Thus, understanding the nature and effects of these campaigns is key to understanding modern democracy. 
+This dissertation is about public pressure campaigns that target U.S. federal agency rulemaking, a technocratic policy process where public participation is usually limited to a few policy insiders. Occasionally, however, public pressure campaigns help make agency rules some of the most hotly contested policies of our time. I examine who organizes public pressure campaigns and why, whether these campaigns affect congressional oversight, and whether they affect policy. Answering these questions informs our understanding of bureaucratic politics as well as interest group lobbying, organizing, and mobilizing tactics. At a time when the vast majority of policy is made in bureaucracies, the relationship between citizens and government depends on bureaucratic policymaking. If ordinary people have a voice in bureaucratic policymaking, I argue, it is through public pressure campaigns. The capacities required to influence national-level policy are those of organized groups, not individuals acting alone. Thus, understanding the nature and effects of these campaigns is key to understanding modern democracy. 
 
 With the rise of the administrative state, U.S. federal agencies have
 become a major site of policymaking and political conflict. By some
@@ -14,7 +14,7 @@ legislative enactments, federal agencies make legally binding rules
 interpreting and reinterpreting old statutes to address emerging issues
 and priorities. Since @Kerwin1992 observed that "Rulemaking has become the most common and instrumental form of lawmaking" (p. 114), it has only become more true. 
 
-To illustrate the point, one could pick from thousands of examples how how agency rulemaking governs our food, water, medicin, prisons, energy system, and financial system. The effects of the Dodd-Frank Wall
+To illustrate the point, one could pick from thousands of examples of how agency rulemaking governs our food, water, medicine, prisons, energy system, and financial system. The effects of the Dodd-Frank Wall
 Street Reform and Consumer Protection Act were largely unknown until the
 specific regulations were written, and U.S. policy on banking continues to change as these
 rules are revised. Congress authorizes billions of dollars in grants, subsidies, and
@@ -30,7 +30,7 @@ for parole. In 2016, the Bureau withdrew this rule and announced it
 would require fewer contracts with prison companies,
 precipitating a 50% loss of industry stock value. Six months later, a
 new administration announced these policies would again be reversed,
-leading to a 130% increase in industry stock value. Agency rulemaking rulemaking clearly
+leading to a 130% increase in industry stock value. Agency rulemaking clearly
 matters.
 
 Less clear, however, is how the new centrality of agency rulemaking fits
@@ -48,7 +48,7 @@ Second, not everyone can vote on every policy decision. We thus delegate power t
 Most policy in large democracies is thus made by bureaucrats, supposedly guided indirectly through elected representatives and directly by limited public input. 
 
 While bureaucracies address both challenges to large democracies---they institutionalize expert counterweights to mass politics and make larger volumes of policy than any plebiscite could---they do not resolve them. 
-Both challenges are especialy accute in bureaucratic policymaking. Using bureaucracy to address challenges as diverse resisting populism, enabling representative democracy, and encouraging directing public participation creates contradictions in the tasks assigned to government officials [@Wilson1989].
+Both challenges are especially acute in bureaucratic policymaking. Using bureaucracy to address challenges as diverse resisting populism, enabling representative democracy, and encouraging directing public participation creates contradictions in the tasks assigned to government officials [@Wilson1989].
 Bureaucracies are run by experts who are often embedded in professional networks [@Carpenter2001; @Carpenter2014]. At the same time, officials are deputized by and thus accountable to elected officials. Moreover, many bureaucracies also have procedures that create opportunities for direct public input, such as public comment periods on draft policies.  The result is the apogee of the famous "Bureaucracy Problem" [@Wilson1967]; that bureaucracies are expected to optimize multiple conflicting goals, each goal the concern of different constituents (and, often, different scholars). It is far from clear how bureaucratic decisions are to balance expertise, accountability to elected officials, and responsiveness to public input in policymaking. 
  
 
@@ -64,7 +64,9 @@ information [@Yackee2006JPART; @Nelson2012; @Wagner2010].
 
 Activists, politicians, and the press often discuss comments periods as if they are an inherently majoritarian or pluralist institution. After one particularly controversial policy battle, reporters in the New York Times wrote that "The purpose of the public comment period was to objectively gauge Americans sentiment before changing a policy that could profoundly affect their lives" [@Lipton2015]. It is clear that rulemaking profoundly affects lives. The extent to which public comment periods gauge public sentiment is much less clear.  Of the thousands of policies that government institutions make each year, direct public input tends to be limited to only the most contentious policy debates. Even elected officials who are in positions to oversee bureaucratic policymaking infrequently play any role in bureaucratic policymaking. 
     
-While most federal agency policies recieve little public attention, activists occasionally expand the scope of conflict by targeting
+<!--NEED TO BETTER CONNECT IDEAS IN THIS PARAGRAPH-->
+
+While most federal agency policies receive little public attention, activists occasionally expand the scope of conflict by targeting
 agency policymaking with letter-writing campaigns, petitions, protests,
 and by mobilizing people to attend hearings, all classic examples of "civic
 engagement" [@Verba1987]. As I show in \@ref(why-results), most comments submitted to
@@ -103,42 +105,41 @@ must understand who mobilizes public pressure campaigns and why.
 
 Early studies of public administration in the late nineteenth and early twentieth centuries assumed that problems could be solved rationally. Administration was a science with objective methods to design and carry out administrative tasks. The principles of good administration were discoverable, generalizable, and neutral (@Long1949).
 
-In the mid-twentieth century, a wave of scholarship pushed back, arguing that “the lifeblood of administration is power” and that bureaucratic decision- making is saturated with "forces on whose support, acquiescence, or temporary impotence the power to act depends' [@Long1949, pg. 1]. Rather than merely subordinate cogs in a governmental hierarchy, bureaucrats' decisions are functions of a multitude of relationships with the other political institutions in which they are embedded. 'Administrative organizations, however much they may appear to be the creations of art, are institutions produced in history and woven in the web of social relationships that give them life" [@Long1949, pg. 6].
+In the mid-twentieth century, a wave of scholarship pushed back, arguing that “the lifeblood of administration is power” and that bureaucratic decision-making is saturated with "forces on whose support, acquiescence, or temporary impotence the power to act depends' [@Long1949, pg. 1]. Rather than merely subordinate cogs in a governmental hierarchy, bureaucrats' decisions are functions of a multitude of relationships with the other political institutions in which they are embedded. 'Administrative organizations, however much they may appear to be the creations of art, are institutions produced in history and woven in the web of social relationships that give them life" [@Long1949, pg. 6].
 
-Long suggested that Congress, individual members of Congress, committees, courts, other agencies, presidential advisors, and the President all affect agency policymaking, but the effect of these more official demands “varies with the political strength of the group demand embodied in it” (Long 1949). That is, the effect of official demands is conditional on the power of the coalition supporting them. That is, the effect of principals on agencies is mediated by their level of political support. Likewise, we might say that the effect of groups is mediated by their access to formal levers of power. 
+Long suggested that Congress, individual members of Congress, committees, courts, other agencies, presidential advisors, and the president all affect agency policymaking, but the effect of these more official demands “varies with the political strength of the group demand embodied in it” (Long 1949). That is, the effect of official demands is conditional on the power of the coalition supporting them. That is, the effect of principals on agencies is mediated by their level of political support. Likewise, we might say that the effect of groups is mediated by their access to formal levers of power. 
 
 
 Leading models of influence in bureaucratic policymaking focus on two key political forces: sophisticated interest group lobbying and political constraints from Congress and courts. 
 As bureaucrats learn about policy problems and balance interest-group demands, public comment processes allow lobbying organizations to provide useful technical information and inform decision-makers of their preferences on draft policies. 
-Agencies may then update policy positions within constraints imposed by their political principals. The remainder of this subsection offers a breif reviews of the special institutional context of burecratic policymaking, then scholarship on interest group lobbying, then scholarship on principal agent cynamics, and finally the limited scholarship on public pressure campaigns and the burecracy, most of which comes from adminisrative law scholars. 
+Agencies may then update policy positions within constraints imposed by their political principals. The remainder of this subsection offers a brief review of the special institutional context of bureaucratic policymaking, then scholarship on interest group lobbying, then scholarship on principal-agent dynamics, and finally the limited scholarship on public pressure campaigns and the bureaucracy, most of which comes from administrative law scholars. 
 
 
 
-### Political Principals: The President, Congress, and the Courts
+### Accountability to the President, Congress, and the Courts
 
-Stemming from the image of a hearchy of governmental authority, models of principal-agent dynamics focus on how  institutional design and incentives can increase political control over administrative institutions. Specifically, these models forcus on how Congress and the president delegate authority and then attempt to constrain bureaucrats' excercise of those authorities. For example, models of delegation suggest that rational principals will delegate to agents with similar goals, repeated interactions, and when they are able to overcome commitment and information problems [@Bendor2001]. Mechanisms of congresssioal control over the bureaucracy include congressional oversight and administrative procedures that require agencies to be transparent and give interest groups opporities to raise concerns [@McCubbins1987]. 
+Stemming from the image of a hierarchy of governmental authority, models of principal-agent dynamics focus on how institutional design and incentives can increase political control over administrative institutions. Specifically, these models focus on how Congress and the president delegate authority and then attempt to constrain bureaucrats' exercise of those authorities. For example, models of delegation suggest that rational principals will delegate to agents with similar goals, repeated interactions, and when they are able to overcome commitment and information problems [@Bendor2001]. Mechanisms of congressional control over the bureaucracy include congressional oversight and administrative procedures that require agencies to be transparent and give interest groups opportunities to raise concerns [@McCubbins1987]. 
 
-While early principal agent scholarship focued on either Congress or the president [@Wildavsky1964; @Niskanen1975, @McCubbins1984; @McCubbins1987], newer models of bureauratic policymaking recognize that agency actions are simultaniously constrained by multiple other branches of government [@Potter2016].
-
-
+While early principal-agent scholarship focused on either Congress or the president [@Wildavsky1964; @Niskanen1975; @McCubbins1984; @McCubbins1987], newer models of bureaucratic policymaking recognize that agency actions are simultaneously constrained by multiple other branches of government [@Potter2016].
 
 <!-- PRESIDENT --> 
 
-While Congess intetionally designs agencies with varying levels of presidential control [@Lewis2014;Selin2015], presidental agendas are one of the main drivers of bureaucratic policymaking [@Clinton2014AJPS]. 
+Agency rulemaking is where the rubber hits the road for both legislation [@Golden2000] and presidential agendas [@Yackee2009bush].
+While Congress intentionally designs agencies with varying levels of presidential control [@Lewis2014; Selin2015], presidential agendas are one of the main drivers of bureaucratic policymaking [@Clinton2014AJPS]. 
 Indeed, bureaucratic policymaking varies even more from president to president than the use of direct mechanisms of control would suggest [@Yackee2009bush].
 
 Presidents—working through the Office of Information and Regulatory Affairs (OIRA)— review agency policies and occasionally direct agencies to modify proposed policies [@Haeder2015]. 
 
 <!--CONGRESS-->
 
-After the president's policy agenda, partisan control of Congress is one of the most imporant political constraints [@Yackee2009RegGov], especially when Congress is making policy [@West2013] or when agencies fear that a hostile Congress will override their policy decisions [@Potter2016]. We may think of agency policymaking as consistently affected by presidential agendas, with Congress providing shocks and constraints. The role that parties play in the making of regulations is unclear. Parties may have the greatest effect on agency rules through presidential platforms and agendas [@Yackee2009bush]. 
+After the president's policy agenda, partisan control of Congress is one of the most important political constraints [@Yackee2009RegGov], especially when Congress is making policy [@West2013] or when agencies fear that a hostile Congress will override their policy decisions [@Potter2016]. We may think of agency policymaking as consistently affected by presidential agendas, with Congress providing shocks and constraints. The role that parties play in the making of regulations is unclear. Parties may have the greatest effect on agency rules through presidential platforms and agendas [@Yackee2009bush]. 
 
 
 
-The priorities and attention of Congress and the president affect the volume of rules produced by each agency [@PotterShipan2019]. . for example agencies adjust the quantity of rules they produce in response to patisan control. Divided government leads to agencies issuing fewer rules and fewer substantively significant rules than they do during periods of unified government [@@Yackee2009RegGov]. One cause of these effects is agencies strategically timing of policymaking to avoid hostile majorities in Congress and the Court [@Potter2017; ]
+The priorities and attention of Congress and the president affect the volume of rules produced by each agency [@PotterShipan2019]. For example, agencies adjust the number of rules they produce in response to partisan control. Divided government leads to agencies issuing fewer rules and fewer substantively significant rules than they do during periods of unified government [@@Yackee2009RegGov]. One cause of these effects is agencies strategically timing of policymaking to avoid hostile majorities in Congress and the Court [@Potter2017; ]
 
-Members of Congress stratigically engage in bureaucratic policymaking. While Congress is often modeled as a unitary actor either aligned or constraining presidental agendas, individual members of Congress also engage the bureacracy independently [@Lowande2017].
- Legislators engage in bureaucratic plicymaking when they are unable to advance their prirorities through legislation due to partisan pressures and chamber control [@Ritchie2017].  Congressional attention to the bureacuracy is also driven by the constituents they represent [LowandeRitchieLauterbach2018;@Snyder2020], their campaign donors [@Powell2020], and the capacity of their office---for example, oversight committe positions and staff resources [@Judge-Lord2018APSA]. When they do engage in bureacratic policymaking, Legislators often use the highly institutioanlized nature of agency rulemaking to their advantage by raising process concerns about agency policies they dislike [@Lowande2021].
+Members of Congress strategically engage in bureaucratic policymaking. While Congress is often modeled as a unitary actor either aligned or constraining presidential agendas, individual members of Congress also engage the bureaucracy independently [@Lowande2017].
+ Legislators engage in bureaucratic policymaking when they are unable to advance their priorities through legislation due to partisan pressures and chamber control [@Ritchie2017].  Congressional attention to the bureaucracy is also driven by the constituents they represent [LowandeRitchieLauterbach2018;@Snyder2020], their campaign donors [@Powell2020], and the capacity of their office---for example, oversight committee positions and staff resources [@Judge-Lord2018APSA]. When they do engage in bureaucratic policymaking, Legislators often use the highly institutionalized nature of agency rulemaking to their advantage by raising process concerns about agency policies they dislike [@Lowande2021].
 
 <!-- COURTS -->
 
@@ -146,87 +147,75 @@ Courts also arbitrate between congressional and presidential control by reviewin
 
 ### The Institutional Context of Bureaucratic Policymaking
 
-Two features set bureaucratic policymaking apart from how polcy is made in Congress, the White House, and Courts: it is highly structured and often places much greater weight on specialized expertise.
-The importance of structure and expertise are key features of bureacuracy in general, especially large public bureaucrais like the US federal government.  
-
-
-Structure and expertise take on special significance in the context of policymaking. 
-In policymaking the tasks perscripbed by bureacratic struce are the tasks of lawmaking, including processes for soliciting public input.
-The value of expertise makes bureacratic policymaking notably techocratic. 
+Two features set bureaucratic policymaking apart from how policy is made in Congress, the White House, and Courts: it is highly structured and often places much greater weight on specialized expertise.
+The importance of structure and expertise are key features of bureaucracy in general, especially large public bureaucrats like the US federal government.  
+But structure and expertise take on special significance in the context of policymaking. 
+In policymaking, the tasks prescribed by bureaucratic structure are the tasks of lawmaking, including processes for soliciting and responding to public input.
+The value of expertise makes bureaucratic policymaking notably technocratic. 
 
 #### Structured Policymaking
 
-The theories about the drivers of public participation and the mechanisms by which it may affect policy that I advance and test in the following chapters may apply to many contexts where public pressure is aimed at decision-makers. My empirical terrain, however, is policymaking by U.S. federal agencies, specifically the process of "notice-and-comment" rulemaking prescribed in the Administrative Procedure Act (APA). The APA governs the process by which federal agencies develop and issue legally binding policies. It requires agencies to publish proposed (draft) and final policies (rules) in the Federal Register and provide opportunities for the public to comment on draft rules. 
+The theories about the drivers of public participation and the mechanisms by which it may affect policy that I advance and test in the following chapters may apply to many contexts where public pressure is aimed at decision-makers. My empirical terrain, however, is policymaking by U.S. federal agencies, specifically the process of "notice-and-comment" rulemaking prescribed in the Administrative Procedure Act (APA). These policies (federal agency rules) and their potential to change are the contexts for the political dynamics that I explore in Chapter \@ref(whymail) and the dependent variable for Chapters \@ref(influence) and \@ref(ej). The APA governs the process by which federal agencies develop and issue legally binding policies. It requires agencies to publish proposed (draft) and final policies (rules) in the Federal Register and provide opportunities for the public to comment on draft rules. 
 
-The legal requirements of Section 553 the APA impose a great deal of structure on the politics of rulemaking, making it well-suited for quantitative study @Carpenter2020. Agencies must publish draft rules and solicit public comments, which are entered in to the public record (unless they contain propriatry information). Both draft and final rules generally include a preamble detailing the agencies authoirty and reasoning in addition to specific modifications to the US Code. Indeed draft rules are often fully formed policy documents [@West2005; Yackee 2012]. This allows researchers to assess changes between draft and final rules (as I do in Chapters \@ref(influence) and \@ref(ej)). 
+The legal requirements of Section 553 the APA impose a great deal of structure on the politics of rulemaking, making it well-suited for quantitative study @Carpenter2020. Agencies must publish draft rules and solicit public comments, which are entered into the public record (unless they contain proprietary information). Both draft and final rules generally include a preamble detailing the agency's authority and reasoning in addition to specific modifications to the US Code. Indeed draft rules are often fully formed policy documents [@West2005; Yackee 2012]. This allows researchers to assess changes between draft and final rules (as I do in Chapters \@ref(influence) and \@ref(ej)). 
 
-After the end of the comment period, the agency usually publishes a Final Rule, which carrys the force of law, similar to legislative statutes.The process of publishing a draft rule includes responding any substantive comments recieved on the rule. There is no legal requriement that the agency change the final rule in response to comments, and rules are often unchanged from their draft [@Kerwin2011]. As @Yackee2019 puts it "current law provides the public the right to participate in---but not the right to influence---rulemaking." 
+After the end of the comment period, the agency usually publishes a Final Rule, which carries the force of law, similar to legislative statutes. The process of publishing a draft rule includes responding to any substantive comments received on the rule. There is no legal requirement that the agency changes the final rule in response to comments, and rules are often unchanged from their draft [@Kerwin2011]. As @Yackee2019 puts it, "current law provides the public the right to participate in---but not the right to influence---rulemaking" (p. 40). 
 
-However, accusations that an agency failed to address relevent comments is frequently the ground for lawsuits challenging rules as arbetrary---that is, lacking legal authority because they failed to adhere to techocratic rationality percribed by the APA and subsiquent court decisions interpreting it. 
+However, accusations that an agency failed to address relevant comments are frequently the ground for lawsuits challenging rules as arbitrary---that is, lacking legal authority because they failed to adhere to technocratic rationality prescribed by the APA and subsequent court decisions interpreting it. 
 
 At the same time, APA requirements have created an extremely legalistic and technocratic form of discourse, leading scholarship on rulemaking to be dominated by legal scholars.
 
 
 
-Agencies vary in their independence from presidential and congressional agendas [@Carpenter2001, @Selin2015]. 
+Agencies vary in their independence from presidential and congressional agendas [@Carpenter2001; @Selin2015]. 
 
-Yet contrary to claims that agency policymaking is “ossified,” Yackee and Yackee (Yackee and Yackee 2010) find that that procedural constraints aimed at accountability and characterizing muddling through [@Lindblom1959] may actually speed up the promulgation of rules.
+Yet contrary to claims that agency policymaking is “ossified,” @Yackee2010JPART find that procedural constraints aimed at accountability and characterizing muddling through [@Lindblom1959] may actually speed up the promulgation of rules.
 
 <!--EXPERTISE-->
 #### Expertise as a Basis of Authority
 
-With hundreds of specialized agencies staffed carreer specialists, the U.S. federal bureaucracy has expertise that the legislative branch (in its current form) can only approach by borrowing carreer agency officials to help write legislation [@Mills2016]. Agency expertise is a main reason why Congress delegates authority to agencies [@Weingast1984; @Bawn1995; @Huber2002; @Carpenter2012].
+With hundreds of specialized agencies staffed career specialists, the U.S. federal bureaucracy has expertise that the legislative branch (in its current form) can only approach by borrowing career agency officials to help write legislation [@Mills2016]. Agency expertise is the main reason why Congress delegates authority to agencies [@Weingast1984; @Bawn1995; @Huber2002; @Carpenter2012].
 
 
 
 Expertise 
 
-Agencies almost always appeal to scientific authority to give policies legitimacy (indeed courts often seem to require it). Technical jargon may be employed stratigically to avoid oversight and reduce public participation [@Potter2019].
+Agencies almost always appeal to scientific authority to give policies legitimacy (indeed, courts often seem to require it). Technical jargon may be employed strategically to avoid oversight and reduce public participation [@Potter2019].
 
-Agencies vary significantly in the levels of formal expertise they employ [@Clinton2008]. Agencies that employ lower levels formal expertise have higher levels of public participation in their policymaking processes, possibly because these policies are more accessable [@Moore2017].
+Agencies vary significantly in the levels of formal expertise they employ [@Clinton2008]. Agencies that employ lower levels of formal expertise have higher levels of public participation in their policymaking processes, possibly because these policies are more accessible [@Moore2017].
 
 ### Interest Groups Lobbying
 
-For decades, intererest groups scholars focused on whether interest groups had "captured" various governement agencies. Capture could mean many things from reducing compliance with demands of the the White House or Congress to failing to promote co. 
+<!--For decades, interest groups scholars focused on whether interest groups had "captured" various government agencies. Capture could mean many things, from reducing compliance with demands of the White House or Congress to failing to promote competition.--> 
 
-Recently, scholars of bureaucrac policymaking have shifted to the more flexible concept of interest group influence [@Yackee2013], recognizing that "capture" is often applied unevenly [@Yackee2021].
+Recently, scholars of bureaucratic policymaking have shifted to the more flexible concept of interest group influence [@Yackee2013capture], recognizing that "capture" is often applied unevenly [@Yackee2021].
 
-Agencies vary in the scope and scale of stakeholder involvement in their policy processes [@Yackee2006JOP, @Moore2017], and their ideological
-biases [@Richardson2017].
+Agencies vary in the scope and scale of stakeholder involvement in their policy processes [@Yackee2006JOP; @Moore2017], and ideological
+bias [@Richardson2017].
 
 Although business interests participate at a
-higher rate than public interest groups [@Yackee2006JOP], agencies do not always accomidate business groups [@Walters2019a]. When the threat of electoral accountability is greater, agencies may be more likely to serve the interests of the public, even if they impose costs on industry [@Miller2018].
+higher rate than public interest groups [@Yackee2006JOP], agencies do not always accommodate business groups [@Walters2019a]. When the threat of electoral accountability is greater, agencies may be more likely to serve the interests of the public, even if they impose costs on industry [@Miller2018].
 
-Interest groups play a key role in an agency's ability to make policy. Agencies secure independent political power and thus autonomy by forming symbiotic relationships with constituent groups [@Carpenter2001, @Carpenter2014]. Interest group pressure can give agency officials poltical support and cover from political opposition an thus affect bureauratic policymaking. Networks of interest groups and agencies not only resist influence from the president and congress but reform the systems of formal and informal authorty governing agency policymaking [@Rhodes1996].  
+Interest groups play a key role in an agency's ability to make policy. Agencies secure independent political power and thus autonomy by forming symbiotic relationships with constituent groups [@Carpenter2001; @Carpenter2014]. Interest group pressure can give agency officials political support and cover from political opposition and thus affect bureaucratic policymaking. Networks of interest groups and agencies not only resist influence from the president and Congress but reform the systems of formal and informal authority governing agency policymaking [@Rhodes1996].  
 
 <!-- GAP -->
 
 
-### Public Pressure
+### Public Pressure in Bureaucratic Policymaking
 
 Despite our increasingly robust understanding of interest group lobbying and pressure in bureaucratic policymaking, scholars have yet to articulate a role for "outside" lobbying strategies like public pressure campaigns.  
 
 While this may describe most cases of bureaucratic policymaking, these models neither explain nor account for the contentious politics that occasionally inspire millions of people to respond to calls for public input on draft agency policies. 
-Like other forms of mass political participation, such as protests and letter-writing campaigns, 
-mass public comments on draft agency rules provide no new technical information. <!--%In this sense, they are not useful. -->
-Nor do they wield any formal authority to reward or sanction bureaucrats, as comments from members of Congress might. 
-The number on each side, be it ten or ten million, has no legal import for an agency's response. Given their lack of both technical information and formal authority, Political scientists largely dismiss public pressure campaigns as epiphenonmal to interest group bargianing and principal-agent constraints. As a result, normative and prescriptive debates over the role of mass public engagement in buruacratic policymaking have little empirical evidence to draw upon.
+Like other forms of mass political participation, such as protests and letter-writing campaigns,  mass public comments on draft agency rules provide no new technical information.  Nor do they wield any formal authority to reward or sanction bureaucrats, as comments from members of Congress might. 
+The number on each side, be it ten or ten million, has no legal import for an agency's response. Given their lack of both technical information and formal authority, Political scientists largely dismiss public pressure campaigns as epiphenomenal to interest group bargaining and principal-agent constraints. As a result, normative and prescriptive debates over the role of mass public engagement in bureaucratic policymaking have little empirical evidence to draw upon.
 
-<!--
-% Policymakers may very well pay no attention to them. 
-%Instead, scholars focus on the sophisticated lobbying efforts of powerful interest groups, whose role in shaping policy has been theoretically developed and empirically tested.
-% If our models and conventional wisdom is correct, why do
-Yet, agencies occasionally receive input from a large number of ordinary people. %Why? 
---> 
-
-
-
-
+Political science scholarship on public pressure campaigns targeting the bureaucracy is extremely limited. Early scholarship on the topic suggested that form letters differ from other comments @Schlosberg2007] and suggested that mass comments may be related to longer rulemaking processes [@Shapiro2008b]. A recent wave of scholarship has shown that agencies that use high
+levels of expertise receive fewer comments [@Moore2017] and that form comments are less likely to be cited by agencies and are less associated with policy change than sophisticated comments [@Balla2020].  Additionally, several studies describe mass comment campaigns at the Environmental Protection Agency [@Potter2017; @Balla2018]. Small adjacent literatures in Information Technology and Public Administration journals document fraud in the public comment process [@Rinfret2021] and the training that bureaucrats receive [@Rinfret2019]. 
+I discuss each of these studies more extensively as they relate to each of the following empirical chapters, most extensively in Section \ref(why-mass).
 
 
 ```{r child = here::here("00-intro-adlaw.md")}
 ```
-
 
 
 ## Outline of the book
@@ -236,7 +225,7 @@ How, if at all, should scholars incorporate mass engagement into models of burea
 I take up a part of this question in each of the following chapters. 
 In Chapters \@ref(whymail)-\@ref(ej), I develop and test theories about the roles of individuals, organizations, coalitions, and social movements in bureaucratic policymaking.  Chapter \@ref(policy) concludes with remarks about the implications for my analysis for ongoing debates over potential reforms to the policy process.  
 
-Each chabter draws on different kinds of literature to better understand bureaucratic policymaking. I address literatures on interest groups, lobbying, and social movements.  Chapter \@ref(whymail) integrates literature on interest-group mobilization and bureaucratic politics to understand why public pressure campaigns target agencies in the first place. Chapter \@ref(influence) focuses squarely on the classic bureaucratic politics question of interest group influence in policymaking but expanded to account for public pressure campaigns. Chapter \@ref(ej) bringing in literature on social movement pressure to show that pressure campaigns are more than a lobbying tactic; they are also an institutionalized form of contentious politics over the distribution of governmental power. 
+Each chapter draws on different kinds of literature to better understand bureaucratic policymaking. I address the literature on interest groups, lobbying, and social movements.  Chapter \@ref(whymail) integrates literature on interest-group mobilization and bureaucratic politics to understand why public pressure campaigns target agencies in the first place. Chapter \@ref(influence) focuses squarely on the classic bureaucratic politics question of interest group influence in policymaking but expanded to account for public pressure campaigns. Chapter \@ref(ej) bringing in the literature on social movement pressure to show that pressure campaigns are more than a lobbying tactic; they are also an institutionalized form of contentious politics over the distribution of governmental power. 
 
 
 
