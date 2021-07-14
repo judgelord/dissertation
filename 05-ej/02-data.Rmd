@@ -1,6 +1,6 @@
 ## Testing the Theory
 
-### "Environmental Justice" as a Boundary-drawing Tool
+### Environmental Justice as a Boundary-drawing Tool
 
 The politics of environmental justice has several convenient properties for studying the policy impact of social movements. First, discourse around policies framed as "environmental" issues are, unlike issues like civil
 rights and immigration, inconsistently racialized and, unlike issues
@@ -15,8 +15,7 @@ fairly distinctive phrase. Most people who use this phrase share a
 general definitional foundation. Even attempts to reframe the term (e.g., to focus on class rather than race or jobs rather than health) come about as dialectical moves related to the term's historical uses. Thus, when "environmental justice" appears in a text, it is rarely a coincidence of words; its appearance is a result of the movement or reactions to it.
 
 Third, this phrase appears frequently
-when the idea is discussed. There are few synonyms. Groups raising equity concerns on "environmental" issues commonly use the phrase "environmental justice." Those who use narrower, related terms--including the older concept of 
-"environmental racism" and the newer concept of "climate justice"--almost always use "environmental justice" in their advocacy as well. 
+when the idea is discussed. There are few synonyms. Groups raising equity concerns on environmental issues commonly use the phrase "environmental justice." Those who use narrower, related terms---including the older concept of "environmental racism" and the newer concept of "climate justice"---almost always use "environmental justice" in their advocacy as well. 
 
 
 Finally, the term is relevant to rulemaking records in
@@ -41,7 +40,7 @@ knitr::include_graphics(here::here("Figs", "ej-data-ejpr-1.png") ) ##
 knitr::include_graphics(here::here("Figs", "ej-data-ejfr-1.png") ) ## 
 ```
 
-Even at the Environmental Protection Agency (EPA), where most policies are clearly framed as "environmental" issues, a consistent minority of rules address EJ. Many agencies that make policy with apparent EJ effects almost never address EJ. These include the Fish and Wildlife Service (FWS), Department of Housing and Urban Development (HUD), National Oceanic and Atmospheric Administration (NOAA), Nuclear Regulatory Commission (NRC), and the Office of Surface Mining (OSM).  A majority of rules addressed EJ only in a few years at a few agencies that publish relatively few rules, including the Council on Environmental Quality (CEQ), Army Corps of Engineers (COE), Federal Emergency Management Agency (FEMA), Forest Service (FS), and several Department of Transportation agencies (the Federal High Way Administration (FHWA), Federal Motor Carrier Safety Administration (FMCSA), Federal Railroad Administration (FRA), and Federal Transit Administration (FTA)). Figure \@ref(fig:ej-data-agencies100) shows the number of rulemaking projects over time by whether they ultimately addressed EJ at agencies that either published more than ten rules addressing EJ or receiving over 100 comments raising EJ concerns. 
+Even at the Environmental Protection Agency (EPA), where most policies are clearly framed as "environmental" issues, a consistent minority of rules address EJ. Many agencies that make policy with apparent EJ effects almost never address EJ. These include the Fish and Wildlife Service (FWS), Department of Housing and Urban Development (HUD), National Oceanic and Atmospheric Administration (NOAA), Nuclear Regulatory Commission (NRC), and the Office of Surface Mining (OSM).  A majority of rules addressed EJ only in a few years at a few agencies that publish relatively few rules, including the Council on Environmental Quality (CEQ), Army Corps of Engineers (COE), Federal Emergency Management Agency (FEMA), Forest Service (FS), and several Department of Transportation agencies (the Federal Highway Administration (FHWA), Federal Motor Carrier Safety Administration (FMCSA), Federal Railroad Administration (FRA), and Federal Transit Administration (FTA)). Figure \@ref(fig:ej-data-agencies100) shows the number of rulemaking projects over time by whether they ultimately addressed EJ at agencies that either published more than ten rules addressing EJ or receiving over 100 comments raising EJ concerns. 
 
 
 ```{r ej-data-agencies100, fig.cap = "Number of Proposed and Final Rules Addressing Environmental Justice at the Council on Environmental Quality (CEQ), Army Corps of Engineers (COE), Department of Transportation (DOT), Environmental Protection Agency (EPA), Federal Emergency Management Agency (FEMA), Federal High Way Administration (FHWA), Federal Motor Carrier Safety Administration (FMCSA), Federal Railroad Administration (FRA), Forest Service (FS), Federal Transit Administration (FTA), Fish and Wildlife Service (FWS), Department of Housing and Urban Development (HUD), National Highway Transportation Saftey Administration (NHTSA), National Oceanic and Atmospheric Administration (NOAA), Nuclear Regulatory Commission (NRC), and Office of Surface Mining (OSM)", out.height = NULL, out.width = "100%", fig.show = "hold"}
@@ -76,7 +75,7 @@ First, I identify the top organizational commenters such as tribes,
 businesses, and nonprofits using EJ language
 and investigate whom these groups represent. Second, for comments where a
 commenter signed their name, I compare surnames to their racial and ethnic identity propensities in the U.S. Census. Together these
-two pieces of information allow me to comment on "second-order" representation, i.e., the extent to which public comments are
+two pieces of information allow me to comment on "second-order" representation. This is a proxy for the extent to which public comments are
 representative of the groups they claim to represent [@Seifter2016UCLA].
 
 ##### Which Organizations Most often Raise EJ Concerns?
@@ -98,8 +97,8 @@ main page is relatively vague. For example, "We are fighting for a future
 where children can breathe clean air, no matter where they live."
 [@Earthjustice2017]. The website does contain some Spanish-language content.
 
-The Natural Resources Defense Council is similar to Earthjustice--a
-national nonprofit funded by donations and focused on litigation--but
+The Natural Resources Defense Council is similar to Earthjustice---a
+national nonprofit funded by donations and focused on litigation---but
 they also lobby and organize public pressure campaigns, including over 160,000 comments mentioning environmental justice. 
 
 CREDO Action and MoveOn are more generic progressive
@@ -117,7 +116,7 @@ organizations focus primarily on "low-income communities of color" and frame the
 organizations participated in national policymaking, We Act is more
 focused on communities in Harlem and New York, whereas Communities for a
 Better Environment casts a broader frame: "CBE's vision of environmental
-justice is global--that's why the organization continues to participate
+justice is global---that's why the organization continues to participate
 in such international efforts as the Indigenous Environmental Network
 and the Global Week of Action for Climate Justice" [@CBECAL2017].
 
@@ -202,7 +201,7 @@ restrictions on power plant pollution, the Trump EPA acknowledged that
 "low-income and minority communities located in proximity to [power
 plants] may have experienced an improvement in air quality as a result
 of the emissions reductions." Because the Obama EPA discussed
-EJ when promulgating the Clean Power Plan rule--- stating that "climate change is an environmental justice issue" ---, the Trump EPA attempted to reframe rather than ignore environmental justice. The Trump EPA contended that the Obama EPA "did not address lower household energy bills for low-income households [and that] workers losing jobs in regions or occupations with weak labor markets would have been most vulnerable" (EPA 2017). Like regulated industry commenters, these statements frame the distribution of jobs and electricity costs as EJ issues in order to push back against policies that would equalize the distribution of health impacts from pollution. 
+EJ when promulgating the Clean Power Plan rule--- stating that "climate change is an environmental justice issue"---, the Trump EPA attempted to reframe rather than ignore environmental justice. The Trump EPA contended that the Obama EPA "did not address lower household energy bills for low-income households [and that] workers losing jobs in regions or occupations with weak labor markets would have been most vulnerable" (EPA 2017). Like regulated industry commenters, these statements frame the distribution of jobs and electricity costs as EJ issues in order to push back against policies that would equalize the distribution of health impacts from pollution. 
 
 The central conflict over the role of race in policy analyses is just one of many conflicts that the environmental justice movement has caused to be fought somewhat on its terms. The next section briefly reviews the decades-long policy fight over regulating Mercury pollution to illustrate how these definitional conflicts shape rules and rulemaking. This case and other examples in this article emerged from reading hundreds of rulemaking documents where agencies did and did not respond to comments raising EJ concerns. Their purpose is to assess whether the cases in the quantitative analysis are plausibly what they appear to be: that changes in rule text are, sometimes, causally related to public comments and that non-changes are cases of agencies disregarding comments, not some accident of the data or measures. 
 The qualitative reading also confirmed other key assumptions, such as the fact that advocates do, in fact, use "environmental justice" when they raise distributional concerns, even on many rules that are not about issues traditionally considered "environmental."
