@@ -172,7 +172,7 @@ Most of these comments belong to lobbying coalitions and are thus not independen
 Lobbying coalitions range in size from 2 to `r max(coalitions_coded$coalition_size)` organizations. Table \@ref(tab:data-coalition-comments) shows a sample of coded data, summarized at the coalition level. Even though the same organization may lead coalitions in multiple rulemakings, each rule's lobbying coalitions are different, so I consider them seperate observations. For example, the American Civil Liberties Union (ACLU) led a coalition in 2014 with a small number of organizations and a medium-size pressure campaign in support of a rule requiring additional Equal Employment Opportunity reporting from the Department of Labor's Office of Federal Contract Compliance Programs (OFCCP). The ACLU also led a very different coalition  in 2020 with a large number of organizations and a very small public pressure campaing against a rule rolling back regulations on banks published by Office of the Comptroller of the Currency (OCC).
  Figure \@ref(fig:hist-coalitions) shows that this sample is fairly balanced between coalitions that succeed and fail to get the changes they seek in the final rule. 
  
-Table \@ref(tab:coalition-types) shows the number of coalitions coded as "public interest" and "private interest" by whether the majority of organizations in the coalition are for-profit businesses and trade associations or non-busisnesses (governments and nonprofits). `r percent( sum(coalitions_coded$coalition_business_, na.rm = T)/nrow(coalitions_coded) )` are majority business coalitions. `r percent( sum(coalitions_coded$coalition_type == "Public", na.rm = T)/nrow(coalitions_coded) )` are public-interest coalitions. As Table \@ref(tab:coalition-types) shows, the hand-coded "public interest vs. private interest" distinction is highly with the share of businesses in the coalition but not perfectly.  These two measures diverge in cases where public interest coalitions mobilize a large number of business allies or where private interest coalitions mobilize a large number of non-business allies. Thus, while the share of businesses and trade associations is more objective, the public-private distinction is likely a better measure of coalition type. I estimate alternative models in Section \@ref(influence-results) with each measure.
+Table \@ref(tab:coalition-types) shows the number of coalitions coded as "public interest" and "private interest" by whether the majority of organizations in the coalition are for-profit businesses and trade associations or non-busisnesses (governments and nonprofits). `r percent( sum(coalitions_coded$coalition_business_, na.rm = T)/nrow(coalitions_coded) )` are majority business coalitions. `r percent( sum(coalitions_coded$coalition_type == "Public", na.rm = T)/nrow(coalitions_coded) )` are public-interest coalitions. As Table \@ref(tab:coalition-types-business) shows, the hand-coded "public interest vs. private interest" distinction is highly with the share of businesses in the coalition but not perfectly.  These two measures diverge in cases where public interest coalitions mobilize a large number of business allies or where private interest coalitions mobilize a large number of non-business allies. Thus, while the share of businesses and trade associations is more objective, the public-private distinction is likely a better measure of coalition type. I estimate alternative models in Section \@ref(influence-results) with each measure.
 
 ```{r data-coalition-comments}
 #data-coalition-comments
@@ -210,7 +210,7 @@ comments_coded %>%
          font_size = 10) 
 ```
 
-```{r coalition-types}
+```{r coalition-types-business}
 #coalition-types
 coalitions_coded %>% 
   count(coalition_type, Coalition_business) %>% 
@@ -219,7 +219,11 @@ coalitions_coded %>%
   pivot_wider(names_from = Coalition_business, values_from = n) %>%
   rename(`Coalition Type` = coalition_type) %>% 
   kable3(caption = "Types of Coalitions (Business vs. Non-Business) in Hand-Coded Data")
+```
 
+
+```{r coalition-types-campaign}
+#coalition-types
 coalitions_coded %>% 
   count(coalition_type, Coalition_campaign) %>% 
   drop_na() %>%

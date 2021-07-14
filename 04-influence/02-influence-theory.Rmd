@@ -1,4 +1,4 @@
-## Theory {#influence-theory}
+## Theory: Interest Group Influence in Bureaucratic Policymaking {#influence-theory}
 
 <!--broaden public participation, political oversight, and relevant information--and their ultimate impact on policy depends on who organizes them.-->
 <!--Observers often ask how effective public pressure campaigns are. From a political science perspective, the question is 
@@ -7,7 +7,6 @@ Increasing civic engagement, oversight, and information,
 TODO SUSAN: "a skeptical reader may still say, I still don’t know why a bureaucrat would care about mass comments.  They don’t matter to judicial review, they don’t matter to career advancement, and they are usually not substantive.  Why does a bureaucrat care about political information?  What’s in it for her?"
 -->
 
-### Interest Group Influence and Bureaucratic Policymaking
 
 <!-- > TODO  -->
 
@@ -27,7 +26,7 @@ Whether representing broad or narrow interests, many interest groups exist prima
 Policy outcomes depend on the distribution of power among interest groups [@Dur2007]. 
 
 
-With renewed attention to the role of policy advocacy groups policymaking [@Grossmann2012], the dichotomy between accountabiity to political principals and "capture" is being replaced by studies that focus on numerous mechanisms of interesg group influence in policymaking. 
+With renewed attention to the role of policy advocacy groups policymaking [@Grossmann2012], the dichotomy between accountabiity to political principals and "capture" is being replaced by studies that focus on numerous mechanisms of interest group influence in policymaking. 
 Measuring lobbying success is a major challenge for studies attempting to study interest group influence [@Mahoney2007JPP; @Yackee2006JOP; @Rashin2017].
 As @Potter2017 put it "discerning influence from any kind of lobbying is a notoriously elusive exercise because of the difficulty in knowing the counterfactual scenario."
 
@@ -64,7 +63,6 @@ gap.
 knitr::include_graphics(here::here("Figs", "causal-classic-draft.png"))
 ```
 
-### Public Support: a Political Resource
 
 One reason that scholars have ignored pubic pressure campaings targeting the bureacuracuy is the strong normative belief among legal scholars that bureacratic policymaking should rest on rational analysis rather than politics.
 @Epstein2014 [p. 4] dismiss mass comments as "effectively, votes rather
@@ -102,11 +100,16 @@ that have thus far captured the attention of political scientists. If
 they add information to rulemaking, it is a different, more political
 flavor of information. Thus, I investigate the value of ordinary people's comments not individually but as a result of public pressure campaigns.
 
+### What We Know About the Effects of Mass Comment Campaigns {#influence-mass}
+
 Two published studies have looked at the relationship between public pressure campaigns and policy outcomes in agency rulemaking. @Shapiro2008b investigates whether the number of public comments relates to the time between the draft and final rule. With only nine observations, this study was unable to uncover general patterns. @Balla2020 study 22 Environmental Protection Agency Rules and identify 1,049 "campaigns" on these rules--here, a "campaign" means a batch of form-letter comments associated with an organization, which they code as "regulated" (e.g., a power plant)  or a "regulatory beneficiary" (e.g., environmental groups). They find that the agency was more likely to reference the more sophisticated comments that groups submit than form letters. They also find that several types of observed policy changes (e.g., changes in the number of regulated entities and date the rule goes into effect) better align with changes requested by sophisticated interest group comments than those found in form letters. They conclude:
 
  > These patterns suggest that legal imperatives trump political considerations in conditioning agency responsiveness, given that mass comment campaigns – relative to other comments – generally contain little “relevant matter.” [@Balla2020, pg. 1]
 
 While @Balla2020 recognize the political nature of public pressure campaigns, they follow many of the administrative law scholars in comparing form letters to sophisticated technical comments. For example, their model compares the number of times the agency references the lengthy comments drafted by the Sierra Club's Legal Team to the number of times the agency references the short form letters drafted by the Sierra Club's Digital Team. In contrast, I argue that we should understand the form letters as a tactic aimed at gaining power for coalitions and organizations that also submit sophisticated technical comments. Public pressure is not an alternative to sophisticated lobbying efforts; it is a resource.
+
+### Public Support: a Political Resource
+
 
 An organization's ability to expand the scope of conflict by mobilizing
 a large number of people can be a valuable political resource [@Schattschneider1975], and public pressure campaings expand the scope of conflict [@Potter2017].
@@ -211,8 +214,9 @@ The influence of political information on policy (the arrow between "Interest gr
 
 >"A rough estimate of pro and con submissions by individuals may provide insight as to public interest in a topic and to individual consumer experiences. However, under both the Administrative Procedure Act (APA) and the Dodd-Frank Act, the Bureau must base its determinations in rulemaking on the facts and the law in the rulemaking record as a whole." ([CFPB-2020-14935](https://www.federalregister.gov/d/2020-14935/p-134)
 
+Despite statements like this, there are plausable mechanisms by which political information may reshape the politics of rulemaking. Public pressure may bring in more and and more political agency personal, which in turn, can affect the policy process [@Carrigan2019]. Likewise it may attract the attention of members of Congress who then raise proceedural concerns [@Lowande2021].
 
-We may expect to observe mass mobilization influencing a particular policy only if the mobilization effort was aimed at influencing that policy, rather than using the public comment period to build organizational membership or power more generally [@CarpenterPetitions].
+We may expect to observe mass mobilization influencing a particular policy only if the mobilization effort was aimed at influencing that policy, rather than using the public comment period to build organizational membership or power more generally (see Chapter \@ref(whymail)).
 
 <!--#### Mass comment campaigns-->
 

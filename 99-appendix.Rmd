@@ -1,7 +1,7 @@
-# Appendix {#appendix}
+# (APPENDIX) Appendix {-} 
 <!--format as appendix-->
 
-## Models of Bureucratic Policymaking
+# A. Models of Bureucratic Policymaking {#causal-full}
 
 Assembling the models presented in chapters \@ref(whymail) - \@ref(influence), \@ref(fig:causal-full) presents a full picture of the role of public pressure campaigns in bureaucratic policymaking. 
 
@@ -9,20 +9,15 @@ Assembling the models presented in chapters \@ref(whymail) - \@ref(influence), \
 knitr::include_graphics(here::here("figs", "causal-full.png"))
 ```
 
-## Codebook {#codebook}
+# B.  Codebook {#codebook}
 
-The codebook is available [here](https://docs.google.com/document/d/1o1hi0z9O-G9xsgkspOFG2VWzh0wQKjiezzoVpItaCxU/edit).
-
-```{r}
-library(googledrive)
-drive_auth(email = "devin.jl@gmail.com")
-ss <- googledrive::drive_get("https://docs.google.com/document/d/1o1hi0z9O-G9xsgkspOFG2VWzh0wQKjiezzoVpItaCxU")
-drive_download(ss, path = here("assets", "codebook.html"))
-read_lines(here("assets", "codebook.html"))
+```{r child = here::here("99-codebook.txt")}
 ```
 
+<!--
 ## Example cases {#cases}
 
 ## Hard cases 
 
 Wisconsin Emergency Management Agency submitted a comment in June of 2016 completely opposed to the proposal and another one in June of 2017 in favor of the proposal
+-->

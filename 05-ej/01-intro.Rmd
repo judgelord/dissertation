@@ -66,7 +66,7 @@ society" to provide public oversight [@Michaels2015; @Metzger2010], most
 studies find that participants in rulemaking often represent elites and
 business interests [@Seifter2016UCLA; @Crow2015; @Wagner2011; @West2009; @Yackee2006JOP; @Yackee2006JPART; @Golden1998; @Haeder2015; @Cook2017; @LibgoberCarpenter2018]. To the extent that scholars address public pressure campaigns, both
 existing theory and empirical scholarship suggest skepticism that it
-matters. For example, @Balla2018 find that  "legal imperatives trump political considerations." <!--TODO @Balla2018 find that....-->
+matters. For example, @Balla2018 find that  "legal imperatives trump political considerations." (See Section \@ref(why-mass) for a review of scholarship on mass comment campaigns.) <!--TODO @Balla2018 find that....-->
 
 ### Political Information
 
@@ -145,35 +145,59 @@ The existing literature on bureaucratic policymaking in general---and EJ advocac
 
 #### Distributive Information Hypotheses
 
-> *Distributive Information Hypothesis*: Policymakers are more likely to change whether or how policies address distributive justice when commenters raise distributive justice concerns.
+
+> *Distributive Claims Hypothesis*: 
+
+```{hypothesis ej-claims, echo = TRUE}
+Policymakers are more likely to change whether or how policies address distributive justice when commenters raise distributive justice concerns.
+```
 
 As discussed above, agency policymakers have incentives to address distributive concerns, especially environmental justice, due to E.O. 12898 and judicial review of compliance with the Administrative Procedures Act. By raising EJ concerns, commenters draw attention to the distribution of policy impacts---who a policy may affect. Asserting definitions and categories of stakeholders and affected groups is one type of policy-relevant information.
 
-> *Repeated Information Hypothesis*: Policymakers are more likely to change whether or how policies address concerns when more commenters raise them.
+> *Repeated Claims Hypothesis*: 
+
+```{hypothesis ej-repeated-claims, echo = TRUE}
+Policymakers are more likely to change whether or how policies address concerns when more commenters raise them.
+```
 
 Scholarship on lobbying in rulemaking emphasizes the value of repeated information and coalition size [@Mendelson2011; @Nelson2012]. This implies that the more unique comments raise EJ concerns, the more likely the coalition will influence policy.^[I distinguish unique comments from mass comments. The number of unique comments approximates a coalition's size regarding the number of different groups, each submitting a unique text. The total number of comments, including signatures on identical form letters, indicates public attention and pressure.]
 
-Competing intuitions and other prior studies oppose both the *Distributive and Repeated Information Hypotheses*. Formal models and empirical scholarship on lobbying in rulemaking emphasize the importance of novel science and technical information---things unknown to agency experts [@Wagner2010]. Furthermore, scholarship finds business commenters are influential, and public interest groups are not [@Yackee2006JOP; @Haeder2015]. Furthermore, policymakers may be more likely to anticipate EJ concerns when they are more salient to interest groups. This would mean that rules where commenters raise EJ concerns may be the *least* likely to change whether or how EJ is addressed because policymakers are more likely to have already considered these issues and stated their final position in the draft rule. 
+Competing intuitions and other prior studies oppose both Hypotheses \@ref(hyp:ej-claims) \@ref(hyp:ej-repeated-claims). Formal models and empirical scholarship on lobbying in rulemaking emphasize the importance of novel science and technical information---things unknown to agency experts [@Wagner2010]. Furthermore, scholarship finds business commenters are influential, and public interest groups are not [@Yackee2006JOP; @Haeder2015]. Furthermore, policymakers may be more likely to anticipate EJ concerns when they are more salient to interest groups. This would mean that rules where commenters raise EJ concerns may be the *least* likely to change whether or how EJ is addressed because policymakers are more likely to have already considered these issues and stated their final position in the draft rule. 
 
-> *Policy Receptivity Hypothesis*: Policymakers that more frequently address concerns like environmental justice will be more responsive to commenters raising those concerns. <!--CITE-->
 
+> *Policy Receptivity Hypothesis*: 
+
+```{hypothesis ej-receptivity, echo = TRUE}
+Policymakers that more frequently address concerns like environmental justice will be more responsive to commenters raising those concerns.
+```
+
+ <!--CITE-->
+ 
 Bureaucracies are specialized institutions built to make and implement certain kinds of policies based on certain goals and types of facts. Each agency's distinct norms and epistemic community determine whether policymakers see issues as "environmental" and whether they have disparate impacts that demand consideration of distributive "justice." Some policymakers may see their policy area as more related to environmental justice than others and thus be more receptive to commenter concerns. 
 
-The competing intuition to the *Policy Receptivity Hypothesis* is that policymakers familiar with EJ concerns are the *least* likely to respond to EJ concerns because they anticipate these concerns---they are not novel to them. If so, agencies that rarely consider EJ may be more easily influenced by commenters who present somewhat novel information and concerns. These policymakers may be less likely to have preempted EJ critiques in the draft policy.
+The competing intuition to Hypothesis \@ref(hyp:ej-receptivity) is that policymakers familiar with EJ concerns are the *least* likely to respond to EJ concerns because they anticipate these concerns---they are not novel to them. If so, agencies that rarely consider EJ may be more easily influenced by commenters who present somewhat novel information and concerns. These policymakers may be less likely to have preempted EJ critiques in the draft policy.
 
 #### Public Pressure Hypotheses
 
-> *General Pressure Hypothesis*: Policies are more likely to change when they receive more public attention (e.g., more public comments).
+> *General Pressure Hypothesis*: 
+
+```{hypothesis ej-general-pressure, echo = TRUE}
+Policies are more likely to change when they receive more public attention (e.g., more public comments).
+```
 
 <!--TODO-->
 If policymakers respond to public pressure, policy should be more likely to change when more people comment on a draft policy. This follows the intuition that policy is most likely to move in high-salience policy processes [@Leech2010].
 
-The competing intuition against the *General Pressure Hypothesis* is again that large numbers of comments indicate policy processes that were already salient before the public pressure campaign. Policymakers anticipate public scrutiny and are thus more likely to have stated their final position in the draft policy.  If this is the case, policies with more public comments should be *less* likely to change. Public attention could also be unrelated to policy change, meaning that policymakers neither anticipate nor respond to public attention in writing or revising policy documents.
+The competing intuition against Hypothesis \@ref(hyp:ej-general-pressure) is again that large numbers of comments indicate policy processes that were already salient before the public pressure campaign. Policymakers anticipate public scrutiny and are thus more likely to have stated their final position in the draft policy.  If this is the case, policies with more public comments should be *less* likely to change. Public attention could also be unrelated to policy change, meaning that policymakers neither anticipate nor respond to public attention in writing or revising policy documents.
 
-> *Specific Pressure Hypothesis*:  Policies are more likely to address an issue when they receive more public attention (e.g., more public comments) *and* at least one comment raises that issue.
+> *Specific Pressure Hypothesis*:  
+
+```{hypothesis ej-specific-pressure, echo = TRUE}
+Policies are more likely to address an issue when they receive more public attention (e.g., more public comments) *and* at least one comment raises that issue.
+```
 
 This hypothesis asserts that the overall level of public attention will condition policy responses to specific claims--it is the interaction between the number of total public comments and at least one of those comments raising EJ concerns that makes policy more likely to address EJ. 
 
-The competing intuition against the *Specific Pressure Hypothesis* is again that large numbers of comments indicate high-salience rulemakings where policymakers are more likely to anticipate public scrutiny, including how they did or did not address specific issues like environmental justice. If policymakers anticipate public scrutiny, they may be more likely to preempt EJ concerns and state their final position in the draft policy.
+The competing intuition against Hypothesis \@ref(hyp:ej-specific-pressure) is again that large numbers of comments indicate high-salience rulemakings where policymakers are more likely to anticipate public scrutiny, including how they did or did not address specific issues like environmental justice. If policymakers anticipate public scrutiny, they may be more likely to preempt EJ concerns and state their final position in the draft policy.
 
 

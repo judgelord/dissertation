@@ -145,7 +145,9 @@ kable3 <- function(x,
 
 # inline formatting 
 knit_hooks$set(inline = function(x) {
+  if(x > 2021 | x < 1900){
   prettyNum(x, big.mark=",")
+} else{x}
 })
 
 

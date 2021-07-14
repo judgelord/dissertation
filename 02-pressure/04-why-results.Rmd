@@ -157,7 +157,7 @@ knitr::include_graphics(here::here("Figs", "comments-mass-support-vs-oppose-1.pn
 \@ref(fig:sentiment-2016) in the appendix for a sample of comments
 on several rules in 2016 and 2018).-->
 
-## Conclusion
+## Conclusion {#why-conclusion}
 
 <!--hyp:mediated-->
 Public participation in bureaucratic policymaking is overwhelmingly dominated by the lay public voicing opinions. They do not provide useful technical information or

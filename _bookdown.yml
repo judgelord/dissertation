@@ -34,6 +34,8 @@ rmd_files:
   - 05-ej/03-methods.Rmd
   - 05-ej/04-results.Rmd
   - 05-ej/05-conclusion.Rmd
-  - 06-policy.Rmd # policy
-  - conclusion.md
+  - 09-conclusion.Rmd
+  - 09-policy.Rmd # policy
+  - 09-future-research.Rmd
   - 99-references.Rmd
+  - 99-appendix.Rmd
