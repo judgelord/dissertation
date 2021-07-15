@@ -30,13 +30,13 @@ bookdown::pdf_book:
   urlcolor: black
   linkcolor: black
   header-includes:
-  - \usepackage{floatrow}
-  - \usepackage{float}
-  - \floatsetup[figure]{capposition=top}
-  - \floatsetup[table]{capposition=top}
-  - \usepackage{setspace}
+  # - \usepackage{floatrow}
+  # - \usepackage{float}
+  # - \floatsetup[figure]{capposition=top}
+  # - \floatsetup[table]{capposition=top}
+  # - \usepackage{setspace}
 # FOR DAVE
-# - \usepackage[RaggedRight]{ragged2e}
+#  - \usepackage[RaggedRight]{ragged2e}
 # - \usepackage{endnotes}
 # - \let\footnote=\endnote
 # - \renewcommand{\footnotesize}{\normalsize}

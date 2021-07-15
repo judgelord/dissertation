@@ -29,6 +29,7 @@ library(broom)
 library(dotwhisker)
 library(here)
 library(knitr)
+options(kableExtra.latex.load_packages = FALSE)
 library(kableExtra)
 library(mediation)
 #library(lme4)
@@ -76,8 +77,6 @@ scale_fill_continuous <- function(...){
   scale_fill_viridis_c(..., direction = -1, 
                        option = "plasma")}
 
-
-
 # Table formatting
 library(kableExtra)
 kablebox <- . %>% 
@@ -86,7 +85,7 @@ kablebox <- . %>%
   kable_styling() %>% 
   scroll_box(height = "400px")
 
-# a function to format kables for different formats 
+# a function to format kables for different output formats 
 kable2 <- function(x, file){
   if(knitr:::is_html_output() | knitr::is_latex_output() ){
       x %>% row_spec(row = 1, bold = T, hline_after = TRUE) %>% 
@@ -99,7 +98,7 @@ kable2 <- function(x, file){
 
 library(flextable)
 
-pretty_num <- . %>% prettyNum(big.mark = ",")
+
 
 # A function to trim and format tables for different outputs 
 kable3 <- function(x, 
@@ -145,11 +144,14 @@ kable3 <- function(x,
 
 # inline formatting 
 knit_hooks$set(inline = function(x) {
-  if(x > 2021 | x < 1900){
+  if( (x > 2021 | x < 1900) ){
   prettyNum(x, big.mark=",")
 } else{x}
 })
 
+
+# number formatting 
+pretty_num <- . %>% prettyNum(big.mark = ",")
 
 
 options(stringsAsFactors = FALSE)

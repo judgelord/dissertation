@@ -3,7 +3,6 @@ output_dir: "docs"
 language:
   ui:
     chapter_name: "Chapter "
-urlcolor: blue
 new_session: no
 delete_merged_file: no
 knit_root_dir: "/Users/devin/dissertation" # `r here::here()` #https://stackoverflow.com/questions/62578811/error-input-files-not-all-in-same-directory-please-supply-explicit-wd

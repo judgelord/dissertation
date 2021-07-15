@@ -1,17 +1,9 @@
 # (APPENDIX) Appendix {-} 
 <!--format as appendix-->
 
-# A. Models of Bureucratic Policymaking {#causal-full}
+# Codebook {#codebook}
 
-Assembling the models presented in chapters \@ref(whymail) - \@ref(influence), \@ref(fig:causal-full) presents a full picture of the role of public pressure campaigns in bureaucratic policymaking. 
-
-```{r causal-full}
-knitr::include_graphics(here::here("figs", "causal-full.png"))
-```
-
-# B.  Codebook {#codebook}
-
-```{r child = here::here("99-codebook.txt")}
+```{r child = here::here("99-codebook.md")}
 ```
 
 <!--
@@ -21,3 +13,28 @@ knitr::include_graphics(here::here("figs", "causal-full.png"))
 
 Wisconsin Emergency Management Agency submitted a comment in June of 2016 completely opposed to the proposal and another one in June of 2017 in favor of the proposal
 -->
+
+# An Expanded Model of Bureucratic Policymaking {#causal-full}
+
+Assembling the models presented in chapters \@ref(whymail) - \@ref(influence), \@ref(fig:causal-full) presents a full picture of the role of public pressure campaigns in bureaucratic policymaking. 
+
+```{r causal-full}
+knitr::include_graphics(here::here("figs", "causal-full.png"))
+```
+
+
+
+# Formalizing the Theory 
+
+In Section \@ref(formal), I briefly addressed the relationship between my argument and one leading formal model of commenter influence in agency rulemaking. Here, I offer an expanded version of that discussion. 
+
+My argument that lobbying strategies like pressure campaigns aim to create political information requires several crucial amendments to
+existing information-based models of rulemaking. Specifically, I argue that information about the political context in which policymakers operate can persuade them to make policy changes. Allowing policymakers to be persuaded in such a way allows public pressure campaigns to be incorporated into these models. Doing so also resolves some puzzling results of models that assume "fixed" political preferences. Allowing policymakers' political priorities to be affected by political pressure from commenters (either directly indirectly through, for example, changing the behavior of members of Congress) creates both uncertainties about policymakers' political positions and incentives for lobbying organizations to attempt to affect them by providing political information. 
+
+It was not the aim of dissertation to develop or test the implications of formal models. Rather I briefly review the necessary modifications to one leading formal model in order to illustrate the importance of political information to theories of policymaking. My aim is to illustrate a few of the implications of my argument for formal theory. 
+
+```{r child = here::here("formal", "formal-influence.Rmd")}
+```
+
+```{r child = here::here("formal", "formal-why-comment.Rmd")}
+```

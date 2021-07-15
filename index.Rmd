@@ -32,39 +32,10 @@ source(here::here("code", "setup.R"))
   \clearpage
   \listoffigures
   
-# List of Key  Terms {-}
+  \RaggedRight
 
-- A **coalition** is a group of people and organizations pursuing the same aims in the same policy fight. Because coordination is difficult to measure, my empirical definition includes individuals and organizations who advocate for the same policy outcomes regardless of overt coordination. A coalition may include organizations lobbying for the same policy outcome for different reasons (e.g., "bootleggers and baptists" coalitions).
-
-- **Going public** describes the choice to pursue an "outside" strategy to influence policy outcomes. It aims to expand the scope of conflict and involve more actors than would be involved if the lobbying organization only employed an "inside" lobbying strategy involving professional policy influencers and focused on the policymakers.
-
-- **Grassroots** and **astroturf** campaigns are both forms of outside lobbying. Grassroots campaigns aim to mobilize individuals based on some pre-existing interest or belief. In contrast, astroturf campaigns aim to create a deceptive appearance of more public support. The people organizing an astroturf campaign are only doing so because they are being paid. Many of the individuals mobilized are either deceived (e.g., intentionally misled about the policy or its likely effects) or financially incentivized to participate. In the extreme, astroturf campaigns may use the names of fake or non-consenting individuals. In contrast, a more grassroots campaign may also require funding, but groups would choose to use resources for such a campaign even without the quid pro quo. While grassroots campaigns may involve simplification, spin, and even mild deception, it is not decisive for the campaign's ability to mobilize. 
-
-- **Lobbying influence** implies a causal effect between an effort to influence policy and a policy outcome.
-
-- **Lobbying success** describes a situation where a group that sought to influence policy got the outcome they sought, without implying a causal relationship between their effort and the policy outcome.
-
-- A **membership organization** is a type of organization formed to serve the interests of a defined membership. Membership organizations may act in the name of their members' narrow material interests or broader visions of the public interest. Some membership organizations are more directly governed by their members than others.
-
-- **Mobilizing groups/organizations** recruit people to take an action (e.g., to sign a petition or submit a public comment).
-
-- An **organization** is usually incorporated as a business, government, or nonprofit. Public comments *from* organizations represent the position of the organization as an incorporated entity. I only consider a comment to be on behalf of an organization if the comment text claims to represent the organization. An employee using letterhead is insufficient. Letters from elected officials are only considered to represent their governmental organization (their state, committee, etc.) if they claim to do so *and* are in a position to do so (e.g., a governor or committee chair). Otherwise, I consider elected officials to represent themselves as politicians in a particular political office, not the whole governmental organization.
-
-- A **public interest group** is a type of organization that *primarily* advocates for some vision of the public good, not the private material interest of its owners or members. Policy conflicts may involve competing visions of the public interest and thus multiple public interest group coalitions.
-
-- A **public pressure campaign** is an effort to influence policy by mobilizing a segment of the public to pay attention to the policy process and express their opinions to decisionmakers. It can be an astroturf campaign or grassroots campaign on behalf of public or private interests. Empirically, I focus on public pressure campaigns in public comment periods, often called a "mass commenting campaign." Comments mobilized by such campaigns are typically form letters and are often called "mass comments." For analytic purposes, I define a mass comment in \@ref(why-methods) as any comment sharing a substantial amount of text with 99 other comments or uploaded in a batch of 100 or more by the same organization.
-
-- **Responsiveness** is observable attention that government officials pay to public input. This can be either substantive policy influence or discursive influence (similar to what @Balla2020 calls "procedural responsiveness").
-
-**Technical information** and **political information** are two types of information that may be relevant to policy decisions. This distinction comes from @Nelson2012 and is developed further in each chapter of this dissertation. Technical information includes scientific or legal facts. It may influence decisions if policymakers update their beliefs about the consequences of their policy--for example, by changing an economic cost-benefit analysis or by revealing an unknown legal precedent or statutory requirement.  In contrast, political information is about the political context in which policy is made. It may influence decisions if policymakers update their beliefs about which members of Congress support their proposal, the prevalence of a belief broader public, or the number of people an interest group represents. Most kinds of political information inform second-order beliefs---beliefs about what others think. A threat of an oversight hearing, a national opinion poll, and the media coverage of a protest are all types of political information that inform policymakers about the prevalence and intensity of political opinions and, thus, the political consequences of their policy decisions. 
-
-
-
-# Citations to Primary Documents  {-}
-
-I cite public records, including policy documents and public comments, using government-issued identification numbers. Citations to documents published in the Federal Register include an agency acronym, the year the document was published, and a document number (usually five digits, e.g., "CFPB-2020-14935"). If citing a specific paragraph, the citation will appear as "CFPB-2020-14935/p-134." Federal Register documents can be accessed by adding "federalregister.gov/d/" before the id number, for example, "federalregister.gov/d/2020-14935/p-134". Citations to documents posted to regulations.gov begin with a rulemaking docket number, including an agency acronym and the year the rulemaking process officially began, followed by a unique document number (e.g., "IRS-2016-0015-0125"). Regulations.gov documents can be accessed by adding "regulations.gov/document/" before the document id number, for example, "regulations.gov/document/IRS-2016-0015-0125").
-
-
+```{r, child = if (knitr:::is_latex_output() ) '00-frontmatter.md'}
+```
 
 \mainmatter
 \pagenumbering{arabic}

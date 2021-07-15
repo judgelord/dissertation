@@ -2,7 +2,7 @@
 
 
 ## Coding Comments
-A position will eventually be identified for all comments, but the first step is to identify the positions of comments by organizations and elected officials (other comments are generally identified automatically from textual similarity). This scheme (especially the `org_type`, `ask`, and `success` variables) builds on work by Susan Webb Yackee e.g., @Yackee2006JPART; @Yackee2006JOP].
+A position will eventually be identified for all comments, but the first step is to identify the positions of comments by organizations and elected officials (other comments are generally identified automatically from textual similarity). This scheme (especially the `org_type`, `ask`, and `success` variables) builds on work by Susan Webb Yackee [e.g., @Yackee2006JPART; @Yackee2006JOP].
 
 
 Initially, we code position on the main dimension of conflict (it may be a challenging interpretive task to identify the main dimension of conflict raised by a comment). 
@@ -24,10 +24,10 @@ https://www.regulations.gov/comment/NOAA-NMFS-2020-0031-0668)
 Note that a commenter can support a rule that is moving in a deregulatory direction. This means that they oppose regulation and thus support the rule (because the rule is rolling back regulation). What matters here is their position on the change from the status quo (current policy) to the proposed rule, not on regulation in general. These positions correspond to a commenter's ideal policy (their "ideal point" in the policy space). If a commenter's ideal policy is at position 1 in the figure below, the proposed rule change is moving policy in the opposite direction they want it to move, hence their position is "opposed to the rule change for moving in the wrong direction." Similarly, if the current policy (the status quo) is a commenter's ideal policy, their ideal point is at or near the current policy (x1), position 2, and they are opposed to the proposed rule change.
   
 
-```{r} 
+```{r spatial-coding2, fig.cap = "Instructions for Coding the Position of a Comment Given Current Policy, X1, and proposed policy, X2"} 
 knitr::include_graphics(here::here("figs", "spatial-coding.png"))
 ```
-If the commenter's ideal policy is at positions 3, 4, or 5, these ideal policies are closer to the new policy, x2 than the current policy x1, and thus they are likely to support the rule change. If the commenter's ideal policy is at position 6, the change from x1 to x2 is insufficient for them to support it (even though it is technically moving in the direction they would like). This is rare, but commenters do occasionally reject proposed rules for doing too little. Their hope is that by rejecting this proposed policy (even though it moves policy in their preferred direction), they might get a better policy later.
+If the commenter's ideal policy is at positions 3, 4, or 5, these ideal policies are closer to the new policy, X2 than the current policy X1, and thus they are likely to support the rule change. If the commenter's ideal policy is at position 6, the change from X1 to X2 is insufficient for them to support it (even though it is technically moving in the direction they would like). This is rare, but commenters do occasionally reject proposed rules for doing too little. Their hope is that by rejecting this proposed policy (even though it moves policy in their preferred direction), they might get a better policy later.
   
   
 
@@ -251,7 +251,7 @@ ________________
 At the rule level (see the `proposed_url` and `final_url` columns for the links to proposed and final rules in the federal register), code the proposed policy change and the final result in terms of whether they make regulation more or less stringent. For more on defining regulatory stringency see @judgelord2020.
   
 
-```{r } 
+```{r stringency, fig.cap = "Concepts of Regulatory Stringency from Judge-Lord et al. 2020"} 
 knitr::include_graphics(here::here("figs", "judgelord2020table2.png"))
 ```
 `proposed_direction` =       

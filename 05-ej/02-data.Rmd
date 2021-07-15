@@ -31,7 +31,7 @@ While EO 12898 does not itself create a right to sue agencies, courts may strike
 To examine whether EJ activists and public pressure campaigns shape policy documents,
 I collect the text of all draft rules, public comments, and final rules from regulations.gov. Then, I select rulemaking documents from agencies that published at least one rule explicitly addressing EJ from 1993 to 2020. This yields over 25,000 rulemaking dockets from 40 agencies. 12,257 of these have both a proposed and final rule.^[Some final rules are published without a draft, and some proposed rules are withdrawn or never finalized. Additional descriptives on each type of rule are available in the online appendix.]
 
-Despite E.O. 12898, most rules do not address EJ. Figure \@ref(fig:ej-data) shows that most draft and final rules (about 90%) do not mention "environmental justice." Interestingly, the total number of final rules and the percent of the total addressing EJ have remained relatively stable for the period where regulations.gov data are complete (after 2005). From 2006 to 2020, these agencies published between 2000 and 3000 final rules per year, of which between 200 and 300 addressed EJ. 
+Despite E.O. 12898, most rules do not address EJ. Figure \@ref(fig:ej-data) shows that most draft and final rules (about 90%) do not mention "environmental justice." The number of policies that take EJ into account (rather than just mentioning the E.O. 12898) is likely even lower [Gauna2001; @Revez2018]. Interestingly, the total number of final rules and the percent of the total addressing EJ have remained relatively stable for the period where regulations.gov data are complete (after 2005). From 2006 to 2020, these agencies published between 2000 and 3000 final rules per year, of which between 200 and 300 addressed EJ. 
 
 ```{r ej-data, fig.cap = "Proposed and Final Rules by Whether they Address Environmental Justice.", out.height = NULL, out.width = "100%", fig.show = "hold"}
 
@@ -165,7 +165,7 @@ associated with surnames as recorded in the 2010 census.^[I recode "Hispanic" as
 category (from this limited set of options). This approach does not
 assign specific individuals to racial categories. Instead, it represents each commenter as a set of probabilities adding up to 1. The estimated racial distribution of the sample is the sum of individual probabilities.
 
-```{r ejcommentsbyrace, fig.cap = 'Estimated Racial Distribution from Census Surnames of Commenters raising ``Environmental Justice" Concerns in Rulemaking', fig.height = 1.5, fig.width=2, out.width = "40%", fig.show = "hold"}
+```{r ejcommentsbyrace, fig.cap = 'Estimated Racial Distribution from Census Surnames of Commenters raising ``Environmental Justice" Concerns in Rulemaking', fig.height = 1.5, fig.width=2, out.width = "45%", fig.show = "hold"}
 load(here("data", "ej_race.Rdata"))
 
 Race %>% ggplot() + 
