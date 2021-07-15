@@ -1,52 +1,60 @@
 
-I now revisit the dominant ways of thinking about public comments and proposed reforms to participatory processes in light of the empirical evidence in the previous chapters. I start with a sketch of the various positions staked out by administrative law scholars, each rooted in different theories of democracy. I then review several specific challenges and proposed reforms to the policy process. <!--Finally, I extend -->
+One of the main contributions of this dissertation has been to clarify a different way of think about and studying public comments. 
+I now revisit the dominant ways of thinking about public comments and proposed reforms to participatory processes in light of the empirical evidence in the previous chapters. I start with a sketch of the various positions staked out by administrative law scholars (who have done nearly all of the work on this topic), each rooted in different theories of democracy. I then review several specific challenges and proposed reforms to the policy process. <!--Finally, I extend -->
+I conclude that reforms underway in U.S. federal institutions that solicit, collect, and process comments are already heading in a direction that would enhance participation and the quality of political information that it generates. However, certian additioanl reforms, particularly those that call for more transparency of mobilicing groups and  would further improve the political information available to agencies and outside observers. Seeing civic participation in bureacratic policymaking as mediated by mobilizing organizations focuses reforms on these organzations: transparency about who they are, who they represent, who they are mobilizing, and how they are mobilizing.
 
 ## Re-thinking Public Participation in Bureaucratic Policymaking
 
-Understanding mass commenting as a form of petitioning, as presented in chapters \@ref(whymail), \@ref(influence), and \@ref(ej), runs against how it is often discussed by scholars and agencies. With a few notable exceptions (e.g., @Cuellar2005; @Mendelson2011; @Rauch2016), administrative law scholars imply that mass commenting is misguided and potentially harmful spam of the technocratic process. 
+Understanding mass commenting as a form of petitioning, as I have argued runs against how it is often discussed by scholars. With a few notable exceptions [e.g., @Cuellar2005; @Mendelson2011; @Rauch2016], administrative law scholars tend to imply that mass commenting is misguided and potentially harmful spam of the technocratic process. In a report submitted as a comment on "Public Forum on the eRulemaking Initiative's www.Regulations.gov Web site and the Development of the Federal Docket Management System" about reforming the public comment process, Stewart Shulman summarizes the concern: 
 
 > "Many fear a surging wave of electronic mass submissions will overwhelm and thus delay agencies with limited resources. Furthermore, some warn us that electronic rulemaking may already have instantiated a sense that rulemaking decisions are akin to a plebiscite." - Stuart W. Shulman (EPA-HQ-OEI-2004-0002-0015)
 
+<!--
 In a 2020 meeting, Reeve T. Bull, Research Director, Administrative Conference of the United States, summed up the dominant attitude of legal professionals:
 
 > "What are the fundamental goals that the agency and the APA are trying to accomplish by creating this mechanism for public participation?...[W]hen somebody files a comment with an agency, the comments sort of fall into two broad categories...the first type of comment are those expressing fact---providing data to the agency, either supporting the position that it wants to take or opposing the position that it wants to take--and trying to influence the agency's decision making accordingly. 
 
 > The second broad type of [public comments] are those expressing opinions. Now obviously, there's extensive overlap between the two. Pretty much every comment is going to express an opinion one way or the other. But as Steve's data shows, sometimes a comment is nothing but an opinion. It's 'I support this policy' or 'I don't support the policy... the law is very, very clear that with respect to the fact, with respect to data, the agency is legally required to take that into account... With respect to opinion, though, the law is much less clear. Indeed it's not clear whether the agency has to take opinion into account or conversely whether the agency is even permitted to take opinion into account. ...[Agencies] have been very, very consistent in saying the rulemaking process is not a plebiscite. It's not a vote. We're not tabulating the number of comments in favor or against. ...On the part of the public, though, I think the perception is quite a bit different. And I think that people really considered it problematic from their perspective that the agency might take a position that is different from what the vast majority of commenters might have preferred. And with respect to that latter aspect -- the democratic aspect, if you will -- that's where I think a lot of the problems potentially start to arise. 
 
-> I don't think it's ever legitimate in a mass comment campaign for the agency to tabulate the number of comments received and say we got this number of this percentage in favor or against. Even if the comments are 99 percent in one direction or the other, I think that the agency should certainly consider mass comments. They should certainly consider the relevant information -- the facts contained in those comments. But I don't think that the overall number or percentage should ever matter." - Reeve T. Bull, Research Director, Administrative Conference of the United States
+> I don't think it's ever legitimate in a mass comment campaign for the agency to tabulate the number of comments received and say we got this number of this percentage in favor or against. Even if the comments are 99 percent in one direction or the other, I think that the agency should certainly consider mass comments. They should certainly consider the relevant information -- the facts contained in those comments. But I don't think that the overall number or percentage should never matter." - Reeve T. Bull, Research Director, Administrative Conference of the United States
+-->
 
 In response to public pressure campaigns, agencies often assert that rulemaking is not a plebiscite.
+At the same time, agencies frequently do tally up comments on each side. In a 2008 rule regulating border crossing by private aircraft, The U.S. Customs and Border Patrol (CBP) cited the scale of public engagement as providing information on "public sentiment."
 
-At the same time, agencies frequently do tally up comments on each side. In a 2008 rule regulating border crossing by private aircraft, The U.S. Customs cited the scale of public engagement as providing information on "public sentiment": 
->based on the ample number of comments received by the end of the original comment period, CBP believed that public sentiment was accurately captured.” ([CBP-E8-26621/p-61](https://www.federalregister.gov/d/E8-26621/p-61))
+> based on the ample number of comments received by the end of the original comment period, CBP believed that public sentiment was accurately captured.” ([CBP-E8-26621/p-61](https://www.federalregister.gov/d/E8-26621/p-61))
 
 In the preamble to the 2015 Waters of the United States Rule, EPA evoked both majoritarian and pluralist justifications:
 
 >"This final rule reflects the over 1 million public comments on the proposal, the substantial majority of which supported the proposed rule, as well as input provided through the agencies' extensive public outreach effort, which included over 400 meetings nationwide with states, small businesses, farmers, academics, miners, energy companies, counties, municipalities, environmental organizations, other federal agencies, and many others." ([2015-13435/p-67](https://www.federalregister.gov/d/2015-13435/p-67))
 
 EPA Administrator Gina McCarthy testified that EPA "received over one million comments, and 87.1 percent of those comments...are supportive of this rule" [@Lipton2015].
-When the EPA issued a new rule under the Trump administration, it noted "a number of comments" in favor of the new definition but "a significant number of comments" in favor of the 2015 definition ([2020-02500/p-231](https://www.federalregister.gov/d/2020-02500/p-231). While not going so far as to explicitly state that a supermajority of commenters opposed the new policy, it is still remarkable that the agency would choose to note quantitative opposition to the policy. 
+When the EPA issued a new rule rolling back the definition of Waters of the United States under the Trump administration, it noted "a number of comments" in favor of the new definition but "a significant number of comments" in favor of the 2015 definition ([2020-02500/p-231](https://www.federalregister.gov/d/2020-02500/p-231). While not going so far as to explicitly state that a supermajority of commenters opposed the new policy, it is still remarkable that the agency would choose to note quantitative opposition to the policy. For some reasons, this political information merited attention.
 
 Agencies also regularly refer to form comments as petitions. When the Bureau of Land Management received 6,948 identical emails that did not cite an organization, they labeled these comments a "Pro Fracking Petition" ([LM-2013-0002-5720](https://www.regulations.gov/comment/BLM-2013-0002-5720)) This text was nearly identical was signed by "Oil and Gas industry individuals" ([BLM-2013-0002-5688](https://www.regulations.gov/comment/BLM-2013-0002-5688)). Another batch of 1,289 nearly identical emails submitted through the social networking website Care2.org was labeled "Anti Fracking Petition" ([BLM-2013-0002-5721](https://www.regulations.gov/comment/BLM-2013-0002-5721))
 
 The organizations running public pressure campaigns are even more explicit that they consider mass comments to be petition signatures, frequently citing mass comments as "Letters in support of [our organization's] Comments" ([NOAA-NMFS-2012-0059-0023](https://www.regulations.gov/comment/NOAA-NMFS-2012-0059-0023)), a "petition from World Wildlife Fund-US (WWF-US), signed by 271,893 WWF-US supporters" ([BOEM-2016-0003-2556](https://www.regulations.gov/comment/BOEM-2016-0003-2556)),
-The files containing comments collected by organizations are often named "signatures."
+The files containing comments collected by organizations are often named "signatures." Agencies and organizations already consider mass comment campaigns to be a form of petitioning.
 
-##  The Debate in Administrative Law 
+How does this new (or not so new) undrestanding of public pressure campaigns as petitions and thier value lieing in their political information affect the debate over their value? In the next subsection I sketch out some of the positions staked out by scholars active in debates over how to reform the rulemaking process. I then recast proposed reforms in light of the theory and findings presented in this dissation. 
 
-Scholars vary significantly in both the value they place on political information and the extent to which they believe that meaningfully engaging large numbers of people is possible. 
+##  The Roots of the Debate
+
+Scholars vary significantly in both the value they place on political information and the extent to which they believe that meaningfully engaging large numbers of people is possible. I group into five camp: (1) Participatory democracy optimists, (2) "Regulatory democracy" reformers, (3) Pluralist reformers, (4) Rational pluralists, and (5) Skeptics. 
 
 #### Participatory democracy optimists {-}
 
-Optimists see notice and comment as the "purest example of participatory democracy in actual American governance" [@Herz2016]. The process is technically open to anyone with an opinion to offer, and agencies are, to an extent, required to respond to substantive ideas. This optimism is rooted in a volunteerism idea of democracy and a value for inclusive and substantive discourse. It assumes that those who "ought" to be included do not have large barriers beyond the formal rules of the institution. It also assumes that meaningful discourse among those who show up is possible and likely to occur. 
+Optimists see notice and comment as the "purest example of participatory democracy in actual American governance" [@Herz2016]. The process is technically open to anyone with an opinion to offer, and agencies are, to an extent, required to respond to substantive ideas. This optimism is rooted in a volunteerist idea of democracy and a value for inclusive and substantive discourse. In it's optomism, these observers often assumes that those who "ought" to be included do not have large barriers beyond the formal rules of the institution. It also assumes that meaningful discourse among those who show up is possible and likely to occur. 
 
 #### "Regulatory democracy" reformers {-}
 
 A related camp is slightly less rosy about the current institutions and practices but is nevertheless optimistic that reforms can at least improve the quality of discourse and thus policy. For these scholars, democracy is more a function of procedure than inclusion. "issues and contributions, information and reasons." 
 @Cuellar2014 <!--and @Jonson2013-->
-argues that rulemaking could be more discursive. @Mendelson2011 found that agencies often discard non-technical comments but argues that they shouldn't because mass comments contain valuable information. For this camp, the quality of the public debate is more important than the total number of people, their affiliations, or their biases. They emphasize the transformative power of discourse. 
+argues that rulemaking could be more discursive. @Mendelson2011 found that agencies often discard non-technical comments but argues that they should not because mass comments contain valuable information. For this camp, the quality of the public debate is more important than the total number of people, their affiliations, or their biases. They emphasize the transformative power of discourse. 
 <!--
 "To reach an understanding in a dialogue is not merely a matter of putting oneself forward and successfully asserting one's own point of view, but being transformed into a communion in which we do not remain what we were." (Gadamer)
+
+In the tradition of scholars like Gadamer and Habbermas 
 
 "The democratic procedure for the production of law evidently forms the only post-metaphysical source of legitimacy. But what provides this procedure with its
 legitimating force? Discourse theory answers this question with a
@@ -68,32 +76,25 @@ My impression was that law and discourse both presuppose and create shared expec
 "law simultaneously secures symmetrical relationships of reciprocal recognition between abstract bearers of individual rights. These structural similarities between law and communicative action explain why discourses, and thus reflexive forms of communicative action, play a constitutive role for the production (and application) of legal norms."
 449 from Between facts and norms
 
-
-
-
-
-
-
-
-
 -->
 
 #### Pluralist reformers {-}
 
-A different brand of reformer focuses less on discourse and more on interest group representation. Reform-oriented scholars building on pluralist ideas of representation argue that lobbying groups should be required to disclose their membership, funding, and decision-making processes [@Seifter2016UCLA]. In this view, organized groups, not individuals, are the central actors in public comment processes. However, because agencies often lack information about groups, it is difficult to know how well they represent the people they claim to. Interest groups' faithful representation of their members is crucial to pluralist ideas of democracy. However, reforms requiring groups to disclose information about their funding and membership only go part way to assess groups' representational claims, which often extend well beyond their membership.
+A different brand of reformer focuses less on discourse and more on interest group representation. Reform-oriented scholars building on pluralist ideas of representation argue that lobbying groups should be required to disclose their membership, funding, and decision-making processes [@Seifter2016UCLA]. In this view, organized groups, not individuals, are the central actors in public comment processes. However, because agencies often lack information about groups, it is difficult to know how well they represent the people they claim to. Interest groups' faithful representation of their members is crucial to pluralist ideas of democracy. 
 
 
 #### Rational pluralists {-}
 
-Another group of scholars sees organized interest groups and experts that can provide credible information. In this view, random or self-selecting members of the general public are not appropriate participants. "The goal of e-rulemaking is to more fully capture such credible, specific, and relevant information, not to solicit the views of random, self-nominating members of the public" (Herz 2016). Speaking on the topic of mass comment campaigns, Oliver Sherouse, a regulatory economist at the Small Business Administration, expressed the same sentiment: 
+Another group of scholars sees organized interest groups and experts that can provide credible information. In this view, random or self-selecting members of the general public are not appropriate participants. "The goal of e-rulemaking is to more fully capture such credible, specific, and relevant information, not to solicit the views of random, self-nominating members of the public" [Herz2016]. Speaking on the topic of mass comment campaigns, Oliver Sherouse, a regulatory economist at the Small Business Administration, expressed the same sentiment: 
 
 > "It's worth remembering why we have a public comment process in the first place, which is that the public has knowledge that regulators do not have and that they need to do their jobs well...how do the poor quality mass comments affect small businesses in the comment process? The most obvious problem would be if legitimate small business concerns are just lost in the flood." (GSA 2019a, p. 31-32)
 
 Sharehouse raised an additional concern that mass-comment campaigns might distract people from writing their own, more informative comments. While recognizing that "not everyone who does not sign onto that kind of [mass] comment would be willing to write a high-quality one," the tradeoff of a few "quality" comments for many "poor quality" comments is worthwhile. (GSA 2019a, p. 32)
 
+<!--
 However, Sherouse was also wary about dismissing mass comments. 
 > "A good point is not less of a good point because 10,000 people happen to agree with it." (GSA 2019a, p. 32)
-
+-->
 
 
 #### Skeptics {-}
@@ -124,19 +125,29 @@ A key feature of astroturf lobbying is its covert nature. On December 19, 1995, 
 
 ## Reforming the Policy Process {#policy}
 
+The theory and findings I have presented are most compatable with what I have called the "pluralist reformer" project. While the discursive ideals of "regulatory democracy" optomists and reformers may be possible (at least at a small scale), their goal of including the lay public in a more discursive policy process is very far from how I have shown civic particpation in burecratic policymaking currently occurs. The rational pluralist camp either ignores the value of what I call political information or dismisses it as a normative ill. 
+
+The "pluralist reformer" perspevie aligns with the theory and results presented in Chapter \@ref(whymail). The transparency reforms would clarify political information, making it more useful both to agencies and outside observers. However, reforms requiring groups to disclose information about their funding and membership only go part way to address groups' representational claims, which often extend well beyond their membership.
+
+
+<!--
 Each week, students in my public policy class must write to an elected official or comment on a proposed agency rule and then post about it in the class forum. 
-But college students should not be the target demographic for notice and comment rulemaking---they are too informed and have too much time to write thoughtful comments. If we wish to realize the ideals of the Administrative Procedure Act, we must broaden participation. Can we do this? Is it worthwhile? Many scholars assume not, but the data offer some hope. As I shown in Chapter \@ref(whymail), more participation generaly means a more diverse and public-spirited voices at the table. As I show in Chapter \@ref(ej), agencies respond when people raise new concerns, especially when a large number of people raise them. At the same time, there is little evidence that mobilizing more people has an impact on the outcome of particular policy fights. It is possble that narrow private interests are able to strenthen their case by showing evidence of broader public support. However the correlation between pressure campaings backing business interests and lobbying success could also simply be the result of public interest groups also mobilize on policy fights they are likely to loose. 
+But college students should not be the target demographic for notice and comment rulemaking---they are too informed and tend to have too much time to write thoughtful comments. 
+If we wish to realize the ideals of the Administrative Procedure Act, we must broaden participation. Can we do this? -->
+
+Is it possbible to broaden civic participation in bureaucratic policymaking?
+Is it worthwhile? Many assume not, but my anslysis offer some hope. As I shown in Chapter \@ref(whymail), more participation generaly means a more diverse and public-spirited voices at the table. As I show in \@ref(influence), more public participation is related to more oversight from members of Congress (in part becasue they recieve copies of public comments from their constituents). As I show in Chapter \@ref(ej), agencies respond when people raise new concerns, especially when a large number of people raise them. At the same time, there is little evidence that mobilizing more people has an impact on the outcomes of particular policy fights. The coalition with the most comments is not necessarily more likley to win. It is possble that narrow private interests are able to strenthen their case by showing evidence of broader public support. However the correlation between pressure campaings backing business interests and lobbying success could also simply be the result of public interest groups also mobilize on policy fights they are likely to loose. 
 
 
-Can the unwashed masses provide useful information to agencies? My answer is yes. Will this information be biased? Yes, but all information provided by lobbying groups has a bias, the task is to make biases transparent, and reforms could do this. 
+Can the masses provide useful information to policymakers? If the theory set out in this dissertation is correct, we can, but the extent to which U.S. federal agenices have the capacity to process and use this information is unclear. Will this information be biased? Yes, but all information provided by lobbying groups has a bias.
+Reforms could make biases more transparent and broaden the numbe
 
-1. First, we must dispense with the idea that agencies merely implement the law. The APA provides for public participation because the ideal of direct democracy might affect the important substantive policy made by agencies. Indeed, agencies are often seeking comment on revisions to rules based on authority delegated decades ago. Agency must make policy to satisfy its mandates. The present question is one of process. Calling for greater congressional oversight or presidential control sidesteps the issue--by what process should agencies make policy?  (Indeed, @Potter2019 shows us that agencies often sidestep oversight, making their procedural rules all the more important.)
+First, we must dispense with the idea that agencies merely implement the law. The Administrateve Proceedure Act provides for public participation because the ideal of direct democracy might affect the important substantive policy made by agencies. Indeed, agencies are often seeking comment on revisions to rules based on authority delegated decades ago. The present question is one of process. Calling for greater congressional oversight or presidential control sidesteps the issue---by what process should the bureaucracy make policy? <!-- (Indeed, @Potter2019 shows us that agencies often sidestep oversight, making their procedural rules all the more important.)-->
 
+Critics may argue that opening the door wider to petition campaigns lets in biases. Indeed we know that people who opt to participate are disproportionately privileged. In an unequal society, we have unequal participation, but higher barriers to entry only make this worse.  
 
+More challenging is the concern that narrow concentrated interests that typically dominates rulemaking will sponsor astroturf campaigns, thus creating a false impression of public support. This is a real concern. If dark money can secretly create impressions of support for a policy, the case for expanding participation is weaker. My analysis suggests that this is uncommon.
 
-2. Critics may argue that opening the door wider to petition campaigns lets in biases. Indeed we know that people who opt to participate are disproportionately privileged. In an unequal society, we have unequal participation, but higher barriers to entry only make this worse.  
-
-More problematic is the concern that a well-funded group that typically dominates rulemaking [@Yackee2006JOP] will sponsor astroturf campaigns, thus creating a false impression of public support. This is a real concern. If dark money can secretly drive impressions of support for a policy, the case for expanding participation is weaker. My analysis suggests that this is uncommon.
 <!--
 The fact that we do not observe it now does not mean it will not occur, but agencies could ... -->
 
