@@ -285,7 +285,10 @@ comments_coded %>%
          ) %>% 
   #mutate(org_type = str_remove(org_type, "-.*|;.*| .*")) %>%
   count(org_type,  sort =T) %>%# kablebox() 
-  filter(n > 1, org_type != "", !is.na(org_type)) %>% 
+  filter(n > 1, 
+         org_type != "", 
+         org_type != "Elected",
+         !is.na(org_type)) %>% 
   rename(`Elected Official Type` = org_type) %>%
   kable3(caption = "Comments from Elected Officials in the Hand-Coded Data")
 ```

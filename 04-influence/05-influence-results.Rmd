@@ -273,8 +273,7 @@ coalitions_coded %<>% mutate(coalition_size = coalition_size - coalition_congres
 mc1 <- fixest::feols(coalition_success ~ 
           campaign_*coalition_type + 
           log(coalition_size) +
-          Coalition_Position + 
-          coalition_unopposed 
+          Coalition_Position #+ coalition_unopposed 
           # Agency and president FE 
           | agency + president, 
           data = coalitions_coded %>% 
@@ -286,8 +285,7 @@ mc1 <- fixest::feols(coalition_success ~
 mc1_congress <- fixest::feols(coalition_success ~ 
           campaign_*coalition_type + 
           log(coalition_size) +
-          Coalition_Position + 
-          coalition_unopposed + 
+          Coalition_Position + #coalition_unopposed + 
             coalition_congress# Agency and president FE 
           | agency + president, 
                data = coalitions_coded%>% 
@@ -297,8 +295,7 @@ mc1_congress <- fixest::feols(coalition_success ~
 mc_congress_ols <- fixest::feols(coalition_congress +1 ~ 
           campaign_*coalition_type +
             log(coalition_size) +
-          Coalition_Position + 
-          coalition_unopposed# Agency and president FE 
+          Coalition_Position # +coalition_unopposed# Agency and president FE 
           | agency + president, 
                data = coalitions_coded%>% 
             filter(coalition_,
@@ -324,8 +321,7 @@ mc_congress_pois_dummy <- glm(coalition_congress + 1 ~
 mc_congress_pois <- feglm(coalition_congress + 1 ~ 
           campaign_*coalition_type + 
           log(coalition_size) +
-          Coalition_Position + 
-          coalition_unopposed
+          Coalition_Position #+ coalition_unopposed
           # Agency and president FE 
           | agency + president, 
                family = "poisson",
@@ -414,15 +410,13 @@ The outcome model results (the third column in Table \@ref(tab:mc-success)) are 
 model.m <- lm(coalition_congress ~ campaign_ + 
                 #comment_length + 
                 coalition_type +  
-                log(coalition_size) + 
-                coalition_unopposed, 
+                log(coalition_size),# + coalition_unopposed, 
               data = coalitions_coded %>% filter(coalition_, !is.na(coalition_success))) 
 
 model.m.pois <- glm(coalition_congress ~ campaign_ + 
                 #comment_length + 
                 coalition_type +  
-                log(coalition_size) + 
-                coalition_unopposed,
+                log(coalition_size),#  + coalition_unopposed,
                family = "poisson",
               data = coalitions_coded %>% filter(coalition_, !is.na(coalition_success))) 
 
@@ -432,11 +426,10 @@ model.y <- lm(coalition_success ~ campaign_ +
                 coalition_congress +
                   #comment_length + 
                 coalition_type +  
-                log(coalition_size) + 
-                coalition_unopposed, 
+                log(coalition_size),# + coalition_unopposed, 
               data = coalitions_coded %>% filter(coalition_)) 
 models <- list(model.m, model.y)
-# modelsummary(models)
+# modelsummary(models, stars = T)
 
 # Mediation 
 med.cont <- mediate(model.m, model.y,

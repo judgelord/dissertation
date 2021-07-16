@@ -450,11 +450,13 @@ org_comments %<>% mutate(org_name = organization %>%
                            str_squish() %>%
                            str_to_title() %>%
                            str_replace(".*Sierra.*", "Sierra Club")%>% 
-                           str_replace(".*Nrdc.*|Natural Resources Defense Council.*", "Natural Resources Defense Council")%>% 
+                           str_replace(".*Nrdc.*|Natural Resources Defense Council.*", "NRDC")%>% 
                            str_replace(".*Center For Biological Diversity.*|Cneter For Biological Diversity", "Center For Biological Diversity")%>% 
                            str_replace(".*World Wildlife Fund.*|.WWF", "World Wildlife Fund")%>%
                            str_replace(".*Greenpeace.*", "Greenpeace")%>%
-                           str_replace(".*Credo.*", "credo")%>%
+                           str_replace(".*Pew .*","Pew") %>% 
+                           str_replace(".*Audubon.*", "Audubon") %>% 
+                           str_replace(".*Credo.*", "Credo")%>%
                            str_replace(".*Defenders Of Wildlife.*", "Defenders Of Wildlife")%>%
                            str_replace(".*Friends Of The Earth.*", "Friends Of The Earth")%>%
                            str_replace(".*Earthjustice.*", "Earthjustice")%>%
@@ -505,7 +507,9 @@ org_comments_summary <- org_comments %>%
 nrow(org_comments_summary)
 org_comments_summary$comments %>% sum()
 
-org_comments_summary$org_name
+# org_comments_summary$org_name
+
+#org_comments_summary$org_name[1:20]
 
 org_comments_summary %>% 
   kablebox() 
@@ -671,12 +675,12 @@ annotate("text", x=4, y= 1.5, label=TeX("Comment asks for policy to move in the 
   #geom_point(x = 3, fill = "white", color = "white") + #, shape = 21) +
    #geom_point(x = 6, fill = "white", color = "white") + #, shape = 21) +
   # NA
-annotate("text", x=4, y= -.5, label=TeX("Comment asks for policy much closer to current policy, $x_1 > p_3 > x_2$:"), parse=TRUE) +
+annotate("text", x=4, y= -.5, label=TeX("Comment asks for policy much closer to current policy, $x_1 > p_i > x_2$:"), parse=TRUE) +
   geom_point(x = 2.5, y = -1, aes(color = label)) +
   geom_segment(aes(color = label), y = -1, yend = -1, x = 0, xend = 8, arrow = arrow(ends = "both", type = "closed", length = unit(0.1, "cm"))) +
    geom_line(aes(color = label), y = -1, yend = -1,) +
       # 3
-annotate("text", x=4, y= -1.5, label=TeX("Comment asks for policy slightly closer to current policy, $x_1 > p_3 > x_2$:"), parse=TRUE) +
+annotate("text", x=4, y= -1.5, label=TeX("Comment asks for policy slightly closer to current policy, $x_1 > p_i > x_2$:"), parse=TRUE) +
   geom_point(x = 3.5, y = -2, aes(color = label[4])) +
   geom_segment(aes(color = label), y = -2, yend = -2, x = 0, xend = 8, arrow = arrow(ends = "both", type = "closed", length = unit(0.1, "cm"))) +
    geom_line(aes(color = label), y = -2, yend = -2,) +
@@ -842,7 +846,7 @@ Public interest group coalitions mobilize *more successfully* than private inter
 > Yes, public interest coalitions mobilize far more comments and far more comments on average.
 
 ```{r campaign-type-scale, fig.height=1.7, fig.width=4}
-#campaign-type
+#campaign-type-scale
 
 coalitions_coded %>% 
   drop_na(coalition_type, Coalition_Position) %>% 

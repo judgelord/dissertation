@@ -27,7 +27,12 @@ Indeed, just 100 organizations mobilized over 80% of comments on proposed rules 
 load(here("data", "org_comments_summary.Rdata"))
 
 org_comments_summary %>% 
-  kable3(caption = "Organizations Mobilizing the Most Public Comments 2005-2020")
+  mutate(Organization = Organization %>% 
+           str_rpl("Natural Resources Defense Council", "NRDC") %>% 
+           str_rpl("World Wildlife Fund", "WWF") %>% 
+           str_rpl("Pew Charitable Trusts", "Pew")) %>% 
+  kable3(caption = "Organizations Mobilizing the Most Public Comments 2005-2020",
+         full_width = T)
 ```
 
 
@@ -81,7 +86,7 @@ coalitions_coded %>%
   rename(`Mass Comment Campaign` = `TRUE`,
          `No Mass Comment Campaign` = `FALSE`) %>%
     rename(`Coalition Type` = coalition_type) %>% 
-  kable3(caption = " ")
+  kable3(caption = "The Frequency of Mobilizing Pressure Campaigns by Coalition Type")
 ```
 
 Figure \@ref(fig:campaign-type-frequency) provides further evidence for Hypothesis \@ref(hyp:public), showing that, overall, public interest campaigns mobilized more often under both the Obama and Trump administrations. Public interest coalitions mobilized more campaigns both opposed and supporting policies of the Obama administration. However, public interest coalitions were more likely to support policies of the Obama administration and oppose policies of the Trump administration, whereas private interest group coalitions were more likely to support Trump-era policies. Figure \@ref(fig:campaign-type-frequency) shows the number of coalition-level campaigns (on the x-axis) organized by public and private coalitions under each administration. Many of these campaigns included hundreds of organizations. The color of the bars indicates whether the average hand-coded spatial position of each coalition's members indicated coalition-level support or opposition to the proposed rule on which they were commenting.
@@ -94,17 +99,17 @@ knitr::include_graphics(here::here("Figs", "campaign-type-frequency-1.png"))
 In line with Hypothesis \@ref(hyp:public-success), public interest mass comment campaigns, on average, garner a larger response. The average number of comments for a public interest campaign is `r x$mean[2] %>% round()`. In contrast, the average number of comments for a private interest campaign is `r x$mean[1] %>% round()`. On rules where both public and private interest coalitions ran campaigns, the average response to the public interest campaign was `r both$mean[2] %>% round()`. The private interest campaigns were only `r both$mean[1] %>% round()`.
 
 
-```{r coalition_type_totals}
+```{r coalition-type-totals}
 coalitions_coded %>% group_by(coalition_type) %>% 
   summarise(`Total Comments` = sum(coalition_comments),
             `Average Comments` = mean(comments) %>% round) %>% drop_na(coalition_type) %>%
   rename(`Coalition Type` = coalition_type) %>% 
-kable3(caption = " ")
+  kable3(caption = "The Scale of Public Pressure Campaigns by Coalition Type")
 ```
 
 Table \@ref(tab:coalition_type_totals) shows that public interest coalitions mobilized more comments per campaign and more total comments than private-interest coalitions in the hand-coded sample. This supports Hypothesis \@ref(hyp:public-success), which predicted that public interest coalitions would mobilize more people on average because they have more latent public support on which to draw. 
 
-Figure \@ref(fig:campaign-type-scale provides further evidence for Hypothesis \@ref(hyp:public-success), showing that, overall, public interest campaigns mobilized more comments under both the Obama and Trump administrations. Indeed public interest coalitions mobilized both more supportive comments and more opposing comments under both administrations. Figure \@ref(fig:campaign-type-scale) shows the number of comments in millions (on the x-axis) organized by public and private coalitions under each administration. The color of the bars indicates whether the average hand-coded spatial position of each coalition's members indicated coalition-level support or opposition to the proposed rule on which they were commenting.
+Figure \@ref(fig:campaign-type-scale) provides further evidence for Hypothesis \@ref(hyp:public-success), showing that, overall, public interest campaigns mobilized more comments under both the Obama and Trump administrations. Indeed public interest coalitions mobilized both more supportive comments and more opposing comments under both administrations. Figure \@ref(fig:campaign-type-scale) shows the number of comments in millions (on the x-axis) organized by public and private coalitions under each administration. The color of the bars indicates whether the average hand-coded spatial position of each coalition's members indicated coalition-level support or opposition to the proposed rule on which they were commenting.
 
 ```{r campaign-type-scale, out.width = "79%", fig.cap = 'Number of Comments Mobilized by Public and Private Coalitions in the Hand-Coded Sample of Proposed Rules Open for Comment on Regulations.gov, 2005-2020'}
 #FIXME just use mass and not-mass
@@ -164,7 +169,7 @@ clustered on a few rules made salient by these campaigns.
 Just ten rulemaking dockets account for `r percent(sum(topdockets$comments)/sum(rules$number_of_comments_received), accuracy = .01)` of comments (`r sum(topdockets$comments)`). Figure
 \@ref(fig:topdockets) shows these ten dockets and the share of comments from each of the top twenty mobilizing organizations (see the legend on the right). The first pane is mass comments (99 or more form letters or copied text). The vast majority of the total comments come from this category (notice the x-axis is scaled to each pane). Partially unique and small batches of form letters (less than 99) are a tiny fraction of the total and concentrated on a few rules where different audiences were engaged.  Because public pressure requires resources and capacity, policy issues of interest to organizations with the resources and capacity to launch a campaign receive disproportionate amounts of public attention.
 
-```{r topdockets, fig.width = 1, fig.cap = "Dockets Receiving the Most Comments on Regulations.gov and the top Mobilizing Organizations"}
+```{r topdockets, fig.width = 1, fig.cap = "Dockets Receiving the Most Comments on Regulations.gov and the top Mobilizing Organizations", out.width= "110%"}
 
 knitr::include_graphics(here::here("Figs", "topdockets.png"))
 ```
