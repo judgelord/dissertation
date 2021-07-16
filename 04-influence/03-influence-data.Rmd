@@ -107,11 +107,13 @@ comments_coded %>% ungroup() %>%
 orgs <- comments_coded %>% 
   filter(comment_type == "Org") %>% 
   distinct(org_name, docket_id, success, Position, coalition_size, coalition_comments, president, agency) %>% 
-  count(org_name, sort = T, name = "Rules Lobbied On") %>% 
-  filter(`Rules Lobbied On` >1, !is.na(org_name)) %>% 
+  count(org_name, sort = T, name = "Rules") %>% 
+  filter(Rules >1, !is.na(org_name)) %>% 
   rename(Organization = org_name)
 
-orgs %>% kable3(caption = "Organizations by Number of Rules on which they Commented")
+orgs %>%
+  rename(`Rules Lobbied On` = Rules) %>%
+  kable3(caption = "Organizations by Number of Rules on Which They Commented")
 ```
 
 

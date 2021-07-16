@@ -38,3 +38,23 @@ It was not the aim of dissertation to develop or test the implications of formal
 
 ```{r child = here::here("formal", "formal-why-comment.Rmd")}
 ```
+
+# Suplimentary Figures {#figures}
+
+As discussed in Chapter \@ref(whymail), the number of agency rules receiving large number of public comments has increased over time. Figure \@ref(fig:comments-per-year-app) breaks out the data presented in Figure \@ref(fig:comments-per-year-app) by year. Red numbers show the number of comments received by on the proposed rule with the most comments (the one furthest to the right) for each year. For refrence, 10 comments is also marked, showing that in every year from 2005 to 2020, the majority of proposed rules open for comment on regulations.gov recieved less than 10 comments. 
+
+```{r comments-per-year-app, fig.cap = "Number of Comments (log scale) per Proposed Rule 2005-2020", out.width = "100%", fig.show = "hold"}
+knitr::include_graphics(here::here("Figs", "comments-per-rule-2.png"))
+```
+
+---
+
+In line with findings from the hand-coded data presented Figure \@ref(fig:comments-support) in \@ref(why-results), a search for "Support" and "Oppose" in comment text (Figure\@ref(fig:comments-support-app)) shows a dramatic reversal in support and opposition with the change from the Obama administration to the Trump administration.Mentions of "support" or "oppose" may be a noisy signal--these words are not used in all comments
+and do not always indicate support for or opposition to a rule. Still, given the partisan asymmetry in the mobilizing groups, it is plausible that this pattern is a result of the
+changing regulatory agenda due to the change in the presidential
+administration. 
+
+```{r comments-support-app, out.width = "79%", fig.cap = 'Comments Containing ``Support" or ``Oppose" on Draft Rules Posted to Regulations.gov, 2006-2018'}
+#FIXME just use mass and not-mass
+knitr::include_graphics(here::here("Figs", "comments-mass-support-vs-oppose-1.png"))
+```

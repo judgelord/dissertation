@@ -32,7 +32,7 @@ org_comments_summary %>%
 
 
 Table \@ref(tab:toporgs) shows the top organizers of comments posted to regulations.gov.
-In line with Hypothesis \@ref(hyp:public), nearly all of these top mobilizing organizations lobby together in public interest coalitions, especially on environmental issues. These coalitions include organizations that engage in sophisticated lobbying. Indeed, many of the most prolific organizers of public pressure campaigns also engage in sophisticated lobbying themselves. Public pressure is a complement, not an alternative to sophisticated technical lobbying.  
+In line with Hypothesis \@ref(hyp:public), nearly all of these top mobilizing organizations lobby together in public interest coalitions, especially on environmental issues. These coalitions include organizations that engage in sophisticated lobbying. Indeed, many of the most prolific organizers of public pressure campaigns also engage in sophisticated lobbying themselves. Public pressure is a compliment, not an alternative to sophisticated technical lobbying.  
 
 The percent of rules on which each organization lobbies with a pressure campaign rather than without one (the "Percent" column in Table \@ref(tab:toporgs)) shows only a few organizations using pressure campaigns the majority of the time they lobby. Most lobbying organizations use pressure campaigns a small percentage of the time they lobby in rulemaking. The most extreme example is the American Petroleum Institute (API), which lobbied on hundreds of rules between 2005 and 2020, more than most of the other top mobilizing organizations. Yet it almost never uses public pressure campaigns (at least in its own name). While API does frequently sponsor astroturf campaigns, it does so relatively rarely. Almost all of these top mobilizing organizations usually rely on their legal and policy teams alone. The fact that so many of the top mobilizers are also highly sophisticated lobbying organizations like the Sierra Club and API lends support to my argument that public pressure campaigns are one tool that advocacy organizations may use in addition to more insider tactics. 
 
@@ -70,13 +70,50 @@ both <- filter(types, both) %>%
 ```
 
 
-In line with Hypothesis \@ref(hyp:public), `r percent_public` percent of public pressure campaigns are led by public interest coalitions, with only `r percent_private` led by private interest coalitions. 
+In line with Hypothesis \@ref(hyp:public), `r percent_public` percent of public pressure campaigns are led by public interest coalitions, with only `r percent_private` led by private interest coalitions. While public interest groups lobbied slightly more often in the sample selected for hand coding (because half the sample was weighted to capture rules that received more comments), private interest coalitions are more common in the broader sample.  In contrast, Table \@ref(tab:coalition-type-campaigns) shows that mass comment campaigns were twice as likely to be led by public interest groups. 
+
+
+```{r coalition-type-campaigns}
+coalitions_coded %>%
+  count(coalition_type, campaign_) %>% 
+  drop_na(coalition_type) %>%
+  pivot_wider(id_cols = coalition_type, names_from = campaign_, values_from = n) %>% 
+  rename(`Mass Comment Campaign` = `TRUE`,
+         `No Mass Comment Campaign` = `FALSE`) %>%
+    rename(`Coalition Type` = coalition_type) %>% 
+  kable3(caption = " ")
+```
+
+Figure \@ref(fig:campaign-type-frequency) provides further evidence for Hypothesis \@ref(hyp:public), showing that, overall, public interest campaigns mobilized more often under both the Obama and Trump administrations. Public interest coalitions mobilized more campaigns both opposed and supporting policies of the Obama administration. However, public interest coalitions were more likely to support policies of the Obama administration and oppose policies of the Trump administration, whereas private interest group coalitions were more likely to support Trump-era policies. Figure \@ref(fig:campaign-type-frequency) shows the number of coalition-level campaigns (on the x-axis) organized by public and private coalitions under each administration. Many of these campaigns included hundreds of organizations. The color of the bars indicates whether the average hand-coded spatial position of each coalition's members indicated coalition-level support or opposition to the proposed rule on which they were commenting.
+
+```{r campaign-type-frequency, out.width = "79%", fig.cap = 'Number of Comments Mobilized by Public and Private Coalitions in the Hand-Coded Sample of Proposed Rules Open for Comment on Regulations.gov, 2005-2020'}
+#FIXME just use mass and not-mass
+knitr::include_graphics(here::here("Figs", "campaign-type-frequency-1.png"))
+```
 
 In line with Hypothesis \@ref(hyp:public-success), public interest mass comment campaigns, on average, garner a larger response. The average number of comments for a public interest campaign is `r x$mean[2] %>% round()`. In contrast, the average number of comments for a private interest campaign is `r x$mean[1] %>% round()`. On rules where both public and private interest coalitions ran campaigns, the average response to the public interest campaign was `r both$mean[2] %>% round()`. The private interest campaigns were only `r both$mean[1] %>% round()`.
 
 
+```{r coalition_type_totals}
+coalitions_coded %>% group_by(coalition_type) %>% 
+  summarise(`Total Comments` = sum(coalition_comments),
+            `Average Comments` = mean(comments) %>% round) %>% drop_na(coalition_type) %>%
+  rename(`Coalition Type` = coalition_type) %>% 
+kable3(caption = " ")
+```
 
-In line with Hypothesis \@ref(hyp:resources), large national policy advocacy organizations are responsible for most pressure campaigns targeting national policy. These organizations have the incentive as well as the resources and organizational capacity to launch campaigns.
+Table \@ref(tab:coalition_type_totals) shows that public interest coalitions mobilized more comments per campaign and more total comments than private-interest coalitions in the hand-coded sample. This supports Hypothesis \@ref(hyp:public-success), which predicted that public interest coalitions would mobilize more people on average because they have more latent public support on which to draw. 
+
+Figure \@ref(fig:campaign-type-scale provides further evidence for Hypothesis \@ref(hyp:public-success), showing that, overall, public interest campaigns mobilized more comments under both the Obama and Trump administrations. Indeed public interest coalitions mobilized both more supportive comments and more opposing comments under both administrations. Figure \@ref(fig:campaign-type-scale) shows the number of comments in millions (on the x-axis) organized by public and private coalitions under each administration. The color of the bars indicates whether the average hand-coded spatial position of each coalition's members indicated coalition-level support or opposition to the proposed rule on which they were commenting.
+
+```{r campaign-type-scale, out.width = "79%", fig.cap = 'Number of Comments Mobilized by Public and Private Coalitions in the Hand-Coded Sample of Proposed Rules Open for Comment on Regulations.gov, 2005-2020'}
+#FIXME just use mass and not-mass
+knitr::include_graphics(here::here("Figs", "campaign-type-scale-1.png"))
+```
+
+
+
+Hypothesis \@ref(hyp:resources) predicts that large national policy advocacy organizations are responsible for most pressure campaigns targeting national policy. These organizations have the incentive as well as the resources and organizational capacity to launch campaigns. 
 
 <!--concluding paragraph where you summarize how your results matched up with your hypotheses. -->
 
@@ -136,20 +173,18 @@ knitr::include_graphics(here::here("Figs", "topdockets.png"))
 
 ### Partisan Asymmetry 
 
-Of the top 100 mobilizing organizations, 97 lobby in public interest coalitions. Only one of these organizations, the National Association for Gun Rights, is aligned with the political right.
+Of the top 100 mobilizing organizations, 87 lobby in public interest coalitions. Only one of these organizations, the National Association for Gun Rights, is a public interest group aligned with the political right. The other twelve top mobilizers are industry associations like the Consumer Energy Alliance (electric utilities) and the American Petroleum Institute (oil and gas companies).
 
-<!--MOVE TO DISCUSSION OR APPENDIX?-->
 
 Figure
-\@ref(fig:comments-support) shows that many more comments mention support, until 2018 when there is
-a fairly dramatic reversal in the share of comments mentioning "support" compared to those mentioning "oppose."  Whether the comment text includes "support" or "oppose" is a noisy signal. These words are not used in all comments
-and do not always indicate support for or opposition to a rule. Still, given the partisan asymmetry in the mobilizing groups, it is plausible that this pattern is a result of the
+\@ref(fig:comments-support) shows that many more comments in the hand-coded sample until 2016 when there is
+a fairly dramatic reversal in the share of comments supporting and opposing proposed rules. While President Obama was still in office in 2016, the broader trend is almost certainly due to the biases in the groups that organize pressure campaigns. Appendix \@ref(figures) includes an alternative version of this figure base on the full sample, machine coded by whether a comment text includes the words "support" or "oppose." This alternative analysis shows a similarly dramatic shift but in 2018. Comments during the Obama administration were more likely to mention "support," whereas comments during the Trump administration were more likely to mention "oppose." This alternative measure validates the pattern we see in the hand-coded comments is a result of the interaction between the biases of mobilizing groups and the
 changing regulatory agenda due to the change in the presidential
 administration. 
 
-```{r comments-support, out.width = "79%", fig.cap = 'Comments Containing ``Support" or ``Oppose" on Draft Rules Posted to Regulations.gov, 2006-2018'}
+```{r comments-support, out.width = "79%", fig.cap = 'Hand Coded Comments Supporting and Opposing Draft Rules Posted to Regulations.gov, 2005-2020'}
 #FIXME just use mass and not-mass
-knitr::include_graphics(here::here("Figs", "comments-mass-support-vs-oppose-1.png"))
+knitr::include_graphics(here::here("Figs", "support-1.png"))
 ```
 
 <!-- (see figures
@@ -169,7 +204,12 @@ type of information. Because nearly all public participation in agency rulemakin
 The political information generated by public pressure campaigns is not a substitute for sophisticated technical information; public pressure campaigns almost always explicitly support a more sophisticated lobbying effort. Coalitions that sponsor pressure campaigns almost always include sophisticated policy lobbying efforts. Moreover, almost all of the organizations that mobilize the most public comments also pursue inside lobbying strategies. Indeed, most of these organizations use pressure campaigns fairly rarely. 
 
 <!--hyp:public hyp:public-success-->
-A few public interest organizations mobilize the vast majority of civic engagement in bureaucratic policymaking. Few campaigns push for narrow private interests. Even fewer are astroturf campaigns, which are often anonymous, making it more difficult for them to support lobbying efforts. Compared to the usual suspects found in lobbying, especially in rulemaking, both the participants and organizations that mobilized them represent broader segments of the public. However, astroturf campaigns are most likely to occur precisely when public pressure is most decisive, so they may still present a normative concern.
+A few public interest organizations mobilize the vast majority of civic engagement in bureaucratic policymaking. Relatively few campaigns push for narrow private interests. Even fewer are astroturf campaigns, which are often anonymous, making it more difficult for them to support lobbying efforts.  
+
+
+
+Compared to the usual suspects found in lobbying, especially in rulemaking, both the participants and organizations that mobilized them represent broader segments of the public. However, astroturf campaigns are most likely to occur precisely when public pressure is most decisive, so they may still present a normative concern.
+
 
 <!--hyp:disrupt-->
 When private interest coalitions use public pressure tactics, it is almost always in response to a much larger effort by public interest groups. They are never unopposed. I argue that this is because narrow private interests do not generally have incentives to expand the scope of conflict; their campaigns merely aim to disrupt any potential perceptions of a public consensus. In contrast, public interest group campaigns often go unopposed. I argue that this is because public interest groups often have incentives to mobilize supporters, even when their opponents do not.
@@ -179,14 +219,15 @@ Because public pressure campaigns require resources and specialized capacities, 
 
 Public pressure campaigns targeting the bureaucracy are primarily a tool used by left-aligned lobbying coalitions. The constituencies utilizing public pressure do not alternate under different presidents, as some theories would predict. Instead, organizations with the capacity to mobilize public pressure do so under both Democrat and Republican administrations, generally supporting the policies of the former and opposing the policies of the latter. 
 
+
 In the end, public participation in bureaucratic policymaking is better explained by theories of democratic politics that focus on the dynamics of public conflicts than theories of bureaucratic policymaking that focus on technical information and expertise. Hope remains that public commenters may advance normative values that depend on diversifying voices in the policy process, resisting concentrated interests, and providing new information to policymakers. 
 
 More research is required. Specifically, we need to know the extent to which campaigns aim to influence policy or build organizational capacity (e.g., by recruiting members) for future policy fights. The extent to which campaigns aim to affect policy determines the likely effects of any particular campaign and campaigns in general. In short, it matters whether campaigns affect policy. 
 
 The distinction between public interest groups and businesses or private interest groups is a coarse distinction. While we can confidently say that pressure campaigns shift participation decisions away from business interests, more research is needed on the groups that dominate high-salience rules. How does this particular subset of public interest groups represent the public?
 
-One way to study the relationship between public interest group lobbying and the broader public would be to identify nationally representative surveys that best align with particular policy debates. For example @Yackee2019 discusses a Pew Poll that found that Republicans and Democrats become more sympathetic to regulations when asked about more specific policies. Such evidence may allow us to test whether these particular public interest groups actually represent broader constituencies than the private interest groups they lobby against. 
+One way to study the relationship between public interest group lobbying and the broader public would be to identify nationally representative surveys that best align with particular policy debates. For example, @Yackee2019 discusses a Pew Poll that found that Republicans and Democrats become more sympathetic to regulations when asked about more specific policies. Such evidence may allow us to test whether these particular public interest groups actually represent broader constituencies than the private interest groups they lobby against. 
 
 If resources shape who is able to mobilize and thus which subset of policies receive public attention, more research on resources requirements for organizing public pressure may help explain why some policies get more public attention than others.  What exactly are the organizational capacities that allow organizations to pursue mass mobilizing? Answering this question may involve interviews with mobilizing groups and other seemingly similar groups that do not use this tactic.
 
-Finally, because public participation is mediated through organizations, the normative value of public participation depends on how well these organizations represent the constituents they claim to represent. Future research should explore how well the claims that groups make match the support they are able to demonstrate through public pressure campaigns. For example, while mass comments show that people can be mobilized to support the cause, people may be misinformed about the policy (e.g.,the payday loan customer who thinks fees are too high but is persuaded to comment in opposition to a regulation on fees. It may also be that commenters are not who they say they are. For example, national audiences may be mobilized to sign a form letter which implies that they  represent a specifically affected area.  
+Finally, because public participation is mediated through organizations, the normative value of public participation depends on how well these organizations represent the constituents they claim to represent. Future research should explore how well the claims that groups make match the support they are able to demonstrate through public pressure campaigns. For example, while mass comments show that people can be mobilized to support the cause, people may be misinformed about the policy (e.g., the payday loan customer who thinks fees are too high but is persuaded to comment in opposition to regulations on fees. It may also be that commenters are not who they say they are. For example, national audiences may be mobilized to sign a form letter that implies that they represent a specific affected area.  

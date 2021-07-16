@@ -290,7 +290,7 @@ d %>%
   labs(y = "Number of Proposed Rules", 
        x = "",
        caption = "") + 
-  facet_grid(. ~ campaign, scale = "free_y") +
+  facet_wrap("campaign", scale = "free_y") +
   scale_x_continuous(breaks = seq(2006, 2020, by = 2)) +
   theme(axis.text.x = element_text(angle = 45,
                                    hjust = 1)) +
@@ -299,8 +299,101 @@ d %>%
 
 #### Comments per rule
 
-```{r}
-n <- d %>% ungroup() %>%  filter(open) %>% count(number_of_comments_received, sort = T)
+```{r comments-per-rule, fig.width=4.5, fig.height=3.5}
+# comments per docket 
+n <- d %>% ungroup() %>%  filter(open) %>% count(docket_comments, sort = T)
+
+# proposed rules
+pr <- d %>% 
+  ungroup() %>%  
+  filter(open, document_type == "Proposed Rule") %>% 
+  distinct(docket_id, docket_comments, year, sort = T) %>% 
+  arrange(docket_comments) %>% 
+  mutate(x = as_factor(docket_id) %>% as.numeric(),
+         ten = docket_comments %in% c(10),
+         max = docket_comments == max(docket_comments)) 
+
+# plot by number of comments 
+p <- pr %>% 
+  ggplot() +
+  aes(x = x, 
+      color = max | ten,
+      y = docket_comments  + 1, 
+      label = ifelse(max|ten, 
+                     docket_id %>% str_c("\n (", pretty_num(docket_comments), " comments)"), 
+                     NA)) +
+  geom_point()+
+  theme_minimal() + 
+  theme(#axis.text.x = element_blank(),
+        #panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        legend.position = "none") +
+  scale_color_manual(values=c("black","red"), 
+                     na.value= NA)  +
+  scale_y_log10(labels = comma) +
+  labs(x = "Proposed Rules\n(Arranged by Number of Comments",
+       y = "Comments Received")  
+  
+#1 overall
+p +  geom_col(alpha = .02, position = "identity", 
+           aes(color = ifelse(max | ten, max | ten, NA)))+#, color = "grey") +  +
+  geom_text(hjust = 1.1,vjust = 0,check_overlap = T, size = 3)  +
+    expand_limits(x = c(-100, nrow(pr)), 
+                  y = c(10000000))
+
+#2 by year 
+pr %>% 
+  ungroup() %>% 
+  group_by(year) %>%
+  mutate(x = row_number(),
+         max = docket_comments == max(docket_comments)) %>%
+  ggplot() +
+  aes(x = x, 
+      color = max | ten,
+      y = docket_comments  + 1, 
+      label = ifelse(max|ten, 
+                      pretty_num(docket_comments), 
+                     NA)) +
+  geom_point()+
+  geom_text(hjust = 1,vjust = 0,check_overlap = T, size =2)  +
+  geom_col(alpha = .02, position = "identity", 
+           aes(color = ifelse(max | ten, max | ten, NA)))+
+  theme_minimal() + 
+  theme(#axis.text.x = element_blank(),
+        #panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        legend.position = "none") +
+  scale_color_manual(values=c("black","red"), 
+                     na.value= NA)  +
+  scale_y_log10(labels = comma) +
+  labs(x = "Proposed Rules\n(Arranged by Number of Comments",
+       y = "Comments Received")   + 
+  facet_wrap("year")+
+    expand_limits(y = c(10000000),
+                  x = c(-1000, 120)) +
+  scale_x_continuous(breaks = c(1000))
+
+#3 plot by year 
+pr %>% 
+  ggplot() +
+  aes(x = year, 
+      color = max,
+      y = docket_comments,
+      label = ifelse(max, 
+                     docket_id %>% str_c("\n (", docket_comments, " comments)"), 
+                     NA)) +
+  geom_jitter(alpha = .5) +
+  #geom_smooth() + 
+  theme_minimal() + 
+  theme(legend.position = "none") +
+  scale_color_manual(values=c("black","red")) + 
+  scale_y_log10(labels = comma) +
+  labs(x = "",
+       y = "Comments Received") + 
+    expand_limits(y = c(0, 10000000)) +
+  scale_x_continuous(breaks = seq(2006, 2020, by = 1)) +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1)) +   geom_text(hjust = 1.05, check_overlap = T, size = 3) 
 ```
 
 
@@ -315,7 +408,7 @@ knitr::include_graphics(here::here("Figs", "major-comments-density-1.png"))
 ```
 
 
-```{r comments-per-rule}
+```{r comments-per-year}
 d %>% 
   group_by(year) %>% 
   summarise(n = sum(number_of_comments_received)) %>%
@@ -427,7 +520,7 @@ org_comments_summary %<>%
          `Percent (Campaigns/Rules)` = percent, 
          Average = average)
 
-save(org_comments_summary, file =  here::here("data", "org_comments_summary.Rdata"))
+# save(org_comments_summary, file =  here::here("data", "org_comments_summary.Rdata"))
 ```
 
 ##### The American Petroleum Institute
@@ -706,11 +799,36 @@ Public interest group coalitions mobilize *more often* than private interest gro
 
 > Yes, public interest coalitions use public pressure campaigns more often, both in the absolute number of campaigns and the share of lobbying efforts that involve a pressure campaign.
 
-```{r}
+```{r campaign-type-frequency, fig.height=1.7, fig.width=4}
+#campaign-type (inspired by potter)
+
+coalitions_coded %>% 
+  drop_na(coalition_type, Coalition_Position) %>% 
+  filter(president != "Bush") %>% 
+  mutate(epa = ifelse(agency == "EPA", "EPA", "All Other Agencies")) %>% 
+  count(coalition_type, Coalition_Position, president) %>% 
+  ggplot() +
+  aes(y = n, 
+      x = coalition_type, 
+      fill = Coalition_Position) + 
+  geom_col(position = "dodge") + 
+  coord_flip() + 
+  labs(x = "Coalition Type",
+       y = "Number of Coalitions") + 
+  scale_y_continuous(labels = comma) + 
+  facet_wrap("president") + 
+  theme_minimal() + 
+  theme(axis.text.x = element_text(angle = 45))
+```
+
+```{r coalition-type-campaigns}
 coalitions_coded %>%
-  mutate(mass_comment_campaign = coalition_comments > 99) %>% 
-  count(coalition_type, mass_comment_campaign) %>% 
+  count(coalition_type, campaign_) %>% 
   drop_na(coalition_type) %>%
+  pivot_wider(id_cols = coalition_type, names_from = campaign_, values_from = n) %>% 
+  rename(`Mass Comment Campaign` = `TRUE`,
+         `No Mass Comment Campaign` = `FALSE`) %>%
+    rename(`Coalition Type` = coalition_type) %>% 
   kable3(caption = " ")
 ```
 
@@ -723,10 +841,33 @@ Public interest group coalitions mobilize *more successfully* than private inter
 
 > Yes, public interest coalitions mobilize far more comments and far more comments on average.
 
-```{r}
+```{r campaign-type-scale, fig.height=1.7, fig.width=4}
+#campaign-type
+
+coalitions_coded %>% 
+  drop_na(coalition_type, Coalition_Position) %>% 
+  filter(president != "Bush") %>% 
+  mutate(epa = ifelse(agency == "EPA", "EPA", "All Other Agencies")) %>% 
+  ggplot() +
+  aes(y = coalition_comments/1000000, 
+      x = coalition_type, 
+      fill = Coalition_Position) + 
+  geom_col(position = "dodge") + 
+  coord_flip() + 
+  labs(x = "Coalition Type",
+       y = "Number of Comments (Millions)") + 
+  scale_y_continuous(labels = comma) + 
+  facet_wrap("president") + 
+  theme_minimal() + 
+  theme(axis.text.x = element_text(angle = 45))
+```
+
+```{r coalition_type_totals}
 coalitions_coded %>% group_by(coalition_type) %>% 
-  summarise(total_comments = sum(coalition_comments),
-            average_comments = mean(comments)) %>% drop_na(coalition_type) %>% kable3(caption = " ")
+  summarise(`Total Comments` = sum(coalition_comments),
+            `Average Comments` = mean(comments) %>% round) %>% drop_na(coalition_type) %>%
+  rename(`Coalition Type` = coalition_type) %>% 
+kable3(caption = " ")
 ```
 
 ---
@@ -751,3 +892,41 @@ coalitions_coded %>%
 ```
 
 
+## Partisanship 
+
+
+```{r support, fig.height=2.1, fig.width=4.3}
+# support
+p <- comments_coded %>% 
+  drop_na(Position) %>% 
+  mutate(year = date %>% 
+           str_sub(1,4) %>% 
+           as.numeric() ) %>% 
+  mutate(president2 = case_when(
+    year < 2013 ~ "Obama 1",
+    year >2012 & year < 2017 ~ "Obama 2", year > 2016 ~ "Trump"
+  )) %>% 
+  group_by(year, Position, president2) %>% 
+  summarise(comments = sum(comments)) %>% 
+  filter(president2 != "Bush",
+         year > 2008, year < 2021) %>%
+  ggplot() +
+  aes(x = year, 
+      y = comments,
+      fill = Position) + 
+  theme_minimal() + 
+  geom_col(position = "dodge")  + 
+  scale_x_continuous(breaks = seq(2010, 2020, by = 1)) +
+  scale_y_continuous(labels = comma) + 
+  theme(panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        axis.text.x = element_text(angle = 45,
+                                   hjust = 1)) + 
+    labs(x = "", 
+         y = "Comments per Year",
+         fill = "")
+
+p + facet_wrap("president2", scales = "free_x")
+
+p 
+```

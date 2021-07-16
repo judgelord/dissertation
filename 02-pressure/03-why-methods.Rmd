@@ -52,12 +52,12 @@ d %>%
     arrange(-docket_comments) %>% 
     head(10) %>%
   # trim docket title 
-    #mutate(docket_title = docket_title %>% str_sub(0,50)) %>%
-    mutate(docket_title = ifelse(nchar(docket_title) == 50, str_c(docket_title, "..."), docket_title) ) %>%
+    mutate(docket_title = docket_title %>% str_sub(0,150)) %>%
+    mutate(docket_title = ifelse(nchar(docket_title) == 150, str_c(docket_title, "..."), docket_title) ) %>%
   mutate(docket_comments = docket_comments %>%  pretty_num() ) %>%
   rename(`Docket ID` = docket_id,
          `Docket Title` = docket_title,
-          Comments = docket_comments) %>%
+          `Total Comments` = docket_comments) %>%
     kable3(caption = "Rulemaking Dockets by Number of Comments on regulations.gov, 2005-2020",
          full_width = T,
          font_size = 10)
@@ -76,13 +76,22 @@ include_graphics(here("figs", "rules-by-campaign-1.png"))
 ```
 
 
-Figure \@ref(fig:comments-per-year) also shows a massive increase in the number of rules receiving a large number of comments from 2005 to 2020. Note that comments per rule (the y-axis) are on a
-logarithmic scale. Increasingly, a large number of people are
-engaging in agency policymaking.
+Figure \@ref(fig:comments-per-year) shows the total number of public comments recieved per rule from 2005-2020.
+Figure \@ref(fig:comments-per-year) also shows an increase in the number of rules receiving a large number of comments from 2005 to 2020. Note that comments per rule (the y-axis) are on a
+logarithmic scale in order to see this varition. While most rules recieve, few comments, there is a steep rise in the number of rules recieving over a thousand and over 100 thousand public comments from 2005 to the mid 2010's when the Obama EPA's Clean Power Plan (the adminisrtation's landmark climate change inaitive, rulemaking docket EPA-HQ-OAR-2013-0602) recieved over 4 million comments. Each year since then, hundreds of rules recieve over 1000 comments and dozesn recieve over 100 thousand comments. While there is not a steep rise in the average number of comments per rule, which is consistantly around 10, there are more people involved in more policy processes. 
+Ocassionally, a large number of people are
+engaging in agency policymaking. It is not a coincidence that more people are engaging in a select set of policies at the same that more agency rules (though still a small portion) are targeted by pressure campaigns.
 
-```{r comments-per-year, fig.cap = "Number of Comments (log scale) per Proposed Rule 2005-2020", out.width = "55%", fig.show = "hold"}
-# TODO alpha = .5, shape = "-", facet_wrap("president")
-knitr::include_graphics(here::here("Figs", "rules-comments-per-year-1.png"))
+```{r comments-per-year, fig.cap = "Number of Comments (log scale) per Proposed Rule 2005-2020", out.width = "90%", fig.show = "hold"}
+knitr::include_graphics(here::here("Figs", "comments-per-rule-3.png"))
+```
+
+Figure \@ref(fig:comments-per-year) clearly shows the inequality in public participation in across rulemakings. Of over 25 thousand proposed rules open for comment on regulations.gov between 2005 and 2020, Figure \@ref(fig:comments-per-year) shows that over a third of them recieved no comments. These rules appear as a long line of points at the bottom of the plot. Approximately another third recieved 10 or fewer comments, including the U.S. Department of Agriculture's Agriculture Managmnet Services rule regulation the labeling of honey (AMS-FV-07-0008). As in Figure \@ref(fig:comments-per-year), I also labeled the Clean Power Plan rule. 
+A version of Figure \@ref(fig:comments-per-year) split out by year is available in the appendix (Figure \@ref(fig:comments-per-year-app)).
+
+```{r comments-per-rule, fig.cap = "Number of Comments (log scale) per Proposed Rule 2005-2020", out.width = "90%", fig.show = "hold"}
+knitr::include_graphics(here::here("Figs", "comments-per-rule-1.png"))
+
 ```
 
 

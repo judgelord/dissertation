@@ -1,44 +1,40 @@
 ## Introduction
 
-There is little overlap between scholarship on interest group influence in bureaucratic policymaking and scholarship on mass public pressure campaigns. Studies and models of interest group lobbying in the bureaucracy rarely include public pressure as a lobbying tactic [see @Yackee2019 for a recent review].  
-Conversely, studies of organized public pressure and contentious politics rarely include specific policy outcomes as their dependent variable [@Burnstein2019]. When they do, they tend to focus on landmark legislation [e.g., @Gillion2013] or a few illustrative cases [@Mansbridge1992; @Rochon1993; @Yackee2009PSJ].
+There is little overlap between scholarship on interest group influence in bureaucratic policymaking and scholarship on advocacy group's public pressure campaigns. Studies and models of interest group lobbying in the bureaucracy rarely include public pressure as a lobbying tactic [see @Yackee2019 for a recent review].  
+Conversely, studies of organized public pressure and contentious politics rarely include specific policy outcomes as their dependent variable [@Andrews2004; @Burnstein2019]. When they do, they tend to focus on landmark legislation [e.g., @Gillion2013] or a few illustrative cases [@Mansbridge1992; @Rochon1993; @Yackee2009PSJ].
 
 It is plausible that thousands of people engaging
 may alter the politics of bureaucratic policymaking [@Coglianese2001], but this hypothesis
-remains largely untested. The limited prior work on public participation in bureaucratic policymaking has focused more on the quality than the impact of public input. Studies on small samples of policies offer suggestive evidence that large-scale public participation may prolong the policy process [@Shapiro2008] but that form letters are less influential than sophisticated comments [@Balla2020].
+remains largely untested. The limited prior work on public participation in bureaucratic policymaking has focused more on the quality than the impact of public input. Studies on small samples of policies suggest that large-scale public participation may prolong the policy process [@Shapiro2008]. Larger studies suggest that form letters are less influential than sophisticated comments [@Balla2020]. Scholars have yet to test whether the scale of public pressure supporting a coalition increases coalition-level lobbying success.
 
 <!--To address this gap, -->
 To address this gap, <!--I assess the relationship between the number of
 public comments and the amount of change between draft and final policy
 texts. Next, -->
 I assess the relationship between the number of people
-mobilized by each campaign and whether the campaign achieved its policy
-goals. To do so, I argue that the unit of analysis must be the lobbying coalition. Rather than *comparing* the quality and impact of form letters to technical comments written by lawyers, I argue that we must *attribute* both to the broader lobbying efforts they support. Lobbying, I argue, is about both the technical details and politics. Technical information and political information may both affect policy.
+mobilized by public pressure campaigns and whether the coalition sponsoring each campaign achieved its policy
+goals. Building on the theory of the role of public pressure in bureaucratic policymaking outlined in Chapter \@ref(whymail), I argue that the unit of analysis must be the lobbying coalition, not individual comments and form letters. Rather than *comparing* the quality and impact of form letters to technical comments written by lawyers, I argue that we must *attribute* both to the broader lobbying efforts they support. Lobbying, I argue, is about both the technical details of policy and politics. In theory, technical information and political information may both affect policy. 
 
-I theorize and test several mechanisms by which public
-input may affect bureaucratic policymaking. Each mechanism involves a
-distinct type of information that pressure campaigns may relay to
-policymakers: technical information, information about the likelihood of
-political consequences, information about the preferences of elected
-officials, or information about the preferences of the attentive public.
 Because scholarship on bureaucratic policymaking has focused on the
-power of technical information, where insider lobbying is most likely to
+power of technical information  [see @Wagner2010; @Yackee2019 for a review], where insider lobbying is most likely to
 matter and where outside strategies are least likely to matter,
 political scientists have largely overlooked public pressure campaigns as a lobbying
-tactic.
-<!--
+tactic. To date, there has been much less theorizing about the power of political information in bureaucratic policymaking.
+In this chapter, I theorize and test several mechanisms by which public
+input may affect bureaucratic policymaking. Each mechanism involves a
+distinct type of information that pressure campaigns may relay to
+Policymakers. 
 
+<!--
 > TODO Review theory section.
 
-
-Public engagement in rulemaking is highly
-clustered on a few rules made salient by public pressure campaigns. 
 
 <!-- Why Public Pressure May NOT Affect Agency Decisions
 
 Responding to public pressure campaigns, agency officials often reject the notion that public pressure should inform their decisions.
 
-<!-- Why Public Pressure May Affect Agency Decisions-->
+<!-- Why Public Pressure May Affect Agency Decisions
+-->
 
 To test whether public pressure campaigns increase lobbying success in agency rulemaking, I use a mix of hand-coding and computational text analysis methods. I develop computational methods to identify lobbying coalitions and hand-code a random sample of rules for whether each coalition got the policy outcome they sought. I then assess potential mechanisms by which mass public engagement may affect policy. 
 Of primary interest is the extent to which public pressure campaigns affect agency decisionmakers directly or indirectly through their effects on elected officials' oversight behaviors. 
@@ -47,7 +43,7 @@ I test whether legislators are more likely to engage in rulemaking when advocacy
 
 I find little evidence that public pressure campaigns increase lobbying success. Lobbying coalitions are more successful when they mobilize more members of Congress, but legislators disproportionately align with private interest (e.g., business-led) coalitions, not the public interest coalitions that run most public pressure campaigns. 
 
-Following this introduction, Section \@ref(influence-theory) reviews past work and builds a theory of how public pressure may affect policy outcomes. Section \@ref(influence-data) introduces a novel dataset developed through an iterative process of computational methods and hand-coding. Section \@ref(influence-methods) develops models that use these data to assess the relationship between public pressure, both directly and indirectly, through mobilizing elected officials. Section \@ref(influence-results) presents the results and Section \@ref(influence-conclusion) concludes. 
+Following this introduction, Section \@ref(influence-theory) reviews past work and builds a theory of how public pressure may affect policy outcomes. Section \@ref(influence-data) introduces a novel dataset developed through an iterative process of computational methods and hand-coding. Section \@ref(influence-methods) develops models that use these data to assess the relationship between public pressure, both directly and indirectly, through mobilizing elected officials. Section \@ref(influence-results) presents the results and Section \@ref(influence-conclusion) concludes the chapter. 
 
 
 
