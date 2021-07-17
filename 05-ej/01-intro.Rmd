@@ -19,8 +19,9 @@ Examining all rules published by 40 agencies to regulations.gov between 1993 and
 The correlation between EJ activist mobilization and policy changes is largest for agencies with missions focused on "environmental" and distributive policy---the kinds of policymakers we may expect to have institutional and cognitive processes primed to be most responsive to EJ concerns.
 
 
-## Theory {#ej-theory}
+## Theory: Distributive Justice Claims as Policy-relevant Information  {#ej-theory}
 
+<!--
 Participatory processes like public comment periods, where policymakers must solicit public input on draft policies, are said to provide democratic legitimacy [@Croley2003; @Rosenbloom2003], new technical information [@Yackee2006JPART; @Nelson2012], and political oversight opportunities [@Balla1998; @McCubbins1984]. While recent scholarship on agency policymaking has shed light on sophisticated lobbying by businesses, we know surprisingly little about the vast majority of public comments on proposed agency rules, which are submitted as part of public pressure campaigns.^[
     As shown in \@ref(why-results), most comments submitted to
     regulations.gov are part of organized campaigns, more akin to petition signatures than "deliberative" participation or sophisticated lobbying. Indeed, approximately 40 million out of
@@ -31,6 +32,8 @@ and mobilizing people to attend hearings, all classic examples of "civic engagem
 While practitioners and administrative law scholars have long pondered
 what to make of activists' mass comment campaigns, political scientists have had
 surprisingly little to say about this kind of civic participation. 
+
+-->
 
 ### Social Movements and Policy Change
 

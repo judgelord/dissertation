@@ -346,14 +346,17 @@ d %<>%
   # docket level summary 
   mutate(coalitions = unique(coalition_comment) %>% length(),
          coalition_unopposed = abs(max(position, na.rm = T)-min(position,na.rm = T)) < 2,
-         comments = number_of_comments_received %>% replace_na(1), #FIXME
-         congress = str_dct(org_type, "congress|house|senate") & comment_type == "elected") %>% 
+         comments = number_of_comments_received %>% replace_na(1), #FIXME should be fixed 
+         congress = str_dct(org_type, "congress|house|senate") & str_dct(comment_type, "elected")) %>% 
   mutate(org_type = ifelse(congress, str_replace_all(org_type, ";", ";;;;"), org_type)) %>%
   mutate(org_type = str_split(org_type, ";;;;")) %>% 
   unnest(org_type) %>% 
   group_by(docket_id, coalition_comment) #TODO all coalition vars here 
   
 sum(is.na(d$coalition_type))
+
+# MOCs
+comments_coded$congress %>% sum()
 
 #FIXME just to make sure we are not dropping obs due to this reasonable assumption
 d$congress %<>% replace_na(FALSE)
@@ -530,7 +533,7 @@ comments_coded %>%
   count(docket_id, org_type, comment_type, source, sort =T) %>% 
   drop_na(org_type) %>% 
   filter(comment_type != "elected",
-         !str_detect(org_type, str_c("ngo", "astroturf", "corp", "corp group", "gov", 
+         !str_dct(org_type, str_c("ngo", "astroturf", "corp", "corp group", "gov", 
                                      "elected", "mass", "individual", 
                                      "house", "senate", "state", "city", "assembly", "org", "congress", sep = "|"))) %>%  
   kablebox()
@@ -635,14 +638,23 @@ comments_coded %<>%
            as.numeric()) %>%
   distinct()
 
-
+if(F){
 # lower bound proxi for mass where number is not reported
 comments_coded %<>% mutate(coalition_comments =  ifelse(str_dct(coalition_comment_types, "mass") & coalition_comments < 100, coalition_comments + 100, coalition_comments))
 
 # don't count duplicate uploads as mass 
 comments_coded %<>% mutate(coalition_comments =  ifelse(!str_dct(coalition_comment_types, "mass") & coalition_comments < 100, 0, coalition_comments))
+}
 
 # inspect
+
+# large coalitions 
+comments_coded %>% 
+  arrange(-coalition_comments) %>% 
+  distinct(docket_id, coalition, coalition_type, coalition_comments) %>% 
+  kablebox()
+
+
 comments_coded %>% 
   filter(source =="datasheet") %>% 
   distinct(docket_id,
@@ -870,6 +882,7 @@ coalitions_coded %<>% distinct() %>% ungroup()
 save(comments_coded, file = here::here("data", "comments_coded.Rdata"))
 save(coalitions_coded, file = here::here("data", "coalitions_coded.Rdata"))
 save(mass_coded, file = here::here("data", "mass_coded.Rdata"))
+save(mass_raw, file = here::here("data", "mass_raw.Rdata"))
 
 comments_coded$docket_id %>% unique()
 

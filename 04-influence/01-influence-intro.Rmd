@@ -16,8 +16,8 @@ mobilized by public pressure campaigns and whether the coalition sponsoring each
 goals. Building on the theory of the role of public pressure in bureaucratic policymaking outlined in Chapter \@ref(whymail), I argue that the unit of analysis must be the lobbying coalition, not individual comments and form letters. Rather than *comparing* the quality and impact of form letters to technical comments written by lawyers, I argue that we must *attribute* both to the broader lobbying efforts they support. Lobbying, I argue, is about both the technical details of policy and politics. In theory, technical information and political information may both affect policy. 
 
 Because scholarship on bureaucratic policymaking has focused on the
-power of technical information  [see @Wagner2010; @Yackee2019 for a review], where insider lobbying is most likely to
-matter and where outside strategies are least likely to matter,
+power of technical information, where insider lobbying is most likely to
+matter [@Wagner2010] and where outside strategies are least likely to matter,
 political scientists have largely overlooked public pressure campaigns as a lobbying
 tactic. To date, there has been much less theorizing about the power of political information in bureaucratic policymaking.
 In this chapter, I theorize and test several mechanisms by which public

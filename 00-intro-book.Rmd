@@ -63,7 +63,7 @@ While early principal-agent scholarship focused on either Congress or the presid
 
 <!-- PRESIDENT --> 
 
-Agency rulemaking is where the rubber hits the road for both legislation [@Golden2000] and presidential agendas [@Devins2008; @Yackee2009bush].
+Agency rulemaking is where the rubber hits the road for both legislation and presidential agendas [Huber2002; @Devins2008; @Yackee2009bush; @Kerwin2018].
 While Congress intentionally designs agencies with varying levels of presidential control [@Lewis2014; @Selin2015], presidential agendas are one of the main drivers of bureaucratic policymaking [@Clinton2014AJPS]. 
 Indeed, bureaucratic policymaking varies even more from president to president than the use of direct mechanisms of control would suggest [@Yackee2009bush]. As I show in \@ref(why-results), different presidents inspire different politics in bureaucratic policymaking. Specifically, because the organizations that mobilize public pressure are more aligned with the policy positions of the Democratic party, public pressure campaigns were largely supportive of policies made by the Obama administration and hostile to policies made by the Trump administration.
 
@@ -154,7 +154,7 @@ While this may describe most cases of bureaucratic policymaking, these models ne
 Like other forms of mass political participation, such as protests and letter-writing campaigns, mass public comments on draft agency rules provide no new technical information. Nor do they wield any formal authority to reward or sanction bureaucrats, as comments from members of Congress might. 
 The number on each side, be it ten or ten million, has no legal import for an agency's response. Given their lack of both technical information and formal authority, Political scientists largely dismiss public pressure campaigns as epiphenomenal to interest group bargaining and principal-agent constraints. As a result, normative and prescriptive debates over the role of mass public engagement in bureaucratic policymaking have little empirical evidence to draw upon.
 
-Political science scholarship on public pressure campaigns targeting the bureaucracy is extremely limited. Early scholarship on the topic suggested that form letters differ from other comments [@Schlosberg2007] and suggested that mass comments may be related to longer rulemaking processes [@Shapiro2008b]. A recent wave of scholarship has shown that agencies that use high
+Political science scholarship on public pressure campaigns targeting the bureaucracy is extremely limited. Early scholarship on the topic suggested that form letters differ from other comments [@Schlosberg2007] and suggested that mass comments may be related to longer rulemaking processes [@Shapiro2008]. A recent wave of scholarship has shown that agencies that use high
 levels of expertise receive fewer comments [@Moore2017] and that form comments are less likely to be cited by agencies and are less associated with policy change than sophisticated comments [@Balla2020]. Additionally, several studies describe mass comment campaigns at the Environmental Protection Agency [@Potter2017; @Balla2018]. Small adjacent literatures in Information Technology and Public Administration journals document fraud in the public comment process [@Rinfret2021] and the training that bureaucrats receive [@Rinfret2019]. 
 I discuss each of these studies more extensively as they relate to each of the following empirical chapters, most extensively in Section \@ref(why-mass).
 

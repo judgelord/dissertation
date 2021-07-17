@@ -1,10 +1,10 @@
-Incorperating political information allows us to begin formalizing
-intuitions about mechanisms of influence. For example, @Libgober2018
-asks "What proportion of commenting activity can be characterized as
+Incorporating political information allows us to begin formalizing
+intuitions about mechanisms of influence and thus the motivations for commenting. For example, @Libgober2018
+asks, "What proportion of commenting activity can be characterized as
 informing regulators about public preferences versus attempting to
-attract attention of other political principals?" (p. 29). Adding
+attract the attention of other political principals?" (p. 29). Adding
 political information to the model allows us to formalize this question:
-Under what conditions does the decision to comment depend on an
+Under what conditions do the decision to comment depend on an
 organization's beliefs about $\alpha_t$ versus beliefs about $\alpha_s$?
 Empirically, we may often be able to infer that the difference in
 commenting can be attributed to group $i$'s beliefs about $\alpha_{si}$
@@ -15,49 +15,68 @@ Rational-choice explanations of why organizations comment on proposed
 rules build on an intuition that potential commenters will comment only
 when the benefits exceed the costs of doing so. This intuition ought to
 apply to other lobbying strategies such as public pressure campaigns as well.
-Adding an public pressure campaigns as a lobbying strategy to Libgoeber's model is
+Adding public pressure campaigns as a lobbying strategy to Libgoeber's model is
 straightforward. In this model, a potential commenter has negative
 quadratic preferences centered on their ideal policy $p_i$ and
 $u_i = -(x_f - p_i)^2$ where $x_f$ is the final policy chosen by the
-agency decisonmakers. An organization will comment if the cost of doing so is less
-than the difference between their utility when agency decisionmakers select a
+agency decisionmakers. An organization will comment if the cost of doing so is less than the difference between their utility when agency decisionmakers select a
 policy having been informed about the organization's ideal point $p_i$
-versus when the they select a policy having made a guess about the
+versus when they select a policy after having made a guess about the
 organization's ideal point, $z_i$. If $c_i$ is organization $i$'s cost
 of commenting, then $i$ will comment if it expects to be better off
-providing information than abstaining
-$E[u_i | p_i] > E[u_i | z_i] + c_i$. Similarly, an organization will go
-public when it expects that the cost of sponsoring a
+providing information than abstaining:
+
+\begin{equation}
+E[u_i | p_i] > E[u_i | z_i] + c_i (\#eq:libgober-why)
+\end{equation}
+
+Similarly, an organization will go
+public when it expects that the cost of sponsoring a pressure
 campaign to be less than the difference in utility when agency officials
 select a policy having been informed about the intensity of broader
 public preferences $p_{public}$ versus when agency officials select a policy
 having made a guess about the intensity of the attentive public's
-preferences, $z_{public}$. While organizations often make dubious claims to represent broad segments of the public, a pettition or mass comment campaign may provide information about $p_{public}$ that agency officials see as more credible. If $c_{campaign, i}$ is organization $i$'s
+preferences, $z_{public}$. While organizations often make dubious claims to represent broad segments of the public, a petition or mass comment campaign may provide information about $p_{public}$ that agency officials see as more credible. If $c_{campaign, i}$ is organization $i$'s
 cost of running a mass mobilization campaign, then $i$ will launch a
 campaign if
-$E[u_i | p_{public}] > E[u_i | z_{public}] + c_{campaign, i}$. This
+
+\begin{equation}
+E[u_i | p_{public}] > E[u_i | z_{public}] + c_{campaign, i} (\#eq:formal-why-public)
+\end{equation}
+
+This
 suggests that public pressure tactics should be more common when agency officials are either poorly
 informed or distant from public opinion and potentially influenced by
 the types of political information created by public pressure campaigns.
 
 
-In addition to informing agencies about public prefrences, pressure campaigns may alter the stratigic decision environment for agencies. The extent to which changes to the decision environment help or harm an organization's cause may affect their decision to sponsor a public pressure campaign. Public pressure campaigns may shift the stratigic environment in at least two ways. First, the general level of public attention may "politicize" a rulemaking. That is, it may make political factors more salient and technocratic factors less salient, perhaps by attracting the attention of political apointees, the White House, or member of Congress. Some organizations will do better and others worse in a more political decision environment. Second, the specific level of public support for an organization's lobbying coalition may affect bureaucrats decisions to different degrees, depending on how politicized the rulemaking is. To formalize these two intuations, let $\beta_i$ be the effect of the level politicization $\gamma$ of rule $j$ on organization $i$'s utility, $E[u_{ij}| \gamma_j]$. Second, let $\delta$ represent a general increase in utility for any organization $i$ for an additional unit of public support on rule $j$ given the rule's level of politicization. Let $\omega_{ij}$ represent a one unit increase in support (e.g. an additional petition signature or form letter) for organization $i$ on rule $j$. More public support may only matter in more politicized decision environments. In more technocratic environments, support may be disregarded. Just focusing on the effect of politicization and public support, the shift in utility due to pressure campaigns is $\beta_i \gamma_j + \delta \omega _{ij} (\frac{\gamma_j}{threshold})^2$. If we consider the level of politicization to be approximatly the sum of all public pressure campaigns, we can replace $\gamma_j$ with $\sum_{i = 1:n} \omega_{ij}$, making the potential campaign sponsor's utility function $\beta_i \sum_{i = 1:n} \omega_{ij} + \delta \omega _{ij} (\frac{\sum_{i = 1:n} \omega_{ij}}{threshold})^2$. This has several implications. 
-- Organizations that gain from politicisan $\beta_i>0$ are double-rewarded for mobilizing pressure because they benefit both from how their campaign increases general politicisation $beta_i$ and the specific support $\delta$ for their position. 
-- Organizations negative utility of politicization $beta_i$ will not sponsor campaigns at low levels of overall politicization. However, when the levels of opposition increase to the point where $ \frac{\sum_{i = 1:n} \omega_{ij}}{threshold} > \beta_i$, they will jump in the fray.<!--THIS DOES NOT WORK. it needs to depend on politicization. I could square the second sum, but this seems like the wrong form. Really both should be logged. More importantly, it cannot be neccessairly true that this point exists. there must be values of beta *gamma  -->
-At some point these organizations will have more to gain by counter-mobilizing than they stand to loose by further politicizing. 
+In addition to informing agencies about public preferences, pressure campaigns may alter the strategic decision environment for agencies. The extent to which changes to the decision environment help or harm an organization's cause may affect their decision to sponsor a public pressure campaign. Public pressure campaigns may shift the strategic environment in at least two ways. First, the general level of public attention may "politicize" a rulemaking. That is, it may make political factors more salient and technocratic factors less salient, perhaps by attracting the attention of political appointees, the White House, or members of Congress. Some organizations will do better and others worse in a more political decision environment. Second, the specific level of public support for an organization's lobbying coalition may affect bureaucrats' decisions to different degrees, depending on how politicized the rulemaking is. 
+
+To formalize these two intuitions, let $\beta_i$ be the effect of the level politicization $\gamma$ of rule $j$ on organization $i$'s utility, $E[u_{ij}| \gamma_j]$. Second, let $\delta$ represent a general increase in utility for any organization $i$ for an additional unit of public support on rule $j$ given the rule's level of politicization. Let $\omega_{ij}$ represent a one-unit increase in support (e.g. an additional petition signature or form letter) for organization $i$ on rule $j$. More public support may only matter in more politicized decision environments. In more technocratic environments, support may be disregarded. 
+<!-- FIXME 
+Just focusing on the effect of politicization and public support, the shift in utility due to pressure campaigns is $\beta_i \gamma_j + \delta \omega _{ij} (\frac{\gamma_j}{threshold})^2$. If we consider the level of politicization to be approximatly the sum of all public pressure campaigns, we can replace $\gamma_j$ with $\sum_{i = 1:n} \omega_{ij}$, making the potential campaign sponsor's utility function $\beta_i \sum_{i = 1:n} \omega_{ij} + \delta \omega _{ij} (\frac{\sum_{i = 1:n} \omega_{ij}}{threshold})^2$.
+--> 
+This has several implications: 
+
+- Organizations that gain from politicization $\beta_i>0$ may be double-rewarded for mobilizing pressure because they benefit both from how their campaign increases general politicization $beta_i$ and the specific support $\delta$ for their position. 
+- Organizations that receive negative utility from politicization $\beta_i$ will not sponsor campaigns at low levels of overall politicization.
+<!--However, when the levels of opposition increase to the point where $ \frac{\sum_{i = 1:n} \omega_{ij}}{threshold} > \beta_i$, they will jump in the fray.<!--THIS DOES NOT WORK. it needs to depend on politicization. I could square the second sum, but this seems like the wrong form. Really both should be logged. More importantly, it cannot be necessarily true that this point exists. there must be values of beta *gamma  -->
+
+At some level of politicization, $\gamma$,  organizations facing an opposing public pressure campaign may have more to gain by counter-mobilizing than they stand to lose by further politicizing the policy process. 
 
 Additionally, an organization may comment or run a mass mobilization
 campaign if it benefits in ways that are independent of policy outcomes.
 Strategies such as "going down fighting" can be incorporated by adding
 exogenous benefit parameters to the utility function of the potential
-commenter/mobilizer. Let $v_i$ be the benefit of commenting independent
-of its effect on the policy outcome, such as pleasing members or to
-reserving the right to sue. Let $w_i$ be the benefit of running a mass
+commenter/mobilizer. Let $v_i$ be the benefit of commenting, independent of its effect on the policy outcome, such as pleasing members or reserving the right to sue. Let $w_i$ be the benefit of running a mass
 mobilization campaign independent of its effect on the outcome of the
 policy at hand, such as fulfilling expectations of existing members or
 recruiting new members. An organizations utility function would then be
-$u_i = -(x - p_i)^2 + v_i + w_i$.
 
-If commenters are allowed a
-strategy of "going down fighting" and incentives to do so, the observed behavior of commenting
-without rule change becomes a possible result. 
+\begin{equation}
+u_i = -(x - p_i)^2 + v_i + w_i  (\#eq:formal-why)
+\end{equation}
+
+Again, the observed behavior of commenting
+without policy change becomes a possible result if commenters are allowed a
+the strategy of "credit claiming" or  "going down fighting" and incentives to do so.

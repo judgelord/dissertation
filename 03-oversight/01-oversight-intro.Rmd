@@ -1,5 +1,3 @@
-<!--## Introduction {#oversight-intro}-->
-
 ### Congressional Oversight as a Mediator of Interest-group Influence {#oversight-theory}
 
 When George W. Bush replaced Bill Clinton as president, career
@@ -14,7 +12,7 @@ growing volume of telemarketing calls. This initiative seemed likely to
 be popular with voters but, even with a supportive president, would be
 difficult to advance over the objections of the telemarketing industry,
 whose campaign donations had earned them many powerful allies in
-Congress. Agency officials report being pessimistic about the FTC's
+Congress. Agency officials reported being pessimistic about the FTC's
 telemarketing effort overcoming opposition from Congress.
 
 When the draft "Telemarketing Sales Rule" (also known as the "Do Not
@@ -23,7 +21,7 @@ overwhelming. The rule received thousands of supportive comments from
 frustrated members of the public who were encouraged to comment by
 advocacy groups like the Consumer Federation of America. Agency
 officials reported that the volume of public response not only encouraged
-the agency and the administration but, more importantly, "scared off" members of Congress who the industry was relying on to kill or reverse
+the agency and the administration but, more importantly, "scared off" members of Congress that the industry was relying on to kill or reverse
 the rule (personal communication, 2018). Once it became clear that the public was paying attention and
 sufficiently mobilized to act on the issue, elected officials became
 much less willing to take unpopular positions to support industry
@@ -38,21 +36,14 @@ or opposition to a proposed rule. Public attention and support gave agency offic
 
 <!--evidence that MCs know about and react to the mass commenting campaigns -->
 
-
-
-James Q. Wilson notes a similar pattern with the FTC's Funeral Industry Practice Rule and Used Car Rule:
+Wilson notes a similar pattern with the FTC's Funeral Industry Practice Rule and Used Car Rule:
 
 > "Undertakers and used-car dealers were outraged by these proposed rules. Very quickly, members of Congress discovered just how many undertakers and car dealers they had in their districts and how well-connected they were. The FTC suddenly had activated large, hostile interests who were successful in getting Congress to force the agency to back down." [@Wilson1989, pg. 83]
 
-Members of Congress often learn about and are often spurred to act by public pressure campaigns. Legislators often submit comments from their constituents, either on their own or attached to their own comments. For example, several members of Congress attached to their comments on CFPB's Payday Loan rule (CFPB-2016-0025) mass mail or petitions from their constituents. 
+Members of Congress often learn about issues---and are spurred to act---by public pressure campaigns. Legislators often submit comments from their constituents, either on their own or attached to their own comments. For example, several members of Congress attached mass mail or petitions from their constituents to their comments on the Consumer Financial Protection Bureau's controversial Payday Loan rule. Public pressure campaigns often seek to influence policy by informing elected officials of their constituents' demands. Many campaigns collect the zip code of letter-signers so that they can forward constituent comments to their representatives. Some form letters include a line for signers to "CC" (carbon copy) their member of Congress (see, for example [EPA-HQ-OAR-2005-0161-2624](https://www.regulations.gov/comment/EPA-HQ-OAR-2005-0161-2624)). When members of Congress comment on agency rules, they are often aware of, and spurred to engage in bureaucratic policymaking by public pressure campaigns. 
 
-Public pressure campaigns often seek to influence policy by informing elected officials of their constituents' demands. Many campaigns collect the zip code of letter-signers so that they can forward constituent comments to their representatives. Some form letters include a line for signers to "CC" (carbon copy) their member of Congress (see, for example [EPA-HQ-OAR-2005-0161-2624](https://www.regulations.gov/comment/EPA-HQ-OAR-2005-0161-2624)).
 
-Congressional attention is not just "fire alarm" oversight. Like interest groups, the comments of members of Congeress often support proposed rules.
-For example, in 2016, a group of Democratic legislators wrote encouraging words to Obama's Treasury Department: "We urge you not to yield to the intense lobbying against these regulations, directed both at Treasury and the Congress, but multinational business and its trade associations."
 
-Lobbying campaigns increase the salience of the rulemakings they target. In addition to attracting allies in Congress, increased public attention may capture the attention of members of Congress on the opposite side of the issue. For example, when the Department of the Treasury published draft rules implementing the Unlawful Internet Gambling Act of 2006, the proposal generated unusually high levels of public attention. As a result, two bipartisan groups of legislators submitted comments on the rule. One, led by the chair of the House Judiciary Subcommittee on Commercial and Administrative Law, raised concerns about the Department's implementation of the Administrative Procedures Act. The other group of legislators, led by Senator Mike Pence, pushed back against interest-group opposition to the rule and urged the Department to implement the rules. 
-In short, public pressure campaigns may increase increase the likelihood that legislatures on both sides of the issue engage. 
 
 #### Principal-agent Relationships During Rulemaking
 
@@ -69,7 +60,7 @@ because they perceive elected officials as representing public demands
 While it is widely accepted that agency officials take
 their principals' positions into account, the mechanisms by which
 this occurs, and the empirical conditions for political influence are
-debated. Agencies may be more influenced by unified congressional opposition or support [@Golden2000]. <!-- TODO include divided government in model-->
+unclar. <!--Agencies may be more influenced by unified congressional opposition or support [@Golden2000]. <!-- TODO include divided government in model-->
 
 <!--negotiate or avoid accountability to various principals [@Nou2016; @Potter2016; @Woods2018; @Yackee2009RegGov @Potter2014dis develops a signaling model where agencies propose and principals veto rules depending, in part, on their beliefs about interest group preferences. 
 -->
@@ -91,6 +82,12 @@ Administrative procedures like mandatory public comment periods thus
 offer opportunities for both proactive oversight and to be alerted to oversight
 opportunities [@Balla1998].
 
+Congressional attention is not limited to "fire alarm" oversight [@McCubbins1984]. Like interest groups, the comments of members of Congress often support proposed rules. 
+For example, in 2016, a group of Democratic legislators wrote encouraging words to Obama's Treasury Department: "We urge you not to yield to the intense lobbying against these regulations, directed both at Treasury and the Congress, by multinational business and its trade associations." In this example, congressional oversight is explicitly supportive of agency action. Rather than reacting to agency wrongdoing, these members were spurred to act by becoming aware of pressure groups lobbying the agency. 
+
+Lobbying campaigns increase the salience of the rulemakings they target. In addition to attracting allies in Congress, increased public attention may capture the attention of members of Congress on the opposite side of the issue. For example, when the Department of the Treasury published draft rules implementing the Unlawful Internet Gambling Act of 2006, the proposal generated unusually high levels of public attention. As a result, two bipartisan groups of legislators submitted comments on the rule. One, led by the chair of the House Judiciary Subcommittee on Commercial and Administrative Law, raised concerns about the Department's implementation of the Administrative Procedures Act. The other group of legislators, led by Senator Mike Pence, pushed back against interest-group opposition to the rule and urged the Department to implement the rules. 
+Public pressure campaigns may increase the likelihood that legislators on both sides of the issue engage. 
+
 ### Incorporating Political Information into Models of Political Oversight
 
 In addition to interest groups directly alerting elected officials to
@@ -101,14 +98,14 @@ the agency to hold course (like a "beacon") attracting positive attention
 and credit claiming opportunities for their oversight work. In the case of the FTC's "Do Not Call" rule and subsequent legislation, mass engagement functioned more as a "warning" for would-be opponents and a "beacon" for potential allies, effectively enabling and empowering rather than restraining the agency as the classic "police patrol" and "fire alarm" concept suggests. <!--Agency officials
 credit the public support mobilized by public pressure campaigns with the political cover needed to hold course.-->
 
-The fire alarm, beacon, and warning sight mechanisms have a common thread; political oversight is affected by interest group's public pressure campaigns. To the extent that this is strategic, pressure campaigns aim to influence policy indirectly by affecting the behavior of elected officials.
+The fire alarm, beacon, and warning sign mechanisms have a common thread; political oversight is affected by interest group's public pressure campaigns. To the extent that this is strategic, pressure campaigns aim to influence policy indirectly by affecting the behavior of elected officials.
 
 Figure \@ref(fig:causal-oversight) incorporates these insights to the model set out in \@ref(fig:causal-whymail2). Specifically, it considers how elected officials' decisions to engage in agency rulemaking are affected by political information created by public pressure campaigns *and* create new, additional political information. 
-Figure \@ref(fig:causal-oversight) shows two pathways by which lobbying organizations may cause elected officials to contact agency officials. The upper pathway represents the classic "fire alarm" role that interest groups may play in altering elected officials to oversight opportunities. It also captures the related dynamic where interest groups alert elected officials to opportunities to support agency actions. 
+Figure \@ref(fig:causal-oversight) shows two pathways by which lobbying organizations may cause elected officials to contact agency officials. The upper pathway represents the classic "fire alarm" role that interest groups may play in alerting elected officials to oversight opportunities. It also captures the related dynamic where interest groups alert elected officials to opportunities to support agency actions. 
 
 <!-- move to influence eventually -->
 The lower causal pathway represents the additional role that I suggest interest groups play in political oversight by generating political information through public pressure campaigns.
-When lobbying organizations use a public pressure strategy, the political information they create (e.g., about the scale and intensity of public support) may affect agency policymakers directly, as shown in \@ref(fig:causal-whymail2). Additionally, levels of public support may also affect policy indirectly if it affects the behavior of an agency's political principles. When political principals contact agency officials, they create at least two additional kinds of political information. First, they express their opinion on what they think the agency should do, which may have normative power for bureaucrats. Second, principles signal political consequences that agencies may want to avoid [@Potter2017]. Both types of information may persuade agency officials to revise policy documents to address their principals' comments.
+When lobbying organizations use a public pressure strategy, the political information they create (e.g., about the scale and intensity of public support) may affect agency policymakers directly, as shown in \@ref(fig:causal-whymail2). Additionally, levels of public support may also affect policy indirectly if it affects the behavior of an agency's political principals (e.g., members of Congress). When political principals contact agency officials, they create at least two additional kinds of political information. First, they express their opinion on what they think the agency should do, which may have normative power for bureaucrats. Second, principals signal political consequences that agencies may want to avoid [@Potter2017]. Both types of information may persuade agency officials to revise policy documents to address their principals' comments.
 
 ```{r causal-oversight, fig.cap = "Integrating Public Pressure and Congressional Oversight into a Model of Lobbying in Bureaucratic Policymaking"}
 #TODO label "Public Pressure" and "Oversight" portions. 
@@ -144,11 +141,10 @@ before the draft rule's publication.
 -->
 
 ```{hypothesis oversight, echo = TRUE}
-The scale of public engagement moderates elected officials' engagement in agency rulemaking
-engagement.
+The scale of public engagement moderates elected officials' engagement in agency rulemaking.
 ```
 
-If Hypothesis \@ref(hyp:oversight) is correct, we should observe more members of Congress engaging in policy processes with larger public pressure campaigns. This hypothesis is difficult to test because legislators being mobilized directly by interest groups is often observationally equivalent to legislators being mobilized indirectly due to the response to a public pressure campaign. Above, I offer anecdotal evidence that legislators are aware of and pressure campaigns and see comments from their constituents as important. Still, evidence of correlation is not strong evidence of a causal effect. If, however, we can reject Hypothesis \@ref(hyp:oversight), this is strong evidence that rulemaking comments from members of Congress are not affected by the scale of public attention.  
+If Hypothesis \@ref(hyp:oversight) is correct, we should observe more members of Congress engaging in policy processes with larger public pressure campaigns. This hypothesis is difficult to test because legislators being mobilized directly by interest groups is often observationally equivalent to legislators being mobilized indirectly, due to the response to a public pressure campaign. Above, I offer anecdotal evidence that legislators are aware of pressure campaigns and see comments from their constituents as important. Still, evidence of correlation is not strong evidence of a causal effect. If, however, we can reject Hypothesis \@ref(hyp:oversight), this is strong evidence that rulemaking comments from members of Congress are not affected by the scale of public attention.  
 
 ```{hypothesis beacon, echo = TRUE}
 Public pressure campaigns attract
@@ -169,7 +165,7 @@ the less likely principals holding that position are to engage.
 If Hypothesis \@ref(hyp:beacon) is correct, it would suggest a supplement to Hall
 and Miler's [-@Hall2008] finding that legislators are more likely to engage in
 rulemaking when a like-minded interest group has lobbied them:
-When interest groups lobby elected officials to engage in rulemaking,
+when interest groups lobby elected officials to engage in rulemaking,
 they may also be more likely to engage when aligned with the majority of
 commenters than when opposed to them. If elected officials learn from
 political information, they will be even more likely to engage when
@@ -177,8 +173,7 @@ lobbied by a coalition that includes public interest groups running a mass-comme
 mass comment campaign.^[Of course, if Members of Congress receive signals about the
     distribution of comments from their districts, the distribution of
     opinions in their district constituency may be more important.
-    Figure \@ref(fig:sierra) shows that the Sierra Club requires a zip
-    code information from commenters. Mass-mobilizers may often send
+    Figure \@ref(fig:sierra) shows that the Sierra Club requires that commenters enter their zip codes. Mass-mobilizers may often send
     such information to elected officials.]
 
 Alternatively, the effect of mass engagement on legislators may
@@ -190,13 +185,11 @@ their voters share their position. These results would be
 evidence against Hypothesis \@ref(hyp:beacon) and
 Hypothesis \@ref(hyp:warning), respectively.
 
-I thus build on the classic model of
+I thus build on the ``classic model" of
 political oversight in two ways. First, I suggest that such oversight behaviors
-maybe affected by public pressure campaigns because of the impressions of public
+may be affected by public pressure campaigns because of the impressions of public
 opinion (i.e., the political information) they create. This is represented by the arrow between "Organization generates political information" and "Political principals contact agency officials" in Figure \@ref(fig:causal-oversight). 
 
 Second, I suggest that elected officials' comments during rulemaking are a particularly relevant oversight behavior and a
 mechanism by which bureaucrats learn and update beliefs about their
 principals' demands. This is represented by the arrow between "Political principals contact agency officials" and "Agency officials revise policy" in Figure \@ref(fig:causal-oversight). The mechanism is labeled "Information persuades agency officials," which includes information about principal opinions and perceived political consequences.
-
-

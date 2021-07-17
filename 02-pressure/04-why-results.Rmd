@@ -2,9 +2,10 @@
 
 ### Most Comments Result from Public Pressure Campaigns
 
-Hypothesis \@ref(hyp:meditated) posited that most people engage in the policy process due to organized public pressure campaigns. This is overwhelmingly true.  Figure
+Hypothesis \@ref(hyp:meditated) posited that most people engage in the policy process due to organized public pressure campaigns. This is overwhelmingly true. Figure
+\@ref(fig:comments-mass) plots the number of comments recieved on regulations.gov each year from 2005 to 2020. Columns are shaded by whether I have classified each comment as part of a public pressure campaign (a mass comment campaign).  Figure
 \@ref(fig:comments-mass) shows that every year since 2007, the vast majority of
-comments on draft regulations posted to regulations.gov were the result of a public pressure campaign.
+comments on draft regulations posted to regulations.gov were the result of a public pressure campaign. Furthermore, the rise in the toal number of comments from 2005 to 2013 is much steeper than the rise in the number of rules being published. 
 
 
 ```{r comments-mass, fig.cap = "Public Comments 2005-2020", out.width = "79%", fig.show = "hold"}
@@ -107,7 +108,7 @@ coalitions_coded %>% group_by(coalition_type) %>%
   kable3(caption = "The Scale of Public Pressure Campaigns by Coalition Type")
 ```
 
-Table \@ref(tab:coalition_type_totals) shows that public interest coalitions mobilized more comments per campaign and more total comments than private-interest coalitions in the hand-coded sample. This supports Hypothesis \@ref(hyp:public-success), which predicted that public interest coalitions would mobilize more people on average because they have more latent public support on which to draw. 
+Table \@ref(tab:coalition-type-totals) shows that public interest coalitions mobilized more comments per campaign and more total comments than private-interest coalitions in the hand-coded sample. This supports Hypothesis \@ref(hyp:public-success), which predicted that public interest coalitions would mobilize more people on average because they have more latent public support on which to draw. 
 
 Figure \@ref(fig:campaign-type-scale) provides further evidence for Hypothesis \@ref(hyp:public-success), showing that, overall, public interest campaigns mobilized more comments under both the Obama and Trump administrations. Indeed public interest coalitions mobilized both more supportive comments and more opposing comments under both administrations. Figure \@ref(fig:campaign-type-scale) shows the number of comments in millions (on the x-axis) organized by public and private coalitions under each administration. The color of the bars indicates whether the average hand-coded spatial position of each coalition's members indicated coalition-level support or opposition to the proposed rule on which they were commenting.
 
@@ -167,7 +168,7 @@ One consequence of the dominance of a few national policy advocacy organizations
 Public engagement in rulemaking is highly
 clustered on a few rules made salient by these campaigns. 
 Just ten rulemaking dockets account for `r percent(sum(topdockets$comments)/sum(rules$number_of_comments_received), accuracy = .01)` of comments (`r sum(topdockets$comments)`). Figure
-\@ref(fig:topdockets) shows these ten dockets and the share of comments from each of the top twenty mobilizing organizations (see the legend on the right). The first pane is mass comments (99 or more form letters or copied text). The vast majority of the total comments come from this category (notice the x-axis is scaled to each pane). Partially unique and small batches of form letters (less than 99) are a tiny fraction of the total and concentrated on a few rules where different audiences were engaged.  Because public pressure requires resources and capacity, policy issues of interest to organizations with the resources and capacity to launch a campaign receive disproportionate amounts of public attention.
+\@ref(fig:topdockets) shows these ten dockets and the share of comments from each of the top twenty mobilizing organizations (see the legend on the right). The first pane is mass comments (100 or more form letters or copied text). The vast majority of the total comments come from this category (notice the x-axis is scaled to each pane). Partially unique and small batches of form letters (less than 100) are a tiny fraction of the total and concentrated on a few rules where different audiences were engaged.  Because public pressure requires resources and capacity, policy issues of interest to organizations with the resources and capacity to launch a campaign receive disproportionate amounts of public attention.
 
 ```{r topdockets, fig.width = 1, fig.cap = "Dockets Receiving the Most Comments on Regulations.gov and the top Mobilizing Organizations", out.width= "110%"}
 
@@ -220,7 +221,7 @@ Compared to the usual suspects found in lobbying, especially in rulemaking, both
 When private interest coalitions use public pressure tactics, it is almost always in response to a much larger effort by public interest groups. They are never unopposed. I argue that this is because narrow private interests do not generally have incentives to expand the scope of conflict; their campaigns merely aim to disrupt any potential perceptions of a public consensus. In contrast, public interest group campaigns often go unopposed. I argue that this is because public interest groups often have incentives to mobilize supporters, even when their opponents do not.
 
 <!--hyp:resources-->
-Because public pressure campaigns require resources and specialized capacities, they shine a light on a fairly narrow set of policy issues that interest the few large national policy advocacy groups with the capacity to mobilize large numbers of people. 
+Because public pressure campaigns require resources and specialized capacities, they shine a light on a fairly narrow set of policy issues that interest the few large national policy advocacy groups with the capacity to mobilize large numbers of people. However not all large national advocacy organizations use this lobbying tactic. In part, this is due to features of bureaucratic policymaking in the United States; some policy areas, like environmental politics, are more dominated by bureaucratic politics than others. Additionally, some forms of bureaucratic policymaking, including foreign policy and military policy are rarely open to public comment. However, future research should examine why some policy advocacy groups target agency rulemaking with pressure campaigns while others do not. 
 
 Public pressure campaigns targeting the bureaucracy are primarily a tool used by left-aligned lobbying coalitions. The constituencies utilizing public pressure do not alternate under different presidents, as some theories would predict. Instead, organizations with the capacity to mobilize public pressure do so under both Democrat and Republican administrations, generally supporting the policies of the former and opposing the policies of the latter. 
 

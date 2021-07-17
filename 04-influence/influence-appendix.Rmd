@@ -305,7 +305,7 @@ $$logit(Pr(\text{Legislator Comment}_{ij}|p_{ij})) = \beta_0 + \beta_1 \text{Com
 # Extra Results
 
 ### President*agency fixed effects
-```{r mc-success}
+```{r mc-success-2-way-fe}
 #mc-success-2-way-fe
 coalitions_coded %<>% 
   mutate(agencyXpresident = paste(agency, president))

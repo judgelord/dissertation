@@ -18,11 +18,11 @@ editor_options:
 
 ```{r global.options, include=FALSE, cache= FALSE}
 # load defaults
-source(here::here("code", "setup.R"))
+source(here::here("code", "setup.R")) ### #
 
 # overide defaults
 knitr::opts_chunk$set(echo = TRUE, 
-                      cache = FALSE,
+                      cache = TRUE,
                       fig.path = "../figs/")
 ```
 
@@ -30,7 +30,11 @@ knitr::opts_chunk$set(echo = TRUE,
 
 # Data: A Census of Public Pressure Campaigns {#pressure-data}
 
-
+```{r data-hand-code, cache=FALSE}
+# hand coded 
+load(here::here("data", "coalitions_coded.Rdata"))
+load(here::here("data", "comments_coded.Rdata"))
+```
 ```{r data, cache = TRUE}
 # rules metadata is raw from rulemaking repo API pull
 load(here::here("data","rules_metadata.Rdata"))
@@ -76,17 +80,41 @@ rules %<>%
   ungroup()
 
 
-# trim rules
+# trim rules to rulemaking dockets
 d <- rules  %>% filter(year >2004, year <2021, 
                    docket_type == "Rulemaking",
                    document_type %in% c("Rule", "Proposed Rule"))
+```
 
-
-
+```{r comment}
 # mass campaign 
+# all comment data from ______
+if(!exists("comments_min")){
 load(here("data", "comments_min.Rdata"))
 
-comments_min %<>% mutate(docket_id = id %>% str_remove("-[0-Z]*$"))
+comments_min %<>% 
+  group_by(id) %>%
+  slice_max(order_by = number_of_comments_received, n = 1) %>% 
+  ungroup()
+}
+
+load(here("data", "mass_raw.Rdata"))
+
+comments_min %<>% mutate(docket_id = id %>% str_remove("-[0-Z]*$"),
+                         year = str_sub(date, 1,4),
+                         #indicator for rulemaking
+         rulemaking = docket_id %in% d$docket_id)
+
+mass_coded <- comments_coded %>% filter(str_dct(comment_type, "mass"))
+
+comments_min %<>% mutate (mass = number_of_comments_received > 99 | docket_id %in% mass_coded$docket_id | docket_id %in% mass_raw$docket_id )
+
+comments_tally <- comments_min %>% 
+  ungroup() %>% 
+  group_by(year, mass, rulemaking) %>% 
+  summarise(comments = sum(number_of_comments_received)) %>% 
+  ungroup() %>% 
+  mutate(mass = ifelse(mass, "Mass Comments", "Other Comments"))
 
 # comments on rulemaking dockets
 comments_rulemaking <- filter(comments_min, docket_id %in% d$docket_id)
@@ -98,10 +126,13 @@ rules %<>%
     mutate(campaign = docket_id %in% unique(comments_mass$docket_id),
            campaign = campaign | number_of_comments_received > 999)
 
-mass <- filter(rules,campaign)
+rules_mass <- filter(rules,campaign)
+
+comments_min$docket_id%in% mass$docket_id
 
 # second step
-comments_mass <- comments_min %>% filter(number_of_comments_received > 99 | docket_id %in% mass$docket_id)
+comments_mass <- comments_min %>%
+  filter(docket_id %in% rules_mass$docket_id | number_of_comments_received > 99)
 #FIXME
 
 
@@ -170,27 +201,7 @@ save(topagencies, file =  here("data", "topagencies.Rdata"))
 ```
 
 
-```{r data-hand-coded}
-# hand coded 
-load(here::here("data", "coalitions_coded.Rdata"))
-load(here::here("data", "comments_coded.Rdata"))
-# # load(here::here("data", "mass_coded.Rdata"))
-# 
-# # common names 
-# comments_coded %<>% 
-#   mutate(coalition = coalition_comment,
-#          agency = str_remove(docket_id, "-.*"))%>%
-#   mutate(org_name = org_name %>% str_to_title())%>%
-#   mutate(coalition = coalition %>% str_to_title())
-# 
-# # common names 
-# coalitions_coded %<>% 
-#   mutate(coalition_comments = coalition_comments - coalition_size +1 , coalition = coalition_comment,
-#          comments = coalition_comments,
-#          Comments = Coalition_comments,
-#          agency = str_remove(docket_id, "-.*"))%>%
-#   mutate(coalition = coalition %>% str_to_title())
-```
+
 
 To examine the relationship between public pressure campaigns and lobbying success, I use an original dataset (introduced in \@ref(whymail-data)) that combines several data sources on U.S. federal agency rulemaking.
 
@@ -430,6 +441,30 @@ d %>%
 ```
 
 #### Comments
+
+```{r comments-mass, fig.height= 2.5, fig.width = 4.2, fig.cap= "Public Comments on Proposed Rules on Regulations.gov 2005-2020"}
+n <- comments_tally$comments %>% sum() %>% {./1000000} %>% round(1)
+  
+#mass non-mass
+comments_tally %>% 
+  filter(year != 2021) %>% 
+  ggplot(  ) +
+  aes(x = as.numeric(year), y = comments, fill = mass) + 
+  geom_col() + 
+  labs(y = str_c("Comments Per Year\nN = ", n, " Million"), 
+       x = "",
+       fill = "",
+       caption = "") + 
+  theme_minimal() +
+  scale_y_continuous(label = comma) + 
+  scale_x_continuous(breaks = seq(2006, 2020, by = 2)) +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1.2,
+                                   vjust =1.7) ,
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank()) +
+  scale_fill_viridis_d()
+```
 
 Figure \@ref(fig:comment-from) shows the sources of incoming comments
 
