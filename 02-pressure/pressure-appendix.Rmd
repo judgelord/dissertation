@@ -342,7 +342,7 @@ p <- pr %>%
   scale_color_manual(values=c("black","red"), 
                      na.value= NA)  +
   scale_y_log10(labels = comma) +
-  labs(x = "Proposed Rules\n(Arranged by Number of Comments",
+  labs(x = "Proposed Rules\n(Arranged by Number of Comments)",
        y = "Comments Received")  
   
 #1 overall
