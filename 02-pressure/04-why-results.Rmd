@@ -8,7 +8,7 @@ Hypothesis \@ref(hyp:meditated) posited that most people engage in the policy pr
 comments on draft regulations posted to regulations.gov were the result of a public pressure campaign. Furthermore, the rise in the total number of comments from 2005 to 2013 is much steeper than the rise in the number of rules being published. 
 
 
-```{r comments-mass, fig.cap = "Public Comments, 2005-2020", out.width = "79%", fig.show = "hold"}
+```{r comments-mass, fig.cap = "Public Comments, 2005-2020", out.width = "85%", fig.show = "hold"}
 knitr::include_graphics(here::here("Figs", "comments-mass-1.png"))
 ```
 

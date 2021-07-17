@@ -4,8 +4,7 @@
 One of the main contributions of this dissertation has been to clarify a way of thinking about and studying public comments. 
 In light of the empirical evidence in the previous chapters, I now revisit some of the dominant ways of thinking about public comments among scholars and practitioners who are currently debating reforms to participatory processes. I start with a sketch of the various positions staked out by administrative law scholars (who have done nearly all of the work on this topic), each rooted in different theories of democracy. I then discuss several specific challenges and proposed reforms to the policy process. <!--Finally, I extend -->
 
-I conclude that reforms underway in U.S. federal institutions that solicit, collect, and process comments are already heading toward enhancing participation and the quality of political information that it generates. However, certain additional reforms, particularly those that call for more transparency of mobilizing groups, would further improve the political information available to agencies and outside observers. Seeing civic participation in bureaucratic policymaking as mediated by mobilizing organizations focuses on these organizations: transparency about who they are, who they represent, who they are mobilizing, and how they are mobilizing.
-
+I conclude that reforms underway in U.S. federal institutions that solicit, collect, and process comments are already heading toward enhancing participation and the quality of political information that it generates. However, certain additional reforms, particularly those that call for more transparency of mobilizing groups, would further improve the political information available to agencies and outside observers. I have argued that we should see civic participation in bureaucratic policymaking as a collective activity mediated by mobilizing organizations. This perspective focuses our attention on advocacy organizations: who they are, who they represent, who they are mobilizing, and how they are mobilizing---all potential targets for research and policy reform. Specifically, this perspective emphasizes reforms that require transparency from lobbying organizations. 
 
 
 ### Public Pressure Campaigns as Petitions
@@ -33,17 +32,17 @@ Agencies also regularly refer to form comments as petitions. When the Bureau of 
 The organizations running public pressure campaigns are even more explicit that they consider mass comments to be petition signatures, frequently citing mass comments as "Letters in support of [our organization's] Comments" ([NOAA-NMFS-2012-0059-0023](https://www.regulations.gov/comment/NOAA-NMFS-2012-0059-0023)) or a "petition from World Wildlife Fund-US (WWF-US), signed by 271,893 WWF-US supporters" ([BOEM-2016-0003-2556](https://www.regulations.gov/comment/BOEM-2016-0003-2556)).
 The files containing comments collected by organizations are often named "signatures.pdf." Clearly, agencies and organizations already consider mass comment campaigns to be a form of petitioning.
 
-How does this new (or not so new) understanding of public pressure campaigns as petitions affect the debate over their value? Does a focus on political information affect the debate over the value of public participation in bureaucratic policymaking? In the next subsection, I sketch out some of the positions <!--staked out by scholars active --> in debates over how to reform the rulemaking process. I then comment on several proposed reforms in light of the theory and findings presented in this dissertation. 
+How does this understanding of public pressure campaigns as petitions affect the debate over their value? Does a focus on political information affect the debate over the value of public participation in bureaucratic policymaking? In the next subsection, I sketch out some of the normative positions <!--staked out by scholars active --> in debates over how to reform the rulemaking process. I then comment on several proposed reforms in light of the theory and findings presented in this dissertation. 
 
 ###  The Roots of the Debate
 
-Normative and prescriptive scholarship varies significantly in both the value they place on political information and the extent to which they believe that meaningfully engaging large numbers of people is possible. I group those concerned with reforming the public comment process into five camps: (1) Participatory democracy optimists, (2) Regulatory democracy reformers, (3) Pluralist reformers, (4) Rational pluralists, and (5) Skeptics. 
+Normative scholars vary significantly in both the value they place on political information and the extent to which they believe that meaningfully engaging large numbers of people is possible. I group those concerned with reforming the public comment process into five camps: (1) Participatory democracy optimists, (2) Regulatory democracy reformers, (3) Pluralist reformers, (4) Rational pluralists, and (5) Skeptics. 
 
 #### Participatory democracy optimists {-}
 
-Optimists see notice and comment as the "purest example of participatory democracy in actual American governance" [@Herz2016]. The process is technically open to anyone with an opinion to offer, and agencies are, to an extent, required to respond to substantive ideas. This optimism is rooted in a volunteerist idea of democracy and a value for inclusive and substantive discourse. In its optimism, these observers often assume that those who "ought" to be included do not have large barriers beyond the formal rules of the institution. It also assumes that meaningful discourse among those who show up is possible and likely to occur. 
+Optimists see notice and comment as the "purest example of participatory democracy in actual American governance" [@Herz2016]. The process is technically open to anyone with an opinion to offer, and agencies are, to an extent, required to respond to substantive ideas. This optimism is rooted in a volunteerist idea of democracy and a value for inclusive and substantive discourse. In its optimism, these observers often assume that those who "ought" to be included do not have large barriers beyond the formal rules of the institution. It also assumes that meaningful discourse among those who participate is possible and likely to occur. 
 
-#### "Regulatory democracy" reformers {-}
+#### Regulatory democracy reformers {-}
 
 A related camp is slightly less rosy about the current institutions and practices but is nevertheless optimistic that reforms can at least improve the quality of discourse, and thus policy. For these scholars, democracy is more a function of procedure than inclusion. <!--Comments should offer "issues and contributions, information and reasons." -->
 @Cuellar2014 <!--and @Jonson2013-->
@@ -60,7 +59,7 @@ Another group of scholars focuses on the benefits of organized interest groups a
 
 > "It's worth remembering why we have a public comment process in the first place, which is that the public has knowledge that regulators do not have and that they need to do their jobs well...how do the poor quality mass comments affect small businesses in the comment process? The most obvious problem would be if legitimate small business concerns are just lost in the flood." [@GSA2019, p. 31-32]
 
-Sharehouse raised an additional concern that mass-comment campaigns might distract people from writing their own, more informative comments. While recognizing that "not everyone who does not sign onto that kind of [mass] comment would be willing to write a high-quality one," the tradeoff of a few "quality" comments for many "poor quality" comments is worthwhile. [@GSA2019, p. 32]
+Sharehouse raised an additional concern that mass-comment campaigns might distract people from writing their own, more informative comments. While recognizing that "not everyone who does not sign onto that kind of [mass] comment would be willing to write a high-quality one," the tradeoff of a few "quality" comments for many "poor quality" comments is worthwhile. [@GSA2019, p. 32] This perspective is open to limited public participation, but only certain concerns are legitimate, for example, the opinions of client industries and new technical information on which to base rational analyses.
 
 <!-- TRY TO WORK THIS IN
 However, Sherouse was also wary about completely dismissing mass comments. 
@@ -69,8 +68,7 @@ However, Sherouse was also wary about completely dismissing mass comments.
 
 #### Skeptics {-}
 
-The most skeptical camp goes even further, arguing that open solicitations to the general public should be abolished. 
-
+The most skeptical camp goes even further, arguing that open solicitations to the general public should be abolished. From the observation that the lay public usually has little to offer a technocratic process, they conclude that it is a waste of resources to solicit opinions that won't be counted. More importantly, this camp holds civic republican ideas about the proper relationship between citizens and the state. It defines a democratic process as one that follows as straightly as possible from the elected branches. The goal is to de-politicize bureaucratic policymaking. 
 
 
 
@@ -81,28 +79,26 @@ The theory and findings in this dissertation are most compatible with what I hav
 The "pluralist reformer" perspective aligns with the theory and results presented in Chapter \@ref(whymail). Interest group organizations are key intermediaries between the public and policymakers. Some make dubious claims about whom they represent. Other organizations organize mass comment campaigns, providing more concrete evidence of a supportive constituency.
 
 
-#### Transparency
-
-More challenging is the concern that narrow concentrated interests that typically dominate rulemaking will sponsor astroturf campaigns, thus creating a false impression of public support. This is a real concern. If dark money can secretly create impressions of support for a policy, the case for expanding participation is weaker. My analysis suggests that this is less common than genuine participation, but I did uncover examples of astroturf and fraud. 
+**Transparency** More challenging is the concern that narrow, concentrated interests that typically dominate rulemaking will sponsor astroturf campaigns, thus creating a false impression of public support. This is a real concern. If dark money can secretly create impressions of support for a policy, the case for expanding participation is weaker. My analysis suggests that this is less common than genuine participation, but I did uncover examples of astroturf and fraud. 
 
 As with any form of public participation, fraud merits attention. If organizations submit comments on behalf of people who do not exist or did not consent, this is akin to fraudulent petition signatures or fake constituent letters being sent to members of Congress. 
 
-Reforming the process by which organizations represent segments of society to be more transparent like those proposed by @Seifter2016UCLA would help guard against astroturf and fraud. 
+Reforming the process by which organizations represent segments of society to be more transparent, like those proposed by @Seifter2016UCLA, would help guard against astroturf and fraud. 
 Transparency also clarifies political information, making it more useful both to agencies and outside observers. To the extent that participation is mobilized by organizations, agencies can ask these organizations to be transparent about their sources of funding.
 
-However, reforms requiring groups to disclose information about their funding and membership only go partway to address groups' representational claims, which often extend well beyond their membership. Such claims are more difficult to assess. However, similar reforms could require disclosure of the funding and methods by which organizations gather petition signatures.  Organizations or individuals acting in their professional capacity as organizations (not individuals) could be required to disclose where the money they paid for them to produce their comments came from. Likewise, organizations running campaigns could be required to disclose the sources of funding for the campaigns and how much they spent mobilizing public support. These numbers will provide a helpful denominator for agencies to gauge public enthusiasm and other kinds of political information that public pressure campaigns provide.
+However, reforms requiring groups to disclose information about their funding and membership only go partway to address groups' representational claims, which often extend well beyond their membership. Such claims are more difficult to assess. However, similar reforms could require disclosure of the funding and methods by which organizations gather petition signatures.  Organizations or individuals acting in their professional capacity as organizations (not as individuals) could be required to disclose the source of the money that them to produce their comments. Likewise, organizations running campaigns could be required to disclose the sources of funding for the campaigns and how much they spent mobilizing public support. These numbers will provide a helpful denominator for agencies to gauge public enthusiasm and other kinds of political information that public pressure campaigns provide.
 More information about petition signers could help clarify which segments of the public are participating. 
 As discussed in Chapter \@ref(ej), the people that organizations claim to represent are not always the people who sign their petitions.
 
 
-**Authentication.** <!--Matt Cutts (acting director of the U.S. Digital Service) suggests CAPTCHAS, email confirmations, and multi-factor authentication.--> If comments are allowed to be collected by third parties like the Sierra Club (recall Figure \@ref(fig:sierra)), the government can encourage but may not be able to enforce authentication tools like CAPTCHAS. Organizations that upload large batches of comments already go through a verification process, but this does not address the veracity of their petition signatures. Requiring confirmation or authentication by email or phone alone would be a barrier to participation. 
+**Authentication.** <!--Matt Cutts (acting director of the U.S. Digital Service) suggests CAPTCHAS, email confirmations, and multi-factor authentication.--> If comments are allowed to be collected by third parties like the Sierra Club (recall Figure \@ref(fig:sierra)), the government can encourage but may not be able to enforce authentication tools like CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart). Organizations that upload large batches of comments already go through a verification process, but this does not address the veracity of their petition signatures. Requiring confirmation or authentication by email or phone alone would be a barrier to participation. 
 
 The most secure approach that allows third parties to gather comments may be to authenticate a sample of comments by asking each commenter to provide an email address or phone number at which to receive a message asking them to confirm the text of their comment. 
-Asking for a second interaction with the agency raises the cost of participation but may also make participation a slightly richer experience. <!--(as Dan Walters suggested on Twitter).--> People may be more likely to feel that their voice was heard. Of course, many people will fail to authenticate their comments, but like mass comments themselves, the number of people willing to take the time to authenticate offers information on the intensity of genuine support. Unauthenticated comments need not be discounted, but authenticated comments may indicate stronger preferences. 
+Asking for a second interaction with the agency raises the cost of participation but may also make participation a slightly richer experience. <!--(as Dan Walters suggested on Twitter).--> People may be more likely to feel that their voices were heard. Of course, many people will fail to authenticate their comments, but like mass comments themselves, the number of people willing to take the time to authenticate offers information on the intensity of genuine support. Unauthenticated comments need not be discounted, but authenticated comments may indicate stronger preferences. 
 
 More importantly, authentication guards against identity theft---fake political information. It is difficult to provide a large number of fake phone numbers, and real phone numbers used fraudulently may generate complaints, alerting the agency that the campaign may be engaging in fraud. Again, fraud complaints need not discount an entire campaign. Opponents of a campaign by the Sierra Club, for example, could submit fraudulent comments through their system in order to complain when asked to authenticate and thus cast doubt over the campaign. However, a legitimate campaign will also have a portion that will authenticate, allowing rough estimates of the scale of true support versus fraud. 
 
-Some means of authentication, such as email, maybe slightly more open to fraud than others, like texts, but the benefits of lower barriers to participation may outweigh the greater risk of fraud. 
+Some means of authentication, such as email, may be slightly more open to fraud than others, like texts, but the benefits of lower barriers to participation may outweigh the greater risk of fraud. 
 Because mass comment campaigns include a fairly large number of individuals, especially if the barriers to participation are lower, there are many opportunities to identify fraud of any significant scale, and the stakes of a few fraudulent comments slipping through the cracks are low. 
 
 <!--
@@ -110,9 +106,7 @@ Because mass comment campaigns include a fairly large number of individuals, esp
 
 -->
 
-#### Lower Barriers to Participation
-
-A second facet of reform may center around increasing access, both for organizations and the people they mobilize to participate. 
+**Lower Barriers to Participation** A second facet of reform may center around increasing access, both for organizations and the people they mobilize to participate. 
 
 
 Is it possible to broaden civic participation in bureaucratic policymaking?
@@ -126,20 +120,18 @@ Critics may argue that opening the door wider to petition campaigns lets in bias
 
 
 Several recent reform proposals align with viewing mass comments as a form of petitioning. @Rauch2016 suggests making comment periods more like polls. Nationally representative polling may be a good investment in political information for some rules, but we know from polling research that individuals do not always have clearly formed opinions, and much depends on question-wording. The reality is that American politics is animated through groups---people rely on organizations they trust to keep them informed and engaged. <!--In classic pluralist fashion, organizations claim to represent segments of the population in rulemaking. <!--Because these organizations... -->
-@Raso2020 suggest a similar reform whereby people could "upvote" comments with which they agree. @Raso2020 lament the "mail from the public dumped on the agency’s doorstep" and claim that "upvoting" would "make rulemaking more interactive. The happy result would bring us closer to the deliberative national town meeting." In contrast, I argue that, empirically, mass comment campaigns already act as a poll or upvote. An upvoting feature would thus codify existing dynamic, not fundamentally depart from it. Either way, the possibilities for "deliberation" with the mass public likely exist in the historical push and pull of pressure groups and government institutions over time, not among millions of people upvoting their policy position in a single rulemaking process.
+@Raso2020 suggest a similar reform whereby people could "upvote" comments with which they agree. @Raso2020 lament the "mail from the public dumped on the agency’s doorstep" and claim that "upvoting" would "make rulemaking more interactive. The happy result would bring us closer to the deliberative national town meeting." In contrast, I argue that, empirically, mass comment campaigns already act as a poll or upvote. An upvoting feature would thus codify the existing dynamic, not fundamentally depart from it. Either way, the possibilities for "deliberation" with the mass public likely exist in the historical push and pull of pressure groups and government institutions over time, not among millions of people upvoting their policy position in a single rulemaking process.
 
 
-#### Reducing the Cost of Providing and Processing Information 
-
-Reformers often highlight the value of linking comments to particular questions or sections of a draft rule. Technology can certainly improve sophisticated debates about a rule's technical provisions. Indeed, sophisticated commenters have adopted track-changes technology to provide marked-up versions of draft rules.
+**Reducing the Cost of Providing and Processing** Information Reformers often highlight the value of linking comments to particular questions or sections of a draft rule. Technology can certainly improve sophisticated debates about a rule's technical provisions. Indeed, sophisticated commenters have adopted track-changes technology to provide marked-up versions of draft rules.
 
 New technologies may provide an even more important role in gleaning political information from the "torrents of email" generated by mass comment campaigns. 
 
-**Parsing the questions.** Agencies often specifically ask questions and solicit comments on specific topics in a proposed rule. These topics offer an initial structure to allow commenters to self-identify the topics of their comments. The American Bar Association's Section of Administrative Law and Regulatory Practice recommends "technology that would allow agencies to identify categories that commenters could select when submitting comments." To stay open to new ideas, lobbying organizations should be allowed to petition the agency to add topics to the menu or ask additional questions. 
+**Parsing the questions** Agencies often specifically ask questions and solicit comments on specific topics in a proposed rule. These topics offer an initial structure to allow commenters to self-identify the topics of their comments. The American Bar Association's Section of Administrative Law and Regulatory Practice recommends "technology that would allow agencies to identify categories that commenters could select when submitting comments." To stay open to new ideas, lobbying organizations should be allowed to petition the agency to add topics to the menu or ask additional questions. 
 
 For example, agencies may encourage groups to mobilize in support of the groups' answers to the questions that agencies ask. Given past trends, this will likely take the form of petition campaigns, and agencies should have mechanisms to receive those comments as such. <!--and they are -->
 
-**Offering Answers.** Agencies could also lower the bar to participation by posting answers to their questions from different organizations and allowing people to co-sign or disagree with them. This is both easier for participants and requires less work for agencies to interpret where the commenter stands. 
+**Offering Answers** Agencies could also lower the bar to participation by posting answers to their questions from different organizations and allowing people to co-sign or disagree with them. This is both easier for participants and requires less work for agencies to interpret where the commenter stands. 
 
 
 

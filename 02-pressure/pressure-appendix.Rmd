@@ -16,7 +16,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r global.options, include=FALSE, cache= FALSE}
+```{r global.options, include=FALSE, cache= TRUE}
 # load defaults
 source(here::here("code", "setup.R")) ### #
 
@@ -35,7 +35,7 @@ knitr::opts_chunk$set(echo = TRUE,
 load(here::here("data", "coalitions_coded.Rdata"))
 load(here::here("data", "comments_coded.Rdata"))
 ```
-```{r data, cache = TRUE}
+```{r data, cache = FALSE}
 # rules metadata is raw from rulemaking repo API pull
 load(here::here("data","rules_metadata.Rdata"))
 
@@ -86,17 +86,17 @@ d <- rules  %>% filter(year >2004, year <2021,
                    document_type %in% c("Rule", "Proposed Rule"))
 ```
 
-```{r comment}
+```{r data-comments}
 # mass campaign 
 # all comment data from ______
-if(!exists("comments_min")){
+#if(!exists("comments_min")){
 load(here("data", "comments_min.Rdata"))
 
 comments_min %<>% 
   group_by(id) %>%
   slice_max(order_by = number_of_comments_received, n = 1) %>% 
   ungroup()
-}
+#}
 
 load(here("data", "mass_raw.Rdata"))
 
@@ -556,8 +556,8 @@ org_comments_summary %<>%
          Comments = comments,
          `Rules Lobbied On` = rules, 
          `Pressure Campaigns` = campaigns,
-         `Percent (Campaigns/Rules)` = percent, 
-         Average = average)
+         `Percent (Campaigns /Rules)` = percent, 
+         `Average per Campaign` = average)
 
 # save(org_comments_summary, file =  here::here("data", "org_comments_summary.Rdata"))
 ```
@@ -756,7 +756,7 @@ campaigns mobilize the vast majority of comments.
 knitr::include_graphics(here::here("Figs", "comments-mass-1.png"))
 ```
 
-```{r toporgs, fig.cap = "Top mobilizers of comments posted to regulations.gov", fig.width = 7}
+```{r toporgs, fig.cap = "Top mobilizers of comments posted to regulations.gov", fig.width = 7, eval=FALSE}
 #FIXME Colors, replace NA with "other"
 knitr::include_graphics(here::here("Figs", "toporgs.png"))
 ```

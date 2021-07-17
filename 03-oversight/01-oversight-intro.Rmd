@@ -40,7 +40,7 @@ Wilson notes a similar pattern with the FTC's Funeral Industry Practice Rule and
 
 > "Undertakers and used-car dealers were outraged by these proposed rules. Very quickly, members of Congress discovered just how many undertakers and car dealers they had in their districts and how well-connected they were. The FTC suddenly had activated large, hostile interests who were successful in getting Congress to force the agency to back down." [@Wilson1989, pg. 83]
 
-Members of Congress often learn about issues---and are spurred to act---by public pressure campaigns. Legislators often submit comments from their constituents, either on their own or attached to their own comments. For example, several members of Congress attached mass mail or petitions from their constituents to their comments on the Consumer Financial Protection Bureau's controversial Payday Loan rule. Public pressure campaigns often seek to influence policy by informing elected officials of their constituents' demands. Many campaigns collect the zip code of letter-signers so that they can forward constituent comments to their representatives. Some form letters include a line for signers to "CC" (carbon copy) their member of Congress (see, for example [EPA-HQ-OAR-2005-0161-2624](https://www.regulations.gov/comment/EPA-HQ-OAR-2005-0161-2624)). When members of Congress comment on agency rules, they are often aware of, and spurred to engage in bureaucratic policymaking by public pressure campaigns. 
+Members of Congress often learn about issues---and are spurred to act---by public pressure campaigns. Legislators often submit comments from their constituents, either on their own or attached to their own comments. For example, several members of Congress attached mass mail or petitions from their constituents to their comments on the Consumer Financial Protection Bureau's controversial Payday Loan rule. Public pressure campaigns often seek to influence policy by informing elected officials of their constituents' demands. Many campaigns collect the zip code of letter-signers so that they can forward constituent comments to their representatives. Some form letters include a line for signers to "CC" (carbon copy) their member of Congress (see, for example [EPA-HQ-OAR-2005-0161-2624](https://www.regulations.gov/comment/EPA-HQ-OAR-2005-0161-2624)). When members of Congress comment on agency rules, they are often aware of public pressure campaigns. Many are clearly spurred to engage in bureaucratic policymaking pressure campaigns and their constituents who participate in them. 
 
 
 
@@ -59,14 +59,14 @@ because they perceive elected officials as representing public demands
 
 While it is widely accepted that agency officials take
 their principals' positions into account, the mechanisms by which
-this occurs, and the empirical conditions for political influence are
-unclar. <!--Agencies may be more influenced by unified congressional opposition or support [@Golden2000]. <!-- TODO include divided government in model-->
+this occurs and the empirical conditions for political influence are
+unclear. <!--Agencies may be more influenced by unified congressional opposition or support [@Golden2000]. <!-- TODO include divided government in model-->
 
 <!--negotiate or avoid accountability to various principals [@Nou2016; @Potter2016; @Woods2018; @Yackee2009RegGov @Potter2014dis develops a signaling model where agencies propose and principals veto rules depending, in part, on their beliefs about interest group preferences. 
 -->
 
 I focus on lobbying influence in the period between the publication of draft and final rules and thus on information about principals' preferences
-revealed to the agency in this period. In principal-agent terms, this means I am focusing on "agency policy-making" where the agency makes the first move and members of Congress react, perhaps threatening future sanctions (@Ferejohn1990). Oversight during rulemaking is a
+revealed to the agency in this period. In principal-agent terms, this means I am focusing on "agency policymaking," where the agency makes the first move and members of Congress react, perhaps threatening future sanctions (@Ferejohn1990). Oversight during rulemaking is a
 form of ex-post control [@Epstein1994], in this case, after the proposed
 rule is published. Upon learning the content of a draft rule, an official with power over the agency may
 choose to signal their demands to the agency. 
@@ -98,7 +98,7 @@ the agency to hold course (like a "beacon") attracting positive attention
 and credit claiming opportunities for their oversight work. In the case of the FTC's "Do Not Call" rule and subsequent legislation, mass engagement functioned more as a "warning" for would-be opponents and a "beacon" for potential allies, effectively enabling and empowering rather than restraining the agency as the classic "police patrol" and "fire alarm" concept suggests. <!--Agency officials
 credit the public support mobilized by public pressure campaigns with the political cover needed to hold course.-->
 
-The fire alarm, beacon, and warning sign mechanisms have a common thread; political oversight is affected by interest group's public pressure campaigns. To the extent that this is strategic, pressure campaigns aim to influence policy indirectly by affecting the behavior of elected officials.
+The fire alarm, beacon, and warning sign mechanisms have a common thread; political oversight is affected by interest groups' public pressure campaigns. To the extent that this is strategic, pressure campaigns aim to influence policy indirectly by affecting the behavior of elected officials.
 
 Figure \@ref(fig:causal-oversight) incorporates these insights to the model set out in \@ref(fig:causal-whymail2). Specifically, it considers how elected officials' decisions to engage in agency rulemaking are affected by political information created by public pressure campaigns *and* create new, additional political information. 
 Figure \@ref(fig:causal-oversight) shows two pathways by which lobbying organizations may cause elected officials to contact agency officials. The upper pathway represents the classic "fire alarm" role that interest groups may play in alerting elected officials to oversight opportunities. It also captures the related dynamic where interest groups alert elected officials to opportunities to support agency actions. 
@@ -144,7 +144,7 @@ before the draft rule's publication.
 The scale of public engagement moderates elected officials' engagement in agency rulemaking.
 ```
 
-If Hypothesis \@ref(hyp:oversight) is correct, we should observe more members of Congress engaging in policy processes with larger public pressure campaigns. This hypothesis is difficult to test because legislators being mobilized directly by interest groups is often observationally equivalent to legislators being mobilized indirectly, due to the response to a public pressure campaign. Above, I offer anecdotal evidence that legislators are aware of pressure campaigns and see comments from their constituents as important. Still, evidence of correlation is not strong evidence of a causal effect. If, however, we can reject Hypothesis \@ref(hyp:oversight), this is strong evidence that rulemaking comments from members of Congress are not affected by the scale of public attention.  
+If Hypothesis \@ref(hyp:oversight) is correct, we should observe more members of Congress engaging in policy processes with larger public pressure campaigns. This hypothesis is difficult to test because legislators being mobilized directly by interest groups is often observationally equivalent to legislators being mobilized indirectly due to the response to a public pressure campaign. Above, I offer anecdotal evidence that legislators are aware of pressure campaigns and see comments from their constituents as important. Still, evidence of correlation is not strong evidence of a causal effect. If, however, we can reject Hypothesis \@ref(hyp:oversight), this is strong evidence that rulemaking comments from members of Congress are not affected by the scale of public attention.  
 
 ```{hypothesis beacon, echo = TRUE}
 Public pressure campaigns attract
