@@ -169,10 +169,12 @@ Remind reader here about your distinction between individual and mass?
 I'm torn about whether figure 3.4 should be 1 figure or broken up into several figures; on the one hand, it's very cool to be able to do this cross-comparison across types. On the other hand, there's so much interest to unpack here; I worry it gets a little lost. You need to do more to interpret this figure.  Also, I'm not wild about using different scales in the same figure -- You totally lose the point that the scale is wildly different between these different types of comments. You should talk about this explicitly if you are going to use variable scales.  Also, at a minimum, I'd get rid of the scientific notation format for the mass commenting scale.  
 -->
 
-Figure \@ref(fig:coded-support) shows hand-coded support and opposition to proposed rules by different types of commenters and presidential administration. Support and opposition coding come from the spatial position regarding the draft and final rule, as shown in Figure \@ref(fig:spatial-coding). Elected officials more often write in opposition than in support of a proposed rule across administrations. In contrast, individuals, organizations, and the mass comments these organizations mobilized overwhelmingly supported rules under President Obama, but mass and individual comments overwhelmingly opposed rules under President Trump. This reflects the partisan asymmetry in mobilizing organizations; the individuals (unique comments) and mass comments (form letters) mobilized by left-leaning public interest groups' campaigns overwhelmingly supported Obama-era policies and opposed Trump-era policies.
+Figure \@ref(fig:coded-support) shows hand-coded support and opposition to proposed rules by different types of commenters and presidential administration. Support and opposition coding come from the spatial position regarding the draft and final rule, as shown in Figure \@ref(fig:spatial-coding). Comments from a corporation ("Corp.") were overwhelmingly opposed to Obama-administration policies and more supportive of Trump-administration policies. Elected officials more often write in opposition than in support of a proposed rule across administrations. In contrast, individuals, organizations, and the mass comments these organizations mobilized overwhelmingly supported Obama-administration policies and opposed Bush- and Trump-administration. Mass and individual comments are especially polarized. This reflects the partisan asymmetry in mobilizing organizations; the individuals (unique comments) and mass comments (form letters) mobilized by left-leaning public interest groups' campaigns overwhelmingly supported Obama-era policies and opposed Trump-era policies.
 
-```{r coded-support, out.width= "80%", fig.width=5, fig.height=3.5, fig.cap="Hand-coded Comments By Type and Position on Proposed Rule"}
+
+```{r coded-support, out.width= "80%", fig.width=5, fig.height=3.6, fig.cap="Hand-coded Comments By Type and Position on Proposed Rule"}
 comments_coded %>% 
+  mutate(president = as_factor(president) %>% relevel(ref = "Bush")) %>% 
   mutate(comments = ifelse(comment_type == "Org", 1, comments)) %>%
   group_by(president, comment_type, Position) %>% 
   tally(comments) %>%
@@ -185,7 +187,8 @@ comments_coded %>%
   labs(x = "", y = "Number of Comments") + 
   theme(axis.text.x = element_blank(),
         axis.ticks = element_blank()) + 
-  scale_fill_viridis_d(begin = 0, end = .7)
+  scale_fill_viridis_d(begin = 0, end = .7) + 
+  scale_y_continuous(labels = comma)
 ```
 
 Most of these comments belong to lobbying coalitions and are thus not independent observations. When Friends of the Earth and the Sierra Club lobby together on a rule, the success of each depends on the other. Thus, I group comments into coalitions. The hand-coded sample includes `r nrow(coalitions_coded)` "coalitions," `r coalitions_coded %>% filter(coalition_size == 1) %>% nrow()` of which are single-organization "coalitions" (not coalitions), leaving `r coalitions_coded %>% filter(coalition_size > 1) %>% nrow()` true coalitions of multiple organizations lobbying together. 
@@ -336,7 +339,7 @@ In the models below, *coalition lobbying success* is the mean of hand-coded lobb
 d <- comments_coded
 ```
 
-The average hand-coded success per organizational comment is `r mean(d$success, na.rm = T) %>% round()` (N = `r nrow(d)`). The average success for organizational comments with a mass comment campaign is `r comments_coded %>% filter(comments > 99) %>% pull(success) %>% mean(na.rm = T) %>% round(3)` (N = `r nrow(comments_coded %>% filter(comments > 99))`).
+The average hand-coded success per organizational comment is `r mean(d$success, na.rm = T) %>% round()` (N = `r nrow(d)`). The average success for organizational comments with a mass comment campaign is `r comments_coded %>% filter(campaign_) %>% pull(success) %>% mean(na.rm = T) %>% round(3)` (N = `r nrow(comments_coded %>% filter(campaign_))`).
 
 <!--TODO ELLIE "  Say a few words here in the lead up about why you want to identify changes between the draft and final rule.  How is this helping you answer questions?  " -->
 
@@ -359,7 +362,9 @@ The number of supportive comments generated by a public pressure campaign (the m
 
 <!--TODO
 With a team or research assistants, this coding process was repeated for -->
-Figure \@ref(fig:coded-coalition-success) shows a scatterplot of the dependent variable (*lobbying success*) and main predictor (*mass comments*) for each coalition. Coalition lobbying success ranges from total success (2) to total loss (-2). The number of mass comments ranges from 0 to `r coalitions_coded$comments %>% max()`. The size of each point represents the size of each coalition (the number of organizations and elected officials). The color indicates whether the coalition is led by private or public interest groups. This view of the data does not show a clear relationship between public pressure and lobbying success. There were relatively more (and more successful) public interest campaigns in the Obama years. Likewise, there were more (and more successful) private interest campaigns in the Trump years. As predicted in \@ref(why-theory), the largest campaigns are public interest campaigns, and public interest campaigns are more frequent than private interest campaigns overall.
+Figure \@ref(fig:coded-coalition-success) shows a scatterplot of the dependent variable (*lobbying success*) and main predictor (*mass comments*) for each coalition. Coalition lobbying success ranges from total success (2) to total loss (-2). The number of mass comments ranges from 0 to `r coalitions_coded$comments %>% max()`. The size of each point represents the size of each coalition (the number of organizations and elected officials). The color indicates whether the coalition is led by private or public interest groups. For example, one extremely large private coalition of payday lenders mobilized over a million comments during the Obama. This coalition was moderately successful at rolling back the regulation but did not stop it from going through.  
+
+The view of the data in Figure \@ref(fig:coded-coalition-success) does not show a clear relationship between public pressure and lobbying success. There were relatively more (and more successful) public interest campaigns in the Obama years. Likewise, there were more (and more successful) private interest campaigns in the Trump years. As predicted in \@ref(why-theory), the largest campaigns are mostly public interest campaigns, and public interest campaigns are more frequent than private interest campaigns overall.
 
 ```{r coded-coalition-success, fig.height=3, fig.width=5.5, fig.cap= "Lobbying Success by Number of Supportive Comments"}
 comments_coded %>% 
@@ -436,11 +441,13 @@ For the State of Oregon's coalition, the dependent variable, *coalition lobbying
 For the EarthJustice coalition, the dependent variable, *coalition lobbying success* is 1, *coalition size* is 3, *business coalition* is 0, <!--*comment length* is 7/85, `r round(7/85, 2)`,--> *pressure campaign* is 0, and the number of *mass comments* is 0.
 These examples are broadly consistent with the overall data---lobbying success in these two examples is the same, despite the large difference in public pressure. This is not consistent with Hypotheses \@ref(hyp:c-success) or \@ref(hyp:o-success) that anticipated higher lobbying success with more public pressure.
 
-Figures \@ref(fig:hist-coalitions) and \@ref(fig:hist-coalition-comments) show the distribution of values for coalition-level variables in the hand-coded data. Figure \@ref(fig:hist-coalitions) shows a wide range of variation for *coalition size* and *lobbying success* whereas the modal number of *businesses* is concentrated near 0. Most coalitions are between two and twenty members. About half have no business members, but a few have over 100. It is possible for the number of businesses to be larger than the coalition size where the same company sent in multiple comments. This occurs when franchised businesses mobilize local stores to send in letters. Because *Coalition size* is the number of unique organizations, these are only counted once, but each is counted in the *businesses* variable. \@ref(fig:hist-coalition-comments) shows that most coalitions in these data include no *members of congress*, but some have as many as four. The total number of *mass comments* is somewhat bimodal, reflecting the two random samples of rules from which these rules come. Most coalitions have did not mobilize a pressure campaign and thus have no mass comments, but a few have over a million.
+Figures \@ref(fig:hist-coalitions) and \@ref(fig:hist-coalition-comments) show the distribution of values for coalition-level variables in the hand-coded data. Figure \@ref(fig:hist-coalitions) shows a wide range of variation for *coalition size* and *lobbying success* whereas the modal number of *businesses* is concentrated near 0. Most coalitions are between two and twenty members. About half have no business members, but a few have over 100. It is possible for the number of businesses to be larger than the coalition size where the same company sent in multiple comments. This occurs when franchised businesses mobilize local stores to send in letters. Because *Coalition size* is the number of unique organizations, these are only counted once, but each is counted in the *businesses* variable.
+
+\@ref(fig:hist-coalition-comments) shows that most coalitions in these data include no *members of congress*, but some have as many as `r coalitions_coded$coalition_congress %>% max()`. The total number of *mass comments* is somewhat bimodal, reflecting the two random samples of rules from which these rules come. Most coalitions have did not mobilize a pressure campaign and thus have no mass comments, but a few have over a million. The models below use either a binary indicator for mass comments, the logged value, or the number rescaled as hundreds of thousands of comments. 
 
 ```{r hist-coalitions, fig.width=2, fig.height=2,  out.width = "30%", fig.cap="Hand-coded Data by Coalition"}
 #hist-coalitions
-ggplot(comments_coded) +
+ggplot(coalitions_coded) +
   aes(x = coalition_success) + 
   geom_histogram() + 
   labs(x = "Coalition Success",
@@ -452,7 +459,7 @@ ggplot(coalitions_coded) +
   labs(x = "Coalition Size",
        y = "Number of Coalitions")
 
-ggplot(comments_coded) + 
+ggplot(coalitions_coded) + 
   aes(x = as.numeric(coalition_business)) + 
   geom_histogram() + 
   labs(x = "Businesses",

@@ -11,10 +11,10 @@
 
 ## Hard cases 
 
-Wisconsin Emergency Management Agency submitted a comment in June of 2016 completely opposed to the proposal and another one in June of 2017 in favor of the proposal
+Wisconsin Emergency Management Agency, submitted a comment in June of 2016 completely opposed to the proposal and another one in June of 2017 in favor of the proposal.
 -->
 
-# An Expanded Model of Bureucratic Policymaking {#causal-full}
+# An Expanded Model of Bureaucratic Policymaking {#causal-full}
 
 Assembling the models presented in chapters \@ref(whymail) and \@ref(influence), \@ref(fig:causal-full) presents a full picture of the role of public pressure campaigns in bureaucratic policymaking. 
 
@@ -29,9 +29,9 @@ knitr::include_graphics(here::here("figs", "causal-full2.png"))
 In Section \@ref(formal), I briefly addressed the relationship between my argument and one leading formal model of commenter influence in agency rulemaking. Here, I offer an expanded version of that discussion. 
 
 My argument that lobbying strategies like pressure campaigns aim to create political information requires several crucial amendments to
-existing information-based models of rulemaking. Specifically, I argue that information about the political context in which policymakers operate can persuade them to make policy changes. Allowing policymakers to be persuaded in such a way allows public pressure campaigns to be incorporated into these models. Doing so also resolves some puzzling results of models that assume "fixed" political preferences. Allowing policymakers' political priorities to be affected by political pressure from commenters (either directly indirectly through, for example, changing the behavior of members of Congress) creates both uncertainties about policymakers' political positions and incentives for lobbying organizations to attempt to affect them by providing political information. 
+existing information-based models of rulemaking. Specifically, I argue that information about the political context in which policymakers operate can persuade them to make policy changes. Allowing policymakers to be persuaded in such a way allows public pressure campaigns to be incorporated into these models. Doing so also resolves some puzzling results of models that assume "fixed" political preferences. Allowing policymakers' political priorities to be affected by political pressure from commenters (either directly indirectly through, for example, changing the behavior of members of Congress) creates uncertainties about policymakers' political positions and incentives for lobbying organizations to attempt to affect them by providing political information. 
 
-It was not the aim of dissertation to develop or test the implications of formal models. Rather I briefly review the necessary modifications to one leading formal model in order to illustrate the importance of political information to theories of policymaking. My aim is to illustrate a few of the implications of my argument for formal theory. 
+It was not the aim of this dissertation to develop or test the implications of formal models. Rather I briefly review the necessary modifications to one leading formal model in order to illustrate the importance of political information to theories of policymaking. My aim is to illustrate a few of the implications of my argument for formal theory. 
 
 ```{r child = here::here("formal", "formal-influence.Rmd")}
 ```
@@ -39,7 +39,7 @@ It was not the aim of dissertation to develop or test the implications of formal
 ```{r child = here::here("formal", "formal-why-comment.Rmd")}
 ```
 
-# Suplimentary Figures {#figs-app}
+# Supplementary Figures {#figs-app}
 
 ## The Number of Comments Per Rule Over Time 
 
@@ -49,7 +49,7 @@ knitr::include_graphics(here::here("Figs", "comments-per-rule-2.png"))
 ```
 
 
-As discussed in Chapter \@ref(whymail), the number of agency rules receiving large number of public comments has increased over time. Figure \@ref(fig:comments-per-year-app) breaks out the data presented in Figure \@ref(fig:comments-per-year) by year. Red numbers show the number of comments received by on the proposed rule with the most comments (the one furthest to the right) for each year. For refrence, 10 comments is also marked, showing that in every year from 2005 to 2020, the majority of proposed rules open for comment on regulations.gov recieved less than 10 comments. 
+As discussed in Chapter \@ref(whymail), the number of agency rules receiving a large number of public comments has increased over time. Figure \@ref(fig:comments-per-year-app) breaks out the data presented in Figure \@ref(fig:comments-per-year) by year. Red numbers show the number of comments received on the proposed rule with the most comments (the one furthest to the right) for each year. For reference, a rule with ten comments is also marked, showing that in every year from 2005 to 2020, the majority of proposed rules open for comment on regulations.gov received less than ten comments. 
 
 ---
 
@@ -63,4 +63,3 @@ knitr::include_graphics(here::here("Figs", "comments-mass-support-vs-oppose-1.pn
 In line with findings from the hand-coded data presented Figure \@ref(fig:comments-support) in \@ref(why-results), a search for "Support" and "Oppose" in comment text (Figure\@ref(fig:comments-support-app)) shows a dramatic reversal in support and opposition with the change from the Obama administration to the Trump administration.
 Mentions of "support" or "oppose" may be a noisy signal---these words are not used in all comments and do not always indicate support for or opposition to a rule. Still, given the partisan asymmetry in the mobilizing groups, it is plausible that this pattern is a result of the changing regulatory agenda due to the change in the presidential
 administration. 
-

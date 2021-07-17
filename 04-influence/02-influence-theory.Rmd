@@ -154,7 +154,7 @@ to policymakers by launching a public pressure campaign.
 
 Whereas @Potter2017 identifies the power of mass comment campaigns to "expand the scope of conflict" and "give leaders the cover they need to pursue policies that face political opposition" as two distinct mechanisms by which campaigns may affect policy outcomes, I consider expanding the scope of conflict to be a broader category that encompases the second. Expanding the scope of conflict may both directly persuade agency officials and indirectly affect policy decisions by reshaping the strategic policymaking environment (e.g., giving cover from political opposition in Congress). 
 
-```{r causal-whymail2, fig.cap = "Incorporating Political Information into Models of Bureaucratic Policymaking"}
+```{r causal-whymail2, fig.cap = "Direct Effects of Political Information: Incorporating Political Information into Models of Bureaucratic Policymaking"}
 # TODO ADD HEADERS, REMOVE LATENT DEMANDS
 knitr::include_graphics(here::here("Figs", "causal-direct.pdf"))
 

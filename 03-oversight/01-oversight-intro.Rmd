@@ -107,7 +107,7 @@ Figure \@ref(fig:causal-oversight) shows two pathways by which lobbying organiza
 The lower causal pathway represents the additional role that I suggest interest groups play in political oversight by generating political information through public pressure campaigns.
 When lobbying organizations use a public pressure strategy, the political information they create (e.g., about the scale and intensity of public support) may affect agency policymakers directly, as shown in \@ref(fig:causal-whymail2). Additionally, levels of public support may also affect policy indirectly if it affects the behavior of an agency's political principals (e.g., members of Congress). When political principals contact agency officials, they create at least two additional kinds of political information. First, they express their opinion on what they think the agency should do, which may have normative power for bureaucrats. Second, principals signal political consequences that agencies may want to avoid [@Potter2017]. Both types of information may persuade agency officials to revise policy documents to address their principals' comments.
 
-```{r causal-oversight, fig.cap = "Integrating Public Pressure and Congressional Oversight into a Model of Lobbying in Bureaucratic Policymaking"}
+```{r causal-oversight, fig.cap = "Direct and Indirect Effects of Political Information: Integrating Public Pressure and Congressional Oversight into a Model of Lobbying in Bureaucratic Policymaking"}
 #TODO label "Public Pressure" and "Oversight" portions. 
 knitr::include_graphics(here::here("figs", "causal-indirect.pdf"))
 ```

@@ -21,7 +21,7 @@ Y_{i} = \beta_1 \textbf{Pressure campaign}_{i} + \beta_{2:n} X_i +  \gamma_j + \
 \end{equation} 
 
 
-The base models include agency and president fixed effects ($ \alpha_k + \gamma_p$) and control for other coalition-level factors that may affect a coalition's lobbying success, $X_i$. Controls include <!-- of the relative length of the (lead) organizations comment, -->
+The base models include agency and president fixed effects ($\alpha_k + \gamma_p$) and control for other coalition-level factors that may affect a coalition's lobbying success, $X_i$. Controls include <!-- of the relative length of the (lead) organizations comment, -->
 whether the coalition is lobbying unopposed, the coalition's size (the number of distinct organizations and elected officials), and the type of coalition (e.g., whether it is a business coalition or a public-interest coalition) and include agency fixed effects. I estimate these relationships using OLS regression. <!--I also estimate hand-coded lobbying success with beta regression and ordered logit, which is more appropriate but less interpretable. For the automated measures of lobbying success, I estimate beta regression models with the same variables.-->
 
 
@@ -64,7 +64,7 @@ There is still a (lesser) problem with the i.i.d. assumption here because two or
 At the organization level, the appropriate analysis is a difference-in-difference design. We know the success of each organization when it does and does not participate in a lobbying coalition that mobilizes public pressure (at least each organization that I can use for this analysis). The difference within an organization is now the key variation.  
 
 \begin{equation}
-Y_{ij} =  \alpha_i + \beta_0 + \beta_1 \textbf{Pressure Campaign}_{ij}) + \beta_{2-n} X_{ij} + \gamma_k + \delta_p + \epsilon_{ij}
+Y_{ij} =  \alpha_i + \beta_0 + \beta_1 \textbf{Pressure Campaign}_{ij} + \beta_{2-n} X_{ij} + \gamma_k + \delta_p + \epsilon_{ij}
 (\#eq:dnd)
 \end{equation}
 <!--+ {\beta}_5\text{Coalition Type}_{ij} +{\beta}_6\text{Coalition Type}_{ij}*\text{President}_{j} -->
