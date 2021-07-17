@@ -42,3 +42,5 @@ source(here::here("code", "setup.R"))
 \DoubleSpacing
 \setlength{\parindent}{2ex}
 \newpage
+
+# Introduction: Why Study Public Participation in Bureaucratic Policymaking {#book-intro}
