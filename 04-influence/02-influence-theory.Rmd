@@ -26,45 +26,17 @@ Whether representing broad or narrow interests, many interest groups exist prima
 
 With renewed attention to the role of advocacy groups in policymaking [@Hojnacki2012; @Grossmann2012], the dichotomy between accountability to political principals and "capture" is being replaced by studies that focus on numerous mechanisms of interest group influence in policymaking. 
 Measuring lobbying success is a major challenge for studies attempting to study interest group influence [@Mahoney2007JPP; @Yackee2006JOP; @Rashin2017].
-As @Potter2017 put it "discerning influence from any kind of lobbying is a notoriously elusive exercise because of the difficulty in knowing the counterfactual scenario."
+As @Potter2017 put it, "discerning influence from any kind of lobbying is a notoriously elusive exercise because of the difficulty in knowing the counterfactual scenario." Despite this renewed attention to interest groups and their effect on the bureaucracy, scholars have paid relatively little attention to outside lobbying strategies. 
 
-
+<!-- 
+Figure \@ref(fig:causal-whymail) amends what I labeled the ``classic Model'' of interest.
 Scholars of bureaucratic policymaking have focused either on
 the sophisticated lobbying efforts of powerful interest groups such as
 business coalitions or principal-agent dynamics, especially with respect to Congress. 
-This section first discusses what I call the ``classic model" of interest group influence. I then amend this model to incorporate public pressure campaigns. Specifically, I allow policymakers to be persuaded by both technical and political information. Thus, lobbying organizations may have incentives to adopt both tactics to influence policy. 
-Next, I incorporate public pressure campaigns into a simple principal-agent model. The result is a single model of interest group influence that includes interactions among sophisticated lobbying strategies, political principals, and public pressure campaigns.
+This section first discusseswhat I called the ``classic model" of interest group influence, Figure \@ref(causal-classic) in Chapter \@ref(whymail). I discuss the amended version of this model that incorporates public pressure campaigns (Figure \@ref(causal-whymail)), now with a focus on the last step of persuading agency officials to change policy. Specifically, I allow policymakers to be persuaded by both technical and political information. Thus, lobbying organizations may have incentives to adopt both tactics to influence policy. 
+Next, I incorporate public pressure campaigns into a simple principal-agent model. The result is a single model of interest group influence that includes interactions among sophisticated lobbying strategies, political principals, and public pressure campaigns.--> 
 
-
-<!--TODO ELLIE: Should step 4 (info persuades agency officials) be in a diamond? -->
-
-```{r causal-classic2, fig.cap = "The ``Classic Model'' of Interest Group Lobbying in Bureaucratic Policymaking"}
-#FIXME add headers above each node
-knitr::include_graphics(here::here("Figs", "causal-classic-draft.png"))
-```
-
-
-A key insight from scholarship on interest group lobbying in bureaucratic policymaking is that
-technical information is the currency of insider lobbying [@Wagner2010]. 
-<!--TODO-->
-Figure
-\@ref(fig:causal-classic2) illustrates what I call the ``classic
-model" of insider lobbying that describes most rulemakings and nearly all
-scholarship on lobbying in bureaucratic policymaking to date. Diamonds indicate observable choices, <!---ovals indicate latent preferences,--> and rectangles indicate information--the mechanism of influence in this model.
-
-The first broadly observable step in the rulemaking process is usually an agency publishing a draft rule in the Federal Register.^[As agency rulemaking is my empirical case of policymaking,  I use "rule" and "policy" interchangeably.]
-While organized groups certainly shape the content of draft policies [@West2004]<!--@Harter1982; @Chubb1983; -->, the public portion of the policy process begins when the draft is officially published.  Taking the publication of a draft policy as my starting point builds on the idea that "new policies create politics" [@Schattschneider1935]. When an agency finalizes a proposed rule, organized groups' latent policy preferences take the form of concrete demands for changes to the draft policy document. These demands lead organizations to form lobbying coalitions and lobbying strategies that research may, in theory, observe. 
-
-One lobbying strategy (often the only strategy in models of lobbying the bureaucracy) is for an organization to provide technical or legal information such as data, analyses, or legal arguments. There are many reasons to believe that providing technical information is a powerful strategy for organized groups to affect policymaking, especially in the bureaucracy. Bureaucrats may be particularly likely to be persuaded by technical information that leads them to update their beliefs about the policy language that would best achieve desired policy outcomes. 
-
-Finally, we observe the resulting policy. Inferences about the extent to which lobbying caused any changes (or lack of changes) between the draft and final rule are challenging, but studies of policy generally use observational data and thus require some assumptions linking policy success (a lobbying group getting their desired result) and policy influence (causing a policy outcome). Groups invest in providing information "relevant" to technocratic policymakers, and the policy response is assumed to be a function of this information.
-
-
-Public pressure campaigns have no place in this model.  I aim to fill this
-gap.
-
-
-One reason that scholars have ignored public pressure campaigns targeting the bureaucracy is the strong normative belief among legal scholars that bureaucratic policymaking should rest on rational analysis rather than politics.
+One reason that scholars of bureaucratic policymaking have larely ignored outside lobbying strategies like public pressure campaigns is the strong normative belief among many legal scholars that bureaucratic policymaking should rest on rational analysis rather than politics.
 @Epstein2014 [p. 4] dismiss mass comments as "effectively, votes rather
 than informational or analytical contributions. Rulemaking agencies are
 legally required to make policy decisions based on fact-based, reasoned
@@ -184,15 +156,30 @@ Whereas @Potter2017 identifies the power of mass comment campaigns to "expand th
 
 ```{r causal-whymail2, fig.cap = "Incorporating Political Information into Models of Bureaucratic Policymaking"}
 # TODO ADD HEADERS, REMOVE LATENT DEMANDS
-knitr::include_graphics(here::here("Figs", "causal-whymail-draft.png"))
+knitr::include_graphics(here::here("Figs", "causal-direct.pdf"))
+
+mass <-
+  'Interest group
+  creates or provides
+  political information'
 ```
 
-Figure \@ref(fig:causal-whymail2) amends what I call the ``classic model" of interest
-group lobbying (Figure \@ref(fig:causal-classic2)) to incorporate political information about the attentive public. In addition to providing technical information through sophisticated comments, an organization or coalition of organizations may provide political information by mobilizing supporters.
-<!--The more latent public support a group has, the more successful this mobilization effort will be.-->
-Large-scale public engagement may produce several types of relevant political
-information. For simplicity, \@ref(fig:causal-whymail2) focuses on one possible mechanism, the effect that public pressure campaigns may have on policymakers' perceptions of public opinion (or at least opinion among certain segments of the public). I address other types of political information that mass engagement may create below (see Figures \@ref(fig:causal-oversight)).<!-- and
-    \@ref(fig:causal-full)). -->
+For convenience, I have reprinted Figure \@ref(fig:causal-whymail) here as Figure \@ref(fig:causal-whymail2). (See the discussion in Chapter \@ref(whymail) regarding how this revised model incorporates political information about the attentive public.)
+
+This figure shows two direct pathways by which a lobbying organization may influence policymakers. One lobbying strategy (often the only strategy in models of lobbying the bureaucracy) is for an organization to provide technical or legal information such as data, analyses, or legal arguments. There are many reasons to believe that providing technical information is a powerful strategy for organized groups to affect policymaking, especially in the bureaucracy. Bureaucrats may be particularly likely to be persuaded by technical information that leads them to update their beliefs about the policy language that would best achieve desired policy outcomes. 
+
+In addition to providing technical information through sophisticated comments, an organization or coalition of organizations may provide political information by mobilizing supporters. The size of a coalition's investment in mobilizing supporters and the response it generates offer political information to
+policymakers, including information about the resources a coalition is willing to invest, the intensity of sentiments among the attentive public,
+and the potential for conflict to spread. The first two types signal two
+kinds of intensity or resolve. They show the mobilizers'
+willingness to commit resources to the lobbying effort, which often extends beyond a mass comment campaign. Second, costly actions (even fairly low-cost behaviors like signing a petition)
+show the intensity of opinions among the mobilized segment of the public
+[@Dunleavy1991]. The number of people engaged by a campaign is not
+strictly proportional to an organization's investment. The more people
+care, the less it costs to mobilize them and thus the higher the response to a campaign. This kind of political information may persuade policymakers to adjust their policy positions.
+
+
+Inferences about the extent to which lobbying caused any changes (or lack of changes) between the draft and final rule are challenging, but studies of policy generally use observational data and thus require some assumptions linking policy success (a lobbying group getting their desired result) and policy influence (causing a policy outcome). Groups invest in providing information "relevant" to technocratic policymakers, and the policy response is assumed to be a function of this information.
 
 <!--
 > TODO: more theorizing and literature development on the direct lobbying link.
@@ -209,7 +196,7 @@ i.	Spend more time justifying why, on page 58, we should use the much longer sub
 
 The causal process visualized in Figure
 \@ref(fig:causal-whymail2) may only operate under certain conditions. 
-The influence of political information on policy (the arrow between "Interest group provides political information" and "Agency officials revise policy") depends on the institutional processes by which agency officials receive and interpret information. That is, agency contexts may condition the extent to which officials may be persuaded. Agency officials often reject the notion that public pressure should inform their decisions. For example, in response to several public pressure campaigns, the Consumer Financial Protection Bureau wrote: 
+The influence of political information on policy (the arrow between "`r mass`" and "`r policy`") depends on the institutional processes by which agency officials receive and interpret information. That is, agency contexts may condition the extent to which officials may be persuaded. Agency officials often reject the notion that public pressure should inform their decisions. For example, in response to several public pressure campaigns, the Consumer Financial Protection Bureau wrote: 
 
 >"A rough estimate of pro and con submissions by individuals may provide insight as to public interest in a topic and to individual consumer experiences. However, under both the Administrative Procedure Act (APA) and the Dodd-Frank Act, the Bureau must base its determinations in rulemaking on the facts and the law in the rulemaking record as a whole." ([CFPB-2020-14935](https://www.federalregister.gov/d/2020-14935/p-134))
 

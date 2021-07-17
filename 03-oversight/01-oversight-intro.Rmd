@@ -109,7 +109,7 @@ When lobbying organizations use a public pressure strategy, the political inform
 
 ```{r causal-oversight, fig.cap = "Integrating Public Pressure and Congressional Oversight into a Model of Lobbying in Bureaucratic Policymaking"}
 #TODO label "Public Pressure" and "Oversight" portions. 
-knitr::include_graphics(here::here("figs", "causal-oversight-draft.png"))
+knitr::include_graphics(here::here("figs", "causal-indirect.pdf"))
 ```
 
 Public pressure campaigns in bureaucratic policymaking may affect the behavior of

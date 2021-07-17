@@ -38,6 +38,22 @@ Is there a threshold effect – groups need to have some funds to organize mass 
 
 CUT FROM WHY MOBILIZE FOR NOW
 
+
+A key insight from scholarship on interest group lobbying in bureaucratic policymaking is that
+technical information is the currency of insider lobbying [@Wagner2010]. 
+<!--TODO-->
+Figure
+\@ref(fig:causal-classic2) illustrates what I call the ``classic
+model" of insider lobbying that describes most rulemakings and nearly all
+scholarship on lobbying in bureaucratic policymaking to date. Diamonds indicate observable choices, <!---ovals indicate latent preferences,--> and rectangles indicate information--the mechanism of influence in this model.
+
+
+
+
+
+Public pressure campaigns have no place in this model.  I aim to fill this
+gap
+
 <!--  % %  I theorize that activists' opportunities and strategies and latent public opinion drive engagement. -->
 
 

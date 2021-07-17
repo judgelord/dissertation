@@ -152,17 +152,22 @@ Foundational scholarship on rulemaking [@Furlong2005; @Furlong1997; @Furlong1998
 Figure
 \@ref(fig:causal-classic) illustrates the ``classic
 model" of insider lobbying that describes most rulemakings and nearly all
-scholarship on lobbying in bureaucratic policymaking to date.<!--^[Diamonds indicate observable choices, ovals indicate latent preferences, and rectangles indicate information.]
-<!---However, mass engagement has no place in this model. I aim to fill this
-gap.-->
+scholarship on lobbying in bureaucratic policymaking to date. 
+The first step in the policy process the publication of a draft rule (`r draft`). The first broadly observable step in the rulemaking process is usually an agency publishing a draft rule in the Federal Register.^[As agency rulemaking is my empirical case of policymaking,  I use "rule" and "policy" interchangeably.]
+While organized groups certainly shape the content of draft policies [@West2004]<!--@Harter1982; @Chubb1983; -->, the public portion of the policy process begins when the draft is officially published.  Taking the publication of a draft policy as my starting point builds on the idea that "new policies create politics" [@Schattschneider1935]. 
+
+ After learning about the content of the policy, interest groups form concrete opinions about how exactly they would like the policy to change and develop a strategy to achieve their goals (`r strategy`) in the public comment stage of the policy process. 
+These demands lead organizations to form lobbying coalitions and lobbying strategies that research may, in theory, observe. 
+To date, most studies of rulemaking have focused on the power of expertise and novel technical information that may lead agency officials to re-evaluate their policy decisions (`r policy`). 
 
 ```{r causal-classic, fig.cap = "The ``Classic Model'' of Interest Group Lobbying in Bureaucratic Policymaking"}
-knitr::include_graphics(here::here("Figs", "causal-classic-draft.png"))
+knitr::include_graphics(here::here("Figs", "causal-classic.pdf"))
 ```
 
 The contentious politics of mobilizing and countermobilizing that inspires most public engagement in policymaking have no place in leading models of bureaucratic policymaking and have largely been ignored by political scientists. 
 To the extent that scholars of bureaucratic policymaking address the input of ordinary people and public pressure campaigns, both
 existing theory and empirical scholarship suggest skepticism that non-sophisticated actors merit scholarly attention. 
+
 
 #### What We Know About Mass Comment Campaigns {#why-mass}
 
@@ -258,11 +263,17 @@ Public pressure campaigns reveal the intensity of passions in attentive segments
 Building on theories of group conflict in democratic politics, I consider
 public demands to be a latent factor in my model of interest group lobbying during bureaucratic policymaking (Figure
 \@ref(fig:causal-whymail)). Public demands shape the decisions of
-organizations that lobby. If they believe a large segment of the attentive public could be rallied to their cause, an organization may attempt to reveal this political information
+organizations as they choose a lobbying strategy. If they believe a large segment of the attentive public could be rallied to their cause, an organization may attempt to reveal this political information
 to policymakers by launching a public pressure campaign. That is, the extent to which latent public demands align with a group's demands will affect its lobbying strategy, specifically whether it decides to launch a public pressure campaign. 
 
-Figure \@ref(fig:causal-whymail) amends what I call the ``classic Model'' of interest
-group lobbying from Figure \@ref(fig:causal-classic) to incorporate public pressure campaigns and political information about the attentive public. In addition to providing technical information through sophisticated comments, an organization may mobilize supporters to produce political information about their lobbying coalition through a mass comment campaign. This is a key feature of the model: political information is mobilized *to support* a lobbying coalition's sophisticated legal or technical lobbying effort, not as an alternative to sophisticated lobbying. 
+
+```{r causal-whymail, fig.cap = "Incorporating Political Information into Models of Interest Group Lobbying in Bureaucratic Policymaking"}
+knitr::include_graphics(here::here("Figs", "causal-direct.pdf"))
+```
+
+
+Figure \@ref(fig:causal-whymail) amends what I labeled the ``classic Model'' of interest
+group lobbying from Figure \@ref(fig:causal-classic) to incorporate political information. In the classic model, lobbying strategies are limited to inside lobbying strategies that aim to persuade officials with legal and technical analysis (`r technical`). In the revised model presented in \@ref(fig:causal-whymail), interest groups may add a second strategy to support their legal and technical arguments with political information (` r mass`). For example, they may sponsor a public pressure campaign that generates political information about the attentive public.  In this case, the organization provides technical information through sophisticated comments and organizes supporters to produce political information about their lobbying coalition through a mass comment campaign. This is a key feature of the theory: political information is mobilized *to support* a lobbying coalition's sophisticated legal or technical lobbying effort, not as an alternative to sophisticated lobbying. 
 
 Interest groups with more latent public support should see a larger public response to a mobilization.
 The public
@@ -274,10 +285,6 @@ opinion" that policymakers observe. I address other types of political informati
 The causal process visualized in Figure
 \@ref(fig:causal-whymail) may only operate under certain conditions. <!--For example, the success of a mobilizing effort depends on the extent to which a group's perception of latent public demands (the diagonal arrow between "Latent Public Demands" and "Lobbying Strategy") reflects the public response to a mobilizing effort (the horizontal arrow between "Latent Public Demands" and "Mass Engagement"). Additionally, -->
 Policymaking institutions have different mechanisms for processing and incorporating technical and political information (the arrows between "Organization provides technical information" or "Organization provides political information" and "Agency officials revise policy"). Agencies may thus have different levels of receptivity to technical and political information. 
-
-```{r causal-whymail, fig.cap = "Incorporating Political Information into Models of Interest Group Lobbying in Bureaucratic Policymaking"}
-knitr::include_graphics(here::here("Figs", "causal-whymail-draft.png"))
-```
 
 Because lobbying organizations likely have some idea of the level of public support for their positions, one observable implication of this model is that lobbying organizations will be more likely to launch a public pressure campaign when they have more public support.
 

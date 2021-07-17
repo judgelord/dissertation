@@ -187,5 +187,22 @@ str_spl <- function(string, pattern) {
 
 
 
+# causal 
+draft <-
+  'Agency publishes draft policy'
+strategy <-
+  'Interest group chooses lobbying strategy'
+technical <-
+  'Interest group creates or provides techical information'
+policy <-
+  'Information persuades  agency officials to  revise policy'
 
+mass <-
+  'Interest group creates or provides  political information'
+
+mass2 <-
+  'Interest group  creates or provides  political information (e.g., through a public pressure campaign)'
+
+oversight <-
+  'Information persuades political principals to contact agency'
 
