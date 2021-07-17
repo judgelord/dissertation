@@ -16,7 +16,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r global.options, include=FALSE, cache= TRUE}
+```{r global.options, include=FALSE}
 # load defaults
 source(here::here("code", "setup.R")) ### #
 
@@ -31,16 +31,24 @@ knitr::opts_chunk$set(echo = TRUE,
 # Data: A Census of Public Pressure Campaigns {#pressure-data}
 
 ```{r data-hand-code, cache=FALSE}
+source(here::here("code", "setup.R")) ### #
+
+# overide defaults
+knitr::opts_chunk$set(echo = TRUE, 
+                      cache = TRUE,
+                      fig.path = "../figs/")
 # hand coded 
 load(here::here("data", "coalitions_coded.Rdata"))
 load(here::here("data", "comments_coded.Rdata"))
+load(here("data", "mass_raw.Rdata"))
 ```
-```{r data, cache = FALSE}
+```{r data-rules, cache=TRUE}
 # rules metadata is raw from rulemaking repo API pull
-load(here::here("data","rules_metadata.Rdata"))
+load(here::here("data","rules.Rdata"))
 
+# FIXME ID WHERE CODE for rules_metadata to rules is---I THINK THIS IS IT, MOVE TO RULEMAKING REPO
 # for paper data, add vars to rules, then d is subset to 2005-2020
-rules %<>% mutate(open = !is.na(comment_start_date)|!is.na(comment_due_date)|number_of_comments_received > 0)
+# rules %<>% mutate(open = !is.na(comment_start_date)|!is.na(comment_due_date)|number_of_comments_received > 0)
 # min(rules$posted_date, na.rm = T)
 # max(rules$posted_date, na.rm = T)
 
@@ -49,16 +57,16 @@ rules %<>% mutate(open = !is.na(comment_start_date)|!is.na(comment_due_date)|num
 
 
 #FIXME move date var to rulemaking repo
-rules %<>%
-  mutate(comment_start_date = comment_start_date %>% as.Date(),
-         comment_due_date = comment_due_date %>% as.Date(),
-         date = coalesce(posted_date, comment_start_date, comment_due_date),
-         year = str_sub(date, 1,4),
-         year2 = str_remove(docket_id, ".*[A-Z]-") %>%
-           str_remove("-.*"),
-         year = coalesce(year, year2) %>% as.numeric()
-                      ) %>%
-  select(-year2) 
+# rules %<>%
+#   mutate(comment_start_date = comment_start_date %>% as.Date(),
+#          comment_due_date = comment_due_date %>% as.Date(),
+#          date = coalesce(posted_date, comment_start_date, comment_due_date),
+#          year = str_sub(date, 1,4),
+#          year2 = str_remove(docket_id, ".*[A-Z]-") %>%
+#            str_remove("-.*"),
+#          year = coalesce(year, year2) %>% as.numeric()
+#                       ) %>%
+#   select(-year2) 
 
 # SUBSET TO ONE OBS PER DOCUMENT 
 rules %<>% ungroup() %>%
@@ -86,19 +94,22 @@ d <- rules  %>% filter(year >2004, year <2021,
                    document_type %in% c("Rule", "Proposed Rule"))
 ```
 
-```{r data-comments}
+```{r data-comments, cache = TRUE}
 # mass campaign 
 # all comment data from ______
 #if(!exists("comments_min")){
 load(here("data", "comments_min.Rdata"))
 
-comments_min %<>% 
-  group_by(id) %>%
-  slice_max(order_by = number_of_comments_received, n = 1) %>% 
-  ungroup()
+
+#FIXME MOVE THIS CLEANING OF COMMENTS MIN TO RULEMAKING REPO
+# comments_min %<>% 
+#   group_by(id) %>%
+#   slice_max(order_by = number_of_comments_received, n = 1) %>% 
+#   ungroup()
 #}
 
-load(here("data", "mass_raw.Rdata"))
+#save(comments_min, file =  here("data", "comments_min.Rdata"))
+
 
 comments_min %<>% mutate(docket_id = id %>% str_remove("-[0-Z]*$"),
                          year = str_sub(date, 1,4),
@@ -128,8 +139,6 @@ rules %<>%
 
 rules_mass <- filter(rules,campaign)
 
-comments_min$docket_id%in% mass$docket_id
-
 # second step
 comments_mass <- comments_min %>%
   filter(docket_id %in% rules_mass$docket_id | number_of_comments_received > 99)
@@ -143,7 +152,8 @@ rules %<>% ungroup() %>%
   ungroup()
 
 # RULES DATA FOR PAPER 
-save(rules, file =  here("data", "rules.Rdata"))
+#FIXME ME THIS SHOULD NOT BE IN THIS SCRIPT MOVE TO RULEMAKING REPO
+#save(rules, file =  here("data", "rules.Rdata"))
 
 
 # trim rules
@@ -158,7 +168,7 @@ mass <- filter(d,campaign)
 # DOCKETS 
 topdockets <- slice_max(mass %>% ungroup() %>% distinct(docket_id, docket_comments), order_by =  docket_comments, n = 10) 
 
-save(topdockets, file =  here("data", "topdockets.Rdata"))
+#save(topdockets, file =  here("data", "topdockets.Rdata"))
 
 # AGENCIES 
 topagencies1 <-  mass %>% 
@@ -559,6 +569,7 @@ org_comments_summary %<>%
          `Percent (Campaigns /Rules)` = percent, 
          `Average per Campaign` = average)
 
+#TODO IMPROVE PAPER SUMMARY WITH HAND CODED DATA 
 # save(org_comments_summary, file =  here::here("data", "org_comments_summary.Rdata"))
 ```
 

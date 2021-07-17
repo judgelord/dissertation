@@ -212,9 +212,9 @@ comments_coded %>%
   dplyr::select(docket_id, coalition, 
                 Position = Coalition_Position, 
                 coalition_size, 
-                coalition_business, #Coalition_business, 
+                coalition_business, #Coalition_business,  coalition_unopposed,
                 coalition_type, 
-                coalition_comments, coalition_unopposed) %>%
+                coalition_comments) %>%
   distinct() %>% 
   #arrange(-comments) %>%  distinct(docket_id, coalition_comments, campaign_)
   group_by(docket_id) %>% 
