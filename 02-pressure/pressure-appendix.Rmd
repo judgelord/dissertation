@@ -853,7 +853,8 @@ coalitions_coded %>%
   geom_col(position = "dodge") + 
   coord_flip() + 
   labs(x = "Coalition Type",
-       y = "Number of Coalitions") + 
+       y = "Number of Coalitions",
+       fill = "") + 
   scale_y_continuous(labels = comma) + 
   facet_wrap("president") + 
   theme_minimal() + 
@@ -894,7 +895,8 @@ coalitions_coded %>%
   geom_col(position = "dodge") + 
   coord_flip() + 
   labs(x = "Coalition Type",
-       y = "Number of Comments (Millions)") + 
+       y = "Number of Comments (Millions)",
+       fill = "") + 
   scale_y_continuous(labels = comma) + 
   facet_wrap("president") + 
   theme_minimal() + 

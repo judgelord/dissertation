@@ -119,7 +119,7 @@ justice is global---that's why the organization continues to participate
 in such international efforts as the Indigenous Environmental Network
 and the Global Week of Action for Climate Justice" [@CBECAL2017].
 
-While not a large portion of EJ comments, companies repeatedly raise research about the unequal impacts of policy to frame these issues as a legitimate but unresolved scientific debate that is not yet conclusive enough to base regulations on, mirroring the way tobacco and fossil fuel companies have emphasized scientific uncertainty in their lobbying efforts.<!--TODO CITE-->
+While not a large portion of EJ comments, private companies repeatedly raise research about the unequal impacts of policy to frame these issues as a legitimate but unresolved scientific debate that is not yet conclusive enough to base regulations on, mirroring the way tobacco and fossil fuel companies have emphasized scientific uncertainty in their lobbying efforts.<!--TODO CITE-->
 For example, in one comment, the Southern Company wrote:
 
 > "People with lower SES are exposed to almost an order of magnitude
@@ -156,11 +156,11 @@ importance for policy outcomes.
 To estimate the racial distribution of commenters
 using EJ language, I select commenters who
 signed with a
-surname appearing in census records. Figure
+surname appearing in Census records. Figure
 \@ref(fig:ejcommentsbyrace) shows a probabilistic racial
 distribution of commenters who raise EJ concerns in
 their comments based on the distribution of self-reported racial identities
-associated with surnames as recorded in the 2010 census.^[I recode "Hispanic" as "Latinx"] I estimate this distribution using the proportion of people with a given surname identified as belonging to each racial
+associated with surnames as recorded in the 2010 census.^[I recode "Hispanic" as "Latinx."] I estimate this distribution using the proportion of people with a given surname identified as belonging to each racial
 category (from this limited set of options). This approach does not
 assign specific individuals to racial categories. Instead, it represents each commenter as a set of probabilities adding up to 1. The estimated racial distribution of the sample is the sum of individual probabilities.
 
@@ -311,7 +311,7 @@ next seems to be in response to activist pressure.
 
 Having shown how public comments and pressure can influence policy texts, I assess the general relationship between comments and policy texts across all rules. I use two indicators of responsiveness to model the effect of public comments on policy documents: *whether* a rule addresses EJ and change in *how* it addresses EJ, i.e., change in portions of the text discussing EJ. Both measures represent a relatively low bar, indicating whether the agency explicitly paid any attention to EJ. This is similar to measures of "procedural responsiveness" used by @Balla2020. The low empirical bar is appropriate given that prior research, including the previous chapter in this dissertation, shows little to no effect of public comments from advocacy groups [@Yackee2006JOP; @Balla2020] and low levels of attention to EJ concerns in particular (Figure \@ref(fig:ej-data)). <!--[@Hughes2020].-->
 
-Examples in the previous section illustrate how text mentioning "environmental justice" might be added or change. Carefully tracing a few rulemaking processes also helped to avoid analytic pitfalls. For example, one case where an agency did an EJ analysis and then appeared not to respond to a comment discussing EJ was, in fact, due to the fact that the commenter included an annotated version of the draft rule their comment, adding only "no comment" next to the 12898 section. To correct this, I removed text copied from the proposed rule from comments in pre-processing. 
+Examples in the previous section illustrate how text mentioning "environmental justice" might be added or changed. Carefully tracing a few rulemaking processes also helped to avoid analytic pitfalls. For example, one case where an agency did an EJ analysis and then appeared not to respond to a comment discussing EJ was, in fact, due to the fact that the commenter included an annotated version of the draft rule their comment, adding only "no comment" next to the 12898 section. To correct this, I removed text copied from the proposed rule from comments in pre-processing. 
 
 #### Measure 1: Adding Text Addressing EJ to Final Rules
 

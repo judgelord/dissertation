@@ -56,7 +56,7 @@ To address these gaps, I systematically assess the impact of the environmental j
 
 As discussed in the previous chapters, dominant theories of bureaucratic policymaking have little room for social movements and political pressure. Instead, they focus on how agencies learn about policy problems and solutions [@Kerwin2011]. Leading formal models are information-based models where sophisticated lobbying groups affect policy by revealing information to the agency [@Gailmard2017;@Libgober2018], and empirical studies support the conclusion that information is the currency of lobbying in rulemaking [@Yackee2012;@Cook2017;@Gordon2018;@Walters2019].  
 
-Agency rulemaking is an especially technocratic and legalistic form of policymaking that explicitly privileges scientific and legal facts as the appropriate basis for decisions.  Procedural requirements to consider relevant information create incentives for lobbying groups to overwhelm agencies with complex technical information, making rulemaking obscure to all but the most well-informed insiders [@Wagner2010]. <!--Empirical work shows yackee -->
+Agency rulemaking is an especially technocratic and legalistic form of policymaking that explicitly privileges scientific and legal facts as the appropriate basis for decisions.  Procedural requirements to consider relevant information create incentives for lobbying groups to overwhelm agencies with complex technical information, making rulemaking obscure to all but the most well-informed insiders [@Wagner2010]. <!--Empirical work shows Yackee -->
 Influence in rulemaking generally requires resources and technical expertise [@Yackee2019].
 
 <!--As @Yackee2019 notes:
@@ -76,8 +76,7 @@ solicit and respond to public comments on proposed rules allow "civil
 society" to provide public oversight [@Michaels2015; @Metzger2010], most
 studies find that participants in rulemaking often represent elites and
 business interests--> [@Seifter2016UCLA; @Crow2015; @Wagner2011; @West2009; @Yackee2006JOP; @Yackee2006JPART; @Golden1998; @Haeder2015; @Cook2017; @LibgoberCarpenter2018]. To the extent that scholars address public pressure campaigns, both
-existing theory and empirical scholarship suggest skepticism that it
-matters. For example, @Balla2018 find that  "legal imperatives trump political considerations." (See Sections \@ref(why-mass) and \@ref(influence-mass) for reviews of scholarship on mass comment campaigns.) 
+existing theory and empirical scholarship suggest skepticism that public pressure campaigns matter. For example, @Balla2018 find that  "legal imperatives trump political considerations." (See Sections \@ref(why-mass) and \@ref(influence-mass) for reviews of scholarship on mass comment campaigns.) 
 My analysis in Chapter \@ref(influence) also shows no clear relationship between public pressure and lobbying success. Causes that directly confront elite and business interests, like the environmental justice movement, may be especially unlikely to influence bureaucratic policymaking. On the other hand, it is also possible that some social movements have normative and political resources sufficient to overcome the technocratic biases of bureaucratic policymaking.
 
 ### Political Information
@@ -90,6 +89,7 @@ mobilizing experts, they describe a dynamic that can be extended
 to mobilizing public pressure:
 <!-- 
 > "strategic recruitment, we theorize, mobilizes new actors to participate in the policymaking process, bringing with them novel technical and political information. In other words, when an expanded strategy is employed, leaders activate individuals and organizations to participate in the policymaking process who, without the coordinating efforts of the leaders, would otherwise not lobby. This activation is important because it implies that -->
+
 > "coalition lobbying can generate new information and new actors---beyond simply the 'usual suspects' ---relevant to policy decisionmakers."
 
 Expanding on the arguments about the potential value of political information advanced in the previous chapters,
@@ -100,7 +100,7 @@ Like levels of public attention and pressure, the normative appeal of distributi
 
 <!-- lowi politics -->
 The politics and outcomes of policymaking depend on how the relevant groups are defined [@Lowi1964].  <!--TODO-->
-While specific *data* on disparate impacts of policy may require expertise [@Ganz2019], anyone can highlight a community of concern or potential distributive effects of a policy. Identifying communities of concern is a political statement that does not require technical expertise. Just as @Nelson2012 found regarding mobilizing diverse experts, mobilizing diverse communities affected by a policy may introduce new claims from new actors about how the communities that a policy may benefit or harm should be constructed. Informing a policymaker about how a particular set of stakeholders will be affected can a lobbying tactic. Distributive justice claims simultaneously assert that a particular group deserves specific attention and demand that the policymaker account for how that group may be impacted, both of which may require revisions to the policy. Likewise, an organization may tell policymakers what a key constituency or affected groups think about the proposed policy---for example, whether they support or opposes the policy.  Instead of bolstering *scientific* claims, such comments that focus on a policy's disparate impacts bolster *political* claims about who counts and even *who exists* as a distinct, potentially affected group that deserves policymakers' attention. 
+While specific *data* on disparate impacts of policy may require expertise [@Ganz2019], anyone can highlight a community of concern or potential distributive effects of a policy. Identifying communities of concern is a political statement that does not require technical expertise. Just as @Nelson2012 found regarding mobilizing diverse experts, mobilizing diverse communities affected by a policy may introduce new claims from new actors about how the communities that a policy may benefit or harm should be constructed. Informing policymakers about how a particular set of stakeholders will be affected can be a lobbying tactic. Distributive justice claims simultaneously assert that a particular group deserves specific attention and demand that the policymaker account for how that group may be impacted, both of which may require revisions to the policy. Likewise, an organization may tell policymakers what a key constituency or affected groups think about the proposed policy---for example, whether they support or oppose the policy.  Instead of bolstering *scientific* claims, such comments that focus on a policy's disparate impacts bolster *political* claims about who counts and even *who exists* as a distinct, potentially affected group that deserves policymakers' attention. 
 
 The political construction of policy-relevant groups through the policy process has long interested administrative law scholars. @Gellhorn1972 argues that "individuals and groups willing to assist administrative agencies in identifying interests deserving protection" (p. 403) improve the policy process. @Seifter2016UCLA argues that policymaker's beliefs about who is lobbying them and who those groups represent ought to be (and likely is) key to how they respond.
 
@@ -212,5 +212,3 @@ Policies are more likely to address an issue when they receive more public atten
 This hypothesis asserts that the overall level of public attention will condition policy responses to specific claims--it is the interaction between the number of total public comments and at least one of those comments raising EJ concerns that makes policy more likely to address EJ. 
 
 The competing intuition against Hypothesis \@ref(hyp:ej-pressure) is again that large numbers of comments indicate high-salience rulemakings where policymakers are more likely to anticipate public scrutiny, including how they did or did not address specific issues like environmental justice. If policymakers anticipate public scrutiny, they may be more likely to preempt EJ concerns and state their final position in the draft policy.
-
-
