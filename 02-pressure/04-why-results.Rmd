@@ -9,7 +9,7 @@ comments on draft regulations posted to regulations.gov were the result of a pub
 
 
 ```{r comments-mass, fig.cap = "Public Comments 2005-2020", out.width = "79%", fig.show = "hold"}
-knitr::include_graphics(here::here("Figs", "comments-mass-vs-unique.pdf"))
+knitr::include_graphics(here::here("Figs", "comments-mass-1.png"))
 ```
 
 <!--

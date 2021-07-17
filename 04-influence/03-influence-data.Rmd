@@ -64,10 +64,10 @@ To estimate the influence of public comments on policy, I use hand-coded comment
 
 <!--TODO ELLIE: "Why 62 rules? Could you say something about what proportion of rules that is? Maybe add a footnote about how in future work you plan to expand this ... "-->
 
-I first select a random sample of `r nrow(filter(comments_coded, campaign_) %>% distinct(docket_id))` proposed rules with both a mass-comment campaign and a final rule. I then selected all comments that were likely to be from organizations.^[Through an iterative process described in \@ref(why-methods), I developed software and methods to select comments that were most likely submitted by organizations rather than by individuals. For example, I include all comments submitted as file attachments rather than typed into the textbox.]
+I first selected a random sample of `r nrow(filter(comments_coded, campaign_) %>% distinct(docket_id))` proposed rules with both a mass-comment campaign and a final rule. I then selected all comments that were likely to be from organizations.^[Through an iterative process described in \@ref(why-methods), I developed software and methods to select comments that were most likely submitted by organizations rather than by individuals. For example, I include all comments submitted as file attachments rather than typed into the textbox.]
 The hand-coding process included identifying the organization responsible for each comment submitted by an organization (e.g., a business, nonprofit, or government). 
 
-I then select a sample of `r nrow(filter(comments_coded, !campaign_) %>% distinct(docket_id))` proposed rules on which the same organizations commented without a mass comment campaign. <!--Matching prioritizes, presidential administration, policy area (following Policy Agendas Project coding), rule significance, department, agency, subagency, and proposed rule length, respectively.^[For more on policy area coding, see Chapter \@ref(macro).]--> 
+I then selected a sample of `r nrow(filter(comments_coded, !campaign_) %>% distinct(docket_id))` proposed rules on which the same organizations commented without a mass comment campaign. While most studies of mass comment campaigns to date have focused on the Environmental Protection Agency, my combined sample rules come from `r nrow(comments_coded %>% distinct(agency, president))` agencies. Additionally, my sampling approach includes rules with very small and very large numbers of comments that previous studies exclude.  <!--Matching prioritizes, presidential administration, policy area (following Policy Agendas Project coding), rule significance, department, agency, subagency, and proposed rule length, respectively.^[For more on policy area coding, see Chapter \@ref(macro).]--> 
 
 <!--TODO
 ```{samples}
@@ -89,7 +89,7 @@ Using commenter requests to identify the dimensions of the conflict has advantag
 Other approaches to identifying the commenter's relationship with policy changes have different strengths and weaknesses. For example, one could measure success by the number of times a comment is mentioned in the agency's response to comments. However, this measure may be affected by strategic responsiveness by agencies choosing to discuss some issues more than others. It also counts explicit rejections toward the measure of responsiveness. One could also measure success by focusing on a priori potential aspects of the policy. @Balla2020 count five factors: (1) the number of regulated entities, (2) the number of activities or substances being regulated, (3) the level of pollution standards, (4) the compliance and effective deadlines of the regulation, and (5) the monitoring and reporting requirements. Each takes one value (increasing or decreasing), and each is weighted equally in the analysis. In contrast, starting with comments allows commenters to highlight the issues they care most about.
 
 
-The hand-coded sample includes `r nrow(comments_coded)` hand-coded documents representing over `r (sum(comments_coded$comments)/1000000) %>% round(0)` million comments (including both mass comments and the sophisticated comments they support) on `r nrow(comments_coded %>% distinct(docket_id, president))` rules from `r nrow(comments_coded %>% distinct(agency, president))` agencies, several times larger than leading studies using hand-coding. Unlike previous research, my sampling approach includes rules with very small and very large numbers of comments that previous studies exclude. 
+The hand-coded sample includes `r nrow(comments_coded)` hand-coded documents representing over `r (sum(comments_coded$comments)/1000000) %>% round(0)` million comments (including both mass comments and the sophisticated comments they support).
 
 ```{r data-org-comments}
 comments_coded %>% ungroup() %>% 
@@ -111,11 +111,11 @@ comments_coded %>% ungroup() %>%
          Position,
          `Success` = success) %>%
   distinct() %>% 
-  kable3(caption = "A Sample of Organizational-Level Hand-coded Public Comments", latex_options = "scale_down")
+  kable3(caption = "A Sample of Hand-coded Public Comments", latex_options = "scale_down")
 ```
 
 
-Table \@ref(tab:data-org-comments) shows a sample of comments, hand-coded at the organization level. Docket ID is the identifier for each rulemaking. The Organization, Comment Type, and Coalition columns show how coders record the name and type of each organization or elected official, as well as the broader coalition to which they belong. The name assigned to each coalition is usually the name of one of the lead organizations. 
+Table \@ref(tab:data-org-comments) shows a sample of hand-coded public comments. Docket ID is the identifier for each rulemaking. The Organization, Comment Type, and Coalition columns show how coders record the name and type of each organization or elected official, as well as the broader coalition to which they belong. The name assigned to each coalition is usually the name of one of the lead organizations. 
 
 The Position column in Table \@ref(tab:data-org-comments) is a collapsed version of the spatial position-coding described in \@ref(spatial) and Appendix \@ref(codebook). To create a binary measure of support and opposition, I collapse the coding of each comment’s spatial position into a dichotomous indicator of whether they ultimately support or oppose the rule. Finally, Lobbying Success---whether each comment got what they asked for in the change between a draft and final rule---is coded on a five-point scale from 2 to -2. "2" indicates that most of the commenter's requests were met. If the rule moved decidedly in the opposite direction as they would have liked it to move, this is coded as a "-2" (the opposite of total success). To measure these variables at the coalition level, I use the coding assigned to the lead organization or the average across coalition members. Because "lead" organizations are identified based on their leadership role in the coalition and the extent to which they represent the coalition's policy demands, the lead organization's coding is nearly the same as the average across coalition members in all cases.
 
