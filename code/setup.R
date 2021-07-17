@@ -193,9 +193,9 @@ draft <-
 strategy <-
   'Interest group chooses lobbying strategy'
 technical <-
-  'Interest group creates or provides techical information'
+  'Interest group creates or provides technical information'
 policy <-
-  'Information persuades  agency officials to  revise policy'
+  'Information persuades agency officials to  revise policy'
 
 mass <-
   'Interest group creates or provides  political information'
