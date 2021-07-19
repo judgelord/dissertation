@@ -49,9 +49,9 @@ Early optimism among legal scholars that the internet would "change
 everything" [@Johnson1998] and that "cyberdemocracy" would enable more
 deliberative rulemaking has faded. While commenting and mobilizing
 others to comment has become easier, @Coglianese2006 concludes that little
-else has changed. Predictions by @Sunstein2001 and others that the internet would primarily
-facilitate more of the same kind of engagement among the like-minded
-(i.e. mass-commenting)  has largely been correct. In this
+else has changed. The prediction that the internet would primarily
+facilitate more engagement among the like-minded
+[@Sunstein2001]  has largely been correct. In this
 sense, the "quality" of discourse has not improved.
 
 Even scholars who suggest reforms aimed at "regulatory democracy" aim to

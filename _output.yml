@@ -4,7 +4,8 @@ bookdown::gitbook:
 #  css: style.css #`r here::here("assets/style.css")`
   config: 
     search: true
-    split_bib: no 
+    split_bib: FALSE
+    split_by: "section"
     sharing: no
     download: ["pdf"] #, "epub", "docx"]
     toc:

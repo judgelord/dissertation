@@ -5,7 +5,12 @@ See the working paper version of this chapter [_here_](https://judgelord.github.
 
 #### Abstract {-}
 
-\SingleSpacing
+`r if (knitr:::is_latex_output()) '
+\begin{SingleSpace} 
+'`
+
 `readLines(here::here("01-rulamaking/abstract.txt"))` 
-\DoubleSpacing
+`r if (knitr:::is_latex_output()) '
+\end{SingleSpace} 
+'`
 -->

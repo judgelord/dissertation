@@ -4,9 +4,9 @@
 
 #### Abstract {-}
 
-\begin{SingleSpace}
+\begin{SingleSpace} 
 
 ```{r child = here::here("04-influence/abstract.txt")}
 ```
 
-\end{SingleSpace}
+\end{SingleSpace} 

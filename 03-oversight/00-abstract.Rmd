@@ -2,6 +2,12 @@
 
 #### Abstract {-}
 
-\SingleSpacing
+`r if (knitr:::is_latex_output()) '
+\begin{SingleSpace} 
+'`
+
 `r readLines(here::here("03-oversight/abstract.tex"))`
-\DoubleSpacing
+
+`r if (knitr:::is_latex_output()) '
+\end{SingleSpace} 
+'`
