@@ -36,5 +36,6 @@ rmd_files:
   - 09-conclusion.Rmd   
   - 09-future-research.Rmd
   - 09-policy.Rmd # policy
-  - 99-references.Rmd
   - 99-appendix.Rmd
+  - 99-references.Rmd
+

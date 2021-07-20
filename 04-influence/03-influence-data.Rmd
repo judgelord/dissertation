@@ -180,11 +180,18 @@ comments_coded %>%
   tally(comments) %>%
   drop_na(comment_type) %>% 
   drop_na(Position) %>% 
+  full_join(tibble(
+    president = c("Obama", "Trump"),
+    comment_type = "Corp",
+    Position = c("Supports Rule", "Opposes Rule"), 
+    n = 0)) %>% 
   ggplot() +
   aes(x = NA , y = n, fill = Position) +
   geom_col(position = "dodge") + 
   facet_grid(comment_type ~ president, scales = "free_y") + 
-  labs(x = "", y = "Number of Comments") + 
+  labs(x = "", 
+       y = "Number of Comments",
+       fill = "") + 
   theme(axis.text.x = element_blank(),
         axis.ticks = element_blank()) + 
   scale_fill_viridis_d(begin = 0, end = .7) + 
@@ -296,6 +303,7 @@ comments_congress %>%
   labs(x = "" ,
        y = "Number of Rulemaking Comments\nfrom Members of Congress") + 
   scale_x_continuous(breaks = breaks) + 
+  scale_fill_viridis_d(option = "cividis", begin = .0, end = .9) + 
   theme(axis.text.x = element_text(angle = 90),
         axis.ticks.x = element_blank(),
         panel.grid.major.x = element_blank())
@@ -378,15 +386,14 @@ comments_coded %>%
   ungroup() %>%
   ggplot() +
   aes(y = success, x = comments + 1, color = coalition_type) +
-  geom_jitter(aes(size = n), alpha = .5) +
+  geom_jitter(aes(size = n), alpha = .6) +
   #geom_smooth(se = FALSE) + 
   labs(size = "Coalition Size\n(number of organizations)",
        color = "Coalition Type",
        x = "Number of Mass Comments per Coalition (log scale)",
        y = "Lobbying Success") + facet_wrap("president") +
-  scale_color_discrete()  + 
-  scale_y_continuous(breaks=c(-2,-1,0,1,2), labels = c("Loss (-2)","Moderate\nLoss","Neither\nSuccess\nNor Loss", "Moderate\nSuccess", "Success (2)") ) + 
-  scale_x_log10(label = comma, breaks = c(1, 100, 1000000) )
+scale_color_viridis_d(begin = .13, end = .75, option = "magma") +   scale_y_continuous(breaks=c(-2,-1,0,1,2), labels = c("Loss (-2)","Moderate\nLoss","Neither\nSuccess\nNor Loss", "Moderate\nSuccess", "Success (2)") ) + 
+  scale_x_log10(label = comma, breaks = c(1, 100, 1000000) ) 
 ```
 
 <!-- not the same as Balla et al.-->
