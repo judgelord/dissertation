@@ -314,8 +314,9 @@ comments_congress %>%
 # table data-coded-elected
 # elected comments by type
 comments_coded %>% 
-  filter(comment_type == "Elected"|str_dct(org_type, "Governor")) %>%  
-  mutate(org_type = org_type %>% str_squish() %>%  str_rpl("House.*", "House") %>% str_rpl("Senat.*", "Senate") %>% str_rpl("Assembly.*", "Assembly") %>% str_rpl(".*Mayor.*", "Mayor") %>% str_rpl("State Attorney General.*", "State Attorney General") %>% str_rpl(".*Governor.*", "Governor") %>% str_rpl(state.name %>% str_c(collapse = "|"), "State") %>% str_rpl(".*City.*|.*County.*", "Local Elected Official") %>% str_rm("^gov;|gov$|Elected;") %>% str_rpl(".*Stat.*", "State Elected Official") 
+  filter(comment_type == "Elected"|str_dct(org_type, "Governor"),
+         !org_type %in% c("Ngo", "Corp Group")) %>%  
+  mutate(org_type = org_type %>% str_squish() %>%  str_rpl("House.*", "House") %>% str_rpl("Senat.*", "Senate") %>% str_rpl("Assembly.*", "Assembly") %>% str_rpl(".*Mayor.*", "Mayor") %>% str_rpl("State Attorney General.*", "State Attorney General") %>% str_rpl(".*Governor.*", "Governor") %>% str_rpl(state.name %>% str_c(collapse = "|"), "State") %>% str_rpl(".*City.*|.*County.*|.*Mayor*", "Local Elected Official") %>% str_rm("^gov;|gov$|Elected;") %>% str_rpl(".*Stat.*", "State Elected Official") 
          ) %>% 
   #mutate(org_type = str_remove(org_type, "-.*|;.*| .*")) %>%
   count(org_type,  sort =T) %>%# kablebox() 
@@ -397,7 +398,7 @@ scale_color_viridis_d(begin = .13, end = .75, option = "magma") +   scale_y_cont
 ```
 
 <!-- not the same as Balla et al.-->
-This approach is significantly different from that employed in previous studies of mass comment campaigns in at least two ways. First, my methods allow me to identify coalitions consisting of multiple organizations. Previous studies measure mass comment campaigns at the organization level. For example, @Balla2020 analyzes "1,049 mass comment campaigns that occurred during 22 EPA rulemakings"---an average of nearly 50 "campaigns" per rule. By "campaign," @Balla2020 mean an organization's campaign rather than a coalition's campaign. Especially on EPA rules, there are rarely more than two or three coalitions engaging in public pressure campaigns--one of the environmental advocacy groups and their allies, another of regulated industry groups and their allies. Using organizations as the unit of analysis means that observations are far from independent. An analysis that counts one coalition's campaign as 40 smaller "campaigns" with the same policy demands would count this one campaign as 40 observations. 
+This approach differs previous studies of mass comment campaigns in at least two ways. First, my methods allow me to identify coalitions consisting of multiple organizations. Previous studies measure mass comment campaigns at the organization level. For example, @Balla2020 analyzes "1,049 mass comment campaigns that occurred during 22 EPA rulemakings"---an average of nearly 50 "campaigns" per rule. By "campaign," @Balla2020 mean an organization's campaign rather than a coalition's campaign. Especially on EPA rules, there are rarely more than two or three coalitions engaging in public pressure campaigns--one of the environmental advocacy groups and their allies, another of regulated industry groups and their allies. Using organizations as the unit of analysis means that observations are far from independent. An analysis that counts one coalition's campaign as 40 smaller "campaigns" with the same policy demands would count this one campaign as 40 observations. 
 
 In contrast, my methods allow me to measure levels of public pressure and lobbying success per organization *and* per coalition. Like previous studies, I identify the organizations responsible for mobilizing comments. Where other studies leverage the fact that the EPA gathers substantially similar comments, I am able to identify mass comment campaigns across dozens of federal agencies. Additionally, I further link common efforts by multiple organizations lobbying in a broader coalition. This allows for analysis with the lobbying coalition as the unit of analysis. 
 

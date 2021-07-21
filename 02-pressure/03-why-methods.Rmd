@@ -194,7 +194,7 @@ Comments [91130](https://www.regulations.gov/document?D=CFPB-2016-0025-91130) th
 
 ```{r percent-match, fig.show = "hold", out.width = "100%", fig.cap="Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments"}
 
-knitr::include_graphics("Figs/comment_percent_match_plot.png")  
+knitr::include_graphics(here::here("figs", "comment_percent_match_plot.png")  )
 ```
 
 Where a new presidential administration solicited comments on a proposed rule tied to a docket number that a previous administration also used to solicit comments on a different previous rule, I count these as separate rulemaking dockets. I do so because the second policy is usually reversing or going in the opposite direction as the policy on which the previous administration solicited comments. Many of the same organizations comment but with the opposite positions; support becomes opposition and vice versa.
