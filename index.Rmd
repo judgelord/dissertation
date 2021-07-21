@@ -8,8 +8,8 @@ documentclass: memoir
 classoption: oneside
 fontsize: 12pt
 geometry: "left = 1.25in, right = 1.25in, top = 1.25in, bottom = 1.25in"
-bibliography: "assets/dissertation.bib"
-biblio-style: "assets/apsr.bst"
+bibliography: '`r here::here("assets/dissertation.bib")`'
+biblio-style: '`r here::here("assets/apsr.bst")`'
 link-citations: yes
 # github-repo: https://github.com/judgelord/dissertation
 description: "`r Sys.Date()` Draft"

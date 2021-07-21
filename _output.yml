@@ -30,18 +30,12 @@ bookdown::pdf_book:
   citation_package: natbib
   urlcolor: black
   linkcolor: black
-  header-includes:
-  # - \usepackage{floatrow}
-  # - \usepackage{float}
-  # - \floatsetup[figure]{capposition=top}
-  # - \floatsetup[table]{capposition=top}
-  # - \usepackage{setspace}
+#  header-includes:
 # FOR DAVE
-#  - \usepackage[RaggedRight]{ragged2e}
 # - \usepackage{endnotes}
 # - \let\footnote=\endnote
 # - \renewcommand{\footnotesize}{\normalsize}
 # - \renewcommand{\normalsize}{\large}
-# bookdown::word_document2:
-#   toc: true
+bookdown::word_document2:
+   toc: true
 # bookdown::epub_book: default

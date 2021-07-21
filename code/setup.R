@@ -122,7 +122,8 @@ kable3 <- function(x,
         ungroup() %>% 
         slice_head(n = 20) %>%
         mutate(across(where(is.numeric), pretty_num)  ) %>%
-        knitr::kable(caption = caption,
+        knitr::kable(format = "latex",# "pipe", # "latex"?
+                     caption = caption,
                      booktabs = T,
                      align = align,
                      linesep = "\\addlinespace") %>%

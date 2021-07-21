@@ -1,36 +1,44 @@
 ---
+# rmarkdown::render("02-pressure/whyMail.Rmd")
+# output_dir: "../docs"  # to push
+output_dir: "docs"  # to push
 title: Why Do Agencies (Sometimes) Get So Much Mail?
 subtitle: Public Pressure Campaigns and Bureaucratic Policymaking
+author: Devin Judge-Lord
 
-author:
-- name: Devin Judge-Lord
-  affiliation: 
-  footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/whymail>"
-date: "`r Sys.Date()`"
+# author:
+# - name: Devin Judge-Lord
+#   affiliation: 
+#   footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/whymail>"
+date: |
+   `r Sys.Date()` Draft. Slides and the most recent draft are available at [judgelord.github.io](https://judgelord.github.io/research/whymail/) 
 abstract: | 
-  THIS DRAFT WAS PREPARED FOR THE 2020 AMERICAN POLITICAL ECONOMY WORKSHOP. SLIDES AND THE MOST RECENT DRAFT ARE [HERE](https://judgelord.github.io/research/whymail/) 
-  
-  \bigskip
-  
   `r readLines(here::here("02-pressure/abstract.txt"))`
-#site: bookdown::bookdown_site
-# documentclass: book
+
+documentclass: memoir
+#documentclass: article
+classoption: oneside
+always_allow_html: true
+fontsize: 12pt
+geometry: "left = 1.25in, right = 1.25in, top = 1.25in, bottom = 1.25in"
 bibliography: '`r here::here("assets/dissertation.bib")`'
-# biblio-style: apalike
 biblio-style: '`r here::here("assets/apsr.bst")`'
 link-citations: yes
 citecolor: black
 urlcolor: blue
+language:
+  ui:
+    chapter_name: "Chapter "
 # endnotes: true # CHANGE THIS BEFORE SUBMISSION
 frontpage: true
-# spacing: onehalfspacing
+spacing: onehalfspacing
 # github-repo: https://github.com/judgelord/dissertation
 # description: ""
-# keywords: Interest groups, rulemaking, lobbying, bureaucratic politics, data sources
+keywords: Interest groups, rulemaking, lobbying, bureaucratic politics
 
 output:
     bookdown::pdf_document2:
-      template: '../assets/article-template.tex' # redirect to assets 
+      #template: '../assets/article-template.tex' # redirect to assets 
       keep_tex: true
       latex_engine: xelatex
       citation_package: natbib
@@ -38,42 +46,36 @@ output:
       fig_caption: true
       fig.topcaption: true
       fig.width: 7
-    word_document: default
+      includes:
+        in_header: "../assets/preamble-memoir.tex"
 ---
 
-```{r global.options, include=FALSE}
-options(knitr.graphics.auto_pdf = TRUE)
+```{r global.options, include=FALSE, cache=FALSE}
+# load defaults
+source(here::here("code", "setup.R"))
 
-knitr::opts_chunk$set(echo = FALSE, 
-                      cache = FALSE, 
-                      fig.align = 'center',
-                      fig.width = 7,
-                      out.width = "6.5in",
-                      #fig.path= `r here::here('Figs/)`
-                      fig.show = "hold",
-                      warning=FALSE, 
-                      message=FALSE)
+# overide defaults
+knitr::opts_chunk$set(cache = FALSE,
+                      fig.path = "../figs/")
 ```
 
+<!--
 \centerline{\textbf{\underline{NOTE TO READER}}}
 
 \thispagestyle{empty}
 
 The following chapter is part of a dissertation exploring the effects of public pressure campaigns on agency rulemaking, a technocratic policy process where “public participation” is usually limited to sophisticated lobbying but occasionally includes millions of people mobilized by public pressure campaigns. Public comment periods on proposed policies purport to provide democratic accountability. Yet theories of bureaucratic policymaking largely ignore the occasional bursts of civic engagement that generate the vast majority of public comments on proposed rules. To fill this gap, I build and test theories about the role of public pressure in policymaking. I collect and analyze millions of public comments to develop the first systematic measures of civic engagement and influence in bureaucratic policymaking. The outline of the dissertation is as follows:  
 
-```{r child = here::here("outline.md")}
-```
+{rchild = here::here("outline.md")}
+
 
 
 \newpage
+-->
 
 \setcounter{page}{1}
 
-\onehalfspacing
-
-
-```{r child = here::here("intro.md")}
-```
+\OnehalfSpacing
 
 
 ```{r child = here::here("02-pressure/01-why-intro.Rmd")}
@@ -88,48 +90,12 @@ The following chapter is part of a dissertation exploring the effects of public 
 ```{r child = here::here("02-pressure/04-why-results.Rmd")}
 ```
 
-```{r child = here::here("conclusion.md")}
-```
 
 
 \newpage
 
-# (APPENDIX) Appendix {-}
-
-# Appendix {-}
-
-```{r causal-full, fig.cap="The Role of Mass Commenting and Political Information in Bureaucratic Policymaking"}
-knitr::include_graphics(here::here("Figs", "causal-full.png"))
+```{r child = here::here("99-appendix.Rmd")}
 ```
-
-```{r comments-from, fig.cap="Sources of Comments Posted to regulations.gov"}
-knitr::include_graphics(here::here("Figs", "comments-from.pdf"))
-```
-
-\begin{figure}[h!]
-    \centering
-        \caption{Rules in Order of Number of Comments}
-    \includegraphics[width = 6.5in]{../Figs/rules-ranked-comments-per-year-1.png}
-    \label{fig:rules-ranked}
-\end{figure}
-
-\begin{figure}[p!]
-    \centering
-        \caption{Major and Non-major Rules on regulations.gov}
-    \includegraphics[width = 7in]{../Figs/major-comments-density-1.png}
-    \label{fig:rules-major}
-\end{figure}
-
-\begin{figure}[p!]
-    \centering
-        \caption{Rules on regulations.gov by Unified Agenda Priority Level}
-    \includegraphics[width = 7in]{../Figs/priority-comment-density-1.png}
-    \label{fig:rules-priority}
-\end{figure}
-
-
-
-\clearpage 
 
 \begin{figure}
     \caption{Unique or Partially Unique Comments by Sentiment Score (Sample of 2018 Rules)}
@@ -156,3 +122,30 @@ knitr::include_graphics(here::here("Figs", "comments-from.pdf"))
 \end{figure}
 
 \clearpage
+
+## Descriptive Data About Public Comments
+
+
+```{r comments-from, fig.cap="Sources of Comments Posted to regulations.gov"}
+knitr::include_graphics(here::here("Figs", "comments-from.pdf"))
+```
+
+\begin{figure}[p!]
+    \centering
+        \caption{Major and Non-major Rules on regulations.gov}
+    \includegraphics[width = 7in]{../Figs/major-comments-density-1.png}
+    \label{fig:rules-major}
+\end{figure}
+
+\begin{figure}[p!]
+    \centering
+        \caption{Rules on regulations.gov by Unified Agenda Priority Level}
+    \includegraphics[width = 7in]{../Figs/priority-comment-density-1.png}
+    \label{fig:rules-priority}
+\end{figure}
+
+
+
+\clearpage 
+
+
