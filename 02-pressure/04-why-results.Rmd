@@ -56,8 +56,9 @@ load(here("data", "coalitions_coded.Rdata"))
 # coalitions by type 
 x <- coalitions_coded %>% count(coalition_type)
 
-percent_public <- ( x$n[2]/sum(x$n[1:2]) ) %>% percent()
-percent_private <- ( x$n[1]/sum(x$n[1:2]) ) %>% percent()
+total <- sum(x$n)
+percent_public <- round(( x$n[2]/total )*100)
+percent_private <- round(( x$n[1]/total )*100)
 
 # mass coalitions by type 
 x <- coalitions_coded %>% filter(campaign_) %>% group_by(coalition_type) %>%
@@ -76,7 +77,7 @@ both <- filter(types, both) %>%
 ```
 
 
-In line with Hypothesis \@ref(hyp:public), `r percent_public` percent of public pressure campaigns are led by public interest coalitions, with only `r percent_private` led by private interest coalitions. While public interest groups lobbied slightly more often in the sample selected for hand coding (because half the sample was weighted to capture rules that received more comments), private interest coalitions are more common in the broader sample.  In contrast, Table \@ref(tab:coalition-type-campaigns) shows that mass comment campaigns were twice as likely to be led by public interest groups. 
+In line with Hypothesis \@ref(hyp:public), `r percent_public` percent of public pressure campaigns are led by public interest coalitions, with only `r percent_private` percent led by private interest coalitions. While public interest groups lobbied slightly more often in the sample selected for hand coding (because half the sample was weighted to capture rules that received more comments), private interest coalitions are more common in the broader sample.  In contrast, Table \@ref(tab:coalition-type-campaigns) shows that mass comment campaigns were twice as likely to be led by public interest groups. 
 
 
 ```{r coalition-type-campaigns}
@@ -165,8 +166,8 @@ In short, I find more grassroots participation than astroturf.
 One consequence of the dominance of a few national policy advocacy organizations is that public pressure campaigns target a narrow subset of the wide range of issues addressed by agency rulemaking. 
 Public engagement in rulemaking is highly
 clustered on a few rules made salient by these campaigns. 
-Just ten rulemaking dockets account for `r percent(sum(topdockets$docket_comments)/sum(d$number_of_comments_received), accuracy = .01)` of comments (`r sum(topdockets$docket_comments)`). Figure
-\@ref(fig:topdockets) shows these ten dockets and the share of comments from each of the top twenty mobilizing organizations (see the legend on the right). The first pane is mass comments (100 or more form letters or copied text). The vast majority of the total comments come from this category (notice the x-axis is scaled to each pane). Partially unique and small batches of form letters (less than 100) are a tiny fraction of the total and concentrated on a few rules where different audiences were engaged.  Because public pressure requires resources and capacity, policy issues of interest to organizations with the resources and capacity to launch a campaign receive disproportionate amounts of public attention.
+Just ten rulemaking dockets account for `r round(sum(topdockets$docket_comments)/sum(d$number_of_comments_received), 2)*100` percent of comments (`r sum(topdockets$docket_comments)`). Figure
+\@ref(fig:topdockets) shows these ten dockets and the share of comments from each of the top twenty mobilizing organizations (see the legend on the right). The first panel is mass comments (100 or more form letters or copied text). The vast majority of the total comments come from this category (notice the x-axis is scaled to each pane). Partially unique and small batches of form letters (less than 100) are a tiny fraction of the total and concentrated on a few rules where different audiences were engaged.  Because public pressure requires resources and capacity, policy issues of interest to organizations with the resources and capacity to launch a campaign receive disproportionate amounts of public attention.
 
 ```{r topdockets, fig.width = 1, fig.cap = "Dockets Receiving the Most Comments on Regulations.gov and the top Mobilizing Organizations", out.width= "110%"}
 

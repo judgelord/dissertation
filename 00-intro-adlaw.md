@@ -5,21 +5,21 @@ what to make of mass commenting in rulemaking. In 2018, the Administrative Confe
     identified public pressure campaigns ("mass commenting")" as a top issue in administrative law. In
     their report to ACUS, @SantAmbrogio2018 conclude, 
     
-> "The 'mass comments' occasionally submitted in great volume in highly salient
+> The 'mass comments' occasionally submitted in great volume in highly salient
     rulemakings are one of the more vexing challenges facing agencies in
     recent years. Mass comments are typically the result of orchestrated
     campaigns by advocacy groups to persuade members or other
     like-minded individuals to express support for or opposition to an
-    agency's proposed rule." 
+    agency's proposed rule. (p. 21)
 
 Most administrative law scholars focus on reforms to
 help agencies collect more useful information
 [@Farina2011; @Farina2014; @Rauch2016]. The ACUS report "explores agency strategies to enhance public engagement prior to and during informal rulemaking. It seeks to ensure that agencies invest
  resources in a way that maximizes the probability that rulewriters
- obtain high-quality public information."
+ obtain high-quality public information" (p. 171).
 Among other things, this committee is debating how best to gather
-"quality public information," how "to get new people/groups into the
-real or virtual room" [@Farina2018], and whether broad engagement is
+"quality public information" (p. 4), how "to get new people/groups into the
+real or virtual room" [@Farina2018, p. 1], and whether broad engagement is
 even desirable on all rules [@White2018].
 
 Administrative law scholars have explored these questions theoretically
@@ -71,5 +71,5 @@ information overlooks the potential role of political information---information 
     which I review in \@ref(why-theory).]
 Whereas administrative law scholars have focused on "how technology can
 connect the expertise of the many to the power of the few"
-[@Noveck2009], I ask whether it may also connect the power of the many
+[@Noveck2009, p. 14], I ask whether it may also connect the power of the many
 to the decisions of the few.
