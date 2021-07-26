@@ -1,6 +1,6 @@
 ## Introduction
 
-There is little overlap between scholarship on interest group influence in bureaucratic policymaking and scholarship on advocacy group's public pressure campaigns. Studies and models of interest group lobbying in the bureaucracy rarely include public pressure as a lobbying tactic [see @Yackee2019 for a recent review].  
+There is little overlap between scholarship on interest group influence in bureaucratic policymaking and scholarship on advocacy group's public pressure campaigns. Studies and models of interest group lobbying in the bureaucracy rarely include public pressure as a lobbying tactic [see @Yackee2019 for a recent review].
 Conversely, studies of organized public pressure and contentious politics rarely include specific policy outcomes as their dependent variable [@Andrews2004; @Burnstein2019]. When they do, they tend to focus on landmark legislation [e.g., @Gillion2013] or a few illustrative cases [@Mansbridge1992; @Rochon1993; @Yackee2009PSJ].
 
 It is plausible that thousands of people engaging
@@ -33,14 +33,14 @@ Responding to public pressure campaigns, agency officials often reject the notio
 <!-- Why Public Pressure May Affect Agency Decisions
 -->
 
-To test whether public pressure campaigns increase lobbying success in agency rulemaking, I use a mix of hand-coding and computational text analysis methods. I develop computational methods to identify lobbying coalitions and hand-code a random sample of rules for whether each coalition got the policy outcome they sought. I then assess potential mechanisms by which mass public engagement may affect policy. 
+To test whether public pressure campaigns increase lobbying success in agency rulemaking, I the impact of public comments on agency rules using a mix of hand-coding and computational text analysis methods. I develop computational methods to identify lobbying coalitions and hand-code a random sample of rules for whether each coalition got the policy outcome it sought. I then assess potential mechanisms by which mass public engagement may affect policy. 
 Of primary interest is the extent to which public pressure campaigns affect agency decisionmakers directly or indirectly through their effects on elected officials' oversight behaviors. 
 <!--TODO Ellie: sentences into full paragraphs-->
 I test whether legislators are more likely to engage in rulemaking when advocacy groups mobilize public pressure. I then examine congressional oversight as a mediator for the policy effects of public pressure campaigns. 
 
 I find little evidence that public pressure campaigns increase lobbying success. Lobbying coalitions are more successful when they mobilize more members of Congress, but legislators disproportionately align with private interest (e.g., business-led) coalitions, not the public interest coalitions that run most public pressure campaigns. 
 
-Following this introduction, Section \@ref(influence-theory) reviews past work and builds a theory of how public pressure may affect policy outcomes. Section \@ref(influence-data) introduces a novel dataset developed through an iterative process of computational methods and hand-coding. Section \@ref(influence-methods) develops models that use these data to assess the relationship between public pressure, both directly and indirectly, through mobilizing elected officials. Section \@ref(influence-results) presents the results and Section \@ref(influence-conclusion) concludes the chapter. 
+Following this introduction, Section \@ref(influence-theory) reviews past work and builds a theory of how public pressure may affect policy outcomes. Section \@ref(influence-data) introduces a novel dataset developed through an iterative process of computational methods and hand-coding. Section \@ref(influence-methods) develops models that use these data to assess the relationship between public pressure and policy outcomes, both directly and indirectly, through mobilizing elected officials. Section \@ref(influence-results) presents the results and Section \@ref(influence-conclusion) concludes the chapter. 
 
 
 
