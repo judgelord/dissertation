@@ -75,7 +75,7 @@ m %>%
        x = "") 
 ```
 
-To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME, conditional on the number of comments from Members of Congress) and average direct effect (ADE) of mass comments using mediation analysis. Model 3 in table \@ref(tab:mediation-sim) replaces the dependent varible (lobbying success) with the mediator variable (the number of supportive members of Congress). 
+To assess the extent to which congressional support mediates the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME, conditional on the number of comments from Members of Congress) and average direct effect (ADE) of mass comments using mediation analysis. Model 3 in table \@ref(tab:mediation-sim) replaces the dependent varible (lobbying success) with the mediator variable (the number of supportive members of Congress). 
 
 ```{r mediation-sim}
 library(mediation)

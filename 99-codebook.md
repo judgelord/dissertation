@@ -1,4 +1,4 @@
-This codebook describes the coding of (1) public comments on proposed agency rules, (2) the response to comments, and (3) rule changes from draft to final.
+﻿This codebook describes the coding of (1) public comments on proposed agency rules, (2) the response to comments, and (3) rule changes from draft to final.
 
 
 ## Coding Comments
@@ -104,7 +104,7 @@ Use a semicolon to indicate   subtypes, such as:
   - "ngo;ej" Does this org represent an Environmental Justice/frontline community? I.e. are they based in an affected community (see description of "second-order representation" here: https://judgelord.github.io/dissertation/ej.html#interest-groups-and-second-order-representation)
         There are many additional sub-types of ngo, including advocacy groups, membership groups, professional associations, foundations, charities. These are not mutually exclusive. Use a semicolon to separate multiple tags.
 Some 501c3s are industry associations; they should be coded as a "corp group." However many ngos that are not clearly a corp group still advocated for private interests. For example, the Chamber of Commerce represents business interests generally and thus ends up being a member of many private-interest coalitions, even though they may not explicitly be commenting on behalf of a regulated industry as an industry association would. 
-- "other" = If the org really in no way in any of the above (e.g. a foreign government)
+- "other" = If the org is really in no way in any of the above (e.g. a foreign government)
 
 
 `ask` =   
@@ -193,7 +193,7 @@ If your sheet has a `transparency` column, code whether the campaign was transpa
 "signers",
 "both", or
 "neither".
-If your sheet does not have this column, record the campaign's transparency in the `notes`.
+If your sheet does not have this column, record transparency comments in the `notes`.
 
 
 Generally,  it is obvious from the letter who they are and how we might verify that.
@@ -201,7 +201,7 @@ A bunch of names with no contact information is not very transparent, but if the
 If a sponsor gives their phone number but not their organization, that is not enough. If you have to research to find the org name, that is not transparent. If they submit under a misleading org name, that is also not transparent.  I have mostly seen this in corp campaigns, where they try to disguise who paid for the campaign. 
 
 
-If your sheet has a `platform` column, record the tech platform(s) used to generate comments (e.g., "VoterVoice" "Care2" "SalesForce").
+If your sheet has a `platform` column, record the tech platform(s) used to generate comments: "VoterVoice" "Care2" "SalesForce"
 If your sheet does not have this column, record any platform used to generate comments in the `notes`.
 
 

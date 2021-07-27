@@ -265,7 +265,7 @@ cplot +
 #     data = c) %>% tidy()
 ```
 
-To assess congressional support as a mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME, conditional on the number of comments from Members of Congress) and average direct effect (ADE) of mass comments using mediation analysis. To do this, I estimate a model predicting the proposed mediator. Because the dependent variable (the number of supportive comments from members of Congress) is a count and the dispersion parameter is not significantly above 1, a Poisson model is most appropriate. 
+To assess congressional support as a potential mediator in the influence of public pressure campaigns on rulemaking, I estimate the average conditional marginal effect (ACME, conditional on the number of comments from Members of Congress) and average direct effect (ADE) of mass comments using mediation analysis. To do this, I estimate a model predicting the proposed mediator. Because the dependent variable (the number of supportive comments from members of Congress) is a count and the dispersion parameter is not significantly above 1, a Poisson model is most appropriate. 
 
 The first two models in Table \@ref(tab:model-oversight) are similar to those in Table \@ref(tab:mc-success), but the dependent variable is now the mediator variable (the number of supportive members of Congress). The outcome model is the same as Model 1 in Table \@ref(tab:mc-success) but includes the proposed mediator, the number of supportive comments from members of Congress. (See Equation  \@ref(eq:mediator)).
 
