@@ -1,4 +1,4 @@
-﻿This codebook describes the coding of (1) public comments on proposed agency rules, (2) the response to comments, and (3) rule changes from draft to final.
+This codebook describes the coding of (1) public comments on proposed agency rules, (2) the response to comments, and (3) rule changes from draft to final.
 
 
 ## Coding Comments
@@ -189,15 +189,30 @@ Check that the `number_of_comments_received` column matches the number of commen
 
 
 If your sheet has a `transparency` column, code whether the campaign was transparent about its   
-"sponsor"
-"signers"
-"both" or
-"neither"
+"sponsor",
+"signers",
+"both", or
+"neither".
+If your sheet does not have this column, record the campaign's transparency in the `notes`.
 
 
-Generally,  it obvious from the letter who they are and how we might verify that.
-A bunch of names with no contact info is not very transparent, but if they say “these are all members of our org,” that is good enough if we needed to verify. Agencies occasionally post one representative comment for a campaign; this should not be held against an org if they also provided the others, we could get them if needed. 
-If a sponsor gives their phone number but not their org, that is not enough. If you have to research to find the org name, that is not transparent. If they submit under a misleading org name, that is also not transparent.  I have mostly seen this in corp campaigns, where they try to disguise who paid for the campaign. 
+Generally,  it is obvious from the letter who they are and how we might verify that.
+A bunch of names with no contact information is not very transparent, but if they say “these are members of our organization,” that should be enough if we needed to verify. Agencies occasionally post one representative comment for a campaign; this should not be held against an organiation if they also provided the others, we could get them if needed. 
+If a sponsor gives their phone number but not their organization, that is not enough. If you have to research to find the org name, that is not transparent. If they submit under a misleading org name, that is also not transparent.  I have mostly seen this in corp campaigns, where they try to disguise who paid for the campaign. 
+
+
+If your sheet has a `platform` column, record the tech platform(s) used to generate comments (e.g., "VoterVoice" "Care2" "SalesForce").
+If your sheet does not have this column, record any platform used to generate comments in the `notes`.
+
+
+If your sheet has a `fraud` column, record any indication of fraud, for example, 
+"DMARC validation failed."
+Otherwise, leave this column blank.
+If your sheet does not have this column, record evidence of fraud in the `notes`.
+
+
+
+
 
 
 ________________
@@ -212,7 +227,7 @@ Leave `org_name`, `org_type`, `ask`, and `success` variables blank, unless the i
 ________________
 
 
-## Coding response to comments
+## Coding Responses to Comments
 
 
 The `final_url` column contains the link to the final rule (where agencies often respond to some comments) in the federal register. 
@@ -247,7 +262,7 @@ NOTE: `accept`, `compromise`, `concession`, and `reject` are mutually exclusive.
 ________________
 
 
-## Coding rules
+## Coding Rules
 At the rule level (see the `proposed_url` and `final_url` columns for the links to proposed and final rules in the federal register), code the proposed policy change and the final result in terms of whether they make regulation more or less stringent. For more on defining regulatory stringency see @judgelord2020.
   
 
@@ -301,6 +316,8 @@ ________________
 <!--
 <!--
 ________________
+
+
 
 
 ## Coding an Advanced Notice of Proposed Rulemaking (ANPRM)

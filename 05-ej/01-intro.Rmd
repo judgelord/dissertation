@@ -38,21 +38,21 @@ surprisingly little to say about this kind of civic participation.
 ### Social Movements and Policy Change
 
 Social movement pressure is a major driver of policy change (Dahl 1956; Piven & Cloward 1977; Lipsky 1968; Tarrow 1994; Andrews 1997; McAdam 1982, 2001; McAdam & Su 2002, McCammon et al. 2011; Cress & Snow 2000; Weldon 2002). 
-This is especially true for policies that redistribute wealth or other social privileges. "From the very beginning, redistributive policies have been associated with social classes and social movements" [@Lowi2015]. The organizational forms that mobilize and channel movement pressure (often called social movement organizations by those who study their organization and advocacy organizations or pressure groups by those who study their effects) are essential features of modern politics and lawmaking [@Baumgartner2001; @Coglianese2001]. Conversely, the lack of broad-based support and movement pressure can be the failure of a policy effort [@Skocpol2013].
+This is especially true for policies that redistribute wealth or other social privileges. "From the very beginning, redistributive policies have been associated with social classes and social movements" [@Lowi2015, p. 88]. The organizational forms that mobilize and channel movement pressure (often called social movement organizations by those who study their organization and advocacy organizations or pressure groups by those who study their effects) are essential features of modern politics and lawmaking [@Baumgartner2001; @Coglianese2001]. Conversely, the lack of broad-based support and movement pressure can be the failure of a policy effort [@Skocpol2013].
 
 Scholars have also shown the effect of specific pressure tactics. For example, protests affect policy [@Gillion2013].  Activists reshape political parties to enact new policy agendas [@Schattschneider1942; @Cohen2008; @Schlozman2015; @Skocpol2016]. Petition campaigns, in particular, can both build the organizational capacity and political coalitions required to affect policy and place issues on national agendas. As @CarpenterPetitions finds, both Indigenous governments and activists have long used opportunities to build coalitions and raise concerns to the federal government: 
 
-> "Because they assisted in recruiting tribal communities and allies to Indigenous causes,  these petitioning moments enhanced organizational democracy. They also advanced procedural democracy by effectively placing Indigenous issues on local, ecclesiastical, tribal, state, and national agendas." [@CarpenterPetitions, pg. 119] 
+> Because they assisted in recruiting tribal communities and allies to Indigenous causes,  these petitioning moments enhanced organizational democracy. They also advanced procedural democracy by effectively placing Indigenous issues on local, ecclesiastical, tribal, state, and national agendas. [@CarpenterPetitions, p. 119] 
 
-Protests can be an effective mechanism for minority interests to communicate preferences to policymakers when electoral mechanisms fail to do so. Policymakers learn and take informational cues from political behaviors like protests (@Gillion2013). @CarpenterPetitions finds similar potential for petitions to serve as a channel to raise "new claims" and influence policy beyond elections: "Petition democracy offers another model of aggregation, where numerical minorities could still make a case of quantitive relevance" (pg. 479). Numbers matter for protests and petitions, regardless of whether they represent a majority.
+Protests can be an effective mechanism for minority interests to communicate preferences to policymakers when electoral mechanisms fail to do so. Policymakers learn and take informational cues from political behaviors like protests (@Gillion2013). @CarpenterPetitions finds similar potential for petitions to serve as a channel to raise "new claims" and influence policy beyond elections: "Petition democracy offers another model of aggregation, where numerical minorities could still make a case of quantitive relevance" (p. 479). Numbers matter for protests and petitions, regardless of whether they represent a majority.
 
 Still, most studies of social movements tend to explain social movement emergence rather than specific impacts (see reviews by @Meyer2004 and @Mcadam2017). Reviews of the social movement literature find "limited research on [social movement] influence" [@Andrews2004].
 
-Studies that do focus on the policy influence of social movements tend to focus on landmark policies like the Civil Rights Act [@Gillion2013] or case studies of local policy issues [e.g., @Bullard1993; @Rochon1993]. Reviewing the specificity of measures used to assess the impact of advocacy campaigns, @Burstein2020 concludes that "[i]n contrast to those studying opinion and policy, however, researchers studying advocacy and policy rarely discuss levels of specificity." In addition to measures of advocacy and influence, there are issues with case selection. @Leech2010 argues that the influence of advocacy campaigns is overstated because scholars focus on issues where impact is especially likely--issues characterized by a lot of advocacy and recent or impending policy change. @Lowery2013 raises the opposite concern---that high-salience issues that scholars select are the cases least likely to observe advocacy success. In short, studies often select cases on the dependent variable. While large-scale and longitudinal studies have become more common [@Hojnacki2012], systematic impact across the thousands of non-landmark policies that governments make every year is rarely the dependent variable. 
+Studies that do focus on the policy influence of social movements tend to focus on landmark policies like the Civil Rights Act [@Gillion2013] or case studies of local policy issues [e.g., @Bullard1993; @Rochon1993]. Reviewing the specificity of measures used to assess the impact of advocacy campaigns, @Burstein2020 concludes that "[i]n contrast to those studying opinion and policy, however, researchers studying advocacy and policy rarely discuss levels of specificity" (p. 5). In addition to measures of advocacy and influence, there are issues with case selection. @Leech2010 argues that the influence of advocacy campaigns is overstated because scholars focus on issues where impact is especially likely---issues characterized by a lot of advocacy and recent or impending policy change. @Lowery2013 raises the opposite concern---that high-salience issues that scholars select are the cases least likely to observe advocacy success. In short, studies often select cases on the dependent variable. While large-scale and longitudinal studies have become more common [@Hojnacki2012], systematic impact across the thousands of non-landmark policies that governments make every year is rarely the dependent variable. 
 
 To address these gaps, I systematically assess the impact of the environmental justice movement on specific policy documents across agencies and presidential administrations. Specifically, I use public comments and changes in the text of draft and final agency rules to assess the impact of the environmental justice movement on bureaucratic policymaking. 
 
-### Technical Information: the Currency of Lobbying
+### Technical Information: The Currency of Lobbying
 
 As discussed in the previous chapters, dominant theories of bureaucratic policymaking have little room for social movements and political pressure. Instead, they focus on how agencies learn about policy problems and solutions [@Kerwin2011]. Leading formal models are information-based models where sophisticated lobbying groups affect policy by revealing information to the agency [@Gailmard2017;@Libgober2018], and empirical studies support the conclusion that information is the currency of lobbying in rulemaking [@Yackee2012;@Cook2017;@Gordon2018;@Walters2019].  
 
@@ -76,13 +76,13 @@ solicit and respond to public comments on proposed rules allow "civil
 society" to provide public oversight [@Michaels2015; @Metzger2010], most
 studies find that participants in rulemaking often represent elites and
 business interests--> [@Seifter2016UCLA; @Crow2015; @Wagner2011; @West2009; @Yackee2006JOP; @Yackee2006JPART; @Golden1998; @Haeder2015; @Cook2017; @LibgoberCarpenter2018]. To the extent that scholars address public pressure campaigns, both
-existing theory and empirical scholarship suggest skepticism that public pressure campaigns matter. For example, @Balla2018 find that  "legal imperatives trump political considerations." (See Sections \@ref(why-mass) and \@ref(influence-mass) for reviews of scholarship on mass comment campaigns.) 
-My analysis in Chapter \@ref(influence) also shows no clear relationship between public pressure and lobbying success. Causes that directly confront elite and business interests, like the environmental justice movement, may be especially unlikely to influence bureaucratic policymaking. On the other hand, it is also possible that some social movements have normative and political resources sufficient to overcome the technocratic biases of bureaucratic policymaking.
+existing theory and empirical scholarship suggest skepticism that public pressure campaigns matter. For example, @Balla2018 find that  "legal imperatives trump political considerations" (p. 1). (See Sections \@ref(why-mass) and \@ref(influence-mass) for reviews of scholarship on mass comment campaigns and their impact on policy.) 
+My analysis in Chapter \@ref(influence) also shows no clear relationship between public pressure and lobbying success. Causes that directly confront elite and business interests, like the environmental justice movement, may be especially unlikely to influence bureaucratic policymaking. Alternatively, it is also possible that some social movements have normative and political resources sufficient to overcome the technocratic biases of bureaucratic policymaking.
 
 ### Political Information
 
 While social movement organizations do engage in fights over technical reports and scientific studies, the information that activists provide is often more overtly political. 
-As discussed in \@ref(why-theory), @Nelson2012
+As discussed in Section \@ref(why-theory), @Nelson2012
 identify political information as a potentially influential result of
 groups expanding their lobbying coalition. While they focus on
 mobilizing experts, they describe a dynamic that can be extended
@@ -90,7 +90,7 @@ to mobilizing public pressure:
 <!-- 
 > "strategic recruitment, we theorize, mobilizes new actors to participate in the policymaking process, bringing with them novel technical and political information. In other words, when an expanded strategy is employed, leaders activate individuals and organizations to participate in the policymaking process who, without the coordinating efforts of the leaders, would otherwise not lobby. This activation is important because it implies that -->
 
-> "coalition lobbying can generate new information and new actors---beyond simply the 'usual suspects' ---relevant to policy decisionmakers."
+> coalition lobbying can generate new information and new actors---beyond simply the 'usual suspects' ---relevant to policy decisionmakers. (p. 343)
 
 Expanding on the arguments about the potential value of political information advanced in the previous chapters,
 I argue that mobilizing new actors to participate in the policymaking process may yield information about a policy's disparate effects. Information about a policy's disparate effects is an additional form of political information.
@@ -110,9 +110,9 @@ The political construction of policy-relevant groups through the policy process 
 <!-- institutions feinstein -->
 The power of groups to affect policy depends on their recognition by formal and informal institutions. All organizations systematically privilege some policy problems, solutions, and types of information over others.
 
-> "All forms of political organization have a bias in favor of the exploitation of some kinds of conflict and the suppression of others because organization is the mobilization of bias. Some issues are organized into politics, while others are organized out." - E. E. Schattshneider
+> All forms of political organization have a bias in favor of the exploitation of some kinds of conflict and the suppression of others because organization is the mobilization of bias. Some issues are organized into politics, while others are organized out. [@Schattschneider1975, p. 71]
 
-Public comment periods in agency rulemaking are formally more "identity neutral" than policy processes with procedural rights reserved for certain interests [@Feinstein2021]. This means that the political construction of relevant groups depends on who participates and the identities they mobilize or claim to represent. As @Yackee2019 and others note, the information costs mean that individuals rarely participate. Instead, groups claim to represent various constituencies. "Because the costs of individualized participation in policy decision making are often excessive, informal representatives are prevalent as a form of participation in agency decisions" [@Rossi1997, pg. 194].
+Public comment periods in agency rulemaking are formally more "identity neutral" than policy processes with procedural rights reserved for certain interests [@Feinstein2021]. This means that the political construction of relevant groups depends on who participates and the identities they mobilize or claim to represent. As @Yackee2019 and others note, the information costs mean that individuals rarely participate. Instead, groups claim to represent various constituencies. "Because the costs of individualized participation in policy decision making are often excessive, informal representatives are prevalent as a form of participation in agency decisions" [@Rossi1997, p. 194].
 
 
 
@@ -122,14 +122,14 @@ Bureaucratic policymaking in the United States is dominated by cost-benefit anal
 Thus, comments raising distributive concerns provide potentially influential political information.
 
 This distributive information raises claims of distributive justice. 
-Public comment periods are celebrated as "a crucial way to ensure that agency decisions are legitimate, accountable, and just" [@Bierschbach2012]. "Public participation can force agencies to rethink initial inclinations" [@Seifter2016UCLA]---such as which social groups are relevant or deserve special attention.
+Public comment periods are celebrated as "a crucial way to ensure that agency decisions are legitimate, accountable, and just" [@Bierschbach2012, p. 20]. "Public participation can force agencies to rethink initial inclinations" [@Seifter2016UCLA, p. 1329]---such as which social groups are relevant or deserve special attention.
 Courts purportedly review policy decisions made through rulemaking with a particular eye toward whether they foster "fairness and deliberation" (*United States v. Mead Corp.*, 2001) and occasionally note the volume or diversity of participants in the public comment process (e.g., *Vermont Yankee v. NRDC*, 1978). While there is mixed empirical evidence about the importance of policy processes for judicial review, the number of public comments received on a draft policy is associated with courts letting the final agency policy stand [@judgelord2016MPSA]. Despite the dominance of business groups and seeming lack of success for public pressure campaigns in general, claims of distributive justice may have a unique role in bureaucratic policymaking. 
 
 
 #### Public Pressure as a Political Resource
 
 The chances that an agency will address distributive justice claims may be affected by other political factors, including the overall levels of public attention or public pressure. 
-As theorized in \@ref(influence-theory), the number of supporters may
+As theorized in Section \@ref(influence-theory), the number of supporters may
 matter because it indicates support among relevant communities or the broader public. Again, instead of bolstering *scientific* claims, perceived levels of public support bolster *political* claims. 
 <!--
 Like other forms of political participation, such as protests and letter-writing campaigns, 
@@ -148,8 +148,8 @@ an attentive public [@Key1961] or issue public [@Converse1964].
 -->
 
 I argued in Chapter \@ref(whymail) that interest groups and their lobbying coalitions are the proper units of analysis, and individual participants are best understood as measuring an amplitude of support for their efforts.
-While scholars often *compare* the participation of groups from individual citizens (see @Yackee2019 for a review), "it can be difficult to distinguish an individual's independent contribution from an interest-group-generated form letter" [@Seifter2016UCLA, pg. 1313].  As [@Rossi1997, pg. 194] argues, "individuals are most likely to participate in agency decisions
-by virtue of their membership in interest groups." Indeed, as I demonstrated in \@ref(why-results), nearly all individual comments on proposed policies are mobilized by interest groups. Researchers should view the participation of individuals as a direct result of interest group mobilization and can ignore the small number of unaffiliated individuals. <!--Indeed, efforts to broaden citizen participation that seek *unmediated* participation are likely infeasible.--> 
+While scholars often *compare* the participation of groups from individual citizens (see @Yackee2019 for a review), "it can be difficult to distinguish an individual's independent contribution from an interest-group-generated form letter" [@Seifter2016UCLA, pg. 1313].  As [@Rossi1997, p. 194] argues, "individuals are most likely to participate in agency decisions
+by virtue of their membership in interest groups." Indeed, as I demonstrated in Section \@ref(why-results), nearly all individual comments on proposed policies are mobilized by interest groups. Researchers should view the participation of individuals as a direct result of interest group mobilization and can ignore the small number of unaffiliated individuals. <!--Indeed, efforts to broaden citizen participation that seek *unmediated* participation are likely infeasible.--> 
 
 Because many politically active groups are "memberless" or run by professionals who lobby with little input from their members [@Baumgartner2001; @Skocpol2003; @Schlozman2012], evidence of an actual constituency is valuable political information. Petition signatures and form letters are among the only ways a pressure group can demonstrate an engaged and issue-specific constituency on whose behalf they claim to advocate. While lobbying disclosure requirements could provide other information about how well groups represent the constituencies they claim to represent [@Seifter2016UCLA], letter-writing campaigns are one of the only strategies currently available to demonstrate issue-specific congruence between the positions of groups and the people they claim to represent (see Chapter \@ref(whymail)).<!-- [@judgelord2019SPSA].-->
 
@@ -185,7 +185,7 @@ Second, business commenters are influential, and public interest groups are not 
 > *Policy Receptivity Hypothesis*: 
 
 ```{hypothesis ej-receptivity, echo = TRUE}
-Policymakers that more frequently address concerns like environmental justice will be more responsive to commenters raising those concerns.
+Policymakers who more frequently address concerns like environmental justice will be more responsive to commenters raising those concerns.
 ```
 
  <!--CITE-->
@@ -199,7 +199,7 @@ The competing intuition to Hypothesis \@ref(hyp:ej-receptivity) is that policyma
 > *Public Attention Hypothesis*: 
 
 ```{hypothesis ej-attention, echo = TRUE}
-Policies are more likely to change when they receive more public attention (e.g., more public comments).
+Proposed policies are more likely to change when they receive more public attention (e.g., more public comments).
 ```
 
 <!--TODO-->

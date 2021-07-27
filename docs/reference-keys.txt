@@ -191,7 +191,7 @@ if-comment_type-org
 if-comment_type-elected
 if-comment_type-mass
 if-comment_type-individual
-coding-response-to-comments
+coding-responses-to-comments
 coding-rules
 causal-full
 formal-app
