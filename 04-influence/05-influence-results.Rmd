@@ -17,11 +17,13 @@ These models include coalitions of 1 (organizations lobbying alone), but excludi
 
 <!-- TODO ELLIE: "Is your design more likely to capture support for the rule? Rather than successful change given the difficulty/method of measuring change? "-->
 
+```{r coef_map}
+# load coef map 
+source(here::here("code", "coef_map.R"))
+```
+
 ```{r mc-success}
 #mc-success
-coalitions_coded %<>% mutate(
-  comments = ifelse(comments < 0, 0, comments), #FIXME double subtracting coalition size? 
-  comments100k = comments / 100000)
 
 # coalition success with agency and president FE
 mc1 <- feols(coalition_success ~ 
@@ -115,71 +117,7 @@ mc6 <- feols(coalition_success ~
           | agency + president, 
         data = coalitions_coded)
 
-# coef map to rename vars 
-cm = c("campaign_TRUE" = "Pressure Campaign",
-       "campaign_TRUE:presidentObama" ="Pressure Campaign × Obama",
-         "campaign_TRUE:presidentTrump" = "Pressure Campaign × Trump",
-       "campaign_TRUE:presidentBush" = "Pressure Campaign × Bush",
-       "campaign_TRUE:coalition_typePublic:presidentObama" = "Pressure Campaign × presidentObama",
-       "campaign_TRUE:coalition_business_TRUE" = "Pressure Campaign × Business",
-       "campaign_TRUE:coalition_typePublic" = "Pressure Campaign × Public",
-       "campaign_TRUE:coalition_typePublic:presidentTrump" = "Pressure Campaign × Public × Trump",
-              "log(comments + 1):coalition_typePublic" = "Log(Mass Comments) × Public",
-       "log(comments + 1):coalition_business_TRUE" = "Log(Mass Comments) × Business",
-       "coalition_TRUE" = "Coalition",
-       "log(coalition_size)" = "Log(Coalition Size)",
-       "coalition_size" = "Coalition Size",
-       "coalition_typePublic" = "Public",
-       "coalition_business_TRUE" = "Business Coalition",
-       "Coalition_PositionSupports Rule" = "Supports Rule",
-       "coalition_unopposedTRUE" = "Unopposed",
-       "PositionSupports Rule" = "Supports Rule",
-       "comments100k" = "Mass Comments",
-       "log(comments + 1)"= "Log(Mass Comments)",
-       "log(comments + 1):presidentTrump"= "Log(Mass Comments) × Trump",
-       "log(comments + 1):presidentBush"= "Log(Mass Comments) × Bush",
-       "I(comments100k^2)" = "(Mass Comments)^2",
-       "agency" = "Agency",
-       "president" = "President",
-       "presidentTrump" = "Trump",
-       "presidentObama" = "Obama",
-       "presidentBush" = "Bush",
-       "coalition_typePublic:presidentObama" = "Public × Obama",
-       "coalition_typePublic:presidentTrump" = "Public × Trump",
-       "coalition_business_TRUE:presidentTrump" = "Business × Trump",
-       "coalition_business_TRUE:presidentBush" = "Business × Bush",
-       "coalition_typePublic:presidentBush" = "Public × Bush",
-       "partyRepublican" = "Republican President",
-       "coalition_typePublic:partyRepublican" = "Republican President × Public",
-       "log(comments + 1):coalition_business_TRUE:presidentTrump"= "Log(Mass Comments) × Business × Trump",
-       "log(comments + 1):coalition_business_TRUE:presidentBush"= "Log(Mass Comments) × Business × Bush",
-       "log(comments + 1):coalition_typePublic:presidentTrump"= "Log(Mass Comments) × Public × Trump",
-       "log(comments + 1):coalition_typePublic:presidentBush"= "Log(Mass Comments) × Public × Bush",
-       "acme_0" = "Average Conditional Marginal Effect",
-       "ade_0" = "Average Direct Effect",
-       "coalition_congress" = "Members of Congress",
-       "presidentTrump:coalition_typePublic" = "Trump × Public",
-       "presidentBush:coalition_typePublic"= "Bush × Public",
-       "campaign_TRUE:presidentBush:coalition_typePublic" = "Campaign × Public × Bush",
-       "campaign_TRUE:presidentTrump:coalition_typePublic" = "Campaign × Public × Trump")
-
-# coef map as tibble
-cm2<- tibble(term = names(cm),
-       Term = cm)
-
 modelsFE <- list(mc1, mc2, mc3, mc4, mc5, mc6)
-
-rowsFE <- tibble(
-  term = c("Dependent Variable"),
-  `1` = c("Lobbying Success"), 
-  `2` =c("Lobbying Success"), 
-  `3`  = c("Lobbying Success"), 
-  `4` = c("Lobbying Success"),
-  `5`  = c("Lobbying Success"), 
-  `6`  = c("Lobbying Success")
-)
-
-attr(rowsFE, 'position') <- c(0)
 
 # paper table fixest
 modelsummary::modelsummary( modelsFE, 
@@ -416,7 +354,7 @@ There is some evidence for relationships other than those hypothesized. Public i
 
 Because members of Congress are overall more likely to oppose proposed changes than organizations and pressure campaigns (see Figure \@ref(fig:coded-support)), there is a negative relationship between supporting a proposed rule and the number of comments from members of Congress in one's coalition. Likewise, there is a positive relationship between supporting a proposed rule and the number of members of Congress opposing one's coalition. 
 
-The outcome model results (the third column in Table \@ref(tab:mc-success)) are similar to the results of Model 1 in Table \@ref(tab:mc-success), despite dropping organizations lobbying alone. Again, the strongest predictor of lobbying success is supporting the direction of policy change. Adding congressional support to the model improves the model fit over Model 1 in Table \@ref(tab:mc-success) (comparing R-squared and log-likelihood). The number of supportive comments from members of Congress is associated with a $\beta_2$ = `r mc1_congress$coefficients[6] %>% round(2)` point increase in lobbying success (S.E. = `r mc1_congress$se[6] %>% round(2)`). <!--This is a statistically significant and somewhat substantial increase on the 5-point scale of lobbying success. This strong relationship between congressional support and lobbying success and lobbying success (controlling for other factors, including support for the proposed rule) is the most notable result from Table \@ref(tab:mc-success).
+The outcome model results (the third column in Table \@ref(tab:mc-success)) are similar to the results of Model 1 in Table \@ref(tab:mc-success), despite dropping organizations lobbying alone. Again, the strongest predictor of lobbying success is supporting the direction of policy change. Adding congressional support to the model improves the model fit over Model 1 in Table \@ref(tab:mc-success) (comparing R-squared and log-likelihood). The number of supportive comments from members of Congress is associated with a `r mc1_congress$coefficients[6] %>% round(2)` point difference in lobbying success (S.E. = `r mc1_congress$se[6] %>% round(2)`). <!--This is a statistically significant and somewhat substantial increase on the 5-point scale of lobbying success. This strong relationship between congressional support and lobbying success and lobbying success (controlling for other factors, including support for the proposed rule) is the most notable result from Table \@ref(tab:mc-success).
 -->
 
 
@@ -520,18 +458,9 @@ mo3 = feols(success ~ campaign_*president*coalition_type +
 
 models_o_success <- list(mo1, mo2, mo3)
 
-rows_o_success <- tibble(
-  term = c("Dependent Variable"),
-  `1` = c("Lobbying Success"), 
-  `2` =c("Lobbying Success"),
-  `3` =c("Lobbying Success") )
-
-attr(rows_o_success, 'position') <- c(0)
-
-
 modelsummary(models_o_success, 
              stars = T, 
-             add_rows = rows_o_success,
+             add_rows = success_rows3,
              coef_rename = cm,
              title = "Difference-in-Difference Model of Lobbying Success Within Organizations") %>% kable2(file = "mo-success-did")
 ```

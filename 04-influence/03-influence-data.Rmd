@@ -15,6 +15,11 @@ d <- rules %>%
 # hand coded 
 load(here::here("data", "coalitions_coded.Rdata"))
 load(here::here("data", "comments_coded.Rdata"))
+
+#FIXME move to import 
+coalitions_coded %<>% mutate(
+  comments = ifelse(comments < 0, 0, comments), #FIXME double subtracting coalition size? 
+  comments100k = comments / 100000)
 ```
 
 To examine the relationship between public pressure campaigns and lobbying success, I use an original dataset (introduced in Section \@ref(why-data)) that combines several data sources on U.S. federal agency rulemaking.

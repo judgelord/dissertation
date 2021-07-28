@@ -26,6 +26,8 @@ source(here::here("code", "setup.R"))
 knitr::opts_chunk$set(echo = TRUE, 
                       cache = FALSE,
                       fig.path='../figs/')
+
+library(lmerTest)
 ```
 
 
@@ -305,14 +307,518 @@ $$logit(Pr(\text{Legislator Comment}_{ij}|p_{ij})) = \beta_0 + \beta_1 \text{Com
 # Extra Results
 
 
-### Add congress to main models 
+## Intereact quadratic term with coalition type 
+
+Models 5 and 6 in Table \@ref(tab:mc-success) are estimated without interaction terms for the number of comments and coalition type. Table \@ref(tab:mc-success-quadratic) shows that when we include these interaactions 
+$R^2$ and Log Likelyhood are unchanged and errors on estimates for the numbrer of comments comments$^2$ both increase. 
 
 
-```{r mc-success}
+```{r mcfe-success-quadratic}
 #mc-success
-coalitions_coded %<>% mutate(
-  comments = ifelse(comments < 0, 0, comments), #FIXME double subtracting coalition size? 
-  comments100k = comments / 100000)
+
+# coalition success with agency and president FE
+mc1 <- feols(coalition_success ~ 
+          campaign_*coalition_type + 
+          # campaign_*coalition_business_ +
+          # log(comments + 1)*coalition_type
+          # log(comments + 1)*coalition_business_ + 
+          # comments * coalition_type + 
+          # comments^2 * coalition_type +
+          # comments^2 * coalition_business +
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president, #+ president, 
+        data = coalitions_coded)
+
+mc2 <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president, #+ president, 
+        data = coalitions_coded)
+
+mc3 <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president,# + president, 
+        data = coalitions_coded)
+
+mc4 <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          #campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president,# + president, 
+        data = coalitions_coded)
+
+mc5 <- feols(coalition_success ~ 
+          # campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          comments100k*coalition_type + 
+          coalition_type*comments100k^2 + #m6          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president, 
+        data = coalitions_coded)
+
+mc6 <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          comments100k*coalition_business_ + 
+          coalition_business_*comments100k^2 + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president, 
+        data = coalitions_coded)
+
+modelsFE <- list(mc1, mc2, mc3, mc4, mc5, mc6)
+
+# paper table fixest
+modelsummary::modelsummary( modelsFE, 
+                            stars = TRUE, 
+                            #coef_map =
+                            coef_rename =  cm,
+                            gof_omit = "R2 .*|IC",
+                          add_rows = rowsFE, 
+                          title = "OLS Models of Coalition-Level Lobbying Success",
+                          notes = "") #%>% kable2(file = "mc-success")
+```
+
+```{r mcfe-success-quadratic-predicted, fig.height=3, fig.width=4.5}
+top10 = coalitions_coded %>% distinct(docket_id, agency) %>% count(agency) %>% slice_max(order_by = n, n =4) %>% pull(agency)
+
+values = coalitions_coded %>% 
+  expand(president, 
+         #comments = c(0,1,10,100,1000,10000,100000),
+         comments100k = seq(0, 10, by = .1),
+         #coalition_business_,
+         coalition_type,
+         coalition_congress = 0,
+         coalition_ = TRUE,
+         coalition_size = 10,
+         Coalition_Position,
+         coalition_unopposed = TRUE,
+         agency = top10
+         ) %>% 
+  mutate(agencyXpresident = paste(agency, president))
+
+plot_quadratic <-  function(model){ 
+  
+  model %>% 
+broom::augment(newdata = values, se_fit = TRUE) %>% 
+  filter(president != "Bush",
+         .fitted < 2) %>% 
+  mutate(president = as.character(president)) %>%
+  drop_na() %>% 
+  ggplot() + 
+  aes(x = comments100k*100, y = .fitted, color = coalition_type,
+      #label = agency, 
+      linetype = agency) + 
+  #geom_point() + 
+  geom_line() + 
+  facet_grid(Coalition_Position ~ president) +
+  labs(x = "Mass comments (Thousands)",
+       y = "Predicted Lobbying Success",
+       color = "Coalition Type", 
+       linetype = "Agency")
+}
+plot_quadratic(mc5)
+```
+
+
+## Split samples
+
+When we estimate the same models as those presented in Table \@ref(tab:mc-success) with the sample split by whether the coalition supports or opposes the rule, results are surprisingly consistant for both samples. While some effect sizes change, none of the estimated that is significant at the .05 level changes sign. 
+
+Coalition size is a stronger predictor for supportive coalitions than opposing ones.
+
+The negative relationship between using a *pressure campaign* and *lobbying success* appears to be mostly a function of campaigns opposing proposed rules. This allignes with the conclusion that campaigns that fail to affect policy are often "going down fighting." However, the linear and quadratic terms for the number of mass comments are similar magnitudes, suggesting that very large coalitions opposing proposed rules may be more successful than smaller ones. 
+
+###  Coalitions Supporting Proposed Rules
+
+```{r mcfe-success-pro, fig.height=3, fig.width=4.5}
+#mc-success-pro
+pro <- filter(coalitions_coded, Coalition_Position == "Supports Rule")
+con <- filter(coalitions_coded, Coalition_Position == "Opposes Rule")
+
+# coalition success with agency and president FE
+mc1pro <- feols(coalition_success ~ 
+          campaign_*coalition_type + 
+          # campaign_*coalition_business_ +
+          # log(comments + 1)*coalition_type
+          # log(comments + 1)*coalition_business_ + 
+          # comments * coalition_type + 
+          # comments^2 * coalition_type +
+          # comments^2 * coalition_business +
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed #+ coalition_congress
+          # Agency and president FE 
+          | agency + president, #+ president, 
+        data = pro)
+
+mc2pro <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed#+ coalition_congress
+          # Agency and president FE 
+          | agency + president, #+ president, 
+        data = pro)
+
+mc3pro <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed#+ coalition_congress
+          # Agency and president FE 
+          | agency + president,# + president, 
+        data = pro)
+
+mc4pro <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          #campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed#+ coalition_congress
+          # Agency and president FE 
+          | agency + president,# + president, 
+        data = pro)
+
+mc5pro <- feols(coalition_success ~ 
+          # campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          comments100k + comments100k^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed#+ coalition_congress
+          # Agency and president FE 
+          | agency + president, 
+        data = pro)
+
+mc6pro <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          comments100k + comments100k^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed#+ coalition_congress
+          # Agency and president FE 
+          | agency + president, 
+        data = pro)
+
+
+modelsFEpro <- list(mc1pro, mc2pro, mc3pro, mc4pro, mc5pro, mc6pro)
+
+# paper table fixest
+modelsummary::modelsummary( modelsFEpro, 
+                            stars = TRUE, 
+                            #coef_map =
+                            coef_rename =  cm,
+                            gof_omit = "R2 .*|IC",
+                          add_rows = rowsFE, 
+                          title = "OLS Models of Coalition-Level Lobbying Success for Coalitions Supporting Proposed Rules",
+                          notes = "")
+
+plot_quadratic(mc5pro)
+```
+
+###  Coalitions Opposing Proposed Rules
+
+```{r mcfe-success-con, fig.height=3, fig.width=4.5}
+#mc-success-con
+
+# coalition success with agency and president FE
+mc1con <- feols(coalition_success ~ 
+          campaign_*coalition_type + 
+          # campaign_*coalition_business_ +
+          # log(comments + 1)*coalition_type
+          # log(comments + 1)*coalition_business_ + 
+          # comments * coalition_type + 
+          # comments^2 * coalition_type +
+          # comments^2 * coalition_business +
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed #+ coalition_congress
+          # Agency and president FE 
+          | agency + president, #+ president, 
+        data = con)
+
+mc2con <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed#+ coalition_congress
+          # Agency and president FE 
+          | agency + president, #+ president, 
+        data = con)
+
+mc3con <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed#+ coalition_congress
+          # Agency and president FE 
+          | agency + president,# + president, 
+        data = con)
+
+mc4con <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          #campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed#+ coalition_congress
+          # Agency and president FE 
+          | agency + president,# + president, 
+        data = con)
+
+mc5con <- feols(coalition_success ~ 
+          # campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          comments100k + comments100k^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed#+ coalition_congress
+          # Agency and president FE 
+          | agency + president, 
+        data = con)
+
+mc6con <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          comments100k + comments100k^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed#+ coalition_congress
+          # Agency and president FE 
+          | agency + president, 
+        data = con)
+
+
+modelsFEcon <- list(mc1con, mc2con, mc3con, mc4con, mc5con, mc6con)
+
+# paper table fixest
+modelsummary::modelsummary( modelsFEcon, 
+                            stars = TRUE, 
+                            #coef_map =
+                            coef_rename =  cm,
+                            gof_omit = "R2 .*|IC",
+                          add_rows = rowsFE, 
+                          title = "OLS Models of Coalition-Level Lobbying Success for Coalitions Opposing Proposed Rules",
+                          notes = "")
+
+plot_quadratic(mc5con)
+```
+
+###  Coalitions That Used Public Pressure Campaigns
+
+```{r mcfe-success-campaign, fig.height=3, fig.width=4.5}
+#mc-success-pro
+campaign <- filter(coalitions_coded, campaign_)
+
+# coalition success with agency and president FE
+mc1campaign <- feols(coalition_success ~ 
+          campaign_*coalition_type + 
+          # campaign_*coalition_business_ +
+          # log(comments + 1)*coalition_type
+          # log(comments + 1)*coalition_business_ + 
+          # comments * coalition_type + 
+          # comments^2 * coalition_type +
+          # comments^2 * coalition_business +
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed #+ coalition_congress
+          # Agency and president FE 
+          | agency + president, #+ president, 
+        data = campaign)
+
+mc2campaign <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed#+ coalition_congress
+          # Agency and president FE 
+          | agency + president, #+ president, 
+        data = campaign)
+
+mc3campaign <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed#+ coalition_congress
+          # Agency and president FE 
+          | agency + president,# + president, 
+        data = campaign)
+
+mc4campaign <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          #campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed#+ coalition_congress
+          # Agency and president FE 
+          | agency + president,# + president, 
+        data = campaign)
+
+mc5campaign <- feols(coalition_success ~ 
+          # campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          comments100k + comments100k^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed#+ coalition_congress
+          # Agency and president FE 
+          | agency + president, 
+        data = campaign)
+
+mc6campaign <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          comments100k + comments100k^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          #Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed#+ coalition_congress
+          # Agency and president FE 
+          | agency + president, 
+        data = campaign)
+
+
+modelsFEcampaign <- list(mc1campaign, mc2campaign, mc3campaign, mc4campaign, mc5campaign, mc6campaign)
+
+# paper table fixest
+modelsummary::modelsummary( modelsFEcampaign, 
+                            stars = TRUE, 
+                            #coef_map =
+                            coef_rename =  cm,
+                            gof_omit = "R2 .*|IC",
+                          add_rows = rowsFE, 
+                          title = "OLS Models of Coalition-Level Lobbying Success for Coalitions that Used a Mass Comment Campaign",
+                          notes = "")
+
+plot_quadratic(mc5campaign)
+```
+
+## Add support from members of Congress
+
+
+```{r mcfe-success-congress, fig.height=3, fig.width=4.5}
+#mc-success-congress
 
 # coalition success with agency and president FE
 mc1 <- feols(coalition_success ~ 
@@ -418,12 +924,15 @@ modelsummary::modelsummary( modelsFE,
                           add_rows = rowsFE, 
                           title = "OLS Models of Coalition-Level Lobbying Success",
                           notes = "")
+
+plot_quadratic(mc5)
+
 ```
 
 
 
-### President*agency fixed effects
-```{r mc-success-2-way-fe}
+## President*agency fixed effects
+```{r mcfe-success-2-way-fe, fig.height=3, fig.width=4.5}
 #mc-success-2-way-fe
 coalitions_coded %<>% 
   mutate(agencyXpresident = paste(agency, president))
@@ -495,7 +1004,7 @@ mc5 <- feols(coalition_success ~
           # campaign_*coalition_business_ + # m2
           # log(comments + 1)*coalition_type + # m3
           # log(comments + 1)*coalition_business_ + # m4
-          comments + comments^2 + coalition_type + #m5
+          comments100k + comments100k^2 + coalition_type + #m5
           # comments + comments^2 + coalition_business_ + #m6
           coalition_ + log(coalition_size) + #  coalition_size^2 + 
           Coalition_Position + 
@@ -511,7 +1020,7 @@ mc6 <- feols(coalition_success ~
           # log(comments + 1)*coalition_type + # m3
           # log(comments + 1)*coalition_business_ + # m4
           # comments + comments^2 + coalition_type + #m5
-          comments + comments^2 + coalition_business_ + #m6
+          comments100k + comments100k^2 + coalition_business_ + #m6
           coalition_ + log(coalition_size) + #  coalition_size^2 + 
           Coalition_Position + 
           # comment_length + 
@@ -519,67 +1028,6 @@ mc6 <- feols(coalition_success ~
           # Agency and president FE 
           | agencyXpresident, 
         data = coalitions_coded)
-
-# coef map to rename vars 
-cm = c("campaign_TRUE" = "Pressure Campaign",
-       "campaign_TRUE:presidentObama" ="Pressure Campaign × Obama",
-         "campaign_TRUE:presidentTrump" = "Pressure Campaign × Trump",
-       "campaign_TRUE:presidentBush" = "Pressure Campaign × Bush",
-       "campaign_TRUE:coalition_typePublic:presidentObama" = "Pressure Campaign × presidentObama",
-       "campaign_TRUE:coalition_business_TRUE" = "Pressure Campaign × Business",
-       "campaign_TRUE:coalition_typePublic" = "Pressure Campaign × Public",
-       "campaign_TRUE:coalition_typePublic:presidentTrump" = "Pressure Campaign × Public × Trump",
-              "log(comments + 1):coalition_typePublic" = "Log(Mass Comments) × Public",
-       "log(comments + 1):coalition_business_TRUE" = "Log(Mass Comments) × Business",
-       "coalition_TRUE" = "Coalition",
-       "log(coalition_size)" = "Log(Coalition Size)",
-       "coalition_size" = "Coalition Size",
-       "coalition_typePublic" = "Public",
-       "coalition_business_TRUE" = "Business Coalition",
-       "Coalition_PositionSupports Rule" = "Supports Rule",
-       "coalition_unopposedTRUE" = "Unopposed",
-       "PositionSupports Rule" = "Supports Rule",
-       "comments" = "Mass Comments",
-       "log(comments + 1)"= "Log(Mass Comments)",
-       "log(comments + 1):presidentTrump"= "Log(Mass Comments) × Trump",
-       "log(comments + 1):presidentBush"= "Log(Mass Comments) × Bush",
-       "I(comments^2)" = "Mass Comments^2",
-       "agency" = "Agency",
-       "president" = "President",
-       "presidentTrump" = "Trump",
-       "presidentObama" = "Obama",
-       "presidentBush" = "Bush",
-       "coalition_typePublic:presidentObama" = "Public × Obama",
-       "coalition_typePublic:presidentTrump" = "Public × Trump",
-       "coalition_business_TRUE:presidentTrump" = "Business × Trump",
-       "coalition_business_TRUE:presidentBush" = "Business × Bush",
-       "coalition_typePublic:presidentBush" = "Public × Bush",
-       "partyRepublican" = "Republican President",
-       "coalition_typePublic:partyRepublican" = "Republican President × Public",
-       "log(comments + 1):coalition_business_TRUE:presidentTrump"= "Log(Mass Comments) × Business × Trump",
-       "log(comments + 1):coalition_business_TRUE:presidentBush"= "Log(Mass Comments) × Business × Bush",
-       "log(comments + 1):coalition_typePublic:presidentTrump"= "Log(Mass Comments) × Public × Trump",
-       "log(comments + 1):coalition_typePublic:presidentBush"= "Log(Mass Comments) × Public × Bush",
-       "acme_0" = "Average Conditional Marginal Effect",
-       "ade_0" = "Average Direct Effect")
-
-# coef map as tibble
-cm2<- tibble(term = names(cm),
-       Term = cm)
-
-modelsFE <- list(mc1, mc2, mc3, mc4, mc5, mc6)
-
-rowsFE <- tibble(
-  term = c("Dependent Variable"),
-  `1` = c("Lobbying Success"), 
-  `2` =c("Lobbying Success"), 
-  `3`  = c("Lobbying Success"), 
-  `4` = c("Lobbying Success"),
-  `5`  = c("Lobbying Success"), 
-  `6`  = c("Lobbying Success")
-)
-
-attr(rowsFE, 'position') <- c(0)
 
 # paper table fixest
 modelsummary::modelsummary( modelsFE, 
@@ -590,12 +1038,14 @@ modelsummary::modelsummary( modelsFE,
                           add_rows = rowsFE, 
                           title = "OLS Models of Coalition-Level Lobbying Success",
                           notes = "")
+
+plot_quadratic(mc5)
 ```
 
 
-## President dummies
+## President indicators
 
-```{r mc-success-president}
+```{r mcfe-success-president, fig.height=3, fig.width=4.5}
 # mc-success-president
 
 # coalition success with agency and president FE
@@ -669,7 +1119,7 @@ mc5 <- feols(coalition_success ~
           # campaign_*coalition_business_ + # m2
           # log(comments + 1)*coalition_type + # m3
           # log(comments + 1)*coalition_business_ + # m4
-          comments + comments^2 + coalition_type+ #m5
+          comments100k + comments100k^2 + coalition_type+ #m5
           president +
           # comments + comments^2 + coalition_business_ + #m6
           coalition_ + log(coalition_size) + #  coalition_size^2 + 
@@ -686,7 +1136,7 @@ mc6 <- feols(coalition_success ~
           # log(comments + 1)*coalition_type + # m3
           # log(comments + 1)*coalition_business_ + # m4
           # comments + comments^2 + coalition_type + #m5
-          comments + comments^2 + coalition_business_+ #m6
+          comments100k + comments100k^2 + coalition_business_+ #m6
            president+
           coalition_ + log(coalition_size) + #  coalition_size^2 + 
           Coalition_Position + 
@@ -708,10 +1158,13 @@ modelsummary::modelsummary( models_president,
                           add_rows = rowsFE, 
                           notes = "") %>% 
   row_spec(row = 1, bold = T) #%>% kable2(file = "mc-success")
+
+plot_quadratic(mc5)
+
 ```
 
 ### Two-way interaction 
-```{r mc-success-president2}
+```{r mcfe-success-president2, fig.height=3, fig.width=4.5}
 # mc-success-president2
 
 # coalition success with agency and president FE
@@ -785,7 +1238,7 @@ mc5 <- feols(coalition_success ~
           # campaign_*coalition_business_ + # m2
           # log(comments + 1)*coalition_type + # m3
           # log(comments + 1)*coalition_business_ + # m4
-          comments*coalition_type + coalition_type*comments^2 + #m5
+          comments100k*coalition_type + coalition_type*comments100k^2 + #m5
             coalition_type*president +
           # comments + comments^2 + coalition_business_ + #m6
           coalition_ + log(coalition_size) + #  coalition_size^2 + 
@@ -802,7 +1255,7 @@ mc6 <- feols(coalition_success ~
           # log(comments + 1)*coalition_type + # m3
           # log(comments + 1)*coalition_business_ + # m4
           # comments + comments^2 + coalition_type + #m5
-          comments + comments^2 + coalition_business_+ #m6
+          comments100k + comments100k^2 + coalition_business_+ #m6
             coalition_business_*president+
           coalition_ + log(coalition_size) + #  coalition_size^2 + 
           Coalition_Position + 
@@ -814,38 +1267,6 @@ mc6 <- feols(coalition_success ~
 
 models_president <- list(mc1, mc2, mc3, mc4, mc5, mc6)
 
-tidy(mc5)
-tidy(mc6)
-
-top10 = coalitions_coded %>% distinct(docket_id, agency) %>% count(agency) %>% slice_max(order_by = n, n =5) %>% pull(agency)
-
-values = coalitions_coded %>% 
-  expand(president, 
-         #comments = c(0,1,10,100,1000,10000,100000),
-         comments = seq(0, 100000, by = 100),
-         #coalition_business_,
-         coalition_type,
-         coalition_ = TRUE,
-         coalition_size = 10,
-         Coalition_Position,
-         coalition_unopposed = TRUE,
-         agency = top10
-         )
-
-augment(mc5, newdata = values) %>% 
-  filter(president != "Bush",
-         .fitted < 2) %>% 
-  mutate(president = as.character(president)) %>%
-  drop_na() %>% 
-  ggplot() + 
-  aes(x = comments, y = .fitted, color = coalition_type,
-      #label = agency, 
-      linetype = agency) + 
-  #geom_point() + 
-  geom_line() + 
-  facet_grid(Coalition_Position ~ president) + 
-  scale_x_log10() #+geom_label(x = 0, y = 0, label = "adfsd", check_overlap = T)
-
 # paper table fixest
 modelsummary::modelsummary( models_president, 
                             stars = TRUE, 
@@ -855,16 +1276,18 @@ modelsummary::modelsummary( models_president,
                           add_rows = rowsFE, 
                           notes = "") %>% 
   row_spec(row = 1, bold = T) #%>% kable2(file = "mc-success")
+
+plot_quadratic(mc5)
 ```
 
 ### Three-way interaction 
 
-```{r mc-success-president3}
+```{r mcfe-success-president3, fig.height=3, fig.width=4.5}
 # mc-success-president3
 
 # coalition success with agency and president FE
 mc1 <- feols(coalition_success ~ 
-          campaign_*coalition_type*president + 
+          campaign_*president*coalition_type + 
           # campaign_*coalition_business_ +
           # log(comments + 1)*coalition_type
           # log(comments + 1)*coalition_business_ + 
@@ -929,7 +1352,7 @@ mc5 <- feols(coalition_success ~
           # campaign_*coalition_business_ + # m2
           # log(comments + 1)*coalition_type + # m3
           # log(comments + 1)*coalition_business_ + # m4
-          comments*coalition_type*president + coalition_type*president*comments^2 + coalition_type*president + #m5
+          comments100k*coalition_type*president + coalition_type*president*comments100k^2 + coalition_type*president + #m5
           # comments + comments^2 + coalition_business_ + #m6
           coalition_ + log(coalition_size) + #  coalition_size^2 + 
           Coalition_Position + 
@@ -945,7 +1368,7 @@ mc6 <- feols(coalition_success ~
           # log(comments + 1)*coalition_type + # m3
           # log(comments + 1)*coalition_business_ + # m4
           # comments + comments^2 + coalition_type + #m5
-          comments + comments^2 + coalition_business_*president + #m6
+          comments100k + comments100k^2 + coalition_business_*president + #m6
           coalition_ + log(coalition_size) + #  coalition_size^2 + 
           Coalition_Position + 
           # comment_length + 
@@ -963,20 +1386,23 @@ modelsummary::modelsummary( models_president,
                             #coef_map =
                             coef_rename =  cm,
                             gof_omit = "R2 .*",
-                          add_rows = rowsFE, 
+                          add_rows = rowsFE, #FIXME rename rowsFE lobbying success
                           notes = "") %>% 
   row_spec(row = 1, bold = T) #%>% kable2(file = "mc-success")
+
+plot_quadratic(mc5)
+
 ```
 
 
-```{r model-success-plot, include=FALSE,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS Model of Coalition Lobbying Sucess with Hand-coded Data"}
-# My preferred model is model 3: 
+```{r mcfe-coef, include = FALSE,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS Model of Coalition Lobbying Sucess with Hand-coded Data"}
+# My preferred model:
 # model-success-plot
 
 mc1 %>%
   tidy(conf.int = TRUE) %>% 
   filter(term != "(Intercept)") %>% 
-  left_join(cm2) %>% 
+  left_join(cm2) %>% #select(term, Term)
   ggplot() + 
   geom_hline(yintercept = 0, color = "grey") + 
   aes(x = Term, 
@@ -991,44 +1417,209 @@ mc1 %>%
 
 ## Mixed effects / hierarchical models
 
-Because organizations are nested in coalitions, I estimate a hierarchical model grouping by coalition. 
+### Coalition-level Hierarchical Models
 
-```{r}
-# mixed model with random effects for coalition
-m_me = lmer(success ~ log(coalition_comments + 1)*coalition_type*president +
-              Position + 
+With random effects for agency and president, results look very similar to the fixed effects models.
+
+```{r mcme, fig.height=3, fig.width=4.5}
+#mcme
+mc_data <- coalitions_coded
+
+
+# mixed model with random effects for president and agency
+mcme1 = lmer(coalition_success ~ campaign_*coalition_type +
+              Coalition_Position + 
               log(coalition_size) + 
-              (1|coalition), # random intercept for each coalition
-               data = comments_coded %>% 
-  filter(comment_type == "Org") %>% 
-  distinct(org_name, docket_id, success, coalition_type, coalition_size, Position, coalition_comments, president, coalition, agency) %>% filter(president != "Bush"))
+              (1|agency) + (1|president), # random intercept for each coalition
+               data = mc_data)
+
+mcme2 = lmer(coalition_success ~ campaign_*coalition_business_ +
+              Coalition_Position + 
+              log(coalition_size) + 
+              (1|agency) + (1|president), # random intercept for each coalition
+               data = mc_data)
+
+mcme3 = lmer(coalition_success ~ log(comments + 1)*coalition_type +
+              Coalition_Position + 
+              log(coalition_size) + 
+              (1|agency) + (1|president), # random intercept for each coalition
+               data = mc_data)
+
+mcme4 = lmer(coalition_success ~ log(comments + 1)*coalition_business_ +
+              Coalition_Position + 
+              log(coalition_size) + 
+              (1|agency) + (1|president), # random intercept for each coalition
+               data = mc_data)
+
+mcme5 = lmer(coalition_success ~ comments100k*coalition_type +  comments100k^2*coalition_type + 
+              Coalition_Position + 
+              log(coalition_size) + 
+              (1|agency) + (1|president), # random intercept for each coalition
+               data = mc_data)
+
+mcme6 = lmer(coalition_success ~ comments100k*coalition_business_ +  comments100k^2*coalition_business_ + 
+              Coalition_Position + 
+              log(coalition_size) + 
+              (1|agency) + (1|president), # random intercept for each coalition
+               data = mc_data)
 
 
-broom.mixed::tidy(m_me) %>% 
+
+
+broom.mixed::tidy(mcme1) %>% 
   mutate(term = ifelse(str_detect(term, "sd__.Int"), paste(group, term), term)) %>%  
   dwplot + geom_vline(xintercept=0,lty=2)
 
-models <- list("Lobbying Success" = m_me)
+models_mcme <- list(mcme1, mcme2, mcme3, mcme4, mcme5, mcme6)
 
-modelsummary(models)
+# paper table random effects
+modelsummary::modelsummary( models_mcme, 
+                            stars = TRUE, 
+                            coef_rename =  cm,
+                            coef_omit = "sd__.Int",
+                            gof_omit = "R2 .*",
+                          add_rows = mc_rows6, 
+                          notes = "") %>% 
+  row_spec(row = 1, bold = T) #%>% kable2(file = "mc-success")
+
+# plot_quadratic(mcme5)
 ```
 
-```{r, eval = FALSE}
 
-tidy(m_me, conf.int = T)
+```{r mcme-hierarchical, fig.height=3, fig.width=4.5}
+#mcme-hierarchical 
+
+# mixed model with random effects for president and agency
+mcme1 = lmer(coalition_success ~ campaign_*coalition_type +
+              Coalition_Position + 
+              log(coalition_size) + 
+              #(campaign_|agency) + 
+               (campaign_|president), # random intercept for each coalition
+               data = mc_data)
+
+mcme2 = lmer(coalition_success ~ campaign_*coalition_business_ +
+              Coalition_Position + 
+              log(coalition_size) + 
+              (1|agency) + (1|president), # random intercept for each coalition
+               data = mc_data)
+
+mcme3 = lmer(coalition_success ~ log(comments + 1)*coalition_type +
+              Coalition_Position + 
+              log(coalition_size) + 
+              (1|agency) + (1|president), # random intercept for each coalition
+               data = mc_data)
+
+mcme4 = lmer(coalition_success ~ log(comments + 1)*coalition_business_ +
+              Coalition_Position + 
+              log(coalition_size) + 
+              (1|agency) + (1|president), # random intercept for each coalition
+               data = mc_data)
+
+mcme5 = lmer(coalition_success ~ comments100k*coalition_type +  comments100k^2*coalition_type + 
+              Coalition_Position + 
+              log(coalition_size) + 
+              (1|agency) + (1|president), # random intercept for each coalition
+               data = mc_data)
+
+mcme6 = lmer(coalition_success ~ comments100k*coalition_business_ +  comments100k^2*coalition_business_ + 
+              Coalition_Position + 
+              log(coalition_size) + 
+              (1|agency) + (1|president), # random intercept for each coalition
+               data = mc_data)
 
 
 
-tidy(m_me,effects="fixed")
 
-fixef(m_me) #is the canonical way to extract coefficients from mixed models 
+broom.mixed::tidy(mcme1) %>% 
+  mutate(term = ifelse(str_detect(term, "sd__.Int"), paste(group, term), term)) %>%  
+  dwplot + geom_vline(xintercept=0,lty=2)
+
+models_mcme <- list(mcme1, mcme2, mcme3, mcme4, mcme5, mcme6)
+
+# paper table random effects
+modelsummary::modelsummary( models_mcme, 
+                            stars = TRUE, 
+                            coef_rename =  cm,
+                            coef_omit = "sd__.Int",
+                            gof_omit = "R2 .*",
+                          add_rows = mc_rows6, 
+                          notes = "") %>% 
+  row_spec(row = 1, bold = T) #%>% kable2(file = "mc-success")
+
+# plot_quadratic(mcme5)
+```
+
+### Organization-level Hierarchical Models
+
+Because organizations are nested in coalitions, I estimate a hierarchical model grouping by coalition. 
+
+```{r mome-coef}
+#mome
+#FIXME us this in all org-level models
+comments_coded %<>% mutate(comments100k = coalition_comments/100000)
+
+
+mo_data <- comments_coded %>% 
+  drop_na(coalition_type, Position) %>% 
+  filter(comment_type == "Org") %>% 
+  distinct(org_name, docket_id, success, coalition_type, coalition_size, Position, comments100k, president, campaign_, coalition, agency) %>% filter(president != "Bush")  %>% droplevels()
+
+# mixed model with random effects for coalition
+mome1 = lmer(success ~ campaign_*coalition_type+
+              Position + 
+              log(coalition_size) + 
+              (1|coalition) + (1|agency) + 
+               (1|president), # random intercept for each coalition
+               data = mo_data)
+
+mome2 = lmer(success ~ comments100k*coalition_type +
+               coalition_type*(comments100k^2) +
+              Position + 
+              log(coalition_size) + 
+              (1|coalition) + (1|agency) + 
+               (1|president), # random intercept for each coalition
+               data = mo_data)
+
+mome3 = lmer(success ~ comments100k*coalition_type*president +
+              coalition_type*president*comments100k^2 +
+              Position + 
+              log(coalition_size) + 
+              (1|coalition) + (1|agency), # random intercept for each coalition
+               data = mo_data)
+
+models_mome <- list(mome1, mome2, mome3)
+
+# paper table random effects
+modelsummary::modelsummary( models_mome, 
+                            stars = TRUE, 
+                            coef_rename =  cm,
+                            coef_omit = "sd__.Int",
+                            gof_omit = "R2 .*",
+                          add_rows = success_rows3, 
+                          notes = "") %>% 
+  row_spec(row = 1, bold = T) #%>% kable2(file = "mc-success")
+
+# coef plot
+# broom.mixed::tidy(mome1) %>% 
+#   mutate(term = ifelse(str_detect(term, "sd__.Int"), paste(group, term), term)) %>%  
+#   dwplot + geom_vline(xintercept=0,lty=2)
+
+```
+
+```{r mome, fig.height=3, fig.width=5.5}
+# tidy(mcme1, conf.int = T)
+
+# tidy(mcme1,effects="fixed")
+
+#fixef(mcme1) #is the canonical way to extract coefficients from mixed models 
 
 # you can get the full coefficient table with coef(summary(m)); if you have loaded lmerTest before fitting the model, or convert the model after fitting (and then loading lmerTest) via coef(summary(as(m,"merModLmerTest"))), then the coefficient table will include p-values. (The coefficient table is a matrix; you can extract the columns via e.g. ctab[,"Estimate"], ctab[,"Pr(>|t|)"], or convert the matrix to a data frame and use $-indexing.)
 
 # get likelihood profile confidence intervals via 
-confint(m_me) #; these may be computationally intensive. If you use confint(m, method="Wald") you'll get the standard +/- 1.96SE confidence intervals. (lme uses intervals(m) instead of confint().)
+#confint(mcme1) 
+#; these may be computationally intensive. If you use confint(m, method="Wald") you'll get the standard +/- 1.96SE confidence intervals. (lme uses intervals(m) instead of confint().)
 
-broom.mixed::tidy(m_me,effects="fixed")
+#broom.mixed::tidy(mcme1,effects="fixed")
 # gives you a table with estimates, standard errors, etc.
 # tidy(as(m,"merModLmerTest"), effects="fixed") (or fitting with lmerTest in the first place) includes p-values
 # adding conf.int=TRUE gives (Wald) CIs
@@ -1036,22 +1627,65 @@ broom.mixed::tidy(m_me,effects="fixed")
 # You can also get confidence intervals by parametric bootstrap (method="boot"), which is considerably slower but more accurate in some circumstances.
 
 # A data frame of values at which to estimate probabilities:
-values <- comments_coded %>% 
-  tidyr::expand(`log(coalition_comments)` = seq(0:10),
-                `log(coalition_size)` = seq(0:1),
-                Position,
-                coalition = c("Aclu", "American Petroleum Institute", "Defenders Of Wildlife"),
-                president)
 
-broom.mixed::augment(m_me, 
+values <- mo_data %>% 
+  tidyr::expand(comments100k = seq(1, 10, by = .1) %>% as.numeric(),
+                #org_name = c("Sierra Club"),
+                campaign_ = campaign_,
+                coalition_type = coalition_type,
+                coalition_size = 100 %>% as.integer(),
+                agency = "BSEE" ,
+                Position = Position,
+                #docket_id = docket_id,
+                coalition = c("Sierra Club", "Axcess Financial", "Aclu", "American Petroleum Institute"),
+                president = president) %>%
+  filter( (coalition %in% c("Axcess Financial", "American Petroleum Institute") & coalition_type == "Private") | (!coalition %in% c("Axcess Financial", "American Petroleum Institute") & coalition_type == "Public"))
+
+# names(mo_data) %in% names(values)
+# 
+# tibble(class = map(values, class) %>% unlist(),
+#        name = names(values) ) %>% 
+#   full_join(
+#     tibble(class = map(mo_data, class) %>% unlist(),
+#            name = names(mo_data)))
+
+broom.mixed::augment(mome1, 
                      type.predict = "response",
-                     newdata = values,
-                     se_fit = TRUE) %>% 
+                      newdata = values,
+                     se_fit = TRUE) %>% #names()
+  distinct(coalition, coalition_type, campaign_, .fitted, Position, president) %>%
   #filter(`log(coalition_size)`==0) %>% 
   ggplot() + 
-  aes(x = `log(coalition_comments)`, y = .fitted,) +
+  aes(x = campaign_, y = .fitted, color =coalition_type,
+      shape = coalition) +
   geom_point() +
-        facet_grid(Position ~ president)
+  #geom_text(check_overlap = T) + 
+        facet_grid(Position ~ president)+
+  labs(x = "Mass comment campaign",
+       shape = "Coalition",
+       y = "Predicted Lobbying Success",
+       color = "Coalition Type", 
+       linetype = "Agency") 
+
+
+broom.mixed::augment(mome2, 
+                     type.predict = "response",
+                      newdata = values,
+                     se_fit = TRUE) %>% #names()
+  distinct(coalition, coalition_type, comments100k, .fitted, Position, president) %>%
+  #filter(`log(coalition_size)`==0) %>% 
+  ggplot() + 
+  aes(x = comments100k*100, 
+      y = .fitted, 
+      color =coalition_type,
+      linetype = coalition) +
+  #geom_point() +
+  geom_line() +
+        facet_grid(Position ~ president)+
+  labs(x = "Mass comments (Thousands)",
+       y = "Predicted Lobbying Success",
+       color = "Coalition Type", 
+       linetype = "Coalition")
 ```
 
 
