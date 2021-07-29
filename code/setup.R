@@ -89,7 +89,7 @@ kablebox <- . %>%
 kable2 <- function(x, file){
   if(knitr:::is_html_output() | knitr::is_latex_output() ){
       x %>% row_spec(row = 1, bold = T, hline_after = TRUE) %>% 
-      kable_styling(font_size = 10, full_width = TRUE)
+      kable_styling(font_size = 9, full_width = TRUE, latex_options = c("repeat_header"))
   } else{
     kableExtra::as_image(x, width = 6.5, file = paste0("figs/", file, ".png"))
     }

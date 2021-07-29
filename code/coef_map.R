@@ -18,12 +18,15 @@ cm = c("campaign_TRUE" = "Pressure Campaign",
        "coalition_unopposedTRUE" = "Unopposed",
        "PositionSupports Rule" = "Supports Rule",
        "comments100k" = "Mass Comments",
-       "comments100k:coalition_typePublic" = "Mass Comments*Public",
-       "comments100k:coalition_business_TRUE" = "Mass Comments*Business",
+       "comments100k:presidentTrump" = "Mass Comments × Trump",
+       "comments100k:coalition_typePublic" = "Mass Comments × Public",
+       "comments100k:coalition_typePublic:presidentTrump" = "Mass Comments × Public × Trump",
+       "comments100k:coalition_business_TRUE" = "Mass Comments × Business",
        "log(comments + 1)"= "Log(Mass Comments)",
        "log(comments + 1):presidentTrump"= "Log(Mass Comments) × Trump",
        "log(comments + 1):presidentBush"= "Log(Mass Comments) × Bush",
        "I(comments100k^2)" = "(Mass Comments)^2",
+       "coalition_business:I(comments100k^2)" = "Business × (Mass Comments)^2",
        "agency" = "Agency",
        "president" = "President",
        "presidentTrump" = "Trump",
@@ -46,6 +49,7 @@ cm = c("campaign_TRUE" = "Pressure Campaign",
        "presidentTrump:coalition_typePublic" = "Trump × Public",
        "presidentBush:coalition_typePublic"= "Bush × Public",
        "campaign_TRUE:presidentBush:coalition_typePublic" = "Campaign × Public × Bush",
+       "campaign_TRUE:coalition_business_TRUE:presidentBush" = "Campaign × Business × Bush",
        "campaign_TRUE:presidentTrump:coalition_typePublic" = "Campaign × Public × Trump")
 
 # coef map as tibble
@@ -75,7 +79,7 @@ success_rows6 <- tibble(
   `6`  = c("Lobbying Success")
 )
 
-attr(siccess_rows6, 'position') <- c(0)
+attr(success_rows6, 'position') <- c(0)
 
 # new name 
 success_rows3 <- tibble(

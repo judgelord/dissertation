@@ -1500,7 +1500,7 @@ modelsummary::modelsummary( models_mcme,
                             title = "OLS Models of Coalition-Level Lobbying Success with Random Intercepts",
                           add_rows = success_rows6, 
                           notes = "") %>% 
-  row_spec(row = 1, bold = T) %>% kable2(file = "mcme")
+  row_spec(row = 1, bold = T) #%>% kable2(file = "mcme")
 
 # plot_quadratic(mcme5)
 ```
@@ -1659,7 +1659,7 @@ modelsummary::modelsummary( models_mome,
 
 ```
 
-```{r mome, fig.height=3, fig.width=5.5}
+```{r mome, fig.height=3, fig.width=5.5, fig.cap= "Organization-level Predicted Lobbying Success for Selected Organzations"}
 # tidy(mcme1, conf.int = T)
 
 # tidy(mcme1,effects="fixed")
