@@ -51,152 +51,8 @@ source(here::here("code", "setup.R"))
 knitr::opts_chunk$set(echo = TRUE, 
                       cache = FALSE,
                       fig.path='../figs/')
-
-library(lmerTest)
 ```
 
-
-# Additional Descriptives
-
-
----
-
-### Organization-level summary counts:
-
-```{r}
-# org comments by type 
-comments_coded %>% filter(comment_type == "Org") %>%  
-  mutate(org_type = str_remove(org_type, ";.*")) %>%
-  count(org_type, sort =T) %>% 
-  filter(n>1) %>% 
-  kable3(caption = " ")
-
-# org comments by sub-type
-comments_coded %>% filter(comment_type == "Org") %>%  
-  filter(str_detect(org_type, ";")) %>% 
-  mutate(org_type_detailed = org_type) %>%
-  count(org_type_detailed, sort =T) %>% 
-  kable3(caption = " ")
-```
-
-
----
-
-```{r coded-coalition-congress, include=FALSE, fig.cap= "Lobbying Success by Number of Supportive Comments"}
-#FIXME include when I have more MOCs
-coalitions_coded %>% 
-  drop_na(coalition_type, Coalition_Position) %>% 
-  distinct(coalition_comment, coalition_type, coalition_size, coalition_congress, coalition_comments, agency, Coalition_Position) %>%
-  ungroup() %>%
-  ggplot() +
-  aes(y = coalition_congress, x = log(coalition_comments), color = coalition_type) +
-  geom_jitter(aes(size = coalition_size), alpha = .5) +
-  geom_smooth(se = FALSE, method = "lm")+ 
-  facet_grid(Coalition_Position ~ .) 
-```
-
-
-#### Number of supportive comments
-
-```{r coded-coalition-success-comments, fig.cap= "Lobbying Success by Number of Supportive Comments", fig.width=5, fig.height=3}
-coalitions_coded %>% 
-  drop_na(coalition_type, Coalition_Position) %>% 
-  distinct(coalition_comment, coalition_type, coalition_size, coalition_success, coalition_comments, agency, Coalition_Position) %>% 
-  ungroup() %>%
-  ggplot() +
-  aes(y = coalition_success, x = log(coalition_comments), color = coalition_type) +
-  geom_jitter(aes(size = coalition_size), alpha = .5) +
-  geom_smooth(se = TRUE, method = "lm")
-
-coalitions_coded %>% 
-  drop_na(coalition_type, Coalition_Position) %>% 
-  distinct(coalition_comment, coalition_type, coalition_size, coalition_success, coalition_comments, agency, Coalition_Position) %>% 
-  ungroup() %>%
-  ggplot() +
-  aes(y = coalition_success, x = log(coalition_comments), color = coalition_type) +
-  geom_jitter(aes(size = coalition_size), alpha = .5) +
-  geom_smooth(se = FALSE, method = "lm")+ 
-  facet_grid(Coalition_Position ~ .)
-
-coalitions_coded %>% 
-  drop_na(coalition_type, Coalition_Position) %>% 
-  distinct(coalition_comment, coalition_type, coalition_size, coalition_success, coalition_comments, agency, president, Coalition_Position) %>% 
-  ungroup() %>%
-  ggplot() +
-  aes(y = coalition_success, x = log(coalition_comments), color = coalition_type) +
-  geom_jitter(aes(size = coalition_size), alpha = .5) +
-  geom_smooth(se = FALSE, method = "lm") + 
-  #facet_wrap("president")  + 
-  facet_grid(Coalition_Position ~ president)
-```
-
-#### Coalition Size
-
-(number of supportive organizations)
-
-```{r coded-coalition-success-size, fig.cap= "Lobbying Success by Number of Supportive Comments", fig.width=5, fig.height=3}
-coalitions_coded %>% 
-  drop_na(coalition_type, Coalition_Position) %>% 
-  distinct(coalition_comment, coalition_type, coalition_size, coalition_success, coalition_comments, agency, president, Coalition_Position) %>% 
-  ungroup() %>%
-  ggplot() +
-  aes(y = coalition_success, x = coalition_size, color = coalition_type) +
-  geom_jitter(aes(size = coalition_comments ), alpha = .5) +
-  geom_smooth(se = FALSE, method = "lm") + 
-  facet_grid(Coalition_Position ~ .)+ 
-  scale_size_continuous(labels = comma)
-
-coalitions_coded %>% 
-  drop_na(coalition_type, Coalition_Position) %>% 
-  distinct(coalition_comment, coalition_type, coalition_size, coalition_success, coalition_comments, agency, president, Coalition_Position) %>% 
-  ungroup() %>%
-  ggplot() +
-  aes(y = coalition_success, x = coalition_size, color = coalition_type) +
-  geom_jitter(aes(size = coalition_comments ), alpha = .5) +
-  geom_smooth(se = FALSE, method = "lm") + 
-  #facet_wrap("president") + 
-  facet_grid(Coalition_Position ~ president)+ 
-  scale_size_continuous(labels = comma)
-```
-
-#### The correlation between coalition size and the total number of comments
-
-The total number of form-letter comments is highly correlated with the number of organizations in a coalition.
-
-The total number of comments excludes organization comments. 
-
-```{r coalition-size-mass-correlation, out.width="25%", fig.width=2.5, fig.height=2.5}
-coalitions_coded %>% 
-  ggplot() + 
-  aes(x = coalition_size, y = comments) +
-  geom_point() + 
-  geom_smooth(method = "lm") + 
-  labs(y = "Mass Comments",
-       x = "Coalition Size\n(number of organizations)")
-
-coalitions_coded %>% 
-  mutate(comments = comments - coalition_size) %>%
-  ggplot() + 
-  aes(x = log(coalition_size), y = log(coalition_comments)) +
-  geom_point() + 
-  geom_smooth(method = "lm") + 
-  labs(y = "Logged Mass Comments",
-       x = "Logged Coalition Size\n(number of organizations)")
-```
-
-<!--
-## Machine-coded Data
-
-> IN PROGRESS
-
-**Dependent variable:** *The percent change in policy text*...
-
-**Explanatory variables:** The *total number of comments*...
-
--->
-
-
----
 <!--
 # Extra Methods
 
@@ -263,7 +119,168 @@ $$logit(Pr(\text{Legislator Comment}_{ij}|p_{ij})) = \beta_0 + \beta_1 \text{Com
 
 -->
 
+# Additional Descriptives
+
+
+---
+
+## Organization-level summary counts:
+
+```{r}
+# org comments by type 
+comments_coded %>% filter(comment_type == "Org") %>%  
+  mutate(org_type = str_remove(org_type, ";.*")) %>%
+  count(org_type, sort =T) %>% 
+  filter(n>1) %>% 
+  kable3(caption = " ")
+
+# org comments by sub-type
+comments_coded %>% filter(comment_type == "Org") %>%  
+  filter(str_detect(org_type, ";")) %>% 
+  mutate(org_type_detailed = org_type) %>%
+  count(org_type_detailed, sort =T) %>% 
+  kable3(caption = " ")
+```
+
+
+---
+
+```{r coded-coalition-congress, include=FALSE, fig.cap= "Lobbying Success by Number of Supportive Comments"}
+#FIXME include when I have more MOCs
+coalitions_coded %>% 
+  drop_na(coalition_type, Coalition_Position) %>% 
+  distinct(coalition_comment, coalition_type, coalition_size, coalition_congress, coalition_comments, agency, Coalition_Position) %>%
+  ungroup() %>%
+  ggplot() +
+  aes(y = coalition_congress, x = log(coalition_comments), color = coalition_type) +
+  geom_jitter(aes(size = coalition_size), alpha = .5) +
+  geom_smooth(se = FALSE, method = "lm")+ 
+  facet_grid(Coalition_Position ~ .) 
+```
+
+
+### Number of supportive comments
+
+```{r coded-coalition-success-comments, fig.cap= "Lobbying Success by Number of Supportive Comments", fig.width=5, fig.height=3}
+coalitions_coded %>% 
+  drop_na(coalition_type, Coalition_Position) %>% 
+  distinct(coalition_comment, coalition_type, coalition_size, coalition_success, coalition_comments, agency, Coalition_Position) %>% 
+  ungroup() %>%
+  ggplot() +
+  aes(y = coalition_success, x = log(coalition_comments), color = coalition_type) +
+  geom_jitter(aes(size = coalition_size), alpha = .5) +
+  geom_smooth(se = TRUE, method = "lm")
+
+coalitions_coded %>% 
+  drop_na(coalition_type, Coalition_Position) %>% 
+  distinct(coalition_comment, coalition_type, coalition_size, coalition_success, coalition_comments, agency, Coalition_Position) %>% 
+  ungroup() %>%
+  ggplot() +
+  aes(y = coalition_success, x = log(coalition_comments), color = coalition_type) +
+  geom_jitter(aes(size = coalition_size), alpha = .5) +
+  geom_smooth(se = FALSE, method = "lm")+ 
+  facet_grid(Coalition_Position ~ .)
+
+coalitions_coded %>% 
+  drop_na(coalition_type, Coalition_Position) %>% 
+  filter(president != "Bush") %>% 
+  distinct(coalition_comment, coalition_type, coalition_size, coalition_success, coalition_comments, agency, president, Coalition_Position) %>% 
+  ungroup() %>%
+  ggplot() +
+  aes(y = coalition_success, x = log(coalition_comments), color = coalition_type) +
+  geom_jitter(aes(size = coalition_size), alpha = .5) +
+  geom_smooth(se = FALSE, method = "lm") + 
+  #facet_wrap("president")  + 
+  facet_grid(Coalition_Position ~ president)
+```
+
+### Coalition Size
+
+(number of supportive organizations)
+
+```{r coded-coalition-success-size, fig.cap= "Lobbying Success by Number of Supportive Comments", fig.width=5, fig.height=3}
+coalitions_coded %>% 
+  drop_na(coalition_type, Coalition_Position) %>% 
+  distinct(coalition_comment, coalition_type, coalition_size, coalition_success, coalition_comments, agency, president, Coalition_Position) %>% 
+  ungroup() %>%
+  ggplot() +
+  aes(y = coalition_success, x = coalition_size, color = coalition_type) +
+  geom_jitter(aes(size = coalition_comments ), alpha = .5) +
+  geom_smooth(se = FALSE, method = "lm") + 
+  facet_grid(Coalition_Position ~ .)+ 
+  scale_size_continuous(labels = comma)
+
+coalitions_coded %>% 
+  filter(president != "Bush") %>% 
+  drop_na(coalition_type, Coalition_Position) %>% 
+  distinct(coalition_comment, coalition_type, coalition_size, coalition_success, coalition_comments, agency, president, Coalition_Position) %>% 
+  ungroup() %>%
+  ggplot() +
+  aes(y = coalition_success, x = coalition_size, color = coalition_type) +
+  geom_jitter(aes(size = coalition_comments ), alpha = .5) +
+  geom_smooth(se = FALSE, method = "lm") + 
+  #facet_wrap("president") + 
+  facet_grid(Coalition_Position ~ president)+ 
+  scale_size_continuous(labels = comma)
+```
+
+### The correlation between coalition size and the total number of comments
+
+The total number of form-letter comments is highly correlated with the number of organizations in a coalition.
+
+```{r coalition-size-mass-correlation, out.width="25%", fig.width=2.5, fig.height=2.5}
+coalitions_coded %>% 
+  ggplot() + 
+  aes(x = coalition_size, y = comments) +
+  geom_point() + 
+  geom_smooth(method = "lm") + 
+  labs(y = "Mass Comments",
+       x = "Coalition Size\n(number of organizations)")
+
+coalitions_coded %>% 
+  mutate(comments = comments - coalition_size) %>%
+  ggplot() + 
+  aes(x = log(coalition_size), y = log(coalition_comments)) +
+  geom_point() + 
+  geom_smooth(method = "lm") + 
+  labs(y = "Logged Mass Comments",
+       x = "Logged Coalition Size\n(number of organizations)")
+```
+
+<!--
+## Machine-coded Data
+
+> IN PROGRESS
+
+**Dependent variable:** *The percent change in policy text*...
+
+**Explanatory variables:** The *total number of comments*...
+
+-->
+
+
+---
+
+
 # Additional Results
+
+```{r}
+#FIXME move to import 
+coalitions_coded %<>% mutate(
+  comments = ifelse(comments < 0, 0, comments), #FIXME double subtracting coalition size? 
+  comments100k = comments / 100000)
+
+
+#FIXME us this in all org-level models
+comments_coded %<>% mutate(comments100k = coalition_comments/100000)
+
+# data for coalition-level models 
+
+library(lmerTest)
+
+source(here::here("code", "coef_map.R"))
+
+```
 
 
 ## Interact quadratic term with coalition type 
@@ -378,10 +395,10 @@ modelsummary::modelsummary( modelsFE,
                             gof_omit = "R2 .*|IC",
                           add_rows = rowsFE, 
                           title = "OLS Models of Coalition-Level Lobbying Success",
-                          notes = "") #%>% kable2(file = "mc-success")
+                          notes = "") %>% kable2(file = "mc-success")
 ```
 
-```{r mcfe-success-quadratic-predicted, fig.height=3, fig.width=4.5}
+```{r mcfe-success-quadratic-predicted, fig.height=3, fig.width=4.5, fig.cap="Coalition Lobbying Success"}
 #mcfe-success-quadratic-pred
 top10 = coalitions_coded %>% distinct(docket_id, agency) %>% count(agency) %>% slice_max(order_by = n, n =4) %>% pull(agency)
 
@@ -434,7 +451,7 @@ The negative relationship between using a *pressure campaign* and *lobbying succ
 
 ###  Coalitions Supporting Proposed Rules
 
-```{r mcfe-success-pro, fig.height=3, fig.width=4.5}
+```{r mcfe-success-pro, fig.height=3, fig.width=4.5, fig.cap="Coalitions Supporting Proposed Rule"}
 #mc-success-pro
 pro <- filter(coalitions_coded, Coalition_Position == "Supports Rule")
 con <- filter(coalitions_coded, Coalition_Position == "Opposes Rule")
@@ -542,14 +559,14 @@ modelsummary::modelsummary( modelsFEpro,
                             gof_omit = "R2 .*|IC",
                           add_rows = rowsFE, 
                           title = "OLS Models of Coalition-Level Lobbying Success for Coalitions Supporting Proposed Rules",
-                          notes = "")
+                          notes = "") %>% kable2(file =" mc-pro")
 
 plot_quadratic(mc5pro)
 ```
 
 ###  Coalitions Opposing Proposed Rules
 
-```{r mcfe-success-con, fig.height=3, fig.width=4.5}
+```{r mcfe-success-con, fig.height=3, fig.width=4.5, fig.cap="Coalitions Opposing Proposed Rule"}
 #mc-success-con
 
 # coalition success with agency and president FE
@@ -655,7 +672,7 @@ modelsummary::modelsummary( modelsFEcon,
                             gof_omit = "R2 .*|IC",
                           add_rows = rowsFE, 
                           title = "OLS Models of Coalition-Level Lobbying Success for Coalitions Opposing Proposed Rules",
-                          notes = "")
+                          notes = "") %>% kable2(file =" mc-con")
 
 plot_quadratic(mc5con)
 ```
@@ -663,7 +680,7 @@ plot_quadratic(mc5con)
 ###  Coalitions That Used Public Pressure Campaigns
 
 ```{r mcfe-success-campaign, fig.height=3, fig.width=4.5}
-#mc-success-pro
+#mc-success-campaign
 campaign <- filter(coalitions_coded, campaign_)
 
 # coalition success with agency and president FE
@@ -769,7 +786,7 @@ modelsummary::modelsummary( modelsFEcampaign,
                             gof_omit = "R2 .*|IC",
                           add_rows = rowsFE, 
                           title = "OLS Models of Coalition-Level Lobbying Success for Coalitions that Used a Mass Comment Campaign",
-                          notes = "")
+                          notes = "") %>% kable2(file = "mc-campaign")
 
 plot_quadratic(mc5campaign)
 ```
@@ -889,7 +906,7 @@ modelsummary::modelsummary( modelsFE,
                             gof_omit = "R2 .*|IC",
                           add_rows = rowsFE, 
                           title = "OLS Models of Coalition-Level Lobbying Success",
-                          notes = "")
+                          notes = "") %>% kable2(file = "mc-success-congress")
 
 plot_quadratic(mc5)
 
@@ -1003,15 +1020,15 @@ modelsummary::modelsummary( modelsFE,
                             gof_omit = "R2 .*",
                           add_rows = rowsFE, 
                           title = "OLS Models of Coalition-Level Lobbying Success",
-                          notes = "")
+                          notes = "") %>% kable2(file = "mc-presidentXagency")
 
-plot_quadratic(mc5)
+#plot_quadratic(mc5)
 ```
 
 
 ## President indicators
 
-```{r mcfe-success-president, fig.height=3, fig.width=4.5}
+```{r mcfe-success-president, fig.height=3, fig.width=4.5, fig.cap="By president"}
 # mc-success-president
 
 # coalition success with agency and president FE
@@ -1121,16 +1138,19 @@ modelsummary::modelsummary( models_president,
                             #coef_map =
                             coef_rename =  cm,
                             gof_omit = "R2 .*",
+                            title = "OLS Models of Coalition-Level Lobbying Success with Indicators for President",
                           add_rows = rowsFE, 
                           notes = "") %>% 
-  row_spec(row = 1, bold = T) #%>% kable2(file = "mc-success")
+  row_spec(row = 1, bold = T) %>% kable2(file = "mc-success-president")
 
-plot_quadratic(mc5)
+#plot_quadratic(mc5)
 
 ```
 
+---
+
 ### Two-way interaction 
-```{r mcfe-success-president2, fig.height=3, fig.width=4.5}
+```{r mcfe-success-president2, fig.height=3, fig.width=4.5, fig.cap= "President-coalition type interaction model"}
 # mc-success-president2
 
 # coalition success with agency and president FE
@@ -1239,9 +1259,10 @@ modelsummary::modelsummary( models_president,
                             #coef_map =
                             coef_rename =  cm,
                             gof_omit = "R2 .*",
+                            title = "OLS Models of Coalition-Level Lobbying Success with Interactions for President",
                           add_rows = rowsFE, 
                           notes = "") %>% 
-  row_spec(row = 1, bold = T) #%>% kable2(file = "mc-success")
+  row_spec(row = 1, bold = T) %>% kable2(file = "mc-success-president2")
 
 plot_quadratic(mc5)
 ```
@@ -1352,9 +1373,10 @@ modelsummary::modelsummary( models_president,
                             #coef_map =
                             coef_rename =  cm,
                             gof_omit = "R2 .*",
+                            title = "OLS Models of Coalition-Level Lobbying Success with Interactions for President and Coalition Type",
                           add_rows = rowsFE, #FIXME rename rowsFE lobbying success
                           notes = "") %>% 
-  row_spec(row = 1, bold = T) #%>% kable2(file = "mc-success")
+  row_spec(row = 1, bold = T) %>% kable2(file = "mc-success-president3")
 
 plot_quadratic(mc5)
 
@@ -1364,6 +1386,8 @@ plot_quadratic(mc5)
 ```{r mcfe-coef, include = FALSE,  fig.width=6, fig.height=2, out.width = "100%", fig.cap= "OLS Model of Coalition Lobbying Sucess with Hand-coded Data"}
 # My preferred model:
 # model-success-plot
+
+
 
 mc1 %>%
   tidy(conf.int = TRUE) %>% 
@@ -1383,6 +1407,14 @@ mc1 %>%
 
 ## Mixed effects / hierarchical models
 
+```{r tree, fig.height=10, fig.cap="Coalitions that used a Public Pressure Campaign  by President, Agency, and Docket"}
+library(plotrix)
+
+
+sizetree(coalitions_coded %>% filter(campaign_) %>% select(president, agency, docket_id, coalition), base.cex	
+ = .60)
+```
+
 ### Coalition-level Hierarchical Models
 
 #### Random intercept models
@@ -1391,7 +1423,16 @@ With random effects for agency and president, results look very similar to the f
 
 ```{r mcme, fig.height=3, fig.width=4.5}
 #mcme
-mc_data <- coalitions_coded
+
+# INTERCEPT ONLY MODELS TO ASSESS INTRA CLASS VARIANCE 
+mcme1 = lmer(coalition_success ~ 
+              (1|agency) + (1|president), # random intercept for each agency and president 
+               data = mc_data)
+# intra-class correlation - how much two much varience at agency level = agency variance / total 
+# cuttoff is above .05 
+# design effect 
+
+
 
 # mixed model with random intercepts for president and agency
 mcme1 = lmer(coalition_success ~ 
@@ -1456,27 +1497,27 @@ modelsummary::modelsummary( models_mcme,
                             coef_rename =  cm,
                             coef_omit = "sd__.Int",
                             gof_omit = "R2 .*",
-                          add_rows = mc_rows6, 
+                            title = "OLS Models of Coalition-Level Lobbying Success with Random Intercepts",
+                          add_rows = success_rows6, 
                           notes = "") %>% 
-  row_spec(row = 1, bold = T) #%>% kable2(file = "mc-success")
+  row_spec(row = 1, bold = T) %>% kable2(file = "mcme")
 
 # plot_quadratic(mcme5)
 ```
 
+<!--
 #### Random effects 
 
 I now allow the effect of campaigns to vary across agencies and presidents.
 
 > TODO 
+--> 
 
 ```{r mcme-hierarchical, eval=FALSE, fig.height=3, fig.width=4.5}
 #mcme-hierarchical 
 
 # mixed model with random slopes for campaign by president and agency 
-mcme1 = lmer(coalition_success ~ 
-               campaign_ +
-               #TODO # random intercept for each agency and president 
-               data = mc_data)
+
 
 # mixed model with random effects for president and agency
 mcme1 = lmer(coalition_success ~ campaign_*coalition_type +
@@ -1534,9 +1575,10 @@ modelsummary::modelsummary( models_mcme,
                             coef_rename =  cm,
                             coef_omit = "sd__.Int",
                             gof_omit = "R2 .*",
-                          add_rows = mc_rows6, 
+                            title = "OLS Models of Coalition-Level Lobbying Success with Random Slopes by President and Agency",
+                          add_rows = success_rows6, 
                           notes = "") %>% 
-  row_spec(row = 1, bold = T) #%>% kable2(file = "mc-success")
+  row_spec(row = 1, bold = T) %>% kable2(file = "mcme-hierarchical")
 
 # plot_quadratic(mcme5)
 ```
@@ -1547,22 +1589,32 @@ Because organizations are nested in coalitions, I estimate a hierarchical model 
 
 ```{r mome-coef}
 #mome
-#FIXME us this in all org-level models
-comments_coded %<>% mutate(comments100k = coalition_comments/100000)
 
-
-mo_data <- comments_coded %>% 
-  drop_na(coalition_type, Position) %>% 
-  filter(comment_type == "Org") %>% 
-  distinct(org_name, docket_id, success, coalition_type, coalition_size, Position, comments100k, president, campaign_, coalition, agency) %>% filter(president != "Bush")  %>% droplevels()
+# crossed effects intercept only model (lmer figures out the relationship between groups)
+mome1 = lmer(success ~ (1|coalition) + (1|agency) + (1|docket_id) +
+             # (1|agency/coalition) + 
+               (1|president), # random intercept for each agency and president 
+               data = mo_data)
+# design effect over 1000 at coalition. square root is 36
 
 
 # mixed model with random slopes for campaign by president and agency 
-mcme1 = lme(success ~ 
-               campaign_,
-               random = ~campaign_|agency,
-            na.action = "na.omit", 
+# # Using nlme
+# mcme1 = lme(success ~ 
+#                campaign_,
+#                random = ~campaign_|agency,
+#             na.action = "na.omit", 
+#                data = mo_data)
+
+# using lme4
+# mixed model with random effects for coalition
+mome1 = lmer(success ~ campaign_*coalition_type+
+              Position + 
+              log(coalition_size) + 
+              (1|coalition:agency) + 
+               (1|president), # random intercept for each coalition
                data = mo_data)
+
 
 # mixed model with random effects for coalition
 mome1 = lmer(success ~ campaign_*coalition_type+
@@ -1595,9 +1647,10 @@ modelsummary::modelsummary( models_mome,
                             coef_rename =  cm,
                             coef_omit = "sd__.Int",
                             gof_omit = "R2 .*",
+                            title = "OLS Models of Organzation-Level Lobbying Success with Random Intercepts for President and Agency",
                           add_rows = success_rows3, 
                           notes = "") %>% 
-  row_spec(row = 1, bold = T) #%>% kable2(file = "mc-success")
+  row_spec(row = 1, bold = T) %>% kable2(file = "mome")
 
 # coef plot
 # broom.mixed::tidy(mome1) %>% 

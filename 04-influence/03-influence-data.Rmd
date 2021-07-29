@@ -20,6 +20,22 @@ load(here::here("data", "comments_coded.Rdata"))
 coalitions_coded %<>% mutate(
   comments = ifelse(comments < 0, 0, comments), #FIXME double subtracting coalition size? 
   comments100k = comments / 100000)
+
+
+#FIXME us this in all org-level models
+comments_coded %<>% mutate(comments100k = coalition_comments/100000)
+
+# data for coalition-level models 
+mc_data <- coalitions_coded
+
+
+# data for org-level models 
+mo_data <- comments_coded %>% 
+  drop_na(coalition_type, Position) %>% 
+  filter(comment_type == "Org") %>% 
+  distinct(org_name, docket_id, success, coalition_type, coalition_size, Position, comments100k, president, campaign_, coalition, agency) %>% filter(president != "Bush")  %>% droplevels()
+
+source(here::here("code", "coef_map.R"))
 ```
 
 To examine the relationship between public pressure campaigns and lobbying success, I use an original dataset (introduced in Section \@ref(why-data)) that combines several data sources on U.S. federal agency rulemaking.
