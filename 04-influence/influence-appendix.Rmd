@@ -18,16 +18,9 @@ output:
       number_sections: false
 ---
 
-```{r global.options, include=FALSE}
+```{r global.options, include=FALSE, cache=FALSE}
 # load defaults
 source(here::here("code", "setup.R"))
-
-# overide defaults
-knitr::opts_chunk$set(echo = TRUE, 
-                      cache = FALSE,
-                      fig.path='../figs/')
-
-library(lmerTest)
 ```
 
 
@@ -53,9 +46,18 @@ library(lmerTest)
 ```
 
 
+```{r local.options, include=FALSE, cache=FALSE}
+# overide defaults
+knitr::opts_chunk$set(echo = TRUE, 
+                      cache = FALSE,
+                      fig.path='../figs/')
+
+library(lmerTest)
+```
 
 
-# Extra Data
+# Additional Descriptives
+
 
 ---
 
@@ -77,49 +79,6 @@ comments_coded %>% filter(comment_type == "Org") %>%
   kable3(caption = " ")
 ```
 
-
----
-
-
-#### Coaltion-level summary counts:
-
-Coalition lobbying success and size:
-
-```{r hist-coalitions-simple, out.width="32%", fig.height=2, fig.width=2, show = "hold"}
-ggplot(coalitions_coded, aes(x = coalition_success)) + geom_histogram()+ 
-  labs(x = "Coalition Success")
-
-ggplot(coalitions_coded, aes(x = coalition_size)) + geom_histogram()+ labs(x = "Coalition size")
-
-ggplot(coalitions_coded, aes(x = coalition_business_ %>% as.numeric())) + geom_histogram()+ labs(x = "Business Coalition")
-
-#ggplot(coalitions_coded, aes( x= comment_length)) + geom_histogram()+ labs(x = "% (Comment length/proposed rule length)*100")
-
-ggplot(coalitions_coded, aes( x= log(coalition_comments + 1))) + geom_histogram() + 
-  labs(x = "Log(mass comments + 1)") 
-```
-
-Coalitions by type (public interest vs. private interest)
-
-```{r hist-coalitions-type, out.width="49%", fig.height=3, fig.width=3, show = "hold"}
-ggplot(coalitions_coded %>% filter(!is.na(coalition_type)), 
-       aes(x = coalition_type)) + 
-  geom_histogram(stat = "count")+ 
-  labs(x = "Coalition Type",
-       title = "Number of Observations\nby Coalition Type and Size\n(number of organizations)") +
-  facet_wrap("Coalition_size")
-
-ggplot(coalitions_coded %>% filter(!is.na(coalition_type)), aes(x = coalition_type)) + 
-  geom_histogram(stat = "count")+ 
-  labs(x = "Coalition Type",
-       title = "Number of Observations\nby Coalition Type") +
-  facet_wrap("Coalition_campaign")
-
-
-
-
-
-```
 
 ---
 
@@ -238,7 +197,7 @@ coalitions_coded %>%
 
 
 ---
-
+<!--
 # Extra Methods
 
 
@@ -257,7 +216,7 @@ engagement.
 
 > Preliminary finding: The size of the lobbying coalition (the number of organizations) is positively correlated with the number of members of Congress who engage. When we account for variation in coalition size, there is no evidence that the total number of comments is related to the number of comments from members of Congress.
 
-The simplest model of the relationship between congressional attention and public attention is a model estimating the count of legislator letters as a function of features of the rulemaking, including the total number of public comments. The number of letters from members of congress would be a count process; this would be a Poisson or negative binomial regression.
+The simplest model of the relationship between congressional attention and public attention is a model estimating the count of legislator letters as a function of features of the rulemaking, including the total number of public comments. The number of letters from members of Congress would be a count process; this would be a Poisson or negative binomial regression.
 
 In equation \@ref(eq:oversight1), $y_{j}$ is a count of the number of legislator comments on a proposed rule $j$, $\beta_1$ is the effect of a one-unit increase in the logged number of public comments on proposed rule $j$, and $\eta$ is a vector of coefficients on other factors ($X_{j}$) that may lead legislators to comment.
 
@@ -289,7 +248,7 @@ reduce oversight from opponents. The more comments opposing a position,
 the less likely principals holding that position are to engage.
 ```
 
-The simplest model of the relationship between congressional attention and public support or opposition to a proposed rule would be to model the net count of legislator letters supporting and opposing the proposed as a function of features of the rulemaking, including the net number of public comments supporting and opposing. As the number of letters from members of congress would be a count process, this would be Poisson or negative binomial regression.
+The simplest model of the relationship between congressional attention and public support or opposition to a proposed rule would be to model the net count of legislator letters supporting and opposing the proposed as a function of features of the rulemaking, including the net number of public comments supporting and opposing. As the number of letters from members of Congress would be a count process, this would be Poisson or negative binomial regression.
 
 The model is the same as equation \@ref(eq:oversight1) except that $y_{j}$ is now the *net* number of legislator comments supporting a proposed rule $j$, and $\beta_1$ is now the effect of a one-unit increase in the logged *net* number of public comments supporting proposed rule $j$.
 
@@ -302,19 +261,19 @@ Hypothesis \@ref(hyp:warning) implies that $\beta_2$ is negative.
 $$logit(Pr(\text{Legislator Comment}_{ij}|p_{ij})) = \beta_0 + \beta_1 \text{Comments supporting } p_{ij} + \beta_2 \text{Comments opposing } p_{ij} + \eta X_{ij} + \epsilon_{ij}
 (\#eq:oversight4)$$
 
+-->
+
+# Additional Results
 
 
-# Extra Results
+## Interact quadratic term with coalition type 
 
-
-## Intereact quadratic term with coalition type 
-
-Models 5 and 6 in Table \@ref(tab:mc-success) are estimated without interaction terms for the number of comments and coalition type. Table \@ref(tab:mc-success-quadratic) shows that when we include these interaactions 
-$R^2$ and Log Likelyhood are unchanged and errors on estimates for the numbrer of comments comments$^2$ both increase. 
+Models 5 and 6 in the main coalition-level results (Table 3.7 in Chapter 3, reproduced as Table \@ref(tab:mc-success) above) are estimated without interaction terms for the number of comments and coalition type. Table \@ref(tab:mcfe-success-quadratic) shows that when we include these interactions 
+$R^2$ and Log-Likelihood are unchanged and errors on estimates for the numbrer of comments comments$^2$ both increase. Still, Table \@ref(tab:mcfe-success-quadratic) may be a better specification because we do expect different 
 
 
 ```{r mcfe-success-quadratic}
-#mc-success
+#mcfe-success
 
 # coalition success with agency and president FE
 mc1 <- feols(coalition_success ~ 
@@ -423,6 +382,7 @@ modelsummary::modelsummary( modelsFE,
 ```
 
 ```{r mcfe-success-quadratic-predicted, fig.height=3, fig.width=4.5}
+#mcfe-success-quadratic-pred
 top10 = coalitions_coded %>% distinct(docket_id, agency) %>% count(agency) %>% slice_max(order_by = n, n =4) %>% pull(agency)
 
 values = coalitions_coded %>% 
@@ -466,11 +426,11 @@ plot_quadratic(mc5)
 
 ## Split samples
 
-When we estimate the same models as those presented in Table \@ref(tab:mc-success) with the sample split by whether the coalition supports or opposes the rule, results are surprisingly consistant for both samples. While some effect sizes change, none of the estimated that is significant at the .05 level changes sign. 
+When we estimate the same models as those presented in Table \@ref(tab:mc-success) with the sample split by whether the coalition supports or opposes the rule, results are surprisingly consistent for both samples. While some effect sizes change, none of the estimated that is significant at the .05 level changes sign. 
 
 Coalition size is a stronger predictor for supportive coalitions than opposing ones.
 
-The negative relationship between using a *pressure campaign* and *lobbying success* appears to be mostly a function of campaigns opposing proposed rules. This allignes with the conclusion that campaigns that fail to affect policy are often "going down fighting." However, the linear and quadratic terms for the number of mass comments are similar magnitudes, suggesting that very large coalitions opposing proposed rules may be more successful than smaller ones. 
+The negative relationship between using a *pressure campaign* and *lobbying success* appears to be mostly a function of campaigns opposing proposed rules. This aligns with the conclusion that campaigns that fail to affect policy are often "going down fighting." However, the linear and quadratic terms for the number of mass comments are similar magnitudes, suggesting that very large coalitions opposing proposed rules may be more successful than smaller ones. 
 
 ###  Coalitions Supporting Proposed Rules
 
@@ -813,6 +773,12 @@ modelsummary::modelsummary( modelsFEcampaign,
 
 plot_quadratic(mc5campaign)
 ```
+
+<!--
+## Add opposing campaign
+
+> TODO
+-->
 
 ## Add support from members of Congress
 
@@ -1419,60 +1385,72 @@ mc1 %>%
 
 ### Coalition-level Hierarchical Models
 
-With random effects for agency and president, results look very similar to the fixed effects models.
+#### Random intercept models
+
+With random effects for agency and president, results look very similar to the fixed-effects models.
 
 ```{r mcme, fig.height=3, fig.width=4.5}
 #mcme
 mc_data <- coalitions_coded
 
-
-# mixed model with random effects for president and agency
-mcme1 = lmer(coalition_success ~ campaign_*coalition_type +
+# mixed model with random intercepts for president and agency
+mcme1 = lmer(coalition_success ~ 
+               campaign_*coalition_type +
               Coalition_Position + 
               log(coalition_size) + 
-              (1|agency) + (1|president), # random intercept for each coalition
+              (1|agency) + (1|president), # random intercept for each agency and president 
                data = mc_data)
 
+# with business indicator
 mcme2 = lmer(coalition_success ~ campaign_*coalition_business_ +
               Coalition_Position + 
               log(coalition_size) + 
-              (1|agency) + (1|president), # random intercept for each coalition
+              (1|agency) +
+               (1|president),
                data = mc_data)
 
+# with log 
 mcme3 = lmer(coalition_success ~ log(comments + 1)*coalition_type +
               Coalition_Position + 
               log(coalition_size) + 
-              (1|agency) + (1|president), # random intercept for each coalition
+              (1|agency) + (1|president), 
                data = mc_data)
 
-mcme4 = lmer(coalition_success ~ log(comments + 1)*coalition_business_ +
+mcme4 = lmer(coalition_success ~ 
+               log(comments + 1)*coalition_business_ +
               Coalition_Position + 
               log(coalition_size) + 
-              (1|agency) + (1|president), # random intercept for each coalition
+              (1|agency) + (1|president), 
                data = mc_data)
 
-mcme5 = lmer(coalition_success ~ comments100k*coalition_type +  comments100k^2*coalition_type + 
+# with quadratic
+mcme5 = lmer(coalition_success ~ 
+               comments100k*coalition_type +
+               comments100k^2*coalition_type + 
               Coalition_Position + 
               log(coalition_size) + 
-              (1|agency) + (1|president), # random intercept for each coalition
+              (1|agency) + (1|president), 
                data = mc_data)
 
-mcme6 = lmer(coalition_success ~ comments100k*coalition_business_ +  comments100k^2*coalition_business_ + 
-              Coalition_Position + 
+mcme6 = lmer(coalition_success ~
+               comments100k*coalition_business_ +
+               comments100k^2*coalition_business_ + 
+               Coalition_Position + 
               log(coalition_size) + 
-              (1|agency) + (1|president), # random intercept for each coalition
+              (1|agency) + (1|president), 
                data = mc_data)
 
 
 
+# coef plot 
+# broom.mixed::tidy(mcme1) %>% 
+#   mutate(term = ifelse(str_detect(term, "sd__.Int"), paste(group, term), term)) %>%  
+#   dwplot + geom_vline(xintercept=0,lty=2)
 
-broom.mixed::tidy(mcme1) %>% 
-  mutate(term = ifelse(str_detect(term, "sd__.Int"), paste(group, term), term)) %>%  
-  dwplot + geom_vline(xintercept=0,lty=2)
-
+# models table 
 models_mcme <- list(mcme1, mcme2, mcme3, mcme4, mcme5, mcme6)
 
-# paper table random effects
+# paper table random intercepts 
 modelsummary::modelsummary( models_mcme, 
                             stars = TRUE, 
                             coef_rename =  cm,
@@ -1485,16 +1463,29 @@ modelsummary::modelsummary( models_mcme,
 # plot_quadratic(mcme5)
 ```
 
+#### Random effects 
 
-```{r mcme-hierarchical, fig.height=3, fig.width=4.5}
+I now allow the effect of campaigns to vary across agencies and presidents.
+
+> TODO 
+
+```{r mcme-hierarchical, eval=FALSE, fig.height=3, fig.width=4.5}
 #mcme-hierarchical 
+
+# mixed model with random slopes for campaign by president and agency 
+mcme1 = lmer(coalition_success ~ 
+               campaign_ +
+               #TODO # random intercept for each agency and president 
+               data = mc_data)
 
 # mixed model with random effects for president and agency
 mcme1 = lmer(coalition_success ~ campaign_*coalition_type +
               Coalition_Position + 
               log(coalition_size) + 
+               (1|agency) +
+               #FIXME make effect of campaign vary by agency and president? 
               #(campaign_|agency) + 
-               (campaign_|president), # random intercept for each coalition
+               (1|president), # random intercept for each coalition
                data = mc_data)
 
 mcme2 = lmer(coalition_success ~ campaign_*coalition_business_ +
@@ -1529,11 +1520,12 @@ mcme6 = lmer(coalition_success ~ comments100k*coalition_business_ +  comments100
 
 
 
+# coef plot 
+# broom.mixed::tidy(mcme1) %>% 
+#   mutate(term = ifelse(str_detect(term, "sd__.Int"), paste(group, term), term)) %>%  
+#   dwplot + geom_vline(xintercept=0,lty=2)
 
-broom.mixed::tidy(mcme1) %>% 
-  mutate(term = ifelse(str_detect(term, "sd__.Int"), paste(group, term), term)) %>%  
-  dwplot + geom_vline(xintercept=0,lty=2)
-
+# Table 
 models_mcme <- list(mcme1, mcme2, mcme3, mcme4, mcme5, mcme6)
 
 # paper table random effects
@@ -1563,6 +1555,14 @@ mo_data <- comments_coded %>%
   drop_na(coalition_type, Position) %>% 
   filter(comment_type == "Org") %>% 
   distinct(org_name, docket_id, success, coalition_type, coalition_size, Position, comments100k, president, campaign_, coalition, agency) %>% filter(president != "Bush")  %>% droplevels()
+
+
+# mixed model with random slopes for campaign by president and agency 
+mcme1 = lme(success ~ 
+               campaign_,
+               random = ~campaign_|agency,
+            na.action = "na.omit", 
+               data = mo_data)
 
 # mixed model with random effects for coalition
 mome1 = lmer(success ~ campaign_*coalition_type+
@@ -1686,6 +1686,31 @@ broom.mixed::augment(mome2,
        y = "Predicted Lobbying Success",
        color = "Coalition Type", 
        linetype = "Coalition")
+
+
+
 ```
 
+<!--
+#### With Stan
 
+```{r mo-stan, eval = FALSE, cache = TRUE}
+library(brms)
+
+mo_data %<>% mutate(campaign = campaign_ %>% as.numeric())
+
+fit2 <-
+  brm(data = mo_data,
+      family = binomial(link = logit),
+      campaign | trials(coalition_size) ~ 1 + (1 | coalition) + (1 | coalition:agency),
+      prior = c(prior(normal(0, 1.5), class = Intercept),
+                prior(normal(0, 1), class = sd)),
+      iter = 3500, warmup = 500, chains = 3, cores = 3,
+      control = list(adapt_delta = .99),
+      seed = 9)
+
+plot(fit2)
+
+
+```
+-->
