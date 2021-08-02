@@ -34,8 +34,14 @@ source(here::here("code", "setup.R"))
   
   \RaggedRight
 
+
 ```{r, child = if (knitr:::is_latex_output() ) '00-frontmatter.md'}
 ```
+
+```{r, child = if (knitr:::is_latex_output() ) 'acknowledgements.md'}
+```
+
+
 
 \mainmatter
 \pagenumbering{arabic}
