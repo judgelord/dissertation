@@ -274,6 +274,7 @@ d %<>% mutate(president = ifelse(docket_id %in% c("FEMA-2016-0003","OSHA-H005C-2
 # fix comment type and  org type 
 clean_org_type <- . %>% 
   str_replace_all(":", ";") %>% 
+  str_replace_all("; ", ";") %>% 
   str_to_lower() %>% 
   str_squish() 
 
@@ -318,9 +319,9 @@ d %>% ungroup() %>%
 
 # Missingness 
 missingness <- d %>%
-  filter(!str_dct(comment_type, "Individual"),
+  filter(!str_dct(comment_type, "individual"),
          is.na(position) |is.na(coalition_comment) | is.na(org_type))%>% 
-  select(document_id, position, coalition_comment, org_type, success, source) %>%
+  select(document_id, comment_type, position, coalition_comment, org_name, org_type, success, source) %>%
   distinct()
 
 # High priority to fix
@@ -362,6 +363,7 @@ comments_coded$congress %>% sum()
 d$congress %<>% replace_na(FALSE)
 
 # diognostics 
+#NOTE: THIS IS BEFORE FILLING IN MISSING POSITIONS
 missing_position <- d %>% 
   filter(is.na(position), !is.na(org_type)) 
 
@@ -376,14 +378,14 @@ missing_position %>%
 d %>% filter(comment_type == "mass", 
              #source == "datasheet",
              is.na(coalition_comment)) %>%
-  count(docket_id)
+  count(docket_id, source)
 
 
 
 # COALITIONS CODED BOTH WAYS
 d %>% ungroup() %>%
   filter(!is.na(coalition_type),coalition_comment != "FALSE") %>% 
-  group_by(docket_id) %>% 
+  group_by(docket_id, source) %>% 
   distinct(coalition_comment, coalition_type) %>% 
   add_count(coalition_comment) %>% 
   arrange(coalition_comment) %>% 
@@ -413,7 +415,7 @@ d %>%
 d %>%
   filter(org_name == coalition_comment) %>% 
   mutate(success_mean = mean(success, na.rm = T) )  %>% 
-  distinct(org_name, coalition_comment, success, success_mean) %>% 
+  distinct(org_name, coalition_comment, success, success_mean, president) %>% 
   dplyr::select(docket_id, everything()) %>% 
   filter(!is.na(success), !success_mean >= 1, !success_mean <= -1 , coalition_comment != "FALSE", !is.na(coalition_comment)) %>%
   arrange(coalition_comment) %>% 
@@ -489,11 +491,17 @@ comments_coded <- d %>% mutate(comment_type = comment_type %>% clean_org_type() 
                              str_replace("^tribe", "gov;tribe")) %>% 
   ungroup()
 
-
+# fill missing org then missing coalition success 
+# should be done after caluclating mean
 comments_coded %<>% 
+  group_by(president, docket_id, coalition_comment, org_name) %>%
+  fill(position, .direction = c("updown")  ) %>% 
+  ungroup() %>% 
   group_by(president, docket_id, coalition_comment) %>%
-  fill(position, .direction = c("downup")  ) %>% 
+  fill(org_type, .direction = c("updown")) %>% 
   ungroup()
+
+
 
 # still no position, that is
 # no one in the coalition has a position
@@ -570,20 +578,14 @@ comments_coded %<>% mutate(business = str_dct(org_type, "^corp"),
 
 comments_coded %>% count(coalition_type)
 
-comments_coded %>% 
-  filter(is.na(coalition_type), !is.na(success)) %>% 
-  #filter(agency_acronym != "ED") %>% 
-  distinct(docket_id, coalition_comment, coalition_type, org_type, org_name) %>% 
-  kablebox()
-
-sum(is.na(comments_coded$coalition_type))
 
 
-# bad elected
+#  elected
 comments_coded %>% 
   filter(comment_type == "elected") %>% 
   count(org_type %>% str_remove("-.*|;.*"), sort = T) %>% kablebox()
 
+# bad elected
 comments_coded %>% 
   mutate(org_type = org_type %>% str_remove("-.*|;.*")) %>% 
   filter(comment_type == "elected",
@@ -651,7 +653,7 @@ comments_coded %<>% mutate(coalition_comments =  ifelse(!str_dct(coalition_comme
 # large coalitions 
 comments_coded %>% 
   arrange(-coalition_comments) %>% 
-  distinct(docket_id, coalition, coalition_type, coalition_comments) %>% 
+  distinct(docket_id, coalition_comment, coalition_type, coalition_comments) %>% 
   kablebox()
 
 
@@ -754,15 +756,50 @@ comments_coded %<>%
 
 
 #FIXME move up? 
+#THIS MESSED UP URLS
+# comments_coded %<>% 
+#   mutate(across(where(is.character), str_to_title),
+#          across(starts_with(c("doc", "agency")), str_to_upper)) 
+
+str_pretty <- function(x){
+  ifelse(nchar(x)<8, 
+         str_to_upper(x),
+         str_to_sentence(x)
+         )
+}
+
+#FIXME I can't pretty up these because other code depends on org_type being in sentence case
 comments_coded %<>% 
-  mutate(across(where(is.character), str_to_title),
-         across(starts_with(c("doc", "agency")), str_to_upper)) 
+  mutate(across(where(is.character) & starts_with(c("org", "coal")), str_to_upper)) 
 
 # SUCCESS MUST BE DONE AFTER MAKING COALTION VARS
 comments_coded %<>%   
   group_by(docket_id, president, coalition_comment) %>% 
   fill(success, .direction = "updown") %>% 
   fill(position, .direction = "updown")
+
+
+# check after fill
+comments_coded %>% 
+  filter(is.na(coalition_type), !is.na(success)) %>% 
+  #filter(agency_acronym != "ED") %>% 
+  distinct(docket_id, coalition_comment, coalition_type, org_type, org_name) %>% 
+  kablebox()
+
+sum(is.na(comments_coded$coalition_type))
+
+
+# Misssing position coding after fill
+comments_coded %>% filter(is.na(position), !is.na(coalition_comment)) %>%
+  dplyr::select(document_id, coalition_comment, position) %>% 
+  kablebox()
+
+
+# uncoded mass after fill
+comments_coded %>% filter(comment_type == "mass", 
+             #source == "datasheet",
+             is.na(coalition_comment)) %>%
+  count(docket_id)
 
 
 
@@ -906,7 +943,7 @@ d %>% filter(number_of_comments_received>99 | comment_type == "mass",
 
 # including mass
 d %>% filter(number_of_comments_received>99, 
-             is.na(coalition_comment)) %>% count(docket_id)
+             is.na(coalition_comment)) %>% count(docket_id, source)
 
 # hand-coded dockets 
 dockets<- comments_coded %>% filter(source =="datasheet") %>% pull(docket_id) %>% unique()
