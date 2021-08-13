@@ -755,22 +755,7 @@ comments_coded %<>%
 
 
 
-#FIXME move up? 
-#THIS MESSED UP URLS
-# comments_coded %<>% 
-#   mutate(across(where(is.character), str_to_title),
-#          across(starts_with(c("doc", "agency")), str_to_upper)) 
 
-str_pretty <- function(x){
-  ifelse(nchar(x)<8, 
-         str_to_upper(x),
-         str_to_sentence(x)
-         )
-}
-
-#FIXME I can't pretty up these because other code depends on org_type being in sentence case
-comments_coded %<>% 
-  mutate(across(where(is.character) & starts_with(c("org", "coal")), str_to_upper)) 
 
 # SUCCESS MUST BE DONE AFTER MAKING COALTION VARS
 comments_coded %<>%   
@@ -878,7 +863,7 @@ coalitions_coded %>% add_count(coalition_id) %>%
 
 # duplicates 
 duplicates  <- comments_coded %>% add_count(document_id, sort = T) %>% 
-  filter(n>1, comment_type != "Elected")
+  filter(n>1, comment_type != "elected")
 
 duplicates %>% kablebox()
 

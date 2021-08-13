@@ -143,13 +143,36 @@ kable3 <- function(x,
   }
 }
 
+
+# smarter number functions
+smart_number <- function(n, ...) {
+  # if non-int below ten, return as is
+  if ((n == as.integer(n)) == FALSE) {
+    return(n)
+  } else 
+    # if non-int above ten, return number()
+    if (abs(n) >= 10) {
+      return(scales::number(n, big.mark = ",", ...))
+    } else 
+      # if int below 10, print english
+      if (abs(n) < 10) {
+        return(english::english(n, ...))
+      } else 
+        stop("Something is wrong with this number")
+}
+
+
+
 # inline formatting 
 knit_hooks$set(inline = function(x) {
-  if( (x > 2021 | x < 1900) ){
-  prettyNum(x, big.mark=",")
-} else{x}
+  if ( !is.integer(x) ) {
+    return(x)
+    } else 
+      # omit years 
+    if (x > 2021 | x < 1900)  {
+      return(x)
+      } else prettyNum(x, big.mark = ",") # return(smart_number(x))
 })
-
 
 # number formatting 
 pretty_num <- . %>% prettyNum(big.mark = ",")

@@ -101,30 +101,43 @@ nonmass %<>% group_by(org_name, docket_id) %>%
   tally(number_of_comments_received, name = "comments", sort = T) 
 
 
-# total from top 100 nonmass
-nonmass %>% head(100) %>%
-  ungroup() %>% 
-  add_tally(comments) %>% kablebox()
                     
 # COMBINE 
-org_counts <- full_join(mass, nonmass)
+org_counts <- full_join(mass %>% mutate(campaign = T), 
+                        nonmass %>% mutate(campaign = F)
+)
 
-org_comments %<>% mutate(org_name = ifelse(nchar(org_name)<10, str_to_upper(org_name), org_name) )
+# sum up by org
+org_counts %<>% ungroup() %>%
+  group_by(org_name) %>% 
+  summarise(rules = docket_id %>% unique() %>% length(),
+            comments = sum(comments),
+            campaigns = sum(campaign) )
 
+org_counts %>% arrange(-comments) %>% 
+  add_tally(comments, name = "total") %>% 
+  head(100) %>% 
+  add_tally(comments, name = "top100") %>% 
+  mutate(share = top100/total, rank = row_number()) %>% 
+  # scree
+  #ggplot()  + aes(x = rank, y = comments) + geom_point()
+  kablebox()
 
+org_counts %>% arrange(-comments) %>% 
+  add_tally(comments, name = "total") %>% 
+  head(10) %>% 
+  add_tally(comments, name = "Top10") %>% 
+  mutate(share = Top10/total, rank = row_number()) %>% 
+  kablebox()
 
 save(org_counts, file =  here::here("data", "org_counts.Rdata"))
 
 
-org_comments_summary <- org_comments %>% 
-  group_by(org_name, docket_id) %>% 
-  summarise(comments = sum(number_of_comments_received, na.rm = T) ) %>%
-  ungroup() %>% 
-  mutate(campaign = comments > 10) %>% 
-  group_by(org_name) %>% 
-  summarise(comments = sum(comments, na.rm = T),
-            rules = n(),
-            campaigns = sum(campaign)) %>% 
+
+# FORMAT FOR PRESENTATION 
+org_counts %<>% mutate(org_name = ifelse(nchar(org_name)<10, str_to_upper(org_name), org_name) )
+
+org_counts_summary <- org_counts %>% 
   ungroup() %>%
   mutate(percent = percent(campaigns/rules, accuracy = .1),
          average = round(comments/campaigns)) %>% 
@@ -133,25 +146,17 @@ org_comments_summary <- org_comments %>%
   filter(comments > 100)
 
 # need to do better
-nrow(org_comments_summary)
-org_comments_summary$comments %>% sum()
+nrow(org_counts_summary)
+org_counts_summary$comments %>% sum()
 
 # org_comments_summary$org_name
 
 #org_comments_summary$org_name[1:20]
 
-org_comments_summary %>% 
+org_counts_summary %>% 
   kablebox() 
 #kable3(caption = "Organizations Mobilizing the Most Public Comments 2005-2020")
 
-# Pretty up for presentation
-org_comments_summary %<>%
-  rename(Organization = org_name,
-         Comments = comments,
-         `Rules Lobbied On` = rules, 
-         `Pressure Campaigns` = campaigns,
-         `Percent (Campaigns /Rules)` = percent, 
-         `Average per Campaign` = average)
 
-#TODO IMPROVE PAPER SUMMARY WITH HAND CODED DATA 
-# save(org_comments_summary, file =  here::here("data", "org_comments_summary.Rdata"))
+
+save(org_counts_summary, file =  here::here("data", "org_counts_summary.Rdata"))
