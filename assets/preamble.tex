@@ -1,87 +1,72 @@
 \pagestyle{headings}
 \date{\today} 
 
- %\setlength{\parskip}{1em}
-% \usepackage[round, sort, comma]{natbib}
-% \setcitestyle{notesep={, },round,aysep={},yysep={,}}
+% --- section style -----------------------
 
-%\setlength{\parindent}{0pt}
+% we don't go deeper than subsection (hopefully..?)
+\setsecheadstyle{\large \raggedright \bfseries}
+\setsubsecheadstyle{\raggedright \bfseries}
+\setsubsubsecheadstyle{\raggedright \itshape} 
 
-% \usepackage[authordate,strict,backend=bibtex8,babel=other, doi=false, url=false, isbn=false, uniquename=false, maxcitenames = 2, uniquelist=false,%
-% bibencoding=inputenc, natbib]{biblatex-chicago}
-%\usepackage[authordate, backend=biber, doi=false, url=false, isbn=false, uniquename=false, maxcitenames = 2, uniquelist=false, natbib]{biblatex-chicago}
+% numbering depth
+\setsecnumdepth{subsubsection}  
 
+ \usepackage{booktabs}
+ \usepackage{cleveref}
 
+\renewcommand{\eqref}{\Cref}
+\Crefformat{equation}{#2#1#3}
 
-% ---------------------------------------
-%   REFERENCES
-% ---------------------------------------
-\usepackage{natbib} %[round, sort, comma]{natbib}
-  \bibpunct[: ]{(}{)}{;}{a}{}{,}
-%\usepackage[nottoc,numbib]{tocbibind} % numbers bib. in table of contents
-
-
-% ---------------------------------------
-%   MARGINS AND SPACING
-% ---------------------------------------
-% \usepackage[margin=1in]{geometry} % This is done by markdown
-\usepackage{setspace} % line spacing
-
-
-% ---------------------------------------
-%   TABLES AND FIGURES
-% ---------------------------------------
-\usepackage{graphicx} % input graphics
-%\graphicspath{ {./Figs/} }
-
-\usepackage{float} % float parameters
-\usepackage{placeins} % \FloatBarrier: prevent floats spilling across sections
-\usepackage{subcaption} % subfloats with individual captions
-\usepackage{multirow} % multicolumn and multirow
-\usepackage{booktabs} %? for toprule, midrule etc
-\usepackage{dcolumn} % decimal-aligned columns
-
-\usepackage{tikz}
-\usetikzlibrary{positioning}
-\usetikzlibrary{shapes.geometric}
-\usetikzlibrary[patterns]
-
-% ---------------------------------------
-%   MATH
-% ---------------------------------------
-\usepackage{amsmath}
-%  Math symbols (depends on whether you customize typeface)
-%  \usepackage{amsfonts}
-%  \usepackage{mathrsfs}
-\usepackage{amssymb}
-  %  \newcommand{\E}{\mathrm{E}}
-  %  \newcommand{\Var}{\mathrm{Var}}
-  %  \newcommand{\Cov}{\mathrm{Cov}}
-  %  \newcommand{\plim}{\mathrm{plim}}
-  %  \renewcommand{\L}{\mathcal{L}}
-  %  \renewcommand{\d}{\mathrm{d}}
-  %  \newcommand{\R}{\mathbb{R}}
-
-% ---------------------------------------
-%   TYPEFACE AND TEXT STYLES
-% ---------------------------------------
+% \usepackage{float}
+% \let\origfigure\figure
+% \let\endorigfigure\endfigure
+% \renewenvironment{figure}[1][2] {
+%     \expandafter\origfigure\expandafter[H]
+% } {
+%     \endorigfigure
+% }
 
 
 
-% \usepackage{fontenc} 
-% advisable to include for nitty-gritty details
-% (ligatures, kerning & other typographical things)
+% LINKS 
+\usepackage{hyperref}
+\hypersetup{breaklinks = true,
+            bookmarks = true,  
+            colorlinks = true,
+            citecolor = black,
+            urlcolor = black,
+            linkcolor = magenta}
 
-% \usepackage[usenames, dvipsnames]{xcolor} % extra colors
-\usepackage{hyperref} % hyperlinks
-   \hypersetup{
-     colorlinks = true, 
-     citecolor = black, 
-     linkcolor = blue,
-     urlcolor = blue}
+% FIG CAPTIONS 
+\let\newfloat\relax 
+\usepackage{floatrow}
+\floatsetup[figure]{capposition=top}
+\floatsetup[table]{capposition=top}
+\usepackage{setspace}
 
-\usepackage{comment} % provides {comment} environment
-\usepackage{enumitem} % allows [nosep] option for lists
+% inherit spacing names from memoir
+%\newcommand{\OnehalfSpacing}{\onehalfspacing}
+%\newcommand{\DoubleSpacing}{\doublespacing}
+
+% SPACING FOR BLOCK QUOTES 
+\expandafter\def\expandafter\quote\expandafter{\quote\OnehalfSpacing}
+
+% FOR KABLEEXTRA 
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+%\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{ragged2e}
 
 \usepackage{endnotes}
 
