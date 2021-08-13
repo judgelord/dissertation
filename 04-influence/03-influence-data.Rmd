@@ -16,6 +16,22 @@ d <- rules %>%
 load(here::here("data", "coalitions_coded.Rdata"))
 load(here::here("data", "comments_coded.Rdata"))
 
+str_pretty <- function(x){
+  ifelse(nchar(x)<8, 
+         str_to_upper(x),
+         str_to_title(x)
+         )
+}
+
+#FIXME I can't pretty up these because other code depends on org_type being in sentence case
+comments_coded %<>% 
+  mutate(across(where(is.character) & starts_with(c("org_n", "Position", "coalition_comment")), str_pretty)) 
+
+comments_coded %<>% mutate(comment_type = comment_type %>% str_to_title())
+
+comments_coded %<>% mutate(coalition_type = coalition_type %>% str_to_title())
+
+
 #FIXME move to import 
 coalitions_coded %<>% mutate(
   comments = ifelse(comments < 0, 0, comments), #FIXME double subtracting coalition size? 
@@ -145,7 +161,7 @@ The Position column in Table \@ref(tab:data-org-comments) is a collapsed version
 
 ```{r org-count}
 orgs <- comments_coded %>% 
-  filter(comment_type == "Org") %>% 
+  filter(str_dct(comment_type, "Org")) %>% 
   distinct(org_name, docket_id, success, Position, coalition_size, coalition_comments, president, agency) %>% 
   count(org_name, sort = T, name = "Rules") %>% 
   filter(Rules >1, !is.na(org_name)) %>% 
@@ -177,7 +193,7 @@ comments_coded %>%
   rename(Agency = agency) %>% 
   filter(Documents > 10) %>% 
   arrange(-Rules) %>% 
-  kable3(caption = "Hand-coded Data By Agency")
+  kable3(caption = "Hand-coded Data By Agency", align = 'r')
 ```
 
 <!--TODO ELLIE: "Say more about each of these tables. What do you want the reader to see about table 3.1? Similarly, for the next several tables and figures -- you're just stating facts without any context or what you want the reader to take away -- how these things connect to your larger narrative and how one connects to another. 
@@ -208,12 +224,15 @@ comments_coded %>%
     n = 0)) %>% 
   ggplot() +
   aes(x = NA , y = n, fill = Position) +
-  geom_col(position = "dodge") + 
+  geom_col(position = "dodge", alpha = .7) + 
   facet_grid(comment_type ~ president, scales = "free_y") + 
   labs(x = "", 
        y = "Number of Comments",
        fill = "") + 
-  theme(axis.text.x = element_blank(),
+  theme_minimal() + 
+  theme(panel.grid.major.x = element_blank(),
+        panel.border = element_rect(fill = NA),
+        axis.text.x = element_blank(),
         axis.ticks = element_blank()) + 
   scale_fill_viridis_d(begin = 0, end = .7) + 
   scale_y_continuous(labels = comma)
@@ -325,9 +344,11 @@ comments_congress %>%
        y = "Number of Rulemaking Comments\nfrom Members of Congress") + 
   scale_x_continuous(breaks = breaks) + 
   scale_fill_viridis_d(option = "cividis", begin = .0, end = .9) + 
-  theme(axis.text.x = element_text(angle = 90),
-        axis.ticks.x = element_blank(),
-        panel.grid.major.x = element_blank())
+  theme_minimal() + 
+  theme(axis.text.x = element_text(angle = 45, hjust = .6),
+        #axis.ticks.x = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
 ```
 
 

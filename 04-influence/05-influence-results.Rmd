@@ -413,7 +413,7 @@ The Average Direct Effect (ADE) of a public pressure campaign on lobbying succes
 <!--TODO ELLIE "Say more about what you mean here? The organizations know they're going to lose, and they're trying to do something to signal to their members that they tried? Or do the organizations think they're going to lose but launch a pressure campaign as a hail mary? "-->
 
 I now turn from assessing variation *across coalitions* to variation *within organizations* as they lobby in multiple coalitions across policies and over time.
-Estimates in Models 1 of Table \@ref(tab:mo-success-did) show the results of estimating model \@ref(eq:dnd). <!--These results suggest that the organizations were less successful when they mobilized more comments, more successful when they supported the rule, and less successful under President Trump than President Obama. -->
+Estimates in Models 1 of Table \@ref(tab:mo-success-did) show the results of estimating Equation \@ref(eq:dnd). <!--These results suggest that the organizations were less successful when they mobilized more comments, more successful when they supported the rule, and less successful under President Trump than President Obama. -->
 Models 2 presents results from a similar model with fixed effects for each rule rather than for each agency. Model 3 includes indicator variables for each president interacted with the main variables of interest (whether an organization lobbies with a coalition that mobilizes public pressure and whether an organization lobbies with a public or private interest coalition). 
 
 

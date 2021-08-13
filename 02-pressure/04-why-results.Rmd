@@ -18,16 +18,36 @@ knitr::include_graphics(here::here("Figs", "comments-mass-1.png"))
 
 ### Most Comments and Campaigns are Mobilized by Public Interest Coalitions
 
-Public pressure campaigns are almost exclusively organized by coalitions that include groups that engage in sophisticated technical lobbying. This supports Hypothesis \@ref(hyp:coalitions). 
-Indeed, just 100 organizations mobilized over 80% of comments on proposed rules posted to regulations.gov. <!--These top 100 mobilizing organizations each mobilized between `r 55` thousand and `r 4.2` million comments. --> 
+```{r data-toporgs}
+# code in the top_orgs.R
+load(here("data", "org_counts_summary.Rdata"))
 
-<!--BIRING IN DATA-->
+top10 <- org_counts_summary[1:10,]
+top100 <- org_counts_summary[1:100,]
+```
+
+ 
+
+Public pressure campaigns are almost exclusively organized by coalitions that include groups that engage in sophisticated technical lobbying. This supports Hypothesis \@ref(hyp:coalitions). 
+Table \@ref(tab:toporgs) shows the top organizers of comments posted to regulations.gov.
+In line with Hypothesis \@ref(hyp:public), nearly all of these top mobilizing organizations lobby together in public interest coalitions, especially on environmental issues. These coalitions include organizations that engage in sophisticated lobbying. Indeed, many of the most prolific organizers of public pressure campaigns also engage in sophisticated lobbying themselves. Public pressure is a compliment, not an alternative to sophisticated technical lobbying. 
+
+The top ten organizations (`r top10$org_name %>% str_c(collapse = ", ")`) mobilized
+`r round(sum(top10$comments)/sum(d$number_of_comments_received), 4)*100` percent of comments on proposed rules posted to regulations.gov. (`r sum(top10$comments)`).
+All of these top ten organzations have lawyers on staff that engage in sophisticated lobbying and all ten lobbying together in the same coalitions. Nine are closely-aligned environmental groups. Earthjustice began as the Sierra Club Legal Defense Fund. Eight of these nine organizations (all but the Center for Biological Diversity) are members of the Partnership Project, a 501c3 nonprofit founded by 20 leading environmetnal groups with the aim of " creating a sum of citizen participation and advocacy greater than they could generate acting apart" [@Saveourenvironment]. CREDO Action is a generic progressive group often mobilzed to amplify progressive public interest campaings.
+
+The top 100 organizations mobilized
+`r round(sum(top100$comments)/sum(d$number_of_comments_received), 4)*100` percent of comments on proposed rules posted to regulations.gov. (`r sum(top100$comments)`). Each mobilized between `r top100$comments[100]` and `r top100$comments[1]` comments.
 
 ```{r toporgs}
-# code in the appendix
-load(here("data", "org_comments_summary.Rdata"))
-
-org_comments_summary %>% 
+# Pretty up for presentation
+org_counts_summary %>%
+  rename(Organization = org_name,
+         Comments = comments,
+         `Rules Lobbied On` = rules, 
+         `Pressure Campaigns` = campaigns,
+         `Percent (Campaigns /Rules)` = percent, 
+         `Average per Campaign` = average) %>% 
   mutate(Organization = Organization %>% 
            str_rpl("Natural Resources Defense Council", "NRDC") %>% 
            str_rpl("World Wildlife Fund", "WWF") %>% 
@@ -37,8 +57,7 @@ org_comments_summary %>%
 ```
 
 
-Table \@ref(tab:toporgs) shows the top organizers of comments posted to regulations.gov.
-In line with Hypothesis \@ref(hyp:public), nearly all of these top mobilizing organizations lobby together in public interest coalitions, especially on environmental issues. These coalitions include organizations that engage in sophisticated lobbying. Indeed, many of the most prolific organizers of public pressure campaigns also engage in sophisticated lobbying themselves. Public pressure is a compliment, not an alternative to sophisticated technical lobbying.  
+
 
 The percent of rules on which each organization lobbies with a pressure campaign rather than without one (the "Percent" column in Table \@ref(tab:toporgs)) shows only a few organizations using pressure campaigns the majority of the time they lobby. Most lobbying organizations use pressure campaigns a small percentage of the time they lobby in rulemaking. The most extreme example is the American Petroleum Institute (API), which lobbied on hundreds of rules between 2005 and 2020, more than most of the other top mobilizing organizations. Yet it almost never uses public pressure campaigns (at least in its own name). While API does frequently sponsor astroturf campaigns, it does so relatively rarely. Almost all of these top mobilizing organizations usually rely on their legal and policy teams alone. The fact that so many of the top mobilizers are also highly sophisticated lobbying organizations like the Sierra Club and API lends support to my argument that public pressure campaigns are one tool that advocacy organizations may use in addition to more insider tactics. 
 
@@ -102,7 +121,7 @@ In line with Hypothesis \@ref(hyp:public-success), public interest mass comment 
 
 
 ```{r coalition-type-totals}
-coalitions_coded %>% group_by(coalition_type) %>% 
+coalitions_coded %>% filter(campaign_) %>% group_by(coalition_type) %>% 
   summarise(`Total Comments` = sum(coalition_comments),
             `Average Comments` = mean(comments) %>% round) %>% drop_na(coalition_type) %>%
   rename(`Coalition Type` = coalition_type) %>% 

@@ -44,6 +44,6 @@ rmd_files:
   - 09-policy.Rmd
 # appendix
   - 99-appendix.Rmd 
-  - influence-app.Rmd
+#  - influence-app.Rmd
   - 99-references.Rmd
 
