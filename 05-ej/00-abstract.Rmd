@@ -5,8 +5,8 @@
 
 #### Abstract {-}
 
-\begin{SingleSpace}
+\SingleSpacing 
 
 `r readLines(here::here("05-ej/ej-abstract.tex"))`
 
-\end{SingleSpace}
+\DefaultSpacing

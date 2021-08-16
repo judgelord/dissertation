@@ -39,6 +39,10 @@ knitr::opts_chunk$set(echo = TRUE,
                       fig.path = "../figs/")
 # hand coded 
 load(here::here("data", "coalitions_coded.Rdata"))
+coalitions_coded$coalition_type %<>% str_to_title()
+coalitions_coded$Coalition_Position %<>% str_to_title()
+
+
 load(here::here("data", "comments_coded.Rdata"))
 load(here("data", "mass_raw.Rdata"))
 ```

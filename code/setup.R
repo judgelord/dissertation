@@ -147,15 +147,15 @@ kable3 <- function(x,
 # smarter number functions
 smart_number <- function(n, ...) {
   # if non-int below ten, return as is
-  if ((n == as.integer(n)) == FALSE) {
+  if ( (n != as.numeric(n)) ) {
     return(n)
   } else 
     # if non-int above ten, return number()
-    if (abs(n) >= 10) {
+    if (abs(n) >= 10 | as.numeric(n) != as.integer(n)) {
       return(scales::number(n, big.mark = ",", ...))
     } else 
       # if int below 10, print english
-      if (abs(n) < 10) {
+      if (abs(n) < 10 & as.numeric(n) == as.integer(n)) {
         return(english::english(n, ...))
       } else 
         stop("Something is wrong with this number")
@@ -165,13 +165,15 @@ smart_number <- function(n, ...) {
 
 # inline formatting 
 knit_hooks$set(inline = function(x) {
-  if ( !is.integer(x) ) {
+  if (is.na(as.numeric(x))) {
     return(x)
     } else 
+      x <- as.numeric(x)
       # omit years 
-    if (x > 2021 | x < 1900)  {
-      return(x)
-      } else prettyNum(x, big.mark = ",") # return(smart_number(x))
+    if (x > 2021 | x < 1980)  {
+      return(smart_number(x))
+      } else 
+        return(x) #prettyNum(x, big.mark = ",") # 
 })
 
 # number formatting 

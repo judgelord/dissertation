@@ -3,14 +3,19 @@
 ### Most Comments Result from Public Pressure Campaigns
 
 Hypothesis \@ref(hyp:meditated) posited that most people engage in the policy process due to organized public pressure campaigns. This is overwhelmingly true. Figure
-\@ref(fig:comments-mass) plots the number of comments received on regulations.gov each year from 2005 to 2020. Columns are shaded by whether I have classified each comment as part of a public pressure campaign (a mass comment campaign).  Figure
-\@ref(fig:comments-mass) shows that every year since 2007, the vast majority of
-comments on draft regulations posted to regulations.gov were the result of a public pressure campaign. Furthermore, the rise in the total number of comments from 2005 to 2013 is much steeper than the rise in the number of rules being published. 
+\@ref(fig:comments-mass) plots the number of comments received on regulations.gov each year from 2005 to 2020. Columns are shaded by whether I have classified each comment as part of a public pressure campaign (a mass comment campaign). Figure \@ref(fig:comments-mass) shows that every year since 2007, the vast majority of
+comments on draft regulations posted to regulations.gov were the result of a public pressure campaign. All other comments (including comments from individuals acting alone and sophisticated comments from companies, governments, and other organizations) make up a small portion of all comments. 
+
+
 
 
 ```{r comments-mass, fig.cap = "Public Comments, 2005-2020", out.width = "85%", fig.show = "hold"}
 knitr::include_graphics(here::here("Figs", "comments-mass-1.png"))
 ```
+
+
+Furthermore, the rise in the total number of comments from 2005 to 2013 is much steeper than the rise in the number of rules being published. 
+
 
 <!--
 > TODO show this more clearly
@@ -33,15 +38,16 @@ Table \@ref(tab:toporgs) shows the top organizers of comments posted to regulati
 In line with Hypothesis \@ref(hyp:public), nearly all of these top mobilizing organizations lobby together in public interest coalitions, especially on environmental issues. These coalitions include organizations that engage in sophisticated lobbying. Indeed, many of the most prolific organizers of public pressure campaigns also engage in sophisticated lobbying themselves. Public pressure is a compliment, not an alternative to sophisticated technical lobbying. 
 
 The top ten organizations (`r top10$org_name %>% str_c(collapse = ", ")`) mobilized
-`r round(sum(top10$comments)/sum(d$number_of_comments_received), 4)*100` percent of comments on proposed rules posted to regulations.gov. (`r sum(top10$comments)`).
+`r round(sum(top10$comments)/sum(d$number_of_comments_received), 4)*100` percent of comments on proposed rules posted to regulations.gov (`r sum(top10$comments)`).
 All of these top ten organzations have lawyers on staff that engage in sophisticated lobbying and all ten lobbying together in the same coalitions. Nine are closely-aligned environmental groups. Earthjustice began as the Sierra Club Legal Defense Fund. Eight of these nine organizations (all but the Center for Biological Diversity) are members of the Partnership Project, a 501c3 nonprofit founded by 20 leading environmetnal groups with the aim of " creating a sum of citizen participation and advocacy greater than they could generate acting apart" [@Saveourenvironment]. CREDO Action is a generic progressive group often mobilzed to amplify progressive public interest campaings.
 
 The top 100 organizations mobilized
-`r round(sum(top100$comments)/sum(d$number_of_comments_received), 4)*100` percent of comments on proposed rules posted to regulations.gov. (`r sum(top100$comments)`). Each mobilized between `r top100$comments[100]` and `r top100$comments[1]` comments.
+`r round(sum(top100$comments)/sum(d$number_of_comments_received), 4)*100` percent of comments on proposed rules posted to regulations.gov (`r sum(top100$comments)`). Each mobilized between `r top100$comments[100]` and `r top100$comments[1]` comments.
 
 ```{r toporgs}
 # Pretty up for presentation
 org_counts_summary %>%
+  select(org_name, rules, campaigns, percent, comments, average) %>% 
   rename(Organization = org_name,
          Comments = comments,
          `Rules Lobbied On` = rules, 
@@ -49,11 +55,11 @@ org_counts_summary %>%
          `Percent (Campaigns /Rules)` = percent, 
          `Average per Campaign` = average) %>% 
   mutate(Organization = Organization %>% 
-           str_rpl("Natural Resources Defense Council", "NRDC") %>% 
-           str_rpl("World Wildlife Fund", "WWF") %>% 
+           #str_rpl("Natural Resources Defense Council", "NRDC") %>% 
+           #str_rpl("World Wildlife Fund", "WWF") %>% 
            str_rpl("Pew Charitable Trusts", "Pew")) %>% 
   kable3(caption = "Organizations Mobilizing the Most Public Comments 2005-2020",
-         full_width = T)
+         full_width = T, font_size = 10)
 ```
 
 
@@ -72,27 +78,49 @@ The percent of rules on which each organization lobbies with a pressure campaign
 ```{r}
 load(here("data", "coalitions_coded.Rdata"))
 
+coalitions_coded$coalition_type %<>% str_to_title()
+
 # coalitions by type 
-x <- coalitions_coded %>% count(coalition_type)
+coalition_type_campaigns <- coalitions_coded %>%
+  count(coalition_type, campaign_) %>% 
+  drop_na(coalition_type) %>%
+  pivot_wider(id_cols = coalition_type, names_from = campaign_, values_from = n) %>% 
+  rename(`Mass Comment Campaign` = `TRUE`,
+         `No Mass Comment Campaign` = `FALSE`) %>%
+    rename(`Coalition Type` = coalition_type) %>% 
+  mutate(Total = `Mass Comment Campaign` + `No Mass Comment Campaign`)
 
-total <- sum(x$n)
-percent_public <- round(( x$n[2]/total )*100)
-percent_private <- round(( x$n[1]/total )*100)
+total = sum(coalition_type_campaigns$Total)
+total_public <- coalition_type_campaigns$Total[2]
+total_private <- coalition_type_campaigns$Total[1]
 
-# mass coalitions by type 
-x <- coalitions_coded %>% filter(campaign_) %>% group_by(coalition_type) %>%
-  summarise(mean = mean(comments))
+percent_public <- round(( total_public/total )*100)
+percent_private <- round(( total_private/total )*100)
 
-types <- coalitions_coded %>%  
+# mass total by coalition type 
+coalition_type_totals <- coalitions_coded %>% 
   filter(campaign_) %>% 
+  group_by(coalition_type) %>% 
+  summarise(`Total Comments` = sum(coalition_comments),
+            `Average Comments` = mean(comments) %>% round) %>% drop_na(coalition_type) %>%
+  rename(`Coalition Type` = coalition_type) 
+
+average_comments_public <- coalition_type_totals$`Average Comments`[2]
+average_comments_private <- coalition_type_totals$`Average Comments`[1]
+
+# mass total where  both coalition types lobbied
+both_coalition_type_totals <- coalitions_coded %>% 
   group_by(docket_id, president) %>% 
-  mutate(types = str_c(coalition_type, collapse = ";")) %>% 
-  mutate(both = str_detect(types, ";")) 
-  
-  
-both <- filter(types, both) %>%
-  group_by(coalition_type) %>%
-  summarise(mean = mean(comments))
+  mutate(coalition_types = str_c(coalition_type, collapse = ";")) %>% 
+  ungroup() %>%
+  filter(campaign_, str_detect( coalition_comment_types,";")) %>% 
+  group_by(coalition_type) %>% 
+  summarise(`Total Comments` = sum(coalition_comments),
+            `Average Comments` = mean(comments) %>% round) %>% drop_na(coalition_type) %>%
+  rename(`Coalition Type` = coalition_type) 
+
+average_comments_public_both <- both_coalition_type_totals$`Average Comments`[2]
+average_comments_private_both <- both_coalition_type_totals$`Average Comments`[1]
 ```
 
 
@@ -100,13 +128,7 @@ In line with Hypothesis \@ref(hyp:public), `r percent_public` percent of public 
 
 
 ```{r coalition-type-campaigns}
-coalitions_coded %>%
-  count(coalition_type, campaign_) %>% 
-  drop_na(coalition_type) %>%
-  pivot_wider(id_cols = coalition_type, names_from = campaign_, values_from = n) %>% 
-  rename(`Mass Comment Campaign` = `TRUE`,
-         `No Mass Comment Campaign` = `FALSE`) %>%
-    rename(`Coalition Type` = coalition_type) %>% 
+coalition_type_campaigns %>% 
   kable3(caption = "The Frequency of Mobilizing Pressure Campaigns by Coalition Type")
 ```
 
@@ -117,14 +139,11 @@ Figure \@ref(fig:campaign-type-frequency) provides further evidence for Hypothes
 knitr::include_graphics(here::here("Figs", "campaign-type-frequency-1.png"))
 ```
 
-In line with Hypothesis \@ref(hyp:public-success), public interest mass comment campaigns, on average, garner a larger response. The average number of comments for a public interest campaign is `r x$mean[2] %>% round()`. In contrast, the average number of comments for a private interest campaign is `r x$mean[1] %>% round()`. On rules where both public and private interest coalitions ran campaigns, the average response to the public interest campaign was `r both$mean[2] %>% round()`. The private interest campaigns were only `r both$mean[1] %>% round()`.
+In line with Hypothesis \@ref(hyp:public-success), public interest mass comment campaigns, on average, garner a larger response. The average number of comments for a public interest campaign is `r average_comments_public`. In contrast, the average number of comments for a private interest campaign is `r average_comments_private`. On rules where both public and private interest coalitions ran campaigns, the average response to the public interest campaign was `r average_comments_both_both`. Private interest campaigns averaged `r average_comments_private_both` comments.
 
 
 ```{r coalition-type-totals}
-coalitions_coded %>% filter(campaign_) %>% group_by(coalition_type) %>% 
-  summarise(`Total Comments` = sum(coalition_comments),
-            `Average Comments` = mean(comments) %>% round) %>% drop_na(coalition_type) %>%
-  rename(`Coalition Type` = coalition_type) %>% 
+coalition_type_totals %>% 
   kable3(caption = "The Scale of Public Pressure Campaigns by Coalition Type")
 ```
 

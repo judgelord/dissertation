@@ -496,6 +496,7 @@ comments_coded <- d %>% mutate(comment_type = comment_type %>% clean_org_type() 
 comments_coded %<>% 
   group_by(president, docket_id, coalition_comment, org_name) %>%
   fill(position, .direction = c("updown")  ) %>% 
+  fill(coalition_type, .direction = c("updown")) %>% 
   ungroup() %>% 
   group_by(president, docket_id, coalition_comment) %>%
   fill(org_type, .direction = c("updown")) %>% 
@@ -950,3 +951,8 @@ comments_coded %>%
   summarise(docket_comment_types = str_c(unique(comment_type), collapse = ";"),
          docket_comments = sum(comments)) %>% 
   filter(!str_dct(docket_comment_types, "mass")) 
+
+comments_coded %>% filter(comment_type == "elected",
+                          !str_dct(org_type, "senate|house|governor|official|attorney general|school|mayor|city|county|state|assembly|officer")) %>% 
+  select(comment_type, org_type, document_id) %>% 
+  kablebox()
