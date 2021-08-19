@@ -111,7 +111,7 @@ average_comments_private <- coalition_type_totals$`Average Comments`[1]
 # mass total where  both coalition types lobbied
 both_coalition_type_totals <- coalitions_coded %>% 
   group_by(docket_id, president) %>% 
-  mutate(coalition_types = str_c(coalition_type, collapse = ";")) %>% 
+  mutate(coalition_types = coalition_type %>% unique() %>% str_c(collapse = ";")) %>% 
   ungroup() %>%
   filter(campaign_, str_detect( coalition_comment_types,";")) %>% 
   group_by(coalition_type) %>% 
@@ -139,7 +139,7 @@ Figure \@ref(fig:campaign-type-frequency) provides further evidence for Hypothes
 knitr::include_graphics(here::here("Figs", "campaign-type-frequency-1.png"))
 ```
 
-In line with Hypothesis \@ref(hyp:public-success), public interest mass comment campaigns, on average, garner a larger response. The average number of comments for a public interest campaign is `r average_comments_public`. In contrast, the average number of comments for a private interest campaign is `r average_comments_private`. On rules where both public and private interest coalitions ran campaigns, the average response to the public interest campaign was `r average_comments_both_both`. Private interest campaigns averaged `r average_comments_private_both` comments.
+In line with Hypothesis \@ref(hyp:public-success), public interest mass comment campaigns, on average, garner a larger response. The average number of comments for a public interest campaign is `r average_comments_public`. In contrast, the average number of comments for a private interest campaign is `r average_comments_private`. On rules where both public and private interest coalitions ran campaigns, the average response to the public interest campaign was `r average_comments_public_both`. Private interest campaigns averaged `r average_comments_private_both` comments.
 
 
 ```{r coalition-type-totals}
@@ -170,6 +170,16 @@ Only a few of the top mobilizing organizations lobby in coalitions that focus on
 The only other private-interest coalition leader among the top 100 mobilizing organizations is Axcess Financial. Axcess led only one campaign in opposition to the CFPB's Payday Loans rule. <!--This case may be the only example where an industry-sponsored campaign was larger than the public interests campaign it opposed. 
 TODO INVESTIGATE! 
 TODO INVESTIGATE WOTUS RULE CAMPAIGNS -->
+
+```{r}
+types <- coalitions_coded %>%
+  filter(coalition_, campaign_) %>%
+  group_by(docket_id, president) %>% 
+  mutate(coalition_types = coalition_type %>% unique() %>% str_c(collapse = ";")) %>% 
+  ungroup() %>%
+  mutate(both = str_detect( coalition_comment_types,";")) 
+  
+```
 
 In line with Hypothesis \@ref(hyp:disrupt), private interest coalitions are less likely than public interest coalitions to lobby unopposed, suggesting that they often launch pressure campaigns in response to an opposing campaign. Of `r nrow(types)` coalition-scale pressure campaigns in the hand-coded sample, only `r types %>% filter(coalition_type == "Private", !both)%>% nrow()` private interest coalition ran a pressure campaign when they were not up against a public interest group's campaign. Yet `r types %>% filter(coalition_type == "Public", !both)%>% nrow()` public interest coalitions ran a pressure campaign when they were not up against a private interest group's campaign.
 

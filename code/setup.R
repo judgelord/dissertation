@@ -143,6 +143,8 @@ kable3 <- function(x,
   }
 }
 
+options(scipen=999)
+
 
 # smarter number functions
 smart_number <- function(n, ...) {
@@ -151,14 +153,14 @@ smart_number <- function(n, ...) {
     return(n)
   } else 
     # if non-int above ten, return number()
-    if (abs(n) >= 10 | as.numeric(n) != as.integer(n)) {
-      return(scales::number(n, big.mark = ",", ...))
+    if (abs(n) >= 10 | as.numeric(n) != as.integer(n) ) {
+      return( prettyNum(n, big.mark = ",") )#scales::number(n, big.mark = ",", ...))
     } else 
       # if int below 10, print english
-      if (abs(n) < 10 & as.numeric(n) == as.integer(n)) {
+      if (abs(n) < 10 & as.numeric(n) == as.integer(n) ) {
         return(english::english(n, ...))
       } else 
-        stop("Something is wrong with this number")
+        stop("??")
 }
 
 

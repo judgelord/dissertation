@@ -798,7 +798,8 @@ comments_coded %<>%
   mutate(campaign_ = coalition_campaign_)
 
 
-
+comments_coded$coalition_type %<>% str_to_title()
+comments_coded$Coalition_Position %<>% str_to_title()
 ##########################################################################
 # MAKE COALITIONS 
 # (anything after here should be coalition-specific)
