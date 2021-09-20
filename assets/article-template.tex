@@ -35,6 +35,7 @@ $if(fonts)$
 $endif$
 
 \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+\usepackage{lmodern}
 
 
 % text block
@@ -161,7 +162,7 @@ $endif$
             linkcolor = $if(linkcolor)$$linkcolor$$else$magenta$endif$,
             pdfborder = {0 0 0}}
 
-% \urlstyle{same}  % don't use monospace font for urls
+\urlstyle{same}  % don't use monospace font for urls
 
 
 % set default figure placement to htbp
@@ -226,7 +227,7 @@ $endif$
 
 % section titles
 \usepackage[small, bf, sc]{titlesec}
-  % \titleformat*{\subsection}{\itshape}
+  \titleformat*{\subsection}{\bfseries}
   \titleformat*{\subsubsection}{\itshape} 
   \titleformat*{\paragraph}{\itshape} 
   \titleformat*{\subparagraph}{\itshape}

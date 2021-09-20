@@ -2,11 +2,8 @@
 
 ### Environmental Justice as a Boundary-drawing Tool
 
-The politics of environmental justice has several convenient properties for studying the policy impact of social movements. First, discourse around policies framed as "environmental" issues are, unlike issues like civil
-rights and immigration, inconsistently racialized and, unlike issues
-like taxes and spending, inconsistently focused on *distributions* of
-costs and benefits. This means that policies may or may not be framed in environmental justice terms. Despite policy almost always having disparate impacts, an "environmental" frame often creates a human-environment distinction and shifts attention to non-human objects such as air, water, food, or landscapes and away from the distribution of access to them or
-protection from them when they are contaminated. By focusing on distributions of costs and benefits, fights over EJ analyses differ from more traditional utilitarian or preservationist analyses.
+The politics of environmental justice has several convenient properties for studying the policy impact of social movements. First, discourse around policies framed as environmental issues is, unlike issues like civil rights and immigration, inconsistently racialized and, unlike issues like taxes and spending, inconsistently focused on *distributions* of costs and benefits. Indeed, White environmentalists have long framed environmental policy as "public goods." This means that policies may or may not be framed in environmental justice terms. Despite policy almost always having disparate impacts, an "environmental" frame often creates a human-environment distinction and shifts attention to non-human objects such as air, water, food, or landscapes and away from the distribution of access to them or
+protection from them when they are contaminated. By focusing on distributions of costs and benefits, fights over EJ analyses differ from the more utilitarian or preservationist analyses that dominate White environmental activism and policymaking [@Harrison2019].
 
 
 Second, compared to
@@ -15,12 +12,9 @@ fairly distinctive phrase. Most people who use this phrase share a
 general definitional foundation. Even attempts to reframe the term (e.g., to focus on class rather than race or jobs rather than health) come about as dialectical moves related to the term's historical uses. Thus, when "environmental justice" appears in a text, it is rarely a coincidence of words; its appearance is a result of the movement or reactions to it.
 
 Third, this phrase appears frequently
-when the idea is discussed. There are few synonyms. Groups raising equity concerns on environmental issues commonly use the phrase "environmental justice." Those who use narrower, related terms---including the older concept of "environmental racism" and the newer concept of "climate justice"---almost always use "environmental justice" in their advocacy as well. 
+when the idea is discussed. There are few synonyms. Groups raising equity concerns on environmental issues commonly use the phrase "environmental justice." Those who use narrower, related terms---including the older frame of "environmental racism" and the newer frame of "climate justice"---almost always use "environmental justice" in their advocacy as well. 
 
-
-Finally, the term is relevant to rulemaking records in
-particular because Executive Order 12898 was issued in 1994 by President
-Clinton---"Federal Actions to Address Environmental Justice in Minority
+Finally, the term is relevant to rulemaking records in particular because Executive Order 12898 was issued in 1994 by President Clinton---"Federal Actions to Address Environmental Justice in Minority
 Populations and Low-Income Populations"---directs all agencies to consider EJ implications of their actions and policies. Executive Orders from Presidents Obama and Biden and statements from agency heads in every administration have since interpreted and reinterpreted parts of this Order, all with direct implications for rulemaking. 
 This does not mean that all draft or final rules address EJ, but they tend to cite Executive Order 12898 and explicitly discuss
 environmental justice when they do. For the same reason, commenters who critique draft rules also cite this Executive Order and use this language. Again, this is true both for movement activists and reactionary efforts to redefine the term.
@@ -166,8 +160,8 @@ associated with surnames as recorded in the 2010 census.^[I recode "Hispanic" as
 category (from this limited set of options). This approach does not
 assign specific individuals to racial categories. Instead, it represents each commenter as a set of probabilities adding up to 1. The estimated racial distribution of the sample is the sum of individual probabilities.
 
-```{r ejcommentsbyrace, fig.cap = 'Estimated Racial Distribution from Census Surnames of Commenters raising ``Environmental Justice" Concerns in Rulemaking', fig.height = 1.5, fig.width=2, out.width = "45%", fig.show = "hold"}
-load(here("data", "ej_race.Rdata"))
+```{r ejcommentsbyrace, fig.cap = 'Estimated Racial Distribution from Census Surnames of Commenters raising ``Environmental Justice" Concerns in Rulemaking', fig.height = 1.5, fig.width=2, out.width = "40%", fig.show = "hold"}
+load(here::here("data", "ej_race.Rdata"))
 
 Race %>% ggplot() + 
   aes(y =Race, x = Probability) + 
@@ -185,26 +179,14 @@ national population. This is unsurprising, given that Black Americans have led t
 
 ### Tracing Ideas Through Rulemaking: Environmental Justice as a Contested Concept {#ej-methods}
 
-Using an environmental justice frame does not always imply the same
-communities of concern. Environmental justice emerged from movements
-against environmental racism, especially the disposal of toxic
-materials in predominantly Black neighborhoods [@Bullard1993]. However, the term
-quickly took on other meanings, encompassing various marginalized groups. President Clinton's 1994 Executive Order on
-Environmental Justice required all parts of the federal government
-to make "addressing disproportionately high and adverse human health or
-environmental effects of programs, policies, and activities on minority
-populations and low-income populations" a core aspect of their mission.
-This meant considering the disproportionate effects of policies by race and income during rulemaking.
+Using an environmental justice frame does not always imply the same communities of concern. Environmental justice emerged from movements against environmental racism, especially the disposal of toxic materials in predominantly Black neighborhoods [@Bullard1993]. However, the term quickly took on other meanings, encompassing various marginalized groups. President Clinton's 1994 Executive Order on Environmental Justice required all parts of the federal government to make "addressing disproportionately high and adverse human health or environmental effects of programs, policies, and activities on minority populations and low-income populations" a core aspect of their mission. This meant considering the disproportionate effects of policies by race and income during rulemaking.
 
 In 2005, Environmental Protection Agency (EPA) political appointees reinterpreted the Order, removing race as a factor in identifying and prioritizing populations. This move was criticized by activists and two reports by EPA's own Office of Inspector General ([EPA-OIG-2004-P-00007](https://www.epa.gov/sites/default/files/2015-12/documents/20040301-2004-p-00007.pdf) and [EPA-OIG-2006-P-00034](https://www.epa.gov/sites/default/files/2015-11/documents/20060918-2006-p-00034.pdf)). 
 
 President Obama's EPA Administrators reestablished race as a factor. They named EJ as one of their top priorities, but they also faced criticism from activists for paying lip service to environmental racism without adequate policy changes.
 
 In an October 2017 proposed rule to repeal
-restrictions on power plant pollution, the Trump EPA acknowledged that
-"low-income and minority communities located in proximity to [power
-plants] may have experienced an improvement in air quality as a result
-of the emissions reductions." Because the Obama EPA discussed EJ when promulgating the Clean Power Plan rule (stating that "climate change is an environmental justice issue"), the Trump EPA attempted to reframe rather than ignore environmental justice. The Trump EPA contended that the Obama EPA "did not address lower household energy bills for low-income households [and that] workers losing jobs in regions or occupations with weak labor markets would have been most vulnerable" (EPA 2017). Like regulated industry commenters, these statements frame the distribution of jobs and electricity costs as EJ issues in order to push back against policies that would equalize the distribution of health impacts from pollution. 
+restrictions on power plant pollution, the Trump EPA acknowledged that "low-income and minority communities located in proximity to [power plants] may have experienced an improvement in air quality as a result of the emissions reductions." The is remarkable given that "assertions that hazardous facilities are concentrated in minority and low-income communities in the United States and that those communities are exposed to inordinate amounts of environmental hazards" are "the most controversial claims of the environmental justice movement" (@Taylor2014, p. 1).  Because the Obama EPA discussed EJ when promulgating the Clean Power Plan rule (stating that "climate change is an environmental justice issue"), the Trump EPA attempted to reframe rather than ignore environmental justice. The Trump EPA contended that the Obama EPA "did not address lower household energy bills for low-income households [and that] workers losing jobs in regions or occupations with weak labor markets would have been most vulnerable" (EPA 2017). Like regulated industry commenters, these statements frame the distribution of jobs and electricity costs as EJ issues in order to push back against policies that would equalize the distribution of health impacts from pollution. 
 
 The central conflict over the role of race in policy analyses is just one of many conflicts that the environmental justice movement has caused to be fought somewhat on its terms. The next section briefly reviews the decades-long policy fight over regulating Mercury pollution to illustrate how these definitional conflicts shape rules and rulemaking. This case and other examples in this article emerged from reading hundreds of rulemaking documents where agencies did and did not respond to comments raising EJ concerns. Their purpose is to assess whether the cases in the quantitative analysis are plausibly what they appear to be: that changes in rule text are, sometimes, causally related to public comments and that non-changes are cases of agencies disregarding comments, not some accident of the data or measures. 
 The qualitative reading also confirmed other key assumptions, such as the fact that advocates do, in fact, use "environmental justice" when they raise distributional concerns, even on many rules that are not about issues traditionally considered "environmental."
@@ -241,7 +223,7 @@ affected" (EPA 2002).
 Commenting on this draft, Heather McCausland of
 the Alaska Community Action on Toxics (ACAT) wrote:
 
-> The amount of methyl-mercury and other bioaccumulative chemicals consumed by Alaskans (especially Alaskan Natives) could potentially be much higher than is assumed... [This could increase] the Alaskan Native mortality rate for babies, which according to the CDC, is 70% higher than the United States verage. Indigenous Arctic & Alaskan Native populations are some of the most polluted populations in the world. Global transport & old military sites contaminate us too. <!--([EPA-HQ-OAR-2012-0452-0006](https://www.regulations.gov/comment/EPA-HQ-OAR-2012-0452-0006))-->
+> The amount of methyl-mercury and other bioaccumulative chemicals consumed by Alaskans (especially Alaskan Natives) could potentially be much higher than is assumed... [This could increase] the Alaskan Native mortality rate for babies, which according to the CDC, is 70% higher than the United States average. Indigenous Arctic & Alaskan Native populations are some of the most polluted populations in the world. Global transport & old military sites contaminate us too. <!--([EPA-HQ-OAR-2012-0452-0006](https://www.regulations.gov/comment/EPA-HQ-OAR-2012-0452-0006))-->
 
 By citing the CDC, McCausland's comment provided both technical and distributive information. As allies mobilized, public pressure mounted to address the disparate impacts of mercury levels.
 After receiving hundreds of thousands of comments and pressure from
@@ -269,7 +251,7 @@ Of this second round of comments, over 200 unique comments explicitly raised
 EJ issues. The Little River Band of Ottawa Indians
 expressed the Tribe's 
 
-> ...frustration at trying to impress upon the EPA the multiple and profound impacts of mercury contamination from a Tribal perspective. Not to mention the obligations under treaties to participate with tribes on a 'Government to Government' basis. At present, no such meetings have occurred in any meaningful manner with EPA Region V, the EPA National American Indian Environmental Office, nor the State of Michigan's Department of Environmental Quality...Although EPA purported to consider environmental justice as it developed its Clean Air Mercury Rule, it failed utterly. In this rulemaking, the EPA perpetuated, rather than ameliorated, a long history of cultural discrimination against tribes and their members ([https://www.regulations.gov/comment/EPA-HQ-OAR-2009-0234-12462](https://www.regulations.gov/comment/EPA-HQ-OAR-2009-0234-12462), p. 67). <!-- (Sprague
+> ...frustration at trying to impress upon the EPA the multiple and profound impacts of mercury contamination from a Tribal perspective. Not to mention the obligations under treaties to participate with tribes on a 'Government to Government' basis. At present, no such meetings have occurred in any meaningful manner with EPA Region V, the EPA National American Indian Environmental Office, nor the State of Michigan's Department of Environmental Quality...Although EPA purported to consider environmental justice as it developed its Clean Air Mercury Rule, it failed utterly. In this rulemaking, the EPA perpetuated, rather than ameliorated, a long history of cultural discrimination against tribes and their members ([EPA-HQ-OAR-2009-0234-12462](https://www.regulations.gov/comment/EPA-HQ-OAR-2009-0234-12462), p. 67). <!-- (Sprague
 2011). -->
 
 Did comments like these play a role in EPA's changed analysis of whom Mercury limits should aim to protect? Because of the many potential sources of influence, it may be difficult to attribute causal effects of particular comments on a given policy.
@@ -290,7 +272,7 @@ next seems to be in response to activist pressure.
 
 ### Measuring Policy Change
 
-Having shown how public comments and pressure can influence policy texts, I assess the general relationship between comments and policy texts across all rules. I use two indicators of responsiveness to model the effect of public comments on policy documents: *whether* a rule addresses EJ and change in *how* it addresses EJ, i.e., change in portions of the text discussing EJ. Both measures represent a relatively low bar, indicating whether the agency explicitly paid any attention to EJ. This is similar to measures of "procedural responsiveness" used by @Balla2020. The low empirical bar is appropriate because prior research, including the results reviewed in Section \@ref(influence-results), shows little to no effect of public comments from advocacy groups [@Yackee2006JOP; @Balla2020] and low levels of attention to EJ concerns in particular (Figure \@ref(fig:ej-data)). <!--[@Hughes2020].-->
+Having shown how public comments and pressure can influence policy texts, I assess the general relationship between comments and policy texts across all rules. I use two indicators of responsiveness to model the effect of public comments on policy documents: *whether* a rule addresses EJ and change in *how* it addresses EJ, i.e., change in portions of the text discussing EJ. Both measures represent a relatively low bar, indicating whether the agency explicitly paid any attention to EJ. This is similar to measures of "procedural responsiveness" used by @Balla2020. The low empirical bar is appropriate because prior research, including the results reviewed in Chapter \@ref(influence), shows little to no effect of public comments from advocacy groups [@Yackee2006JOP; @Balla2020] and low levels of attention to EJ concerns in particular (Figure \@ref(fig:ej-data)). <!--[@Hughes2020].-->
 
 Examples in the previous section illustrate how text mentioning "environmental justice" might be added or changed. Carefully tracing a few rulemaking processes also helped to avoid analytic pitfalls. For example, one case where an agency did an EJ analysis and then appeared not to respond to a comment discussing EJ was, in fact, due to the fact that the commenter included an annotated version of the draft rule in their comment, adding only "no comment" next to the 12898 section. To correct this, I removed text copied from the proposed rule from comments in pre-processing. 
 

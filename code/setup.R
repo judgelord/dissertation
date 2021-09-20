@@ -38,6 +38,8 @@ library(fixest)
 library(modelsummary)
 library(tidyverse)
 
+source(here::here("code", "make-article.R"))
+
 fig.path <- here("figs/")
 
 ## Sets defaults for R chunks
