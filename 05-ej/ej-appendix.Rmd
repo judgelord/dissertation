@@ -36,6 +36,8 @@ library(tidytext)
 library(knitr)
 library(kableExtra)
 
+select <- . %>% dplyr::select()
+
 library(ggplot2); theme_set(theme_bw());
   options(
     ggplot2.continuous.color = "viridis",
@@ -86,19 +88,19 @@ load(here::here("data", "rules_metadata.Rdata"))
 
 # unique
 ejPR %<>% 
-  select(-page, #FIXME,
+  dplyr::select(-page, #FIXME,
          -open_for_comment,
          -type, -document_type, -withdrawn, -links) %>% 
   distinct()
 
 ejFR %<>% 
-  select(-page, #FIXME
+  dplyr::select(-page, #FIXME
          -open_for_comment,
          -type, -document_type, -withdrawn, -links) %>% 
   distinct()
 
 ejcomments %<>% 
-  select(-lastpage, -type, -document_type, -withdrawn, -links) %>% 
+  dplyr::select(-lastpage, -type, -document_type, -withdrawn, -links) %>% 
   distinct() 
 
 
@@ -171,7 +173,7 @@ rules %<>%
          agency = agency_id
          ) 
 
-rules %<>% select(docket_id, 
+rules %<>% dplyr::select(docket_id, 
                  docket_title, 
                  # ej_comments = ej_comments_unique, 
                  ej_comments_unique, 
@@ -471,11 +473,41 @@ allFR %>%
 ejorgs <- ejcomments %>% 
   drop_na(organization) %>% 
   filter(!organization %in% c("NA")) %>% 
-  group_by(organization) %>%
-  #add_count(docket_id) %>% #TODO
+   mutate(org_name = organization %>% clean_orgs()) %>% 
+  add_count(docket_id, name = "Dockets") %>% #TODO
+  group_by(org_name, Dockets) %>% 
   summarise(unique = n(),
             total = sum(number_of_comments_received)) %>% 
   arrange(-total) 
+
+
+# total from top 100 ejorgs
+ejorgs %<>% 
+  filter(!str_dct(org_name, "unknown|404error|broken link|anonymous|knowwho")) 
+
+
+# FORMAT FOR PRESENTATION 
+ejorgs %<>% mutate(org_name = ifelse(nchar(org_name)<10, str_to_upper(org_name), org_name) )
+
+ejorgs_summary <- ejorgs %>% 
+  ungroup() %>%
+  filter(!str_dct(org_name, "^NA$|unknown|individuals|n/a|^N$")) %>%
+  arrange(-unique) 
+
+# need to do better
+nrow(ejorgs_summary)
+ejorgs_summary$comments %>% sum()
+
+# org_comments_summary$org_name
+
+#org_comments_summary$org_name[1:20]
+
+ejorgs_summary %>% 
+  kablebox() 
+#kable3(caption = "Organizations Mobilizing the Most Public Comments 2005-2020")
+
+
+#FIXME end 
 
 
 ejorgs %>% 
@@ -1186,7 +1218,7 @@ top_dockets <- ejFR_PR %>%
   filter(agency %in% c(top, "HUD", "FRA", "DHS", "DOJ", "ED", "DOS", "BIA", "USCBP", "OSHA", "RUS" ),
          ej_fr, # ej added 
          ej_comment) %>% # with ej comments  
-  select(docket_id, docket_title) %>% 
+  dplyr::select(docket_id, docket_title) %>% 
   distinct() %>% 
   pull(docket_id)
 
@@ -1234,10 +1266,10 @@ ejFRejPR <- allFR %>%
          ej_pr)
 
 # final rule text where the pr did address ej
-change <- ejFR %>% select(docket_id, final = summary) %>% 
+change <- ejFR %>% dplyr::select(docket_id, final = summary) %>% 
   distinct() %>% 
   left_join(ejPR %>% 
-              select(docket_id, draft = summary) %>% distinct() ) %>% 
+              dplyr::select(docket_id, draft = summary) %>% distinct() ) %>% 
   filter(!is.na(draft))
 
 # indicators 
@@ -1250,10 +1282,10 @@ change %<>% mutate(change = !str_detect(draft, fixed(final, ignore_case = T) ))
   
 
 change %>% 
-  select(docket_id, draft, final, ej_comment, change) %>% kablebox()
+  dplyr::select(docket_id, draft, final, ej_comment, change) %>% kablebox()
 
 change %>% 
-  select(docket_id, draft, final, change) %>% kablebox()
+  dplyr::select(docket_id, draft, final, change) %>% kablebox()
 
 
 
@@ -1861,9 +1893,9 @@ top_dockets <- ejFRejPR %>%
   filter(agency %in% c(top, "HUD", "FRA", "DHS", "DOJ", "ED", "DOS", "BIA", "USCBP", "OSHA", "RUS" ),
          ej_fr, # ej in final
          ej_comment) %>% # with ej comments  
-  select(docket_id, docket_title) %>% distinct() %>% pull(docket_id)
+  dplyr::select(docket_id, docket_title) %>% distinct() %>% pull(docket_id)
 
-rules %>% filter(docket_id %in% top_dockets) %>% select(docket_id, docket_title, document_type, comments, ej_comments_unique) %>% arrange(docket_id) %>% kablebox()
+rules %>% filter(docket_id %in% top_dockets) %>% dplyr::select(docket_id, docket_title, document_type, comments, ej_comments_unique) %>% arrange(docket_id) %>% kablebox()
 
 
 
