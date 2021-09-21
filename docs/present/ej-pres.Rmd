@@ -1,7 +1,7 @@
 ---
 title: "The Environmental Justice Movement's Impact on Technocratic Policymaking"
 subtitle: ""
-author: "Devin Judge-Lord <br> University of Wisconsin-Madison <br> Harvard University"
+author: "Devin Judge-Lord <br>  Harvard University"
 date: "Paper, slides, & data: [judgelord.github.io/research/ej](https://judgelord.github.io/research/ej)"
 urlcolor: cyan
 output:
@@ -287,7 +287,7 @@ The day after Biden's executive order was launched, Rep. Cori Bush (D-MO) and Se
 
 ---
 
-background-image: url(figs/clinton-ej.jpg)
+background-image: url(Figs/clinton-ej.jpg)
 background-size: cover
 
 
