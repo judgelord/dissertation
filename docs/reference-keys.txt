@@ -152,8 +152,8 @@ political-information
 information-about-a-policys-disparate-effects
 public-pressure-as-a-political-resource
 hypotheses
-distributive-information-hypotheses
-public-pressure-hypotheses
+distributive-information
+public-attention-and-pressure
 testing-the-theory
 environmental-justice-as-a-boundary-drawing-tool
 data
@@ -199,3 +199,10 @@ formal-app
 figs-app
 the-number-of-comments-per-rule-over-time
 mentions-of-support-and-opposition
+github-repo-httpsgithub.comjudgelorddissertation
+public-and-private-aims
+measuring-the-volume-intensity-and-potential-contagion-of-public-engagement
+summary-statistics-for-machine-coded-data
+estimating-whether-environmental-justice-is-added-to-final-rule
+cases
+hard-cases

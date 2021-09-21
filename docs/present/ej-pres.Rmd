@@ -384,10 +384,14 @@ background-size: cover
 
 ---
 
+```{r ejcommentsbyrace, fig.cap = 'Estimated Racial Distribution from Census Surnames of Commenters raising ``Environmental Justice" Concerns in Rulemaking', fig.height = 1.5, fig.width=2, out.width = "40%", fig.show = "hold"}
+load(here::here("data", "ej_race.Rdata"))
 
-```{r ejcommentsbyrace, fig.cap = 'Estimated Racial Distribution from Census Surnames of Commenters Raising "Environmental Justice" Concerns in Rulemaking', out.height = NULL, out.width = "60%", fig.show = "hold"}
-
-knitr::include_graphics("Figs/race_prob.png")
+Race %>% ggplot() + 
+  aes(y =Race, x = Probability) + 
+  geom_col() +
+  theme_minimal() +
+  theme(panel.grid.major.y = element_blank())
 ```
 
 ---

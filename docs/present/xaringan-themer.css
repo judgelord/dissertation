@@ -15,7 +15,7 @@
  *    - xaringan wiki: https://github.com/yihui/xaringan/wiki
  *    - remarkjs wiki: https://github.com/gnab/remark/wiki
  *
- *  Version: 0.3.0
+ *  Version: 0.4.0
  *
  * ------------------------------------------------------- */
 @import url(https://fonts.googleapis.com/css?family=Old+Standard&display=swap);
@@ -31,6 +31,7 @@
   --text-font-base: sans-serif;
   --header-font-family: 'PT Sans';
   --header-font-is-google: 1;
+  --header-font-family-fallback: Georgia, serif;
   --code-font-family: Inconsolata;
   --code-font-is-google: 1;
   --base-font-size: 20px;
@@ -51,6 +52,7 @@
   --inverse-text-color: #EBECED;
   --inverse-background-color: #3b444b;
   --inverse-header-color: #EBECED;
+  --inverse-link-color: #B7E4CF;
   --title-slide-background-color: #3b444b;
   --title-slide-text-color: #EBECED;
   --header-background-color: #3b444b;
@@ -70,7 +72,7 @@ body {
   color: var(--text-color);
 }
 h1, h2, h3 {
-  font-family: var(--header-font-family);
+  font-family: var(--header-font-family), var(--header-font-family-fallback);
   font-weight: 600;
   color: var(--header-color);
 }
@@ -105,9 +107,12 @@ h1, h2, h3 {
 .remark-slide-number {
   color: #3b444b;
   opacity: 1;
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
-strong { color: var(--text-bold-color); }
+strong {
+  font-weight: bold;
+  color: var(--text-bold-color);
+}
 a, a > code {
   color: var(--link-color);
   text-decoration: none;
@@ -128,6 +133,9 @@ a, a > code {
 }
 .inverse h1, .inverse h2, .inverse h3 {
   color: var(--inverse-header-color);
+}
+.inverse a, .inverse a > code {
+  color: var(--inverse-link-color);
 }
 .title-slide, .title-slide h1, .title-slide h2, .title-slide h3 {
   color: var(--title-slide-text-color);
@@ -163,7 +171,7 @@ a, a > code {
   float: right;
   width: 47%;
 }
-.pull-right ~ * {
+.pull-right + * {
   clear: both;
 }
 img, video, iframe {
@@ -185,7 +193,7 @@ th, td {
   padding: 5px;
 }
 .remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) {
-  background: #E6F0FA;
+  background: #ddede5;
 }
 table.dataTable tbody {
   background-color: var(--background-color);
@@ -195,7 +203,7 @@ table.dataTable.display tbody tr.odd {
   background-color: var(--background-color);
 }
 table.dataTable.display tbody tr.even {
-  background-color: #E6F0FA;
+  background-color: #ddede5;
 }
 table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.5);
