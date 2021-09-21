@@ -1,4 +1,5 @@
 ---
+# rmarkdown::render("05-ej/ej.Rmd")
 knit: ( function(input, ...) {
           rmarkdown::render(input)
                               

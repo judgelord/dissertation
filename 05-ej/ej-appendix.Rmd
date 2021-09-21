@@ -474,7 +474,8 @@ ejorgs <- ejcomments %>%
   drop_na(organization) %>% 
   filter(!organization %in% c("NA")) %>% 
    mutate(org_name = organization %>% clean_orgs()) %>% 
-  add_count(docket_id, name = "Dockets") %>% #TODO
+  group_by(org_name) %>% 
+  mutate(Dockets = docket_id %>% unique() %>% length()) %>% 
   group_by(org_name, Dockets) %>% 
   summarise(unique = n(),
             total = sum(number_of_comments_received)) %>% 
@@ -492,28 +493,25 @@ ejorgs %<>% mutate(org_name = ifelse(nchar(org_name)<10, str_to_upper(org_name),
 ejorgs_summary <- ejorgs %>% 
   ungroup() %>%
   filter(!str_dct(org_name, "^NA$|unknown|individuals|n/a|^N$")) %>%
-  arrange(-unique) 
+  arrange(-Dockets)   %>% 
+  rename(Organization = org_name, 
+         `Unique EJ Comments` = unique,
+         `Total EJ Comments` = total) 
 
 # need to do better
 nrow(ejorgs_summary)
-ejorgs_summary$comments %>% sum()
+ejorgs_summary$`Total Comments` %>% sum()
 
-# org_comments_summary$org_name
-
-#org_comments_summary$org_name[1:20]
+ejorgs_summary %>%
+    save(file =  here("data", "ejorgs_summary.Rdata"))
 
 ejorgs_summary %>% 
+  kablebox() #%>% kable3(caption = "Organizations Mobilizing the Most Public Comments 2005-2020")
+
+
+ejorgs_summary %>% 
+  arrange(-`Total Comments`) %>% 
   kablebox() 
-#kable3(caption = "Organizations Mobilizing the Most Public Comments 2005-2020")
-
-
-#FIXME end 
-
-
-ejorgs %>% 
-  kablebox() 
-
-#TODO table by most dockets commented on 
 
 ejorgs_FR <- ejcomments %>%
   mutate(docket_id =str_remove(id, "-[0-9]*$")) %>%
