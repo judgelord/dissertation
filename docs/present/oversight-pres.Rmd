@@ -43,8 +43,8 @@ library("knitr")
 style_mono_light(base_color = "#3b444b",
           link_color = "#297acc", #"#B7E4CF",
           background_color = "#FAF0E6", # linen
-          header_font_google = google_font("PT Sans"), 
-          text_font_google = google_font("Old Standard"), 
+          header_font_google = google_font("Open Sans"), 
+          text_font_google = google_font("Roboto"), 
           text_font_size = "32px",
           #padding = "20px",
           code_font_google = google_font("Inconsolata"), 
@@ -493,16 +493,6 @@ knitr::include_graphics("Figs/congress/CFPB-2019-0006-0344.png")
 
 ---
 
-[Democratic Senators oppose the CFPB's 2019 rule that makes it easier for debt collectors to harass consumers.](https://www.regulations.gov/comment/CFPB-2019-0022-0053)
-[As do Democrats in the House.](https://www.regulations.gov/comment/CFPB-2019-0022-12107)
-[Katie Porter, writes separately to oppose CFPB's 2019 debt collection rule.](https://www.regulations.gov/comment/CFPB-2019-0022-14364)
-
-```{r, out.width = "50%"}
-knitr::include_graphics("Figs/congress/whiteboard.png")
-```
-
----
-
 Democrats demand a stronger rule on wages and low-income individuals. [The House comment has 77 signatories.](https://www.regulations.gov/comment/WHD-2019-0001-59350)
 [The Senate comment has 23](https://www.regulations.gov/comment/WHD-2019-0001-59355)
 
@@ -514,6 +504,18 @@ Democrats demand a stronger rule on wages and low-income individuals. [The House
 
 ```{r, out.width = "100%"}
 knitr::include_graphics("Figs/congress/IRS-2019-0039-8319.png")
+```
+
+
+
+---
+
+[Democratic Senators oppose the CFPB's 2019 rule that makes it easier for debt collectors to harass consumers.](https://www.regulations.gov/comment/CFPB-2019-0022-0053)
+[As do Democrats in the House.](https://www.regulations.gov/comment/CFPB-2019-0022-12107)
+[Katie Porter, writes separately to oppose CFPB's 2019 debt collection rule.](https://www.regulations.gov/comment/CFPB-2019-0022-14364)
+
+```{r, out.width = "50%"}
+knitr::include_graphics("Figs/congress/whiteboard.png")
 ```
 
 

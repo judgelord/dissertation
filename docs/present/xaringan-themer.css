@@ -18,18 +18,18 @@
  *  Version: 0.4.0
  *
  * ------------------------------------------------------- */
-@import url(https://fonts.googleapis.com/css?family=Old+Standard&display=swap);
-@import url(https://fonts.googleapis.com/css?family=PT+Sans&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Inconsolata&display=swap);
 
 
 :root {
   /* Fonts */
-  --text-font-family: 'Old Standard';
+  --text-font-family: Roboto;
   --text-font-is-google: 1;
   --text-font-family-fallback: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial;
   --text-font-base: sans-serif;
-  --header-font-family: 'PT Sans';
+  --header-font-family: 'Open Sans';
   --header-font-is-google: 1;
   --header-font-family-fallback: Georgia, serif;
   --code-font-family: Inconsolata;
