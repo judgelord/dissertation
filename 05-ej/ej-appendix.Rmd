@@ -469,6 +469,9 @@ allFR %>%
 
 ```{r ej-orgs}
 #ej-orgs
+source(here::here("code", "clean_orgs.R"))
+source(here::here("code", "setup.r"))
+
 
 ejorgs <- ejcomments %>% 
   drop_na(organization) %>% 
@@ -500,17 +503,17 @@ ejorgs_summary <- ejorgs %>%
 
 # need to do better
 nrow(ejorgs_summary)
-ejorgs_summary$`Total Comments` %>% sum()
+ejorgs_summary$`Total EJ Comments` %>% sum()
 
-ejorgs_summary %>%
-    save(file =  here("data", "ejorgs_summary.Rdata"))
+
+save(ejorgs_summary, file =  here("data", "ejorgs_summary.Rdata"))
 
 ejorgs_summary %>% 
   kablebox() #%>% kable3(caption = "Organizations Mobilizing the Most Public Comments 2005-2020")
 
 
 ejorgs_summary %>% 
-  arrange(-`Total Comments`) %>% 
+  arrange(-`Total EJ Comments`) %>% 
   kablebox() 
 
 ejorgs_FR <- ejcomments %>%

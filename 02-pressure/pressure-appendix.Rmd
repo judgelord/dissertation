@@ -22,7 +22,7 @@ source(here::here("code", "setup.R")) ### #
 
 # overide defaults
 knitr::opts_chunk$set(echo = TRUE, 
-                      cache = TRUE,
+                      cache = FALSE,
                       fig.path = "../figs/")
 ```
 
@@ -771,7 +771,7 @@ Most people engage in national policy processes as a result of organized public 
 
 > Yes, large majorities of both the hand-coded sample of comments and full dataset are form letters.
 
-The hand-coded sample generally excludes individuals who are not clearly associated with a mass comment campaign. However, these excluded comments are a minority of the `r comments_min %>% filter(docket_id %in% comments_coded$docket_id) %>%  tally(number_of_comments_received)` comments on the hand-coded rules. Even without looking at the excluded comments (many of which may also be part of pressure campaigns), most commenters are part of organized campaigns. 
+The hand-coded sample generally excludes individuals who are not clearly associated with a mass comment campaign. However, these excluded comments are a minority of the  comments on the hand-coded rules. Even without looking at the excluded comments (many of which may also be part of pressure campaigns), most commenters are part of organized campaigns. 
 
 ```{r}
 comments_coded %>% 
@@ -836,7 +836,7 @@ Public interest group coalitions mobilize *more often* than private interest gro
 
 > Yes, public interest coalitions use public pressure campaigns more often, both in the absolute number of campaigns and the share of lobbying efforts that involve a pressure campaign.
 
-```{r campaign-type-frequency, fig.height=1.7, fig.width=4}
+```{r campaign-type-frequency, fig.height=1.7, fig.width=4, cache=FALSE}
 #campaign-type (inspired by potter)
 
 coalitions_coded %>% 
@@ -881,7 +881,7 @@ Public interest group coalitions mobilize *more successfully* than private inter
 
 > Yes, public interest coalitions mobilize far more comments and far more comments on average.
 
-```{r campaign-type-scale, fig.height=1.7, fig.width=4}
+```{r campaign-type-scale, fig.height=1.7, fig.width=4, cache=FALSE}
 #campaign-type-scale
 
 coalitions_coded %>% 
