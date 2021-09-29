@@ -155,7 +155,7 @@ knitr::include_graphics("Figs/causal-direct.png")
 
 ```{r causal-oversight, fig.cap = "Direct and Indirect Effects of Political Information: Integrating Public Pressure and Congressional Oversight into Models of Bureaucratic Policymaking", out.width="100%"}
 #TODO label "Public Pressure" and "Oversight" portions. 
-knitr::include_graphics("figs/causal-indirect.png")
+knitr::include_graphics("Figs/causal-indirect.png")
 ```
 
 ---
@@ -245,7 +245,7 @@ class: inverse center middle
 
 ```{r percent-match, fig.show = "hold", out.width = "65%", fig.cap="Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments"}
 
-knitr::include_graphics("figs/comment_percent_match_plot.png")
+knitr::include_graphics("Figs/comment_percent_match_plot.png")
 ```
 
 ---
@@ -253,7 +253,7 @@ knitr::include_graphics("figs/comment_percent_match_plot.png")
 ### Hand-coded policy positions for interest groups and legislators
 
 ```{r spatial-coding, fig.cap= "Coding the Spatial Position of Comments on Proposed Policy Changes", out.width="75%"}
-include_graphics("figs/spatial-coding-1.png")
+include_graphics("Figs/spatial-coding-1.png")
 ```
 
 ---
