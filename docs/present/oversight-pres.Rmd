@@ -7,6 +7,7 @@ date: "Paper, slides, & data: [judgelord.github.io/research/oversight](https://j
 urlcolor: cyan
 output:
   xaringan::moon_reader:
+    self_contained: true
     lib_dir: libs
     mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"
     css: xaringan-themer.css
@@ -58,7 +59,7 @@ style_mono_light(base_color = "#3b444b",
 A [press release from the Sierra Club](https://www.sierraclub.org/press-releases/2019/08/trump-extinction-plan-guts-endangered-species-act) on 2019 rule to consider cost, not climate under the Endangered Species Act (1972, amended 1982)
 
 ```{r, fig.cap = "Sierra Club Press Release"}
-knitr::include_graphics(here::here("Figs", "FWS-HQ-ES-2018-0006-53372-press.png"))
+knitr::include_graphics("Figs/FWS-HQ-ES-2018-0006-53372-press.png")
 ```
 
 
@@ -144,7 +145,7 @@ Thus far, by information, scholars generally mean technical and legal informatio
 
 ```{r causal-whymail2, fig.cap = "Direct Effects of Political Information: Incorporating Political Information into Models of Bureaucratic Policymaking"}
 # TODO ADD HEADERS, REMOVE LATENT DEMANDS
-knitr::include_graphics(here::here("Figs", "causal-direct.png"))
+knitr::include_graphics("Figs/causal-direct.png")
 ```
 
 ---
@@ -154,7 +155,7 @@ knitr::include_graphics(here::here("Figs", "causal-direct.png"))
 
 ```{r causal-oversight, fig.cap = "Direct and Indirect Effects of Political Information: Integrating Public Pressure and Congressional Oversight into Models of Bureaucratic Policymaking", out.width="100%"}
 #TODO label "Public Pressure" and "Oversight" portions. 
-knitr::include_graphics(here::here("figs", "causal-indirect.png"))
+knitr::include_graphics("figs/causal-indirect.png")
 ```
 
 ---
@@ -189,7 +190,7 @@ class: inverse center middle
 Campaigns engage legislators
 
 ```{r, out.width = "70%"}
-knitr::include_graphics(here::here("examples/congress/EPA-HQ-OAR-2005-0161-2624.png"))
+knitr::include_graphics("Figs/congress/EPA-HQ-OAR-2005-0161-2624.png")
 
 
 ```
@@ -199,9 +200,9 @@ knitr::include_graphics(here::here("examples/congress/EPA-HQ-OAR-2005-0161-2624.
 Campaigns engage legislators
 
 ```{r, out.width = "30%", fig.show = "hold"}
-knitr::include_graphics(here::here("Figs/sierra1.jpeg"))
+knitr::include_graphics("Figs/sierra1.jpeg")
 
-knitr::include_graphics(here::here("Figs/sierra2.jpeg"))
+knitr::include_graphics("Figs/sierra2.jpeg")
 ```
 
 
@@ -210,7 +211,7 @@ knitr::include_graphics(here::here("Figs/sierra2.jpeg"))
 [Rep. Brad Sherman (D-CA) forwards astroturf campaign signatures opposing CFPB's 2016 payday loan rule.](https://www.regulations.gov/document/CFPB-2016-0025-148844)
 
 ```{r, out.width = "100%", fig.cap=""}
-knitr::include_graphics(here::here("examples/congress/CFPB-2016-0025-148844.png")  )
+knitr::include_graphics("Figs/congress/CFPB-2016-0025-148844.png")  
 ```
 
 ---
@@ -218,7 +219,7 @@ knitr::include_graphics(here::here("examples/congress/CFPB-2016-0025-148844.png"
 [Rep. Brad Sherman (D-CA) forwards astroturf campaign signatures opposing CFPB's 2016 payday loan rule.](https://www.regulations.gov/document/CFPB-2016-0025-148844)
 
 ```{r, out.width = "100%", fig.cap=""}
-knitr::include_graphics(here::here("examples/congress/CFPB-2016-0025-148844-constituent.png")  )
+knitr::include_graphics("Figs/congress/CFPB-2016-0025-148844-constituent.png") 
 ```
 
 ---
@@ -226,7 +227,7 @@ knitr::include_graphics(here::here("examples/congress/CFPB-2016-0025-148844-cons
 [Rep. Brad Sherman (D-CA) forwards an astroturf campaign signatures opposing regulation of payday loans.](https://www.regulations.gov/document/CFPB-2016-0025-148844)
 
 ```{r, out.width = "100%", fig.cap=""}
-knitr::include_graphics(here::here("examples/congress/CFPB-2016-0025-148844-astroturf.png")  )
+knitr::include_graphics("Figs/congress/CFPB-2016-0025-148844-astroturf.png")  
 ```
 
 Financial Service Centers of America is a trade association for the financial service center industry. 
@@ -244,7 +245,7 @@ class: inverse center middle
 
 ```{r percent-match, fig.show = "hold", out.width = "65%", fig.cap="Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments"}
 
-knitr::include_graphics(here::here("figs", "comment_percent_match_plot.png")  )
+knitr::include_graphics("figs/comment_percent_match_plot.png")
 ```
 
 ---
@@ -252,7 +253,7 @@ knitr::include_graphics(here::here("figs", "comment_percent_match_plot.png")  )
 ### Hand-coded policy positions for interest groups and legislators
 
 ```{r spatial-coding, fig.cap= "Coding the Spatial Position of Comments on Proposed Policy Changes", out.width="75%"}
-include_graphics(here("figs", "spatial-coding-1.png"))
+include_graphics("figs/spatial-coding-1.png")
 ```
 
 ---
@@ -268,7 +269,7 @@ class: inverse center middle
 - Legislators tended to oppose policies of both administrations
 
 ```{r coded-support, out.width= "60%", fig.cap="Hand-coded Comments By Type and Position on Proposed Rule"}
-knitr::include_graphics(here("Figs", "coded-support-1.png"))
+knitr::include_graphics("Figs/coded-support-1.png")
 ```
 
 
@@ -277,7 +278,7 @@ knitr::include_graphics(here("Figs", "coded-support-1.png"))
 - Congressional attention spikes with pressure campaigns
 
 ```{r,fig.cap = "Rulemaking Comments from Members of Congress per Year, 2005-2020", out.width="90%"}
-knitr::include_graphics(here("Figs", "data-congress-1.png"))
+knitr::include_graphics("Figs/data-congress-1.png")
 ```
 
 
@@ -292,7 +293,7 @@ One mechanism by which campaigns may influence policy is by mobilizing members o
 - Congressional attention is correlated with pressure campaigns
 
 ```{r causal-mediated, fig.cap="", fig.show = "hold", out.width = "50%"}
-knitr::include_graphics(here::here("Figs/congress-corr-2.png"))
+knitr::include_graphics("Figs/congress-corr-2.png")
 ```
 
 ---
@@ -303,7 +304,7 @@ Controlling for policy positions,
 - Public interest coalitions enjoy more legislator support
 
 ```{r, fig.cap="", fig.show = "hold", out.width = "75%"}
-knitr::include_graphics(here::here("Figs/model-oversight-1.png"))
+knitr::include_graphics("Figs/model-oversight-1.png")
 ```
 
 ???
@@ -314,7 +315,7 @@ knitr::include_graphics(here::here("Figs/model-oversight-1.png"))
 - When organizations have more congressional support, they are more likely to achieve their policy goals (difference-in-difference design)
 
 ```{r mo-success-did, fig.cap="", fig.show = "hold", out.width = "60%"}
-knitr::include_graphics(here::here("Figs/mo-success-did.png"))
+knitr::include_graphics("Figs/mo-success-did.png")
 ```
 
 ---
@@ -363,7 +364,7 @@ class: inverse center middle
 [Florida Republican, Vern Buchanan, opposing a Trump-era rule rolling back regulations]( https://www.regulations.gov/comment/BSEE-2017-0008-0473)
 
 ```{r, out.width = "100%"}
-knitr::include_graphics(here::here("examples/congress/BSEE-2017-0008-0473.png"))
+knitr::include_graphics("Figs/congress/BSEE-2017-0008-0473.png")
 ```
 
 ???
@@ -383,7 +384,7 @@ And another! https://www.regulations.gov/comment/BSEE-2018-0002-20464
 [Mike Pence et al. opposing regulatory delay](https://www.regulations.gov/comment/TREAS-DO-2007-0015-0112)
 
 ```{r, out.width = "100%"}
-knitr::include_graphics(here::here("examples/congress/TREAS-DO-2007-0015-0112.png"))
+knitr::include_graphics("Figs/congress/TREAS-DO-2007-0015-0112.png")
 ```
 
 Gambling industry groups requested state-by-state surveys of gambling laws. Legislators called out this ploy for regulatory delay.
@@ -393,7 +394,7 @@ Gambling industry groups requested state-by-state surveys of gambling laws. Legi
 [More GOP opposition to gambling rule, now from the Subcommittee on Administrative Law on procedural grounds](https://www.regulations.gov/comment/TREAS-DO-2007-0015-0125)
 
 ```{r, out.width = "100%"}
-knitr::include_graphics(here::here("examples/congress/TREAS-DO-2007-0015-0125.png"))
+knitr::include_graphics("Figs/congress/TREAS-DO-2007-0015-0125.png")
 ```
 
 ---
@@ -408,7 +409,7 @@ knitr::include_graphics(here::here("examples/congress/TREAS-DO-2007-0015-0125.pn
 [26 Republicans ask the Comptroller of the Currency for clarity on a 2020 proposed rule that increases regulations between banks and lenders, focusing on the rule's impact on companies.](https://www.regulations.gov/comment/OCC-2020-0026-0002)
 
 ```{r, out.width = "100%"}
-knitr::include_graphics(here::here("examples/congress/OCC-2020-0026-0002.png"))
+knitr::include_graphics("Figs/congress/OCC-2020-0026-0002.png")
 ```
 
 ---
@@ -416,7 +417,7 @@ knitr::include_graphics(here::here("examples/congress/OCC-2020-0026-0002.png"))
 [Democrats opposing the same 2020 Comptroller of the Currency rule](https://www.regulations.gov/comment/OCC-2020-0026-0277)
 
 ```{r, out.width = "100%"}
-knitr::include_graphics(here::here("examples/congress/OCC-2020-0026-0277.png"))
+knitr::include_graphics("Figs/congress/OCC-2020-0026-0277.png")
 ```
 
 These examples illustrate how “states rights” rhetoric is used strategically depending on which side of the substantive issue one is on.
@@ -430,7 +431,7 @@ Here, Democrats are advocating for states' rights, while Republicans want a fede
 
 
 ```{r, out.width = "100%"}
-knitr::include_graphics(here::here("examples/congress/FWS-R9-ES-2008-0093-8782.png"))
+knitr::include_graphics("Figs/congress/FWS-R9-ES-2008-0093-8782.png")
 ```
 
 ---
@@ -441,7 +442,7 @@ knitr::include_graphics(here::here("examples/congress/FWS-R9-ES-2008-0093-8782.p
 [Democrats push back against an astroturf campaign](https://www.regulations.gov/comment/IRS-2016-0015-0134)
 
 ```{r, out.width = "100%"}
-knitr::include_graphics(here::here("examples/congress/IRS-2016-0015-0134.png"))
+knitr::include_graphics("Figs/congress/IRS-2016-0015-0134.png")
 ```
 
 <!--
@@ -456,13 +457,13 @@ nothing super interesting about this joint comment from members of Congress, jus
 This [anonymous astroturf email campaign from betterenergyfuture.org](https://www.regulations.gov/comment/EPA-HQ-OAR-2013-0495-11019) used similar language to a [fact sheet posted on the Senate Environment and Public Works committee website](https://www.epw.senate.gov/public/_cache/files/5/d/5d8613e0-0f17-4b22-834e-dc62290e5ed[…]B8DDB0B7674CC20A3FF8D9AC5E.myths-facts---global-wamring.pdf)
 
 ```{r, out.width = "100%"}
-knitr::include_graphics(here::here("examples/congress/EPA-HQ-OAR-2013-0495-11019.png"))
+knitr::include_graphics("Figs/congress/EPA-HQ-OAR-2013-0495-11019.png")
 ```
 
 ---
 
 ```{r, out.width = "100%"}
-knitr::include_graphics(here::here("examples/congress/EPA-HQ-OAR-2013-0495-11019 source.png"))
+knitr::include_graphics("Figs/congress/EPA-HQ-OAR-2013-0495-11019 source.png")
 ```
 
 <!--
@@ -485,9 +486,9 @@ Strong words from Democrat, [Tom Malinowski](https://www.regulations.gov/documen
 and [other democrats](https://www.regulations.gov/document?D=CFPB-2019-0006-0344) who oppose the Trump-era CFPB rule that would deregulate payday lenders.
 
 ```{r, out.width = "100%"}
-knitr::include_graphics(here::here("examples/congress/CFPB-2019-0006-39935.png"))
+knitr::include_graphics("Figs/congress/CFPB-2019-0006-39935.png")
 
-knitr::include_graphics(here::here("examples/congress/CFPB-2019-0006-0344.png"))
+knitr::include_graphics("Figs/congress/CFPB-2019-0006-0344.png")
 ```
 
 ---
@@ -497,7 +498,7 @@ knitr::include_graphics(here::here("examples/congress/CFPB-2019-0006-0344.png"))
 [Katie Porter, writes separately to oppose CFPB's 2019 debt collection rule.](https://www.regulations.gov/comment/CFPB-2019-0022-14364)
 
 ```{r, out.width = "50%"}
-knitr::include_graphics(here::here("examples/congress/whiteboard.png"))
+knitr::include_graphics("Figs/congress/whiteboard.png")
 ```
 
 ---
@@ -512,7 +513,7 @@ Democrats demand a stronger rule on wages and low-income individuals. [The House
 
 
 ```{r, out.width = "100%"}
-knitr::include_graphics(here::here("examples/congress/IRS-2019-0039-8319.png"))
+knitr::include_graphics("Figs/congress/IRS-2019-0039-8319.png")
 ```
 
 
