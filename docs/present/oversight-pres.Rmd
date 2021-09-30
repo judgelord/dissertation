@@ -332,7 +332,6 @@ knitr::include_graphics("Figs/mo-success-did.png")
 
 - Lobbying efforts with more allies in Congress are more likely to win
 
-
 <!--
 
 ## Public pressure campaigns target a small portion of policies
