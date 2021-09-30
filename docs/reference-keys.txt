@@ -29,6 +29,7 @@ hyp:c-success-private
 hyp:o-success
 eq:formal-libgober
 eq:formal
+tab:beacon
 fig:causal-oversight
 hyp:oversight
 hyp:beacon
@@ -57,6 +58,7 @@ hyp:ej-pressure
 fig:ej-data
 fig:ej-data-agencies100
 fig:ej-comments
+tab:ejorgs
 fig:ejcommentsbyrace
 fig:ej-m-PR-president-median-1
 fig:ej-m-PR-comments-agencyFE
@@ -199,10 +201,3 @@ formal-app
 figs-app
 the-number-of-comments-per-rule-over-time
 mentions-of-support-and-opposition
-github-repo-httpsgithub.comjudgelorddissertation
-public-and-private-aims
-measuring-the-volume-intensity-and-potential-contagion-of-public-engagement
-summary-statistics-for-machine-coded-data
-estimating-whether-environmental-justice-is-added-to-final-rule
-cases
-hard-cases

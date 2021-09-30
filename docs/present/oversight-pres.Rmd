@@ -241,7 +241,7 @@ class: inverse center middle
 
 ---
 
-### Text-reuse + hand-coding identify coalitions of groups and legislators
+### Text reuse + hand-coding identify coalitions of groups & legislators
 
 ```{r percent-match, fig.show = "hold", out.width = "65%", fig.cap="Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments"}
 
@@ -328,7 +328,7 @@ knitr::include_graphics("Figs/mo-success-did.png")
 
 -  Unlike groups and individuals, legislators most often engage when they oppose rules (supporting Lowande & Potter 2021)
 
-- While this often makes legislators on the same side as corporations, controlling for a policy position, legislators are slightly more likely to support public interest coalitions
+- While this often makes legislators on the same side as corporations, controlling for policy position, legislators are slightly more likely to support public interest coalitions
 
 - Lobbying efforts with more allies in Congress are more likely to win
 
