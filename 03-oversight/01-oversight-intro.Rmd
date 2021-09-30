@@ -97,6 +97,24 @@ political risks (like a "warning sign") *or*, conversely, to encourage
 the agency to hold course (like a "beacon") attracting positive attention
 and credit claiming opportunities for their oversight work. In the case of the FTC's "Do Not Call" rule and subsequent legislation, mass engagement functioned more as a "warning" for would-be opponents and a "beacon" for potential allies, effectively enabling and empowering rather than restraining the agency as the classic "police patrol" and "fire alarm" concept suggests. <!--Agency officials
 credit the public support mobilized by public pressure campaigns with the political cover needed to hold course.-->
+Table \@ref(tab:beacon) expands the "fire alarm" model of congressional oversight [@McCubbins1984] to include other ways in which interest groups may affect oversight.
+
+```{r beacon , echo=FALSE, results='asis'}
+  cat('Table: (\\#tab:beacon) How Interest Groups and Public Attention and Pressure May Affect Legislator Behavior
+  
+  |                           | Legislator Supports Rule        | Legislator Opposes Rule         |   |   |
+|---------------------------|---------------------------------|---------------------------------|---|---|
+| Constituents Support Rule | "Beacon" for credit claiming    | "Warning sign" against engaging |   |   |
+| | | | | | 
+| Constituents Oppose Rule  | "Warning sign" against engaging | "Fire alarm" for oversight      |   |   |
+|                           |                                 |                                 |   |   |
+')
+
+```
+
+Table: (\#tab:beacon) How Interest Groups and Public Attention and Pressure May Affect Legislator Behavior
+
+
 
 The fire alarm, beacon, and warning sign mechanisms have a common thread: interest groups' public pressure campaigns affect political oversight. To the extent that this is strategic, pressure campaigns aim to influence policy indirectly by affecting the behavior of elected officials.
 
@@ -109,7 +127,7 @@ When lobbying organizations use a public pressure strategy, the political inform
 
 ```{r causal-oversight, fig.cap = "Direct and Indirect Effects of Political Information: Integrating Public Pressure and Congressional Oversight into a Model of Lobbying in Bureaucratic Policymaking"}
 #TODO label "Public Pressure" and "Oversight" portions. 
-knitr::include_graphics(here::here("figs", "causal-indirect.pdf"))
+knitr::include_graphics(here::here("figs", "causal-indirect.png"))
 ```
 
 Public pressure campaigns in bureaucratic policymaking may affect the behavior of
