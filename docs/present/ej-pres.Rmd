@@ -1,4 +1,5 @@
 ---
+knit: ( function(input, ...) { xaringan::infinite_moon_reader(input) } )
 title: "The Environmental Justice Movement's Impact on Technocratic Policymaking"
 subtitle: ""
 author: "Devin Judge-Lord <br>  Harvard University"
@@ -10,6 +11,7 @@ output:
     mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"
     css: xaringan-themer.css
     nature:
+      ratio: '16:9'
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -33,6 +35,8 @@ knitr::opts_chunk$set(warning = FALSE,
 library("xaringan")
 library("xaringanthemer")
 library("here")
+library("tidyverse")
+library(magrittr)
 
 
 style_mono_light(base_color = "#3b444b",
@@ -348,7 +352,7 @@ knitr::include_graphics("Figs/ej-data-ejpr-1.png")
 
 ~4,800,000 (~28,000 unique) comments raise EJ concerns
 
-```{r ej-comments, out.width = "75%"}
+```{r ej-comments, out.width = "55%"}
 
 knitr::include_graphics("Figs/ej-comments-1.png")
 ```
@@ -384,7 +388,7 @@ background-size: cover
 
 ---
 
-```{r ejcommentsbyrace, fig.cap = 'Estimated Racial Distribution from Census Surnames of Commenters raising ``Environmental Justice" Concerns in Rulemaking', fig.height = 1.5, fig.width=2, out.width = "40%", fig.show = "hold"}
+```{r ejcommentsbyrace, fig.cap = 'Estimated Racial Distribution from Census Surnames of Commenters raising "Environmental Justice" Concerns in Rulemaking', fig.height = 1.5, fig.width=2, out.width = "40%", fig.show = "hold"}
 load(here::here("data", "ej_race.Rdata"))
 
 Race %>% ggplot() + 
@@ -399,7 +403,7 @@ Race %>% ggplot() +
 
 ## Results 
 
-```{r table,  out.width = "90%"}
+```{r table,  out.width = "70%"}
 
 knitr::include_graphics("Figs/ej-table.png")
 ```
@@ -408,8 +412,7 @@ knitr::include_graphics("Figs/ej-table.png")
 
 ## Results: Adding EJ to Policy
 
-```{r ej-m-PR-president-median-1,  out.width = "75%"}
-
+```{r ej-m-PR-president-median-1, out.width = "60%"}
 knitr::include_graphics("Figs/ej-m-PR-president-median-1.png")
 ```
 
@@ -432,7 +435,7 @@ knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-1.png")
 
 ## Results: Adding EJ to Policy
 
-```{r ej-m-PR-comments-agencyFE, out.width = "90%", fig.show = "hold"}
+```{r ej-m-PR-comments-agencyFE, out.width = "80%", fig.show = "hold"}
 
 knitr::include_graphics("Figs/ej-m-PR-comments-agencyFE-1.png")
 
@@ -459,7 +462,7 @@ knitr::include_graphics("Figs/ej-mejPR-ejcomments-agencyFE-1.png")
 
 ## Results: Changing Existing EJ Language
 
-```{r ej-mejPR-comments, out.width = "90%"}
+```{r ej-mejPR-comments, out.width = "80%"}
 
 knitr::include_graphics("Figs/ej-mejPR-comments-agencyFE-1.png")
 ```
