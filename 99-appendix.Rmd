@@ -16,7 +16,7 @@ Wisconsin Emergency Management Agency, submitted a comment in June of 2016 compl
 
 # An Expanded Model of Bureaucratic Policymaking {#causal-full}
 
-Assembling the models presented in Chapters \@ref(whymail) and \@ref(influence), \@ref(fig:causal-full) presents a full picture of the role of public pressure campaigns in bureaucratic policymaking. 
+Assembling the models presented in Chapter \@ref(whymail) and Chapter \@ref(influence), Figure \@ref(fig:causal-full) presents a full picture of the role of public pressure campaigns in bureaucratic policymaking. 
 
 ```{r causal-full,  fig.cap = "Incorporating Political Information into Models of Bureaucratic Policymaking"}
 knitr::include_graphics(here::here("figs", "causal-full2.png"))
@@ -60,6 +60,6 @@ As discussed in Chapter \@ref(whymail), the number of agency rules receiving a l
 knitr::include_graphics(here::here("Figs", "comments-mass-support-vs-oppose-1.png"))
 ```
 
-In line with findings from the hand-coded data presented Figure \@ref(fig:comments-support) in \@ref(why-results), a search for "Support" and "Oppose" in comment text (Figure\@ref(fig:comments-support-app)) shows a dramatic reversal in support and opposition with the change from the Obama administration to the Trump administration.
+In line with findings from the hand-coded data presented Figure \@ref(fig:comments-support) in \@ref(why-results), a search for "Support" and "Oppose" in comment text (Figure \@ref(fig:comments-support-app)) shows a dramatic reversal in support and opposition with the change from the Obama administration to the Trump administration.
 Mentions of "support" or "oppose" may be a noisy signal---these words are not used in all comments and do not always indicate support for or opposition to a rule. Still, given the partisan asymmetry in the mobilizing groups, it is plausible that this pattern is a result of the changing regulatory agenda due to the change in the presidential
 administration. 

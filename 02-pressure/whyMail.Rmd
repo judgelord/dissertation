@@ -1,44 +1,43 @@
 ---
 # rmarkdown::render("02-pressure/whyMail.Rmd")
+knit: ( function(input, ...)  {
+  rmarkdown::render(input)
+  
+  make_article(input)
+  }  )
 # output_dir: "../docs"  # to push
 output_dir: "docs"  # to push
 title: Why Do Agencies (Sometimes) Get So Much Mail?
 subtitle: Public Pressure Campaigns and Bureaucratic Policymaking
-author: Devin Judge-Lord
-
-# author:
-# - name: Devin Judge-Lord
-#   affiliation: 
-#   footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/whymail>"
+author:
+- name: Devin Judge-Lord
+  affiliation: Harvard University
+#  footnote: "University of Wisconsin-Madison, [judgelord@wisc.edu](mailto:judgelord@wisc.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/whymail>"
 date: |
    `r Sys.Date()` Draft. Slides and the most recent draft are available at [judgelord.github.io](https://judgelord.github.io/research/whymail/) 
 abstract: | 
   `r readLines(here::here("02-pressure/abstract.txt"))`
-
-documentclass: memoir
-#documentclass: article
-classoption: oneside
 always_allow_html: true
 fontsize: 12pt
-geometry: "left = 1.25in, right = 1.25in, top = 1.25in, bottom = 1.25in"
+#geometry: "left = 1.25in, right = 1.25in, top = 1.25in, bottom = 1.25in"
 bibliography: '`r here::here("assets/dissertation.bib")`'
 biblio-style: '`r here::here("assets/apsr.bst")`'
 link-citations: yes
 citecolor: black
 urlcolor: blue
-language:
-  ui:
-    chapter_name: "Chapter "
+# language:
+#   ui:
+#     chapter_name: "Chapter "
 # endnotes: true # CHANGE THIS BEFORE SUBMISSION
 frontpage: true
 spacing: onehalfspacing
 # github-repo: https://github.com/judgelord/dissertation
 # description: ""
-keywords: Interest groups, rulemaking, lobbying, bureaucratic politics
+keywords: Interest groups, civic engagement, pressure groups, lobbying coalitions, bureaucratic politics, rulemaking
 
 output:
     bookdown::pdf_document2:
-      #template: '../assets/article-template.tex' # redirect to assets 
+      template: '../assets/article-template.tex' # redirect to assets 
       keep_tex: true
       latex_engine: xelatex
       citation_package: natbib
@@ -46,8 +45,12 @@ output:
       fig_caption: true
       fig.topcaption: true
       fig.width: 7
-      includes:
-        in_header: "../assets/preamble-memoir.tex"
+    word_document: default
+header-includes:
+  - \usepackage{floatrow}
+  - \usepackage{float}
+  - \floatsetup[figure]{capposition=top}
+  - \floatsetup[table]{capposition=top}
 ---
 
 ```{r global.options, include=FALSE, cache=FALSE}
@@ -90,13 +93,15 @@ The following chapter is part of a dissertation exploring the effects of public 
 ```{r child = here::here("02-pressure/04-why-results.Rmd")}
 ```
 
-
+# Appendix {-}
 
 \newpage
 
 ```{r child = here::here("99-appendix.Rmd")}
 ```
 
+
+<!--
 \begin{figure}
     \caption{Unique or Partially Unique Comments by Sentiment Score (Sample of 2018 Rules)}
     \label{fig:sentiment-2018}
@@ -121,6 +126,8 @@ The following chapter is part of a dissertation exploring the effects of public 
     \includegraphics[width = 7in]{../Figs/sent-2016NOAA-2005-0226.png}
 \end{figure}
 
+-->
+
 \clearpage
 
 ## Descriptive Data About Public Comments
@@ -130,6 +137,7 @@ The following chapter is part of a dissertation exploring the effects of public 
 knitr::include_graphics(here::here("Figs", "comments-from.pdf"))
 ```
 
+<!--
 \begin{figure}[p!]
     \centering
         \caption{Major and Non-major Rules on regulations.gov}
@@ -144,8 +152,6 @@ knitr::include_graphics(here::here("Figs", "comments-from.pdf"))
     \label{fig:rules-priority}
 \end{figure}
 
-
+-->
 
 \clearpage 
-
-

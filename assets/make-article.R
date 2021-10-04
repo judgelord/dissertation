@@ -1,8 +1,13 @@
-chapter <- "05-ej/ej.tex"
+#chapter <- "05-ej/ej.tex"
+#chapter <- "02-pressure/whyMail.tex"
 
-make_article <- function(chapter){
-
-text <- readLines(here::here(chapter)) %>%
+make_article <- function(input, ...) {
+  
+  #rmarkdown::render(input)
+  
+  chapter <- paste0(xfun::sans_ext(input), '.tex')
+  
+text <- readLines(chapter) %>%
   # up one header level
   str_replace_all("subsection", "section") %>% 
   #inspect for chapter cites .[doc %>% str_detect("Chapter .ref")] %>% 
@@ -13,7 +18,7 @@ text <- readLines(here::here(chapter)) %>%
   str_replace_all("Chapter .ref", "\\\\citet")
 
 # rename
-article <- here::here(chapter) %>% str_replace(".tex$", "-article.tex") 
+article <- chapter %>% str_replace(".tex$", "-article.tex") 
 
 # save article .tex file 
 writeLines(text, article)  
