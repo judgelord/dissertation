@@ -68,29 +68,25 @@ file <- here("present/ej-pres.html")
 webshot(file, "ej-pres.pdf")
 ```
 
-<!--
 
-Hi, my name is Devin Judge-Lord; I'm a Ph.D. candidate at Wisconsin and will be a postdoc at Harvard in the fall.
 
-I'm grateful to Susan for the invitation and look forward to your feedback. The paper I circulated is the final chapter of my dissertation, and this is the first time I am sharing it outside of my department. Being part of a larger project, your input, however far afield, will be helpful. 
+# The EJ Frame
 
-My dissertation is at the intersection of two literatures that have not had much contact. 
+- Emerged in local campaigns against landfills and DDT
+- Began appearing in federal policy documents in the 1980s
+- A fusion of the American Indian Movement, Chicano movement, farmworker movement, civil rights movement, and union organizing
 
-On the one hand, social movements and civic engagement have long been a core interest of political scientists. We are highly uncertain about the size of effects from actions like letter writing, signing petitions, and protests, but there is little doubt that these things matter at a large enough scale.
+> People of color [raised] social justice concerns such as self-determination, sovereignty, human rights, social inequality, loss of land base, limited access to natural resources, and disproportionate impacts of environmental hazards and linked them with traditional working-class environmental concerns such as worker rights and worker health and safety to develop an environmental justice agenda. (Taylor 2012, p. 1)
+
+???
+
+Hi, my name is Devin Judge-Lord; I'm a postdoc at Harvard Univ. in the Center for American Politics and Center For the Environment...This paper is the final chapter of my dissertation...As part of a larger project, your input, however far afield, will be helpful...
+
+My work is at the intersection of two literatures that have not had much contact...On the one hand, social movements and civic engagement have long been a core interest of political scientists. We are highly uncertain about the size of effects from actions like letter writing, signing petitions, and protests, but there is little doubt that these things matter at a large enough scale.
 
 On the other hand, bureaucratic policy processes like agency rulemaking are often discussed as if they operate with technocratic rationality. In a sense, mass politics is missing from a lot of the administrative law literature and even from political science theories and formal models of bureaucratic policymaking. 
 
-I'll give a very brief overview of the empirical parts of my broader project to integrate social movement and bureaucratic policymaking scholarship and then focus on my final empirical chapter where I am attempting to systematically assess the impact of one social movement.
-
-[SLIDE SLIDE]
-
-
-
-background-image: url(figs/climatemarchDCej.jpg)
-background-size: cover
-
-
---->
+---
 
 ## Do Social Movements Cause Policy Change?
 
@@ -100,7 +96,7 @@ background-size: cover
 
 --
 
-- **Activists shape parties** (Cohen et al., 2008, Schlozman 2015, Skocpol & Williamson 2016)
+- **Activists shape parties** (Cohen et al. 2008, Schlozman 2015, Skocpol & Williamson 2016)
 
 --
 
@@ -148,7 +144,7 @@ The big question is whether social movements impact policy.
 
 Social movement scholars tend to focus on explaining the movement. 
 
-With a few notable exceptions (like Dan Gillion's work on civil rights protests), most scholars are not looking at policy, and when they do, they usually focused on a few pieces of landmark legislation.
+With a few notable exceptions (like Dan Gillion's work on civil rights protests), most scholars are not looking at policy. When they do, they usually focus on a few pieces of landmark legislation.
 
 - I help fill that gap by looking systematically at change in very specific policy documents, agency rules. Agency rules now make up 90% of US law; rulemaking is where the teeth of the law are forged and reforged.
 
@@ -182,6 +178,27 @@ Or, consider the opposite. Legislative gridlock continues, but the Biden Harris 
 - Will organized public pressure carry over to agency policymaking? 
 
 - If so, what kinds of politics are influential. Is it general attention? Is it specific pressure groups like environmental justice activists?
+
+---
+
+## Preview of findings
+
+Framing matters
+
+- policy rarely addresses EJ concerns (across administrations)
+
+- it's much more likely to do so when EJ is raised or when it's in the spotlight
+
+--
+
+Especially for receptive policymakers who have not already taken a position
+
+- With larger coalitions and more public attention, agencies are more likely  📈 to **add** EJ language **where there was none**
+- BUT agencies also anticipate public attention, making **existing** EJ analyses less likely 📉 to **change** on higher-salience rules.
+
+--
+
+HOWEVER, groups raising EJ are "big green" (White) advocacy organizations
 
 ---
 
@@ -219,8 +236,8 @@ Thus far, by information, scholars generally mean technical and legal informatio
 
 > Policymakers are more likely to address distributive justice when groups raise distributive justice concerns.
 
-✅ Pro: "norms and values are set communicatively" (Habermas 1996), "identifying interests" shapes policy (Gellhorn, 1972)   
-❌ Con: Bureaucratic policymaking is about "technical expertise" (Epstein, Heidt, and Farina, 2014)
+✅ Pro: "norms and values are set communicatively" (Habermas 1996), "identifying interests" shapes policy (Gellhorn 1972)   
+❌ Con: Bureaucratic policymaking is about "technical expertise" (Epstein, Heidt, and Farina 2014)
 
 --
 
@@ -228,13 +245,10 @@ Thus far, by information, scholars generally mean technical and legal informatio
 
 > Policymakers are more likely to address concerns when more groups raise them.
 
-✅ : "Coalition size" (Nelson and Yackee (2012)    
-❌ : "Informational value" (Epstein, Heidt, and Farina, 2014; Gailmard and Patty, 2017; Libgober, 2018)
+✅ : "Coalition size" (Nelson and Yackee  2012)    
+❌ : "Informational value" (Epstein, Heidt, and Farina 2014; Gailmard and Patty 2017; Libgober 2018)
 
 ???
-
-First,
-
 
 ---
 
@@ -242,8 +256,8 @@ First,
 
 > Policymakers that more frequently address certain concerns will be more responsive to groups raising those concerns.
 
-<!-- "Legibility" (Scott, 1998), -->
-✅ : "Opportunity struture" (Marks & McAdam, 2007; McAdam, 2010) "fit inside the legal narrative" (Delaney, 2017; Deloria, 2009; Scott 1998)
+<!-- "Legibility" (Scott 1998), -->
+✅ : "Opportunity struture" (Marks & McAdam 2007; McAdam 2010) "fit inside the legal narrative" (Scott 1998; Deloria 2009; Delaney 2017)
 
 > "[Political opportunity] must be seen not just in terms of openness (in other words, access to the administration), but also in terms of political receptivity to the claims being made." (Hilson 2002, p. 242)
 
@@ -280,7 +294,7 @@ First,
 1. E.O. 12898 "Federal Actions to Address Environmental Justice."
 --
 --> Administrative Procedures Act lawsuits: 
-> "environmental justice analysis can be reviewed under NEPA and the APA" (*Protect Our Communities Foundation v. Salazar*, 2013; *Communities Against Runway Expansion, Inc. v. FAA*, 2004)
+> "environmental justice analysis can be reviewed under NEPA and the APA" (*Protect Our Communities Foundation v. Salazar* 2013; *Communities Against Runway Expansion, Inc. v. FAA* 2004)
 
 
 ???
@@ -326,7 +340,9 @@ on "vulnerable populations" including "African Americans," "Hispanic,"
 --
 ⁉️
 
+--
 
+- 2021 Draft: ??
 ???
 
 
@@ -356,6 +372,19 @@ knitr::include_graphics("Figs/ej-data-ejpr-1.png")
 
 knitr::include_graphics("Figs/ej-comments-1.png")
 ```
+
+---
+
+## Data: ~42,000,000 Public Comments
+
+~4,800,000 (~28,000 unique) comments raise EJ concerns
+
+
+```{r percent-match, fig.show = "hold", out.width = "50%", fig.cap="Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments"}
+
+knitr::include_graphics(here::here("figs", "comment_percent_match_plot.png")  )
+```
+
 
 ---
 
@@ -475,7 +504,7 @@ knitr::include_graphics("Figs/ej-mejPR-comments-agencyFE-1.png")
 ---
 
 
-## Results: To sum up, yes, movements matter.
+## Results: To sum up, yes, movements matter
 
 (even when victories are rare)
 
