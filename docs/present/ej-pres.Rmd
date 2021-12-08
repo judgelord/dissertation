@@ -1,5 +1,5 @@
 ---
-knit: ( function(input, ...) { xaringan::infinite_moon_reader(input) } )
+knit: (function(input, ...) {rmarkdown::render(input)})
 title: "The Environmental Justice Movement's Impact on Technocratic Policymaking"
 subtitle: ""
 author: "Devin Judge-Lord <br>  Harvard University"
@@ -382,7 +382,7 @@ knitr::include_graphics("Figs/ej-comments-1.png")
 
 ```{r percent-match, fig.show = "hold", out.width = "50%", fig.cap="Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments"}
 
-knitr::include_graphics(here::here("figs", "comment_percent_match_plot.png")  )
+knitr::include_graphics("Figs/comment_percent_match_plot.png") 
 ```
 
 
