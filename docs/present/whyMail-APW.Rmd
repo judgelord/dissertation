@@ -85,6 +85,8 @@ On the one hand, civic engagement has long been a core interest of political sci
 
 ## Rulemaking, ~90% of new U.S. law
 
+--
+
 
 ## Whom does notice and comment rulemaking empower? 
 
@@ -158,9 +160,6 @@ exclude: true
 
 ---
 
-exclude: true 
-
-
 ## Bureaucratic policymaking
 
 
@@ -171,7 +170,10 @@ exclude: true
 
 > "The realm of durable, consequential policies is the realm of organized interests." - Hacker, Hertel-Fernandez,  Pierson, and Thelen
 
-![](Figs/classicmodel.png)
+```{r causal-classic, fig.cap="A Simple Model of Interest-Group Lobbying", echo=FALSE}
+knitr::include_graphics("Figs/causal-classic.png")
+```
+
 ???
 
 The normative interest in expertise on and deliberation--in the quality of information--have kept distracted from empirical reality. These are not attempts at information or deliberation; they are attempts to gain power with quantity rather than quality.
@@ -184,6 +186,16 @@ For many reasons, Rulemaking is usually an insiders' game--people here and other
 
 
 ---
+
+## Public pressure as *political* information
+
+```{r causal-whymail2, fig.cap = "Direct Effects of Political Information: Incorporating Political Information into Models of Bureaucratic Policymaking", echo=FALSE}
+# TODO ADD HEADERS, REMOVE LATENT DEMANDS
+knitr::include_graphics("Figs/causal-direct.png")
+```
+
+---
+
 
 exclude: true 
 
@@ -400,11 +412,12 @@ class: center
 
 ## Who mobilizes?
 
-A few public interest groups 
+- A few public interest groups 
 --
-$\rightarrow$ More "grassroots" than "astroturf"
+(more "grassroots" than "astroturf")
+--
 
-More "conflict expansion" than groups with the most resources "buying" the impression of public support 
+- More "conflict expansion" than groups with the most resources "buying" the impression of public support 
 
 ```{r toporgs, out.width = "50%", echo=FALSE}
 knitr::include_graphics("Figs/toporgs-1.png")
@@ -453,14 +466,14 @@ $\Diamond \text{ observed actions,       }  \bigcirc \text{ unobserved prefrence
 ---
 
 
-20 orgs mobilized nearly half of comments on the top 10 most commented on rules
+- 20 orgs mobilized nearly half of comments on the top 10 most commented on rules
+- CFPB's Payday Lending Rule received 80,000 partially unique comments
+- DOI's National Monuments Review received 200,000 unique comments
 
 
 ![](Figs/topdockets.png)
 
-CFPB's Payday Lending Rule received 80,000 partially unique comments
 
-DOI's National Monuments Review received 200,000 unique comments
 
 ---
 
