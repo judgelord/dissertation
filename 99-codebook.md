@@ -85,22 +85,23 @@ If more than one org signed the comment, try to pick the main organizer (e.g., t
 `org_type` = the type of organization, "corp"/"corp group"/"gov"/"ngo" etc. (create additional codes as needed). Definitions:    
 
 
-- "corp" = individual business (add subtypes as applicable, corp;small business, corp;coop, corp;law firm;bank;financial firm)  
-- "corp group" = “business interests” (members or representatives of a trade association);  
+- "corp" = individual business (add subtypes as applicable, corp;small business, corp;coop, corp;law firm, corp;bank; corp;financial firm, corp;consultancy)  
+- "corp group" = “business interests” (members or representatives of a trade association, corp group;trade association)
 - "gov" = government interests ("gov;state" "gov;local" "gov;federal" "gov;tribal"   'gov;regional" or "gov;foreign") within the United States. If states (e.g. Governors or Attorneys Governor), list out all states in org_name.   
 - "ngo" = non-business and non-government interests.  
 Use a semicolon to indicate   subtypes, such as:   
-        "Ngo;advocacy"  
-        "Ngo;legal"  
+        "ngo;advocacy"  
+        "ngo;legal"  
         ngo;professional (e.g. an association of doctors or other professionals)   
-        "Ngo;philanthropy"  
-        "Ngo;union"  
+        "ngo;philanthropy"  
+"ngo;Foundations
+        "ngo;union"  
         "ngo;credit union"  
         ngo;pressure group (a group mobilizes pressure campaigns)  
         "ngo;membership organization" (org that has members)  
         "ngo;university"   
-        "Ngo;thinktank" (an organization that does policy-oriented research)  
-"Ngo;church"   
+        "ngo;thinktank" (an organization that does policy-oriented research)  
+"ngo;church"   or "ngo;religious"
   - "ngo;ej" Does this org represent an Environmental Justice/frontline community? I.e. are they based in an affected community (see description of "second-order representation" here: https://judgelord.github.io/dissertation/ej.html#interest-groups-and-second-order-representation)
         There are many additional sub-types of ngo, including advocacy groups, membership groups, professional associations, foundations, charities. These are not mutually exclusive. Use a semicolon to separate multiple tags.
 Some 501c3s are industry associations; they should be coded as a "corp group." However many ngos that are not clearly a corp group still advocated for private interests. For example, the Chamber of Commerce represents business interests generally and thus ends up being a member of many private-interest coalitions, even though they may not explicitly be commenting on behalf of a regulated industry as an industry association would. 
@@ -197,7 +198,7 @@ If your sheet does not have this column, record transparency comments in the `no
 
 
 Generally,  it is obvious from the letter who they are and how we might verify that.
-A bunch of names with no contact information is not very transparent, but if they say “these are members of our organization,” that should be enough if we needed to verify. Agencies occasionally post one representative comment for a campaign; this should not be held against an organiation if they also provided the others, we could get them if needed. 
+A bunch of names with no contact information is not very transparent, but if they say “these are members of our organization,” that should be enough if we needed to verify. Agencies occasionally post one representative comment for a campaign; this should not be held against an organization if they also provided the others, we could get them if needed. 
 If a sponsor gives their phone number but not their organization, that is not enough. If you have to research to find the org name, that is not transparent. If they submit under a misleading org name, that is also not transparent.  I have mostly seen this in corp campaigns, where they try to disguise who paid for the campaign. 
 
 
