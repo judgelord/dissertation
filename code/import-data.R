@@ -110,6 +110,8 @@ mass %>% filter(is.na(document_id))
 # should be ~ 26
 max(nchar(mass$document_id), na.rm = T)
 
+mass %>% arrange(-nchar(document_id)) %>% select(document_id)
+
 # selected coded 
 mass %<>% filter(!is.na(coalition_type) | !is.na(position) | !is.na(org_type))
 
@@ -907,6 +909,13 @@ save(comments_coded, file = here::here("data", "comments_coded.Rdata"))
 save(coalitions_coded, file = here::here("data", "coalitions_coded.Rdata"))
 save(mass_coded, file = here::here("data", "mass_coded.Rdata"))
 save(mass_raw, file = here::here("data", "mass_raw.Rdata"))
+
+congress_coded <- comments_coded %>% filter(congress)
+
+save(congress_coded, file = here::here("data", "congress_coded.Rdata"))
+write_csv(congress_coded, file = here::here("data", "congress_coded.csv"))
+
+
 
 comments_coded$docket_id %>% unique()
 
