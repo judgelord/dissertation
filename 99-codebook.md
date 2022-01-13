@@ -1,4 +1,4 @@
-﻿This codebook describes the coding of (1) public comments on proposed agency rules, (2) the response to comments, and (3) rule changes from draft to final.
+This codebook describes the coding of (1) public comments on proposed agency rules, (2) the response to comments, and (3) rule changes from draft to final.
 
 
 ## Coding Comments
@@ -270,6 +270,7 @@ At the rule level (see the `proposed_url` and `final_url` columns for the links 
 ```{r stringency, fig.cap = "Concepts of Regulatory Stringency from Judge-Lord et al. 2020"} 
 knitr::include_graphics(here::here("figs", "judgelord2020table2.png"))
 ```
+
 `proposed_direction` =       
 The change from the *status quo*  
 

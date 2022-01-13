@@ -31,7 +31,7 @@ There are too many contributors to R packages and Stack Exchange to name, but
 Michael DeCrescenzo (again) deserves special thanks as a provider of public goods, including the better parts of this document's styling.
 
 Mil, mil gracias to Karolina Rico who opened her home and let me take over her office during the beginning of the pandemic.
-Emma Horton and John Hoffman graciously hosted an exceptionally dull houseguest and supplied me with good food while I wrote and much-needed fun whenever I was not writing.
+Emma Horton and John Hoffman graciously hosted an exceptionally dull houseguest and supplied me with good food while I wrote and much-needed fun when I was not writing.
 
 The analysis in Chapter 3 is only possible due to the hard work of a top-notch team of research assistants: Samiha Bhushan, Julia Derzay, Megan Gmelich, Hope Karnopp, Max Linse, Lucy McNeil, Jackson Grandone Mozena, Anastasie Ndahayo,  Maggie Claire Nead, and Hailey Patel 
 and 

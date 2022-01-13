@@ -161,15 +161,21 @@ The Position column in Table \@ref(tab:data-org-comments) is a collapsed version
 
 ```{r org-count}
 orgs <- comments_coded %>% 
+  # subset to org comments
   filter(str_dct(comment_type, "Org")) %>% 
+  # select cols
   distinct(org_name, docket_id, success, Position, coalition_size, coalition_comments, president, agency) %>% 
+  # fix inconsistant org name
+    mutate(org_name = str_replace(org_name, ".*Chamber Of Commerce", "U.S. Chamber of Commerce")) %>% 
+  # count rules per org
   count(org_name, sort = T, name = "Rules") %>% 
   filter(Rules >1, !is.na(org_name)) %>% 
-  rename(Organization = org_name)
+  # name columns
+  rename(Organization = org_name) %>% 
+  rename(`Rules Lobbied On` = Rules)
 
 orgs %>%
-  rename(`Rules Lobbied On` = Rules) %>%
-  kable3(caption = "Organizations by Number of Rules on Which They Commented")
+  kable3(caption = "Organizations by Number of Rules on Which They Commented in the Hand-coded Data")
 ```
 
 

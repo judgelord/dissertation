@@ -5,26 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A Codebook | Public Pressure Campaigns and Bureaucratic Policymaking</title>
-  <meta name="description" content="2021-09-29 Draft" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="description" content="2022-01-13 Draft" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A Codebook | Public Pressure Campaigns and Bureaucratic Policymaking" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="2021-09-29 Draft" />
+  <meta property="og:description" content="2022-01-13 Draft" />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="A Codebook | Public Pressure Campaigns and Bureaucratic Policymaking" />
   
-  <meta name="twitter:description" content="2021-09-29 Draft" />
+  <meta name="twitter:description" content="2022-01-13 Draft" />
   
 
 <meta name="author" content="Devin Judge-Lord" />
 
 
-<meta name="date" content="2021-09-29" />
+<meta name="date" content="2022-01-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="book-conclusion.html"/>
 <link rel="next" href="causal-full.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -266,8 +266,8 @@ DRAFT
 <li>“0.” Only if there is really no position of any kind on the policy</li>
 </ul>
 <p>Note that a commenter can support a rule that is moving in a deregulatory direction. This means that they oppose regulation and thus support the rule (because the rule is rolling back regulation). What matters here is their position on the change from the status quo (current policy) to the proposed rule, not on regulation in general. These positions correspond to a commenter’s ideal policy (their “ideal point” in the policy space). If a commenter’s ideal policy is at position 1 in the figure below, the proposed rule change is moving policy in the opposite direction they want it to move, hence their position is “opposed to the rule change for moving in the wrong direction.” Similarly, if the current policy (the status quo) is a commenter’s ideal policy, their ideal point is at or near the current policy (x1), position 2, and they are opposed to the proposed rule change.</p>
-<div class="figure" style="text-align: center"><span id="fig:spatial-coding2"></span>
-<img src="Figs/spatial-coding.png" alt="Instructions for Coding the Position of a Comment Given Current Policy, X1, and proposed policy, X2" width="100%"  />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:spatial-coding2"></span>
+<img src="figs/spatial-coding.png" alt="Instructions for Coding the Position of a Comment Given Current Policy, X1, and proposed policy, X2" width="100%"  />
 <p class="caption">
 Figure A.1: Instructions for Coding the Position of a Comment Given Current Policy, X1, and proposed policy, X2
 </p>
@@ -311,25 +311,24 @@ The key distinction here is typically whether the lead organizations will profit
 <p>If more than one org signed the comment, try to pick the main organizer (e.g., the one whose letterhead is used). If unclear, go with an org we have seen before (this will increase the chances it is linked to the right set of lobbying coalitions). If still unclear, go with the first signatory. When more than one org signed the comment, add “; coalition” to the end of whatever <code>org_type</code> codes you give it.</p>
 <p><code>org_type</code> = the type of organization, “corp”/“corp group”/“gov”/“ngo” etc. (create additional codes as needed). Definitions:</p>
 <ul>
-<li>“corp” = individual business (add subtypes as applicable, corp;small business, corp;coop, corp;law firm;bank;financial firm)<br />
+<li>“corp” = individual business (add subtypes as applicable, corp;small business, corp;coop, corp;law firm, corp;bank; corp;financial firm, corp;consultancy)<br />
 </li>
-<li>“corp group” = “business interests” (members or representatives of a trade association);<br />
-</li>
+<li>“corp group” = “business interests” (members or representatives of a trade association, corp group;trade association)</li>
 <li>“gov” = government interests (“gov;state” “gov;local” “gov;federal” “gov;tribal” ’gov;regional" or “gov;foreign”) within the United States. If states (e.g. Governors or Attorneys Governor), list out all states in org_name.<br />
 </li>
 <li>“ngo” = non-business and non-government interests.<br />
 Use a semicolon to indicate subtypes, such as:<br />
-“Ngo;advocacy”<br />
-“Ngo;legal”<br />
+“ngo;advocacy”<br />
+“ngo;legal”<br />
 ngo;professional (e.g. an association of doctors or other professionals)<br />
-“Ngo;philanthropy”<br />
-“Ngo;union”<br />
+“ngo;philanthropy”<br />
+“ngo;Foundations”ngo;union"<br />
 “ngo;credit union”<br />
 ngo;pressure group (a group mobilizes pressure campaigns)<br />
 “ngo;membership organization” (org that has members)<br />
 “ngo;university”<br />
-“Ngo;thinktank” (an organization that does policy-oriented research)<br />
-“Ngo;church”
+“ngo;thinktank” (an organization that does policy-oriented research)<br />
+“ngo;church” or “ngo;religious”
 <ul>
 <li>“ngo;ej” Does this org represent an Environmental Justice/frontline community? I.e. are they based in an affected community (see description of “second-order representation” here: <a href="https://judgelord.github.io/dissertation/ej.html#interest-groups-and-second-order-representation" class="uri">https://judgelord.github.io/dissertation/ej.html#interest-groups-and-second-order-representation</a>)
 There are many additional sub-types of ngo, including advocacy groups, membership groups, professional associations, foundations, charities. These are not mutually exclusive. Use a semicolon to separate multiple tags.
@@ -391,7 +390,7 @@ And the related <code>comment_type</code> if the form letter is signed by busine
 “neither.”
 If your sheet does not have this column, record transparency comments in the <code>notes</code>.</p>
 <p>Generally, it is obvious from the letter who they are and how we might verify that.
-A bunch of names with no contact information is not very transparent, but if they say “these are members of our organization,” that should be enough if we needed to verify. Agencies occasionally post one representative comment for a campaign; this should not be held against an organiation if they also provided the others, we could get them if needed.
+A bunch of names with no contact information is not very transparent, but if they say “these are members of our organization,” that should be enough if we needed to verify. Agencies occasionally post one representative comment for a campaign; this should not be held against an organization if they also provided the others, we could get them if needed.
 If a sponsor gives their phone number but not their organization, that is not enough. If you have to research to find the org name, that is not transparent. If they submit under a misleading org name, that is also not transparent. I have mostly seen this in corp campaigns, where they try to disguise who paid for the campaign.</p>
 <p>If your sheet has a <code>platform</code> column, record the tech platform(s) used to generate comments: “VoterVoice” “Care2” “SalesForce”
 If your sheet does not have this column, record any platform used to generate comments in the <code>notes</code>.</p>
@@ -424,8 +423,8 @@ If your sheet does not have this column, record evidence of fraud in the <code>n
 <div id="coding-rules" class="section level2" number="6.3">
 <h2><span class="header-section-number">A.3</span> Coding Rules</h2>
 <p>At the rule level (see the <code>proposed_url</code> and <code>final_url</code> columns for the links to proposed and final rules in the federal register), code the proposed policy change and the final result in terms of whether they make regulation more or less stringent. For more on defining regulatory stringency see <span class="citation"><a href="#ref-judgelord2020" role="doc-biblioref">Judge-Lord, McDermott, and Cashore</a> (<a href="#ref-judgelord2020" role="doc-biblioref">2020</a>)</span>.</p>
-<div class="figure" style="text-align: center"><span id="fig:stringency"></span>
-<img src="Figs/judgelord2020table2.png" alt="Concepts of Regulatory Stringency from Judge-Lord et al. 2020" width="100%"  />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:stringency"></span>
+<img src="figs/judgelord2020table2.png" alt="Concepts of Regulatory Stringency from Judge-Lord et al. 2020" width="100%"  />
 <p class="caption">
 Figure A.2: Concepts of Regulatory Stringency from Judge-Lord et al. 2020
 </p>
@@ -526,7 +525,6 @@ Yackee, Susan Webb. 2006. <span>“<span class="nocase">Sweet-talking the fourth
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -556,10 +554,13 @@ gitbook.start({
 "text": null
 },
 "download": ["judgelord.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 },
-"search": true,
 "split_bib": false,
 "split_by": "section"
 });

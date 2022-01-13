@@ -85,7 +85,7 @@ opportunities [@Balla1998].
 While theories of "fire alarm" and "police patrol" oversight focus on instances where legislators object to bureaucrats' actions, Congressional attention may also support bureaucrats in fights with powerful interest groups. Indeed, like interest groups, the comments of members of Congress often support proposed rules. 
 For example, in 2016, a group of Democratic legislators wrote encouraging words to Obama's Treasury Department: "We urge you not to yield to the intense lobbying against these regulations, directed both at Treasury and the Congress, by multinational business and its trade associations." In this example, congressional oversight is explicitly supportive of agency action. Rather than reacting to agency wrongdoing, these members were spurred to act by becoming aware of pressure groups lobbying the agency. 
 
-Lobbying campaigns increase the salience of the rulemakings they target. In addition to attracting allies in Congress, increased public attention may capture the attention of members of Congress on the opposite side of the issue. For example, when the Department of the Treasury published draft rules implementing the Unlawful Internet Gambling Act of 2006, the proposal generated unusually high levels of public attention. As a result, two bipartisan groups of legislators submitted comments on the rule. One group, led by the chair of the House Judiciary Subcommittee on Commercial and Administrative Law, raised concerns about the Department's implementation of the Administrative Procedures Act. The other group of legislators, led by Senator Mike Pence, pushed back against interest-group opposition to the rule and urged the Department to implement the rules. 
+Lobbying campaigns increase the salience of the rulemakings they target. In addition to attracting allies in Congress, increased public attention may capture the attention of members of Congress on the opposite side of the issue. For example, when the Department of the Treasury published draft rules implementing the Unlawful Internet Gambling Act of 2006, the proposal generated unusually high levels of public attention. As a result, two bipartisan groups of legislators submitted comments on the rule. One group, led by the chair of the House Judiciary Subcommittee on Commercial and Administrative Law, raised concerns about the Department's implementation of the Administrative Procedure Act. The other group of legislators, led by Senator Mike Pence, pushed back against interest-group opposition to the rule and urged the Department to implement the rules. 
 Public pressure campaigns may increase the likelihood that legislators on both sides of the issue engage. 
 
 ### Incorporating Political Information into Models of Political Oversight
@@ -98,6 +98,8 @@ the agency to hold course (like a "beacon") attracting positive attention
 and credit claiming opportunities for their oversight work. In the case of the FTC's "Do Not Call" rule and subsequent legislation, mass engagement functioned more as a "warning" for would-be opponents and a "beacon" for potential allies, effectively enabling and empowering rather than restraining the agency as the classic "police patrol" and "fire alarm" concept suggests. <!--Agency officials
 credit the public support mobilized by public pressure campaigns with the political cover needed to hold course.-->
 Table \@ref(tab:beacon) expands the "fire alarm" model of congressional oversight [@McCubbins1984] to include other ways in which interest groups may affect oversight.
+
+\SingleSpacing
 
 ```{r beacon , echo=FALSE, results='asis'}
   cat('Table: (\\#tab:beacon) How Interest Groups and Public Attention and Pressure May Affect Legislator Behavior
@@ -112,7 +114,7 @@ Table \@ref(tab:beacon) expands the "fire alarm" model of congressional oversigh
 
 ```
 
-Table: (\#tab:beacon) How Interest Groups and Public Attention and Pressure May Affect Legislator Behavior
+\DefaultSpacing
 
 
 
@@ -159,7 +161,7 @@ before the draft rule's publication.
 -->
 
 ```{hypothesis oversight, echo = TRUE}
-Elected officials' engagement in agency rulemaking is positively affect by the scale of public engagement.
+Elected officials' engagement in agency rulemaking is positively affected by the scale of public engagement.
 ```
 
 If Hypothesis \@ref(hyp:oversight) is correct, we should observe more members of Congress engaging in policy processes with larger public pressure campaigns. This hypothesis is difficult to test because legislators being mobilized directly by interest groups is often observationally equivalent to legislators being mobilized indirectly due to the response to a public pressure campaign. Above, I offer anecdotal evidence that legislators are aware of pressure campaigns and see comments from their constituents as important. Still, evidence of correlation is not strong evidence of a causal effect. If, however, we can reject Hypothesis \@ref(hyp:oversight), this is strong evidence that rulemaking comments from members of Congress are not affected by the scale of public attention.  

@@ -18,7 +18,7 @@ Finally, the term is relevant to rulemaking records in particular because Execut
 Populations and Low-Income Populations"---directs all agencies to consider EJ implications of their actions and policies. Executive Orders from Presidents Obama and Biden and statements from agency heads in every administration have since interpreted and reinterpreted parts of this Order, all with direct implications for rulemaking. 
 This does not mean that all draft or final rules address EJ, but they tend to cite Executive Order 12898 and explicitly discuss
 environmental justice when they do. For the same reason, commenters who critique draft rules also cite this Executive Order and use this language. Again, this is true both for movement activists and reactionary efforts to redefine the term.
-While EO 12898 does not itself create a right to sue agencies, courts may strike down rules for failing to comply with procedural requirements of the Administrative Procedures Act (APA) and National Environmental Policy Act (NEPA) if the agency fails to "examine the relevant data" or "consider an important aspect of the problem" (*Motor Vehicle Mfrs. Ass'n v. State Farm Mut. Auto. Ins. Co.*, 1983). This can include an agency's 12898 EJ analysis: "environmental justice analysis can be reviewed under NEPA and the APA" (*Communities Against Runway Expansion, Inc. v. FAA*, 2004). The legal salience of the phrase "environmental justice" means that advocates attempting to frame policies in distributive terms tend to use the phrase, and agencies also tend to use it if they respond to these concerns.
+While EO 12898 does not itself create a right to sue agencies, courts may strike down rules for failing to comply with procedural requirements of the Administrative Procedure Act (APA) and National Environmental Policy Act (NEPA) if the agency fails to "examine the relevant data" or "consider an important aspect of the problem" (*Motor Vehicle Mfrs. Ass'n v. State Farm Mut. Auto. Ins. Co.*, 1983). This can include an agency's 12898 EJ analysis: "environmental justice analysis can be reviewed under NEPA and the APA" (*Communities Against Runway Expansion, Inc. v. FAA*, 2004). The legal salience of the phrase "environmental justice" means that advocates attempting to frame policies in distributive terms tend to use the phrase, and agencies also tend to use it if they respond to these concerns.
 
 ### Data
 
@@ -193,7 +193,7 @@ President Obama's EPA Administrators reestablished race as a factor. They named 
 In an October 2017 proposed rule to repeal
 restrictions on power plant pollution, the Trump EPA acknowledged that "low-income and minority communities located in proximity to [power plants] may have experienced an improvement in air quality as a result of the emissions reductions." The is remarkable given that "assertions that hazardous facilities are concentrated in minority and low-income communities in the United States and that those communities are exposed to inordinate amounts of environmental hazards" are "the most controversial claims of the environmental justice movement" (@Taylor2014, p. 1).  Because the Obama EPA discussed EJ when promulgating the Clean Power Plan rule (stating that "climate change is an environmental justice issue"), the Trump EPA attempted to reframe rather than ignore environmental justice. The Trump EPA contended that the Obama EPA "did not address lower household energy bills for low-income households [and that] workers losing jobs in regions or occupations with weak labor markets would have been most vulnerable" (EPA 2017). Like regulated industry commenters, these statements frame the distribution of jobs and electricity costs as EJ issues in order to push back against policies that would equalize the distribution of health impacts from pollution. 
 
-The central conflict over the role of race in policy analyses is just one of many conflicts that the environmental justice movement has caused to be fought somewhat on its terms. The next section briefly reviews the decades-long policy fight over regulating Mercury pollution to illustrate how these definitional conflicts shape rules and rulemaking. This case and other examples in this article emerged from reading hundreds of rulemaking documents where agencies did and did not respond to comments raising EJ concerns. Their purpose is to assess whether the cases in the quantitative analysis are plausibly what they appear to be: that changes in rule text are, sometimes, causally related to public comments and that non-changes are cases of agencies disregarding comments, not some accident of the data or measures. 
+The central conflict over the role of race in policy analyses is just one of many conflicts that the environmental justice movement has caused to be fought somewhat on its terms. The next section briefly reviews the decades-long policy fight over regulating mercury pollution to illustrate how these definitional conflicts shape rules and rulemaking. This case and other examples in this article emerged from reading hundreds of rulemaking documents where agencies did and did not respond to comments raising EJ concerns. Their purpose is to assess whether the cases in the quantitative analysis are plausibly what they appear to be: that changes in rule text are, sometimes, causally related to public comments and that non-changes are cases of agencies disregarding comments, not some accident of the data or measures. 
 The qualitative reading also confirmed other key assumptions, such as the fact that advocates do, in fact, use "environmental justice" when they raise distributional concerns, even on many rules that are not about issues traditionally considered "environmental."
 
 
@@ -207,7 +207,7 @@ officials [@Gillion2013]. In the EPA's Mercury Rules, two
 definitional issues were decisive. First, as with many forms of pollution,
 mercury-emitting power plants are concentrated in low-income and
 non-White communities. Second, some populations consume much more
-locally-caught freshwater fish, a major vector of Mercury toxicity.
+locally-caught freshwater fish, a major vector of mercury toxicity.
 Studies inspired by the political controversy around the Mercury Rules
 found high risk among certain communities, including "Hispanic, Vietnamese, and
 Laotian populations in California and Great Lakes tribal populations
@@ -218,7 +218,7 @@ effects based on race and class because of disparate effects based on
 geography and cultural practices. 
 
 In December 2000, when the EPA first announced its intention to regulate
-Mercury from power plants, the notice published in the *Federal Register*
+mercury from power plants, the notice published in the *Federal Register*
 did not address EJ issues, such as the disparate
 effects of mercury on certain populations; it only discussed anticipated impacts in
 reference to "the U.S. population" (EPA 2000). When the first draft rule
@@ -259,7 +259,7 @@ expressed the Tribe's
 > ...frustration at trying to impress upon the EPA the multiple and profound impacts of mercury contamination from a Tribal perspective. Not to mention the obligations under treaties to participate with tribes on a 'Government to Government' basis. At present, no such meetings have occurred in any meaningful manner with EPA Region V, the EPA National American Indian Environmental Office, nor the State of Michigan's Department of Environmental Quality...Although EPA purported to consider environmental justice as it developed its Clean Air Mercury Rule, it failed utterly. In this rulemaking, the EPA perpetuated, rather than ameliorated, a long history of cultural discrimination against tribes and their members ([EPA-HQ-OAR-2009-0234-12462](https://www.regulations.gov/comment/EPA-HQ-OAR-2009-0234-12462), p. 67). <!-- (Sprague
 2011). -->
 
-Did comments like these play a role in EPA's changed analysis of whom Mercury limits should aim to protect? Because of the many potential sources of influence, it may be difficult to attribute causal effects of particular comments on a given policy.
+Did comments like these play a role in EPA's changed analysis of whom mercury limits should aim to protect? Because of the many potential sources of influence, it may be difficult to attribute causal effects of particular comments on a given policy.
 However, comments may serve as a good proxy for the general mobilization
 of groups and individuals around an administrative process, and it is
 not clear why the EPA would not address EJ in the first

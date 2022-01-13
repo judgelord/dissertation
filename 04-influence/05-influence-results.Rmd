@@ -22,7 +22,7 @@ These models include coalitions of 1 (organizations lobbying alone), but excludi
 source(here::here("code", "coef_map.R"))
 ```
 
-```{r mc-success}
+```{r mc-success, results=TRUE}
 #mc-success
 
 # coalition success with agency and president FE
@@ -175,7 +175,7 @@ cor <- cor.test(c$comments, c$n, method = c("spearman"))
 
 Hypothesis \@ref(hyp:oversight)---that the overall level of public attention to a proposed rule moderates the level of attention from members of Congress---implies a correlation between the number of comments from members of Congress and all other comments on each rule. We should assess this correlation both across all rules and rules where at least one legislator commented, making it more plausible that legislators were aware of the rulemaking and thus faced the choice of whether to comment or not. Figure \@ref(fig:congress-corr) shows both of these relationships. The dashed line shows the relationship between mass comments and comments from members of Congress for all rules. The solid line shows this relationship for rules where at least one legislator commented. The right-hand panel shows this same plot with both axes on a log scale, which allows us to better observe the relationship for rules with relatively fewer comments. There is a strong correlation between mass comments and legislator attention (Spearman's rank correlation, $\rho$ = `r cor$estimate %>% round(2)`, p-value =  `r cor$p.value %>% round(3)`). However, for reasons discussed in \@ref(oversight-hypotheses), this should not be taken as strong evidence of a causal effect. 
 
-```{r congress-corr, fig.width=2.5, fig.height=2.5, out.width="40%", fig.cap="Correlation Between Mass Comments and Comments from Members of Congress"}
+```{r congress-corr, fig.width=2.7, fig.height=2.3, out.width="49%", fig.cap="Correlation Between Mass Comments and Comments from Members of Congress"}
 # congress-corr
 cplot <- c %>% 
   #filter(n > 0) %>% 
@@ -211,11 +211,12 @@ By definition, only organizations lobbying in coalition with others have members
 
 
 
-```{r model-oversight, cache=FALSE}
+```{r model-oversight, cache=FALSE, results=TRUE}
 #model-oversight
 
 # ADJUST  COALITION SIZE SO NOT ON RIGHT AND LEFT
-coalitions_codedC <- coalitions_coded %>% mutate(coalition_size = coalition_size - coalition_congress)
+coalitions_codedC <- coalitions_coded %>% 
+  mutate(coalition_size = coalition_size - coalition_congress)
 
 # original model, dropping na congress obs
 mc1 <- fixest::feols(coalition_success ~ 
@@ -321,7 +322,7 @@ mc_congress_pois_warning <- feglm(coalition_congress_opposed + 1  ~
 
 
 mediator <- list(# 'Fire alarm/Beacon Mediator Model (OLS)' = mc_congress_ols, 
-                  'Fire alarm/Beacon Mediator Model (Poisson)' = mc_congress_pois, 
+                  'Fire Alarm/Beacon Mediator Model (Poisson)' = mc_congress_pois, 
 #                  'Warning Sign Mediator Model (OLS)' = mc_congress_ols_warning, 
                   'Warning Sign Mediator Model (Poisson)' = mc_congress_pois_warning, 
                   "Outcome Model (OLS)" = mc1_congress )
@@ -329,7 +330,7 @@ mediator <- list(# 'Fire alarm/Beacon Mediator Model (OLS)' = mc_congress_ols,
 rowsMediation <- tibble(
   term = c("Dependent Variable"),
 #  `Fire alarm/Beacon Mediator Model (OLS)` = c("Members of Congress in Coalition"), 
-  `Fire alarm/Beacon Mediator Model (Poisson)` =c("Members of Congress in Coalition"), 
+  `Fire Alarm/Beacon Mediator Model (Poisson)` =c("Members of Congress in Coalition"), 
 #  `Warning sign Mediator Model (OLS)` = c("Members of Congress Oposing Coalition "), 
   `Warning sign Mediator Model (Poisson)` =c("Members of Congress Opposing Coalition"), 
   `Outcome Model (OLS)`  = c("Lobbying Success"), 
@@ -347,7 +348,7 @@ modelsummary(mediator,
 ```
 
 
-The results shown in Table \@ref(tab:mc-success) do not offer much support for hypotheses \@ref(hyp:beacon)---that pressure campaigns attract support from legislators---or \@ref(hyp:warning)---that they reduce legislator opposition. If \@ref(hyp:beacon) were correct, pressure campaigns should be correlated with the number of supportive letters from members of Congress (the DV in the first column). While the effects are in the expected direction, the coefficient on *Pressure Campaign* in the "Fire alarm"/"Beacon” Mediator model is not significantly different from 0 at the .05 level. If \@ref(hyp:warning) were correct, pressure campaigns should be negatively correlated with the number of opposing comments from members of Congress (the DV in the second column). The coefficient on *Pressure Campaign* in the "Warning Sign" Mediator model is also not significantly different from 0. 
+The results shown in Table \@ref(tab:mc-success) do not offer much support for hypotheses \@ref(hyp:beacon)---that pressure campaigns attract support from legislators---or \@ref(hyp:warning)---that they reduce legislator opposition. If \@ref(hyp:beacon) were correct, pressure campaigns should be correlated with the number of supportive letters from members of Congress (the DV in the first column). While the effects are in the expected direction, the coefficient on *Pressure Campaign* in the "Fire Alarm/Beacon" Mediator Model is not significantly different from 0 at the .05 level. If \@ref(hyp:warning) were correct, pressure campaigns should be negatively correlated with the number of opposing comments from members of Congress (the DV in the second column). The coefficient on *Pressure Campaign* in the "Warning Sign" Mediator model is also not significantly different from 0. 
 
 There is some evidence for relationships other than those hypothesized. Public interest coalitions may be more likely to receive support and less likely to be opposed by members of Congress, all else equal. Public interest coalitions have `r round(mc_congress_pois$coefficients[2], 2)` more supportive comments from members of Congress and have `r round(mc_congress_pois_warning$coefficients[2], 2)*-1` fewer comments opposing them. 
 
@@ -416,18 +417,21 @@ Estimates in Models 1 of Table \@ref(tab:mo-success-did) show the results of est
 Model 2 presents results from a similar model with fixed effects for each rule rather than for each agency. Model 3 includes indicator variables for each president interacted with the main variables of interest (whether an organization lobbies with a coalition that mobilizes public pressure and whether an organization lobbies with a public or private interest coalition). 
 
 
-```{r mo-success-did}
+```{r mo-success-did, results=TRUE}
 # mo-success-did
+comments_coded %<>% mutate(Organization = org_name,
+                           Docket = docket_id)
+
 mo1 = feols(success ~ campaign_*coalition_type + 
                    coalition_ + 
                    log(coalition_size) + 
               coalition_congress+
                    Position 
                  # fixed effects
-                 | org_name + agency + president,
+                 | Organization + agency + president,
                data = comments_coded %>% 
   filter(comment_type == "Org") %>% 
-  distinct(agency, org_name, docket_id, success, Position, coalition_congress, coalition_type,
+  distinct(agency, Organization, Docket, success, Position, coalition_congress, coalition_type,
            coalition_, coalition_size, coalition_comments, president, campaign_) )
 
 mo2 = feols(success ~ campaign_*coalition_type + 
@@ -436,10 +440,10 @@ mo2 = feols(success ~ campaign_*coalition_type +
               coalition_congress+
                    Position 
                  # fixed effects - docket instead of agency and president 
-                 | org_name + docket_id,
+                 | Organization + Docket,
                data = comments_coded %>% 
   filter(comment_type == "Org") %>% 
-  distinct(agency, org_name, docket_id, success, Position, coalition_congress, coalition_type,
+  distinct(agency, Organization, Docket, success, Position, coalition_congress, coalition_type,
            coalition_, coalition_size, coalition_comments, president, campaign_) )
 
 # president dummy 3- way interaction 
@@ -449,10 +453,10 @@ mo3 = feols(success ~ campaign_*president*coalition_type +
               coalition_congress+
                    Position 
                  # fixed effects
-                 | org_name + agency,
+                 | Organization + agency,
                data = comments_coded %>% 
   filter(comment_type == "Org") %>% 
-  distinct(agency, org_name, docket_id, success, Position, coalition_type, coalition_congress,
+  distinct(agency, Organization, Docket, success, Position, coalition_type, coalition_congress,
            coalition_, coalition_size, coalition_comments, president, campaign_) )
 
 models_o_success <- list(mo1, mo2, mo3)

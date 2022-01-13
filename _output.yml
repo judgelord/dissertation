@@ -36,6 +36,6 @@ bookdown::pdf_book:
 # - \let\footnote=\endnote
 # - \renewcommand{\footnotesize}{\normalsize}
 # - \renewcommand{\normalsize}{\large}
-bookdown::word_document2:
-   toc: true
-# bookdown::epub_book: default
+# bookdown::word_document2:
+#   toc: true
+#bookdown::epub_book: default
