@@ -1,6 +1,8 @@
 --- 
 title: "Public Pressure Campaigns and Bureaucratic Policymaking"
 author: "Devin Judge-Lord"
+abstract: | 
+  `r paste(readLines(here::here("abstract.md")), collapse = " <br> ")`
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
