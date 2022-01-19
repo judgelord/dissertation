@@ -147,7 +147,7 @@ to policymakers by launching a public pressure campaign.
 
 ```{r causal-whymail2, fig.cap = "Direct Effects of Political Information: Incorporating Political Information into Models of Bureaucratic Policymaking"}
 # TODO ADD HEADERS, REMOVE LATENT DEMANDS
-knitr::include_graphics(here::here("Figs", "causal-direct.pdf"))
+knitr::include_graphics(here::here("figs", "causal-direct.png"))
 
 mass <-
   'Interest group

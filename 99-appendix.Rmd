@@ -1,6 +1,8 @@
 # (APPENDIX) Appendix {-} 
 <!--format as appendix-->
 
+\SingleSpacing 
+
 # Codebook {#codebook}
 
 ```{r child = here::here("99-codebook.md")}
@@ -45,7 +47,7 @@ It was not the aim of this dissertation to develop or test the implications of f
 
 
 ```{r comments-per-year-app, fig.cap = "Number of Comments (log scale) per Proposed Rule 2005-2020", out.width = "100%", fig.show = "hold"}
-knitr::include_graphics(here::here("Figs", "comments-per-rule-2.png"))
+knitr::include_graphics(here::here("figs", "comments-per-rule-2.png"))
 ```
 
 
@@ -57,7 +59,7 @@ As discussed in Chapter \@ref(whymail), the number of agency rules receiving a l
 
 ```{r comments-support-app, out.width = "79%", fig.cap = 'Comments Containing ``Support" or ``Oppose" on Draft Rules Posted to Regulations.gov, 2006-2018'}
 #FIXME just use mass and not-mass
-knitr::include_graphics(here::here("Figs", "comments-mass-support-vs-oppose-1.png"))
+knitr::include_graphics(here::here("figs", "comments-mass-support-vs-oppose-1.png"))
 ```
 
 In line with findings from the hand-coded data presented Figure \@ref(fig:comments-support) in \@ref(why-results), a search for "Support" and "Oppose" in comment text (Figure \@ref(fig:comments-support-app)) shows a dramatic reversal in support and opposition with the change from the Obama administration to the Trump administration.

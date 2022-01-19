@@ -29,9 +29,9 @@ Despite E.O. 12898, most rules do not address EJ. Figure \@ref(fig:ej-data) show
 
 ```{r ej-data, fig.cap = "Proposed and Final Rules by Whether they Address Environmental Justice.", out.height = NULL, out.width = "100%", fig.show = "hold"}
 
-knitr::include_graphics(here::here("Figs", "ej-data-ejpr-1.png") ) ##  
+knitr::include_graphics(here::here("figs", "ej-data-ejpr-1.png") ) ##  
 
-knitr::include_graphics(here::here("Figs", "ej-data-ejfr-1.png") ) ## 
+knitr::include_graphics(here::here("figs", "ej-data-ejfr-1.png") ) ## 
 ```
 
 Even at the Environmental Protection Agency (EPA), where most policies are clearly framed as "environmental" issues, a consistent minority of rules address EJ. Many agencies that make policy with apparent EJ effects almost never address EJ. These include the Fish and Wildlife Service (FWS), Department of Housing and Urban Development (HUD), National Oceanic and Atmospheric Administration (NOAA), Nuclear Regulatory Commission (NRC), and the Office of Surface Mining (OSM).  A majority of rules addressed EJ only in a few years at a few agencies that publish relatively few rules, including the Council on Environmental Quality (CEQ), Army Corps of Engineers (COE), Federal Emergency Management Agency (FEMA), Forest Service (FS), and several Department of Transportation agencies (the Federal Highway Administration (FHWA), Federal Motor Carrier Safety Administration (FMCSA), Federal Railroad Administration (FRA), and Federal Transit Administration (FTA)). Figure \@ref(fig:ej-data-agencies100) shows the number of rulemaking projects over time by whether they ultimately addressed EJ at agencies that either published more than ten rules addressing EJ or receiving over 100 comments raising EJ concerns. 
@@ -39,7 +39,7 @@ Even at the Environmental Protection Agency (EPA), where most policies are clear
 
 ```{r ej-data-agencies100, fig.cap = "Number of Proposed and Final Rules Addressing Environmental Justice at the Council on Environmental Quality (CEQ), Army Corps of Engineers (COE), Department of Transportation (DOT), Environmental Protection Agency (EPA), Federal Emergency Management Agency (FEMA), Federal Highway Administration (FHWA), Federal Motor Carrier Safety Administration (FMCSA), Federal Railroad Administration (FRA), Forest Service (FS), Federal Transit Administration (FTA), Fish and Wildlife Service (FWS), Department of Housing and Urban Development (HUD), National Highway Transportation Saftey Administration (NHTSA), National Oceanic and Atmospheric Administration (NOAA), Nuclear Regulatory Commission (NRC), and Office of Surface Mining (OSM)", out.height = NULL, out.width = "100%", fig.show = "hold"}
 
-knitr::include_graphics(here::here("Figs", "ej-data-agencies100-1.png") )
+knitr::include_graphics(here::here("figs", "ej-data-agencies100-1.png") )
 ```
 
 #### Comments
@@ -49,7 +49,7 @@ Figure \@ref(fig:ej-comments) shows the number of comments on each proposed rule
 
 ```{r ej-comments, fig.cap = "Number of Comments on Proposed and Final Rules and Whether Comments Raised Environmental Justice Concerns", out.height = NULL, out.width = "100%", fig.show = "hold"}
 
-knitr::include_graphics(here::here("Figs", "ej-comments-1.png") )
+knitr::include_graphics(here::here("figs", "ej-comments-1.png") )
 ```
 
 

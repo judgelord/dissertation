@@ -9,13 +9,13 @@ Where environmental justice is not addressed in the draft rule, a higher percent
 <!--
 ```{r ej-PR-winrate-1, fig.cap = "Proposed Rules that Did Not Address Environmental Justice", out.width = "60%"}
 
-knitr::include_graphics(here::here("Figs", "ej-PR-winrate-1.png"))
+knitr::include_graphics(here::here("figs", "ej-PR-winrate-1.png"))
 ```
 
 Considering the total number of comments, 
 
 ```{r ej-PR-winrate-comments-1, fig.cap = "Percent of Rules that Changed in How they Addressed Environmental Justice by Number of Comments"}
-knitr::include_graphics(here::here("Figs", "ejejPR-winrate-comments-1.png"))
+knitr::include_graphics(here::here("figs", "ejejPR-winrate-comments-1.png"))
 ```
 
 Figure \@ref(fig:ej-PR-winrate-2) shows that 
@@ -28,9 +28,9 @@ EPA had a relatively high baseline rate of change (10 percent), which increased 
 <!--
 ```{r ej-PR-winrate-2, fig.cap = "Percent of Rules that Changed in How they Addressed Environmental Justice by President and by Agency",out.width = "100%"}
 
-knitr::include_graphics(here::here("Figs", "ej-PR-winrate-president-1.png"))
+knitr::include_graphics(here::here("figs", "ej-PR-winrate-president-1.png"))
 
-knitr::include_graphics(here::here("Figs", "ej-PR-winrate-agency-1.png"))
+knitr::include_graphics(here::here("figs", "ej-PR-winrate-agency-1.png"))
 ```
 
 ### Estimating *Whether* "Environmental Justice" is Added to Final Rule
@@ -66,7 +66,7 @@ Controlling for average rates of policy change per agency and the number of comm
 
 ```{r ej-m-PR-president-median-1, fig.cap = 'Probability that "Environmental Justice" is Added Between Draft and Final Rules by President', out.width = "80%"}
 
-knitr::include_graphics(here::here("Figs", "ej-m-PR-president-median-1.png"))
+knitr::include_graphics(here::here("figs", "ej-m-PR-president-median-1.png"))
 ```
 
 Figure \@ref(fig:ej-m-PR-comments-agencyFE) shows the probability that an agency will add EJ language given different total numbers of comments. 
@@ -81,7 +81,7 @@ The probability of
 
 ```{r ej-m-PR-comments-agencyFE, fig.cap = "Probability Environmental Justice is Added Between Draft and Final Rules by Number of Comments", out.width = "80%", fig.show = "hold", fig.subcap=""}
 
-knitr::include_graphics(here::here("Figs", "ej-m-PR-comments-agencyFE-1.png"))
+knitr::include_graphics(here::here("figs", "ej-m-PR-comments-agencyFE-1.png"))
 
 ```
 
@@ -92,7 +92,7 @@ Agencies with the largest average rates of adding EJ language are the agencies w
 
 ```{r ej-m-PR-agency-top, fig.cap = "Probability Environmental Justice is Added Between Draft and Final Rules by Agency",out.width = "100%"}
 
-knitr::include_graphics(here::here("Figs", "ej-m-PR-agency-top-1.png"))
+knitr::include_graphics(here::here("figs", "ej-m-PR-agency-top-1.png"))
 ```
 
 
@@ -121,13 +121,13 @@ Figure \@ref(fig:ejejPR-winrate-1) shows that a higher percent of rules change w
 
 ```{r ejejPR-winrate-1, fig.cap = "Percent of Rules that Changed in How they Addressed Environmental Justice", out.width="60%",  fig.show = "hold"}
 
-knitr::include_graphics(here::here("Figs", "ejejPR-winrate-1.png"))
+knitr::include_graphics(here::here("figs", "ejejPR-winrate-1.png"))
 ```
 Considering the total number of comments, 
 
 ```{r ejejPR-winrate-comments-1, fig.cap = "Percent of Rules that Changed in How they Addressed Environmental Justice by Number of Comments"}
 
-knitr::include_graphics(here::here("Figs", "ejejPR-winrate-comments-1.png"))
+knitr::include_graphics(here::here("figs", "ejejPR-winrate-comments-1.png"))
 ```
 
 Finally, looking at selected agencies, Figure \@ref(fig:ejejPR-winrate-2) shows that. 
@@ -138,9 +138,9 @@ Most rules that addressed EJ in the draft were published by the EPA. The EPA had
 <!--
 ```{r ejejPR-winrate-2, fig.cap = "Percent of Rules that Changed in How they Addressed Environmental Justice by President and Agency (Army Corps of Engineers (ACOE), Environmental Protection Agency (EPA), Federal Emergency Management Agency (FMEA), Federal Highway Administration (FHWA), Federal Railroad Administration (FRA), Federal Transit Administration (FTA), Fish and Wildlife Service (FWS), and Nuclear Regulatory Commission (NRC)", out.width = "100%"}
 
-knitr::include_graphics(here::here("Figs", "ejejPR-winrate-president-1.png"))
+knitr::include_graphics(here::here("figs", "ejejPR-winrate-president-1.png"))
 
-knitr::include_graphics(here::here("Figs", "ejejPR-winrate-agency-1.png"))
+knitr::include_graphics(here::here("figs", "ejejPR-winrate-agency-1.png"))
 ```
 -->
 
@@ -152,7 +152,7 @@ Controlling for average rates of change per agency and the number of comments, F
 
 ```{r ej-mejPR-president-median-1, fig.cap = "Predicted Change in How Environmental Justice is Addressed Between Draft and Final Rules by President", out.width = "80%"}
 
-knitr::include_graphics(here::here("Figs", "ej-mejPR-president-median-1.png"))
+knitr::include_graphics(here::here("figs", "ej-mejPR-president-median-1.png"))
 ```
 
 For draft rules that already addressed EJ, the relationship between the total number of comments and policy change is in the opposite direction posited by the *Public Attention Hypothesis* (\@ref(hyp:ej-attention)). The logged total number of comments is inversely related to change in the final rule text. The more comments on a proposed rule, the less likely it is to change. Rules are more likely to change when they receive *fewer* comments. Thus, the total number of comments has the opposite relationship to *how* rules that already addressed EJ changed as it did to *whether* rules added any EJ text. While the *Public Attention Hypothesis* (\@ref(hyp:ej-attention)) accurately explained the adding of EJ text where none existed in the draft, the opposite is true for changing a text that already addressed EJ. Instead, this result supports the competing intuition that more salient rules may be harder to change because the agency has anticipated public scrutiny. Their position stated in the draft is more likely to be the position of the final rule.
@@ -161,7 +161,7 @@ As shown in Figure \@ref(fig:ej-mejPR-comments), EJ comments have a small but di
 
 ```{r ej-mejPR-comments, fig.cap = "Predicted Change in How Environmental Justice is Addressed Between Draft and Final Rules by Number of Comments", out.width = "80%"}
 
-knitr::include_graphics(here::here("Figs", "ej-mejPR-comments-1.png"))
+knitr::include_graphics(here::here("figs", "ej-mejPR-comments-1.png"))
 ```
 
 

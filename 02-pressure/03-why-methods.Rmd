@@ -90,14 +90,14 @@ Occasionally, a large number of people are
 engaging in agency policymaking. It is not a coincidence that more people are engaging in a select set of policies as pressure campaigns target more agency rules (though still a small portion).
 
 ```{r comments-per-year, fig.cap = "Number of Comments (log scale) per Proposed Rule 2005-2020", out.width = "90%", fig.show = "hold"}
-knitr::include_graphics(here::here("Figs", "comments-per-rule-3.png"))
+knitr::include_graphics(here::here("figs", "comments-per-rule-3.png"))
 ```
 
 Figure \@ref(fig:comments-per-rule) clearly shows the inequality in public participation across rulemakings. Of over 25 thousand proposed rules open for comment on regulations.gov between 2005 and 2020, Figure \@ref(fig:comments-per-rule) shows that over a third of them received no comments. These rules appear as a long line of points at the bottom of the plot. Approximately another third received ten or fewer comments, including the U.S. Department of Agriculture's Agriculture Management Services rule regulation the labeling of honey (AMS-FV-07-0008). As in Figure \@ref(fig:comments-per-rule), I also labeled the Clean Power Plan rule. 
 A version of Figure \@ref(fig:comments-per-year) split out by year is available in the appendix (Figure \@ref(fig:comments-per-year-app)).
 
 ```{r comments-per-rule, fig.cap = "Number of Comments (log scale) per Proposed Rule 2005-2020", out.width = "90%", fig.show = "hold"}
-knitr::include_graphics(here::here("Figs", "comments-per-rule-1.png"))
+knitr::include_graphics(here::here("figs", "comments-per-rule-1.png"))
 
 ```
 

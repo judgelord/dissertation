@@ -56,15 +56,7 @@ source(here::here("code", "setup.R"))
        
 options(knitr.graphics.auto_pdf = TRUE)
 
-knitr::opts_chunk$set(echo = FALSE, 
-                      cache = FALSE, 
-                      fig.align = 'center',
-                      fig.width = 7,
-                      out.width = "6.5in",
-                      fig.path= "figs/",
-                      fig.show = "hold",
-                      warning=FALSE, 
-                      message=FALSE)
+knitr::opts_chunk$set(fig.path= "../figs/")
 ```
 
 

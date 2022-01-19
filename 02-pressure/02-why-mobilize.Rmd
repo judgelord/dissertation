@@ -158,7 +158,7 @@ These demands lead organizations to form lobbying coalitions and lobbying strate
 To date, most studies of rulemaking have focused on the power of expertise and novel technical information that may lead agency officials to re-evaluate their policy decisions (`r policy`). 
 
 ```{r causal-classic, fig.cap = "The ``Classic Model'' of Interest Group Lobbying in Bureaucratic Policymaking"}
-knitr::include_graphics(here::here("Figs", "causal-classic.pdf"))
+knitr::include_graphics(here::here("figs", "causal-classic.png"))
 ```
 
 The contentious politics of mobilizing and countermobilizing that inspires most public engagement in policymaking have no place in leading models of bureaucratic policymaking and have largely been ignored by political scientists. 
@@ -260,7 +260,7 @@ to policymakers by launching a public pressure campaign. That is, the extent to 
 
 
 ```{r causal-whymail, fig.cap = "Incorporating Political Information into Models of Interest Group Lobbying in Bureaucratic Policymaking"}
-knitr::include_graphics(here::here("Figs", "causal-direct.pdf"))
+knitr::include_graphics(here::here("figs", "causal-direct.png"))
 ```
 
 
@@ -322,7 +322,7 @@ supporters' expectations. These more performative reasons for organizing a campa
 petition are its signatories" rather than the policymakers to whom they are addressed. 
 
 ```{r sierra, out.width="60%",fig.cap = "The Sierra Club Collects Contact Information Through Public Pressure Campaigns"}
-knitr::include_graphics(here::here("Figs", "sierra2.jpeg"))
+knitr::include_graphics(here::here("figs", "sierra2.jpeg"))
 ```
 
 Credit claiming and going down fighting

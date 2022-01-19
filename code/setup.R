@@ -44,14 +44,14 @@ fig.path <- here("figs/")
 
 ## Sets defaults for R chunks
 knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that code will show
-                      cache = FALSE,
+                      cache = TRUE,
                       #cache = TRUE,
                       warning = FALSE,
                       message = FALSE,
                       fig.show="hold",
                       fig.pos= "htbp",
                       fig.path = "figs/",
-                      fig.align='center',
+                      fig.align ='center',
                       fig.cap = '   ',
                       fig.retina = 6,
                       fig.height = 3,
@@ -189,7 +189,7 @@ options(stringsAsFactors = FALSE)
 options(knitr.graphics.auto_pdf = TRUE)
 
 
-#functions for case sensitive string manipulation
+#functions for case insensitive string manipulation
 str_rm_all <- function(string, pattern) {
   str_remove_all(string, regex(pattern, ignore_case = TRUE))
 }
@@ -217,7 +217,7 @@ str_spl <- function(string, pattern) {
 
 
 
-# causal 
+# consistant phrases for causal models
 draft <-
   'Agency publishes draft policy'
 strategy <-

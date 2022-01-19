@@ -1,0 +1,34 @@
+%%{init: {"theme": "neutral", "logLevel": 1 }}%%
+graph LR
+  draft{Draft Policy} 
+  subgraph Prefrences 
+  groupdemands
+  publicdemands
+  principaldemands
+  end
+  subgraph Observed Behavior
+  strategy
+  mass
+  principalcomments
+  end
+  subgraph Information
+  technical[Technical Inromation]
+    subgraph Political Information
+    publicopinion
+    politicalconsequences
+    principalopinion
+    end
+  end
+  draft-->|Sets policy terrain| groupdemands(Group Demands)
+  groupdemands --> strategy{Lobbying strategy}
+  strategy--> |Comment| technical
+  strategy --> |Mobilize| mass
+  publicdemands(Latent Public Demands) --> |Conditions response| mass
+  mass{Mass Engagement} --> publicopinion[Perceived Public Opinion]
+  principaldemands --> principalcomments(Principal Comments H2 DV)
+  principalcomments --> principalopinion[Percieved Principal Opinion]
+  principalcomments --> politicalconsequences[Percieved Consequences]
+  draft -->|Sets policy terrain| principaldemands(Principal Demands)
+  technical --> policy{Policy Response}
+  politicalconsequences --> policy
+  principalopinion --> policy

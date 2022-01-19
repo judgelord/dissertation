@@ -10,7 +10,7 @@ comments on draft regulations posted to regulations.gov were the result of a pub
 
 
 ```{r comments-mass, fig.cap = "Public Comments, 2005-2020", out.width = "85%", fig.show = "hold"}
-knitr::include_graphics(here::here("Figs", "comments-mass-1.png"))
+knitr::include_graphics(here::here("figs", "comments-mass-1.png"))
 ```
 
 
@@ -135,7 +135,7 @@ Figure \@ref(fig:campaign-type-frequency) provides further evidence for Hypothes
 
 ```{r campaign-type-frequency, out.width = "79%", fig.cap = 'Number of Public and Private Interest Coalitions Supporting and Opposing Rules in the Hand-Coded Sample of Proposed Rules Open for Comment on Regulations.gov, 2005-2020'}
 #FIXME just use mass and not-mass
-knitr::include_graphics(here::here("Figs", "campaign-type-frequency-1.png"))
+knitr::include_graphics(here::here("figs", "campaign-type-frequency-1.png"))
 ```
 
 In line with Hypothesis \@ref(hyp:public-success), public interest mass comment campaigns, on average, garner a larger response. The average number of comments for a public interest campaign is `r average_comments_public`. In contrast, the average number of comments for a private interest campaign is `r average_comments_private`. On rules where both public and private interest coalitions ran campaigns, the average response to the public interest campaign was `r average_comments_public_both`. Private interest campaigns averaged `r average_comments_private_both` comments.
@@ -152,7 +152,7 @@ Figure \@ref(fig:campaign-type-scale) provides further evidence for Hypothesis \
 
 ```{r campaign-type-scale, out.width = "79%", fig.cap = 'Number of Comments Mobilized by Public and Private Coalitions in the Hand-Coded Sample of Proposed Rules Open for Comment on Regulations.gov, 2005-2020'}
 #FIXME just use mass and not-mass
-knitr::include_graphics(here::here("Figs", "campaign-type-scale-1.png"))
+knitr::include_graphics(here::here("figs", "campaign-type-scale-1.png"))
 ```
 
 
@@ -218,7 +218,7 @@ Just ten rulemaking dockets account for `r round(sum(topdockets$docket_comments)
 
 ```{r topdockets, fig.width = 1, fig.cap = "Dockets Receiving the Most Comments on Regulations.gov and the top Mobilizing Organizations", out.width= "110%"}
 
-knitr::include_graphics(here::here("Figs", "topdockets.png"))
+knitr::include_graphics(here::here("figs", "topdockets.png"))
 ```
 
 
@@ -236,7 +236,7 @@ administration.
 
 ```{r comments-support, out.width = "79%", fig.cap = 'Hand-coded Comments Supporting and Opposing Draft Rules Posted to Regulations.gov, 2005-2020'}
 #FIXME just use mass and not-mass
-knitr::include_graphics(here::here("Figs", "support-1.png"))
+knitr::include_graphics(here::here("figs", "support-1.png"))
 ```
 
 <!-- (see figures
