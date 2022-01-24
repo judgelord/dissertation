@@ -331,7 +331,7 @@ rowsMediation <- tibble(
   term = c("Dependent Variable"),
 #  `Fire alarm/Beacon Mediator Model (OLS)` = c("Members of Congress in Coalition"), 
   `Fire Alarm/Beacon Mediator Model (Poisson)` =c("Members of Congress in Coalition"), 
-#  `Warning sign Mediator Model (OLS)` = c("Members of Congress Oposing Coalition "), 
+#  `Warning sign Mediator Model (OLS)` = c("Members of Congress opposing Coalition "), 
   `Warning sign Mediator Model (Poisson)` =c("Members of Congress Opposing Coalition"), 
   `Outcome Model (OLS)`  = c("Lobbying Success"), 
 )

@@ -1,8 +1,8 @@
 
 % --- title page design -----------------------
 
-\pagenumbering{roman}
-\thispagestyle{empty}
+\pagenumbering{gobble}
+%\thispagestyle{empty}
 \usepackage{titling}
 \pretitle{\centering \LARGE \sffamily \bfseries}
 \posttitle{\rmfamily \par}
@@ -50,7 +50,9 @@
  % \rule{0.5\textwidth}{.4pt} \\
    David L. Weimer, Edwin E. Witte Professor,  Political Economy  \\[0pt]
 
-  \newpage
-
+  \cleardoublepage
+%  \setcounter{page}{1}
+%  \pagenumbering{gobble}
+%  \pagestyle{simple} 
 }
 

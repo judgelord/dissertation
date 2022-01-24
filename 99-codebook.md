@@ -102,7 +102,7 @@ Use a semicolon to indicate   subtypes, such as:
         "ngo;university"   
         "ngo;thinktank" (an organization that does policy-oriented research)  
 "ngo;church"   or "ngo;religious"
-  - "ngo;ej" Does this org represent an Environmental Justice/frontline community? I.e. are they based in an affected community (see description of "second-order representation" here: https://judgelord.github.io/dissertation/ej.html#interest-groups-and-second-order-representation)
+  - "ngo;ej" Does this org represent an Environmental Justice/frontline community? I.e. are they based in an affected community (see description of "second-order representation" [here](https://judgelord.github.io/dissertation/ej.html#interest-groups-and-second-order-representation).
         There are many additional sub-types of ngo, including advocacy groups, membership groups, professional associations, foundations, charities. These are not mutually exclusive. Use a semicolon to separate multiple tags.
 Some 501c3s are industry associations; they should be coded as a "corp group." However many ngos that are not clearly a corp group still advocated for private interests. For example, the Chamber of Commerce represents business interests generally and thus ends up being a member of many private-interest coalitions, even though they may not explicitly be commenting on behalf of a regulated industry as an industry association would. 
 - "other" = If the org is really in no way in any of the above (e.g. a foreign government)
@@ -267,7 +267,7 @@ ________________
 At the rule level (see the `proposed_url` and `final_url` columns for the links to proposed and final rules in the federal register), code the proposed policy change and the final result in terms of whether they make regulation more or less stringent. For more on defining regulatory stringency see @judgelord2020.
   
 
-```{r stringency, fig.cap = "Concepts of Regulatory Stringency from Judge-Lord et al. 2020"} 
+```{r stringency, fig.cap = "Concepts of Regulatory Stringency"} 
 knitr::include_graphics(here::here("figs", "judgelord2020table2.png"))
 ```
 

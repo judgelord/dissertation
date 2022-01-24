@@ -41,7 +41,7 @@ receive political information (e.g., about the level of public attention or publ
 \textbf{Congressional Support}_{i} = \beta_0 + \beta_1 \textbf{Pressure Campaign}_{i} + \beta_{2:n} X_{i} + \gamma_k + \delta_p + \epsilon_{i} (\#eq:mediator)
 \end{equation}
 
-The outcome model (Equation \@ref(eq:outcome)) is the same as Equation \@ref(eq:success), except that it now includes the number of supportive comments from members of Congress as a predictor. $y_i$ is the Lobbying success of coalition $i$ on a rule published by agency $k$ under president $p$. Pressure Campaign$_{i}$ is an indicator for whether the coalition organized a pressure campaign, Congressional Support$_{i}$ is the number of members of Congress supporting the coalition, and $X_{i}$ are other coalition-level predictors of lobbying success. $\beta_{3:n}$ are the the effects of these other coalition-level covariates.
+The outcome model (Equation \@ref(eq:outcome)) is the same as Equation \@ref(eq:success), except that it now includes the number of supportive comments from members of Congress as a predictor. $y_i$ is the Lobbying success of coalition $i$ on a rule published by agency $k$ under president $p$. Pressure Campaign$_{i}$ is an indicator for whether the coalition organized a pressure campaign, Congressional Support$_{i}$ is the number of members of Congress supporting the coalition, and $X_{i}$ are other coalition-level predictors of lobbying success. $\beta_{3:n}$ are the effects of these other coalition-level covariates.
 
 \begin{equation} 
 Y_{i} = \beta_1 \textbf{Pressure campaign}_{i} + \beta_2 \textbf{Congressional Support}_{i} + \beta_{3:n} X_i +  \gamma_j + \delta_p + \epsilon_{i} (\#eq:outcome)

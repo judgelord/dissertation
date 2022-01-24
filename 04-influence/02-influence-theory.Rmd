@@ -4,7 +4,7 @@
 <!--Observers often ask how effective public pressure campaigns are. From a political science perspective, the question has multiple answers
 Increasing civic engagement, oversight, and information,
 
-TODO SUSAN: "a skeptical reader may still say, I still don’t know why a bureaucrat would care about mass comments.  They don’t matter to judicial review, they don’t matter to career advancement, and they are usually not substantive.  Why does a bureaucrat care about political information?  What’s in it for her?"
+TODO SUSAN: "a skeptical reader may still say, I still don’t know why a bureaucrat would care about mass comments. They don’t matter to judicial review, they don’t matter to career advancement, and they are usually not substantive. Why does a bureaucrat care about political information? What’s in it for her?"
 -->
 
 Foundational scholarship on both American politics [@Lowi1969] and bureaucracy [@Wilson1989] emphasize the critical role of interest groups. In particular, scholars highlight the differences between groups that represent broad and narrow interests.
@@ -14,10 +14,10 @@ Lowi's famous policy typology distinguishes the politics of policymaking by what
 
 Agencies created to serve broader interests emerge out of broad public interest groups organizing but face persistent pressure from the narrow private interests these agencies attempt to regulate. An entrepreneurial agency may even struggle to persist if the broad-based public interest groups that support it lose power:  
 
-> An agency created as the result of entrepreneurial politics is in a precarious position: since it was born out of an attack on the interests it is now supposed to regulate, its employees must worry that the social movements that created their tasks may desert the fledgling agency because of shifting interests or waning passions, leaving it to confront a hostile interest group alone and unprotected. [@Wilson1989, p. 80].
+> An agency created as the result of entrepreneurial politics is in a precarious position: since it was born out of an attack on the interests it is now supposed to regulate, its employees must worry that the social movements that created their tasks may desert the fledgling agency because of shifting interests or waning passions, leaving it to confront a hostile interest group alone and unprotected [@Wilson1989, p. 80].
 
 Policy outcomes depend on the distribution of power among interest groups [@Dur2007]. 
-Whether representing broad or narrow interests, many interest groups exist primarily to influence policy [@Baumgartner2001; @Leech2010], and policymakers face strong interest-group demands [@Yackee2006JPART]. Businesses and their associations are the most active and influential lobbying organizations, especially in bureaucratic policymaking [@Yackee2006JOP]. In particular, businesses are better positioned to provide evidence and make technical arguments [@Jewell2008]. Organizations with the resources to lobbying with multiple tactics across multiple venues over time are more likely to influence bureaucratic policymaking [@Yackee2015SPPQ]. However, public interest advocacy organizations also have well-documented effects on legislative policymaking [@Grossmann2012].  
+Whether representing broad or narrow interests, many interest groups exist primarily to influence policy [@Baumgartner2001; @Leech2010], and policymakers face strong interest-group demands [@Yackee2006JPART]. Businesses and their associations are the most active and influential lobbying organizations, especially in bureaucratic policymaking [@Yackee2006JOP]. In particular, businesses are better positioned to provide evidence and make technical arguments [@Jewell2008]. Organizations with the resources to lobby with multiple tactics across multiple venues over time are more likely to influence bureaucratic policymaking [@Yackee2015SPPQ]. However, public interest advocacy organizations also have well-documented effects on legislative policymaking [@Grossmann2012].  
 <!--TODO-->
 
 With renewed attention to the role of advocacy groups in policymaking [@Hojnacki2012; @Grossmann2012], the dichotomy between accountability to political principals and "capture" is being replaced by studies that focus on numerous mechanisms of interest group influence in policymaking.
@@ -176,13 +176,12 @@ Inferences about the extent to which lobbying caused any changes (or lack of cha
 > TODO: more theorizing and literature development on the direct lobbying link.
 
 <!--
-Needs more theorizing and literature development on the direct lobbying link.  This must be informed by a greater breadth of literature (and must go beyond Libgober).  I found the quasi-formalization unhelpful and would have preferred that you spend more time developing why mass commenting campaigns may matter AND tying this to the lead organizations and group mediated participation.  We need theory here, which builds on literature.
+Needs more theorizing and literature development on the direct lobbying link. This must be informed by a greater breadth of literature (and must go beyond Libgober). I found the quasi-formalization unhelpful and would have preferred that you spend more time developing why mass commenting campaigns may matter AND tying this to the lead organizations and group mediated participation. We need theory here, which builds on literature.
 i.	In doing so, perhaps explain more the idea of political information and why it creates a direct lobbying link for mass commenters
-ii.	Need to discuss Jewell and Bero (JPART) somewhere.
 
 •	Is it REALLY mass commenters who hold the influence here when you do not measure the content of their comments but instead the commenter provided by the leader (which might be much longer, technical, and more sophisticated than the mass comments)? 
 i.	Spend more time justifying why, on page 58, we should use the much longer substantive comments to represent the mass mobilization effort? 
-•	How do regulators view these mass comments?  Are they only concerned with the longer leader comment (and the mass comments say how much they should really “care” about the leader’s comments)?  Then, is this really democratizing?
+•	How do regulators view these mass comments? Are they only concerned with the longer leader comment (and the mass comments say how much they should really “care” about the leader’s comments)? Then, is this really democratizing?
 -->
 
 The causal process visualized in Figure
@@ -201,7 +200,7 @@ We may expect to observe mass mobilization influencing a particular policy only 
 
 
 <!-- TODO 
-ELLIE "Need to flesh these out -- elaborate, discuss where they come from, etc.  "
+ELLIE "Need to flesh these out -- elaborate, discuss where they come from, etc. "
 It is also important to control for
 their baseline rates of commenting. I estimate principals' baseline rates
 of commenting using legislators' comments on similar rules that did not
@@ -213,7 +212,7 @@ before the draft rule's publication.
 
 Hypothesis \@ref(hyp:c-success) sets out the most direct implication of my theory. If public pressure campaigns generate political information that affects policy, lobbying coalitions that use pressure campaigns should win more often. Rather than compare form letters to technical comments, I attributed form letters to the broader lobbying efforts they support. Thus, assessing Hypothesis \@ref(hyp:c-success) requires comparing lobbying success when coalitions do and do not opt to use a pressure campaign to support their more technical lobbying effort. The power of a pressure campaign in my theory rests in its ability to make a coalition more successful in achieving its policy goals that are more precisely articulated in technical comments. Lobbying success is thus the extent to which a coalition got the specific policy changes it sought. 
 
-<!--TODO ELLIE "You might want to clarify this is more likely to succeed when using public pressure campaigns as opposed to not using public pressure campaigns.  Rather than a comparison between public pressure campaigns (political info) and an alternative strategy of providing technical information."-->
+<!--TODO ELLIE "You might want to clarify this is more likely to succeed when using public pressure campaigns as opposed to not using public pressure campaigns. Rather than a comparison between public pressure campaigns (political info) and an alternative strategy of providing technical information."-->
 ```{hypothesis c-success, echo = TRUE}
 Lobbying coalitions are more likely to succeed when they use public pressure campaigns compared to when they do not.
 ```
@@ -227,9 +226,9 @@ On average, public pressure campaigns are more highly correlated with lobbying s
 ```
 
 
-Finally, we can think about lobbying success at the organizational level. It would be inappropriate to compare lobbying success across organizations, many of which may be in the same coalition. However, because many organizations lobbying across many rules, we can assess leverage variation in the same organization's lobbying success. If Hypothesis \@ref(hyp:o-success) is correct, using pressure campaigns should be positively correlated with lobbying success *within* organizations as they lobbying across multiple rules in coalitions that do and do not use pressure campaigns. 
+Finally, we can think about lobbying success at the organizational level. It would be inappropriate to compare lobbying success across organizations, many of which may be in the same coalition. However, because many organizations lobby across many rules, we can assess leverage variation in the same organization's lobbying success. If Hypothesis \@ref(hyp:o-success) is correct, using pressure campaigns should be positively correlated with lobbying success *within* organizations as they lobby across multiple rules in coalitions that do and do not use pressure campaigns. 
 
-<!-- TODO ELLIE: "I don't fully understand the distinction between 3.1 and 3.3.  It might be helpful to flesh out the distinction between organizations and lobbying coalitions. I think there are also some words missing in 3.3.  "when they are lobbying in a coalition" "  -->
+<!-- TODO ELLIE: "I don't fully understand the distinction between 3.1 and 3.3. It might be helpful to flesh out the distinction between organizations and lobbying coalitions. I think there are also some words missing in 3.3. "when they are lobbying in a coalition" "  -->
 
 ```{hypothesis o-success, echo = TRUE}
 Organizations are more likely to succeed when they lobby in a coalition that uses a public pressure campaign.
@@ -291,15 +290,15 @@ the question "what do people want?"
 Incorporating insight about the power of technical information, we might interpret $\alpha_0$ (the policymakers' understanding of their own preferences) to be affected by technical information. Including political information in this model  requires two additional parameters related to a second question: "Why
 would agency officials care?" <!--CITE THIS IN EJ CHAPTER--> 
 
-First, like other lobbying strategies, public attention and pressure may shift the strategic environment, leading policymakers to strategically shift their allocation in favor of some groups and away from others. Let this strategic shift in allocation be a vector $\alpha_s$. For example, interest groups may mobilize elected officials to support their lobbying efforts. If these elected officials can sanction or reward agency officials or veto the agency's policy, their involvement may reshape agency officials' strategic calculations. Agency officials may then strategically adjust their policy. For each commenter $i$, $\alpha_{si}$ is the policymakers stratigic shift in desire to alocate policy benifits to group $i$ as a result of changes in the broader decision environment, such as increased attention from members of Congress. For example, if a member of Congress writes to the agency in support of commenter $i$'s position, $\alpha_{si}$ may increase, whereas if a member of Congress writes to the agency in opposition to commenter $i$, $\alpha_{si}$ may decrease. 
+First, like other lobbying strategies, public attention and pressure may shift the strategic environment, leading policymakers to strategically shift their allocation in favor of some groups and away from others. Let this strategic shift in allocation be a vector $\alpha_s$. For example, interest groups may mobilize elected officials to support their lobbying efforts. If these elected officials can sanction or reward agency officials or veto the agency's policy, their involvement may reshape agency officials' strategic calculations. Agency officials may then strategically adjust their policy. For each commenter, $i$, $\alpha_{si}$ is the policymakers' strategic shift in their desire to allocate policy benefits to group $i$ as a result of changes in the broader decision environment, such as increased attention from members of Congress. For example, if a member of Congress writes to the agency in support of commenter $i$'s position, $\alpha_{si}$ may increase, whereas if a member of Congress writes to the agency in opposition to commenter $i$, $\alpha_{si}$ may decrease. 
 
 
 Second, campaigns may directly persuade agency officials to
 adjust their allocational bias, for example, by supporting claims about
 the number of people an organization represents or the intensity or legitimacy
-of their policy demands. Let this direct shift in allocations be $\alpha_d$. This parameter captures persuasion on normative grounds and beliefs about which segments of society (i.e., which potential commenters) deserve the benefits of government policy or should be responsible for bearing the costs. Policies allocate costs and benefits across groups. If an organization makes a persuasive argument for distributional justice or shows that it represents a large segment of the public, officials may update their beliefs and biases about how to allocate costs and benefits. For each commenter $i$, $\alpha_{di}$ is the shift in the policymaker's desire to allocate benefits to $i$ as a result of being directly persuaded. 
+of their policy demands. Let this direct shift in allocations be $\alpha_d$. This parameter captures persuasion on normative grounds and beliefs about which segments of society (i.e., which potential commenters) deserve the benefits of government policy or should be responsible for bearing the costs. Policies allocate costs and benefits across groups. If an organization makes a persuasive argument for distributional justice or shows that it represents a large segment of the public, officials may update their beliefs and biases about how to allocate costs and benefits. For each commenter, $i$, $\alpha_{di}$ is the shift in the policymaker's desire to allocate benefits to $i$ as a result of being directly persuaded. 
 
-<!--TODO ELLIE "You need a few sentences here to explain and defend the idea of policymaker's immutable taste.  How is this different from their ideal point? "-->
+<!--TODO ELLIE "You need a few sentences here to explain and defend the idea of policymaker's immutable taste. How is this different from their ideal point? "-->
 
 Let policymakers' original, immutable taste now be $\alpha_t$. Having decomposed the policymaker's
 allocative bias into three parts (their fixed tastes $\alpha_t$, shifting strategic
@@ -328,5 +327,5 @@ change and thus uncertainty in an agency's biases.
 Even if we assume that policymakers' allocative preferences are known, allowing them to be influenced by commenters means that one commenter's incentives to comment now depend on other commenters' lobbying strategies. This characterization of rulemaking aligns much more closely with empirical studies that show organizations provide technical information as a means of persuading policymakers. Likewise, this characterization of rulemaking aligns with my theory that groups mobilize public pressure campaigns to generate political information that could persuade agency officials to change their position for political reasons.
 
 
-Thus far, I have mostly focused on more direct ways that pressure campaigns may inform and persuade bureaucratic policymakers. However, interest groups and the public attention they mobilize also indirectly influence policy outcomes by affecting an agency's strategic environment. 
+Thus far, I have mostly focused on more direct ways that pressure campaigns may inform and persuade bureaucratic policymakers. However, interest groups and the public attention they mobilize also influence policy outcomes indirectly by affecting an agency's strategic environment. 
 The remainder of this section focuses on how public pressure campaigns may affect one key part of a bureaucrat's strategic environment: attention from members of Congress. 

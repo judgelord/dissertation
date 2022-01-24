@@ -1,0 +1,34 @@
+
+% --- title page design -----------------------
+
+\pagenumbering{roman}
+\thispagestyle{empty}
+\usepackage{titling}
+\pretitle{\centering \LARGE \sffamily \bfseries}
+\posttitle{\rmfamily \par}
+\preauthor{\vskip 24pt 
+  \begin{center} 
+  \normalsize{By} \\[6pt]}
+\postauthor{
+  \vskip 48pt 
+  \normalsize
+  \par
+  \end{center}
+  \vskip 12pt
+}
+
+\predate{
+  \vfill
+
+ \noindent  \nolinebreak \date{\today}
+
+}
+
+\postdate{
+  \cleardoublepage
+  \setcounter{page}{1}
+  \pagenumbering{roman}
+  \pagestyle{simple} 
+
+}
+
