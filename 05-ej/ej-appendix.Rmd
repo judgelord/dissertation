@@ -28,6 +28,8 @@ knitr::opts_chunk$set(echo = TRUE,
                       message=FALSE)
 
 library(modelsummary)
+library(marginaleffects)
+
 library(fixest)
 library(tidyverse)
 library(broom)
@@ -772,7 +774,7 @@ predicted %>%
 
 ---
 
-## By number of comments
+## By total number of comments
 
 ```{r ej-m-PR-comments, fig.width=6, fig.height=2.5}
 # ej-m-PR-comments
@@ -1005,7 +1007,7 @@ coord_flip() +
         panel.border = element_blank())
 ```
 
-## with Agency Fixed Effects 
+### with Agency Fixed Effects 
 
 (as well as President FE)
 ```{r ej-m-PR-comments-agencyFE, fig.width=6, fig.height=2.5}
@@ -1020,7 +1022,15 @@ m_PR_agencyFE <- feglm (ej_fr ~ ej_comment*log(comments+1) +
            data = ejFR_PR, 
              family=binomial(link="logit"))
 
-modelsummary(m_PR_agencyFE, stars = T)
+m_PR_agencyFE2 <- feglm (ej_fr ~ ej_comment*comments + 
+                          ej_comment*comments^2 + 
+                          ej_comments_unique + 
+                          ej_comments_unique^2 
+                        | president + agency, se = "twoway",
+           data = ejFR_PR, 
+             family=binomial(link="logit"))
+
+modelsummary(list(m_PR_agencyFE, m_PR_agencyFE2), stars = T)
 
 # A data frame of values at which to estimate probabilities:
 values <- ejFR_PR %>% 
@@ -1030,11 +1040,16 @@ values <- ejFR_PR %>%
          president = "Obama",
          agency = "EPA") 
 
-predicted <- broom::augment(m_PR_agency,  
+predicted <- broom::augment(m_PR_agencyFE,  
                      type.predict = "response",
                      newdata = values,
                      se_fit = TRUE
-                     )  %>% 
+                     )  
+
+predicted <- predictions(m_PR_agencyFE,
+                         newdata = values)
+
+predicted %<>% 
   left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
   mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
 
@@ -1043,11 +1058,11 @@ predicted %>%
   filter(comments<10001) %>% 
   ggplot() + 
   aes(x = factor(comments), 
-      y = .fitted, 
+      y = predicted, 
       shape = EJ_comment,
       color = EJ_comment) + 
-  geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
-                  ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
+  geom_pointrange(aes(ymin = predicted - 1.96*std.error,
+                  ymax = predicted + 1.96*std.error), alpha = .7 )  + 
   geom_hline(yintercept = 0, linetype = 2) +
   #scale_y_continuous(breaks = c(0, .5,1)) +
     scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
@@ -1059,8 +1074,9 @@ coord_flip() +
        shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
        title = "Predicted Change in Final Rules")  +
   theme(panel.border  = element_blank(),
-        panel.grid.major.y = element_blank()) 
+        panel.grid.major.y = element_blank())
 ```
+
 
 ```{r ej-m-PR-ejcomments-agencyFE, fig.width=6, fig.height=2.5}
 # ej-m-PR-ejcomments-agencyFE
@@ -1079,9 +1095,17 @@ predicted <- broom::augment(m_PR_agency,
                      type.predict = "response",
                      newdata = values,
                      se_fit = TRUE
-                     )  %>% 
+                     )  
+
+
+predicted <- predictions(m_PR_agencyFE,
+                         newdata = values) %>% 
+  rename(.fitted = predicted, 
+         .se.fit = std.error)
+
+predcted %<>% 
   left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment)) 
 
 # As a plot
 predicted %>%
@@ -1108,6 +1132,134 @@ coord_flip() +
 
 ---
 
+
+
+### Subset where EJ was raised
+
+(as well as Agency and President FE)
+
+This is just a robustness check. The effect of an EJ comment should capture differences. 
+
+```{r ej-m-PR-comments-agencyFE-ejcomment, fig.width=6, fig.height=2.5}
+# ej-m-PR-comments-agencyFE
+
+# agencies with variation on DV
+# ejFR_PR %<>% group_by(agency) %>% mutate(dv_var = ej_fr %>% unique() %>% length()) %>% ungroup() %>% filter(dv_var > 1)
+
+m_PR_agencyFE_ejcomment <- feglm (ej_fr ~ comments + 
+                                    comments^2 +
+                                    ej_comments_unique + 
+                                    ej_comments_unique^2
+                        | president + agency, 
+                        se = "twoway",
+          # SUBSET DATA 
+           data = ejFR_PR %>% filter(ej_comment), 
+             family=binomial(link="logit"))
+
+modelsummary(m_PR_agencyFE_ejcomment, stars = T)
+
+
+
+# A data frame of values at which to estimate probabilities:
+values <- ejFR_PR %>% filter(ej_comment) %>% 
+  tidyr::expand(
+    comments = c(1, 10,100,1000, 10000),
+         ej_comment = TRUE,
+         ej_comments_unique =  1,
+         president = "Obama",
+         agency = "EPA")
+
+# broom does not work
+predicted <- broom::augment(m_PR_agencyFE_ejcomment,  
+                     type.predict = "response",
+                     newdata = values,
+                     se_fit = TRUE
+                     ) 
+
+predicted <- predictions(m_PR_agencyFE_ejcomment,
+                newdata = values) 
+
+
+predicted %<>% 
+  left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
+
+# As a plot
+predicted %>%
+  ggplot() + 
+  aes(x = factor(comments), 
+      y = predicted, 
+      shape = EJ_comment,
+      color = EJ_comment) + 
+  geom_pointrange(aes(ymin = predicted - 1.96*std.error,
+                  ymax = predicted + 1.96*std.error), 
+                  alpha = .7 )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+  #scale_y_continuous(breaks = c(0, .5,1)) +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+coord_flip() +
+  #facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
+       x = "Total Number of Comments",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "Predicted Change in Final Rules\nWhere EJ is Raised by Comments")  +
+  theme(panel.border  = element_blank(),
+        panel.grid.major.y = element_blank()) 
+```
+
+```{r ej-m-PR-ejcomments-agencyFE-ejcomment, fig.width=6, fig.height=2.5}
+# ej-m-PR-ejcomments-agencyFE-ejcomment
+
+# A data frame of values at which to estimate probabilities:
+values <- ejFR_PR %>% filter(ej_comment) %>% 
+  tidyr::expand(ej_comments_unique = c(1, 10,100,1000, 10000),
+         ej_comment = TRUE,
+         comments = median(comments) %>% round(),
+         president = "Obama",
+         agency = "EPA") %>% 
+  # set all comments to be EJ comments (we can't have one overall comment and 100 ej comments)
+  mutate(comments = ej_comments_unique)
+
+
+
+predicted <- broom::augment(m_PR_agencyFE_ejcomment,  
+                     type.predict = "response",
+                     newdata = values,
+                     se_fit = TRUE
+                     ) 
+predicted <- predictions(m_PR_agencyFE_ejcomment,
+                         newdata = values)
+
+predicted %<>% 
+  left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
+
+# As a plot
+predicted %>%
+  ggplot() + 
+  aes(x = factor(ej_comments_unique), 
+      y = predicted, 
+      shape = EJ_comment,
+      color = EJ_comment) + 
+  geom_pointrange(aes(ymin = predicted - 1.96*std.error,
+                  ymax = predicted + 1.96*std.error), 
+                  alpha = .7 )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+  #scale_y_continuous(breaks = c(0, .5,1)) +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+coord_flip() +
+  #facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
+       x = "Number of Unique Comments\nRaising EJ Concerns",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "Predicted Change in Final Rules\nWhere EJ is Raised by Comments")  +
+  theme(panel.border  = element_blank(),
+        panel.grid.major.y = element_blank()) 
+```
+
+---
 
 
 ## Example dockets
@@ -1634,7 +1786,9 @@ mejPR_agency <- glm(change ~ ej_comment*log(comments+1) +
                     family=binomial(link="logit"))
 
 
-tidy(mejPR_agency) %>% kablebox()
+#tidy(mejPR_agency) %>% kablebox()
+
+modelsummary(mejPR_agency, stars =  T)
 ```
 
 ### Predicted Probabilities by Agency
@@ -1649,7 +1803,19 @@ mejPR_agency <- glm(change ~ ej_comment*log(comments+1) +
                     data = ejFRejPR, 
                     family=binomial(link="logit"))
 
-tidy(mejPR_agency) %>% kablebox()
+mejPR_agency2 <- glm(change ~ ej_comment*comments + 
+                      ej_comment*comments^2 + 
+                      ej_comments_unique +
+                      ej_comments_unique^2 + 
+                      president +
+                      agency,
+                    data = ejFRejPR, 
+                    family=binomial(link="logit"))
+
+modelsummary(
+  list(mejPR_agency, mejPR_agency2), 
+  stars =  T)
+
 
 # A data frame of values at which to estimate probabilities:
 values <- ejFRejPR %>%
@@ -1792,7 +1958,16 @@ mejPR_agencyFE <- feglm (change ~ ej_comment*log(comments+1) + log(ej_comments_u
            data = ejFRejPR, se = "twoway",
              family=binomial(link="logit"))
 
-modelsummary(mejPR_agencyFE, stars = T)
+mejPR_agencyFE2 <- feglm (change ~ ej_comment*comments +
+                            ej_comment*comments^2 + 
+                            ej_comments_unique + 
+                            ej_comments_unique^2
+                     | president + agency,
+           data = ejFRejPR, se = "twoway",
+             family=binomial(link="logit"))
+
+modelsummary(
+  list(mejPR_agencyFE, mejPR_agencyFE2), stars = T)
 
 # A data frame of values at which to estimate probabilities:
 values <- ejFRejPR %>% 
@@ -1802,11 +1977,18 @@ values <- ejFRejPR %>%
          president = "Obama",
          agency = "EPA")
 
-predicted <- augment(mejPR_agency,  
-                     type.predict = "response",
-                     newdata = values,
-                     se_fit = TRUE
-                     )  %>% 
+# predicted <- augment(mejPR_agency,  
+#                      type.predict = "response",
+#                      newdata = values,
+#                      se_fit = TRUE
+#                      )  
+
+predicted <- predictions(mejPR_agencyFE,
+                         newdata = values) %>% 
+  rename(.fitted = predicted,
+         .se.fit = std.error)
+
+predicted %<>% 
   left_join(ejFRejPR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
   mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
 
@@ -1848,11 +2030,19 @@ values <- ejFRejPR %>%
          agency = "EPA") %>% 
   mutate(comments = ej_comments_unique)
 
-predicted <- augment(mejPR_agency,  
-                     type.predict = "response",
-                     newdata = values,
-                     se_fit = TRUE
-                     )  %>% 
+# predicted <- augment(mejPR_agency,  
+#                      type.predict = "response",
+#                      newdata = values,
+#                      se_fit = TRUE
+#                      ) 
+
+
+predicted <- predictions(mejPR_agencyFE,
+                         newdata = values) %>% 
+  rename(.fitted = predicted,
+         .se.fit = std.error)
+
+predicted  %<>% 
   left_join(ejFRejPR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
   mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
 
