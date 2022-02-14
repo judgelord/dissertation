@@ -44,17 +44,19 @@ All predicted probabilities shown below include agency fixed effects, models 2 a
 ```{r ej-m-PR, cache=FALSE}
 load(here::here("05-ej", "ej_models.Rdata"))
 #equatiomatic::extract_eq(m_PR)
+#equatiomatic::extract_eq(m_PR_agencyFE)
 ```
 
 ```{r ej-tables}
-modelsummary::modelsummary( models, 
-                            title = 'Logit Regression Predicting Change in Rule Text',
+modelsummary::modelsummary( modelsFE, 
+                            title = "Logit Regression Predicting Change in Rule Text",
                             stars = TRUE, 
                             coef_map = cm,
-                            add_rows = rows,
-                            notes = "") %>% 
-  kable2(file = "ej-tables") #%>% 
-  #kable_styling(latex_options = c("scale_down")) 
+                            gof_omit = "R.*",
+                          add_rows = rowsFE, 
+                          notes = "") %>% 
+  row_spec(row = 1, bold = T) %>% 
+  kable2(file = "ej-tables") 
 ```
 
 
@@ -76,39 +78,20 @@ the probability that an agency will add EJ language is still below 50 percent---
 As the number of comments increases, the probability that a rule will add text addressing EJ increases. This supports the *Public Attention Hypothesis* (\@ref(hyp:ej-attention))---policy change is more likely when there is more public attention to a policy process. Simultaneously, there is a negative interaction between the number of comments and EJ comments---the more comments, the smaller the relationship between comments raising EJ and agencies addressing EJ in the rule. In the small portion of highly salient rules with 10,000 or more comments, the presence of comments raising EJ concerns no longer has a statistically significant relationship with agencies adding EJ to the text. With or without EJ comments, these rules have about the same probability of change as those with just one EJ comment, just under 50 percent. This is evidence against the *Public Pressure Hypothesis* (\@ref(hyp:ej-pressure))---the number of comments matters (i.e., the scale of public attention) matters regardless of whether these comments explicitly raise EJ concerns. However, as shown in Figure \@ref(fig:ej-comments), few rules with 10,000 or more comments do not have at least one comment mentioning EJ, so we are highly uncertain about estimates of the impact of EJ comments with high levels of public attention. We can be much more confident about the relationship between comments raising EJ concerns and rule change at lower, more typical levels of public attention.
 
 The probability of
-"environmental justice" appearing in the final rule also increases with the number of unique comments mentioning "environmental justice" in models 2, 3, and 4. Overall this supports the *Repeated Claims Hypothesis* (\@ref(hyp:ej-repeated-claims)). 
+"environmental justice" appearing in the final rule also increases with the number of unique comments mentioning "environmental justice" in models 2. Figure \@ref(fig:ej-m-PR-ejcomments) shows that there is a much higher probability of seeing EJ language added when 100 unique commenters raise EJ concerns, compared to when only one commenter does so.  This supports the *Repeated Claims Hypothesis* (\@ref(hyp:ej-repeated-claims)). 
 
-
-```{r ej-m-PR-comments-agencyFE, fig.cap = "Probability Environmental Justice is Added Between Draft and Final Rules by Number of Comments", out.width = "80%", fig.show = "hold", fig.subcap=""}
+```{r ej-m-PR-comments, fig.cap = "Probability Environmental Justice is Added Between Draft and Final Rules", out.width = "80%", fig.show = "hold", fig.subcap=""}
 
 knitr::include_graphics(here::here("figs", "ej-m-PR-comments-agencyFE-1.png"))
 
 ```
 
 
-Figure \@ref(fig:ej-m-PR-agency-top) shows estimated variation in rates of adding EJ to final rules across agencies.
-Agencies with the largest average rates of adding EJ language are the agencies we would expect to be more receptive to EJ claims.  While many agencies make policies that could be framed as "environmental," and all policy decisions have distributive consequences, institutions have norms and procedures that lead policymakers to see problems in different ways. For example, some agencies have dedicated staff and prominent internal guidance on EJ analysis in rulemaking, including the Environmental Protection Agency and the Department of Transportation (which includes the Federal Railroad Administration (FRA),    Federal Motor Carrier Safety Administration (FMCSA), and  Federal Highway Administration (FHWA)). These agencies are among the most responsive to commenters raising EJ concerns. However, differences among agencies are fairly uncertain due to the small number of rules where EJ was added at most agencies. Thus, there is more support for the *Policy Receptivity Hypothesis* (\@ref(hyp:ej-receptivity)) than against it, but differences between agencies with different missions and institutional practices regarding EJ are not clear cut.
+```{r ej-m-PR-ejcomments, fig.cap = "Probability Environmental Justice is Added Between Draft and Final Rules by Number of Comments Raising Environmental Justice", out.width = "80%", fig.show = "hold", fig.subcap=""}
 
+knitr::include_graphics(here::here("figs", "ej-m-PR-ejcomments-agencyFE-1.png"))
 
-```{r ej-m-PR-agency-top, fig.cap = "Probability Environmental Justice is Added Between Draft and Final Rules by Agency",out.width = "100%"}
-
-knitr::include_graphics(here::here("figs", "ej-m-PR-agency-top-1.png"))
 ```
-
-
-<!--
-The Forest Service (FS) has by far the highest predicted baseline rate of adding EJ to rules. This may be because the forest service is mainly in
-the business of managing forests, leasing timber rights, and controlling
-wildfires. These types of decisions have acute distributional
-effects. Forest Service rule-writers may also simply have an institutional practice of addressing E.O.12898. 
-Similarly, the Federal
-Railroad Administration,  Federal Highway
-Administration, Federal Motor Carrier Safety Administration all have large baseline rates of adding EJ to final rules. These agencies are
-making decisions about infrastructure projects with implications for
-neighborhood environments and air quality. Environmental justice may
-often come up.
-Research agencies, including the Nuclear Regulatory Commission (NRC), National Oceanographic and Atmospheric Administration (NOAA), also have small but significant baseline rate of adding EJ to final rules.
--->
 
 ### Are rules more likely to change how they address environmental justice when comments mention it?
 
@@ -165,4 +148,10 @@ knitr::include_graphics(here::here("figs", "ej-mejPR-comments-1.png"))
 ```
 
 
+```{r ej-mejPR-ejcomments-agencyFE, fig.cap = "Probability Environmental Justice is Added Between Draft and Final Rules by Number of Comments Raising Environmental Justice", out.width = "80%", fig.show = "hold", fig.subcap=""}
 
+knitr::include_graphics(here::here("figs", "ej-mejPR-ejcomments-agencyFE-1.png"))
+
+```
+
+Figure \@ref(fig:ej-mejPR-comments-agencyFE) shows the probability that an agency will change EJ language given different total numbers of comments. 

@@ -13,25 +13,24 @@ subtitle:
 author:
 - name: Devin Judge-Lord
   affiliation: Harvard University
-  footnote: "I will be grateful for any feedback on this draft: [DevinJudgeLord@fas.harvard.edu](mailto:DevinJudgeLord@fas.harvard.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/ej>. This paper has benefited from comments from Benjamin Márquez, Marcy Shieh, Susan Webb Yackee, Eleanor Powell, David Weimer, participants at the University of Mississippi Political Science Research Colloquium, UW-Madison American Politics Workshop, and 2018 Association for Environmental Studies and Sciences Conference, research assistance from Hope Karnopp, and funding from the National Science Foundation and American Political Science Association."
+  footnote: "I will be grateful for any feedback on this draft: [DevinJudgeLord@fas.harvard.edu](mailto:DevinJudgeLord@fas.harvard.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/ej>. This paper has benefited from comments from Benjamin Márquez, Marcy Shieh, Susan Webb Yackee, Eleanor Neff Powell, David Weimer, Timothy Fraser, participants at the Harvard American Politics Research Workshop, the University of Mississippi Political Science Research Colloquium, UW-Madison American Politics Workshop, and 2018 Association for Environmental Studies and Sciences Conference, research assistance from Hope Karnopp, and funding from the National Science Foundation and American Political Science Association."
   # Additional tables, figures, and replication code are available at <https://judgelord.github.io/dissertation/ej-appendix.html>. 
 date: "`r Sys.Date()`"
 abstract: | 
   `r readLines(here::here("05-ej", "ej-abstract.tex"))`
-#site: bookdown::bookdown_site
-# documentclass: book
 bibliography: '`r here::here("assets/dissertation.bib")`'
-# biblio-style: apalike
 biblio-style: '`r here::here("assets/apsr.bst")`'
 link-citations: yes
 citecolor: black
-urlcolor: blue
+urlcolor: black
 # endnotes: true # CHANGE THIS BEFORE SUBMISSION
 frontpage: true
 spacing: onehalfspacing
+always_allow_html: true
 # github-repo: https://github.com/judgelord/dissertation
 # description: ""
-# keywords: Interest groups, rulemaking, lobbying, bureaucratic politics, data sources
+keywords: Interest groups, rulemaking, lobbying, bureaucratic politics, data sources
+wordcount: 11964
 
 output:
     bookdown::pdf_document2:
@@ -56,7 +55,9 @@ source(here::here("code", "setup.R"))
        
 options(knitr.graphics.auto_pdf = TRUE)
 
-knitr::opts_chunk$set(fig.path= "../figs/")
+#knitr::opts_chunk$set(fig.path= "../figs/")
+
+knitr::opts_chunk$set(cache = FALSE)
 ```
 
 
@@ -98,3 +99,124 @@ The following chapter is part of a dissertation exploring the effects of public 
 
 ```{r child = here::here("05-ej", "05-conclusion.Rmd")}
 ```
+
+
+# (APPENDIX) Appendix {-} 
+
+
+## Descriptives 
+
+```{r ej-descriptive, position = "hold", out.width="49%", fig.cap = "Descriptive", out.width = "49%", fig.subcap=""}
+include_graphics(here::here("figs", "ej-PR-winrate-1.png"))
+
+#include_graphics(here::here("figs", "ej-PR-winrate-agency-1.png"))
+```
+
+## Robustness
+
+The main models (2 and 4) from Table \@ref(tab:ej-tables) use agency fixed effects and an indicator for whether at least one comment raised EJ concerns. Table \@ref(tab:ej-appendix1) presents roughly the same models to confirm that results are not driven by agencies that have little contact with EJ issues or rules that have little to do with EJ issues. 
+Models "2 EPA Only" and "4 EPA Only" are identical to Models 2 and 4, but subset to EPA rules instead of agency fixed effects. 
+Models "2 Mass Only" and "4 Mass Only" are identical to Models 2 and 4, but subset to rules that recieved over 100 comments.
+Models "2 EJ Only" and "4 EJ Only" are identical to Models 2 and 4, but subset to rules that received at least on comment raising EJ concerns instead of including the indicator. 
+
+```{r ej-appendix1}
+# app table fixest
+modelsummary::modelsummary( modelsFE1, 
+                            title = "Logit Regression Predicting Change in Rule Text (Subsets)",
+                            stars = TRUE, 
+                            coef_map = cm,
+                            gof_omit = "R.*",
+                          add_rows = rowsFE1, 
+                          notes = "") %>% 
+  row_spec(row = 1, bold = T) %>%
+  kable2(file = "ej-appendix2")
+```
+
+
+\clearpage
+
+
+## Alternative specification
+
+
+Table \@ref(tab:ej-appendix2) presents an alternative specification for the main models 2 and 4, as well as for the robustness checks in Table \@ref(tab:ej-appendix1). While we have strong reasons to belive that comments have decreasing maginal effect, and the logged number of comments the offers a parsamonious modeling strategy, the models in Table \@ref(tab:ej-appendix2) relax this assumption about the functional form by using quadradic terms instead. In these tables, "Total Comments" is measured in 1000s whereas "Unique EJ Comments" is not transformed. With this specification, most of the hypothesis cannot be assessed by the p-value on any one term. 
+
+```{r ej-appendix2}
+# app table fixest 2
+modelsummary::modelsummary( modelsFE2, 
+                            title = "Logit Regression Predicting Change in Rule Text",
+                            #stars = TRUE, 
+                            coef_map = cm,
+                            gof_omit = "R.*",
+                          add_rows = rowsFE2, 
+                          notes = "") %>% 
+  row_spec(row = 1, bold = T)  %>%
+  kable2(file = "ej-appendix2")
+```
+
+\clearpage
+
+### Predicted Response by Total Comments
+
+```{r ej-robust,  out.width="49%", position = "hold"}
+include_graphics(here::here("figs", "ej-m-PR-epa-1.png"))
+
+include_graphics(here::here("figs", "ej-m-PR-mass-1.png"))
+
+include_graphics(here::here("figs", "ej-m-PR-ej-1.png"))
+
+include_graphics(here::here("figs", "ej-mejPR-epa-1.png"))
+
+include_graphics(here::here("figs", "ej-mejPR-mass-1.png"))
+
+include_graphics(here::here("figs", "ej-mejPR-ej-1.png"))
+```
+
+
+\clearpage
+
+
+### Predicted Response by Number of EJ Comments
+
+```{r ej-robust-figs, position = "hold", out.width="49%"}
+include_graphics(here::here("figs", "ej-m-PR-epa-ejcomments-1.png"))
+
+include_graphics(here::here("figs", "ej-m-PR-mass-ejcomments-1.png"))
+
+include_graphics(here::here("figs", "ej-m-PR-ej-ejcomments-1.png"))
+
+include_graphics(here::here("figs", "ej-mejPR-epa-ejcomments-1.png"))
+
+include_graphics(here::here("figs", "ej-mejPR-mass-ejcomments-1.png"))
+
+include_graphics(here::here("figs", "ej-mejPR-ej-ejcomments-1.png"))
+```
+
+
+\clearpage
+
+### Predicted Response by Agency
+
+Figure \@ref(fig:ej-m-PR-agency-top) shows estimated variation in rates of adding EJ to final rules across agencies.
+Agencies with the largest average rates of adding EJ language are the agencies we would expect to be more receptive to EJ claims.  While many agencies make policies that could be framed as "environmental," and all policy decisions have distributive consequences, institutions have norms and procedures that lead policymakers to see problems in different ways. For example, some agencies have dedicated staff and prominent internal guidance on EJ analysis in rulemaking, including the Environmental Protection Agency and the Department of Transportation (which includes the Federal Railroad Administration (FRA),    Federal Motor Carrier Safety Administration (FMCSA), and  Federal Highway Administration (FHWA)). These agencies are among the most responsive to commenters raising EJ concerns. However, differences among agencies are fairly uncertain due to the small number of rules where EJ was added at most agencies. Thus, there is more support for the *Policy Receptivity Hypothesis* (\@ref(hyp:ej-receptivity)) than against it, but differences between agencies with different missions and institutional practices regarding EJ are not clear cut.
+
+
+```{r ej-m-PR-agency-top, fig.cap = "Probability Environmental Justice is Added Between Draft and Final Rules by Agency",out.width = "100%"}
+
+knitr::include_graphics(here::here("figs", "ej-m-PR-agency-top-1.png"))
+```
+
+
+<!--
+The Forest Service (FS) has by far the highest predicted baseline rate of adding EJ to rules. This may be because the forest service is mainly in
+the business of managing forests, leasing timber rights, and controlling
+wildfires. These types of decisions have acute distributional
+effects. Forest Service rule-writers may also simply have an institutional practice of addressing E.O.12898. 
+Similarly, the Federal
+Railroad Administration,  Federal Highway
+Administration, Federal Motor Carrier Safety Administration all have large baseline rates of adding EJ to final rules. These agencies are
+making decisions about infrastructure projects with implications for
+neighborhood environments and air quality. Environmental justice may
+often come up.
+Research agencies, including the Nuclear Regulatory Commission (NRC), National Oceanographic and Atmospheric Administration (NOAA), also have small but significant baseline rate of adding EJ to final rules.
+-->
