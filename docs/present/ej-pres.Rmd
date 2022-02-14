@@ -150,6 +150,22 @@ With a few notable exceptions (like Dan Gillion's work on civil rights protests)
 
 ---
 
+# Measuring influence
+
+I. Getting policymakers' attention/engadgement/response
+
+in specific cases: 
+- adding policy language 
+- changing policy language
+
+over time
+- change in patterns of policymaking
+
+II. Getting substantive policy demands
+
+
+---
+
 ## Whom does notice and comment rulemaking empower? 
 
 --
@@ -342,12 +358,16 @@ on "vulnerable populations" including "African Americans," "Hispanic,"
 
 --
 
-- 2021 Draft: ??
+- 2021 Draft: "differentiated subsistence fisher
+populations...children exposed prenatally"
+
 ???
 
 
 
 In addition to who gets what, there is debate over who the whos *are*. What communities exist as groups deserving consideration. 
+
+30/51 pages in biden
 
 ---
 
@@ -385,6 +405,24 @@ knitr::include_graphics("Figs/ej-comments-1.png")
 knitr::include_graphics("Figs/comment_percent_match_plot.png") 
 ```
 
+---
+
+
+## Whom does notice and comment rulemaking empower? 
+
+```{r ejcommentsbyrace, fig.cap = 'Estimated Racial Distribution from Census Surnames of Commenters raising "Environmental Justice" Concerns in Rulemaking', fig.height = 1.5, fig.width=2, out.width = "40%", fig.show = "hold"}
+load(here::here("data", "ej_race.Rdata"))
+
+Race %>% ggplot() + 
+  aes(y =Race, x = Probability) + 
+  geom_col() +
+  theme_minimal() +
+  theme(panel.grid.major.y = element_blank())
+```
+
+---
+
+
 
 ---
 
@@ -414,18 +452,6 @@ background-size: cover
 
 - `"...I am committed to taking a stand against oil and gas exploration on public lands, as this is an Environmental Justice issue here in our vulnerable communities..."`
 
-
----
-
-```{r ejcommentsbyrace, fig.cap = 'Estimated Racial Distribution from Census Surnames of Commenters raising "Environmental Justice" Concerns in Rulemaking', fig.height = 1.5, fig.width=2, out.width = "40%", fig.show = "hold"}
-load(here::here("data", "ej_race.Rdata"))
-
-Race %>% ggplot() + 
-  aes(y =Race, x = Probability) + 
-  geom_col() +
-  theme_minimal() +
-  theme(panel.grid.major.y = element_blank())
-```
 
 ---
 
@@ -520,16 +546,23 @@ knitr::include_graphics("Figs/ej-mejPR-comments-agencyFE-1.png")
 
 With larger coalitions and more public attention, agencies are more likely  📈 to **add** EJ language **where there was none**, BUT agencies also anticipate public attention, making **existing** EJ analyses less likely 📉 to **change** on higher-salience rules.
 
-
 <!--
 
-class: inverse
 
 ### Thank you!
 
 - Paper, slides, data: [judgelord.github.io/research/ej](judgelord.github.io/research/ej)
 
+- Rules related to EJ or Climate currently open for comment: [judgelord.github.io/rulemaking/open]( https://judgelord.github.io/rulemaking/open)
+
+--
+
 ### Next Steps
+
+- More on coalition structure and policy success, especially opposing coalitions
+- Better (hand-coded) measures of policy change
+- Model changes in texts that already discuss climate/EJ/CJ
+- Additional terms (e.g., "warming") and analysis of change in term frequency
 
 Framing 
 - More on how social movements may impact policy. Petitioning and protest? Lobbying?
@@ -538,9 +571,26 @@ Framing
 Methods
 - Test policy receptivity using rates of addressing EJ out of sample (direct rules & notices)
 - Better measures of policy change
-- Better estimation
+- Alternative estimation (hierarchical Bayes, hazard models)
+- Network analysis
 
 Substance
-- Other discursive terms/movements ("climate change"/"racial"/"minority populations"/"low-income"...others?)
+- Other discursive terms/movements ("racial"/"minority populations"/"low-income"...others?)
+- Co-framing effects: EJ + "health", "disasters", "fairness", "exploitation", "recycling", "ozone", or "greenhouse gas emissions" (Baumgartner and Jones)
+
+
+--
+
+# Other papers
+
+
+- Network analysis
+- Feedback: the mobilizing and demobilizing effects of the policy process
+
+--
+
+inverse center middle 
+
+# Extra Slides 
 
 -->

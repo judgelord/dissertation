@@ -24,6 +24,7 @@ source(here::here("code", "setup.r"))
 knitr::opts_chunk$set(echo = TRUE, 
                       cache = FALSE, 
                       fig.width=8.5, 
+                      #fig.width = 4,
                       split = T,
                       fig.path='../figs/')
 
@@ -218,7 +219,7 @@ allFR %>%
 ### Agencies that received at least 100 unique EJ comments
 
 
-```{r ej-data-agencies100}
+```{r ej-data-agencies100, fig.height=4.5}
 # ej-data-agencies100
 
 breaks <-  c("`16", "`12", 
@@ -234,9 +235,7 @@ allFR %>%
   facet_wrap("agency", scales = "free_y") +
   geom_bar(alpha = .7) + 
   labs(fill = "\"Environmental Justice\"\nin Final Rule",
-       y = "Number of Rules",
-       caption = "Council on Environmental Quality (CEQ), Army Corps of Engineers (COE), Department of Transportation (DOT), Environmental Protection Agency (EPA), Federal Emergency Management Agency (FEMA), Federal Highway Administration (FHWA), Federal Motor Carrier Safety Administration (FMCSA), Federal Railroad Administration (FRA), Forest Service (FS), Federal Transit Administration (FTA), Fish and Wildlife Service (FWS), Department of Housing and Urban Development (HUD), National Highway Transportation Safety Administration (NHTSA), National Oceanic and Atmospheric Administration (NOAA), Nuclear Regulatory Commission (NRC), and Office of Surface Mining (OSM)") + 
-
+       y = "Number of Rules") + 
   scale_x_discrete(breaks = breaks ) 
 ```
 
@@ -267,7 +266,7 @@ allPR %>%
 
 
 
-```{r ej_fr-president, fig.height=4.5}
+```{r ej_fr-president, fig.height=4.5, ,fig.width=6.5}
 # ej_fr-president
 
 allFR %>% 
@@ -310,13 +309,13 @@ allFR %>%
 
 
 
-```{r ej-comments,fig.width=7}
+```{r ej-comments,fig.width=6.5, fig.height=4.1}
 # ej_comments
 breaks <- c(1996, 2000, 2004, 2008, 2012, 2016, 2020)
 
 allFR %>% 
   filter(direct == "Draft Rule Published") %>% 
-  mutate(ej_pr = ifelse(ej_pr, "EJ in Draft & Final Rule", "EJ Only in Final Rule"),
+  mutate(ej_pr = ifelse(ej_pr, "EJ in Draft & Final", "EJ Only in Final"),
          ej_pr = ifelse(ej_fr, ej_pr, "No EJ Analysis")) %>% 
   mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ")) %>% 
   ggplot() + 
@@ -1028,8 +1027,8 @@ This is just a robustness check. The effect of an EJ comment should capture diff
 # ejFR_PR %<>% group_by(agency) %>% mutate(dv_var = ej_fr %>% unique() %>% length()) %>% ungroup() %>% filter(dv_var > 1)
 
 m_PR_agencyFE_ejcomment <- feglm (ej_fr ~ log(comments + 1) + log(ej_comments_unique + 1)
-                        | president + agency, 
-                        se = "twoway",
+                        | president, 
+                        #se = "twoway",
           # SUBSET DATA 
            data = ejFR_PR %>% filter(ej_comment), 
              family=binomial(link="logit"))
@@ -1038,8 +1037,8 @@ m_PR_agencyFE_ejcomment2 <- feglm (ej_fr ~ comments +
                                     comments^2 +
                                     ej_comments_unique + 
                                     ej_comments_unique^2
-                        | president + agency, 
-                        se = "twoway",
+                        | president, 
+                        #se = "twoway",
           # SUBSET DATA 
            data = ejFR_PR %>% filter(ej_comment) %>% mutate(comments = comments/1000), 
              family=binomial(link="logit"))
@@ -1067,7 +1066,7 @@ values <- ejFR_PR %>% filter(ej_comment) %>%
 #                      se_fit = TRUE
 #                      ) 
 
-predicted <- predictions(m_PR_agencyFE_ejcomment,
+predicted <- predictions(m_PR_agencyFE_ejcomment2,
                 newdata = values) %>% 
   #FIXME 
   mutate(std.error = replace_na(std.error, NA)) %>%
@@ -1380,7 +1379,7 @@ values <- ejFR_PR %>% filter(comments > 99) %>%
 #                      newdata = values,
 #                      se_fit = TRUE
 #                      ) 
-predicted <- predictions(m_PR_epa2,
+predicted <- predictions(m_PR_mass2,
                          newdata = values)
 
 predicted %<>% 
@@ -1757,8 +1756,7 @@ coord_flip() +
        title = "Predicted change in Final Rules") + 
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
-        panel.grid.major.y = element_blank())+
-  ylim(0,1) 
+        panel.grid.major.y = element_blank())
 ```
 
 ---
@@ -2025,7 +2023,7 @@ coord_flip() +
        title = "Predicted change in Final Rules")  + 
   scale_y_continuous(breaks = c(0, .5,1)) +
   theme(panel.grid.major.y = element_blank(),
-        panel.border = element_blank()) + ylim(0,1)
+        panel.border = element_blank())
 ```
 
 Agencies that have at least 300 comments on proposed rules that did not mention environmental justice (i.e., agencies where at least some of the rules in this dataset saw comments) and at least 3 rules where comments raised EJ concerns (i.e., agencies where EJ is somewhat salient). 
@@ -2146,7 +2144,7 @@ values <- ejFRejPR %>%
 #                      se_fit = TRUE
 #                      )  
 
-predicted <- predictions(mejPR_agencyFE2,
+predicted <- predictions(mejPR_agencyFE,
                          newdata = values) %>% 
   rename(.fitted = predicted,
          .se.fit = std.error)
@@ -2252,7 +2250,7 @@ This is just a robustness check. The effect of an EJ comment should capture diff
 mejPR_agencyFE_ejcomment <- feglm (change ~ 
                                      log(comments + 1) +
                                      log(ej_comments_unique + 1)
-                        | president + agency, 
+                        | president, 
                         #se = "twoway",
           # SUBSET DATA 
            data = ejFRejPR %>% filter(ej_comment), 
@@ -2262,7 +2260,7 @@ mejPR_agencyFE_ejcomment2 <- feglm (change ~ comments +
                                     comments^2 +
                                     ej_comments_unique + 
                                     ej_comments_unique^2
-                        | president + agency, 
+                        | president, 
                         #se = "twoway",
           # SUBSET DATA 
            data = ejFRejPR %>% filter(ej_comment)%>% mutate(comments = comments/1000), 
