@@ -130,8 +130,11 @@ rules %<>%
   mutate(agency_ej_rules = sum(ej_fr),
          agency_ej_comments = sum(ej_comments_unique),
          agency_ej_nprms = sum(ej_pr)) %>%
+  # share 
+  mutate(agency_dockets = unique(docket_id) %>% length(),
+         agency_ej_share = agency_ej_rules/agency_dockets) %>% 
   ungroup() %>% 
-  filter(agency_ej_rules > 0)# | agency_ej_nprms > 0) #TODO sensitivity analysis
+  filter(agency_ej_rules > 0)# | agency_ej_nprms > 0) #TODO sensitivity analysis using EJ share floor
 
 
 ejcomments$number_of_comments_received %<>% replace_na(0) 

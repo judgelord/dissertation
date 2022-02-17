@@ -29,9 +29,8 @@ spacing: onehalfspacing
 always_allow_html: true
 # github-repo: https://github.com/judgelord/dissertation
 # description: ""
-keywords: Interest groups, rulemaking, lobbying, bureaucratic politics, data sources
+# keywords: Pressure groups, bureaucratic politics, 
 wordcount: 11964
-
 output:
     bookdown::pdf_document2:
       template: '../assets/article-template.tex' # redirect to assets 
@@ -42,7 +41,7 @@ output:
       fig_caption: true
       fig.topcaption: true
       fig.width: 7
-    word_document: default
+      extra_dependencies: ["flafter"]
 header-includes:
   - \usepackage{floatrow}
   - \usepackage{float}
@@ -129,7 +128,7 @@ Models "2 EJ Only" and "4 EJ Only" are identical to Models 2 and 4, but subset t
 ```{r ej-appendix1}
 # app table fixest
 modelsummary::modelsummary( modelsFE1, 
-                            title = "Logit Regression Predicting Change in Rule Text (Subsets)",
+                            title = "Logit Regression Predicting Change in Rule Text (Data Subsets)",
                             stars = TRUE, 
                             coef_map = cm,
                             gof_omit = "R.*",
@@ -146,7 +145,7 @@ modelsummary::modelsummary( modelsFE1,
 ## Alternative specification
 
 
-Table \@ref(tab:ej-appendix2) presents an alternative specification for the main models 2 and 4, as well as for the robustness checks in Table \@ref(tab:ej-appendix1). While we have strong reasons to believe that comments have decreasing marginal effects, and the logged number of comments offers a parsimonious modeling strategy, the models in Table \@ref(tab:ej-appendix2) relax this assumption about the functional form by using both linear and quadratic terms instead. In these tables, "Total Comments" is measured in thousands, whereas "Unique EJ Comments" is not transformed. Note, with this specification, most of the hypotheses cannot be assessed by the p-value on any one term. Instead, Figures \@ref(fig:ej-robust) and \@ref(fig:ej-robust-ej) show predicted probabilities at various levels of public attention (total comments) and coalition size (unique EJ comments), respectively.
+Table \@ref(tab:ej-appendix2) presents an alternative specification as robustness checks for the main models 2 and 4 in Table \@ref(tab:ej-appendix1). While we have strong reasons to believe that comments have decreasing marginal effects, and the logged number of comments offers a parsimonious modeling strategy, the models in Table \@ref(tab:ej-appendix2) relax this assumption about functional form by using both linear and quadratic terms instead. In these tables, "Total Comments" is measured in thousands, whereas "Unique EJ Comments" is not transformed. With this specification, most hypotheses cannot be assessed by the p-value on any one term. Instead, Figures \@ref(fig:ej-robust) and \@ref(fig:ej-robust-ej) show predicted probabilities at various levels of public attention (total comments) and coalition size (unique EJ comments), respectively, while holding other variables at their modal values. 
 
 ```{r ej-appendix2}
 # app table fixest 2
@@ -206,15 +205,25 @@ include_graphics(here::here("figs", "ej-mejPR-ej-ejcomments-1.png"))
 
 \clearpage
 
-### Predicted Response by Agency
+## Rates of Addressing EJ by Agency
+
+Table \@ref(tab:ej-rates) shows the total number of final rules and the percent that address EJ for the twenty agencies that most frequently mention EJ in final rules. 
+
+```{r ej-rates}
+load(here::here("05-ej", "ej_rates.Rdata"))
+
+ej_rates %>% kable3(caption = 'Rates of Mentioning "Environmental Jusitce" in Final Rules')
+```
+
 
 Figure \@ref(fig:ej-m-PR-agency-top) shows estimated variation in rates of adding EJ to final rules across agencies.
-Agencies with the largest average rates of adding EJ language are the agencies we would expect to be more receptive to EJ claims. While many agencies make policies that could be framed as "environmental," and all policy decisions have distributive consequences, institutions have norms and procedures that lead policymakers to see problems in different ways. For example, some agencies have dedicated staff and prominent internal guidance on EJ analysis in rulemaking, including the Environmental Protection Agency and the Department of Transportation (which includes the Federal Railroad Administration (FRA),    Federal Motor Carrier Safety Administration (FMCSA), and  Federal Highway Administration (FHWA)). These agencies are among the most responsive to commenters raising EJ concerns. However, differences among agencies are fairly uncertain due to the small number of rules where EJ was added at most agencies. Thus, there is more support for the *Policy Receptivity Hypothesis* (\@ref(hyp:ej-receptivity)) than against it, but differences between agencies with different missions and institutional practices regarding EJ are not clear cut.
+Some agencies have dedicated staff and prominent internal guidance on EJ analysis in rulemaking, including the Environmental Protection Agency and the Department of Transportation (which includes the Federal Railroad Administration (FRA),    Federal Motor Carrier Safety Administration (FMCSA), and  Federal Highway Administration (FHWA)). These agencies are among the most responsive to commenters raising EJ concerns. However, differences among agencies are fairly uncertain due to the small number of rules where EJ was added at most agencies. Combined with the main results (models 1 and 3 in Table \@ref(tab:ej-tables)), these differences in responsiveness add further support for the *Policy Receptivity Hypothesis* (\@ref(hyp:ej-receptivity)), but differences between agencies with different missions and institutional practices regarding EJ are not clear cut.
 
 
-```{r ej-m-PR-agency-top, fig.cap = "Probability Environmental Justice is Added Between Draft and Final Rules by Agency",out.width = "100%"}
+```{r ej-m-PR-agency-top, fig.cap = 'Probability  that "Environmental Justice" is Added Between Draft and Final Rules by Agency',out.width = "100%"}
 
 knitr::include_graphics(here::here("figs", "ej-m-PR-agency-top-1.png"))
+
 ```
 
 
@@ -225,8 +234,7 @@ wildfires. These types of decisions have acute distributional
 effects. Forest Service rule-writers may also simply have an institutional practice of addressing E.O.12898. 
 Similarly, the Federal
 Railroad Administration,  Federal Highway
-Administration Federal Motor Carrier Safety Administration all have large baseline rates of adding EJ to final rules. These agencies are
-making decisions about infrastructure projects with implications for
+Administration Federal Motor Carrier Safety Administration all have large baseline rates of adding EJ to final rules. These agencies make decisions about infrastructure projects with implications for
 neighborhood environments and air quality. Environmental justice may
 often come up.
 Research agencies, including the Nuclear Regulatory Commission (NRC) and National Oceanographic and Atmospheric Administration (NOAA), also have low but significant baseline rate of adding EJ to final rules.

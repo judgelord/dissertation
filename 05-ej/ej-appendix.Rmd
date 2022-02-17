@@ -421,6 +421,8 @@ ejorgs_FR %>%
 # Proposed rules that **did not** address EJ
 
 ```{r}
+# allFR %<>% mutate(agency_ej_share = agency_ej_share*100)
+
 # Final Rules that where ej was not mentioned in the NPRM
 ejFR_PR <- allFR %>% 
   filter(docket_id %in% allPR$docket_id, # there is an NPRM
@@ -884,6 +886,273 @@ coord_flip() +
         panel.border = element_blank())
 ```
 
+### with Agency Share
+
+(as well as President FE)
+
+```{r ej-m-PR-comments-share, fig.width=6, fig.height=2.5}
+# ej-m-PR-comments-share
+
+# agencies with variation on DV
+# ejFR_PR %<>% group_by(agency) %>% mutate(dv_var = ej_fr %>% unique() %>% length()) %>% ungroup() %>% filter(dv_var > 1)
+
+m_PR_share <- feglm (ej_fr ~ ej_comment*log(comments+1) + 
+                          log(ej_comments_unique+1) +
+                       agency_ej_share
+                        | president , 
+                     #se = "twoway",
+           data = ejFR_PR, 
+             family=binomial(link="logit"))
+
+m_PR_share2 <- feglm (ej_fr ~ ej_comment*comments + 
+                          ej_comment*comments^2 + 
+                          ej_comments_unique + 
+                          ej_comments_unique^2 +
+                           agency_ej_share 
+                        | president, 
+                        #se = "twoway",
+           data = ejFR_PR %>% mutate(comments = comments/1000), 
+             family=binomial(link="logit"))
+
+modelsummary(list(m_PR_share, m_PR_share2), stars = T)
+
+# A data frame of values at which to estimate probabilities:
+values <- ejFR_PR %>% 
+  tidyr::expand(comments = c(1, 10,100,1000,10000),
+         ej_comment,
+         ej_comments_unique = median(ej_comments_unique) %>% round(),
+         president = "Obama",
+         agency_ej_share = .67,
+         agency = "EPA") %>% 
+  mutate(ej_comments_unique = as.numeric(ej_comment)) 
+
+
+
+predicted <- predictions(m_PR_share,
+                         newdata = values)
+
+predicted %<>% 
+  left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
+
+# As a plot
+predicted %>%
+  filter(comments<10001) %>% 
+  ggplot() + 
+  aes(x = factor(comments), 
+      y = predicted, 
+      shape = EJ_comment,
+      color = EJ_comment) + 
+  geom_pointrange(aes(ymin = predicted - 1.96*std.error,
+                  ymax = predicted + 1.96*std.error), alpha = .7 )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+  #scale_y_continuous(breaks = c(0, .5,1)) +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+coord_flip() +
+  #facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
+       x = "Number of Comments",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "Predicted Change in Final Rules")  +
+  theme(panel.border  = element_blank(),
+        panel.grid.major.y = element_blank())
+```
+
+
+```{r ej-m-PR-ejcomments-share, fig.width=6, fig.height=2.5}
+# ej-m-PR-ejcomments-share
+
+
+# A data frame of values at which to estimate probabilities:
+values <- ejFR_PR %>% 
+  tidyr::expand(ej_comments_unique = c(1, 10,100),
+         ej_comment = TRUE,
+         comments = median(comments) %>% round(),
+         president = "Obama",
+         agency_ej_share = .67,
+         agency = "EPA") %>% 
+  # set all comments to be EJ comments (we can't have one overall comment and 100 ej comments)
+  mutate(comments = ej_comments_unique)
+
+predicted <- broom::augment(m_PR_share,  
+                     type.predict = "response",
+                     newdata = values,
+                     se_fit = TRUE
+                     )  
+
+
+predicted <- predictions(m_PR_share,
+                         newdata = values) %>% 
+  rename(.fitted = predicted, 
+         .se.fit = std.error)
+
+predicted %<>% 
+  left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment)) 
+
+# As a plot
+predicted %>%
+  ggplot() + 
+  aes(x = factor(ej_comments_unique), 
+      y = .fitted, 
+      shape = EJ_comment,
+      color = EJ_comment) + 
+  geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
+                  ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+  #scale_y_continuous(breaks = c(0, .5,1)) +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+coord_flip() +
+  #facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
+       x = "Number of Unique Comments\nRaising EJ Concerns",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "Predicted Change in Final Rules")  +
+  theme(panel.border  = element_blank(),
+        panel.grid.major.y = element_blank()) 
+```
+
+
+---
+
+
+### with Agency Share Interaction
+
+(as well as President FE)
+
+```{r ej-m-PR-shareI, fig.width=6, fig.height=2.5}
+# ej-m-PR-comments-share
+
+# agencies with variation on DV
+# ejFR_PR %<>% group_by(agency) %>% mutate(dv_var = ej_fr %>% unique() %>% length()) %>% ungroup() %>% filter(dv_var > 1)
+
+m_PR_shareI <- feglm (ej_fr ~ ej_comment*log(comments+1) + 
+                          log(ej_comments_unique+1) +
+                       ej_comment*agency_ej_share
+                        | president , 
+                     #se = "twoway",
+           data = ejFR_PR, 
+             family=binomial(link="logit"))
+
+m_PR_shareI2 <- feglm (ej_fr ~ ej_comment*comments + 
+                          ej_comment*comments^2 + 
+                          ej_comments_unique + 
+                          ej_comments_unique^2 +
+                           ej_comment*agency_ej_share 
+                        | president, 
+                        #se = "twoway",
+           data = ejFR_PR %>% mutate(comments = comments/1000), 
+             family=binomial(link="logit"))
+
+modelsummary(list(m_PR_shareI, m_PR_shareI2), stars = T)
+
+# A data frame of values at which to estimate probabilities:
+values <- ejFR_PR %>% 
+  tidyr::expand(comments = 1,
+         ej_comment,
+         #ej_comments_unique = median(ej_comments_unique) %>% round(),
+         president = "Obama",
+         agency_ej_share) %>% 
+  mutate(ej_comments_unique = as.numeric(ej_comment)) %>% 
+  left_join(ejFR_PR %>% distinct(agency, agency_ej_share))
+
+
+
+predicted <- predictions(m_PR_shareI,
+                         newdata = values)
+
+predicted %<>% 
+  left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
+
+# As a plot
+predicted %>%
+  ggplot() + 
+  aes(x = agency_ej_share, 
+      y = predicted, 
+      shape = EJ_comment,
+      color = EJ_comment,
+      label = agency) + 
+  geom_pointrange(aes(ymin = predicted - 1.96*std.error,
+                  ymax = predicted + 1.96*std.error), alpha = .7 )  + 
+  geom_text(check_overlap = T, color = "gray", hjust = "inward",
+            y = .8,
+            #aes(y = #ifelse(ej_comment, predicted, NA))
+            ) + 
+  geom_hline(yintercept = 0, linetype = 2) +
+  #scale_y_continuous(breaks = c(0, .5,1)) +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+coord_flip() +
+  #facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
+       x = 'Share of Rules Mentioning\n"Environmental Justice"',
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "Predicted Change in Final Rules")  +
+  theme(panel.border  = element_blank(),
+        panel.grid.major.y = element_blank()) + 
+  ylim(c(0,.8))
+```
+
+
+```{r ej-m-PR-shareI-ejcomments, fig.width=6, fig.height=2.5}
+# ej-m-PR-ejcomments-share
+
+
+# A data frame of values at which to estimate probabilities:
+values <- ejFR_PR %>% 
+  tidyr::expand(ej_comments_unique = c(1, 10,100),
+         ej_comment = TRUE,
+         comments = median(comments) %>% round(),
+         president = "Obama",
+         agency_ej_share = .67,
+         agency = "EPA") %>% 
+  # set all comments to be EJ comments (we can't have one overall comment and 100 ej comments)
+  mutate(comments = ej_comments_unique)
+
+predicted <- broom::augment(m_PR_share,  
+                     type.predict = "response",
+                     newdata = values,
+                     se_fit = TRUE
+                     )  
+
+
+predicted <- predictions(m_PR_share2,
+                         newdata = values) %>% 
+  rename(.fitted = predicted, 
+         .se.fit = std.error)
+
+predicted %<>% 
+  left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment)) 
+
+# As a plot
+predicted %>%
+  ggplot() + 
+  aes(x = factor(ej_comments_unique), 
+      y = .fitted, 
+      shape = EJ_comment,
+      color = EJ_comment) + 
+  geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
+                  ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+  #scale_y_continuous(breaks = c(0, .5,1)) +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+coord_flip() +
+  #facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
+       x = 'Share of Rules Mentioning "Environmental Justice"',
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "Predicted Change in Final Rules")  +
+  theme(panel.border  = element_blank(),
+        panel.grid.major.y = element_blank()) 
+```
+
+---
+
 ### with Agency Fixed Effects 
 
 (as well as President FE)
@@ -915,7 +1184,7 @@ values <- ejFR_PR %>%
          ej_comment,
          ej_comments_unique = median(ej_comments_unique) %>% round(),
          president = "Obama",
-         agency = "EPA") 
+         agency = "EPA")%>% mutate(ej_comments_unique = as.numeric(ej_comment)) 
 
 predicted <- broom::augment(m_PR_agencyFE,  
                      type.predict = "response",
@@ -1189,7 +1458,7 @@ values <- ejFR_PR %>%
          ej_comment = c(T, F),
          ej_comments_unique =  1,
          president = "Obama",
-         agency = "EPA")
+         agency = "EPA") %>% mutate(ej_comments_unique = as.numeric(ej_comment))
 
 # # broom does not work
 # predicted <- broom::augment(m_PR_epa,  
@@ -1318,7 +1587,7 @@ values <- ejFR_PR %>% filter(comments > 99) %>%
          ej_comment = c(T, F),
          ej_comments_unique =  1,
          president = "Obama",
-         agency = "EPA")
+         agency = "EPA")%>% mutate(ej_comments_unique = as.numeric(ej_comment))
 
 # # broom does not work
 # predicted <- broom::augment(m_PR_epa,  
@@ -2107,6 +2376,134 @@ coord_flip() +
 ```
 
 
+## with Agency Share
+
+(as well as president FE)
+
+```{r ej-mejPR-comments-share, fig.width=6, fig.height=2.5}
+#ej-mejPR-comments-share
+
+mejPR_share <- feglm (change ~ ej_comment*log(comments+1) + log(ej_comments_unique+1) +
+                           agency_ej_share
+                     | president ,
+           data = ejFRejPR, #se = "twoway",
+             family=binomial(link="logit"))
+
+mejPR_share2 <- feglm (change ~ ej_comment*comments +
+                            ej_comment*comments^2 + 
+                            ej_comments_unique + 
+                            ej_comments_unique^2+
+                           agency_ej_share
+                     | president ,
+           data = ejFRejPR%>% mutate(comments = comments/1000),# se = "twoway",
+             family=binomial(link="logit"))
+
+modelsummary(
+  list(mejPR_share, mejPR_share2), stars = T)
+
+# A data frame of values at which to estimate probabilities:
+values <- ejFRejPR %>% 
+  tidyr::expand(comments =  c(1, 10,100,1000,10000),
+         ej_comment,
+         ej_comments_unique = median(ej_comments_unique) %>% round(),
+         president = "Obama",
+         agency = "EPA",
+         agency_ej_share = .67) %>% mutate(ej_comments_unique = as.numeric(ej_comment))
+
+# predicted <- augment(mejPR_agency,  
+#                      type.predict = "response",
+#                      newdata = values,
+#                      se_fit = TRUE
+#                      )  
+
+predicted <- predictions(mejPR_share,
+                         newdata = values) %>% 
+  rename(.fitted = predicted,
+         .se.fit = std.error)
+
+predicted %<>% 
+  left_join(ejFRejPR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
+
+
+# As a plot
+predicted %>%
+  ggplot() + 
+  aes(x = factor(comments), 
+      y = .fitted, 
+      shape = EJ_comment,
+      color = EJ_comment) + 
+  geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
+                  ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+coord_flip() +
+  #facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Probability of Change in How a Rule\nAddresses "Environmental Justice"', 
+       x = "Number of Comments",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "Predicted Change in Final Rules")  +
+  theme(panel.border  = element_blank(),
+        panel.grid.major.y = element_blank()) # + ylim(0,1) 
+```
+
+
+```{r ej-mejPR-ejcomments-share, fig.width=6, fig.height=2.5}
+#ej-mejPR-ejcomments-share
+
+# A data frame of values at which to estimate probabilities:
+values <- ejFRejPR %>% 
+  tidyr::expand(ej_comments_unique = c(1, 10,100),
+         ej_comment = TRUE,
+         comments = median(comments) %>% round(),
+         president = "Obama",
+         agency = "EPA",
+         agency_ej_share = .67) %>% 
+  mutate(comments = ej_comments_unique)
+
+# predicted <- augment(mejPR_agency,  
+#                      type.predict = "response",
+#                      newdata = values,
+#                      se_fit = TRUE
+#                      ) 
+
+
+predicted <- predictions(mejPR_share2,
+                         newdata = values) %>% 
+  rename(.fitted = predicted,
+         .se.fit = std.error)
+
+predicted  %<>% 
+  left_join(ejFRejPR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
+
+
+# As a plot
+predicted %>%
+  filter(comments<10001) %>% 
+  ggplot() + 
+  aes(x = factor(ej_comments_unique), 
+      y = .fitted, 
+      shape = EJ_comment,
+      color = EJ_comment) + 
+  geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
+                  ymax = .fitted + 1.96*.se.fit), alpha = .7 )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+coord_flip() +
+  #facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Probability of Change in How a Rule\nAddresses "Environmental Justice"', 
+       x = "Number of Unique Comments\nRaising EJ Concerns",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "Predicted Change in Final Rules")  +
+  theme(panel.border  = element_blank(),
+        panel.grid.major.y = element_blank()) # + ylim(0,1) 
+```
+
+---
+
 ## with Agency Fixed Effects 
 
 (as well as president FE)
@@ -2136,7 +2533,7 @@ values <- ejFRejPR %>%
          ej_comment,
          ej_comments_unique = median(ej_comments_unique) %>% round(),
          president = "Obama",
-         agency = "EPA")
+         agency = "EPA") %>% mutate(ej_comments_unique = as.numeric(ej_comment))
 
 # predicted <- augment(mejPR_agency,  
 #                      type.predict = "response",
@@ -2229,7 +2626,6 @@ coord_flip() +
         panel.grid.major.y = element_blank()) # + ylim(0,1) 
 ```
 
-
 ---
 
 
@@ -2280,7 +2676,7 @@ values <- ejFRejPR %>% filter(ej_comment) %>%
          ej_comment = TRUE,
          ej_comments_unique =  1,
          president = "Obama",
-         agency = "EPA")
+         agency = "EPA")%>% mutate(ej_comments_unique = as.numeric(ej_comment))
 
 # # broom does not work
 # predicted <- broom::augment(mejPR_agencyFE_ejcomment,  
@@ -2412,7 +2808,7 @@ values <- ejFRejPR %>%
          ej_comment = c(T, F),
          ej_comments_unique =  1,
          president = "Obama",
-         agency = "EPA")
+         agency = "EPA") %>% mutate(ej_comments_unique = as.numeric(ej_comment))
 
 # # broom does not work
 # predicted <- broom::augment(mejPR_epa,  
@@ -2542,7 +2938,7 @@ values <- ejFRejPR %>% filter(comments > 99) %>%
          ej_comment = c(T, F),
          ej_comments_unique =  1,
          president = "Obama",
-         agency = "EPA")
+         agency = "EPA")%>% mutate(ej_comments_unique = as.numeric(ej_comment))
 
 # # broom does not work
 # predicted <- broom::augment(mejPR_epa,  
@@ -2799,12 +3195,13 @@ cm = c("ej_commentTRUE" = "EJ Comment", #
        "ej_comments_unique" = "Unique EJ Comments", #
        "I(ej_comments_unique^2)" = "Unique EJ Comments^2", #
        "ej_commentTRUE:comments" = "EJ Comment*Total Comments", # 
-       "ej_commentTRUE:I(comments^2)" = "EJ Comment*Comments^2") #
+       "ej_commentTRUE:I(comments^2)" = "EJ Comment*Comments^2",
+       "agency_ej_share" = "Agency EJ Ratio") #
 
 modelsFE <- list(
-  "1" = m_PRFE, 
+  "1" = m_PR_share, 
   "2" = m_PR_agencyFE,
-  "3"  =  mejPRFE,
+  "3"  =  mejPR_share,
   "4" = mejPR_agencyFE
 )
 
@@ -2935,6 +3332,14 @@ save(ejFR_PR,
      mejPR_mass2,
      mejPR_agencyFE_ejcomment2,
      file = here::here("05-ej", "ej_models.Rdata") ) 
+
+
+ej_rates <- rules %>% 
+  count(agency, agency_ej_share) %>% 
+  arrange(-agency_ej_share) %>%
+  transmute(Agency = agency, Rules = n, `Mention EJ` = agency_ej_share %>% percent(1) ) 
+
+save(ej_rates, file = here::here("05-ej", "ej_rates.Rdata"))
 ```
 
 
