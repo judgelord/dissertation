@@ -71,6 +71,8 @@ Replication data are available in SQL and Rdata at https://github.com/judgelord/
 
 ```{r data, fig.height=11, cache=FALSE}
 load(here::here("data", "ej_data_clean.Rdata"))
+
+rules %<>% ungroup() 
 ```
 
 ### Documents
@@ -173,12 +175,14 @@ rules %>% distinct(docket_id, ej_pr, ej_fr) %>% count(ej_pr, ej_fr) %>% kablebox
 
 # All proposed rules
 allPR <- rules %>% 
+  ungroup() %>% 
   # subset to final rules
   filter(document_type == "Proposed Rule")
 
 
 # All final rules
 allFR <- rules %>% 
+  ungroup() %>% 
   # subset to final rules with an NPRM 
   filter(document_type == "Rule") %>%
   # direct to final rules
@@ -198,6 +202,20 @@ Subsetting to agencies that pubished at least one rule explicitly addressing EJ 
 
 
 ```{r ej-data-agencies}
+share <- allFR %>%
+  distinct(ej_fr, docket_id, agency) %>% 
+  group_by(agency) %>% 
+  summarise(agency_ej_share = sum(ej_fr)/ n() )  %>% 
+  arrange(-agency_ej_share) 
+  
+  share %>% 
+    mutate(agency_ej_share = percent(agency_ej_share, accuracy = .1)) %>%
+    kablebox()
+  
+rules %<>% ungroup() %>% 
+  dplyr::select(-agency_ej_share) %>%  left_join(share)
+
+
 #ej-data-agencies
 breaks <-  c("`16", 
              "`00", "`04", "`08", "`20")
@@ -222,12 +240,13 @@ allFR %>%
 ```{r ej-data-agencies100, fig.height=4.5}
 # ej-data-agencies100
 
+
 breaks <-  c("`16", "`12", 
              "`00", "`04","`08", "`92",  "`96", "`20")
 # agencies that published at least 100 rules with ej comments
 allFR %>% 
   filter(agency_ej_comments > 100 | agency_ej_rules > 10 | agency == "FEMA",
-         year > 2004) %>% #distinct(agency, docket_id, agency_ej_comments)
+         year > 2004) %>% 
   mutate(ej_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed")) %>% 
   ggplot() + 
   aes(x = Year, fill = factor(ej_fr, levels = c("EJ Not Addressed", "EJ Addressed"))) +
@@ -922,7 +941,7 @@ values <- ejFR_PR %>%
          ej_comment,
          ej_comments_unique = median(ej_comments_unique) %>% round(),
          president = "Obama",
-         agency_ej_share = .67,
+         agency_ej_share = 0.41,
          agency = "EPA") %>% 
   mutate(ej_comments_unique = as.numeric(ej_comment)) 
 
@@ -970,7 +989,7 @@ values <- ejFR_PR %>%
          ej_comment = TRUE,
          comments = median(comments) %>% round(),
          president = "Obama",
-         agency_ej_share = .67,
+         agency_ej_share = 0.41,
          agency = "EPA") %>% 
   # set all comments to be EJ comments (we can't have one overall comment and 100 ej comments)
   mutate(comments = ej_comments_unique)
@@ -1022,8 +1041,8 @@ coord_flip() +
 
 (as well as President FE)
 
-```{r ej-m-PR-shareI, fig.width=6, fig.height=2.5}
-# ej-m-PR-comments-share
+```{r ej-m-PR-shareI, fig.width=6, fig.height=3}
+# ej-m-PR-comments-shareI
 
 # agencies with variation on DV
 # ejFR_PR %<>% group_by(agency) %>% mutate(dv_var = ej_fr %>% unique() %>% length()) %>% ungroup() %>% filter(dv_var > 1)
@@ -1077,7 +1096,9 @@ predicted %>%
       label = agency) + 
   geom_pointrange(aes(ymin = predicted - 1.96*std.error,
                   ymax = predicted + 1.96*std.error), alpha = .7 )  + 
-  geom_text(check_overlap = T, color = "gray", hjust = "inward",
+  geom_text(check_overlap = T, 
+            size = 3,
+            color = "gray", hjust = "inward",
             y = .8,
             #aes(y = #ifelse(ej_comment, predicted, NA))
             ) + 
@@ -1098,7 +1119,7 @@ coord_flip() +
 
 
 ```{r ej-m-PR-shareI-ejcomments, fig.width=6, fig.height=2.5}
-# ej-m-PR-ejcomments-share
+# ej-m-PR-ejcomments-shareI
 
 
 # A data frame of values at which to estimate probabilities:
@@ -1107,7 +1128,7 @@ values <- ejFR_PR %>%
          ej_comment = TRUE,
          comments = median(comments) %>% round(),
          president = "Obama",
-         agency_ej_share = .67,
+         agency_ej_share = 0.41,
          agency = "EPA") %>% 
   # set all comments to be EJ comments (we can't have one overall comment and 100 ej comments)
   mutate(comments = ej_comments_unique)
@@ -2408,7 +2429,7 @@ values <- ejFRejPR %>%
          ej_comments_unique = median(ej_comments_unique) %>% round(),
          president = "Obama",
          agency = "EPA",
-         agency_ej_share = .67) %>% mutate(ej_comments_unique = as.numeric(ej_comment))
+         agency_ej_share = 0.41) %>% mutate(ej_comments_unique = as.numeric(ej_comment))
 
 # predicted <- augment(mejPR_agency,  
 #                      type.predict = "response",
@@ -2459,7 +2480,7 @@ values <- ejFRejPR %>%
          comments = median(comments) %>% round(),
          president = "Obama",
          agency = "EPA",
-         agency_ej_share = .67) %>% 
+         agency_ej_share = 0.41) %>% 
   mutate(comments = ej_comments_unique)
 
 # predicted <- augment(mejPR_agency,  
@@ -3335,9 +3356,12 @@ save(ejFR_PR,
 
 
 ej_rates <- rules %>% 
+  ungroup() %>% 
+  distinct(docket_id, agency,agency_ej_share) %>% 
   count(agency, agency_ej_share) %>% 
   arrange(-agency_ej_share) %>%
-  transmute(Agency = agency, Rules = n, `Mention EJ` = agency_ej_share %>% percent(1) ) 
+  transmute(Agency = agency, 
+            Rules = n, `Mention EJ` = agency_ej_share %>% percent(1) ) 
 
 save(ej_rates, file = here::here("05-ej", "ej_rates.Rdata"))
 ```

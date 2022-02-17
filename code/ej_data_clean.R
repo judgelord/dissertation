@@ -129,12 +129,27 @@ rules %<>%
   group_by(agency) %>% 
   mutate(agency_ej_rules = sum(ej_fr),
          agency_ej_comments = sum(ej_comments_unique),
-         agency_ej_nprms = sum(ej_pr)) %>%
+         agency_ej_nprms = sum(ej_pr)) %>% 
+  filter(agency_ej_rules > 0)# | agency_ej_nprms > 0) #TODO sensitivity analysis using EJ share floor
+
+
+share <- rules %>% 
+  distinct(agency, ej_fr, docket_id) %>% 
+  group_by(agency) %>% 
   # share 
   mutate(agency_dockets = unique(docket_id) %>% length(),
-         agency_ej_share = agency_ej_rules/agency_dockets) %>% 
+         agency_ej_dockets = sum(ej_fr),
+         agency_ej_share = agency_ej_dockets/agency_dockets) %>% 
   ungroup() %>% 
-  filter(agency_ej_rules > 0)# | agency_ej_nprms > 0) #TODO sensitivity analysis using EJ share floor
+  group_by(agency) %>% 
+  arrange(-agency_ej_share) %>%
+  distinct(agency, agency_ej_share)
+  #filter(agency == "EPA")
+
+share 
+
+rules %<>% left_join(share)
+
 
 
 ejcomments$number_of_comments_received %<>% replace_na(0) 
