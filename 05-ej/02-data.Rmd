@@ -202,7 +202,7 @@ national population. This is unsurprising, given that Black Americans have led t
 
 ### Tracing Ideas Through Rulemaking: Environmental Justice as a Contested Concept {#ej-methods}
 
-Using an environmental justice frame does not always imply the same communities of concern. Environmental justice emerged from movements against environmental racism, especially the disposal of toxic materials in predominantly Black neighborhoods [@Bullard1993]. However, the term quickly took on other meanings, encompassing various marginalized groups. President Clinton's 1994 Executive Order on Environmental Justice required all parts of the federal government to make "addressing disproportionately high and adverse human health or environmental effects of programs, policies, and activities on minority populations and low-income populations" a core aspect of their mission. This meant considering the disproportionate effects of policies by race and income during rulemaking.
+Using an environmental justice frame does not always imply the same communities of concern. Environmental justice emerged from movements against environmental racism, especially the disposal of toxic materials in predominantly Black neighborhoods [@Bullard1993]. However, the term quickly took on other meanings, encompassing various marginalized groups. President Clinton's 1994 Executive Order on Environmental Justice required all parts of the federal government to make "addressing disproportionately high and adverse human health or environmental effects of programs, policies, and activities on minority populations and low-income populations" a core aspect of their mission. This meant considering the disproportionate effects of policies by race and income during rulemaking, thus broadening the scope beyond race.
 
 In 2005, Environmental Protection Agency (EPA) political appointees reinterpreted the Order, removing race as a factor in identifying and prioritizing populations. This move was criticized by activists and two reports by EPA's own Office of Inspector General ([EPA-OIG-2004-P-00007](https://www.epa.gov/sites/default/files/2015-12/documents/20040301-2004-p-00007.pdf) and [EPA-OIG-2006-P-00034](https://www.epa.gov/sites/default/files/2015-11/documents/20060918-2006-p-00034.pdf)). 
 
@@ -215,7 +215,7 @@ The central conflict over the role of race in policy analyses is just one of man
 The qualitative reading also confirmed other key assumptions, such as the fact that advocates do, in fact, use "environmental justice" when they raise distributional concerns, even on many rules that are not about issues traditionally considered "environmental."
 
 
-#### The Evolving Distributional Politics of Mercury Pollution
+#### The Evolving Distributive Politics of Mercury Pollution
 
 Definitions of the public good and minority rights are
 implicit in most policy documents, including agency rules. The public comment process offers an
@@ -280,7 +280,7 @@ expressed the Tribe's
 Did comments like these play a role in EPA's changed analysis of whom mercury limits should aim to protect? Because of the many potential sources of influence, it may be difficult to attribute causal effects of particular comments on a given policy.
 However, comments may serve as a good proxy for the general mobilization
 of groups and individuals around an administrative process, and it is
-not clear why the EPA would not address EJ in the first
+not clear why else the EPA would not address EJ in the first
 draft of a rule and then add it to subsequent drafts in the absence of
 activist pressure. Electoral politics does not offer an easy
 explanation. The notice proposing the Mercury Rule was issued by the
@@ -306,7 +306,7 @@ For the subset of draft rules that did not address EJ, I measure whether agencie
 
 Agencies may both respond to a comment and add a 12898 section. For example, the EPA responded to several commenters, including Earthjustice, the Central Valley Air Quality Coalition, the Coalition for Clean Air, Central California Environmental Justice Network, and Central California Asthma Collaborative: "EPA agrees it is important to consider environmental justice in our actions and we briefly addressed environmental justice principles in our proposal." As the commenters noted, the EPA had not, in fact, addressed environmental justice in the proposed rule, which approved California rules regulating particulate matter emissions from construction sites, unpaved roads, and disturbed soils in open and agricultural areas. EPA did add a fairly generic 12898 section to the final rule but did not substantively change the rest of the policy. 
 
-Less frequently, an agency may explicitly dismiss a comment and decline to add a 12898 section. For example, EPA responded to a comment on another rule, "One commenter stated that EPA failed to comply with Executive Order 12898 on Environmental Justice...We do not believe that these amendments will have any adverse effects on...minority and low-income populations...Owners or operators are still required to develop SSM plans to address emissions...The only difference from current regulations is that the source is not required to follow the plan" (71 FR 20445). As these examples illustrate, agencies may add text addressing environmental justice that would not satisfy critics. This measure merely indicates whether the agency engaged with the claims.
+Less frequently, an agency may explicitly dismiss a comment and decline to add a 12898 section. For example, the G.W. Bush EPA responded to a comment on another rule, "One commenter stated that EPA failed to comply with Executive Order 12898 on Environmental Justice...We do not believe that these amendments will have any adverse effects on...minority and low-income populations...Owners or operators are still required to develop SSM plans to address emissions...The only difference from current regulations is that the source is not required to follow the plan" (71 FR 20445). As these examples illustrate, agencies may add text addressing environmental justice that would not satisfy critics. This measure merely indicates whether the agency engaged with the claims.
 
 <!--Barry: you say that change between draft and final rules is the evidence that the agency "engaged" with EJ comments. But I don't think that's quite right. The agency might have engaged heavily but decided that the draft rule was fine. It's really whether the comments persuaded them that a change was necessary.-->
 
