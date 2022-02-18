@@ -11,7 +11,7 @@ output:
     mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"
     css: xaringan-themer.css
     nature:
-      ratio: '16:9'
+      ratio: '16:10'
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -44,7 +44,7 @@ style_mono_light(base_color = "#3b444b",
           #background_color = "#FAF0E6", # linen
           header_font_google = google_font("PT Sans"), 
           text_font_google = google_font("Old Standard"), 
-          text_font_size = "30px",
+          text_font_size = "29px",
           padding = "10px",
           code_font_google = google_font("Inconsolata"), 
           code_inline_background_color    = "#F5F5F5", 
@@ -253,7 +253,7 @@ Thus far, by information, scholars generally mean technical and legal informatio
 > Policymakers are more likely to address distributive justice when groups raise distributive justice concerns.
 
 ✅ Pro: "norms and values are set communicatively" (Habermas 1996), "identifying interests" shapes policy (Gellhorn 1972)   
-❌ Con: Bureaucratic policymaking is about "technical expertise" (Epstein, Heidt, and Farina 2014)
+❌ Con: Bureaucratic policymaking is about "technical expertise" (Epstein et al. 2014)
 
 --
 
@@ -262,7 +262,7 @@ Thus far, by information, scholars generally mean technical and legal informatio
 > Policymakers are more likely to address concerns when more groups raise them.
 
 ✅ : "Coalition size" (Nelson and Yackee  2012)    
-❌ : "Informational value" (Epstein, Heidt, and Farina 2014; Gailmard and Patty 2017; Libgober 2018)
+❌ : "Informational value" (Epstein et al. 2014; Gailmard & Patty 2017; Libgober 2018)
 
 ???
 
@@ -329,7 +329,7 @@ background-size: cover
 
 ---
 
-## Example of Policy Change: Safe Levels of Mercury 
+## Example: Safe Levels of Mercury 
 --
 (For Whom?)
 
@@ -349,7 +349,7 @@ on "vulnerable populations" including "African Americans," "Hispanic,"
 
 --
 
-- 2012 Final Rule: EJ analysis adds "minority, low income, and indigenous populations."
+- 2012 Final Rule: EJ analysis adds "minority, low income, and indigenous"
 --
 
 - 2020 Rollback: "While these communities may experience forgone benefits as a result of this action, the potential forgone [health benefits] are small." 
@@ -371,6 +371,8 @@ In addition to who gets what, there is debate over who the whos *are*. What comm
 
 ---
 
+background-color: white
+
 ## Data: ~25,000 Policy Documents
 
 12,257 Draft and Final Rule Pairs* across 40 agencies that published rules addressing EJ from 1993-2020
@@ -384,29 +386,34 @@ knitr::include_graphics("Figs/ej-data-ejpr-1.png")
 
 ---
 
+background-color: white
+
 ## Data: ~42,000,000 Public Comments
 
 ~4,800,000 (~28,000 unique) comments raise EJ concerns
 
-```{r ej-comments, out.width = "55%"}
+```{r ej-comments, out.width = "68%"}
 
 knitr::include_graphics("Figs/ej-comments-1.png")
 ```
 
 ---
 
+background-color: white
+
 ## Data: ~42,000,000 Public Comments
 
 ~4,800,000 (~28,000 unique) comments raise EJ concerns
 
 
-```{r percent-match, fig.show = "hold", out.width = "50%", fig.cap="Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments"}
+```{r percent-match, fig.show = "hold", out.width = "55%", fig.cap="Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments"}
 
 knitr::include_graphics("Figs/comment_percent_match_plot.png") 
 ```
 
 ---
 
+background-color: white
 
 ## Whom does notice and comment rulemaking empower? 
 
@@ -422,10 +429,6 @@ Race %>% ggplot() +
 
 ---
 
-
-
----
-
 background-image: url(https://www.sierraclub.org/sites/www.sierraclub.org/files/uploads-wysiwig/SIERRA%20Forefront%20Of%20Change%20WB.jpg)
 background-size: cover
 
@@ -437,6 +440,7 @@ background-size: cover
 background-image: url(Figs/earthjustice.png)
 background-size: contain
 background-position: bottom
+background-color: white
 
 
 `"Such an approach ignores the cumulative pollution burdens experienced by environmental justice communities." - Amanda Goodin, Staff Attorney, Earthjustice on behalf of Communities for a Better Environment et al.`
@@ -468,6 +472,8 @@ background-color: white
 
 ---
 
+background-color: white
+
 ## Results: Adding EJ to Policy
 
 ```{r ej-m-PR-president-median-1, out.width = "60%"}
@@ -477,6 +483,8 @@ knitr::include_graphics("Figs/ej-m-PR-president-median-1.png")
 - ✊🏿 Distributive Information ✅  
 
 ---
+
+background-color: white
 
 ## Results: Adding EJ to Policy
 
@@ -490,6 +498,9 @@ knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-1.png")
 - ✊🏿🔁 Coalition Size ✅  
 
 ---
+
+background-color: white
+
 
 ## Results: Adding EJ to Policy
 
@@ -506,6 +517,9 @@ knitr::include_graphics("Figs/ej-m-PR-comments-agencyFE-1.png")
 
 ---
 
+background-color: white
+
+
 ## Results: Changing Existing EJ Language
 
 ```{r ej-mejPR-ejcomments-agencyFE, out.width = "90%"}
@@ -517,6 +531,8 @@ knitr::include_graphics("Figs/ej-mejPR-ejcomments-agencyFE-1.png")
 - ✊🏿🔁 Coalition Size ✅    
 
 ---
+
+background-color: white
 
 ## Results: Changing Existing EJ Language
 
