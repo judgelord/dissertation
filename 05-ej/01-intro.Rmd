@@ -105,7 +105,7 @@ The largest empirical analysis to date in Chapter \@ref(influence) also shows li
 While social movement organizations do engage in fights over technical reports and scientific studies, the information that activists provide is often more overtly political. 
 As discussed in Chapter \@ref(whymail), @Nelson2012
 identify political information as a potentially influential result of
-groups expanding their lobbying coalition. While they focus on
+groups expanding their lobbying coalitions. While they focus on
 mobilizing experts, they describe a dynamic that can be extended
 to mobilizing public pressure:
 <!-- 
@@ -198,7 +198,7 @@ As discussed above, agency policymakers have incentives to address distributive 
 Policymakers are more likely to change whether or how policies address concerns when more commenters raise them.
 ```
 
-Scholarship on lobbying in rulemaking emphasizes the value of repeated information and coalition size [@Mendelson2011; @Nelson2012]. This implies that the more distinct organizations and comments that raise EJ concerns, the more likely it is that their coalition will influence the policy process. As described below, I distinguish unique comments from mass comments. The number of unique comments approximates a coalition's size regarding the number of different groups, each submitting a unique text. The total number of comments, including signatures on identical form letters, indicates the scale of public attention and pressure.
+Scholarship on lobbying in rulemaking emphasizes the value of repeated information and coalition size [@Mendelson2011; @Nelson2012]. This implies that the more distinct organizations and comments raise EJ concerns, the more likely it is that their coalition will influence the policy process. As described below, I distinguish unique comments from mass comments. The number of unique comments approximates a coalition's size regarding the number of different groups, each submitting a unique text. The total number of comments, including signatures on identical form letters, indicates the scale of public attention and pressure.
 
 Competing intuitions and other prior studies oppose both Hypotheses \@ref(hyp:ej-claims) and \@ref(hyp:ej-repeated-claims). 
 First, formal models and empirical scholarship on lobbying in rulemaking emphasize the importance of novel science and technical information---things unknown to agency experts [@Wagner2010]. Claims about distributive justice and repetition of such claims provide no new technical information. 

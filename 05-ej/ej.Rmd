@@ -23,7 +23,6 @@ biblio-style: '`r here::here("assets/apsr.bst")`'
 link-citations: yes
 citecolor: black
 urlcolor: black
-# endnotes: true # CHANGE THIS BEFORE SUBMISSION
 frontpage: true
 spacing: onehalfspacing
 always_allow_html: true
