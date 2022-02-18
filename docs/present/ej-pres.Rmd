@@ -248,7 +248,7 @@ Thus far, by information, scholars generally mean technical and legal informatio
 
 ---
 
-### *Distributive Information Hypothesis*
+### *Distributive Claims Hypothesis*: 
 
 > Policymakers are more likely to address distributive justice when groups raise distributive justice concerns.
 
@@ -257,7 +257,7 @@ Thus far, by information, scholars generally mean technical and legal informatio
 
 --
 
-### *Repeated Information (Coalition Size) Hypothesis*
+### *Repeated Information (Coalition Size/Pressure) Hypothesis*
 
 > Policymakers are more likely to address concerns when more groups raise them.
 
@@ -281,7 +281,7 @@ Thus far, by information, scholars generally mean technical and legal informatio
 
 ---
 
-### *General Pressure Hypothesis*
+### *Public Attention Hypothesis*
 
 > Policies are more likely to change when they receive more public attention (e.g., more public comments).
 
@@ -290,7 +290,7 @@ Thus far, by information, scholars generally mean technical and legal informatio
 
 --
 
-### *Conditional Pressure Hypothesis*
+### *Conditional Attention Hypothesis*
 
 > Policies are more likely to address an issue when they receive more public attention (e.g., more public comments) *and* groups raise that issue.
 
@@ -455,13 +455,16 @@ background-size: cover
 
 ---
 
+class: inverse center middle 
 
-## Results 
+# Results 
 
-```{r table,  out.width = "70%"}
 
-knitr::include_graphics("Figs/ej-table.png")
-```
+---
+
+background-image: url(Figs/ej-table-paper.png)
+background-size: contain
+background-color: white
 
 ---
 
@@ -537,9 +540,9 @@ knitr::include_graphics("Figs/ej-mejPR-comments-agencyFE-1.png")
 |                                            | Add EJ Language | Change EJ Language |
 | ------------------------------------------ | :--: | :--: |
 | ✊🏿 Distributive Information (Comments with EJ Concerns)     | 📈 | 📈 |
-| ✊🏿🔁 Coalition Size           | 📈 | 📈 |
-| 🏛️ Policy Receptivity                             | 📈 | ❓ |
-| 📢 General Public Pressure/Attention               | 📈 | 📉 |
+| ✊🏿🔁 Coalition Size /  Pressure        | 📈 | 📈 |
+| 🏛️ Policy Receptivity                             | 📈 | 📈 |
+| 📢 General Public Attention               | 📈 | 📉 |
 
 
 <!--| 📢x✊🏿 Specific (Conditional) Pressure            | 📉 | ❓ | -->

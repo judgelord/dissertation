@@ -609,7 +609,7 @@ predicted %>%
        x = "",
        color = "",#color = '"Environmental Justice"\nRaised by Comments',
        shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
-       title = "Predicted change in Final Rules") + 
+       title = "Predicted Change in Final Rules") + 
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
         panel.grid.major.y = element_blank())+
@@ -656,7 +656,7 @@ predicted %>%
        x = "",
        color = "",#color = '"Environmental Justice"\nRaised by Comments', 
        shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
-       title = "Predicted change in Final Rules") + 
+       title = "Predicted Change in Final Rules") + 
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
         panel.grid.major.y = element_blank())+  
@@ -862,7 +862,7 @@ labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule',
      x = "",
      color = "",#color = '"Environmental Justice"\nRaised by Comments', 
      shape = "",#shape = "Environmental Justice"\nRaised by Comments', 
-     title = "Predicted change in Final Rules") + 
+     title = "Predicted Change in Final Rules") + 
   theme(panel.grid.major.y = element_blank(),
         panel.border  = element_blank())
 ```
@@ -900,7 +900,7 @@ coord_flip() +
        x = "",
        color = "",#color = '"Environmental Justice"\nRaised by Comments',
        shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
-       title = "Predicted change in Final Rules") + 
+       title = "Predicted Change in Final Rules") + 
   theme(panel.grid.major.y = element_blank(),
         panel.border = element_blank())
 ```
@@ -2043,7 +2043,7 @@ coord_flip() +
        x = "",
        color = "",#color = "Environmental Justice"\nRaised by Comments', 
        shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
-       title = "Predicted change in Final Rules") + 
+       title = "Predicted Change in Final Rules") + 
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
         panel.grid.major.y = element_blank())
@@ -2310,7 +2310,7 @@ coord_flip() +
        x = "",
        color = "",#color = "Environmental Justice"\nRaised by Comments', 
        shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
-       title = "Predicted change in Final Rules")  + 
+       title = "Predicted Change in Final Rules")  + 
   scale_y_continuous(breaks = c(0, .5,1)) +
   theme(panel.grid.major.y = element_blank(),
         panel.border = element_blank())
@@ -2352,7 +2352,7 @@ coord_flip() +
        x = "",
        color = "",#color = '"Environmental Justice"\nRaised by Comments', 
        shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
-       title = "Predicted change in Final Rules") + 
+       title = "Predicted Change in Final Rules") + 
   scale_y_continuous(breaks = c(0,.5,1)) +
   theme(panel.border = element_blank(),
         panel.grid.major.y = element_blank())
@@ -2390,7 +2390,7 @@ coord_flip() +
        x = "",
        color = "",#color = '"Environmental Justice"\nRaised by Comments', 
        shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
-       title = "Predicted change in Final Rules") + 
+       title = "Predicted Change in Final Rules") + 
   scale_y_continuous(breaks = c(0,.5,1)) +
   theme(panel.border = element_blank(),
         panel.grid.major.y = element_blank())
