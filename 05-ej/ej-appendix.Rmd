@@ -573,7 +573,7 @@ modelsummary(m_PRFE, stars = T)
 
 With the median number of comments on Proposed Rules that did not address EJ, `r median(ejFR_PR$comments)` comments:
 
-```{r ej-m-PR-president-median, fig.width=5.5, fig.height=3.5}
+```{r ej-m-PR-president-median, fig.width=6, fig.height=3}
 # ej-m-PR-president-median
 
 # A data frame of values at which to estimate probabilities:
@@ -610,6 +610,7 @@ predicted %>%
        color = "",#color = '"Environmental Justice"\nRaised by Comments',
        shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
        title = "Predicted Change in Final Rules") + 
+  theme_minimal() + 
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
         panel.grid.major.y = element_blank())+
@@ -621,7 +622,7 @@ predicted %>%
 
 With the **mean** number of comments on Proposed Rules that did not address EJ, `r mean(ejFR_PR$comments) %>% round()` comments:
 
-```{r ej-m-PR-president-mean, fig.width=5, fig.height=3.5}
+```{r ej-m-PR-president-mean, fig.width=6, fig.height=3}
 # ej-m-PR-president-mean
 
 # A data frame of values at which to estimate probabilities:
@@ -657,6 +658,7 @@ predicted %>%
        color = "",#color = '"Environmental Justice"\nRaised by Comments', 
        shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
        title = "Predicted Change in Final Rules") + 
+  theme_minimal() + 
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
         panel.grid.major.y = element_blank())+  
@@ -2007,7 +2009,7 @@ ejFRejPR %>%
 
 With the median number of comments, `r median(ejFRejPR$comments)`
 
-```{r ej-mejPR-president-median,fig.width=5.5, fig.height=3.5}
+```{r ej-mejPR-president-median,fig.width=6, fig.height=3}
 #ej-mejPR-president-median
 
 # A data frame of values at which to estimate probabilities:
@@ -2044,6 +2046,7 @@ coord_flip() +
        color = "",#color = "Environmental Justice"\nRaised by Comments', 
        shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
        title = "Predicted Change in Final Rules") + 
+  theme_minimal() + 
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
         panel.grid.major.y = element_blank())
@@ -2053,7 +2056,7 @@ coord_flip() +
 
 With the mean number of comments, `r mean(ejFRejPR$comments) %>% round() %>% as.integer()`
 
-```{r ej-mejPR-president-mean,fig.width=5.5, fig.height=3.5}
+```{r ej-mejPR-president-mean,fig.width=6, fig.height=3}
 #ej-mejPR-president-mean
 
 # A data frame of values at which to estimate probabilities:
@@ -2090,6 +2093,7 @@ coord_flip() +
        color = "",#color = '"Environmental Justice"\nRaised by Comments',
        shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
        title = "Predicted Change in Final Rules") + 
+  theme_minimal() + 
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
         panel.grid.major.y = element_blank())#+ylim(0,1) 

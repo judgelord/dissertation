@@ -476,7 +476,7 @@ background-color: white
 
 ## Results: Adding EJ to Policy
 
-```{r ej-m-PR-president-median-1, out.width = "70%"}
+```{r ej-m-PR-president-median-1, out.width = "80%"}
 knitr::include_graphics("Figs/ej-m-PR-president-median-1.png")
 ```
 
@@ -525,7 +525,7 @@ knitr::include_graphics("Figs/ej-m-PR-comments-agencyFE-1.png")
 
 ```
 
-- ✊🏿 Distributive Information 📈 
+- ✊🏿 Distributive Claims 📈 
 - 📢 General Public Pressure/Attention 📈 
 
 ---
@@ -567,7 +567,7 @@ knitr::include_graphics("Figs/ej-mejPR-comments-agencyFE-1.png")
 
 |                                            | Add EJ Language | Change EJ Language |
 | ------------------------------------------ | :--: | :--: |
-| ✊🏿 Distributive Information (Comments with EJ Concerns)     | 📈 | 📈 |
+| ✊🏿 Distributive Claims (Comments with EJ Concerns)     | 📈 | 📈 |
 | ✊🏿🔁 Coalition Size /  Pressure        | 📈 | 📈 |
 | 🏛️ Policy Receptivity                             | 📈 | 📈 |
 | 📢 General Public Attention               | 📈 | 📉 |
