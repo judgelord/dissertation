@@ -72,7 +72,7 @@ webshot(file, "ej-pres.pdf")
 
 # The EJ Frame
 
-- Emerged in local campaigns against landfills and DDT
+- Emerged in local campaigns against toxic waste sites and pesticides
 - Began appearing in federal policy documents in the 1980s
 - A fusion of the American Indian Movement, Chicano movement, farmworker movement, civil rights movement, and union organizing
 
@@ -288,9 +288,9 @@ Thus far, by information, scholars generally mean technical and legal informatio
 ✅ : Gillion (2013), Leech (2010), Skocpol (2013)   
 ❌ : Lowery (2013), Balla et al. (2020)
 
---
+???
 
-### *Conditional Attention Hypothesis*
+*Conditional Attention Hypothesis*
 
 > Policies are more likely to address an issue when they receive more public attention (e.g., more public comments) *and* groups raise that issue.
 
@@ -476,11 +476,26 @@ background-color: white
 
 ## Results: Adding EJ to Policy
 
-```{r ej-m-PR-president-median-1, out.width = "60%"}
+```{r ej-m-PR-president-median-1, out.width = "70%"}
 knitr::include_graphics("Figs/ej-m-PR-president-median-1.png")
 ```
 
-- ✊🏿 Distributive Information ✅  
+- ✊🏿 Distributive Claims 📈 
+
+---
+
+background-color: white
+
+
+## Results: Adding EJ to Policy
+
+```{r ej-m-PR-shareI, fig.cap = "", out.width = "80%", fig.show = "hold", fig.subcap=""}
+
+knitr::include_graphics("Figs/ej-m-PR-shareI-1.png")
+
+```
+
+- 🏛️ Policy Receptivity 📈 
 
 ---
 
@@ -495,7 +510,7 @@ knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-1.png")
 
 ```
 
-- ✊🏿🔁 Coalition Size ✅  
+- ✊🏿🔁 Coalition Size 📈 
 
 ---
 
@@ -504,16 +519,14 @@ background-color: white
 
 ## Results: Adding EJ to Policy
 
-```{r ej-m-PR-comments-agencyFE, out.width = "80%", fig.show = "hold"}
+```{r ej-m-PR-comments-agencyFE, out.width = "90%", fig.show = "hold"}
 
 knitr::include_graphics("Figs/ej-m-PR-comments-agencyFE-1.png")
 
 ```
 
-- ✊🏿 Distributive Information ✅  
-- 📢 General Public Pressure/Attention ✅  
-- 📢 x ✊🏿 Conditional Public Pressure/Attention ⏪  
-
+- ✊🏿 Distributive Information 📈 
+- 📢 General Public Pressure/Attention 📈 
 
 ---
 
@@ -528,7 +541,7 @@ knitr::include_graphics("Figs/ej-mejPR-ejcomments-agencyFE-1.png")
 ```
 
 
-- ✊🏿🔁 Coalition Size ✅    
+- ✊🏿🔁 Coalition Size 📈 
 
 ---
 
@@ -536,15 +549,14 @@ background-color: white
 
 ## Results: Changing Existing EJ Language
 
-```{r ej-mejPR-comments, out.width = "80%"}
+```{r ej-mejPR-comments, out.width = "90%"}
 
 knitr::include_graphics("Figs/ej-mejPR-comments-agencyFE-1.png")
 ```
 
 
-- ✊🏿 Distributive Information ✅  
-- 📢 General Public Pressure/Attention ⏪  
-- 📢 x ✊🏿 Conditional Public Pressure/Attention ❓ 
+- ✊🏿 Distributive Claims 📈 
+- 📢 General Public Attention 📉 
 
 ---
 
