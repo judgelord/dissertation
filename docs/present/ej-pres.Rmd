@@ -41,7 +41,8 @@ library(magrittr)
 
 style_mono_light(base_color = "#3b444b",
           link_color = "#B7E4CF",
-          #background_color = "#FAF0E6", # linen
+          #background_image = "figs/ej-superfund-light.jpeg",
+          background_color = "#FAF0E6", # linen
           header_font_google = google_font("PT Sans"), 
           text_font_google = google_font("Old Standard"), 
           text_font_size = "29px",
@@ -68,13 +69,34 @@ file <- here("present/ej-pres.html")
 webshot(file, "ej-pres.pdf")
 ```
 
+class: inverse center
 
-background-image: url(https://assets.nrdc.org/sites/default/files/styles/full_content/public/media-uploads/midwesttoxicdoughnut_25_002chicago_steel_mills-july_1965_vl_2400.jpg?itok=yXMNtQ-Y)
-background-size: cover
+class: inverse center
+
+# The Broader Project: Public Pressure
+
+
+Mobilization
+
+
+(grassroots, astroturf, members of Congress)
+
+↓
+
+Getting policymakers' attention and framing policy debates
+
+↓
+
+Substantive policy influence
+
+↓
+
+Surviving judicial review
 
 ???
 
-Hi, my name is Devin Judge-Lord; I'm a postdoc at Harvard Univ. in the Center for American Politics and Center For the Environment...This paper is the final chapter of my dissertation...As part of a larger project, your input, however far afield, will be helpful...
+Hi, my name is Devin Judge-Lord; I'm a postdoc at Harvard Univ.
+...As part of a larger project, your input, however far afield, will be helpful...
 
 My work is at the intersection of two literatures that have not had much contact...On the one hand, social movements and civic engagement have long been a core interest of political scientists. We are highly uncertain about the size of effects from actions like letter writing, signing petitions, and protests, but there is little doubt that these things matter at a large enough scale.
 
@@ -82,32 +104,28 @@ On the other hand, bureaucratic policy processes like agency rulemaking are ofte
 
 ---
 
-# The Broader Project: Public Pressure
-
-## 1. Mobilization
-### - grass roots vs. astroturf
-### - members of Congress
-
-## 2. Framing policy debates
-
-## 3. Substantive policy influence
-
-## 4. Judicial Review
-
----
+class: inverse center
 
 # The Broader Project: Public Pressure
 
 
-## 1. Mobilization
-### - grass roots vs. astroturf
-### - members of Congress
+Mobilization
 
-<h1 style="background-color:#ddede5;">2. Framing policy debates</h1>
 
-## 3. Substantive policy influence
+(grassroots, astroturf, members of Congress)
 
-## 4. Judicial Review
+↓
+
+<mark>Getting policymakers' attention and framing policy debates</mark>
+
+↓
+
+Substantive policy influence
+
+↓
+
+Surviving judicial review
+
 
 ---
 
@@ -137,10 +155,11 @@ Big greens are much more likely to have their substantive policy demands met tha
 
 ---
 
-<!--
-background-image: url(https://assets.nrdc.org/sites/default/files/styles/header_background/public/coms10_rm_515297744_900x600.jpg?itok=pf3xJ1l1)
+background-image: url(https://assets.nrdc.org/sites/default/files/styles/full_content/public/media-uploads/midwesttoxicdoughnut_25_002chicago_steel_mills-july_1965_vl_2400.jpg?itok=yXMNtQ-Y)
 background-size: cover
-text-shadow: 0 0 20px #333;-->
+
+--
+
 
 # The EJ Frame
 
@@ -150,7 +169,12 @@ text-shadow: 0 0 20px #333;-->
 
 > People of color [raised] social justice concerns such as self-determination, sovereignty, human rights, social inequality, loss of land base, limited access to natural resources, and disproportionate impacts of environmental hazards and linked them with traditional working-class environmental concerns such as worker rights and worker health and safety to develop an environmental justice agenda. (Taylor 2012, p. 1)
 
+---
 
+
+background-image: url(https://assets.nrdc.org/sites/default/files/styles/header_background/public/coms10_rm_515297744_900x600.jpg?itok=pf3xJ1l1)
+background-size: cover
+text-shadow: 0 0 20px #333
 
 ---
 
@@ -247,6 +271,8 @@ If so, by what mechanisms?
 - General level of public attention?
 
 - Specific pressure on issues like EJ?
+
+- Targeting more receptive institutions?
 
 
 ???
@@ -514,13 +540,23 @@ background-image: url(Figs/ej-table-paper.png)
 background-size: contain
 background-color: white
 
+???
+
+background-color: white
+## Results: Adding EJ to Policy
+
+```{r ej-m-PR-president-median-2, out.width = "90%"}
+knitr::include_graphics("Figs/ej-m-PR-president-median-2.png")
+```
+
+
 ---
 
 background-color: white
 
 ## Results: Adding EJ to Policy
 
-```{r ej-m-PR-president-median-1, out.width = "80%"}
+```{r ej-m-PR-president-median-1, out.width = "90%"}
 knitr::include_graphics("Figs/ej-m-PR-president-median-1.png")
 ```
 
@@ -533,7 +569,7 @@ background-color: white
 
 ## Results: Adding EJ to Policy
 
-```{r ej-m-PR-shareI, fig.cap = "", out.width = "80%", fig.show = "hold", fig.subcap=""}
+```{r ej-m-PR-shareI, fig.cap = "", out.width = "90%", fig.show = "hold", fig.subcap=""}
 
 knitr::include_graphics("Figs/ej-m-PR-shareI-1.png")
 
@@ -630,7 +666,7 @@ With larger coalitions and more public attention, agencies are more likely  📈
 
 - Rules related to EJ or Climate currently open for comment: [judgelord.github.io/rulemaking/open]( https://judgelord.github.io/rulemaking/open)
 
---
+-
 
 ### Next Steps
 
@@ -654,7 +690,7 @@ Substance
 - Co-framing effects: EJ + "health", "disasters", "fairness", "exploitation", "recycling", "ozone", or "greenhouse gas emissions" (Baumgartner and Jones)
 
 
---
+-
 
 # Other papers
 
@@ -662,7 +698,7 @@ Substance
 - Network analysis
 - Feedback: the mobilizing and demobilizing effects of the policy process
 
---
+-
 
 inverse center middle 
 
