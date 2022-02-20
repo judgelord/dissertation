@@ -230,7 +230,7 @@ If the scale of public attention affects the policy process, policy may be more 
 
 The competing intuition against Hypothesis \@ref(hyp:ej-attention) is that large numbers of comments indicate policy processes that were already salient before they were targeted by a public pressure campaign. Anticipating public scrutiny, policymakers would be more likely to have stated their final position in the draft policy. If this is the case, policies with more public comments should be *less* likely to change. Public attention could also be unrelated to policy change, meaning that policymakers neither anticipate nor respond to public attention in writing or revising policy documents. A null effect is most consistent with leading formal models of bureaucratic policymaking, where the scale of public attention is absent.
 
-> *Public Attention Hypothesis*:  
+> *Conditional Public Pressure Hypothesis*:  
 
 ```{hypothesis ej-pressure, echo = TRUE}
 Policies are more likely to address an issue when they receive more public attention (e.g., more public comments) *and* at least one comment raises that issue.

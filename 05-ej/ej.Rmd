@@ -211,7 +211,15 @@ Table \@ref(tab:ej-rates) shows the total number of final rules and the percent 
 ```{r ej-rates}
 load(here::here("05-ej", "ej_rates.Rdata"))
 
-ej_rates %>% kable3(caption = 'Rates of Mentioning "Environmental Jusitce" in Final Rules')
+ej_rates %>% 
+  knitr::kable(format = "latex",# "pipe", # "latex"?
+                     caption  = 'Rates of Mentioning "Environmental Jusitce" in Final Rules',
+                     booktabs = T,
+                     #linesep = "\\addlinespace",
+                     align = "l") %>%
+        kable_styling(font_size = 10, 
+                      full_width = F,
+                      latex_options = "repeat_header")
 ```
 
 
