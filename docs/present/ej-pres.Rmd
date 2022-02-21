@@ -79,7 +79,7 @@ class: inverse center
 Mobilization
 
 
-(grassroots, astroturf, members of Congress)
+(grassroots, astroturf, elected officials)
 
 ↓
 
@@ -112,7 +112,7 @@ class: inverse center
 Mobilization
 
 
-(grassroots, astroturf, members of Congress)
+(grassroots, astroturf, elected officials)
 
 ↓
 
@@ -198,7 +198,7 @@ text-shadow: 0 0 20px #333
 
 --
 
-- **Protests affect policy** (Gillion 2013) 
+- **Protests affect policy by informing** (Gillion 2013, Gause 2022) **and seed policy agendas** (Wasow 2020)
 
 --
 
@@ -229,6 +229,9 @@ The big question is whether social movements impact policy.
 --
 
 ## My DV: Systematic impact on specific policy documents (**agency rules**)
+--
+
+## Aggregate impact of EJ campaigns across institutions and over time $\rightsquigarrow$ EJ movement impact
 
 ???
 
@@ -437,7 +440,7 @@ populations...children exposed prenatally"
 
 In addition to who gets what, there is debate over who the whos *are*. What communities exist as groups deserving consideration. 
 
-30/51 pages in biden
+30/51 pages in Biden
 
 ---
 
@@ -542,7 +545,9 @@ background-color: white
 
 ???
 
+
 background-color: white
+
 ## Results: Adding EJ to Policy
 
 ```{r ej-m-PR-president-median-2, out.width = "90%"}
@@ -556,11 +561,13 @@ background-color: white
 
 ## Results: Adding EJ to Policy
 
-```{r ej-m-PR-president-median-1, out.width = "90%"}
+```{r ej-m-PR-president-median-1, out.width = "85%"} 
+
 knitr::include_graphics("Figs/ej-m-PR-president-median-1.png")
+
 ```
 
-- ✊🏿 Distributive Claims 📈 
+- ✊🏿  Distributive Claims 📈 
 
 ---
 
@@ -569,7 +576,7 @@ background-color: white
 
 ## Results: Adding EJ to Policy
 
-```{r ej-m-PR-shareI, fig.cap = "", out.width = "90%", fig.show = "hold", fig.subcap=""}
+```{r ej-m-PR-shareI, fig.cap = "", out.width = "85%", fig.show = "hold", fig.subcap=""}
 
 knitr::include_graphics("Figs/ej-m-PR-shareI-1.png")
 
@@ -584,13 +591,10 @@ background-color: white
 ## Results: Adding EJ to Policy
 
 ```{r ej-m-PR-ejcomments-agencyFE,  out.width = "90%"}
-
-
 knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-1.png")
-
 ```
 
-- ✊🏿🔁 Coalition Size 📈 
+- ✊🏿 🔁   Coalition Size 📈 
 
 ---
 
@@ -605,8 +609,8 @@ knitr::include_graphics("Figs/ej-m-PR-comments-agencyFE-1.png")
 
 ```
 
-- ✊🏿 Distributive Claims 📈 
-- 📢 General Public Pressure/Attention 📈 
+- ✊🏿  Distributive Claims 📈 
+- 📢  General Public Pressure/Attention 📈 
 
 ---
 
@@ -621,7 +625,7 @@ knitr::include_graphics("Figs/ej-mejPR-ejcomments-agencyFE-1.png")
 ```
 
 
-- ✊🏿🔁 Coalition Size 📈 
+- ✊🏿🔁  Coalition Size 📈 
 
 ---
 
@@ -635,11 +639,10 @@ knitr::include_graphics("Figs/ej-mejPR-comments-agencyFE-1.png")
 ```
 
 
-- ✊🏿 Distributive Claims 📈 
-- 📢 General Public Attention 📉 
+- ✊🏿  Distributive Claims 📈 
+- 📢  General Public Attention 📉 
 
 ---
-
 
 ## Results: To sum up, yes, movements matter
 
@@ -647,10 +650,10 @@ Strong framing effects, but substantive victories are rare and dominated by surr
 
 |                                            | Add EJ Language | Change EJ Language |
 | ------------------------------------------ | :--: | :--: |
-| ✊🏿 Distributive Claims (EJ Concerns)     | 📈 | 📈 |
-| ✊🏿🔁 Coalition Size /  Pressure        | 📈 | 📈 |
-| 🏛️ Policy Receptivity                             | 📈 | 📈 |
-| 📢 General Public Attention               | 📈 | 📉 |
+| ✊🏿  Distributive Claims (EJ Concerns)     | 📈 | 📈 |
+| ✊🏿 🔁  Coalition Size /  Pressure        | 📈 | 📈 |
+| 🏛️  Policy Receptivity                             | 📈 | 📈 |
+| 📢  General Public Attention               | 📈 | 📉 |
 
 
 <!--| 📢x✊🏿 Specific (Conditional) Pressure            | 📉 | ❓ | -->
