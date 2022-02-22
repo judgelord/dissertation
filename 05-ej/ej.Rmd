@@ -119,7 +119,7 @@ include_graphics(here::here("figs", "ejejPR-winrate-1.png"))
 
 ## Robustness
 
-The main models (2 and 4) from Table \@ref(tab:ej-tables) use agency fixed effects and an indicator for whether at least one comment raised EJ concerns. Table \@ref(tab:ej-appendix1) presents roughly the same models to confirm that results are not driven by agencies that have little contact with EJ issues or rules that have little to do with EJ issues. 
+The main models (2 and 4) from Table \@ref(tab:ej-tables) use agency fixed effects and an indicator for whether at least one comment raised EJ concerns. Table \@ref(tab:ej-appendix1) presents roughly the same models to show that results are not driven only by agencies that have little contact with EJ issues or rules that have little to do with EJ issues. 
 Models "2 EPA Only" and "4 EPA Only" are identical to Models 2 and 4 but subset to EPA rules instead of agency fixed effects. 
 Models "2 Mass Only" and "4 Mass Only" are identical to Models 2 and 4 but subset to rules that received over 100 comments.
 Models "2 EJ Only" and "4 EJ Only" are identical to Models 2 and 4, but subset to rules that received at least one comment raising EJ concerns instead of including the indicator. 

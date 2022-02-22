@@ -158,7 +158,7 @@ The number on each side, be it ten or ten million, has no legal import for an ag
 However,
 --> 
 An organization's ability to expand the scope of conflict by mobilizing
-a large number of people can be a valuable political resource [@Schattschneider1975], and public pressure campaigns expand the scope of conflict [@Potter2017]. Public engagement and mobilization can thus be a tactic to gain power. @Furlong1997 and @Kerwin2011
+a large number of people can be a valuable political resource [@Schattschneider1975; @Lipsky1968], and public pressure campaigns expand the scope of conflict [@Potter2017]. Public engagement and mobilization can thus be a tactic to gain power. @Furlong1997 and @Kerwin2011
 identify mobilization as a tactic. The organizations they surveyed
 believed that forming coalitions and mobilizing large numbers of people
 were among the most effective lobbying tactics. 
@@ -213,7 +213,7 @@ Policymakers who more frequently address concerns like environmental justice wil
 
  <!--CITE-->
 Some agencies may be more receptive to certain kinds of lobbying---for example, claims about distributive justice---than others.
-Bureaucracies are specialized institutions built to make and implement certain kinds of policies based on certain goals and types of facts. Each agency has distinct norms and epistemic communities [@Carpenter2001;@Harrison2019]. Some may see an issue as "environmental" where others do not. Likewise, some may see disparate impacts that demand consideration of distributive "justice" where other officials with different norms and training see no such disparity. In short, some policymakers may see their policy area as more related to environmental justice than others and thus be more receptive to commenters' concerns. 
+Bureaucracies are specialized institutions built to make and implement certain kinds of policies based on certain goals and types of facts. Each agency has distinct norms and epistemic communities [@Carpenter2001;@Harrison2019]. Some may see an issue as "environmental" where others do not. For example, tailpipe emissions may be discussed in more environmental terms at the EPA than at the Department of Transportation. Likewise, some officials may see disparate impacts that demand consideration, whereas other officials with different norms and training see such disparities as less relevant. For example, policy fights over pesticides at the EPA may often be framed in environmental justice terms, leading to analyses of the distribution of harms to different types of farmworkers. In contrast, pesticide policy at the Department of Agriculture may focus less on human health and be much less likely to be framed in distributive justice terms. In short, some policymakers may see their policy area as more related to environmental justice than others and thus be more receptive to commenters' concerns. 
 
 The competing intuition to Hypothesis \@ref(hyp:ej-receptivity) is that policymakers familiar with EJ concerns are *least* likely to respond to EJ concerns because they anticipate these concerns---EJ concerns are not novel to them. If so, agencies that rarely consider EJ may be more easily influenced by commenters who present novel information and concerns. These policymakers may be less likely to have preempted EJ critiques in the draft policy. This intuition aligns with information-based formal models [@Libgober2018].
 
