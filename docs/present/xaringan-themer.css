@@ -45,8 +45,8 @@
   /* Colors */
   --text-color: #292F34;
   --header-color: #3b444b;
-  --background-color: #FAF0E6;
-  --link-color: #B7E4CF;
+  --background-color: white;
+  --link-color: #3b444b;
   --text-bold-color: #3b444b;
   --code-highlight-color: rgba(255,255,0,0.5);
   --inverse-text-color: #EBECED;
@@ -56,7 +56,7 @@
   --title-slide-background-color: #3b444b;
   --title-slide-text-color: #EBECED;
   --header-background-color: #3b444b;
-  --header-background-text-color: #FAF0E6;
+  --header-background-text-color: white;
   --base: #3b444b;
   --white: #EBECED;
   --black: #292F34;

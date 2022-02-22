@@ -36,13 +36,14 @@ library("xaringan")
 library("xaringanthemer")
 library("here")
 library("tidyverse")
-library(magrittr)
+library("magrittr")
 
 
 style_mono_light(base_color = "#3b444b",
-          link_color = "#B7E4CF",
+          inverse_link_color	
+ = "#B7E4CF",
           #background_image = "figs/ej-superfund-light.jpeg",
-          background_color = "#FAF0E6", # linen
+          background_color = "white", #FAF0E6", # linen
           header_font_google = google_font("PT Sans"), 
           text_font_google = google_font("Old Standard"), 
           text_font_size = "29px",
@@ -96,11 +97,13 @@ Surviving judicial review
 ???
 
 Hi, my name is Devin Judge-Lord; I'm a postdoc at Harvard Univ.
-...As part of a larger project, your input, however far afield, will be helpful...
+Today I am zooming in from Lenape land just uphill from neighborhoods that New York City's initial climate adaptation plan proposed to flood to protect the financial district. 
 
 My work is at the intersection of two literatures that have not had much contact...On the one hand, social movements and civic engagement have long been a core interest of political scientists. We are highly uncertain about the size of effects from actions like letter writing, signing petitions, and protests, but there is little doubt that these things matter at a large enough scale.
 
 On the other hand, bureaucratic policy processes like agency rulemaking are often discussed as if they operate with technocratic rationality. In a sense, mass politics is missing from a lot of the administrative law literature and even from political science theories and formal models of bureaucratic policymaking. 
+
+The paper I am presenting today is a small part of a larger book project: 
 
 ---
 
@@ -126,6 +129,17 @@ Substantive policy influence
 
 Surviving judicial review
 
+
+???
+
+It is a middle step in the causal chain from mobilization to substantive policy influence. 
+As I turn this chapter into an article,
+I am struggling to include just enough and not too much of what comes before and after.
+
+I need enough about mobilization to be clear about who is empowered.
+
+I need enough on substantive policy influence to be honest about the limited power of framing and discourse effects in any one policy fight. 
+But, this paper is really about the aggregate effects of many linked campaigns on the discourse and issue frames in the policy process---that is, how a movement affects policymaking. 
 
 ---
 
@@ -220,7 +234,7 @@ The big question is whether social movements impact policy.
 ---
 
 
-## Research tends to explain social movement emergence rather than specific impacts (see McAdam 2017) 
+## Research tends to explain social movement emergence rather than specific impacts (McAdam 2017) 
 
 - **"limited research on [social movement] influence"** (Andrews & Edwards 2004)
 
@@ -237,7 +251,7 @@ The big question is whether social movements impact policy.
 
 Social movement scholars tend to focus on explaining the movement. 
 
-With a few notable exceptions (like Dan Gillion's work on civil rights protests), most scholars are not looking at policy. When they do, they usually focus on a few pieces of landmark legislation.
+Most scholars are not looking at policy with a few notable exceptions (like Dan Gillion and Omar Wasow's work on civil rights protests, Jamila Michener). When they do, they usually focus on a few pieces of landmark legislation.
 
 - I help fill that gap by looking systematically at change in very specific policy documents, agency rules. Agency rules now make up 90% of US law; rulemaking is where the teeth of the law are forged and reforged.
 
@@ -245,16 +259,16 @@ With a few notable exceptions (like Dan Gillion's work on civil rights protests)
 
 # Measuring influence
 
-I. Getting policymakers' attention/engadgement/response
+### I. Getting policymakers' attention/engadgement/response
 
-in specific cases: 
-- adding policy language 
-- changing policy language
+- in specific cases: 
+ - adding policy language 
+ - changing policy language
 
-over time
-- change in patterns of policymaking
+- over time
+ - change in patterns of policymaking
 
-II. Getting substantive policy demands
+### II. Getting substantive policy demands
 
 
 ---
@@ -312,9 +326,9 @@ Or, consider the opposite. Legislative gridlock continues, but the Biden Harris 
 
 Everything we know about lobbying, especially lobbying in agency rulemaking, tells us that information is the currency of lobbying. 
 
-Information is how you get policymakers to change their minds, especially experts and lawyers.
+Information is how policymakers change their minds, especially experts and lawyers.
 
-Indeed, research shows that business groups dominate lobbying in rulemaking because they have the capacity to generate and provide relevant information. 
+Indeed, research shows that business groups dominate lobbying in rulemaking because they can generate and provide relevant information. 
 
 Thus far, by information, scholars generally mean technical and legal information (see Susan has recent Annual Review of this scholarship)
 
@@ -448,7 +462,7 @@ background-color: white
 
 ## Data: ~25,000 Policy Documents
 
-12,257 Draft and Final Rule Pairs* across 40 agencies that published rules addressing EJ from 1993-2020
+12,257 Draft and Final Rule Pairs* from 40 agencies, 1993-2020
 
 ```{r ej-data, fig.show = "hold", out.width = "100%"}
 
@@ -465,7 +479,7 @@ background-color: white
 
 ~4,800,000 (~28,000 unique) comments raise EJ concerns
 
-```{r ej-comments, out.width = "68%"}
+```{r ej-comments, out.width = "70%"}
 
 knitr::include_graphics("Figs/ej-comments-1.png")
 ```
@@ -482,6 +496,30 @@ background-color: white
 ```{r percent-match, fig.show = "hold", out.width = "55%", fig.cap="Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments"}
 
 knitr::include_graphics("Figs/comment_percent_match_plot.png") 
+```
+
+---
+
+## Methods: Hand-coded coalitions and policy change
+
+```{r datasheet, fig.show = "hold", out.width = "100%", fig.cap="Example: Identifying Coalitions by Hand"}
+
+knitr::include_graphics("figs/datasheet.png")
+```
+
+
+---
+
+```{r ej-winrates}
+load(here::here("data", "winrate.Rdata"))
+winrates %>% 
+  mutate(`EJ Success Rate` = `EJ Success Rate` %>%
+           percent(accuracy = 1) %>% replace_na("-"),
+         `Overall Success Rate` = `Overall Success Rate` %>%
+           percent(accuracy = 1)) %>% 
+  dplyr::select(-`N raising EJ`) %>% mutate(across(where(is.numeric), pretty_num)  ) %>%
+      knitr::kable(caption = "") %>% 
+      kable_styling(font_size = 22, position = "center")  #kable3(caption = "Hand-coded Lobbying Success by Type of Organization, 2005-2020")
 ```
 
 ---
@@ -660,51 +698,101 @@ Strong framing effects, but substantive victories are rare and dominated by surr
 
 With larger coalitions and more public attention, agencies are more likely  📈 to **add** EJ language **where there was none**, BUT agencies also anticipate public attention, making **existing** EJ analyses less likely 📉 to **change** on higher-salience rules.
 
-<!--
+Replicates with "climate change" 
 
+---
 
-### Thank you!
+class: inverse
+
+Thank you!
 
 - Paper, slides, data: [judgelord.github.io/research/ej](judgelord.github.io/research/ej)
+- Rules currently open for comment: [judgelord.github.io/rulemaking/open]( https://judgelord.github.io/rulemaking/open)
 
-- Rules related to EJ or Climate currently open for comment: [judgelord.github.io/rulemaking/open]( https://judgelord.github.io/rulemaking/open)
+Questions: 
+- More or less on mobilization or hand-coded influence? 
+- Aggregate impact of related campaigns $\rightsquigarrow$   social movement impact?
+- Should "climate change" replication be in this paper? 
+- Other discursive terms/movements? ("racial"/"low-income" etc.)
 
--
+--
 
-### Next Steps
+Next papers:
+- [Audit study](): What causes institutional receptivity?
+- [Co-framing](): EJ + "health", "disaster", "climate" & changes in term frequency
+- [Surveys]() to compare comments to public opinion
+- [Lobbying Networks]()
+- [Feedback](): The mobilizing and demobilizing effects of the policy process
 
+???
+
+Carving out a paper: More or less on mobilization or hand-coded influence? 
+
+Is the aggregate influence of related campaigns a defensible working deff of a social movement, or is there a better way of talking about this? 
+
+co-framing (Baumgartner and Jones) 
+
+<!--
+Next Steps
 - More on coalition structure and policy success, especially opposing coalitions
 - Better (hand-coded) measures of policy change
 - Model changes in texts that already discuss climate/EJ/CJ
-- Additional terms (e.g., "warming") and analysis of change in term frequency
 
 Framing 
 - More on how social movements may impact policy. Petitioning and protest? Lobbying?
-- Better names for hypotheses? *Distributive Information*?
-
-Methods
-- Test policy receptivity using rates of addressing EJ out of sample (direct rules & notices)
-- Better measures of policy change
-- Alternative estimation (hierarchical Bayes, hazard models)
-- Network analysis
-
-Substance
-- Other discursive terms/movements ("racial"/"minority populations"/"low-income"...others?)
-- Co-framing effects: EJ + "health", "disasters", "fairness", "exploitation", "recycling", "ozone", or "greenhouse gas emissions" (Baumgartner and Jones)
+-->
 
 
--
+---
 
-# Other papers
-
-
-- Network analysis
-- Feedback: the mobilizing and demobilizing effects of the policy process
-
--
-
-inverse center middle 
+class: inverse center middle 
 
 # Extra Slides 
 
--->
+---
+
+# Next steps: methods
+
+- Test policy receptivity using rates of addressing EJ out of sample (direct rules & notices)
+- Better measures of policy change
+- cor(EJ Language, Lobbying Success)
+- Alternative estimation (hierarchical Bayes)
+- Cumulative effects over time (hazard models)
+- Placebo test? 
+
+---
+
+background-color: white
+
+### Replication & Extention: Climate Change & Climate Justice 
+
+```{r cj-data-agencies, out.width = "90%"}
+
+knitr::include_graphics("figs/cj-data-agencies-2.png")
+```
+
+---
+
+background-color: white
+
+```{r table,  out.width = "80%"}
+
+knitr::include_graphics("figs/cj-table.png")
+```
+
+
+---
+
+background-color: white
+
+## Results: Adding Climate Change to Policy 
+
+```{r climate-m-PR-climatecomments-agencyFE,  out.width = "80%"}
+
+
+knitr::include_graphics("figs/climate-m-PR-climatecomments-agencyFE-1.png")
+
+```
+
+- 🔬🔁 Coalition Size ✅  
+
