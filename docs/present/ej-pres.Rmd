@@ -516,15 +516,17 @@ knitr::include_graphics("figs/datasheet.png")
 ---
 
 ```{r ej-winrates}
+library(kableExtra)
+library()
 load(here::here("data", "winrate.Rdata"))
 winrates %>% 
   mutate(`EJ Success Rate` = `EJ Success Rate` %>%
            percent(accuracy = 1) %>% replace_na("-"),
          `Overall Success Rate` = `Overall Success Rate` %>%
            percent(accuracy = 1)) %>% 
-  dplyr::select(-`N raising EJ`) %>% mutate(across(where(is.numeric), pretty_num)  ) %>%
+  dplyr::select(-`N raising EJ`) %>% #mutate(across(where(is.numeric), pretty_num)  ) %>%
       knitr::kable(caption = "") %>% 
-      kable_styling(font_size = 22, position = "center")  #kable3(caption = "Hand-coded Lobbying Success by Type of Organization, 2005-2020")
+      kableExtra::kable_styling(font_size = 22, position = "center")  #kable3(caption = "Hand-coded Lobbying Success by Type of Organization, 2005-2020")
 ```
 
 ---
@@ -726,7 +728,7 @@ Next papers:
 - [Audit study](): What causes institutional receptivity?
 - [Co-framing](): EJ + "health", "disaster", "climate" & changes in term frequency
 - [Surveys]() to compare comments to public opinion
-- [Lobbying Networks]()
+- [Lobbying networks]()
 - [Feedback](): The mobilizing and demobilizing effects of the policy process
 
 ???
