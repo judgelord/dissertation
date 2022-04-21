@@ -124,10 +124,12 @@ comments_coded %<>%
   mutate(ej_comment = document_id %in% ejcomments$document_id)
 
 
+comments_coded %>% count(org_type)
+
 comments_coded$org_type %<>%
   str_replace("faith", "religious") %>% 
   str_replace("tribal", "tribe") %>% 
-  str_replace("legal", "law firm") %>% 
+  str_replace("law firm", "legal") %>% 
   str_replace("labor", "union") %>% 
   str_replace("federal", "Other Federal Agency") %>% 
 str_replace("environmental advocacy|environmental|environment", "environmental group") %>% 

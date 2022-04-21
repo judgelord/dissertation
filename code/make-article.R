@@ -13,6 +13,8 @@ text <- readLines(here::here(chapter)) %>%
   str_replace_all("This chapter", "This paper") %>% 
   str_replace_all("(In the |The) previous chapter(s|)", "Elsewhere") %>% 
   str_replace_all("(in )the previous chapter(s|)", "elsewhere") %>% 
+  #TODO MAKE DOUBLE REF 
+  str_replace_all("Chapter .ref", "\\\\citet") %>% 
   str_replace_all("Chapter .ref", "\\\\citet")
 
 # make article file path
