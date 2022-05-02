@@ -31,6 +31,7 @@ always_allow_html: true
 # keywords: Pressure groups, bureaucratic politics, 
 wordcount: 11964
 output:
+    bookdown::word_document2: default
     bookdown::pdf_document2:
       template: '../assets/article-template.tex' # redirect to assets 
       keep_tex: true
@@ -124,7 +125,7 @@ Models "2 EPA Only" and "4 EPA Only" are identical to Models 2 and 4 but subset 
 Models "2 Mass Only" and "4 Mass Only" are identical to Models 2 and 4 but subset to rules that received over 100 comments.
 Models "2 EJ Only" and "4 EJ Only" are identical to Models 2 and 4, but subset to rules that received at least one comment raising EJ concerns instead of including the indicator. 
 
-```{r ej-appendix1}
+```{r ej-appendix1, eval=FALSE}
 # app table fixest
 modelsummary::modelsummary( modelsFE1, 
                             title = "Logit Regression Predicting Change in Rule Text (Data Subsets)",
@@ -133,8 +134,7 @@ modelsummary::modelsummary( modelsFE1,
                             gof_omit = "R.*",
                           add_rows = rowsFE1, 
                           notes = "") %>% 
-  row_spec(row = 1, bold = T) %>%
-  kable2(file = "ej-appendix2")
+  row_spec(row = 1, bold = T) %>%  kable2(file = "ej-appendix2")
 ```
 
 
@@ -146,7 +146,7 @@ modelsummary::modelsummary( modelsFE1,
 
 Table \@ref(tab:ej-appendix2) presents an alternative specification as robustness checks for the main models 2 and 4 in Table \@ref(tab:ej-appendix1). While we have strong reasons to believe that comments have decreasing marginal effects, and the logged number of comments offers a parsimonious modeling strategy, the models in Table \@ref(tab:ej-appendix2) relax this assumption about functional form by using both linear and quadratic terms instead. In these tables, "Total Comments" is measured in thousands, whereas "Unique EJ Comments" is not transformed. With this specification, most hypotheses cannot be assessed by the p-value on any one term. Instead, Figures \@ref(fig:ej-robust) and \@ref(fig:ej-robust-ej) show predicted probabilities at various levels of public attention (total comments) and coalition size (unique EJ comments), respectively, while holding other variables at their modal values. 
 
-```{r ej-appendix2}
+```{r ej-appendix2, eval=FALSE}
 # app table fixest 2
 modelsummary::modelsummary( modelsFE2, 
                             title = "Logit Regression Predicting Change in Rule Text",
