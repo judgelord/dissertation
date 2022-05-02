@@ -1,0 +1,66 @@
+---
+knit: ( function(input, ...) {
+          rmarkdown::render(input)
+          } 
+      )
+# bibliography:  assets/mendeley.bib
+biblio-style: apa
+citecolor: black
+title: "Iterative Hand-Coding and Computational Text Analysis: Application to Assessing the Effects of Public Pressure on Policy"
+numbersections: false
+output: 
+  bookdown::pdf_document2:
+    latex_engine: pdflatex
+    keep_tex: true
+#    template: article-template.tex
+    toc: false
+    fig_caption: true
+    citation_package: natbib
+#header-includes:
+#- \usepackage{ragged2e}
+#- \input{preamble.tex}
+#- \let\footnote=\endnote
+#- \renewcommand{\footnotesize}{\normal}
+#- \renewcommand{\normalsize}{\large}
+spacing: OneHalfSpacing
+---
+
+## Abstract 
+
+This paper describes methods for integrating human coding of texts with computational text analysis and preprocessing to increase the inferential power of hand-coding by several orders of magnitude. Computational text analysis tools can strategically select texts for human coders, including texts that represent larger samples and outlier texts of high inferential value. Preprocessing documents can speed hand-coding by extracting key features like named entities. Moreover, hand-coding and text analysis tools are each more powerful when combined in an interactive workflow. Applying this method to public comments on U.S. Federal Agency regulations, a hand-coded sample of 10,894 hand-coded comments yields equally valid inferences for over 41 million comments regarding the organizations that mobilized them and the extent to which policy changed in the direction they sought. This large sample enables new analyses of the relationships between lobbying coalitions, social movements, and policy change. For example, I find that public pressure to address climate and environmental justice movements has large effects on policy documents but that a small number of national advocacy organizations dominate lobbying coalitions. When tribal governments or local groups lobby without the support of national advocacy groups, policymakers typically ignore them.
+
+
+## Data and Methods
+
+
+
+To examine the relationship between public pressure campaigns and lobbying success, I collected a corpus of over 80 million public comments.
+From 2005 to 2020, agencies posted 42,426 rulemaking dockets to regulations.gov for public comments. Only 816 of these rulemaking dockets were targeted by one or more public pressure campaigns, but this small share of rules garnered 99.07 percent (57,837,674) of all comments. Using text analysis tools to strategically select 10,894 comments for hand coding in an iterative process ultimately yields a new dataset of 41,342,776 as-good-as-hand-coded texts.
+
+
+First, I develop computational methods to identify lobbying coalitions through text reuse.
+I leverage an iterative process loop of text analysis and hand-coding to attribute comments to the organizations, campaigns, and broader coalitions that mobilized them. I first identify comments that share text. I find that a 10-word (10-gram) phrase repeated across more than a few comments is always either text copied from the proposed policy or language inspired or provided by an organized campaign. Thus, for each comment text, I first remove all 10-word phrases that appear in the proposed rule (including the preamble and call for comments). Then, I identify all comments that share ten-word phrases with 99 or more other comments. Text reuse thus allows me to code one sample document that is valid for all commenters using the same form letter. Finally, I collapse these form letter comments into one representative document for hand-coding.
+
+Prior to hand-coding each comment, I attempt to identify the organization(s) that submitted or mobilized each comment by extracting the names of organizations and elected officials from the text of each comment. For comments that do not include the name of an organization or elected official, human coders used an internet search on portions of the comment's text. This often identified the organization that provided the model letter text. As additional organizations were identified by hand, they were added to the entity extraction method, and model text linked to them was added to the clustering method. This was especially for astroturf groups that provide model public comments while obscuring their identity. 
+<!--I then identify lobbying coalitions both by hand and by textual similarity. Co-signed comments are always assigned to the same coalition. Likewise, form-letter comments are always assigned to the same coalition.-->
+I thus attribute each comment to the organization behind it (its author if submitted by the organization or the mobilizing organization for form letters). I also identify comments submitted by elected officials, with special attention to members of the U.S. Congress.
+
+To study the influence of organizations and coalitions, I collapse these data to one observation per organization or coalition per proposed rule for analysis. I then identify the main substantive comment submitted by each organization's staff or lawyers, which are usually much longer than supporting comments like form letters.
+
+Comments selected for hand-coding are coded for their level of lobbying success. Hand-coding includes recording the type of organization, the lobbying coalition to which each comment belongs, the type of coalition (primarily public or private interests), their policy demands, and the extent to which the change between the draft and final rule aligned with their demands. The level of alignment between policy demands and policy outcomes is a standard approach for assessing lobbying success with these kinds of observational data. 
+
+
+My approach to measuring lobbying success starts with policy demands raised in comments. The dimensions of conflict on which I judge lobbying success are those issues identified by commenters. Unlike other studies, the issues I use to assess lobbying success do not come from first reading the policy or of any a priori concept of what each policy fight is about. Instead, I read the change between the draft and final rule with an eye for alignment with commenters' requests (including requests that specific parts of the draft policy do not change.)
+Using commenter requests to identify the dimensions of the conflict has advantages and disadvantages. Compared to other potential measures of success, it is more likely to focus on things that commenters care about and miss policy issues that other, non-commenting segments of the public might care about.
+
+## Findings
+
+These new data reveal who participates in public pressure campaigns and why. I find that pressure campaigns are almost always a conflict expansion tactic used by less-resourced "grassroots" groups; "astroturf" campaigns are surprisingly rare. However, the resources and capacities required to launch a campaign cause a few larger policy advocacy organizations to dominate. Over 80 percent of public comments were mobilized by just 100 organizations, most of which lobby in the same public interest coalitions. As a result, the public attention that pressure campaigns generate is concentrated on a small portion of policies on which these organizations focus. I also find no evidence of negativity bias in public comments. Instead, most commenters supported draft policies during the Obama administration but opposed those of the Trump administration, reflecting the partisan biases of mobilizing groups.
+
+While most prior studies of public pressure campaigns targeting federal agencies focused on the Environmental Protection Agency, my sample of agency rules spans 60 agencies, allowing new insights into the scale and influence of public pressure across agencies. 
+Comparing across agencies, I find that the federal agencies that are most often the targets of public pressure are also the most responsive to public pressure. 
+
+My hand-coded measure of whether commenters got the policy outcome they sought allows me to assess whether public pressure campaigns increase lobbying success. Finally, I assess potential mechanisms by which mass public engagement may affect policy. I focus on congressional oversight as a mediator in policy influence, i.e., the extent to which public pressure campaigns affect policy indirectly through their effects on legislators' oversight behaviors. I find that members of Congress are more likely to engage in rulemaking when advocacy groups mobilize public pressure and that lobbying coalitions are more successful when they mobilize more legislators. However, pressure campaigns are related to policy outcomes under very narrow conditions.
+Lobbying coalitions are more successful when they mobilize more members of Congress, but legislators disproportionately align with private interest (e.g., business-led) coalitions, not the public interest coalitions that run most public pressure campaigns.
+
+These new data also allow me to assess the discursive effects of the climate movement and environmental justice movement. I find that agencies are more likely to add language addressing climate change or environmental justice in their final rules when public comments raise climate change or environmental justice concerns. However, the representation of both movements in federal policymaking is limited to a small number of national advocacy organizations. When less-well-resourced groups raise concerns about climate change or environmental justice, their concerns are almost always ignored. 
