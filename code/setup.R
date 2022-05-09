@@ -1,23 +1,26 @@
+# Default is to include book-only content
+book = TRUE 
 
+# load packages 
 requires <- c("bookdown",
               "tidyverse",
               "scales",
               "magrittr",
-              "broom",
+              "broom", #FIXME is this still needed
               "here",
-              "msm",
+              "msm", #FIXME is this still needded
               "kableExtra",
               "modelsummary",
-              "dotwhisker",
+              #"dotwhisker",
               "mediation",
-              "lme4",
-              "lmerTest",
+              #"lme4", #FIXME should now have been replaced with fixest everywhere
+              #"lmerTest",
               "fixest",
               "flextable",
               "magick",
               "equatiomatic", 
               "latex2exp",
-              "tidytext",
+              #"tidytext", #FIXME may need to bring this back, but not currently using
               "latex2exp")
 to_install <- c(requires %in% rownames(installed.packages()) == FALSE)
 install.packages(c(requires[to_install], "NA"), repos = "https://cloud.r-project.org/" )
@@ -26,14 +29,12 @@ rm(requires, to_install)
 library(scales)
 library(magrittr)
 library(broom)
-library(dotwhisker)
+#library(dotwhisker)
 library(here)
 library(knitr)
 options(kableExtra.latex.load_packages = FALSE)
 library(kableExtra)
 library(mediation)
-#library(lme4)
-library(lmerTest)
 library(fixest)
 library(modelsummary)
 library(tidyverse)
@@ -53,7 +54,7 @@ knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that code will show
                       fig.path = "figs/",
                       fig.align ='center',
                       fig.cap = '   ',
-                      fig.retina = 6,
+                      fig.retina = 2,
                       fig.height = 3,
                       fig.width = 7,
                       out.width = "100%",
@@ -100,8 +101,6 @@ kable2 <- function(x, file){
 
 library(flextable)
 
-
-
 # A function to trim and format tables for different outputs 
 kable3 <- function(x, 
                    caption = "", 
@@ -147,7 +146,6 @@ kable3 <- function(x,
 
 options(scipen=999)
 
-
 # smarter number functions
 smart_number <- function(n, ...) {
   # if non-int below ten, return as is
@@ -182,7 +180,6 @@ knit_hooks$set(inline = function(x) {
 
 # number formatting 
 pretty_num <- . %>% prettyNum(big.mark = ",")
-
 
 options(stringsAsFactors = FALSE)
 
