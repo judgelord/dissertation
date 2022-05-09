@@ -1,8 +1,8 @@
 ## Introduction
 
-<!--
-The previous chapter focuses on the lobbying success of organizations and coalitions in bureaucratic policymaking. This chapter uses similar data and measures to assess the impact of a social movement.
--->
+```{asis, echo = book}
+The previous chapters focused on the lobbying success of organizations and coalitions in bureaucratic policymaking. This chapter uses similar data and measures across many campaigns to assess the impact of a social movement.
+```
 
 Social movements like the civil rights movement and the environmental movement are understood to have played a critical role in advancing landmark statutes recognizing new rights and social values. Likewise, a lack of movement pressure is a leading explanation for the failure of policy efforts to address issues like climate change [@Skocpol2013]. Yet, we have little systematic evidence about the impact of social movements policymaking. This is especially true for policymaking in the bureaucracy, where most U.S. law is now made. To what extent do movements shape the thousands of policies the U.S. government makes every year? 
 
