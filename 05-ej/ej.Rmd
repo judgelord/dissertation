@@ -62,7 +62,7 @@ options(knitr.graphics.auto_pdf = TRUE)
 
 knitr::opts_chunk$set(cache = FALSE)
 
-book = TRUE 
+book = FALSE
 ```
 
 
