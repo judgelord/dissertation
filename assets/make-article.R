@@ -18,7 +18,11 @@ text <- readLines(chapter) %>%
   str_replace_all("Chapter .ref", "\\\\citet")
 
 # rename
-article <- chapter %>% str_replace(".tex$", "-article.tex") 
+article <- chapter %>% str_replace(".tex$", ".tex") 
+
+# or make the same name
+# article <- chapter %>% str_replace(".tex$", ".tex") 
+
 
 # save article .tex file 
 writeLines(text, article)  

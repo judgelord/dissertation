@@ -262,6 +262,10 @@ $endif$
 \floatsetup[table]{capposition=top}
 \usepackage{setspace}
 
+% subfigures 
+\usepackage{subfig}
+
+
 % inherit spacing names from memoir
 \newcommand{\OnehalfSpacing}{\onehalfspacing}
 \newcommand{\DoubleSpacing}{\doublespacing}
@@ -380,17 +384,16 @@ $if(frontpage)$
   \pagenumbering{arabic}
 $endif$
 
-\noindent 
-$if(anonymous)$
-  \doublespacing
-$else$ 
-  $if(spacing)$ 
-    \$spacing$ 
-  $endif$ 
-  $if(stretch)$
-    \setstretch{$stretch$}
-  $endif$
-$endif$ 
+\thispagestyle{empty}
+
+
+\newpage
+
+\onehalfspacing
+
+\setcounter{page}{1}
+
+
 $body$
 % --- PAGE: endnotes -----------------------
 $if(endnotes)$
