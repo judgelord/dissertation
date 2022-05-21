@@ -155,8 +155,7 @@ mass <-
   political information'
 ```
 
-For convenience, I have reprinted Figure \@ref(fig:causal-whymail) here as Figure \@ref(fig:causal-whymail2). (See the discussion in Chapter \@ref(whymail) regarding how this revised model incorporates political information about the attentive public.)
-
+Figure \@ref(fig:causal-whymail2) (Figure \@ref(fig:causal-whymail) from Chapter \@ref(whymail)) shows how political information about the attentive public fits into theories of bureaucratic policymaking.
 This figure shows two direct pathways by which a lobbying organization may influence policymakers. One lobbying strategy (often the only strategy in models of lobbying the bureaucracy) is for an organization to provide technical or legal information such as data, analyses, or legal arguments. There are many reasons to believe that providing technical information is a powerful strategy for organized groups to affect policymaking, especially in the bureaucracy. Bureaucrats may be particularly likely to be persuaded by technical information that leads them to update their beliefs about the policy language that would best achieve desired policy outcomes. 
 
 In addition to providing technical information through sophisticated comments, an organization or coalition of organizations may provide political information by mobilizing supporters. The size of a coalition's investment in mobilizing supporters and the response it generates offer political information to

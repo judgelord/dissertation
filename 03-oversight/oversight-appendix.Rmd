@@ -1,0 +1,324 @@
+---
+knit: ( function(input, ...) {rmarkdown::render(input)}  )
+title: "Research Note"
+subtitle: "Congressional Oversight of Federal Agencies" 
+author: "Devin Judge-Lord"
+output:
+    # pdf_document:
+    #   toc: true
+    #   keep_tex: true
+    html_document:
+      highlight: zenburn
+      toc: true
+      toc_float: true
+      code_folding: hide
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r global.options, include=FALSE}
+source(here::here("code", "setup.r"))
+
+knitr::opts_chunk$set(echo = TRUE, 
+                      cache = TRUE, 
+                      fig.width=6, 
+                      split = T,
+                      fig.path='../figs/')
+
+library(modelsummary)
+library(marginaleffects)
+library(fixest)
+library(tidyverse)
+library(broom)
+library(magrittr)
+library(tidytext)
+library(knitr)
+library(kableExtra)
+
+
+
+select <- . %>% dplyr::select()
+
+library(ggplot2); theme_set(theme_bw());
+  options(
+    ggplot2.continuous.color = "viridis",
+    ggplot2.continuous.fill = "viridis"
+  )
+  scale_color_discrete <- function(...){
+    scale_color_viridis_d(..., #direction = -1, 
+                          begin = 0, end = .9, option = "cividis")}
+  scale_fill_discrete <- function(...){
+    scale_fill_viridis_d(..., #direction = -1, 
+                         begin = 0, end = .9, option = "cividis")}
+  
+  scale_color_continuous <- function(...){
+    scale_color_viridis_c(..., #direction = -1, 
+                          option = "cividis")}
+  scale_fill_continuous <- function(...){
+    scale_fill_viridis_c(..., #direction = -1, 
+                         option = "cividis")}
+```
+
+
+This research note describes a new dataset and measures for studying congressional oversight. 
+
+## The research approach 
+
+Instead of starting with a definition of congressional oversight behavior and seeking out measures of it, I start with two large datasets containing millions of contacts between members of Congeress and federal agencies and ask what portions might be thought of as different types of oversight.The two datasets that I subset and combine each provide different leverage to assess forms of congressional oversignt. One dataset systematically captures all communication between legislators and federal agency staff---some contacts clearly oversigh-related, others clearly not, and many in between, depending on how we define oversight. These data allow researches to compare the content and context of oversight requests to other types of requests that agencies receive. The second dataset systematically captures all comments on federal agency rules. Commenting on proposed rules is not often described as oversight, but if we define oversight to be effors by members of Congress to ensure executive-branch compliance with congressional mandates, then comments on proposed rules are by far one of the most frequent means of oversight. These data allow researches to compare and linke the involvement of members of Congress in post-legislative policymaking to the involvement of other political actors, such as business associations and public interest groups. 
+
+## Preview of findings
+
+These new data reveal patterns that may be relevant to how scholars think about congressional oversight. 
+
+First, most legislator contacts with federal agencies are on behalf of individual constituents, often because they have some challenge procuring benefits (e.g., social security or veterans' benefits). The attention that congressional offices pay to  constituent problems with government agencies likely inform more traditional oversight behaviors. Through the massive volume of constituency service requests, a member's constituents, I argue, may alert congressional offices to oversight opportunities. 
+
+Within the subset of legislator requests that focus on policy rather than constituency service, most are comments on proposed agency rules implimenting statutory authority. The next most frequent type of request is for assistance in drafting legislation. As it occurs before legislation, this is clearly not overight. The third most common type of request relates to more traditional overshight actions like hearings and reports. Another, much smaller catagory of requests emerges of oversight that, unlike hearings and rulemaking comments, is largely unrelated to legislative tasks. For example, member of Congress contact agencies about personel decisions, upcoming lawsuits, and their response to disasters. 
+
+
+
+
+# Data
+
+<!--
+Replication data are available in SQL and Rdata at https://github.com/judgelord/rulemaking 
+--->
+
+```{r oversighht-data, fig.height = 6}
+# load from book repo 
+load(here::here("data", "oversight.Rdata"))
+
+# Load member data from R package
+#load(url("https://github.com/judgelord/augmentCongress/raw/main/data/members.rda"))
+load(here::here("data", "members.rda") %>% str_replace("dissertation", "augmentCongress"))
+
+# make member name 
+m <- members %>% 
+  mutate(name = paste0(chamber, " ",
+                       first_name, " ", str_to_title(last_name),
+                       " (",
+                       str_sub(party_name,1,1),
+                       "-", 
+                       state_abbrev,
+                       ")") %>% 
+           str_replace("House ", "Rep. ") %>% 
+           str_replace("Senate ", "Sen. ")) %>% 
+  dplyr::select(icpsr, chamber, congress, 
+                    nominate.dim1, nominate.dim2, party_name, name)
+
+d <- oversight %>% 
+  #filter(TYPE != 1 | is.na(TYPE)) %>% 
+  left_join(m) %>%  
+  mutate(party = party_name %>% str_remove(" Party"))
+
+
+d %<>% 
+  mutate(POLICY_EVENT = str_split(POLICY_EVENT, ";|/") ) %>% 
+  unnest(POLICY_EVENT) %>% 
+  mutate(POLICY_EVENT = POLICY_EVENT %>% 
+           str_to_lower() %>% 
+           str_remove_all("possibly|probably|maybe|\\(.\\)") %>%
+           str_squish() %>% 
+           str_replace("^allocation|earmark", "budget allocation") %>% 
+           str_replace("^oversight",  "other oversight") %>% 
+           str_replace("^personel|^personnel", "Agency Personnel") %>% 
+           str_replace("hearing|report", "hearings & reports") %>% 
+           str_to_title() %>% 
+           replace_na("Other Oversight"))
+```
+
+### FOIA Data
+```{r oversighht-data-party-FOIA, fig.height = 2.5}
+# by party
+d %>% 
+  filter(!is.na(FROM),
+    !POLICY_EVENT %in%  c("Disaster", "Decision", "Meeting", "Information", "Lawsuit")) %>% 
+  drop_na(party) %>% 
+  ggplot() + 
+  aes(fill = POLICY_EVENT, x= "") + 
+  geom_bar(alpha = .8) + 
+  facet_wrap("party", scales = "free") + 
+  theme_minimal() + 
+  theme(panel.grid.major.x = element_blank()) + 
+  labs(x = "", y = "Number of Contacts", 
+       fill = "Topic")
+```
+
+## All Data
+```{r oversighht-data-party, fig.height = 2.5}
+# by party
+d %>% 
+  filter(!POLICY_EVENT %in%  c("Disaster", "Decision", "Meeting", "Information", "Lawsuit")) %>% 
+  drop_na(party) %>% 
+  ggplot() + 
+  aes(fill = POLICY_EVENT, x= "") + 
+  geom_bar(alpha = .8) + 
+  facet_wrap("party", scales = "free") + 
+  theme_minimal() + 
+  theme(panel.grid.major.x = element_blank()) + 
+  labs(x = "", y = "Number of Contacts", 
+       fill = "Topic")
+```
+
+
+```{r oversighht-data-agency, fig.height = 18, fig.width=7.5}
+d %>% 
+  filter(!POLICY_EVENT %in%  c("Disaster", "Decision", "Meeting", "Information", "Lawsuit")) %>% 
+  drop_na(agency) %>% 
+  add_count(agency) %>% 
+  filter(n > 1) %>% 
+  ggplot() + 
+  aes(fill = POLICY_EVENT, x= "") + 
+  geom_bar(alpha = .8) + 
+  #coord_flip() +
+  facet_wrap("agency", scales = "free", ncol = 6) + 
+  theme_minimal() + 
+  theme(panel.grid.major.x = element_blank()) + 
+  labs(x = "", y = "Number of Contacts", 
+       fill = "")
+```
+
+```{r oversighht-data-agency-top, fig.height = 5, fig.width=7.5}
+# TOP 10 agencies
+d %>% 
+  filter(!POLICY_EVENT %in%  c("Disaster", "Decision", "Meeting", "Information", "Lawsuit")) %>% 
+  drop_na(agency) %>% 
+  add_count(agency) %>% 
+  filter(n > 75) %>% 
+  ggplot() + 
+  aes(fill = POLICY_EVENT, x= "") + 
+  geom_bar(alpha = .8) + 
+  #coord_flip() +
+  facet_wrap("agency", scales = "free", ncol = 6) + 
+  theme_minimal() + 
+  theme(panel.grid.major.x = element_blank()) + 
+  labs(x = "", y = "Number of Contacts", 
+       fill = "")
+```
+
+```{r oversighht-data-agency-top-top, fig.height = 2.5, fig.width=7.5}
+# TOP 10 agencies
+d %>% 
+  filter(!POLICY_EVENT %in%  c("Disaster", "Decision", "Meeting", "Information", "Lawsuit")) %>% 
+  drop_na(agency) %>% 
+  add_count(agency) %>% 
+  filter(n > 320) %>% 
+  ggplot() + 
+  aes(fill = POLICY_EVENT, x= "") + 
+  geom_bar(alpha = .8) + 
+  #coord_flip() +
+  facet_wrap("agency", scales = "free", ncol = 6) + 
+  theme_minimal() + 
+  theme(panel.grid.major.x = element_blank()) + 
+  labs(x = "", y = "Number of Contacts", 
+       fill = "")
+```
+
+# Context
+
+## Pre and post-legislation 
+
+```{r oversighht-prepost, fig.height=2.5, cache=FALSE}
+d %<>% 
+  mutate(prepost = case_when(
+    str_detect(POLICY_EVENT, "Budget Allocation|Legislation") ~ "Pre-legislation Coordination\n(drafting legislation and agency budget proposals)",
+    str_detect(POLICY_EVENT, "Rule|Appropriation") ~ "Post-legislation Oversight\n(comments on agency rulemaking and appropriations instructions)",
+    str_detect(POLICY_EVENT, "Hearing|Information|Meeting|Report") ~ "Traditional Oversight\n(hearnings and reports)",
+    str_detect(POLICY_EVENT, "Lawsuit|Disaster|Decision|Other Oversight|Agency Personnel") ~ "Other Oversight\n(comments on lawsuits, disaster response, and agency personnel)",
+    TRUE ~ ""
+  ))
+
+
+# Check for uncatagorized
+# d %>% filter(prepost == "") %>% distinct(POLICY_EVENT)
+
+d %<>% mutate(Type = replace_na(TYPE, "Yet to be coded") %>%
+              str_replace("1|3", "Constituent-driven") %>% 
+                str_replace("2|4", "Corporate-driven") %>% 
+                str_replace("5|6", "Other")
+                )
+
+d %>% 
+  #filter(!prepost == "") %>% 
+  ggplot() + 
+  aes(#fill = Type, #POLICY_EVENT, 
+      x = prepost) + 
+  geom_bar(alpha = .8) + 
+  coord_flip() + 
+ #   facet_wrap("agency", scales = "free", ncol = 6) + 
+  theme_minimal() + 
+  theme(panel.grid.major.y = element_blank()) + 
+  labs(x = "", y = "Number of Contacts", 
+       fill = "",
+       caption = "")
+```
+
+
+# Drivers of Oversight
+
+
+```{r oversighht-drivers-prepost, fig.height=2.5, fig.width=7.5}
+# Types of contact (see codebook)
+d %<>% mutate(Type = replace_na(TYPE, "To be coded") %>%
+              str_replace("1|3", "Constituent-driven") %>% 
+                str_replace("2|4", "Corporate-driven") %>% 
+                str_replace("5|6", "Public interest group\nor member-driven")
+                )
+
+# by prepost
+d %>% 
+  #filter(!prepost == "") %>% 
+  ggplot() + 
+  aes(fill = Type, #POLICY_EVENT, 
+      x = prepost) + 
+  geom_bar(alpha = .8) + 
+  coord_flip() + 
+  #facet_wrap("prepost", scales = "free", ncol = 1) + 
+  theme_minimal() + 
+  theme(panel.grid.major.y = element_blank() ) + 
+  labs(x = "", y = "Number of Contacts", 
+       fill = "",
+       caption = "")
+```
+
+
+```{r oversighht-drivers-by-event}
+d %>% 
+  #filter(!prepost == "") %>% 
+  ggplot() + 
+  aes(fill = Type, #POLICY_EVENT, 
+      x = POLICY_EVENT) + 
+  geom_bar(alpha = .8) + 
+  coord_flip() + 
+ #facet_wrap("", scales = "free", ncol = 6) + 
+  theme_minimal() + 
+  theme(panel.grid.major.y = element_blank()) + 
+  labs(x = "", y = "Number of Contacts", 
+       fill = "",
+       caption = "")
+```
+
+## Policy work on behalf of companies
+
+```{r oversighht-corporate-by-event}
+d %>% 
+  filter(str_detect(Type, "Corp")) %>% 
+  ggplot() + 
+  aes(fill = party, #POLICY_EVENT, 
+      x = POLICY_EVENT) + 
+  geom_bar(alpha = .8) + 
+  coord_flip() + 
+ #facet_wrap("", scales = "free", ncol = 6) + 
+  theme_minimal() + 
+  theme(panel.grid.major.y = element_blank()) + 
+  labs(x = "", y = "Number of Contacts", 
+       fill = "",
+       caption = "")
+```
+
+
+
+
+
+
+
