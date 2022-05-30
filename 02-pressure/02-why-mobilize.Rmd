@@ -472,6 +472,8 @@ If instead, lay commenters are mobilized through their membership organizations,
 Finally, if the theory of conflict expansion posited by @Schattschneider1975 is correct, narrow private interests only have incentives to mobilize public support to counteract an opposing campaign.
 If private interest groups like businesses primarily use public pressure campaigns *reactively* to counter a message of public consensus advanced by an opposing lobbying coalition, we should rarely see private interest groups lobbying unopposed. 
 
+<!--only a handful of studies consider either how the presence of opposition from organizations and government officials (Hojnacki 1997, 1998; Holyoke 2003; Holyoke et al. 2007; Mahoney 2008; Baumgartner et al. 2009)-->
+
 ```{hypothesis, disrupt, echo = TRUE}
 If narrow private interest groups (e.g., businesses) launch public pressure campaigns, it is a response to an opposing campaign. 
 ```

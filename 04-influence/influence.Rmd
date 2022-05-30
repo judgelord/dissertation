@@ -1,0 +1,104 @@
+---
+# rmarkdown::render("05-ej/ej.Rmd")
+knit: ( function(input, ...) {
+          rmarkdown::render(input)
+                              
+          make_article(
+            paste0(xfun::sans_ext(input), '.tex')
+            )
+          } 
+      )
+title: Public Pressure
+subtitle: 
+runningauthor: Judge-Lord
+author:
+- name: Devin Judge-Lord
+  affiliation: Harvard University
+  title: Postdoctoral Fellow, Department of Government, Corresponding Author (DevinJudgeLord@fas.harvard.edu)
+  footnote: "I will be grateful for any feedback on this draft: [DevinJudgeLord@fas.harvard.edu](mailto:DevinJudgeLord@fas.harvard.edu)."
+  # Additional tables, figures, and replication code are available at <https://judgelord.github.io/dissertation/ej-appendix.html>. 
+date: "`r Sys.Date()`"
+abstract: | 
+  `r readLines(here::here("04-influence", "abstract.txt"))`
+bibliography: '`r here::here("assets/dissertation.bib")`'
+biblio-style: '`r here::here("assets/apsr.bst")`'
+link-citations: yes
+citecolor: black
+urlcolor: black
+frontpage: true
+spacing: onehalfspacing
+always_allow_html: true
+# github-repo: https://github.com/judgelord/dissertation
+# description: ""
+keywords: Pressure groups, bureaucratic politics, congressional oversight, policy change
+#wordcount: 11964
+output:
+    #bookdown::word_document2: default
+    bookdown::pdf_document2:
+      template: '../assets/article-template.tex' # redirect to assets 
+      keep_tex: true
+      latex_engine: xelatex
+      citation_package: natbib
+      toc: false
+#      fig_caption: true
+#      fig.topcaption: true
+#      fig.width: 7
+#      extra_dependencies: ["flafter"]
+header-includes:
+ # - \usepackage{floatrow}
+ # - \usepackage{float}
+ # - \usepackage{fontaxes}
+ # - \floatsetup[figure]{capposition=top}
+ # - \floatsetup[table]{capposition=top}
+ #  - \usepackage{subfig}
+---
+
+```{r global.options, include=FALSE}
+source(here::here("code", "setup.R"))
+       
+options(knitr.graphics.auto_pdf = TRUE)
+
+#knitr::opts_chunk$set(fig.path= "../figs/")
+
+knitr::opts_chunk$set(cache = FALSE)
+
+book = FALSE
+```
+
+
+
+<!--
+\singlespacing
+
+\centerline{\textbf{\underline{NOTE TO READER}}}
+The following chapter is part of a dissertation exploring the effects of public pressure on agency rulemaking, a technocratic policy process where "public participation" is usually limited to sophisticated lobbying but occasionally includes millions of people mobilized by public pressure campaigns. Public comment periods on proposed policies purport to provide democratic accountability. Yet theories of bureaucratic policymaking largely ignore the occasional bursts of civic engagement that generate the vast majority of public comments on proposed rules. To fill this gap, I build and test theories about the role of public pressure in policymaking. I collect and analyze millions of public comments to develop the first systematic measures of civic engagement and influence in bureaucratic policymaking. The outline of the dissertation is as follows:  
+
+```{ child = here::here("outline.md")}
+```
+
+-->
+
+
+
+```{r child = here::here("04-influence", "01-influence-intro.Rmd"), include=TRUE}
+```
+
+
+```{r child = here::here("04-influence", "02-influence-theory.Rmd")}
+```
+
+
+
+```{r child = here::here("03-oversight", "01-oversight-intro.Rmd")}
+```
+
+```{r child = here::here("04-influence", "03-influence-data.Rmd")}
+```
+
+
+```{r child = here::here("04-influence", "04-influence-methods.Rmd")}
+```
+
+```{r child = here::here("04-influence", "05-influence-results.Rmd")}
+```
+
