@@ -1,27 +1,38 @@
 ## Testing the Theory
 
+<!--TODO 
+
+I estimate 10 topics models 
+then select the topics that are positively correlated with EJ and subset to documents that are (high?) in one or more of those topics. Where one of those topics is prominent (top 50% of document proportions) 
+this addreses historic patterns. Much of these topic are correlatd with agnecy 
+I estimate at least 50 topcis to allow for an agency-specific topic. Still ej-correlated topics are partirally topics associates with agencies that address EJ. 
+--> 
+
 ### Environmental Justice as a Boundary-drawing Tool
 
-The politics of environmental justice has several convenient properties for studying the policy impact of social movements. First, discourse around policies framed as environmental issues is, unlike issues like civil rights and immigration, inconsistently racialized and, unlike issues like taxes and spending, inconsistently focused on *distributions* of costs and benefits. Indeed, White environmentalists have long framed environmental policy as "public goods." This means that policies may or may not be framed in environmental justice terms. Despite policy almost always having disparate impacts, an "environmental" frame often creates a human-environment distinction and shifts attention to non-human objects such as air, water, food, or landscapes and away from the distribution of access to them or
-protection from them when they are contaminated. By focusing on distributions of costs and benefits, fights over EJ analyses differ from the more utilitarian or preservationist analyses that dominate White environmental activism and policymaking [@Harrison2019].
+The politics of environmental justice has several convenient properties for studying the policy impact of political movements. First, discourse around policies framed as environmental issues is (unlike issues like civil rights and immigration) inconsistently racialized and (unlike issues like taxes and spending) inconsistently focused on *distributions* of costs and benefits. Indeed, White environmentalists have long framed environmental policy as public good provision, thereby suppressing distributive conflict. This means that policies may or may not be framed in EJ terms. Despite policy almost always having disparate impacts, an "environmental" frame often creates a human-environment distinction and shifts attention to non-human objects such as air, water, food, or landscapes and away from the distribution of access to them or
+protection from them when they are contaminated. By focusing on distributions of costs and benefits, EJ analyses differ from the more utilitarian or preservationist analyses that dominate White environmental activism and policymaking [@Harrison2019].
 
 
 Second, compared to
-other ideas around which people mobilize, "environmental justice" is a fairly distinctive phrase. Most people who use this term share a general definitional foundation. Even attempts to reframe the term (e.g., to focus on class more than race, or jobs more than health) come about as dialectical moves related to the term's historical uses. Thus, when "environmental justice" appears in a text, it is rarely a coincidence of words; its appearance is a result of the movement or reactions to it.
+other ideas around which people mobilize, "environmental justice" is a fairly distinctive phrase. Most people who use this term share a general definitional foundation. Even attempts to reframe the term (e.g., to focus on class more than race, or jobs more than health) come about as dialectical responses to the term's historical uses. Thus, when "environmental justice" appears in a text, it is rarely a coincidence; its appearance is a result of the movement or reactions to it.
 
 Third, this phrase appears frequently
 when the idea is discussed. There are few synonyms. Groups raising equity concerns on environmental issues commonly use the phrase "environmental justice." Those who use narrower, related terms---including the older frame of "environmental racism" and the newer frame of "climate justice"---almost always use "environmental justice" in their advocacy as well. 
 
-Finally, the term is relevant to rulemaking records in particular. In 1994 President Clinton issued Executive Order 12898---"Federal Actions to Address Environmental Justice in Minority Populations and Low-Income Populations"---directing all agencies to consider EJ implications of their actions and policies. Executive Orders from Presidents Obama and Biden and statements from agency heads in every administration have since interpreted and reinterpreted parts of this Order, all with direct implications for rulemaking. 
+Finally, the term is relevant to rulemaking records in particular due to President Clinton's Executive Order 12898---"Federal Actions to Address Environmental Justice in Minority Populations and Low-Income Populations"---directing all agencies to consider EJ implications of their actions and policies. Executive Orders or statements from agency heads in every administration have since interpreted and reinterpreted parts of E.O. 12898, all with direct implications for rulemaking. 
 Despite this Executive Order, not all draft or final rules address EJ. Those that do, however, tend to cite E.O. 12898 and use the phrase "environmental justice." For the same reason, commenters who critique draft rules also cite this Executive Order and use this language. Again, this is true both for movement activists and reactionary efforts to redefine the term.
-While E.O. 12898 does not itself create a right to sue agencies, courts may strike down rules for failing to comply with procedural requirements of the Administrative Procedure Act (APA) and National Environmental Policy Act (NEPA) if the agency fails to "examine the relevant data" or "consider an important aspect of the problem" (*Motor Vehicle Mfrs. Ass'n v. State Farm Mut. Auto. Ins. Co.*, 1983). This can include an agency's 12898 EJ analysis: "environmental justice analysis can be reviewed under NEPA and the APA" (*Communities Against Runway Expansion, Inc. v. FAA*, 2004). The legal salience of the phrase "environmental justice" means that advocates attempting to frame policies in distributive terms tend to use the phrase, and agencies also tend to use it if they respond to these concerns.
+```{asis eval = book}
+While E.O. 12898 does not itself create a right to sue agencies, courts may strike down rules for failing to comply with procedural requirements of the Administrative Procedure Act (APA) and National Environmental Policy Act (NEPA) if the agency fails to "examine the relevant data" or "consider an important aspect of the problem" (*Motor Vehicle Mfrs. Ass'n v. State Farm Mut. Auto. Ins. Co.*, 1983). This can include an agency's 12898 EJ analysis: "environmental justice analysis can be reviewed under NEPA and the APA" (*Communities Against Runway Expansion, Inc. v. FAA*, 2004). 
+``` 
+The legal salience of the phrase "environmental justice" means that advocates attempting to frame policies in distributive terms tend to use the phrase, and agencies also tend to use it if they respond to these concerns.
 
 ### Data
 
 To examine the impact of EJ activists and public pressure campaigns on policy documents,
-I collect the text of all draft rules, public comments, and final rules from regulations.gov. Then, I select rulemaking documents from agencies that published at least one rule explicitly addressing EJ from 1993 to 2020. This yields over 25,000 rulemaking dockets from 40 agencies; 12,257 of these have both a proposed and final rule.^[Some final rules are published without a draft, and some proposed rules are withdrawn or never finalized.<!--Additional descriptives on each type of rule are available in the online appendix.-->]
+I collect the text of all draft rules, public comments, and final rules from regulations.gov. Then, I select rulemaking documents from agencies that published at least one rule explicitly addressing EJ from 1993 to 2020. This yields 26,670 rulemaking dockets from 40 agencies; 13,179 of these have both a proposed and final rule, allowing me to assess change in relation to comments.^[Some final rules are published without a draft, and some proposed rules are withdrawn or never finalized.<!--Additional descriptives on each type of rule are available in the online appendix.-->]
 
-Despite E.O. 12898, most rules do not address environmental justice. Figure \@ref(fig:ej-data) shows that most draft and final rules (about 90 percent) do not mention "environmental justice." The number of policies that take EJ into account (rather than just mentioning the E.O. 12898) is even lower [@Gauna2001; @Revez2018]. Interestingly, the total number of final rules and the percent of the total addressing EJ have remained relatively stable for the period where regulations.gov data are complete (after 2005). From 2006 to 2020, these agencies published between 2000 and 3000 final rules per year, of which between 200 and 300 addressed EJ. 
+Despite E.O. 12898, most rules do not address environmental justice. Most draft and final rules (about 90 percent) do not mention "environmental justice." The number of policies that take EJ into account (rather than just mentioning the E.O. 12898) is even lower [@Gauna2001; @Revez2018]. Interestingly, the total number of final rules and the percent of the total addressing EJ have remained relatively stable for the period where regulations.gov data are complete (after 2005). Figure \@ref(fig:ej-data) shows that from 2006 to 2020, these agencies published between 1,300 and 1,885 final rules per year, of which less than 10 percent addressed EJ. 
 
 ```{r ej-data, fig.cap = "Proposed and Final Rules by Whether they Address Environmental Justice.", out.height = NULL, out.width = "100%", fig.show = "hold"}
 
@@ -30,18 +41,21 @@ knitr::include_graphics(here::here("figs", "ej-data-ejpr-1.png") ) ##
 knitr::include_graphics(here::here("figs", "ej-data-ejfr-1.png") ) ## 
 ```
 
-Even at the Environmental Protection Agency (EPA), where most policies are clearly framed as "environmental" issues, only about half of final rules address EJ. Many agencies that make policy with apparent EJ effects almost never address EJ. These include the Fish and Wildlife Service (FWS), Department of Housing and Urban Development (HUD), National Oceanic and Atmospheric Administration (NOAA), Nuclear Regulatory Commission (NRC), and the Office of Surface Mining (OSM). At no agency did a majority of rules address EJ overall. Only in a handful of years at agencies that publish few rules was EJ addressed in most rules. These include the Council on Environmental Quality (CEQ), Army Corps of Engineers (COE), Federal Emergency Management Agency (FEMA), Forest Service (FS), and several Department of Transportation agencies (the Federal Highway Administration (FHWA), Federal Motor Carrier Safety Administration (FMCSA), Federal Railroad Administration (FRA), and Federal Transit Administration (FTA)). Figure \@ref(fig:ej-data-agencies100) shows the number of rulemaking projects over time by whether they ultimately addressed EJ at agencies that either published more than ten rules addressing EJ or received over 100 comments raising EJ concerns. 
+ Figure \@ref(fig:ej-data-agencies100) shows the number of rulemaking dockets over time by whether they ultimately addressed EJ at agencies that either published more than ten rules addressing EJ or received over 100 comments raising EJ concerns. Even at the EPA, where most policies are clearly framed as "environmental" issues, only about half of final rules address EJ. Many agencies that make policy with apparent EJ effects almost never address EJ (e.g., the Office of Surface Mining (OSM) and Pipeline and Hazardous Materials Safety Administration (PHMSA)). At no agency did a majority of rules address EJ overall. Only in a handful of years at agencies that publish few rules was EJ addressed in most rules.
 
 
-```{r ej-data-agencies100, fig.cap = "Number of Proposed and Final Rules Addressing Environmental Justice", out.height = NULL, out.width = "100%", fig.show = "hold", fig.subcap= "Council on Environmental Quality (CEQ), Army Corps of Engineers (COE), Department of Transportation (DOT), Environmental Protection Agency (EPA), Federal Emergency Management Agency (FEMA), Federal Highway Administration (FHWA), Federal Motor Carrier Safety Administration (FMCSA), Federal Railroad Administration (FRA), Forest Service (FS), Federal Transit Administration (FTA), Fish and Wildlife Service (FWS), Department of Housing and Urban Development (HUD), National Highway Transportation Safety Administration (NHTSA), National Oceanic and Atmospheric Administration (NOAA), Nuclear Regulatory Commission (NRC), and Office of Surface Mining (OSM)"}
+
+```{r ej-data-agencies100, fig.cap = "Number of Final Rules Addressing Environmental Justice", out.height = NULL, out.width = "100%", fig.show = "hold"}
 #subcap 
+# fig.subcap= "Council on Environmental Quality (CEQ), Army Corps of Engineers (COE), Department of Transportation (DOT), Environmental Protection Agency (EPA), Federal Emergency Management Agency (FEMA), Federal Highway Administration (FHWA), Federal Motor Carrier Safety Administration (FMCSA), Federal Railroad Administration (FRA), Forest Service (FS), Federal Transit Administration (FTA), Fish and Wildlife Service (FWS), Department of Housing and Urban Development (HUD), National Highway Transportation Safety Administration (NHTSA), National Oceanic and Atmospheric Administration (NOAA), Nuclear Regulatory Commission (NRC), and Office of Surface Mining (OSM)"
 
 knitr::include_graphics(here::here("figs", "ej-data-agencies100-1.png") )
 ```
 
 #### Comments
 
-Figure \@ref(fig:ej-comments) shows the number of comments on each proposed rule published between 1993 and 2020. Light red circles indicate rules where no commenters raised EJ concerns. Dark blue triangles indicate rules where they did. The bottom row shows the subset of rules where "environmental justice" appeared in neither the draft nor the final rule. The middle row shows rules in which "environmental justice" appeared in the final but not the draft. My first analysis compares these two subsets. The top row shows rules where "environmental justice" appeared in both the draft and final rule. My second analysis assesses change in this subset of rules. Predictably, commenters most often raised EJ concerns on rules in the first row, but many rules that did not initially address EJ still received comments raising EJ concerns.
+Figure \@ref(fig:ej-comments) shows the number of comments on each proposed rule published between 1993 and 2020. Circles indicate rules where no commenters raised EJ concerns. Triangles indicate rules where they did. The bottom row shows the subset of rules where "environmental justice" appeared in neither the draft nor the final rule. The middle row shows rules in which "environmental justice" appeared in the final but not the draft. My first analysis compares these two subsets. The top row shows rules where "environmental justice" appeared in both the draft and final rule. My second analysis assesses change in this subset of rules. Predictably, commenters most often raised EJ concerns on rules in the first row, but many rules that did not initially address EJ still received comments raising EJ concerns.
+For the statistical analysis, I distinguish unique comments from mass comments. The number of unique comments approximates a coalition's size regarding the number of different groups, each submitting a unique text. The total number of comments, including signatures on identical form letters, indicates the scale of public attention and pressure.
 
 
 ```{r ej-comments, fig.cap = "Number of Comments on Proposed and Final Rules and Whether Comments Raised Environmental Justice Concerns", out.height = NULL, out.width = "100%", fig.show = "hold"}
@@ -53,10 +67,9 @@ knitr::include_graphics(here::here("figs", "ej-comments-1.png") )
 
 #### Interest Groups and Second-order Representation
 
-When lobbying during rulemaking, groups often claim to represent broad segments of the public---claims are dubious and difficult to verify [@Seifter2016UCLA]. Thus, to interpret substantive results or the normative import of any findings in this analysis, it is insufficient to know which groups participate. We also need to know who these groups claim to represent and whether the people they claim to represent are actually involved in the organization's decisions. As Seifter argues, "the expertise a group claims is often based on its ability to convey a particular constituency's perspective, experience, or concerns...A group that does not have or engage with a membership cannot reliably convey those sorts of constituency-based insights."  [@Seifter2016UCLA, p. 1306].
+When lobbying during rulemaking, groups often claim to represent broader movements and segments of the public---claims which are often dubious and difficult to verify [@Seifter2016UCLA]. We cannot assume that a group's lobbying success is a win for the people they claim to represent. Interpreting the substantive results or normative import of any findings in this analysis thus requires caution. It is insufficient to know which groups participate. We also need to know who these groups claim to represent and whether the people they claim to represent are actually involved in the organization's decisions. As Seifter argues, "the expertise a group claims is often based on its ability to convey a particular constituency's perspective, experience, or concerns...A group that does not have or engage with a membership cannot reliably convey those sorts of constituency-based insights."  [@Seifter2016UCLA, p. 1306].
 
-
-Examining second-order representation is thus required to assess "what contemporary participation does and does not achieve" [@Seifter2016UCLA, pg. 1306]---for example, the extent to which EJ concerns (and any potential policy response) indicate genuine social movement advocacy and influence. Recall that EJ is a contested concept used to evoke different distributive claims by different groups. The prevalence and impact of EJ concerns in the policy process are only meaningful against the backdrop of who exactly is using EJ rhetoric.
+Examining second-order representation is thus required to assess "what contemporary participation does and does not achieve" [@Seifter2016UCLA, pg. 1306]---for example, the extent to which EJ concerns (and any potential policy response) indicate genuine  movement advocacy and influence. Recall that EJ is a contested concept used to evoke different distributive claims by different groups. The prevalence and impact of EJ concerns in the policy process are only meaningful against the backdrop of who exactly is using EJ rhetoric.
 
 I examine who is raising EJ concerns in two ways.
 First, I identify the top organizational commenters such as tribes,
@@ -67,7 +80,7 @@ representative of the groups they claim to represent [@Seifter2016UCLA].
 
 ##### Which Organizations Most Often Raise EJ Concerns?
 
-To explore who raises EJ concerns, I first identify the organization behind each comment through a mix of hand-coding and text analysis. This includes organizational comments on signed letterhead and individuals who use the text of a form letter provided by an organization. I then investigate the top 20 organizations that mobilized the most comments (including form letters and petitions) mentioning "environmental justice" and all organizations that raised EJ concerns on more than one policy.
+To explore who raises EJ concerns, I first identify the organization behind each comment through a mix of hand-coding and text analysis. This includes organizational comments on signed letterhead and individuals who use the text of a form letter provided by an organization. I then investigate the top 20 organizations that mobilized the most comments (including form letters and petitions) mentioning "environmental justice" and all organizations that raised EJ concerns on more than one policy. <!--these comments represent XX percent of all comments raising EJ--> 
 
 ```{r ejorgs}
 load(here::here("data", "ejorgs_summary.Rdata"))
@@ -78,7 +91,9 @@ ejorgs_summary  %>%
   kable3(caption = "Organizations Raising Environmental Justice Concerns on the Most Rulemaking Dockets 2005-2020")
 ```
 
-Table \@ref(tab:ejorgs) shows the organizations that raised environmental justice in comments on the most proposed rules between 1993 and 2020. In terms of a total number of comments, the top mobilizer was the Sierra Club, with over 340,000 comments mentioning EJ on dozens of rules. The Sierra Club is a membership organization whose members pay dues, elect the leaders of local chapters and have some say in local advocacy efforts. However, its policy work is directed by a more traditional national advocacy organization funded by donations, including over $174 million from Bloomberg Philanthropies that funded several of the public pressure campaigns in these data. The Sierra Club does have a major program arm dedicated to Environmental Justice that works with local partners "to foster the growth of the environmental justice movement so that oppressed communities will find justice and everyone can experience the benefits of a healthy and sustainable future "[@SierraEJ]. The extent to which those individuals have a formal say in the national organization's lobbying decisions varies across campaigns. The National Board of Directors adopted a statement on social justice in 1993 and principles on environmental justice in 2001. The national website does contain regular Spanish language content. As a federated organization with many local efforts, it is difficult to generalize about second-order representation.
+Table \@ref(tab:ejorgs) shows the organizations that raised environmental justice in comments on the most proposed rules between 1993 and 2020. In terms of a total number of comments, the top mobilizer was the Sierra Club, with over 340,000 comments mentioning EJ on dozens of rules. The Sierra Club is a membership organization whose members pay dues, elect the leaders of local chapters and have some say in local advocacy efforts. However, its policy work is directed by a more traditional national advocacy organization funded by donations, including over $174 million from Bloomberg Philanthropies that funded several of the public pressure campaigns in these data. The Sierra Club does have a major program arm dedicated to Environmental Justice that works with local partners "to foster the growth of the environmental justice movement so that oppressed communities will find justice and everyone can experience the benefits of a healthy and sustainable future"
+<!--[@SierraEJ]-->
+The extent to which those individuals have a formal say in the national organization's lobbying decisions varies across campaigns. The National Board of Directors adopted a statement on social justice in 1993 and principles on environmental justice in 2001. The national website contains regular Spanish language content, demonstrating that the organization makes an effort toward increasing language accessibility, but it is difficult to know how often this Spanish-language content is read. . As a federated organization with many local efforts, it is difficult to generalize about second-order representation.
 
 The second most prolific organizer of EJ comments was Earthjustice, with over 175,000 comments on many of the same rules that the Sierra Club lobbied on. Earthjustice is primarily engaged in litigation on
 behalf of environmental causes. Their website boasts 2.2 million
@@ -89,31 +104,47 @@ who work on more local or targeted campaigns, such as environmental conditions
 for the incarcerated. The EJ language used on the
 main page is relatively vague. For example, "We are fighting for a future
 where children can breathe clean air, no matter where they live."
-[@Earthjustice2017]. The website does contain some Spanish-language content.
-
-The Natural Resources Defense Council is similar to Earthjustice---a
+<!--[@Earthjustice2017]. -->
+The website contains some Spanish-language content.
+The Natural Resources Defense Council (NRDC) is similar to Earthjustice---a
 national nonprofit funded by donations and focused on litigation---but
 they also lobby and organize public pressure campaigns, including over 160,000 comments mentioning environmental justice. 
 
-CREDO Action and MoveOn are more generic progressive
+CREDO Action, PEW, and MoveOn are more generic progressive
 mobilizers who lack a systematic focus on EJ issues,
 but occasionally leverage their vast membership and contact lists to support
 EJ campaigns led by others.
 
+<!-- TODO
+Southern Environmental Law Center
+Environmental Defense Fund
+Defenders of Wildlife
+
+California Air Resources Board
+EPA
+
 The Alliance for Climate Protection is more of an elite political group founded by former Vice President Al Gore. <!-- TODO more-->
 
 We Act and Communities for a Better Environment both have environmental
-justice in their central mission statement. Community leaders founded We Act in Harlem, New York, to advocate against environmental racism and poor air quality [@WEACT2017]. Communities for a Better Environment has projects throughout California but is particularly
-active in Oakland [@CBECAL2017]. Much of the
-content of their website is in both English and Spanish. Both
-organizations focus primarily on low-income communities of color and frame their work primarily in terms of race and class. While both
-organizations participate in national policymaking, WeAct is more focused on communities in Harlem and New York, whereas Communities for a
-Better Environment casts a broader frame: "CBE's vision of environmental
+justice in their central mission statement. Community leaders founded We Act in Harlem, New York, to advocate against environmental racism and poor air quality.
+<!--[@WEACT2017]. -->
+Communities for a Better Environment has projects throughout California but is particularly active in Oakland.
+<!--[@CBECAL2017].-->
+Most of the content of their website is in both English and Spanish. Both
+organizations focus primarily on low-income communities of color and frame their work primarily in terms of race and class. While both organizations participate in national policymaking, WE ACT is more focused on communities in Harlem and New York, whereas Communities for a Better Environment casts a broader frame: "CBE's vision of environmental
 justice is global---that's why the organization continues to participate
 in such international efforts as the Indigenous Environmental Network
-and the Global Week of Action for Climate Justice" [@CBECAL2017].
+and the Global Week of Action for Climate Justice."
+<!--[@CBECAL2017].-->
 
-While not a large portion of EJ comments, private companies repeatedly raise research about the unequal impacts of policy to frame these issues as a legitimate but unresolved scientific debate that is not yet conclusive enough to base regulations on, mirroring the way tobacco and fossil fuel companies have emphasized scientific uncertainty in their lobbying efforts.<!--TODO CITE-->
+<!--TODO 
+California Pan-Ethnic Health Network
+Arctic Slope Regional Corporation
+Alaska Eskimo Whaling Commission
+-->
+
+While not a large portion of EJ comments, private companies repeatedly raise research about the unequal impacts of policy to frame these issues as a legitimate but unresolved scientific debate that is not yet conclusive enough to base regulations on, mirroring the way tobacco and fossil fuel companies have emphasized scientific uncertainty in their lobbying efforts [Oreskes2011].
+<!--TODO CITE-->
 For example, in one comment, the Southern Company wrote:
 
 > People with lower SES are exposed to almost an order of magnitude
@@ -132,39 +163,10 @@ much of the burden" of regulations ([EPA-HQ-OAR-2004-0018-0211](https://www.regu
 
 Overall, regarding second-order representation, it appears that the groups
 most often using the language of environmental justice may do so
-sincerely but generally represent affected communities in a surrogate capacity [@Mansbridge2003]. Several groups representing local communities and led by community leaders have
-participated, but not nearly as often or with the same intensity as the
-"big greens." The domination of large advocacy organizations highlights the importance of resources as a condition
-for lobbying and mobilizing. Not all groups that may benefit from generating political
-information can leverage it because they lack the resources to
-fund a campaign or even comment on relevant policies. However, smaller, more
-member-driven groups may partner with national groups that have more resources to
-mobilize on their behalf. 
-Finally, a third, much less common type of commenter raises EJ issues
-to reframe them as ongoing debates and thus undermine their
-urgency. I call this reason for engaging an attempt to "break a perceived
-consensus." In a way, the fact that energy companies felt compelled to
-acknowledge and question EJ concerns suggests their
-importance for policy outcomes.
+sincerely but generally represent affected communities in a surrogate capacity [@Mansbridge2003]. Several groups representing local communities and led by community leaders have participated, but not nearly as often or with the same intensity as the
+"big greens." The domination of large advocacy organizations highlights the importance of resources as a condition for lobbying and mobilizing. Not all groups that may benefit from generating political information can leverage it because they lack the resources to fund a campaign or even comment on relevant policies. However, smaller, more member-driven groups may partner with national groups that have more resources to mobilize on their behalf. Finally, a third, much less common type of commenter raises EJ issues to reframe them as ongoing debates and thus undermine their urgency. I call this reason for engaging an attempt to "break a perceived consensus." Though this strategy is intended to undermine EJ efforts, the fact that energy companies felt compelled to acknowledge and question EJ concerns suggests their importance for policy outcomes.
 
-##### Substantive Lobbying Success
 
-The main analysis in this Chapter focuses on measuring agency responses to a particular issue frame over time. How does this relate to substantive policy change in particular rulemakings? Using a hand-coded sample of approximately 10,000 comments---all comments from organizations with concrete policy demands on a random sample of 182 agency rules from 2005 to 2020, Table \@ref(tab:ej-winrates) shows relative rates of lobbying success for different types of organizations. "Overall Success Rate" shows the share of cases that changed between draft and final as each type of commenter requested. "EJ Success Rate" shows the share of cases that changed as the commenter requested when comments included the phrase "environmental justice." Some organizations types---including frontline EJ community groups, universities, religious groups, professional associations, environmental groups, and pressure groups are subsets of the broad "NGO" category. Trade associations, while technically nonprofits, are not included in the NGO category.  
-
-```{r ej-winrates}
-load(here::here("data", "winrate.Rdata"))
-winrates %>% 
-  mutate(`EJ Success Rate` = `EJ Success Rate` %>%
-           percent(accuracy = 1) %>% replace_na("-"),
-         `Overall Success Rate` = `Overall Success Rate` %>%
-           percent(accuracy = 1)) %>% 
-  dplyr::select(-`N raising EJ`) %>%
-  kable3(caption = "Hand-coded Lobbying Success by Type of Organization, 2005-2020")
-```
-
-Only law firms were more likely to get their substantive policy demands met when their comments raised EJ concerns. Tribes and Frontline EJ community groups, already the types of organizations least likely to have their substantive demands met (9% and 4%, respectively), saw none of their substantive demands related to EJ met. NGOs, overall, and environmental groups (a subset of NGOs) were slightly less likely to see their policy demands met when these demands were explicitly linked to environmental justice. The most successful types of organizations overall---Trade Associations, States, Cities, and Banks---did not use EJ language in the hand-coded sample. 
-Because the EJ demands often oppose the status quo, this aligns with the findings of Chapter \@ref(influence) that advocating for the status quo is one of the strongest predictors of lobbying success (also see @Baumbartner2009).  
-This should not be taken as evidence that tribes and frontline groups are never influential. Rare events---like comments raising EJ concerns on rules that did not address EJ---are not captured by this small sample of rules.
 
 <!--
 
@@ -204,7 +206,7 @@ national population. This is unsurprising, given that Black Americans have led t
 
 Using an environmental justice frame does not always imply the same communities of concern. Environmental justice emerged from movements against environmental racism, especially the disposal of toxic materials in predominantly Black neighborhoods [@Bullard1993]. However, the term quickly took on other meanings, encompassing various marginalized groups. President Clinton's 1994 Executive Order on Environmental Justice required all parts of the federal government to make "addressing disproportionately high and adverse human health or environmental effects of programs, policies, and activities on minority populations and low-income populations" a core aspect of their mission. This meant considering the disproportionate effects of policies by race and income during rulemaking, thus broadening the scope beyond race.
 
-In 2005, Environmental Protection Agency (EPA) political appointees reinterpreted the Order, removing race as a factor in identifying and prioritizing populations. This move was criticized by activists and two reports by EPA's own Office of Inspector General ([EPA-OIG-2004-P-00007](https://www.epa.gov/sites/default/files/2015-12/documents/20040301-2004-p-00007.pdf) and [EPA-OIG-2006-P-00034](https://www.epa.gov/sites/default/files/2015-11/documents/20060918-2006-p-00034.pdf)). 
+In 2005, EPA political appointees reinterpreted the Order, removing race as a factor in identifying and prioritizing populations. This move was criticized by activists and two reports by EPA's own Office of Inspector General ([EPA-OIG-2004-P-00007](https://www.epa.gov/sites/default/files/2015-12/documents/20040301-2004-p-00007.pdf) and [EPA-OIG-2006-P-00034](https://www.epa.gov/sites/default/files/2015-11/documents/20060918-2006-p-00034.pdf)). 
 
 President Obama's EPA Administrators reestablished race as a factor. They named EJ as one of their top priorities, but they also faced criticism from activists for paying lip service to environmental racism without adequate policy changes.
 
@@ -231,7 +233,7 @@ found high risk among certain communities, including "Hispanic, Vietnamese, and
 Laotian populations in California and Great Lakes tribal populations
 (Chippewa and Ojibwe) active on ceded territories around the Great
 Lakes" (EPA 2012). Thus the standards that EPA chooses depend on whom the regulation aims to protect: the average citizen,
-local residents, or fishing communities. This decision has disparate
+local residents, or fishing communities. Mercury regulations have disparate
 effects based on race and class because of disparate effects based on
 geography and cultural practices. 
 
@@ -274,8 +276,10 @@ Of this second round of comments, over 200 unique comments explicitly raised
 EJ issues. The Little River Band of Ottawa Indians
 expressed the Tribe's 
 
-> ...frustration at trying to impress upon the EPA the multiple and profound impacts of mercury contamination from a Tribal perspective. Not to mention the obligations under treaties to participate with tribes on a 'Government to Government' basis. At present, no such meetings have occurred in any meaningful manner with EPA Region V, the EPA National American Indian Environmental Office, nor the State of Michigan's Department of Environmental Quality...Although EPA purported to consider environmental justice as it developed its Clean Air Mercury Rule, it failed utterly. In this rulemaking, the EPA perpetuated, rather than ameliorated, a long history of cultural discrimination against tribes and their members ([EPA-HQ-OAR-2009-0234-12462](https://www.regulations.gov/comment/EPA-HQ-OAR-2009-0234-12462), p. 67). <!-- (Sprague
+> ...frustration at trying to impress upon the EPA the multiple and profound impacts of mercury contamination from a Tribal perspective. Not to mention the obligations under treaties to participate with tribes on a 'Government to Government' basis. At present, no such meetings have occurred in any meaningful manner with EPA Region V, the EPA National American Indian Environmental Office, nor the State of Michigan's Department of Environmental Quality... In this rulemaking, the EPA perpetuated, rather than ameliorated, a long history of cultural discrimination against tribes and their members ([EPA-HQ-OAR-2009-0234-12462](https://www.regulations.gov/comment/EPA-HQ-OAR-2009-0234-12462), p. 67). <!-- (Sprague
 2011). -->
+
+<!-- See Dwidar --> 
 
 Did comments like these play a role in EPA's changed analysis of whom mercury limits should aim to protect? Because of the many potential sources of influence, it may be difficult to attribute causal effects of particular comments on a given policy.
 However, comments may serve as a good proxy for the general mobilization
@@ -302,11 +306,11 @@ Having shown how public comments and pressure can influence policy texts, this s
 
 #### Measure 1: Adding Text Addressing EJ to Final Rules
 
-For the subset of draft rules that did not address EJ, I measure whether agencies added any mention of "environmental justice" in the final rule. Such additions usually take the form of an "E.O. 12898" section where the agency justifies its policy changes with respect to some concept(s) of environmental justice. The next most common addition occurs in the agency's response to comments, explaining how the rule did not have disparate effects or that they were insignificant.
+For the subset of draft rules that did not address EJ, I measure whether agencies added any mention of "environmental justice" in the final rule. Such additions usually take the form of an "E.O. 12898" section where the agency justifies its policy changes with respect to some concept(s) of EJ. The next most common addition occurs in the agency's response to comments, explaining how the rule did not have disparate effects or that they were insignificant.
 
-Agencies may both respond to a comment and add a 12898 section. For example, the EPA responded to several commenters, including Earthjustice, the Central Valley Air Quality Coalition, the Coalition for Clean Air, Central California Environmental Justice Network, and Central California Asthma Collaborative: "EPA agrees it is important to consider environmental justice in our actions and we briefly addressed environmental justice principles in our proposal." As the commenters noted, the EPA had not, in fact, addressed environmental justice in the proposed rule, which approved California rules regulating particulate matter emissions from construction sites, unpaved roads, and disturbed soils in open and agricultural areas. EPA did add a fairly generic 12898 section to the final rule but did not substantively change the rest of the policy. 
+Agencies may both respond to a comment and add a 12898 section. For example, the EPA responded to several commenters, including Earthjustice, the Central Valley Air Quality Coalition, the Coalition for Clean Air, Central California Environmental Justice Network, and Central California Asthma Collaborative: "EPA agrees it is important to consider environmental justice in our actions and we briefly addressed environmental justice principles in our proposal." As the commenters noted, the EPA had not, in fact, addressed EJ in the proposed rule, which approved California rules regulating particulate matter emissions from construction sites, unpaved roads, and disturbed soils in open and agricultural areas. EPA did add a fairly generic 12898 section to the final rule but did not substantively change the rest of the policy. 
 
-Less frequently, an agency may explicitly dismiss a comment and decline to add a 12898 section. For example, the G.W. Bush EPA responded to a comment on another rule, "One commenter stated that EPA failed to comply with Executive Order 12898 on Environmental Justice...We do not believe that these amendments will have any adverse effects on...minority and low-income populations...Owners or operators are still required to develop SSM plans to address emissions...The only difference from current regulations is that the source is not required to follow the plan" (71 FR 20445). As these examples illustrate, agencies may add text addressing environmental justice that would not satisfy critics. This measure merely indicates whether the agency engaged with the claims.
+Less frequently, an agency may explicitly dismiss a comment and decline to add a 12898 section. For example, the G.W. Bush EPA responded to a comment on another rule, "One commenter stated that EPA failed to comply with Executive Order 12898 on Environmental Justice...We do not believe that these amendments will have any adverse effects on...minority and low-income populations...Owners or operators are still required to develop SSM plans to address emissions...The only difference from current regulations is that the source is not required to follow the plan" (71 FR 20445). As these examples illustrate, agencies may add text addressing EJ that would not satisfy critics. This measure merely indicates whether the agency engaged with the claims.
 
 <!--Barry: you say that change between draft and final rules is the evidence that the agency "engaged" with EJ comments. But I don't think that's quite right. The agency might have engaged heavily but decided that the draft rule was fine. It's really whether the comments persuaded them that a change was necessary.-->
 
@@ -316,7 +320,13 @@ Most frequently, agencies neither responded to comments nor added a 12898 sectio
 
 Where draft rules did address EJ, I assessed whether a rule changed *how* it discussed "environmental justice" between its draft and final publication.^[Occasionally, there is more than one version of a proposed or final rule on a rulemaking docket. Here I opt for an inclusive measure of change that counts change from *any* proposed to *any* final rule. If the change occurred between the first and second draft of a proposed rule, I count it as a change. This best captures the concept of rule change. However, estimates are similar if we only count cases where a change occurred between *every* version of the rule.] 
 When an agency addresses EJ in the draft rule, it is almost always in a section about how it addressed E.O. 12898. In many cases, much of the text of final rules, including 12898 sections, remain exactly the same between draft and final versions. 
-To measure change, I parse draft and final rules into sentences and identify sentences containing the phrase "environmental justice." If an agency leaves these sentences unchanged between the draft and final rule and adds no new sentences mentioning EJ, this suggests that the agency did not engage with comments raising EJ concerns.^[An alternative approach would be to parse documents by section and assess whether E.O.12898 sections are identical. Parsing by sentences has three advantages: it is computationally faster, it avoids problems with section numbering and other frustrations with section matching, and it captures attention to EJ outside of this section, especially in the section responding to comments. If an agency is paying attention to EJ issues, sentence matching will likely detect it. However, other measures, such as the percent of EJ sentences changed, the percent of words in a 12898 section that changed, or the change in topic proportions [@Judge-Lord2017], could be useful in future work.]
+To measure change, I parse draft and final rules into sentences and identify sentences containing the phrase "environmental justice." If an agency leaves these sentences unchanged between the draft and final rule and adds no new sentences mentioning EJ, this suggests that the agency did not engage with comments raising EJ concerns.^[An alternative approach would be to parse documents by section and assess whether E.O.12898 sections are identical. Parsing by sentences has three advantages: it is computationally faster, it avoids problems with section numbering and other frustrations with section matching, and it captures attention to EJ outside of this section, especially in the section responding to comments. If an agency is paying attention to EJ issues, sentence matching will likely detect it. 
+
+```{asis, echo = book}
+However, other measures, such as the percent of EJ sentences changed, the percent of words in a 12898 section that changed, or the change in topic proportions [@Judge-Lord2017], could be useful in future work.
+```
+
+]
 
 
 <!--
@@ -324,4 +334,7 @@ To measure change, I parse draft and final rules into sentences and identify sen
 -->
 
 
+<!-- 
+#### Measure 3: Hand-Coded Lobbying Success
 
+---> 

@@ -9,13 +9,13 @@ knit: ( function(input, ...) {
           } 
       )
 title: Making Policy About Distributive Justice 
-subtitle: The Environmental Justice Movement's Impact on Technocratic Policymaking
+subtitle: The Environmental Justice Movement's Impact on Agency Rulemaking
 runningauthor: Judge-Lord
 author:
 - name: Devin Judge-Lord
   affiliation: Harvard University
   title: Postdoctoral Fellow, Department of Government, Corresponding Author (DevinJudgeLord@fas.harvard.edu)
-  footnote: "I will be grateful for any feedback on this draft: [DevinJudgeLord@fas.harvard.edu](mailto:DevinJudgeLord@fas.harvard.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/ej>. This paper has benefited from comments from Benjamin Márquez, Marcy Shieh, Susan Webb Yackee, Eleanor Neff Powell, David Weimer, Timothy Fraser, Beth Leech, Sophie Jacobson, Margaret Brower, participants at the Harvard American Politics Research Workshop, the University of Mississippi Political Science Research Colloquium, UW-Madison American Politics Workshop, and Association for Environmental Studies and Sciences Conference, research assistance from Hope Karnopp, and funding from the National Science Foundation and American Political Science Association."
+  footnote: "I will be grateful for any feedback on this draft: [DevinJudgeLord@fas.harvard.edu](mailto:DevinJudgeLord@fas.harvard.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/ej>. This paper has benefited from comments from Benjamin Márquez, Marcy Shieh, Susan Webb Yackee, Eleanor Neff Powell, David Weimer, Timothy Fraser, Beth Leech, Sophie Jacobson, Margaret Brower, participants at the Junior Americanist Workshop Series,  Harvard American Politics Research Workshop, the University of Mississippi Political Science Research Colloquium, UW-Madison American Politics Workshop, and Association for Environmental Studies and Sciences Conference, research assistance from Hope Karnopp, and funding from the National Science Foundation and American Political Science Association."
   # Additional tables, figures, and replication code are available at <https://judgelord.github.io/dissertation/ej-appendix.html>. 
 date: "`r Sys.Date()`"
 abstract: | 
@@ -34,6 +34,7 @@ keywords: Pressure groups, bureaucratic politics, environmental justice, policy 
 #wordcount: 11964
 output:
     #bookdown::word_document2: default
+    #pandoc("docs/ej.tex", format = "docx")
     bookdown::pdf_document2:
       template: '../assets/article-template.tex' # redirect to assets 
       keep_tex: true

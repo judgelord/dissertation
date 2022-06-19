@@ -4,32 +4,38 @@
 The previous chapters focused on the lobbying success of organizations and coalitions in bureaucratic policymaking. This chapter uses similar data and measures across many campaigns to assess the impact of a social movement.
 ```
 
-Political movements like the civil rights movement and the environmental movement have played a critical role in advancing landmark statutes recognizing new rights and social values. Likewise, a lack of movement pressure is a leading explanation for the failure of policy efforts to address issues like climate change [@Skocpol2013]. Yet, the effects of movements on policy are difficult to measure and rarely assessed systematically. This is especially true for policymaking in the bureaucracy, where most U.S. law is now made. To what extent do movements shape the thousands of policies the U.S. government makes every year? 
+Political movements like the civil rights movement and the environmental movement have played a critical role in advancing landmark statutes recognizing new rights and social values. Likewise, a lack of movement pressure is a leading explanation for the failure of policy efforts to address issues like climate change [@Skocpol2013]. Yet, the effects of movements on policy are difficult to measure and rarely assessed systematically across institutions and over time. This is especially true for policymaking in the bureaucracy, where most U.S. law is now made. To what extent does movement pressure shape the thousands of policies the U.S. government makes every year? 
 
-This chapter examines how movements affect policymaking by assessing the environmental justice movement's across thousands of policy processes in 40 U.S. federal agencies from 1993 to 2020. Environmental justice (EJ) concerns focus on unequal access to healthy environments and protection from harms caused by things like pollution and climate change [@Bullard1993]. The EJ issue frame emerged in local campaigns against toxic waste sites and farmworker exposure to pesticides [@Capek1993] and began appearing in federal policy documents in the 1980s [@GAO1983]. @Taylor2002 describes a fusion of the American Indian Movement, Chicano movement, farmworker movement, civil rights movement, and union organizing: 
+This chapter examines how movements affect policymaking by assessing the environmental justice movement's impact across thousands of linked campaigns targeting 13,179 policy processes in 40 U.S. federal agencies from 1993 to 2020. The environmental justice movement offers a broad but tractable scope for analysis and illuminates what is at stake in the politics of agency rulemaking. Environmental justice (EJ) concerns focus on unequal access to healthy environments and protection from harms caused by things like pollution and climate change [@Bullard1993]. The EJ issue frame emerged in local campaigns against toxic waste sites and farmworker exposure to pesticides [@Capek1993] and began appearing in federal policy documents in the 1980s [@GAO1983]. @Taylor2002 describes a fusion of the American Indian Movement, Chicano movement, farmworker movement, civil rights movement, and union organizing: 
 
 > People of color [raised] social justice concerns such as self-determination, sovereignty, human rights, social inequality, loss of land base, limited access to natural resources, and disproportionate impacts of environmental hazards and linked them with traditional working-class environmental concerns such as worker rights and worker health and safety to develop an environmental justice agenda. (p. 1)
 
-Like other movements, the environmental justice movement illustrates how activists attempt to use a particular way of framing policy issues (in this case, a particular phrase) as a vehicle to advance a policy agenda. Because the phrase evokes certain ideas and policy demands, systematic data on how policy documents address (or fail to address) environmental justice allow empirical tests of theories about when government officials will respond to claims raised by activists. Like other work on discursive effects---how movements affect "how facts and narratives come to be regarded by majorities as worth considering" [@Woodly2015, p. 22]---I am interested in the conditions under which *federal agency officials* deem distributive justice claims as worth considering.
+ Like other movements, the environmental justice movement illustrates how activists attempt to use a particular way of framing policy issues (in this case, a particular phrase) as a vehicle to advance a policy agenda. <!--Policies affect the distribution of resources and power. How policy documents address distributive justice issues highlights how policy processes construct communities of relevant stakeholders and appropriate criteria to evaluate policy consequences.-->
+By asserting issue frames, movement advocates shape the facts, narratives, and interests deemed worthy of consideration [@Woodly2015]. Because the phrase is closely linked to movement advocacy and evokes certain ideas and policy demands, systematic data on how policy documents address (or fail to address) environmental justice allow empirical tests of theories about when government officials will respond to claims raised by activists.<!-- Like other work on discursive effects---how movements affect "how facts and narratives come to be regarded by majorities as worth considering" [@Woodly2015, p. 22]---I am interested in the conditions under which *federal agency officials* deem distributive justice claims as worth considering.--> 
+By raising environmental justice concerns in the policy process, activists mobilize norms and evaluative frameworks that interact with organizational identities, missions, and reputations and thus impact policy decisions [@Carpenter2001].
+<!-- TODO streamline this paragraph-->
 
-The environmental justice movement offers a broad but tractable scope for analysis and illuminates what is at stake in the politics of agency policymaking. 
-Policies affect the distribution of resources and power. How policy documents address distributive justice issues highlights how policy processes construct communities of relevant stakeholders and appropriate criteria to evaluate policy consequences.
-Raising environmental justice concerns in policy debates is an example of how activists mobilize norms and evaluative frameworks that interact with organizational identities, missions, and reputations and thus impact policy decisions [@Carpenter2001].
+
 
 ```{asis, echo = book}
 Chapter \@ref(whymail) and Chapter \@ref(influence) focus on the impact of isolated pressure campaigns and majoritarian mechanisms by which public pressure may affect policymakers (e.g., through impressions about the scale of public support or the involvement of a member of Congress).
 This chapter focuses on an additional type of political information: claims about policy-relevant communities and their deservingness of governmental attention. Doing so focuses on how public pressure campaigns may also advance minority rights. 
 ```
 
-This chapter looks across hundreds of campaigns with similar demands to assess the aggregate effects of a broader movement. By a "movement" I simply mean a set of efforts advancing similar ideas, issue frames, and claims across policy venues and over time. 
+This chapter looks across hundreds of campaigns with similar demands to assess the aggregate effects of a broader movement. By a "movement," I simply mean a set of efforts advancing similar ideas, issue frames, and claims across policy venues and over time. 
 Tracing ideas like environmental justice through policy processes reveals the mechanisms by which movements succeed or fail to influence policy. 
-If draft policies do not mention EJ concerns, but activists raise EJ concerns that policymakers then address in the final policy, this may be evidence that public pressure matters. 
+If draft policies do not mention EJ concerns, but activists raise EJ concerns and policymakers then address those claims in the final policy, this may be evidence that public pressure matters. 
 Likewise, when draft policies *do* address EJ, if groups comment on it and then policymakers change how the final policy addresses EJ, this may be evidence that public pressure matters. 
 
-I assess the impact of the EJ movement qualitatively and quantitatively. Tracing the evolution of EJ analyses through several policy processes shows that the concept is hotly contested and rarely addressed by agencies in ways that activists find acceptable. Activist pressure affected how policies addressed EJ in some cases but failed to affect other policies. Across a hand-coded random sample of 182 rulemaking processes, I find that frontline EJ community groups and tribal governments are among the types of organizations least likely to have their substantive policy demands met, but substantive policy change is more likely when public interest law organizations raise EJ concerns.
 
-Quantitative text analysis of all rules published by 40 agencies from 1993 to 2020 shows that activist mobilization affected policy discourse, even under administrations explicitly hostile to their cause. When public comments raise EJ concerns, these concerns are more likely to be addressed in policy documents. Specifically, the number of comments mobilized (both overall and by EJ advocates specifically) is positively correlated with agencies adding language addressing EJ to policies where the draft policy did not mention EJ. When comments raise EJ concerns, sections of policies that do address EJ are also more likely to change.
-The correlation between EJ activist mobilization and policy changes is largest for agencies with missions focused on "environmental" and distributive policy. Such agencies house policymakers likely to have institutional and cognitive processes primed to be most responsive to EJ concerns.
+
+
+I assess the impact of the EJ movement qualitatively and quantitatively. Qualitative, I show that discursive and framing effects can affect policy outcomes, but the broad evidence from the hand-coded sample suggests that substantive policy change is limited. Tracing the evolution of EJ discourse through several policy processes shows how the concept is hotly contested and rarely addressed by agencies in ways that activists find acceptable. EJ activist pressure affected how policies addressed EJ in some cases but failed to affect other policies. Second, across a hand-coded random sample of 182 rulemaking processes, I find that frontline EJ community groups and tribal governments are among the types of organizations least likely to have their substantive policy demands met. Substantive policy change is much more likely when public interest law organizations raise EJ concerns. The qualitative evidence shows that the EJ movement has meaningfully shaped policy, but the nature of its effects depends on how advocacy groups with lawyers represent movement demands to policymakers.
+
+Quantitative text analysis of all rules published by 40 agencies from 1993 to 2020 shows that policy texts were more likely to change when activists raised distributive justice claims and mobilized more people, even under administrations explicitly hostile to their cause. When public comments raise EJ concerns, these concerns are more likely to be addressed in policy documents. The number of comments mobilized (both overall and by EJ advocates specifically) is positively correlated with agencies adding language addressing EJ to policies where the draft policy did not mention EJ. Sections of policies that did address EJ are also more likely to change when comments raise EJ concerns.
+Agencies that most frequently address EJ are also most responsive to comments raising EJ concerns. These agencies house policymakers most familiar with the EJ frame and likely to have institutional and cognitive processes primed to be most receptive to EJ concerns.
+
+Taken together these findings suggest that public pressure can systematically reframe policy debates. Demands to address distrutive justice issues and the scale of pressure to address those demands are both associated with policymakes adopting distributive justice language. Changes in law, however, do not always flow from forcing policymakers to engage with distributive justice claims. The capacity to mobilize large numbers of peopele and achive policy goals lise primarily with large national advoaccay organizations. 
 
 
 ## Theory: Distributive Justice Claims as Policy-relevant Information  {#ej-theory}
@@ -50,41 +56,58 @@ surprisingly little to say about this kind of civic participation.
 
 ### Movements and Policy Change
 
-Social movement pressure is a major driver of policy change [@Dahl1956; @Piven1977; @Lipsky1968; @Tarrow1994; @Andrews1997; @McAdam1982, @McAdam2001; @McAdam2002; @Cress2000; @Weldon2002; @Weldon2011]. 
-This is especially true for policies that redistribute wealth or other social privileges. "From the very beginning, redistributive policies have been associated with social classes and social movements" [@Lowi2015, p. 88]. The organizational forms that mobilize and channel movement pressure---often called social movement organizations by those who study their organization and advocacy organizations or pressure groups by those who study their effects---are essential features of modern politics and lawmaking [@Baumgartner2001; @Coglianese2001]. Conversely, a lack of broad-based support and movement pressure can doom a policy effort [@Skocpol2013].
-<!--Cite Wilson--> 
+Social movement pressure is a major driver of policy change [@McAdam2001;  @Cress2000; @Weldon2002; @Weldon2011]. 
+<!-- @Dahl1956; @Piven1977; @Lipsky1968; @Tarrow1994; @Andrews1997; @McAdam1982; @McAdam2002;-->
+This is especially true for policies that redistribute wealth or other privileges. "From the very beginning, redistributive policies have been associated with social classes and social movements" [@Lowi2015, p. 88]. Institutions that redistribute power are generally established by policies advanced by social movements [@Wilson1989]. The organizational forms that mobilize and channel movement pressure---often called social movement organizations by those who study their organization and advocacy organizations or pressure groups by those who study their effects---are essential features of modern politics [@Baumgartner2001] and lawmaking [@Coglianese2001]. <!--Conversely, a lack of broad-based support and movement pressure can doom a policy effort [@Skocpol2013].
 
-<!--TODO: STREAMLINE THESE PARAGRAPHS--> 
-Activists reshape political parties to enact new policy agendas [@Schattschneider1942; @Cohen2008; @Schlozman2015; @Skocpol2016]. Protests can be an effective mechanism for minority interests to communicate preferences to policymakers when electoral mechanisms fail to do so [@Weldon2011]. Policymakers learn and take informational cues from political behaviors like protests [@Gillion2013;@Wasow2020; @Gause2022]. Beyond simply informing policymakers of public preferences, movements can change how policy issues are understood; they move discourse "from the general public sphere into the political public sphere, where binding policy decisions are made" [@Woodly2015, p.21]. @CarpenterPetitions finds similar potential for petitions to serve as a channel to raise "new claims" and influence policy beyond elections: "Petition democracy offers another model of aggregation, where numerical minorities could still make a case of quantitative relevance" (p. 479). Numbers matter for protests and petitions, regardless of whether they represent a majority. Petition campaigns can also build the organizational capacity and political coalitions required to affect policy and place issues on national agendas. Indigenous governments and activists have long used petitions to build coalitions and raise concerns to the federal government, "effectively placing Indigenous issues on local, ecclesiastical, tribal, state, and national agendas" [@CarpenterPetitions, p. 119]. 
+ Activists reshape political parties [@Schattschneider1942; @Cohen2008; @Schlozman2015; @Skocpol2016]. 
+Cite Wilson better? --> 
 
-<!-- longer quote for the book
-> Because they assisted in recruiting tribal communities and allies to Indigenous causes,  these petitioning moments enhanced organizational democracy. They also advanced procedural democracy by effectively placing Indigenous issues on local, ecclesiastical, tribal, state, and national agendas. [@CarpenterPetitions, p. 119] 
--->
 
-Still, social movement scholarship tends to focus on movement emergence and development rather than policy impact (see reviews by @Meyer2004 and @Mcadam2017) and offers "limited research on [social movement] influence" [@Andrews2004].
-Studies that do examine the policy influence of social movements tend to focus on landmark policies like the Civil Rights Act [@Gillion2013] or case studies of local policy issues [e.g., @Bullard1993; @Rochon1993]. Reviewing the specificity of measures used to assess the impact of advocacy campaigns, @Burstein2020 concludes that "[i]n contrast to those studying opinion and policy, however, researchers studying advocacy and policy rarely discuss levels of specificity" (p. 5). 
+While movement emergence and development is better-studied than policy impact [see reviews by @Meyer2004; @Andrews2004; @Mcadam2017], a growing body of scholarship is overcoming challenges in measuring forms of movement pressure like protests and petitions and convincingly linking them to policy change. <!--nd offer "limited research on [social movement] influence" [@Andrews2004].
+However, a growing body of work shows how movements shaped policy agendas and landmark policies like the Civil Rights Act [@Gillion2013], policy responses to violence against women [@Weldon2002], -->
+<!--or case studies of local policy issues [e.g., @Bullard1993; @Rochon1993]. Reviewing the specificity of measures used to assess the impact of advocacy campaigns, @Burstein2020 concludes that "[i]n contrast to those studying opinion and policy, however, researchers studying advocacy and policy rarely discuss levels of specificity" (p. 5). 
 <!--TODO WELDON and Others + PGI --> 
-
 <!--Furthermore, "There were almost no measures of activity intended to provide elected officials with new information — information that would cause them to pay special attention to the organization" The Impact of Political Parties, Interest Groups, and Social Movement Organizations on Public Policy: Some Recent Evidence and Theoretical Concerns* Burstein, Paul. Linton, April. Social Forces, Volume 81, Number 2, December 2002, pp. 381-408-->
+<!--TODO: STREAMLINE THESE PARAGRAPHS--> 
+ Protests can be an effective mechanism for minority interests to communicate preferences to policymakers when electoral mechanisms fail to do so [@Weldon2011]. Policymakers learn and take informational cues from political behaviors like protests [@Gillion2013;@Wasow2020;@Gause2022]. 
 
-In addition to challenges with measuring advocacy and influence, there are issues with case selection. @Leech2010 argues that the influence of advocacy campaigns is overstated because scholars focus on issues where impact is especially likely---issues characterized by a lot of advocacy and recent or impending policy change. @Lowery2013 raises the opposite concern: that the high-salience issues scholars select may be the cases where advocacy success is least likely. In short, selecting on the dependent variable limits our understanding of the influence of advocacy campaigns. While large-scale and longitudinal studies have become more common [@Hojnacki2012], systematic impact across the thousands of non-landmark policies that governments make every year is rarely the dependent variable.
+Beyond informing policymakers of public preferences, movements can change how policy issues are understood by policymakers [@Thurston2018]. Movement organizations move discourse "from the general public sphere into the political public sphere, where binding policy decisions are made" [@Woodly2015, p.21]. By aggregating people affected by policy and calling attention to disparate effects, movement organizations "raise the salience of issues, help citizens to see and articulate collective grievances, and mobilize across political venues for policy change." @Thurston2018, p. 24].
+@CarpenterPetitions finds similar potential for petitions to serve as a channel to raise "new claims" and influence policy beyond elections, "another model of aggregation, where numerical minorities could still make a case of quantitative relevance" (p. 479). Thus, numbers matter for protests and petitions, regardless of whether they represent a majority, and movements often have discursive effects, reshaping how policymakers see issues. 
 
-In contrast to scholarship on social movements, policy-focused environmental justice scholarship tends to examine the effects of policies rather than the effects of activism on the policy process. For example, @Bullock2018 investigate whether EJ policies affect exposure to pollution, @Liang2016 finds that EJ policies are not always effective, and @Liang2017 find that states with more lax immigration laws also have more lax monitoring of regulatory compliance in Latinx neighborhoods. @Pellow2016 dubs work documenting unequal outcomes the "first generation" of EJ scholarship, with a "second generation" of EJ scholarship developing critiques and studies of EJ activism through the lens of critical theory, incorporating insights from critical race theory, feminist theory, and social movement scholarship. Like most social movement scholarship, critical environmental justice scholarship focuses more on movement dynamics than its impact on policy.
+```{asis, echo = book}
+Petition campaigns can also build the organizational capacity and political coalitions required to affect policy and place issues on national agendas. Indigenous governments and activists have long used petitions to build coalitions and raise concerns to the federal government, "effectively placing Indigenous issues on local, ecclesiastical, tribal, state, and national agendas" [@CarpenterPetitions, p. 119]. 
 
-Empirical environmental justice studies that look at both the inputs and outputs of the policy process are rare and have thus far focused more on inequalities in geographies or enforcement than policymaking processes. @Abel2015 find that poorer and less White states have more developed EJ policies. Particularly relevant to the present analysis, a few studies address the effects of political mobilization. @Lester2001 find that activists repeatedly succeeded in legitimizing their claims and getting EJ concerns on the political agenda but largely failed to push through legislation, in part due to conflicts between grassroots and national advocacy groups (p. 52). @Konisky2017 find that regulatory enforcement is correlated with political mobilization around EJ issues. <!--MORE TODO-->
+> Because they assisted in recruiting tribal communities and allies to Indigenous causes,  these petitioning moments enhanced organizational democracy. They also advanced procedural democracy by effectively placing Indigenous issues on local, ecclesiastical, tribal, state, and national agendas. [@CarpenterPetitions, p. 119] 
+```
+
+Despite well-developed theorizing and empirical work on certain policy issues (especially landmark policies like Civil Rights Act [@Gillion2013]), systematic evidence on the relationship between movement pressure and policy change faces methodological challenges. 
+In addition to challenges with measuring advocacy and influence in consistent ways across policy fights, there are issues with case selection [@Leech2010].
+If scholars focus on issues characterized by robust advocacy and recent or impending policy change---the influence of advocacy campaigns may be overstated.
+Conversely, the high-salience issues that scholars often select may be the cases where advocacy success is least likely [@Lowery2013]. In short, selecting on the dependent variable limits our understanding of the influence of advocacy campaigns. While large-scale and longitudinal studies have become more common [@Hojnacki2012], systematic impact across the thousands of non-landmark policies that governments make every year is rarely the dependent variable.
+
+```{asis, echo = TRUE}
+In contrast, policy-focused environmental justice scholarship tends to examine the effects of policies rather than the effects of activism on the policy process. For example, @Bullock2018 show that policies affect exposure to pollution, @Liang2016 finds that EJ policies are not always effective, and @Liang2017 find that states with more lax immigration laws also have more lax monitoring of regulatory compliance in Latinx neighborhoods. @Pellow2016 dubs work documenting unequal outcomes the "first generation" of EJ scholarship, with a "second generation" of EJ scholarship developing critiques and studies of EJ activism through the lens of critical theory, incorporating insights from critical race theory, feminist theory, and social movement scholarship. Like most social movement scholarship, critical environmental justice scholarship focuses more on movement dynamics than its impact on policy.
+
+The few empirical environmental justice studies that look at both the inputs and outputs of the policy process are rare and have thus far focused more on inequalities in geographies or enforcement than in the policymaking processes. @Abel2015 find that poorer and less White states have more developed EJ policies. @Konisky2017 find that regulatory enforcement is correlated with political mobilization around EJ issues. <!--MORE TODO-->
+Particularly relevant to the present analysis, a few studies address the effects of political mobilization. @Lester2001 find that activists repeatedly succeeded in legitimizing their claims and getting EJ concerns on the political agenda but largely failed to push through legislation, in part due to conflicts between grassroots and national advocacy groups (p. 52). 
 In another particularly relevant study, 
 @Harrison2019 documents how some agency officials advance environmental justice reforms while others resist them. 
  <!--Overall, however, little work systematically addresses political mobilization and its effect on policy. -->
+    
+```
 
+```{asis, echo = TRUE}
 This chapter builds on this work to systematically address the effects of political mobilization on specific policy documents across agencies and presidential administrations. Specifically, I use public comments and changes in the text of draft and final agency rules to assess the impact of environmental justice campaigns on bureaucratic policymaking. 
+```
 
 To develop hypotheses about the relationship between political mobilization and bureaucratic policy outcomes, I turn to the literature on bureaucratic policymaking. While this literature has largely focused on the lobbying activities and influence of political insiders, I argue that theories about the power of technical and political information can be extended to study the kinds of claims raised by environmental justice advocates.
 
 ### Technical Information: The Currency of Lobbying
 
-Dominant theories of bureaucratic policymaking have little room for social movements and political pressure. Instead, they focus on how agencies learn about policy problems and solutions [@Kerwin2011]. Leading formal models are information-based models where sophisticated lobbying groups affect policy by revealing new information to the agency [@Gailmard2017;@Libgober2018], and empirical studies support the conclusion that information is the currency of lobbying in rulemaking [@Yackee2012;@Cook2017;@Gordon2018;@Walters2019].  
+Dominant theories of bureaucratic policymaking have little room for movements, distributive justice claims, and political pressure. Instead, they focus on how experts learn about policy problems and solutions [@Kerwin2011]. Leading formal models are information-based models where sophisticated lobbying groups affect policy by revealing new information to the agency [@Gailmard2017; @Libgober2020JOP], and empirical studies support the conclusion that technical information is the currency of lobbying in rulemaking [@Yackee2012;@Cook2017;@Gordon2018;@Walters2019].  
 
-Agency rulemaking is an especially technocratic and legalistic form of policymaking that explicitly privileges scientific and legal facts as the appropriate basis for decisions. Procedural requirements to consider relevant information create incentives for lobbying groups to overwhelm agencies with complex technical information, making rulemaking obscure to all but the most well-informed insiders [@Wagner2010]. <!--Empirical work shows Yackee -->
+Agency rulemaking is an especially technocratic and legalistic form of policymaking that explicitly privileges scientific and legal facts as the appropriate basis for decisions. Procedural requirements to consider relevant information incentivize lobbying groups to overwhelm agencies with complex technical information, making rulemaking obscure to all but the most well-informed insiders [@Wagner2010]. <!--Empirical work shows Yackee -->
 Influence in rulemaking generally requires resources and technical expertise [@Yackee2019].
 
 <!--As @Yackee2019 notes:
@@ -98,32 +121,31 @@ arguments and reasoning that are not common to citizen comments." (p. 10)
 -->
 
 The result is that rulemaking is dominated by sophisticated and well-resourced interest groups capable of providing new technical or legal information. Empirical scholarship finds that economic elites and business groups
-dominate U.S. politics in general [@Jacobs2005; @Soss2007; @Hertel-Fernandez2019; @Hacker2003; @Gilens2014] and rulemaking in
-particular<!--. While some are optimistic that requirements for agencies to
-solicit and respond to public comments on proposed rules allow "civil
-society" to provide public oversight [@Michaels2015; @Metzger2010], most
-studies find that participants in rulemaking often represent elites and
-business interests--> [@Seifter2016UCLA; @Crow2015; @Wagner2011; @West2009; @Yackee2006JOP; @Yackee2006JPART; @Golden1998; @Haeder2015; @Cook2017; @LibgoberCarpenter2018]. 
-
+dominate U.S. politics in general [@Gilens2014; @Hertel-Fernandez2019]
+<!--[@Jacobs2005; @Soss2007; @Hertel-Fernandez2019; @Hacker2003; @Gilens2014]-->
+and rulemaking in particular [@Crow2015; @Wagner2011; @West2009; @Yackee2006JOP;@Haeder2015; @Cook2017; @LibgoberCarpenter2018]. 
 To the extent that scholars address public pressure campaigns, both
-existing theory and empirical scholarship suggest skepticism that public pressure campaigns matter. For example, @Balla2018 find that  "legal imperatives trump political considerations" (p. 1). (See Chapter \@ref(whymail) for a review of scholarship on public pressure campaigns and their impact on policy.) 
-The largest empirical analysis to date [Chapter \@ref(influence)] also shows little relationship between public pressure and lobbying success. Campaigns that directly confront elite and business interests, like the environmental justice movement, may be especially unlikely to influence bureaucratic policymaking. Alternatively, it is also possible that some social movements have normative and political resources sufficient to overcome the technocratic biases of bureaucratic policymaking.
+existing theory and empirical scholarship suggest skepticism that public pressure campaigns matter.
 
-### Political Information
+```{asis, eval = book}
+@Balla2018 find that "legal imperatives trump political considerations" (p. 1). (See Chapter \@ref(whymail) for a review of scholarship on public pressure campaigns and their impact on policy.) 
+The largest empirical analysis to date [Chapter \@ref(influence)] also shows little relationship between public pressure and lobbying success. Campaigns that directly confront elite and business interests, like the environmental justice movement, may be especially unlikely to influence bureaucratic policymaking. Alternatively, it is also possible that some social movements have normative and political resources sufficient to overcome the technocratic biases of bureaucratic policymaking.
+```
+
+### Political Information: Why Distributive Justice Claims May Affect Policy
 
 While social movement organizations do engage in fights over technical reports and scientific studies, the information that activists provide is often more overtly political. 
+
+
+```{asis, echo = book}
 As discussed in Chapter \@ref(whymail), @Nelson2012
 identify political information as a potentially influential result of
 groups expanding their lobbying coalitions. While they focus on
 mobilizing experts, the dynamic they describe can be extended
 to mobilizing public pressure:
+    
+> "strategic recruitment, we theorize, mobilizes new actors to participate in the policymaking process, bringing with them novel technical and political information. In other words, when an expanded strategy is employed, leaders activate individuals and organizations to participate in the policymaking process who, without the coordinating efforts of the leaders, would otherwise not lobby. This activation is important because it implies that coalition lobbying can generate new information and new actors---beyond simply the 'usual suspects' ---relevant to policy decisionmakers (p. 343)."
 
-```{asis, echo = book}
-> "strategic recruitment, we theorize, mobilizes new actors to participate in the policymaking process, bringing with them novel technical and political information. In other words, when an expanded strategy is employed, leaders activate individuals and organizations to participate in the policymaking process who, without the coordinating efforts of the leaders, would otherwise not lobby. This activation is important because it implies that
-```
-"[C]oalition lobbying can generate new information and new actors---beyond simply the 'usual suspects' ---relevant to policy decisionmakers (p. 343)."
-
-```{asis, echo = book}
 Expanding on the arguments about political information advanced in Chapter \@ref(whymail),
 ```
 I argue that mobilizing new actors to participate in the policymaking process may yield information about a policy's disparate effects. Information about a policy's disparate effects is a form of political information, potentially alerting policymakers to new concerns and asserting new issue frames.
@@ -132,12 +154,17 @@ Like levels of public attention and pressure, the normative appeal of distributi
 #### Information About a Policy's Disparate Effects
 
 <!-- lowi politics -->
-The politics and outcomes of policymaking depend on how the relevant groups are defined [@Lowi1964].  <!--TODO-->
-While specific *data* on disparate impacts of policy may require expertise [@Ganz2019], anyone can highlight a community of concern or potential distributive effects of a policy. Identifying communities of concern is a political statement that does not require technical expertise. Just as @Nelson2012 found regarding mobilizing diverse experts, mobilizing diverse communities affected by a policy may introduce new claims from new actors about how the communities that a policy may benefit or harm should be constructed. 
+The politics and outcomes of policymaking depend on how the relevant groups are defined [@Lowi1964].  <!--TODO streamline-->
+While specific *data* on disparate impacts of policy may require expertise [@Ganz2019], anyone can highlight a community of concern or potential distributive effects of a policy. Identifying communities of concern is a political statement that does not require technical expertise. Just as policy tends to move when coalitions mobilize diverse experts [@Nelson2012] and interests [@Dwidar2021], mobilizing beyond the "usual suspects" may introduce new claims from new actors about how the communities that a policy may benefit or harm should be constructed. 
+```{asis, echo = book}
+ @Gellhorn1972 argues that "individuals and groups willing to assist administrative agencies in identifying interests deserving protection" (p. 403) improve the policy process. A policymaker's beliefs about who is lobbying them and who those groups represent ought to be (and likely is) key to how they respond [@Seifter2016UCLA].
+```
 
-Informing policymakers about how a particular set of stakeholders will be affected can be a lobbying tactic. Distributive justice claims simultaneously assert that a particular group deserves specific attention and demand that the policymaker account for how that group may be impacted, both of which may require revisions to the policy. Likewise, an organization may tell policymakers what a key constituency or affected groups think about the proposed policy---for example, whether they support or oppose the policy. Instead of bolstering *scientific* claims, comments that focus on a policy's disparate impacts bolster *political* claims about who counts and even who exists as a distinct, potentially affected group deserving policymakers' attention. 
+Informing policymakers about how a policy affects a particular set of stakeholders is a common lobbying tactic. Distributive justice claims simultaneously assert that a particular group deserves specific attention and demand that the policymaker account for how that group may be impacted, both of which may require revisions to the policy. 
+<!--Affected groups may also tell policymakers what they think about a proposed policy---for example, whether they support or oppose the policy. -->
+Instead of bolstering *technical* claims, comments that focus on a policy's disparate impacts bolster *political* claims about who counts and even who exists as a distinct, potentially affected group deserving policymakers' attention. 
+The political construction of policy-relevant groups through the policy process foregrounds some conflicts and suppresses others.
 
-The political construction of policy-relevant groups through the policy process has long interested administrative law scholars. @Gellhorn1972 argues that "individuals and groups willing to assist administrative agencies in identifying interests deserving protection" (p. 403) improve the policy process. @Seifter2016UCLA argues that policymakers' beliefs about who is lobbying them and who those groups represent ought to be (and likely is) key to how they respond.
 
 
 <!-- institutions feinstein -->
@@ -145,25 +172,31 @@ The power of groups to affect policy depends on their recognition by formal and 
 
 > All forms of political organization have a bias in favor of the exploitation of some kinds of conflict and the suppression of others because organization is the mobilization of bias. Some issues are organized into politics, while others are organized out. [@Schattschneider1975, p. 71]
 
-Public comment periods in agency rulemaking are formally more "identity neutral" than policy processes with procedural rights reserved for certain interests [@Feinstein2021]. This means that the political construction of relevant groups depends on who participates and the identities they mobilize or claim to represent. As @Yackee2019 and others note, high information costs mean that individuals rarely participate. Instead, groups claim to represent various constituencies. "Because the costs of individualized participation in policy decision making are often excessive, informal representatives are prevalent as a form of participation in agency decisions" [@Rossi1997, p. 194].
-
-
+```{asis, echo = book}
+Public comment periods in agency rulemaking are more "identity neutral" than policy processes with procedural rights reserved for certain interests [@Feinstein2021]. 
+```
+The political construction of relevant groups depends on who participates and the identities they mobilize or claim to represent. As @Yackee2019 and others note, high information costs mean that individuals rarely participate. Instead, groups claim to represent various constituencies. "Because the costs of individualized participation in policy decision making are often excessive, informal representatives are prevalent as a form of participation in agency decisions" [@Rossi1997, p. 194].
 
 
 <!--CBA-->
-Bureaucratic policymaking in the United States is dominated by cost-benefit analysis, which requires defining groups that are benefited or harmed by a policy and may even upweight or prioritize benefits or costs to certain groups. Agencies have many reasons to consider the distributional effects of policy and often do. For example, President Biden issued a memorandum instructing the Director of the Office of Management and Budget to propose recommendations for "procedures that take into account the distributional consequences of regulations." <!--[CITE https://www.theregreview.org/2021/04/26/adler-factoring-equity-benefit-cost-analysis/]-->
-Thus, comments raising distributive concerns provide potentially influential political information.
+Agencies have many reasons to consider the distributional effects of policy and often do.
+Bureaucratic policymaking in the United States is dominated by cost-benefit analysis, which requires defining groups that benefit or are harmed by a policy and may even upweight or prioritize benefits or costs to certain groups. 
+President Biden instructed the Director of the Office of Management and Budget to propose recommendations for "procedures that take into account the distributional consequences of regulations." <!--[CITE https://www.theregreview.org/2021/04/26/adler-factoring-equity-benefit-cost-analysis/]-->
+In this context, comments raising distributive concerns provide potentially influential political information.
 
-This "distributive information" raises claims of distributive justice. 
+```{asis, echo = book}
 Public comment periods are celebrated as "a crucial way to ensure that agency decisions are legitimate, accountable, and just" [@Bierschbach2012, p. 20]. "Public participation can force agencies to rethink initial inclinations" [@Seifter2016UCLA, p. 1329]---such as which social groups are relevant or deserve special attention.
-Courts purportedly review policy decisions made through rulemaking with a particular eye toward whether they foster "fairness and deliberation" (*United States v. Mead Corp.*, 2001) and occasionally note the volume or diversity of participants in the public comment process (e.g., *Vermont Yankee v. NRDC*, 1978). While there is mixed empirical evidence about the importance of policy processes for judicial review, the number of public comments received on a draft policy is associated with courts letting the final agency policy stand [@judgelord2016MPSA]. Despite the dominance of business groups and the seeming lack of success for public pressure campaigns in general, distributive justice claims may have a unique role in bureaucratic policymaking. 
-
+Courts purportedly review policy decisions made through rulemaking with a particular eye toward whether they foster "fairness and deliberation" (*United States v. Mead Corp.*, 2001) and occasionally note the volume or diversity of participants in the public comment process (e.g., *Vermont Yankee v. NRDC*, 1978). While there is mixed empirical evidence about the importance of policy processes for judicial review, the number of public comments received on a draft policy is associated with courts upholding agency rules [@judgelord2016MPSA]. Despite the dominance of business groups and the seeming lack of success for public pressure campaigns in general, distributive justice claims may have a unique role in bureaucratic policymaking. 
+```
 
 #### Public Pressure as a Political Resource
+<!-- ORGANIZE around ATTENTION and COALITION SIZE-->
 
 The chances that an agency will address distributive justice claims may be affected by other political factors, including the overall levels of public attention or public pressure. 
+```{asis, echo = book}
 As theorized in Chapter \@ref(influence), the number of supporters may
 matter because it indicates support among relevant communities or the broader public. Again, instead of bolstering *scientific* claims, perceived levels of public support bolster *political* claims. 
+```
 <!--
 Like other forms of political participation, such as protests and letter-writing campaigns, 
 public pressure campaigns provide no new technical information. <!--%In this sense, they are not useful. 
@@ -180,71 +213,89 @@ Organizations surveyed by @English2019APSA also reported being organized into co
 While these studies focused on how organizations mobilize their members and other organizations, I expand on this understanding of mobilization as a lobbying tactic to include a campaign's broader audience, more akin to the concept of
 an attentive public [@Key1961] or issue public [@Converse1964]. 
 
+```{asis, echo = book}
 Interest groups and their lobbying coalitions are the proper units of analysis, and individual participants are best understood as measuring an amplitude of support for their efforts (see Chapter \@ref(whymail)).
 While scholars often *compare* the participation of groups to individual citizens (see @Yackee2019 for a review), "it can be difficult to distinguish an individual's independent contribution from an interest-group-generated form letter" [@Seifter2016UCLA, pg. 1313]. 
 <!-- MOVE TO WHYMAIL 
 As [@Rossi1997, p. 194] argues, "individuals are most likely to participate in agency decisions
 by virtue of their membership in interest groups." 
 -->
-Indeed, Chapter \@ref(whymail) shows that nearly all individual comments on proposed policies are mobilized by interest groups. <!--Researchers should view the participation of individuals as a direct result of interest group mobilization and can ignore the small number of unaffiliated individuals. <!--Indeed, efforts to broaden citizen participation that seek *unmediated* participation are likely infeasible.--> 
+Indeed, Chapter \@ref(whymail) shows that nearly all individual comments on proposed policies are mobilized by interest groups. Researchers should view the participation of individuals as a direct result of interest group mobilization and can ignore the small number of unaffiliated individuals. Efforts to broaden citizen participation that seek *unmediated* participation are likely infeasible. 
+```
 
-Because many politically active groups are "memberless" or run by professionals who lobby with little input from their members [@Baumgartner2001; @Skocpol2003; @Schlozman2012], evidence of an actual constituency is valuable political information. Petition signatures and form letters are among the only ways a pressure group can demonstrate an engaged and issue-specific constituency on whose behalf they claim to advocate. 
-
-Finally, building on the distinction between direct and indirect influence set out in Chapter \@ref(whymail), the "fire alarm" role that interest groups play in the policy process [@McCubbins1984] may have different effects when sounding the alarm involves "going public." Expanding the scope of conflict by mobilizing public attention to rulemaking may shift policymakers' attention away from the technical information and arguments provided by the "usual suspects" and toward the distributive effects of policy. 
+Because many politically active groups are "memberless" or run by professionals who lobby with little input from their members [@Baumgartner2001; @Skocpol2003; @Schlozman2012], evidence of an actual constituency offers political information. Petition signatures and form letters are among the only ways a pressure group can demonstrate an engaged and issue-specific constituency on whose behalf they claim to advocate. 
+Finally,
+```{asis, echo = book}
+building on the distinction between direct and indirect influence set out in Chapter \@ref(whymail),
+```
+the "fire alarm" role that interest groups play in the policy process [@McCubbins1984] may have different effects when sounding the alarm involves "going public." Expanding the scope of conflict by mobilizing public attention to rulemaking may shift policymakers' attention away from the technical information and arguments provided by the "usual suspects" and toward the distributive effects of policy. 
 
 ### Hypotheses
 
-Scholarship on bureaucratic policymaking in general---and EJ advocacy in particular---presents competing intuitions about the effect of EJ activists and the broader public in rulemaking. From the above discussion about the potential impacts of political information in bureaucratic policymaking, I distill five hypotheses---three about distributive information and two about public pressure. I posit each hypothesis in the direction that advocacy groups do affect rulemaking while also noting equally plausible intuitions for concluding the opposite. Because theory suggests skepticism and empirical work has found that advocacy groups and public pressure campaigns have little to no effect on rulemaking, I set the empirical bar low: do EJ advocates and public pressure campaigns have *any* effect at all on policy documents. Rather than focusing on substantive policy changes, the dependent variable in the statistical analysis is more discursive: any response to environmental justice claims in policy documents, not just substantive policy changes that groups may demand.^[Qualitativly, I show that discursive and framing effects can affect policy outcomes, but the broad evidence from the hand-coded sample suggests that substantive policy change is much more limited than discursive responses.]
+Scholarship on bureaucratic policymaking presents competing intuitions about the effect of EJ activists and the broader public in rulemaking. From the above discussion about the potential impacts of political information in bureaucratic policymaking, I distill five hypotheses---three about distributive justice claims and two about public pressure. I posit each hypothesis in the direction that political information does affect rulemaking while also noting competing intuitions for concluding the opposite in several cases. <!--Because theory suggests skepticism and empirical work has found that advocacy groups and public pressure campaigns have little to no effect on rulemaking, I set the empirical bar low: do EJ advocates and public pressure campaigns have *any* effect at all on policy documents. Rather than focusing on substantive policy changes, the dependent variable in the statistical analysis is more discursive: any response to environmental justice claims in policy documents, not just substantive policy changes that groups may demand.-->
 
 <!--#### Distributive Information-->
 
-> *Distributive Claims Hypothesis*: 
-
+*Distributive Justice Claims*
 ```{hypothesis ej-claims, echo = TRUE}
 Policymakers are more likely to change whether or how policies address distributive justice when commenters raise distributive justice concerns.
 ```
 
-As discussed above, agency policymakers have incentives to address distributive concerns, especially environmental justice. By raising EJ concerns, commenters draw attention to the distribution of policy impacts---who a policy may affect. Asserting definitions and categories of stakeholders and affected groups is one type of policy-relevant information.
+Agency policymakers have incentives to address distributive concerns. By raising distributive justice concerns, commenters draw attention to the distribution of policy impacts---who a policy may affect. Asserting definitions and categories of stakeholders and affected groups is one type of policy-relevant information.
 
-> *Repeated Claims Hypothesis*: 
-
+*Coalition size*
 ```{hypothesis ej-repeated-claims, echo = TRUE}
-Policymakers are more likely to change whether or how policies address concerns when more commenters raise them.
+Policymakers are more likely to change whether or how policies address concerns when more organizations raise them.
 ```
 
-Scholarship on lobbying in rulemaking emphasizes the value of repeated information and coalition size [@Mendelson2011; @Nelson2012]. This implies that the more distinct organizations and comments raise EJ concerns, the more likely it is that their coalition will influence the policy process. As described below, I distinguish unique comments from mass comments. The number of unique comments approximates a coalition's size regarding the number of different groups, each submitting a unique text. The total number of comments, including signatures on identical form letters, indicates the scale of public attention and pressure.
+Scholarship on lobbying in rulemaking emphasizes the value of repeated information and coalition size [@Mendelson2011; @Nelson2012]. This implies that the more distinct organizations raise EJ concerns, the more likely it is that this coalition will influence the policy process. 
 
 Competing intuitions and other prior studies oppose both Hypotheses \@ref(hyp:ej-claims) and \@ref(hyp:ej-repeated-claims). 
-First, formal models and empirical scholarship on lobbying in rulemaking emphasize the importance of novel science and technical information---things unknown to agency experts [@Wagner2010]. Claims about distributive justice and repetition of such claims provide no new technical information. 
+First, formal models and empirical scholarship on lobbying in rulemaking emphasize the importance of novel technical information---things unknown to agency experts [@Wagner2010]. Claims about distributive justice and repetition of such claims by more organizations provide no new technical information. 
 Second, business commenters are influential, and public interest groups are not [@Yackee2006JOP; @Haeder2015]. Because environmental justice claims often conflict with business interests, such claims may be especially disadvantaged. Finally, policymakers may be more likely to anticipate EJ concerns when they are more salient to interest groups. This would mean that rules where commenters raise EJ concerns may be the *least* likely to change whether or how EJ is addressed because policymakers are more likely to have already considered these issues and stated their final position in the draft rule. 
 
+<!--#### Public Attention and Pressure-->
 
-> *Policy Receptivity Hypothesis*: 
+*Public Attention*
+```{hypothesis ej-attention, echo = TRUE}
+Policymakers are more likely to change whether or how policies address distributive justice when they receive more public attention.
+```
 
+<!--TODO-->
+If the scale of public attention affects the policy process, policy may be more likely to change when more people comment on a draft policy. <!--TODO FIXME This follows the intuition that policy change is most likely in high-salience policy processes [@Leech2010].--> 
+
+The competing intuition against Hypothesis \@ref(hyp:ej-attention) is that large numbers of comments indicate policy processes that were already salient before they were targeted by a public pressure campaign. Anticipating public scrutiny, policymakers would be more likely to have stated their final position in the draft policy. If this is the case, policies with more public comments should be *less* likely to change. Public attention could also be unrelated to policy change, meaning that policymakers neither anticipate nor respond to public attention in writing or revising policy documents. A null effect is most consistent with leading formal models of bureaucratic policymaking, where the scale of public attention is absent.
+
+
+
+*Policy Receptivity*
 ```{hypothesis ej-receptivity, echo = TRUE}
 Policymakers who more frequently address concerns like environmental justice will be more responsive to commenters raising those concerns.
 ```
 
  <!--CITE-->
 Some agencies may be more receptive to certain kinds of lobbying---for example, claims about distributive justice---than others.
-Bureaucracies are specialized institutions built to make and implement certain kinds of policies based on certain goals and types of facts. Each agency has distinct norms and epistemic communities [@Carpenter2001;@Harrison2019]. Some may see an issue as "environmental" where others do not. Discourse effects are more likely in the "context of common symbols and other knowledge" [@Woodly2015, p. 22]. For example, tailpipe emissions may be discussed in more environmental terms at the EPA than at the Department of Transportation. Likewise, some officials may see disparate impacts that demand consideration, whereas other officials with different norms and training see such disparities as less relevant. For example, policy fights over pesticides at the EPA may often be framed in environmental justice terms, leading to analyses of the distribution of harms to different types of farmworkers. In contrast, pesticide policy at the Department of Agriculture may focus less on human health and be much less likely to be framed in distributive justice terms. In short, the contextual nature of "common sense" [@Woodly2015] may lead some policymakers to see their policy area as more related to environmental justice than others and thus be more receptive to commenters' concerns. 
+Bureaucracies are specialized institutions built to make and implement certain kinds of policies based on certain goals and types of facts. Each agency has distinct norms and epistemic communities [@Carpenter2001;@Harrison2019]. Some may see an issue as "environmental" where others do not. Discourse effects are more likely in the "context of common symbols and other knowledge" [@Woodly2015, p. 22]. For example, vehicle emissions may be discussed more as an "environmental" issue at the Environmental Protection Agency (EPA) and as a "safety" issue at the Department of Transportation. Likewise, some officials may see disparate impacts that demand consideration, whereas other officials with different norms and training see such disparities as less relevant. For example, policy fights over pesticide regulation at the EPA may often be framed in environmental justice terms, leading to analyses of the distribution of harms to different types of farmworkers. In contrast, pesticide-related policy at the Department of Agriculture may focus less on human health and be much less likely to be framed in distributive justice terms. In short, the contextual nature of "common sense" [@Woodly2015] may lead some policymakers to see their policy area as more related to environmental justice than others and thus be more receptive to commenters' concerns. 
+<!-- engage Manny Teodoro Centripetal Force 4.2022.pdf 
 
-Information-based formal models [@Libgober2018] suggest a competing intuition to Hypothesis \@ref(hyp:ej-receptivity): policymakers familiar with EJ concerns are *least* likely to respond to EJ concerns because they anticipate these concerns---EJ concerns are not novel to them. If so, agencies that rarely consider EJ may be more easily influenced by commenters who present novel information and concerns. These policymakers may be less likely to have preempted EJ critiques in the draft policy. This intuition aligns with 
+"when, why, and to what extent they are powerful on what types of issues" (Baumgartner & Leech 1998, p. 134).
 
-<!--#### Public Attention and Pressure-->
+ [see Smith (2000) on the relationship between success, salience, and public support and Witko (2006) on the relationship between salience, success, and stage of the policy process].
+ --> 
 
-> *Public Attention Hypothesis*: 
+Information-based formal models [@Libgober2020JOP] suggest a competing intuition to Hypothesis \@ref(hyp:ej-receptivity): policymakers familiar with EJ concerns are *least* likely to respond to EJ concerns because they anticipate these concerns---EJ concerns are not novel to them. If so, agencies that rarely consider EJ may be more easily influenced by commenters who present novel information and concerns. These policymakers may be less likely to have preempted EJ critiques in the draft policy. This intuition aligns with 
 
-```{hypothesis ej-attention, echo = TRUE}
-Proposed policies are more likely to change when they receive more public attention (e.g., more public comments).
+*Differential Influence*  
+```{hypothesis ej-influencee, echo = TRUE}
+Groups with more technical and legal resources are more influential.
 ```
 
-<!--TODO-->
-If the scale of public attention affects the policy process, policy may be more likely to change when more people comment on a draft policy. This follows the intuition that policy change is most likely in high-salience policy processes [@Leech2010].
+In contrast to the previous policy-level hypotheses, Hypothesis \@ref(hyp:ej-influence) is an organization-level hypothesis, and the test will be a comparison across organizations. 
 
-The competing intuition against Hypothesis \@ref(hyp:ej-attention) is that large numbers of comments indicate policy processes that were already salient before they were targeted by a public pressure campaign. Anticipating public scrutiny, policymakers would be more likely to have stated their final position in the draft policy. If this is the case, policies with more public comments should be *less* likely to change. Public attention could also be unrelated to policy change, meaning that policymakers neither anticipate nor respond to public attention in writing or revising policy documents. A null effect is most consistent with leading formal models of bureaucratic policymaking, where the scale of public attention is absent.
+<!--TODO MORE TEXT HERE ABOUT THIS LAST HYPOTHESIS--> 
 
-> *Conditional Public Pressure Hypothesis*:  
+<!--
+*Conditional Public Pressure Hypothesis*:  
 
 ```{hypothesis ej-pressure, echo = TRUE}
 Policies are more likely to address an issue when they receive more public attention (e.g., more public comments) *and* at least one comment raises that issue.
@@ -253,3 +304,4 @@ Policies are more likely to address an issue when they receive more public atten
 This hypothesis asserts that the overall level of public attention conditions policymakers' responses to specific claims--it is the interaction between the number of total public comments and at least one of those comments raising EJ concerns that makes policy more likely to address EJ. 
 
 The competing intuition against Hypothesis \@ref(hyp:ej-pressure) is again that large numbers of comments indicate high-salience rulemakings where policymakers are more likely to anticipate public scrutiny, including how they did or did not address specific issues like environmental justice. If policymakers anticipate public scrutiny and EJ concerns specifically, they may be more likely to preempt EJ concerns and state their final position in the draft policy.
+--> 
