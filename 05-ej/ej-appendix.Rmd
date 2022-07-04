@@ -72,7 +72,16 @@ Replication data are available in SQL and Rdata at https://github.com/judgelord/
 ```{r data, fig.height=11, cache=FALSE}
 load(here::here("data", "ej_data_clean.Rdata"))
 
-rules %<>% ungroup() 
+rules %<>% ungroup() %>% 
+  mutate(president2 = case_when(
+        year > 1992 & year <1995 ~ "Clinton 1",
+    year > 1994 & year <2001 ~ "Clinton 2",
+    year > 2000 & year <2005 ~ "G.W. Bush 1",
+    year > 2004 & year <2009 ~ "G.W. Bush 2",
+        year > 2008 & year < 2013 ~ "Obama 1",
+            year > 2012 & year < 2017 ~ "Obama 2",
+    year > 2016 & year < 2021 ~ "Trump"
+  ))
 ```
 
 ### Documents
@@ -122,6 +131,22 @@ rules %>%
 
 # pr over time
 rules %>% 
+  filter(document_type == "Proposed Rule", year > 2004) %>% 
+  mutate(ej_pr = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
+  ggplot() + 
+  aes(x = year, fill = ej_pr) +
+  geom_bar(alpha = .7, position = "dodge") + 
+  labs(y  = "All Proposed Rules",
+       x = "",
+       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
+    facet_grid(. ~ president2, scales = "free") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank())
+
+# pr over time, back to 1993
+rules %>% 
   filter(document_type == "Proposed Rule") %>% 
   mutate(ej_pr = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
   ggplot() + 
@@ -131,6 +156,7 @@ rules %>%
        x = "",
        fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
   scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
+    facet_wrap("president2", nrow = 1, scales = "free") + 
   theme(axis.text.x = element_text(angle = 45, vjust = .5),
         panel.grid.major.x = element_blank(),
         panel.border = element_blank())
@@ -174,6 +200,24 @@ rules %>%
 
 # fr type over time
 rules %>% 
+  filter(document_type == "Rule", year > 2004) %>% 
+  mutate(ej_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed")) %>% 
+  ggplot() + 
+  aes(x = year, fill = ej_fr) +
+  geom_bar(alpha = .7, position = "dodge") + 
+    facet_wrap("president2",nrow = 1, scales = "free_x") + 
+
+  labs(y  = "All Final Rules",
+       x = "",
+       fill = "" ) +# "EJ Addressed\nin Final Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank())
+
+
+# fr type over time, back to 1993
+rules %>% 
   filter(document_type == "Rule") %>% 
   mutate(ej_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed")) %>% 
   ggplot() + 
@@ -186,6 +230,7 @@ rules %>%
   theme(axis.text.x = element_text(angle = 45, vjust = .5),
         panel.grid.major.x = element_blank(),
         panel.border = element_blank())
+
 
 # ej_fr over time
 ejFR %>% 
@@ -314,14 +359,15 @@ allFR %>%
 #ej-pr-president
 
 allPR %>% 
-  count(Year, ej_pr, president) %>%
+  filter(president2 %in% c("Bush 2", "Obama 1", "Obama 2", "Trump")) %>% 
+  count(Year, ej_pr, president2) %>%
     mutate(ej_pr = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
   ggplot() + 
   aes(x = Year, y =n,
       fill = factor(ej_pr, levels = c("EJ Not Addressed", "EJ Addressed"))) +
   scale_fill_discrete()+#direction = -1) + 
   geom_col(alpha = .7, position = "dodge") + 
-  facet_grid(. ~ president, scales = "free") + 
+  facet_grid(. ~ president2, scales = "free") + 
   labs(x = "Year",
        y = "Number of Proposed Rules",
        fill = "Environmental\nJustice\nAnalysis") + 
@@ -337,19 +383,40 @@ allPR %>%
 # ej_fr-president
 
 allFR %>% 
-  count(Year, ej_fr, direct, president) %>%
+   filter(president2 %in% c("G.W. Bush 2", "Obama 1", "Obama 2", "Trump")) %>%
+  count(Year, ej_fr, direct, president2) %>%
     mutate(ej_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed")) %>% 
   ggplot() + 
   aes(x = Year, y = n,
       fill = factor(ej_fr, levels = c("EJ Not Addressed", "EJ Addressed"))) +
   scale_fill_discrete()+#direction = -1) + 
   geom_col(alpha = .7, position = "dodge") + 
-  facet_grid(direct ~ president, scales = "free") + 
+  facet_grid(direct ~ president2, scales = "free") + 
   labs(x = "Year",
        y = "Number of Final Rules",
        fill = "Environmental\nJustice\nAnalysis") + 
   theme(panel.grid.major.x = element_blank())
 
+allFR %>% 
+   filter(president2 %in% c("G.W. Bush 2", "Obama 1", "Obama 2", "Trump")) %>%
+  filter(direct == "Draft Rule Published") %>% 
+  mutate(ej_pr = ifelse(ej_pr, "EJ in Draft & Final Rule", "EJ Only in Final Rule"),
+         ej_pr = ifelse(ej_fr, ej_pr, "No EJ Analysis")) %>% 
+  count(Year, ej_pr, ej_comment, president2) %>% 
+  mutate(ej_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ")) %>% 
+  ggplot() + 
+  aes(x = Year, y = n,
+      fill = factor(ej_comment, levels = c("No Comments Address EJ", "Comments Address EJ"))) +
+  scale_fill_discrete()+#direction = -1) + 
+  geom_col(alpha = .7) + 
+  facet_grid(ej_pr ~ president2, scales = "free") + 
+  labs(x = "",
+       y = "Number of Rules",
+       fill = "Comments Raised\nEnvironmental\nJustice Concerns") + 
+  theme(panel.grid.major.x = element_blank())
+
+
+# full time period back to 1992
 allFR %>% 
   filter(direct == "Draft Rule Published") %>% 
   mutate(ej_pr = ifelse(ej_pr, "EJ in Draft & Final Rule", "EJ Only in Final Rule"),
@@ -378,6 +445,36 @@ allFR %>%
 
 ```{r ej-comments,fig.width=6.5, fig.height=4.1}
 # ej_comments
+breaks <- c(1996, 2000, 2004, 2006,2008, 2010,2012, 2014, 2016, 2018,2020)
+
+
+allFR %>% 
+  filter(president2 %in% c("G.W. Bush 2", "Obama 1", "Obama 2", "Trump")) %>%
+  filter(direct == "Draft Rule Published") %>% 
+  mutate(ej_pr = ifelse(ej_pr, "EJ in Draft & Final", "EJ Only in Final"),
+         ej_pr = ifelse(ej_fr, ej_pr, "No EJ Analysis")) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ")) %>% 
+  ggplot() + 
+  aes(x = year, color = EJ_comment, shape = EJ_comment) + 
+  # plot ej comments on top
+  geom_jitter(alpha = .3, 
+              aes(y = ifelse(ej_comment, NA, comments) ) ) + 
+  geom_jitter(alpha = .3,
+              aes(y = ifelse(ej_comment, comments, NA) ) ) +
+  #geom_jitter(alpha = .3) + 
+  facet_grid(ej_pr ~ president2, scales = "free_x") + 
+  scale_y_log10(labels = scales::comma)  +
+  #scale_x_date(date_labels = "%y") + 
+  labs(x = "",
+       y = "Total Number of Comments per Rule (log scale)",
+       color = "Comments Raised\nEnvironmental\nJustice Concerns",
+       shape = "Comments Raised\nEnvironmental\nJustice Concerns") +
+  #scale_x_discrete(breaks = breaks) + 
+  scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+  theme(axis.text.x = element_text(angle = 45) )
+
+
+# full time period back to 1992
 breaks <- c(1996, 2000, 2004, 2008, 2012, 2016, 2020)
 
 allFR %>% 
@@ -401,7 +498,9 @@ allFR %>%
        color = "Comments Raised\nEnvironmental\nJustice Concerns",
        shape = "Comments Raised\nEnvironmental\nJustice Concerns") +
   scale_x_discrete(breaks = breaks) + 
-  scale_color_viridis_d(begin = 0, end = .6, option = "plasma") 
+  scale_color_viridis_d(begin = 0, end = .6, option = "plasma")  +
+  theme(axis.text.x = element_text(angle = 45) )
+
 ```
 
 # By Organization 

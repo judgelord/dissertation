@@ -188,7 +188,7 @@ winrates %>%
   kable3(caption = "Hand-coded Lobbying Success by Type of Organization, 2005-2020")
 ```
 
-Only law firms were more likely to get their substantive policy demands met when their comments raised EJ concerns. Tribes and Frontline EJ community groups, already the types of organizations least likely to have their substantive demands met (9% and 4%, respectively), saw none of their substantive demands related to EJ met. NGOs, overall, and environmental groups (a subset of NGOs) were slightly less likely to see their policy demands met when these demands were explicitly linked to EJ. The most successful types of organizations overall---Trade Associations, States, Cities, and Banks---did not use EJ language in the hand-coded sample. 
+Only law firms were more likely to get their substantive policy demands met when their comments raised EJ concerns. Tribes and Frontline EJ community groups---already the types of organizations least likely to have their substantive demands met (9% and 4%, respectively)---saw none of their substantive demands related to EJ met. NGOs, overall, and environmental groups (a subset of NGOs) were slightly less likely to see their policy demands met when these demands were explicitly linked to EJ. The most successful types of organizations overall---Trade Associations, States, Cities, and Banks---did not use EJ language in the hand-coded sample. 
 Because the EJ demands often oppose the status quo, this aligns with 
 the findings of 
 <!--Chapter \@ref(influence) -->
