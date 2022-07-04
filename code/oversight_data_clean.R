@@ -2,6 +2,8 @@ library(tidyverse)
 library(magrittr)
 library(googledrive)
 library(googlesheets4)
+
+source("../correspondence/setup.R")
 source("code/setup.R")
 
 load(url("https://github.com/judgelord/augmentCongress/raw/main/data/members.rda"))
@@ -40,7 +42,9 @@ comments_congress %<>%
   select(comment_url, id, docket_id, chamber, congress, posted_date, org_name, org_type, position, 
          coalition, coalition_type, success)
 
-comments_congress %<>% 
+select <- . %>% dplyr::select(...)
+
+comments_congress %<>% dplyr::select(-chamber, -state) %>% 
   mutate(ERROR = "", DATE = posted_date) %>%
   extractMemberName(col_name = "org_name", members = members)
 
