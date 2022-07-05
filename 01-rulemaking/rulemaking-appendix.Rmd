@@ -1,5 +1,9 @@
 ---
 #rmarkdown::render("01-rulemaking/rulemaking-appendix.Rmd")
+knit: ( function(input, ...) {
+          rmarkdown::render(input)
+          } 
+      )
 title: "Agency Rulemaking in American Politics"
 subtitle: "Appendix and Replication Code" 
 author: "Devin Judge-Lord"
@@ -63,16 +67,42 @@ regs %<>%
 regs %<>% distinct(Year,RIN, AGENCY, PARENT_AGENCY, RIN, Stage, Year)
 
 
-count(regs, Stage)
+regs %<>% mutate(policy_code = 
+                   case_when(
+                     str_detect(RIN, "^21") ~ "Transportation",
+                     str_detect(RIN, "^05") ~ "Agriculture",
+                     str_detect(RIN, "^06|^15") ~ "Commerce & Treasury",
+                     str_detect(RIN, "^07") ~ "Defense",
+                     str_detect(RIN, "^18") ~ "Education",
+                     str_detect(RIN, "^19") ~ "Energy",
+                     str_detect(RIN, "^20") ~ "Environmental",
+                     str_detect(RIN, "^23") ~ "Government Operations",
+                     str_detect(RIN, "^14|10070|^35100|^0625") ~ "Foreign Policy",
+                     str_detect(RIN, "^12") ~ "Labor",
+                     str_detect(RIN, "^10|^0596") ~ "Public Lands",
+                     str_detect(RIN, "^16|^0938") ~ "Welfare",
+                     str_detect(RIN, "^11") ~ "Justice",
+                     str_detect(RIN, "^0507|^2529|^35000") ~ "Civil Rights"
+                   ))
 
-count(regs, RIN,sort = T) 
+# regs %>% count(policy_code)
 
-count(regs, RIN, Stage, sort = T) 
+regs %<>% mutate(policy_type = case_when(
+  policy_code %in% c("Education",
+                     "Health",
+                     "Labor",
+                     "Justice",
+                     "Welfare",
+                     "Civil Rights") ~ "Social Policy",
+  policy_code %in% c("Transportation",
+                     "Agriculture",
+                     "Commerce",
+                     "Energy",
+                     "Lands") ~ "Economic Policy",
+  policy_code %in% c("Environmental") ~ "Environmental Policy",
+  policy_code %in% c("Defense", "Foreign Policy") ~ "Foreign Policy"
+))
 
-
-
-
-source(here("code", "UA-policy-area.R") %>% str_replace("dissertation", "rulemaking"))
 
 
 ua <- regs
@@ -100,7 +130,7 @@ rules %<>%
            str_remove("-.*"),
          year = coalesce(year, year2) %>% as.numeric()
                       ) %>%
-  select(-year2) 
+  dplyr::select(-year2) 
 
 rules %<>% filter(year >2004)
 ```
@@ -125,9 +155,9 @@ rules %>%
         panel.border = element_blank())
 ```
 
-## Party control data from Brookings 
+## Party control data from [Brookings](https://www.brookings.edu/multi-chapter-report/vital-statistics-on-congress/)
 
-```{r}
+```{r, fig.height=1}
 party_control <- read_csv(here("data", "1-20.csv")) 
 
 party_control %<>% 
@@ -201,7 +231,7 @@ party_control %<>%
                                    hjust = 1#, vjust = 1
                                    )) 
 
-#tile
+tile
 ```
 
 
@@ -283,9 +313,7 @@ macro_hist <- function(policy){
   x <- ua %>% 
     filter(policy_code == policy)
   
-  
-  x$PARENT_AGENCY %>% unique() %>% str_remove_all("^[0-9]*|[A-Z]*$")%>% discard(is.na) %>% print()
-  x$AGENCY %>% unique() %>% print()
+
   
 p <- x  %>% 
     count(Year, Stage) %>%
@@ -295,7 +323,7 @@ p <- x  %>%
     labs(#title = paste(unique(policy), 'Rulemaking'),
          subtitle = paste0(#"(", 
                            paste(x$PARENT_AGENCY %>%
-                                   unique() %>% discard(is.na)  %>% str_remove_all("^[0-9]*|[A-Z]*$"), collapse = " and ")#,")"
+                                   unique() %>% purrr::discard(is.na)  %>% str_remove_all("^[0-9]*|[A-Z]*$"), collapse = " and ")#,")"
                            ),
                 x = "",
          y = "Number of Rules") +
@@ -320,8 +348,7 @@ macro_hist2 <- function(policy){
     filter(policy_type == policy)
   
   
-  x$PARENT_AGENCY %>% unique() %>% str_remove_all("^[0-9]*|[A-Z]*$")%>% print()
-  x$AGENCY %>% unique() %>% print()
+
   
 p <- x  %>% 
     count(Year, Stage) %>%
@@ -342,18 +369,39 @@ library(cowplot)
 plot_grid(p, tile, align = "v", nrow = 2, rel_heights = c(2,1))
 }
 
+
+macro_table <- function(policy){
+  
+  x <- ua %>% 
+    filter(policy_code == policy | policy_type == policy)
+  
+  caption <- x$PARENT_AGENCY %>% 
+    unique() %>%
+    str_remove_all("^[0-9]*|[A-Z]*$") %>% 
+    as_tibble() %>% 
+    drop_na(value) %>% pull(value) %>% str_c(collapse = ", ") %>% str_c(policy, ., sep = ":\n")
+  
+  x$AGENCY %>%
+    unique() %>%
+    as_tibble() %>% 
+    drop_na(value) %>% 
+    rename(`Includes` = value) %>%  
+     kable3(caption = caption) 
+}
 ```
 
 ```{r ua-Economic-Policy, fig.height=3.2, cache=FALSE}
 policy <- "Economic Policy"
 
 macro_hist2(policy)
+macro_table(policy)
 ```
 
 ```{r ua-Social-Policy, fig.height=3.2, cache=FALSE}
 policy <- "Social Policy"
 
 macro_hist2(policy)
+macro_table(policy)
 ```
 
 ```{r ua-Foreign-Policy, fig.height=3.2, cache=FALSE}
@@ -361,7 +409,9 @@ policy <- "Foreign Policy"
 
 macro_hist(policy)
 
-macro_hist2(policy) # 
+macro_hist2(policy) 
+macro_table(policy)
+
 ```
 
 
@@ -370,6 +420,7 @@ macro_hist2(policy) #
 policy <- "Transportation"
 
 macro_hist(policy)
+macro_table(policy)
 ```
 
 
@@ -377,64 +428,97 @@ macro_hist(policy)
 policy <- "Agriculture"
 
 macro_hist(policy)
+macro_table(policy)
+
 ```
 
 ```{r ua-Commerce & Treasury, fig.height=3.2, cache=FALSE}
 policy <- "Commerce & Treasury"
 
 macro_hist(policy)
+macro_table(policy)
+
 ```
 
 ```{r ua-Defense, fig.height=3.2, cache=FALSE}
 policy <- "Defense"
 
 macro_hist(policy)
+macro_table(policy)
+
 ```
 
 ```{r ua-Welfare, fig.height=3.2, cache=FALSE}
 policy <- "Welfare"
 
 macro_hist(policy)
+macro_table(policy)
+
 ```
 
 ```{r ua-Public-Lands, fig.height=3.2, cache=FALSE}
 policy <- "Public Lands"
 
 macro_hist(policy)
+macro_table(policy)
+
 ```
 
 ```{r ua-Justice, fig.height=3.2, cache=FALSE}
 policy <- "Justice"
 
 macro_hist(policy)
+macro_table(policy)
+
 ```
 
 ```{r ua-Labor, fig.height=3.2, cache=FALSE}
 policy <- "Labor"
 
 macro_hist(policy)
+macro_table(policy)
+
 ```
 
 ```{r ua-Education, fig.height=3.2, cache=FALSE}
 policy <- "Education"
 
 macro_hist(policy)
+macro_table(policy)
+
 ```
 
 ```{r ua-Energy, fig.height=3.2, cache=FALSE}
 policy <- "Energy"
 
 macro_hist(policy)
+macro_table(policy)
+
 ```
 
 ```{r ua-Civil-Rights, fig.height=3.2, cache=FALSE}
 policy <- "Civil Rights"
 
 macro_hist(policy)
+macro_table(policy)
+
 ```
 
 ```{r ua-Environmental, fig.height=3.2, cache=FALSE}
 policy <- "Environmental"
 
 macro_hist(policy)
+macro_table(policy)
+
+```
+
+## Counts by RIN 
+
+```{r}
+count(regs, Stage) 
+
+count(regs, RIN,sort = T) 
+
+count(regs, RIN, Stage, sort = T) 
+
 ```
