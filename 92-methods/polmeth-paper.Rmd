@@ -15,7 +15,7 @@ always_allow_html: true
 keywords: hand-coding, text analysis, data science, dynamic data, regex table
 #wordcount: 11964
 output:
-    bookdown::word_document2: default
+    #bookdown::word_document2: default
     #pandoc("docs/polmeth-paper.tex", format = "docx")
     bookdown::pdf_document2:
       template: '../assets/article-template.tex' # redirect to assets 
@@ -81,6 +81,9 @@ coalitions_coded %<>% mutate(
 
 #FIXME us this in all org-level models
 comments_coded %<>% mutate(comments100k = coalition_comments/100000)
+
+# sheet range 
+sheet_n <- comments_coded %>% filter(source == "datasheet") %>% count(docket_id) %>% pull(n)
 
 # data for coalition-level models 
 mc_data <- coalitions_coded
@@ -177,7 +180,7 @@ A second key feature of google sheets is that they can be accessed and edited wi
 Finally, users can include hyperlinks in sheet cells. 
 Hyperlinks are easy to generate automatically and can helpfully point to needed documents. 
 
-For the task of coding comments on draft agency rules, I generated initial spreadsheets for each with between 1 and 737 comments. Where a rule received a small number of comments, the spreadsheet contained all comments on the rule. For rules with thousands or millions of comments, I selected key comments for hand coding as described in Section \@ref(select).
+For the task of coding comments on draft agency rules, I generated initial spreadsheets for each of the 200 rules in the sample. These initial sheets had between 1 and `r max(sheet_n)` comments. Where a rule received a small number of comments, the spreadsheet contained all comments on the rule. For rules with thousands or millions of comments, I selected key comments for hand coding as described in Section \@ref(select).
 
 > TODO: MORE ON SPREADSHEET STRUCTURE AND WORKFLOW. MAYBE A DIAGRAM?
 
@@ -189,25 +192,25 @@ For the task of coding comments on draft agency rules, I generated initial sprea
 knitr::include_graphics(here("docs", "figs", "datasheet.png"))
 ```
 
-A team of 15 coders worked in separate spreadsheets. For training and in order to assess intercoder reliablity, we initially coded the same comments on the same rules. Once calibrated, coders worked on separate rules. As information about organizations, coalitions, and policy demands was recorded, the google drive API allowed it to be pulled in and analyzed in real-time. 
+A team of 15 coders worked in separate spreadsheets. For training and in order to assess inter-coder reliability, we initially coded the same comments on the same rules. Once calibrated, coders worked on separate rules. When a coder began working on a new rule, they saved a version of the spreadsheet with their name at the end. As information about organizations, coalitions, and policy demands was recorded, the google drive API allowed it to be pulled in and analyzed in real-time. 
 
-One advantage of real-time analysis was the ability to systematically check for irregularities in coders' work. For example, when new data were coded on sheets, scripts measured the variance in the commenter positions and demands described in Section \@ref(success) helped assess the coherence of hand-coded coalitions.
+One advantage of real-time analysis was the ability to systematically check for irregularities in coders' work. The script pulling in data from Google Drive recorded coder names as a variable so that coding decisions could be traced back to the coder. For example, when new data were coded on sheets, scripts measured the variance in the commenter positions and policy demands described in Section \@ref(success) helped assess the coherence of hand-coded coalitions. Where coders grouped organizations into the same coalition but coded them as having very different policy positions, these coding decisions were flagged for review, allowing review and feedback in real time.^[For an example of a dashboard for reviewing coder decisions in real-time, including code to pull and merge data from google sheets see https://judgelord.github.io/correspondence/FERC/DOE_FERC-letter-coding.html]
 
 
-> TODO: MORE ON CODER CHECKS
+> TODO: MORE ON CODER CHECKS, INCLUDE EXAMPLE FROM DASHBOARD
 
-Additionally, the new information provided by coders allowed constant updates of algorithms that auto-coded organizations and coalitions, as described in Section \@ref(processing). Updated auto-coding automatically populated the google sheets, reducing the remaining work for coders. 
+Additionally, the new information provided by coders allowed constant updates of algorithms that auto-coded organizations and coalitions, as described in Section \@ref(processing). Updated auto-coding automatically re-populated the Google Sheets, reducing the remaining work for coders. 
 Similarly, information from ongoing coding improved the selection of informative comments, often reducing the number of remaining comments requiring coding, as described in section \@ref(select).
 
 > TODO: MORE ON CODER WORKFLOW
 
 # Ittereatve Processing
 
-The computational tasks discussed in this section are typically seen as "preprocessing" steps. In this section, I briefly describe several preprocessing steps but focus on steps that can often be done more iteratively. 
+Researchers typically see the computational tasks discussed in this section as "preprocessing" steps. In this section, I briefly describe several preprocessing steps but focus mainly on steps that can often be done more iteratively. 
 
 ## Preprocessing: digitizing, cleaning, and summarizing
 
-In many cases, using text data requires that we first extract it from pdf. BLA BLA BLA
+In many cases, using text data requires that we first extract it from pdf. In addition to enabling quantitative text analysis, wrangling text data into machine-readable plain text can help with certain coding tasks. Instead of typing out key features that coders are tasked with recording (e.g., named entities or key quotes), coders can copy and paste text from plain text documents. For example, coding the policy demands of commenters meant recording verbatim quotes from comment letters. Without providing plain text versions of the documents, this would require re-typing quotes wherever here original files were not machine-readable, making quotes vulnerable to human error. 
 
 Where documents are longer than a paragraph, hand-coding can often be sped up by providing a computer-generated summary of the document. Relevant summary information depends on the aim of hand-coding. 
 
@@ -215,17 +218,18 @@ For coding public comments, I provided two types of summary information, both us
 
 First, I provided a three-sentence summary of the document using the `textrank` software to identify the three sentences intended to be representative of the document.^[For more on textrank, code for applying it to comments, and comparison to hand-selected summaries, see: https://judgelord.github.io/rulemaking/textrank_comments]
 Indeed federal agencies and their consultants use this same software when creating their own summaries of comments. 
-Summarizing can be useful in several ways. For studying the impact of comments and pressure campaigns on agency rules, summaries of comments can provide codes with information about the commenter's position, the coalition they belong to, and potentially some of their most important policy demands. 
-Summaries of policy documents can also be helpful. Agency rules average over eighty pages and are full of dense technical jargon. A two-sentence summary of each section can help coders get oriented to the rule and speed up finding the appropriate section to examine in order to assess whether the requested changes to the rule were made^[For more on using `textrank` to summarize policy documents, and R code to do so for agency rules, see:  https://judgelord.github.io/rulemaking/textrank_summary]
+Summarizing can be useful in several ways. Because lobbying coalitions coordinate on talking points, it is often possible to code policy positions and coalition membership from a few sentences. Thus, for studying the impact of comments and pressure campaigns on agency rules, summaries of comments can provide codes with information about the commenter's position, the coalition they belong to, and potentially some of their most important policy demands. 
 
 Second, I selected sentences that contained phrases of substantive import. Specifically, I extracted any sentences that contained "climate change" or "environmental justice" and put them into spreadsheet columns. This aided coders in paying special attention to policy demands related to these issues. It was also necessary for coding tasks specific to these issues. For example, where policy demands related to environmental justice were present, the coders recorded additional information, including whether the environmental justice demands were about local or national issues and whether they were the organization's primary concern. 
+
+Finally, summaries of policy documents were also helpful. Agency rules average over eighty pages and are full of dense technical jargon. A two-sentence summary of each section of the rule can help coders get oriented to the content of the rule and speed up finding the appropriate section to examine in order to assess whether the requested changes to the rule were made.^[For more on using `textrank` to summarize policy documents, and R code to do so for agency rules, see https://judgelord.github.io/rulemaking/textrank_summary]
 
 
 ## Iterative entity tagging with dynamic regex tables
 
-Through an iterative process of computational text analysis and hand-coding, I attribute comments to the organizations, campaigns, and broader coalitions that mobilized them. 
-I thus attribute each comment to both the organization behind it (its author if submitted by the organization or the mobilizing organization for form letters) and the coalition to which that organization belonged. I also identify comments submitted by elected officials, with special attention to members of the U.S. Congress.
-This process involves using regular expressions to search comment texts and metadata for possible names. With a team of research assistants, I inspect a sample and link it or add it to a growing list of organizations known to comment. This corpus of known organizations is then included in the next text search. 
+Through an iterative process of computational text analysis and hand-coding, comments are linked to the organizations, campaigns, and broader coalitions that mobilize them. 
+I am thus able to attribute each comment to both the organization behind it (its author if submitted by the organization or the mobilizing organization for form letters) and the coalition to which that organization belonged. I also identify comments submitted by elected officials, with special attention to members of the U.S. Congress.
+This process involves using regular expressions to search comment texts and metadata for known entities. Known entities are entities for which we already have required information (either from prior coding or from an external source), such as the organization's type (non-profit, company, government, etc.). The organization behind each comment is identified and either linked or added to a growing list of organizations known to comment. This corpus of known organizations is then included in the next search. 
 
 With this approach, I identify the organizations responsible for over `r 40` million comments, including all organizations responsible for mobilizing 100 or more comments with repeated text--either identical or partially unique texts containing shared language.
 
@@ -296,7 +300,7 @@ As new organizations are added and new search patterns are added, regex tables g
 # Identifying Coalitions with Iterative N-gram Clustering and Hand-coding
 
 Because politics is organized combat [@Hacker2010], the proper unit of analysis for assessing the impact of lobbying and pressure campaigns is rarely the individual or individual organization. Instead, the proper unit of analysis is a lobbying coalition---a group of organizations advocating for the same policy changes in their comments on a draft rule. 
-Advocacy organizations work together on campaigns. For example, Save our Environment submitted both sophisticated comments and collected signatures from hundreds of thousands of people on several rulemaking dockets. Save our Environment is a small nonprofit with a simple WordPress website almost entirely dedicated to mobilizing public comments. It is run by The Partnership Project, a coalition of 20 of the largest environmental advocacy organizations in the United States, including the Sierra Club, Natural Resources Defense Council, Greenpeace, and the World Wildlife Fund, with the aim of "harnessing the power of the internet to increase public awareness and activism on today's most important environmental issues" [@Saveourenvironment]. Several Partnership Project members, including the Sierra Club, EarthJustice, and NRDC, also submitted technical comments and mobilized hundreds of thousands of their own supporters to comment separately on the same rules. These lobbying and mobilizing activities are not independent campaigns. These organizations and the people they mobilize are a coalition.
+Advocacy organizations work together on campaigns. For example, Save our Environment submitted both sophisticated comments and collected signatures from hundreds of thousands of people on several rulemaking dockets. Save our Environment is a small non-profit with a simple WordPress website almost entirely dedicated to mobilizing public comments. It is run by The Partnership Project, a coalition of 20 of the largest environmental advocacy organizations in the United States, including the Sierra Club, Natural Resources Defense Council, Greenpeace, and the World Wildlife Fund, with the aim of "harnessing the power of the internet to increase public awareness and activism on today's most important environmental issues" [@Saveourenvironment]. Several Partnership Project members, including the Sierra Club, EarthJustice, and NRDC, also submitted technical comments and mobilized hundreds of thousands of their own supporters to comment separately on the same rules. These lobbying and mobilizing activities are not independent campaigns. These organizations and the people they mobilize are a coalition.
 
 To mobilize broader support, advocacy organizations often engage smaller organizations, which, in turn, mobilize their members and supporters, often with logistical support and funding from the larger national organization. For example, for the same campaign where the Gulf Restoration Network mobilized hundreds of restaurants that serve sustainable seafood, one of their larger coalition partners, the Pew Charitable Trusts, mobilized thousands of individuals, including members of the New York Underwater Photography Society. These smaller organizations did not identify themselves as part of Pew's campaign, but their letters used almost identical language.
 
@@ -392,7 +396,7 @@ This census of form-letter comments allows me to make valid observations about p
 Next, I take two samples from the population of rules and initially select all comments that either indicate they are from an organization or submit comments as an attached file.^[nearly all minimally-serious organizations submit comments as file attachments rather than typing in the text box provided by regulations.gov] This approach captures nearly all comments that are not formletters or bot-generated comments.^Individual citizens rarely engage without being part of an organized campaign.]
 The first includes nearly all non-form letter comments on a random sample of 100 rules. A second sample includes nearly all non-form letter comments on another random sample of rules, weighted by the number of comments they received. These last two samples allow me to make inferences about lobbying coalitions that do and do not use public pressure campaigns.
 
-Second, I select outlier texts of high inferential values. Having auto-coded many organizations, I use organization metadata (including metadata created by iterative coding) to ensure that at least one comment from each type of organization is coded. Commenter types include nonprofits, businesses, elected officials, state governments, and tribal governments. Even if a regulated industry only submits one comment, this approach guarantees that it will be coded, thus enabling analysis of whose lobbying affects rules, even when the key texts might otherwise be lost in overwhelming volumes of text data.
+Second, I select outlier texts of high inferential values. Having auto-coded many organizations, I use organization metadata (including metadata created by iterative coding) to ensure that at least one comment from each type of organization is coded. Commenter types include non-profits, businesses, elected officials, state governments, and tribal governments. Even if a regulated industry only submits one comment, this approach guarantees that it will be coded, thus enabling analysis of whose lobbying affects rules, even when the key texts might otherwise be lost in overwhelming volumes of text data.
 Further, I screen documents for rare characteristics that indicate potentially important outlier observations. These include comments that are particularly long, sophisticated, from a known list of often influential organizations (e.g., the U.S. Chamber of Commerce or members of Congress), or that contain many file attachments (often scientific reports backing up their data.) A tiny percentage of public comments meet these criteria, but nearly all most influential comments meet these criteria. 
 Moreover, nearly all of the lead mobilizing groups---groups like Earthjustice and the Sierra Club---also submit long technical comments. Theoretically, the impact of any public pressure campaign should ultimately be observed in the impact of the technical comments of the mobilizers of public pressure. 
 
@@ -494,7 +498,7 @@ These coalitions include organizations that engage in sophisticated lobbying. In
 Table \@ref(tab:toporgs) shows the top organizers of comments posted to regulations.gov.
 The top ten organizations (`r top10$org_name %>% str_c(collapse = ", ")`) mobilized
 `r round(sum(top10$comments)/sum(d$number_of_comments_received), 2)*100` percent of comments on proposed rules posted to regulations.gov (`r sum(top10$comments)`).
-All of these top ten organizations have lawyers on staff that engage in sophisticated lobbying, and all ten lobby together in the same coalitions. Nine are closely aligned environmental groups. Earthjustice began as the Sierra Club Legal Defense Fund. Eight of these nine organizations (all but the Center for Biological Diversity) are members of the Partnership Project, a 501c3 nonprofit founded by 20 leading environmental groups with the aim of " creating a sum of citizen participation and advocacy greater than they could generate acting apart" [@Saveourenvironment]. CREDO Action is a generic progressive group often mobilized to amplify progressive public interest campaigns.
+All of these top ten organizations have lawyers on staff that engage in sophisticated lobbying, and all ten lobby together in the same coalitions. Nine are closely aligned environmental groups. Earthjustice began as the Sierra Club Legal Defense Fund. Eight of these nine organizations (all but the Center for Biological Diversity) are members of the Partnership Project, a 501c3 non-profit founded by 20 leading environmental groups with the aim of " creating a sum of citizen participation and advocacy greater than they could generate acting apart" [@Saveourenvironment]. CREDO Action is a generic progressive group often mobilized to amplify progressive public interest campaigns.
 The top 100 organizations mobilized
 `r round(sum(top100$comments)/sum(d$number_of_comments_received), 2)*100` percent of comments on proposed rules posted to regulations.gov (`r sum(top100$comments)`). Each mobilized between `r top100$comments[100]` and `r top100$comments[1]` comments.
 
@@ -850,6 +854,14 @@ scale_color_viridis_d(begin = .13, end = .75, option = "magma") +   scale_y_cont
 
 # Conclusion 
 
+Because hand-coding is costly, researchers often turn to unsupervised or machine learning methods to scale, cluster, or tag large text corpora. 
+In some cases, however, the methods outlined here may yield better results since they do not rely on probabilistic inferences. Instead, exact matching with text reuse and other features go a long way toward extending the power of a small hand-coded sample. 
 
+Because politics is organized and organizing power is often concentrated among a few key actors, researchers studying a particular policy fight (or set of policy fights) may be best served by using powerful text analysis tools to identify key actors and those associated with them. 
 
-> TODO
+This paper has focused on the advantages of iterative workflow using hand-coding and exact matching tools. Parallel workflows using iterative human coding and machine learning tools likely offer similar advantages, and future work should compare the relative strengths of different approaches to "human-in-the-loop" workflows. 
+
+Extending political science intuitions about the organizational nature of politics, a natural next step for studying lobbying coalitions is to integrate network analysis tools with exact matching. Public pressure campaigns are coordinated by a relatively small number of organizations that repeatedly lobby both with and without pressure campaigns. The tools reviewed in this paper help link organizations' advocacy behavior over time, even as they use different monikers and join different coalitions. Lobbying coalitions range from two organizations to hundreds.
+These data are flush with opportunities for network analysis using organizations as nodes and coalitions as edges, and the methods outlined above enable such research. Simple measures like node centrality may tell us a great deal about the structure of advocacy coalitions and how they change over time and across policy areas. 
+
+Finally, a major advantage of the iterative methods and workflow is that they are fairly simple tools that can be adopted piecemeal by researchers to increase the inferential power of hand-coding. Some of these methods---like a regex table to detect U.S. legislators---are already available in easy-to-use R packages that may help researchers easily sift through large corpora to identify key observations (e.g., those talking about legislators) or may save time by pre-populating data sheets with information that can be quickly collected by machines. The allocation of work between humans and machines will vary with every research project, but iteratively combining the strengths of each will almost always be the most efficient and powerful approach.
