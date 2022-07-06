@@ -76,7 +76,7 @@ d %>%
 # MASS
 mass_raw <- read_sheet_c("1uM69A3MjX4-kHJSP6b5EZ33VKoNjefue3BqXDgLu0cY")
 
-mass <- mass_raw %>% select(any_of(c("docket_id", "comment_url", "comment_type", 
+mass <- mass_raw %>% dplyr::select(any_of(c("docket_id", "comment_url", "comment_type", 
                                      "org_name", "org_name_short","org_type",
                                      "transparent", "coalition_comment", "coalition_type",	
                                      "position",	"position_certainty", #"success", 
@@ -244,10 +244,13 @@ d %<>%
               distinct())
 
 d %<>% mutate(number_of_comments_received = coalesce(number_of_comments_received, ncomments)) %>% 
-  select(-ncomments)
+  dplyr::select(-ncomments)
 
 # check, should be 0 now
 sum(is.na(d$number_of_comments_received))
+
+d %>% filter(is.na(d$number_of_comments_received)) %>% 
+  kablebox()
 
 # add dates
 d %<>% 
@@ -307,7 +310,7 @@ d %<>% add_count(document_id, name = "n_obs") %>%
 
 duplicates <- d %>% filter(n_obs>1) %>% 
   ungroup() %>% 
-  select(document_id, starts_with("org"), starts_with("coalition_"), source) %>%
+  dplyr::select(document_id, starts_with("org"), starts_with("coalition_"), source) %>%
   arrange(document_id)
 
 
@@ -323,7 +326,7 @@ d %>% ungroup() %>%
 missingness <- d %>%
   filter(!str_dct(comment_type, "individual"),
          is.na(position) |is.na(coalition_comment) | is.na(org_type))%>% 
-  select(document_id, comment_type, position, coalition_comment, org_name, org_type, success, source) %>%
+  dplyr::select(document_id, comment_type, position, coalition_comment, org_name, org_type, success, source) %>%
   distinct()
 
 # High priority to fix
@@ -333,7 +336,7 @@ missingness %>%
 
 d %>%
   filter(is.na(position) &is.na(coalition_comment) & is.na(success) & is.na(org_type)) %>% 
-  select(position, coalition_comment, success, org_type) %>%
+  dplyr::select(position, coalition_comment, success, org_type) %>%
   distinct() %>% 
   kablebox()
 
@@ -372,7 +375,7 @@ missing_position <- d %>%
 missing_position %>% 
   filter(source =="datasheet") %>% 
   ungroup() %>% 
-  select(document_id, comment_type, starts_with("org"), position) %>% kablebox()
+  dplyr::select(document_id, comment_type, starts_with("org"), position) %>% kablebox()
 
 
 
@@ -402,7 +405,7 @@ d %>%
   filter(is.na(success), coalition_comment != "FALSE", !is.na(coalition_comment)) %>% 
   kablebox()
 
-d %>% filter(str_dct( coalition_comment, "gulf")) %>% select(success)
+d %>% filter(str_dct( coalition_comment, "gulf")) %>% dplyr::select(success)
 
 # coalitions with positive and negative success
 d %>%
@@ -535,7 +538,7 @@ filter(comments_coded,
        comment_type == "org", 
        is.na(org_type) , source =="datasheet" # not from mass sheet
        ) %>% 
-  select(docket_id, comment_type, 
+  dplyr::select(docket_id, comment_type, 
          starts_with("org"), coalition_comment) %>% 
   kablebox()
 
@@ -599,7 +602,7 @@ comments_coded %>%
                          "") |
            str_dct(org_type, "^rep|^senator")
          ) %>% 
-  select(document_id, org_type) %>% 
+  dplyr::select(document_id, org_type) %>% 
   distinct() %>% 
   kablebox()
 
@@ -746,7 +749,7 @@ comments_coded %>% add_count(document_id, sort = T) %>%
   filter(n>1) %>% 
   kablebox()
 
-comments_coded %>% select(-comment_text)
+comments_coded %>% dplyr::select(-comment_text)
 
 comments_coded %>% group_by(document_id) %>% slice_head()
 
@@ -925,7 +928,7 @@ comments_coded %>% distinct(campaign_, comments, coalition)
 comments_coded %>% 
   filter(is.na(comments)|comments == "NA") %>% 
   filter(document_id %in% comments_min$id) %>% # check both ways
-  select(document_id, comment_url, org_name, coalition, comments, number_of_comments_received, campaign_, success)
+  dplyr::select(document_id, comment_url, org_name, coalition, comments, number_of_comments_received, campaign_, success)
 
 filter(coalitions_coded, coalition_comments < 0)
 filter(coalitions_coded, comments < 0)
@@ -935,7 +938,7 @@ coalitions_coded$comments
 #1 PRIORITY TO CODE!!!
 d %>% filter(number_of_comments_received>99 | comment_type == "mass", 
              source =="datasheet", 
-             is.na(coalition_comment)) %>% select(document_id, comments) %>%  kablebox()
+             is.na(coalition_comment)) %>% dplyr::select(document_id, comments) %>%  kablebox()
 
 # including mass
 d %>% filter(number_of_comments_received>99, 
@@ -964,5 +967,5 @@ comments_coded %>%
 
 comments_coded %>% filter(comment_type == "elected",
                           !str_dct(org_type, "senate|house|governor|official|attorney general|school|mayor|city|county|state|assembly|officer")) %>% 
-  select(comment_type, org_type, document_id) %>% 
+  dplyr::select(comment_type, org_type, document_id) %>% 
   kablebox()
