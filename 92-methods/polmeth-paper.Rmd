@@ -15,7 +15,7 @@ always_allow_html: true
 keywords: hand-coding, text analysis, data science, dynamic data, regex table
 #wordcount: 11964
 output:
-    #bookdown::word_document2: default
+    bookdown::word_document2: default
     #pandoc("docs/polmeth-paper.tex", format = "docx")
     bookdown::pdf_document2:
       template: '../assets/article-template.tex' # redirect to assets 
@@ -24,7 +24,7 @@ output:
       citation_package: natbib
       toc: true
       fig_caption: true
-abstract: "This paper describes methods for integrating human coding of texts with computational text analysis and preprocessing to increase the inferential power of hand-coding by several orders of magnitude. Computational text analysis tools can strategically select texts for human coders, including texts representing larger samples and outlier texts of high inferential value. Preprocessing documents can speed hand-coding by extracting key features like named entities. Moreover, hand-coding and text analysis tools are more powerful when combined in an interactive workflow. Applying this method to public comments on U.S. Federal Agency regulations, a hand-coded sample of 10,894 hand-coded comments yields equally valid inferences for over 41 million comments regarding the organizations that mobilized them and the extent to which policy changed in the direction they sought. This large sample of as-good-as-hand-coded documents enables new analyses of the relationships between lobbying coalitions, social movements, and policy change. For example, I find that public pressure to address climate change and environmental justice movements has large effects on policy documents, but a small number of national advocacy organizations dominate lobbying coalitions. When tribal governments or local groups lobby without the support of national advocacy groups, policymakers typically ignore them."
+abstract: "This paper describes methods for integrating human coding of texts with computational text analysis and preprocessing to increase the inferential power of hand-coding by several orders of magnitude. Computational text analysis tools can strategically select texts for human coders, including texts representing larger samples and outlier texts of high inferential value. Preprocessing documents can speed hand-coding by extracting key features like named entities and important sentences. Moreover, hand-coding and text analysis tools are more powerful when combined in an interactive workflow. Applying this method to public comments on U.S. Federal Agency regulations, a hand-coded sample of 10,894 hand-coded comments yields equally valid inferences for over 41 million comments regarding the organizations that mobilized them and the extent to which policy changed in the direction they sought. This large sample of as-good-as-hand-coded documents enables new analyses of the relationships between lobbying coalitions, social movements, and policy change. For example, I find that public pressure to address climate change and environmental justice movements had large effects on policy documents, but a small number of national advocacy organizations dominate lobbying coalitions. When tribal governments or local groups lobby without the support of national advocacy groups, policymakers typically ignore them."
 ---
 
 ```{r global.options, include=FALSE}
@@ -109,23 +109,21 @@ TODO
 
 ## Rulemaking Data
 
-Agency rules and regulations are where the rubber hits the road for both legislation and presidential agendas [@Yackee2009bush]. Ninety percent of U.S. law is now written by agencies rather than Congress [@West2013]. Legally binding regulations give specific meaning and force to legislation and presidential agendas. 
-The real impact of most new statutes and executive orders is largely unknown until the ink is dry on the agency rules and regulations that implement them.
+Ninety percent of U.S. law is now written by agencies rather than Congress [@West2013]. Legally binding agency rules give specific meaning and force to legislation and presidential agendas. 
+Thus, the real impact of most new statutes and executive orders is largely unknown until the ink is dry on the agency rules and regulations that implement them.
 
 As federal policymaking shifted toward the executive branch, so have interest group lobbying and public pressure campaigns. 
 While most federal agency policies receive little public attention, activists occasionally expand the scope of conflict by targeting agency policymaking with letter-writing campaigns, petitions, protests, and mobilizing people to attend hearings, all classic examples of "civic engagement" [@Verba1987].
 Yet, the relationship between the scale of public engagement and policy change remains untested. Indeed, we have much to understand about the causes and effects of public pressure campaigns before we are in a position to ask if they are a mechanism for groups to influence policy. Most critically, we must understand who mobilizes public pressure campaigns and why.
 
-
-To examine the relationship between public pressure campaigns and lobbying success, I collected a corpus of over 80 million public comments. 58 million of these comments are on rulemaking dockets. While most prior studies of public pressure campaigns targeting federal agencies focused on the Environmental Protection Agency, my sample of agency rules spans 60 agencies, allowing new insights into the scale and influence of public pressure across agencies. 
-
+To examine the relationship between public pressure campaigns and lobbying success, I collected a corpus of over 58 million public comments on proposed agency rules. While most prior studies of public pressure campaigns targeting federal agencies focused on the Environmental Protection Agency, my sample of agency rules spans 60 agencies, allowing new insights into the scale and influence of public pressure across agencies.^[The EPA provides more extensive metadata on public comments than most agencies, enabling studies that do not require working with text data.] 
 From 2005 to 2020, these 60 agencies posted 42,426 rulemaking dockets to regulations.gov for public comments. Only 816 of these rulemaking dockets were targeted by one or more public pressure campaigns, but this small share of rules garnered 99.07 percent (57,837,674) of all comments. Using text analysis tools to strategically select 10,894 comments for hand coding in an iterative process ultimately yields a new dataset of 41,342,776 as-good-as-hand-coded texts.
 
 
 ## Methods 
 
-First, I develop computational methods to identify lobbying coalitions through text reuse.
-I leverage an iterative process of computational text analysis and hand-coding to attribute comments to the organizations, campaigns, and broader coalitions that mobilized them. I first identify comments that share text. I find that a 10-word (10-gram) phrase repeated across more than a few comments is either text copied from the proposed policy or language inspired or provided by an organized campaign. Thus, for each comment text, I first remove all 10-word phrases that appear in the proposed rule (including the preamble and call for comments). Then, I identify all comments that share ten-word phrases with 99 or more other comments. Finally, I collapse these form letter comments into one representative document for hand-coding. Text reuse thus allows me to code one sample document that is valid for all commenters using the same form letter.
+
+I leverage an iterative process of computational text analysis and hand-coding to attribute comments to the organizations, campaigns, and broader coalitions that mobilized them. I first identify comments that share text. I find that a 10-word (10-gram) phrase repeated across more than a few comments is either text copied from the proposed rule or language provided by an organized campaign. Thus, for each comment text, I first remove all 10-word phrases that appear in the proposed rule (including the preamble and call for comments). Then, I identify all comments that share ten-word phrases with 99 or more other comments. Finally, I collapse these form letter comments into one representative document for hand-coding. Text reuse thus allows me to code one sample document that is valid for all commenters using the same form letter.
 
 Before and during hand-coding, I attempt to identify the organization(s) that submitted or mobilized each comment by extracting the names of organizations and elected officials from the text of each comment. For comments that do not include the name of an organization or elected official, human coders used an internet search on portions of the comment's text. This often identified the organization that provided the model letter text. As additional organizations were identified by hand, they were added to an entity extraction method based on regex tables, and model text linked to them was added to the clustering method. This was especially helpful for astroturf groups that provide model public comments while obscuring their identity. 
 I thus attribute each comment to both the organization behind it (its author if submitted by the organization or the mobilizing organization for form letters) and the lobbying coalition to which that organization belonged. 
@@ -156,29 +154,29 @@ These new data also allow me to assess the discursive effects of the climate and
 
 # Challenges and Opportunities in Studying Political Texts
 
-Studying political texts found in the wild presents several methodological challenges. Some of these challenges are shared by other kinds of texts, such as open-ended responses to questions, surveys, and lab experiments, but this paper mainly focuses on texts generated by real-world politics. 
+Studying political texts found in the wild presents several methodological challenges. Some of these challenges are shared by other kinds of texts, such as open-ended responses to questions in surveys and lab experiments, but this paper focuses on texts generated by real-world politics. 
 
-Unlike experimental contexts where the outcome is the difference in words or phrases used across treatment groups, differences in observational texts arise in systematic ways from the political process we aim to study. Open-ended survey responses often reflect rhetoric from media or political campaigns. Texts generated by political campaigns are even more directly linked. For example, letter-writing campaigns targeting government officials almost always provide talking points or letter templates; the processes generating political action simultaneously generate the text that government officials and political scientists observe. Likewise, social media posts and protest signs employ shared slogans and hashtags. Words represent ideas and issue frames by which campaigns aim to affect politics and policy. 
+Unlike experimental contexts where the outcome of interest is the difference in words or phrases used across treatment groups, differences in observational text data arise in systematic ways from the political process we aim to study. Open-ended survey responses often reflect rhetoric from media or political campaigns. Texts generated by political campaigns are even more directly linked. For example, letter-writing campaigns targeting government officials generally provide talking points or letter templates; the processes generating political action simultaneously generate the text that government officials and political scientists observe. Likewise, social media posts and protest signs employ shared slogans and hashtags. Words and phrases represent ideas and issue frames by which campaigns aim to affect politics and policy. Similarities and differences among texts can thus be used to identify organized efforts.
 
-At the same time, because texts are generated in rich political contexts, much is often left unsaid. Slogans, hashtags, vague policy demands, and even petitions often have much more politically-relevant meaning in light of the policy fight for which they were generated. Moreover, individuals may not even be aware of the implicit demands of their words. Respondents may demand that government "act on climate," but whether these words mean regulating power plants, tax credits for electric cars, or using the Defense Production Act to require firms to manufacture heat pumps depends on the political context in which those words were deployed. 
+At the same time, because texts are generated in rich political contexts, much is often left unsaid. Slogans, hashtags, vague policy demands, and even petitions often have much more politically-relevant meaning in light of the policy fight for which they were generated. Individual participants may not even be aware of the implicit policy proposals advanced by their words. For example, depending on the political context, people demanding that the government "act on climate" may mean regulating power plants, tax credits for electric cars, or using the Defense Production Act to require firms to manufacture heat pumps. Individual participants in a pressure campaign might not even know what specific policy changes they are helping to advance. This does not mean that the organization behind the campaign does not have specific policy demands they hope to achieve by mobilizing the mass public around a slogan. It is thus essential to study the policy impact of texts like tweets and public comments in the context of the broader campaign to which they belong.  
 
 <!--Many solutions to the challenges of non-independence, implicit meaning,  --> 
 
-Any study of political texts must be informed by the key observation that politics is organized. Generally, people need to be mobilized to engage in politics.
+Any study of political texts in the wild must be informed by the key observation that politics is organized. Generally, people need to be mobilized to engage in politics. 
 
 > TODO: HOW THE ORGANIZATIONAL BASIS OF POLITICS SHAPES HOW WE MUST ANALYZE POLITICAL TEXTS
 
 
 # Hand-coding Dynamic Data
 
-Before reviewing specific tools and methods, I briefly address the broader data management system that makes iterative hand-coding and computational text analysis feasible in a team setting. 
-If working alone, a researcher may take an iterative approach without little additional infrastructure. One can generate a document to hand-code, code it, re-run the automated tools, and generate a second document. However, the logistics of a team setting require that computational work and hand-coding happen more or less simultaneously. It is inefficient to distribute one document at a time to coders and make them wait until all coders are done with the first document to re-run the automated tools. 
+Before reviewing specific tools and methods, I briefly address the broader data management systems that make iterative hand-coding and computational text analysis feasible in a team setting. 
+If working alone, a researcher may take an iterative approach with little additional infrastructure. One can use computational tools to select and preprocess a document to hand-code, code it, update the selection and preprocessing algorithms, and generate a second document. However, the logistics of a team setting require that computational work and hand-coding happen more or less simultaneously. It is inefficient to distribute one document at a time to coders and make them wait until all coders are done coding their first document to update and re-run the automated tools. 
 
-Here, I focus on a workflow using Google Sheets and Drive, but a similar workflow could be achieved with other, similar software. 
-A key feature of google sheets is that edits are visible to all users simultaneously. There is no need to send updated documents; all team members always have access to the most current version of the data. 
-A second key feature of google sheets is that they can be accessed and edited with the `googlesheets4` R package. A single R script can pull in updates to the data, use hand-coded data to update algorithms (more on this below), generate a computationally improved version of the data, and immediately update the sheet the hand-coder sees with the improved data. 
-Finally, users can include hyperlinks in sheet cells. 
-Hyperlinks are easy to generate automatically and can helpfully point to needed documents. 
+Here, I focus on a workflow using GoogleSheets and Drive, but a similar workflow could be achieved with other cloud servers and software. 
+A key feature of GoogleSheets is that edits are visible to all users simultaneously. There is no need to send updated documents; all team members always have access to the most current version of the data. 
+A second key feature of GoogleSheets is that they can be edited with the `googlesheets4` R package. An R script can pull in updates to the data, use hand-coded data to update algorithms (more on this below), generate a computationally improved version of the data, and immediately update the sheet that the hand-coder sees with the improved data. 
+Third, spreadsheets conveniently organize a large amount of metadata generated by computational text tools that may be useful for human coders. 
+Metadata can include hyperlinks. Hyperlinks are easy to generate automatically and can helpfully point to multiple documents on a server. For example, one column of hyperlinks may point to the locations of the original PDF documents on google drive (or any other server), and a second column may point to files with the plain text extracted. 
 
 For the task of coding comments on draft agency rules, I generated initial spreadsheets for each of the 200 rules in the sample. These initial sheets had between 1 and `r max(sheet_n)` comments. Where a rule received a small number of comments, the spreadsheet contained all comments on the rule. For rules with thousands or millions of comments, I selected key comments for hand coding as described in Section \@ref(select).
 
@@ -194,15 +192,15 @@ knitr::include_graphics(here("docs", "figs", "datasheet.png"))
 
 A team of 15 coders worked in separate spreadsheets. For training and in order to assess inter-coder reliability, we initially coded the same comments on the same rules. Once calibrated, coders worked on separate rules. When a coder began working on a new rule, they saved a version of the spreadsheet with their name at the end. As information about organizations, coalitions, and policy demands was recorded, the google drive API allowed it to be pulled in and analyzed in real-time. 
 
-One advantage of real-time analysis was the ability to systematically check for irregularities in coders' work. The script pulling in data from Google Drive recorded coder names as a variable so that coding decisions could be traced back to the coder. For example, when new data were coded on sheets, scripts measured the variance in the commenter positions and policy demands described in Section \@ref(success) helped assess the coherence of hand-coded coalitions. Where coders grouped organizations into the same coalition but coded them as having very different policy positions, these coding decisions were flagged for review, allowing review and feedback in real time.^[For an example of a dashboard for reviewing coder decisions in real-time, including code to pull and merge data from google sheets see https://judgelord.github.io/correspondence/FERC/DOE_FERC-letter-coding.html]
+In addition to dynamically improving the data being coded, real-time analysis enabled a series of systematic checks for irregularities in coders' work. The script pulling in data from Google Drive recorded coder names as a variable so that coding decisions could be traced back to the coder. For example, when new data were coded on sheets, scripts measured the variance in the commenter positions and policy demands described in Section \@ref(success) helped assess the coherence of hand-coded coalitions. Where coders grouped organizations into the same coalition but coded them as having very different policy positions, these coding decisions were flagged for review, allowing review and feedback in real time.^[For an example of a dashboard for reviewing coder decisions in real-time, including code to pull and merge data from GoogleSheets see https://judgelord.github.io/correspondence/FERC/DOE_FERC-letter-coding.html]
+For example, Figure \@ref(fig:greyhound) shows a suspicious coalition lobbying on the IRS internet gamboling rules that was flagged because one of its members was coded as having been mostly successful while the others were coded as not having their demands met. All coalition members used similar language, requesting that IRS clarify that certain practices were exempt from the regulation. However, while all organizations discussed dog racing, one organization asked that the agency state that "pari-mutuel wagering" was except, which the IRS did, while the others requested that the IRS state that dog racing was exempt, which the IRS did not. Despite the texts being similar, the key phrase--*what* it was that commenters sought exemption for---differed. The commenter requesting an exemption for pari-mutuel wagering was then put into a different lobbying coalition. 
 
+```{r greyhound, fig.cap= "Incorrectly Labeled Coaltion Identified by Automated Check"}
+knitr::include_graphics(here("figs", "greyhound.png"))
+```
 
-> TODO: MORE ON CODER CHECKS, INCLUDE EXAMPLE FROM DASHBOARD
-
-Additionally, the new information provided by coders allowed constant updates of algorithms that auto-coded organizations and coalitions, as described in Section \@ref(processing). Updated auto-coding automatically re-populated the Google Sheets, reducing the remaining work for coders. 
-Similarly, information from ongoing coding improved the selection of informative comments, often reducing the number of remaining comments requiring coding, as described in section \@ref(select).
-
-> TODO: MORE ON CODER WORKFLOW
+Additionally, the new information provided by coders allowed constant updates of algorithms that auto-coded organizations and coalitions, as described in Section \@ref(processing). Updated auto-coding automatically re-populated the GoogleSheets, reducing the remaining work for coders. 
+Similarly, information from ongoing coding improved the selection of informative comments, often reducing the number of remaining comments requiring coding, as described in Section \@ref(select).
 
 # Ittereatve Processing
 
@@ -251,7 +249,7 @@ read_csv() |>
   kable3(caption = "Regex Table Created from Center For Responsive Politics Data", full_width = T) 
 ```
 
-The `legislators` R package uses regex tables to identify U.S. legislators in text using various common permutations of legislator names (e.g., "Elizabeth Warren, Senator Warren|Warren, Elizabeth). As users provided nicknames, this package expands the regex pattern (e.g., "Liz Warren"). Table \@ref(tab:legislators) shows a regex table for members of the 117th Congress named Elizabeth. The `legislators` package contains a second regex table of common typos, for example, those introduced by ORC (e.g., Senator Varren") that can be used to replace strings as a preprocessing step that increases the number of legislators successfully matched by the main regex table. Table \@ref(tab:typos) shows a regex table for common typos or OCR-introduced errors for legislators named Elizabeth. Note that the misspelling "Elezabeth" is replaced by "Elizabeth" any time it appears in the provided text, potentially increasing matches for both members of Congress named Elizabeth.
+The `legislators` R package uses regex tables to identify U.S. legislators in text using various common permutations of legislator names (e.g., "Elizabeth Warren, Senator Warren, or Warren, Elizabeth). As users provided nicknames, this package expands the regex pattern (e.g., "Liz Warren"). Table \@ref(tab:legislators) shows a regex table for members of the 117th Congress named Elizabeth. The `legislators` package contains a second regex table of common typos, for example, those introduced by ORC (e.g., "Senator Varren") that can be used to replace strings as a preprocessing step that increases the number of legislators successfully matched by the main regex table. Table \@ref(tab:typos) shows a regex table for common typos or OCR-introduced errors for legislators named Elizabeth. Note that the misspelling "Elezabeth" is replaced by "Elizabeth" any time it appears in the provided text, potentially increasing matches for both legislators named Elizabeth.
 
 ```{r legislators}
 library(legislators)
@@ -259,14 +257,14 @@ library(legislators)
 members |> 
   filter(first_name == "Elizabeth", congress == 117) |> 
   select(bioname, pattern) |> 
-  kable3(caption = 'Regex Table from the `legislators` R Packages, Legislators Named Elizabeth in the 117th Congress', full_width = T)
+  kable3(caption = 'Regex Table from the legislators R Packages, Legislators Named Elizabeth in the 117th Congress', full_width = T)
 ```
 
 
 ```{r typos}
 typos |> 
   filter(str_detect(correct, "elizabeth")) |> 
-  kable3(caption = "Regex Table of Typos from the `legislators` R Packages, Legislators Named Elizabeth")
+  kable3(caption = "Regex Table of Typos from the legislators R Packages, Legislators Named Elizabeth")
 ```
 
 Initial regex tables can be developed inductively and deductively. 
@@ -291,11 +289,6 @@ For comments that do not include the name of an organization or elected official
 Hand coders identified many organizations and variations of organization names that were not in the top 100 most frequent commenters or one of the existing databases.
 As additional organizations were identified by hand, they were added to the regex tables. 
 As new organizations are added and new search patterns are added, regex tables grow. To the extent that the new organizations and patterns match yet-uncoded observations, the share of documents matching a known organization also grows. For documents selected for hand-coding, this means one less step. Once a coder has identified an alias, all observations they encounter in the future will have the correct organization tagged (i.e., the correct organization will already be filled in the spreadsheet). 
-
-
-
-
-
 
 # Identifying Coalitions with Iterative N-gram Clustering and Hand-coding
 
@@ -325,7 +318,7 @@ Probabilistic clustering methods---especially unsupervised methods like k-means 
 
 To identify coalitions in rulemaking, I start with an approach that relies on text reuse. Text reuse is a much more robust indicator of a connection between documents than, for example, word frequencies. Long strings of words appearing in the same order are unlikely to appear by chance. 
 
-### Collapsing form letters with text reuse
+## Collapsing form letters with text reuse
 
 I first identify comments that share text. I find that a 10-word ("10-gram") phrase repeated across more than a few comments is either text copied from the proposed policy or language inspired or provided by an organized campaign. Thus, for each comment text, I first remove all 10-word phrases that appear in the proposed rule (including the preamble and call for comments). Then, I identify all comments that share ten-word phrases with 99 or more other comments. Finally, I collapse these form letter comments into one representative document for hand-coding. Text reuse thus allows me to code one sample document that is valid for all commenters using the same form letter.
 
@@ -354,18 +347,7 @@ More importantly, n-gram matching is generally more inclusive of text that has b
 The aim, in this case, is simply to identify texts that cross a minimum threshold of association that is unlikely to occur by chance. 10-gram text reuse is well-suited to this task. 
 
 
-
-
-
-
-### Hand-coded coalitions and key demands
-
-
-
-
-
-
-
+## Hand-coded coalitions and key demands
 
 <!-- #### Differences with Prior Studies
 not the same as Balla et al.-->
@@ -377,7 +359,8 @@ In contrast, my methods allow me to measure levels of public pressure and lobbyi
 
 The second major difference between my approach and previous research is that I do not compare policymakers' responses to sophisticated comments to policymakers' responses to mass comments. Rather, I *attribute* mass comments to organizations and coalitions that also submit sophisticated technical comments. The set of comparisons one makes is critical to any study of responsiveness or policy influence. Researchers may reach different conclusions if they compare different things. Consider a study comparing how agencies respond to Sierra Club form letters to how they respond to the Sierra Club's sophisticated comments. Now consider a study that compares responsiveness to the Sierra Club's sophisticated comments between rules where they did and did not run a mass comment campaign. A study comparing the average influence of form-letter comments to the average influence of sophisticated comments is very different from a study that compares the influence of two sets of sophisticated comments with different *levels* of public pressure behind them. Where previous studies take the former approach, I take the latter. 
 
-### Iteratively adding coalition members with text reuse
+
+## Iteratively adding coalition members with text reuse
 
 As hand-coders added strings representing key policy demands, these bits of text provided an additional way to computationally identify coalitions. Because even sophisticated organizations collaborate on talking points and key policy demands, comments that shared these strings indicated a lobbying coalition. All other comments sharing these policy asks were thus automatically added to the coalition. This was especially helpful for astroturf groups that provide model public comments while obscuring their identities, especially the fact that they are centrally organized by the same lobbying firm.
 
@@ -387,7 +370,6 @@ As hand-coders added strings representing key policy demands, these bits of text
 Beyond speeding up the process of identifying organizations and coalitions, the mix of hand-coding and computational methods described above enables a sampling approach that can provide much greater leverage than a random sample. When confronted with more observations than can reasonably be hand-coded, researchers often opt for a random sample with the intent that their conclusions will be representative. A random sample may miss important but sparse observations in many populations, especially populations heavily skewed to one side on a key dimension. For example, public interest groups frequently mobilize thousands of public comments while the major regulated industry only submits one. A random sample of comments on the Trump Administration's Affordable Clean Energy Rule, for example, would almost be guaranteed to be 100% form-letter comments from environmentalists. This is deceptive in two ways. First, one might conclude that the environmentalists generally lacked sophisticated policy demands unless one drew one of the few comments from environmental lawyers. Second, unless one happens to draw the single comment from the American Petroleum Institute or a handful of other industry groups, one might erroneously conclude that regulated industry was absent. In fact, the regulated industry was much more successful in having their demands met than the environmental groups. 
 
 Instead of a purely random sample, I seek samples representing key dimensions of variation in two ways: representative texts and key outlier texts. I select several samples of comments for hand-coding. 
-
 
 One sample contains at least one comment from each group of 100 or more similar comments. As discussed above, I use text reuse to identify coalitions and select only one representative document for hand-coding. Because 99% of comments are form letters, collapsing from letters alone reduces the data by two orders of magnitude. 
 When the same organization mobilizes around more than one form letter, we can further collapse these form letters campaigns. 
@@ -400,13 +382,11 @@ Second, I select outlier texts of high inferential values. Having auto-coded man
 Further, I screen documents for rare characteristics that indicate potentially important outlier observations. These include comments that are particularly long, sophisticated, from a known list of often influential organizations (e.g., the U.S. Chamber of Commerce or members of Congress), or that contain many file attachments (often scientific reports backing up their data.) A tiny percentage of public comments meet these criteria, but nearly all most influential comments meet these criteria. 
 Moreover, nearly all of the lead mobilizing groups---groups like Earthjustice and the Sierra Club---also submit long technical comments. Theoretically, the impact of any public pressure campaign should ultimately be observed in the impact of the technical comments of the mobilizers of public pressure. 
 
-
 Rarely are there more than a hundred sophisticated comments on a given rule, even rules that receive over a million comments. Thus, the combined effect of employing these methods is to reduce the number of comments by up to four orders of magnitude on the most challenging rules (from one million to one hundred). 
 
 As more comments on a rule are hand-coded, the number of comments selected for coding changes often decreases.
 
 I then identify the main substantive comment submitted by each organization's staff or lawyers, which are usually much longer than supporting comments like form letters.
-
 
 
 # Inferring Lobbying Success From the Success of Others in a Coalition {#success}
@@ -415,7 +395,9 @@ Comments selected for hand-coding are coded for their level of lobbying success.
 
 The innovation in my approach is to use text reuse to automatically identify common policy demands across comments. Coders copy the text of the top three policy asks into three spreadsheet columns. I then search the text of all uncoded comments for these text strings. Where these text strings appear, I know that the commenter made the same policy demand, which necessarily had the same level of lobbying success, and likely belongs to the same lobbying coalition. Unless the other comments containing the same ask are of particularly high inferential value, as-good-as hand-coded coalition membership and lobbying success means that the additional comments containing the same policy ask no longer need to be coded by hand. 
 
-When coders code the extent to which a policy demand was met. 
+<!--TODO 
+When coders code the extent to which a policy demand was met....
+--> 
 
 ## Coding commenter demands 
 
@@ -721,7 +703,7 @@ Finally, to better capture positions expressed by Members of Congress on propose
 -->
 
 
-#### Comments from Legislators
+### Comments from Legislators Correlate with Public Pressure
 
 One mechanism by which campaigns may influence policy is by mobilizing members of Congress. Thus, I count the number of legislators in each lobbying coalition. Figure \@ref(fig:data-congress) shows the number of comments from members of Congress received during rulemaking by a sample of federal agencies. There is massive variation in the level of attention that members of Congress pay to different agencies and rules. The spikes in attention to each agency correspond with public pressure campaigns targeting rules from that agency. Oversight letters are frequently co-signed by multiple members from the Senate, House, or both chambers. Some of the rules on which members of Congress commented appear in the hand-coded sample. Table \@ref(tab:data-coded-elected) shows the number of comments from the most common types of elected officials in the hand-coded data. Members of the U.S. House and Senate are the most common. 
 
@@ -781,7 +763,7 @@ comments_coded %>%
   kable3(caption = "Comments from Elected Officials in the Hand-coded Data")
 ```
 
-#### The Dependent Variable: Lobbying Success
+### The Dependent Variable: Lobbying Success
 
 The dependent variable is the extent to which a lobbying coalition got the policy outcome it sought, which I measure in several ways.
 
@@ -818,7 +800,7 @@ Third, I capture a broader dimension of lobbying success by modeling the similar
 To assess the performance of these automated methods (text-reuse and word-frequency similarity), I calculate the correlation between these scores and my hand-coded 5-point scale for rules in the hand-coded sample where a final rule was published. 
 -->
 
-#### The Main Predictor Variable
+### Coalition size and coalition success
 
 The number of supportive comments generated by a public pressure campaign (the main variable of interest) is a tally of all comments mobilized by each organization or coalition that ran a mass-comment campaign on a proposed rule. Because the marginal impact of additional comments likely diminishes, models typically include either the logged number of comments or a quadratic term to account for non-linear effects. If a coalition mobilizes more than 99 form-letter comments on a proposed rule, I code that coalition as having a mass comment campaign (*campaign* = 1). Where a coalition only submits technical comments from lawyers and does not mobilize public support, the binary measure, *campaign*, and the numeric measure, *mass comments*, are 0.
 
@@ -851,7 +833,6 @@ scale_color_viridis_d(begin = .13, end = .75, option = "magma") +   scale_y_cont
 ```
 
 
-
 # Conclusion 
 
 Because hand-coding is costly, researchers often turn to unsupervised or machine learning methods to scale, cluster, or tag large text corpora. 
@@ -865,3 +846,18 @@ Extending political science intuitions about the organizational nature of politi
 These data are flush with opportunities for network analysis using organizations as nodes and coalitions as edges, and the methods outlined above enable such research. Simple measures like node centrality may tell us a great deal about the structure of advocacy coalitions and how they change over time and across policy areas. 
 
 Finally, a major advantage of the iterative methods and workflow is that they are fairly simple tools that can be adopted piecemeal by researchers to increase the inferential power of hand-coding. Some of these methods---like a regex table to detect U.S. legislators---are already available in easy-to-use R packages that may help researchers easily sift through large corpora to identify key observations (e.g., those talking about legislators) or may save time by pre-populating data sheets with information that can be quickly collected by machines. The allocation of work between humans and machines will vary with every research project, but iteratively combining the strengths of each will almost always be the most efficient and powerful approach.
+
+
+# Appendix {-}
+
+Figures \@ref(fig:check-company) and \@ref(fig:check-backslashes) illustrate some advantages of real-time analysis of hand-coded data. Figures \@ref(fig:check-company) show an example of how one might inspect overall patterns among coders. In this example, how many letters to the Federal Energy Regulatory Commission referenced a specific company. Figure \@ref(fig:check-backslashes) shows a more mundane but essential quality check---looking for cases where coders used incorrect special symbols. Project-specific checks like this can be assembled into a dashboard to track and inspect hand-coding progress.^[An example dashboard is available here: https://judgelord.github.io/correspondence/FERC/DOE_FERC-letter-coding.html]
+
+```{r check-company, fig.cap= "Checking for Disparities Among Coders in Real Time", fig.height=4, fig.width=5.5}
+include_graphics(here("figs", "check_company.png"))
+```
+
+```{r check-backsashes, fig.cap= "Checking for Incorrect Coding in Real Time", fig.height=4, fig.width=5.5}
+include_graphics(here("figs", "check_backslashes.png"))
+```
+
+
