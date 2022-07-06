@@ -60,7 +60,7 @@ Principal-agent models, where political actors use various rewards and sanctions
 While early principal-agent scholarship focused on either Congress or the president [@Wildavsky1964; @Niskanen1975], newer models of bureaucratic policymaking recognize that agency actions are simultaneously constrained by multiple other branches of government [@Moe1985; @Potter2016]. Models of political oversight also now appreciate the role of interest groups in shaping interactions among branches [@McCubbins1984; @McCubbins1987]. I take up the role of interest groups in congressional oversight of bureaucratic policymaking in Section \@ref(oversight-theory).
 
 <!-- PRESIDENT --> 
-#### The President
+#### The President's Role in Rulemaking
 
 Agency rulemaking is where the rubber hits the road for both legislation and presidential agendas [Huber2002; @Devins2008; @Yackee2009bush; @Kerwin2018].
 While Congress intentionally designs agencies with varying levels of presidential control [@Lewis2014; @Selin2015], presidential agendas are one of the main drivers of bureaucratic policymaking [@Clinton2014AJPS]. 
@@ -69,7 +69,7 @@ Indeed, bureaucratic policymaking varies even more from president to president t
 Presidents---working through the White House Office of Information and Regulatory Affairs (OIRA)---review agency policies and often direct agencies to modify proposed policies [@Haeder2018]. While scholarly attention to OIRA has focused on cost-benefit analysis, @Shapiro2005ELR finds that the president's political priorities tend to trump cost-benefit analysis. OIRA review of agency policies is thus another way that political forces, including interest groups, affect agency rules [@Haeder2015]. To the extent that public pressure campaigns draw the attention of the White House to agency rulemaking, they may affect OIRA review as well. While I do not explicitly address the role of OIRA in rulemaking in this dissertation, my argument that pressure campaigns expand the scope of conflict includes the involvement of additional actors, including the president and OIRA. 
 
 <!--CONGRESS-->
-#### Congress
+#### Congress's Role in Rulemaking
 
 After the president's policy agenda, partisan control of Congress is one of the most important political constraints [@Yackee2009RegGov], especially when Congress is making policy [@West2013] or when agencies fear that a hostile Congress will override their policy decisions [@Potter2016]. Under a divided government, Congress tends to empower agencies that are more independent from the president [@Epstein1999]. We may think of agency policymaking as consistently affected by presidential agendas, with Congress providing shocks and constraints. 
 
@@ -78,7 +78,7 @@ The priorities and attention of Congress and the president affect the volume of 
 While Congress is often modeled as a unitary actor, either enabling or constraining presidential agendas, individual members of Congress also engage the bureaucracy independently [@Lowande2017]. For example, legislators engage in bureaucratic policymaking when they are unable to advance their priorities through legislation due to partisan pressures and chamber control [@Ritchie2017]. Congressional attention to the bureaucracy is also driven by the constituents they represent [@LowandeRitchieLauterbach2018;@Snyder2020], their campaign donors [@Powell2020], and the capacity of their office---for example, oversight committee positions and staff resources [@Judge-Lord2018APSA]. When they do engage in bureaucratic policymaking, legislators often use the highly institutionalized nature of agency rulemaking to their advantage by raising process concerns about agency policies they dislike [@Lowande2021]. I build on this literature in Section \@ref(oversight-theory) and show that members of Congress engage in bureaucratic policymaking because they are mobilized by public pressure campaigns. Moreover, I show that the lobbying coalitions that members of Congress support are more likely to achieve their desired policy outcomes. 
 
 <!-- COURTS -->
-#### Courts
+#### Judicial Review of Agency Rules
 
 Courts arbitrate between congressional and presidential control by reviewing bureaucratic policy for congressional intent and adding additional procedural requirements to policymaking [@BuenodeMesquita2007]. Because statutes often give interest groups standing to take agency policies to court, judicial review is also a lever for interest group influence. Unlike lawsuits challenging the constitutionality of a statute passed by Congress, lawsuits challenging agency policies often accuse the agency of failing to meet procedural requirements. 
 
@@ -89,7 +89,7 @@ While judges may often uphold or strike down agency policies based on their ideo
 The features that shape bureaucratic policymaking---attention from political principals, the weight of expertise, and levels of public participation---may shape judicial review as well. 
 In addition to accountability and expertise, the level and type of public participation are important criteria for legitimacy from pluralist and direct democracy perspectives [@Woods2013]. In these perspectives, the type of groups or the number of individuals participating in bureaucratic policy may affect the perceived legitimacy of policies. Justices may respond to cues that reflect the relative support of the public or of those affected by the policy [@Clark2009]. While there is little evidence that judges are persuaded by (or even know) the share of public comments supporting a rule, there is evidence that bureaucratic policies with more public participation are more likely to be upheld [@judgelord2016MPSA]. If levels of public attention and participation affect judicial review, we would expect them to also affect the politics of bureaucratic policymaking in the shadow of judicial review. 
 
-This subsection has focused on accountability to political principals. The next subsection reviews the importance of expertise, and, of course, my project squarely addresses who participated. 
+I now turn from accountability to political principals to the importance of expertise who participates in rulemaking. 
 
 
 ### The Institutional Context of Bureaucratic Policymaking

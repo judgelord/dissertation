@@ -21,7 +21,7 @@ Our vision remains simple: Deliver a seamless, powerful platform that lets you i
 We strive every day to honor our commitment to the 2,400 associations, nonprofits, and corporations who rely on us." [@VoterVoice].
 
 
-Finally, there are a large number of front groups for corporate lobbying campaigns, many of which are run by government relations firms under multi-year contracts from industry associations. For example,  I discuss Energy Citizens in \@ref(why-data). 
+Relatedly, there are a large number of front groups for corporate lobbying campaigns, many of which are run by government relations firms under multi-year contracts from industry associations. For example,  I discuss the Energy Citizens and Energy Nation front groups for the American Petroleum Institute in \@ref(why-data). 
 
 The constellation of nonprofit and for-profit advocacy tools that different organizations use provides a distinct layer of nodes and edges (in addition to the policies on which they are lobbying and the coalitions they lobby with). For example, many of the national progressive advocacy organizations seemed to pay less attention to some issues  (e.g., immigration) than others (e.g., climate change). The result was that immigrant advocates more often generated comments through change.org petitions rather than the nonprofit social aggregators that other progressive causes tended to use. These patterns of lobbying, mobilizing, and organizing behavior offer rich information about evolving issue structures and political alliances. 
 
@@ -32,8 +32,9 @@ Members of Congress engage in agency policymaking in a variety of ways, only som
 
 ### Endogeneity
 
-Assessing the impact of pressure campaigns is difficult because an organization's decision is endogenous to the organization's perceived probability of success and correlated with other factors we care about (for example, whether the organization is a business or nonprofit).
-Future research might disentangle different motivations for launching campaigns by measuring the amount of effort that organizations put into sophisticated lobbying. While different types of organizations have different capacities for sophisticated lobbying (e.g., the ability to hire lawyers and scientists), organizations also vary in the amount of effort they put into such lobbying. Small investments in sophisticated lobbying relative to the scale of public organizing may indicate that the organization was mobilizing supporters for reasons other than affecting policy. (It could also indicate that the organization perceives the policy fight to be more political than technical). This approach does not fully address the problem that lobbying behavior depends on the expected probability of success, but it may at least capture the extreme cases where organizations mobilize primarily for reasons other than influencing the policy at hand. 
+Assessing the impact of pressure campaigns is difficult because an organization's decision is endogenous to their perceived probability of success and correlated with other factors we care about (for example, whether the organization is a business or nonprofit).
+Future research might disentangle different motivations for launching campaigns by measuring the amount of effort that organizations put into sophisticated lobbying. While different types of organizations have different capacities for sophisticated lobbying (e.g., the ability to hire lawyers and scientists), organizations also vary in the amount of effort they put into such lobbying. <!--cite finreg-->
+Small investments in sophisticated lobbying relative to the scale of public organizing may indicate that the organization was mobilizing supporters for reasons other than affecting policy. (It could also indicate that the organization perceives the policy fight to be more political than technical). This approach does not fully address the problem that lobbying behavior depends on the expected probability of success, but it may at least capture the extreme cases where organizations mobilize primarily for reasons other than influencing the policy at hand. 
 
 ### Mechanisms of Influence
 
