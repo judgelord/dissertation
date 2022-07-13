@@ -43,8 +43,6 @@ knitr::opts_chunk$set(cache = FALSE)
 book = FALSE
 ```
 
-
-
 ```{r influence-data}
 #source("code", "setup.R")
 load(here::here("data", "rules.Rdata"))
@@ -99,9 +97,23 @@ source(here::here("code", "coef_map.R"))
 ```
 
 
-
 # Introduction 
 
+
+
+The workflow I describe is designed for cases where we observe a large number of texts aimed at influencing policy. That is, it will be useful when researchers aim to answer the question: who demands what, how, and when? Characterizing policy demands is a first step in assessing the impact of political efforts. To assess the impact  both what people and groups demanded and who got what.   
+
+if you can read all of it, you should read all of it. this is for when you can't
+
+- amicus briefs 
+- city council meetings (cite expierment)
+- hearings (cite Margaret)
+- talking points in speeches (harder case because not attached to organizations)
+
+If we know that 100 other documnts make the same claim, we don't need to read it. not outsourcing qualitaitve judgements about text. 
+
+Because a large number of texts almost certianly indicates one or more organized campaigns, three features are key: First: which group, organization, or campaign is each text associated with? Second, what does it ask policymakers to do? Finally, how did policymakers respond these demands? 
+The workflow I describe helps answer these questions. I pay special attention to the first: linking individual texts to orgnazations and broader campaigns---because once accomplished, this allows us to use information collected about the policy demands and lobbying success in one text to others. 
 
 ## Why an iterative workflow? 
 
@@ -161,7 +173,6 @@ Unlike experimental contexts where the outcome of interest is the difference in 
 At the same time, because texts are generated in rich political contexts, much is often left unsaid. Slogans, hashtags, vague policy demands, and even petitions often have much more politically-relevant meaning in light of the policy fight for which they were generated. Individual participants may not even be aware of the implicit policy proposals advanced by their words. For example, depending on the political context, people demanding that the government "act on climate" may mean regulating power plants, tax credits for electric cars, or using the Defense Production Act to require firms to manufacture heat pumps. Individual participants in a pressure campaign might not even know what specific policy changes they are helping to advance. This does not mean that the organization behind the campaign does not have specific policy demands they hope to achieve by mobilizing the mass public around a slogan. It is thus essential to study the policy impact of texts like tweets and public comments in the context of the broader campaign to which they belong.  
 
 <!--Many solutions to the challenges of non-independence, implicit meaning,  --> 
-
 Any study of political texts in the wild must be informed by the key observation that politics is organized. Generally, people need to be mobilized to engage in politics. 
 
 > TODO: HOW THE ORGANIZATIONAL BASIS OF POLITICS SHAPES HOW WE MUST ANALYZE POLITICAL TEXTS
@@ -172,13 +183,13 @@ Any study of political texts in the wild must be informed by the key observation
 Before reviewing specific tools and methods, I briefly address the broader data management systems that make iterative hand-coding and computational text analysis feasible in a team setting. 
 If working alone, a researcher may take an iterative approach with little additional infrastructure. One can use computational tools to select and preprocess a document to hand-code, code it, update the selection and preprocessing algorithms, and generate a second document. However, the logistics of a team setting require that computational work and hand-coding happen more or less simultaneously. It is inefficient to distribute one document at a time to coders and make them wait until all coders are done coding their first document to update and re-run the automated tools. 
 
-Here, I focus on a workflow using GoogleSheets and Drive, but a similar workflow could be achieved with other cloud servers and software. 
-A key feature of GoogleSheets is that edits are visible to all users simultaneously. There is no need to send updated documents; all team members always have access to the most current version of the data. 
-A second key feature of GoogleSheets is that they can be edited with the `googlesheets4` R package. An R script can pull in updates to the data, use hand-coded data to update algorithms (more on this below), generate a computationally improved version of the data, and immediately update the sheet that the hand-coder sees with the improved data. 
+Here, I focus on a workflow using Google Sheets and Drive, but a similar workflow could be achieved with other cloud servers and software. 
+A key feature of Google Sheets is that edits are visible to all users simultaneously. There is no need to send updated documents; all team members always have access to the most current version of the data. 
+A second key feature of Google Sheets is that they can be edited with the `googlesheets4` R package. An R script can pull in updates to the data, use hand-coded data to update algorithms (more on this below), generate a computationally improved version of the data, and immediately update the sheet that the hand-coder sees with the improved data. 
 Third, spreadsheets conveniently organize a large amount of metadata generated by computational text tools that may be useful for human coders. 
 Metadata can include hyperlinks. Hyperlinks are easy to generate automatically and can helpfully point to multiple documents on a server. For example, one column of hyperlinks may point to the locations of the original PDF documents on google drive (or any other server), and a second column may point to files with the plain text extracted. 
 
-For the task of coding comments on draft agency rules, I generated initial spreadsheets for each of the 200 rules in the sample. These initial sheets had between 1 and `r max(sheet_n)` comments. Where a rule received a small number of comments, the spreadsheet contained all comments on the rule. For rules with thousands or millions of comments, I selected key comments for hand coding as described in Section \@ref(select).
+For the task of coding comments on draft agency rules, I generated initial spreadsheets for each of the 200 rules in my sample. These initial sheets had between 1 and `r max(sheet_n)` comments. Where a rule received a small number of comments, the spreadsheet contained all comments on the rule. For rules with thousands or millions of comments, I selected key comments for hand coding as described in Section \@ref(select).
 
 > TODO: MORE ON SPREADSHEET STRUCTURE AND WORKFLOW. MAYBE A DIAGRAM?
 
@@ -192,14 +203,14 @@ knitr::include_graphics(here("docs", "figs", "datasheet.png"))
 
 A team of 15 coders worked in separate spreadsheets. For training and in order to assess inter-coder reliability, we initially coded the same comments on the same rules. Once calibrated, coders worked on separate rules. When a coder began working on a new rule, they saved a version of the spreadsheet with their name at the end. As information about organizations, coalitions, and policy demands was recorded, the google drive API allowed it to be pulled in and analyzed in real-time. 
 
-In addition to dynamically improving the data being coded, real-time analysis enabled a series of systematic checks for irregularities in coders' work. The script pulling in data from Google Drive recorded coder names as a variable so that coding decisions could be traced back to the coder. For example, when new data were coded on sheets, scripts measured the variance in the commenter positions and policy demands described in Section \@ref(success) helped assess the coherence of hand-coded coalitions. Where coders grouped organizations into the same coalition but coded them as having very different policy positions, these coding decisions were flagged for review, allowing review and feedback in real time.^[For an example of a dashboard for reviewing coder decisions in real-time, including code to pull and merge data from GoogleSheets see https://judgelord.github.io/correspondence/FERC/DOE_FERC-letter-coding.html]
+In addition to dynamically improving the uncoded data, as more documents were were coded real-time analysis enabled a series of systematic checks for irregularities in coders' work. The script pulling in data from Google Drive recorded coder names as a variable so that coding decisions could be traced to the coder. For example, when new information about comments was coded on a Google Sheet, scripts measured the variance in the commenter positions, policy demands, and lobbying success (see Section \@ref(success)). This helped to assess the coherence of hand-coded coalitions. Where coders grouped organizations into the same coalition but coded them as having very different policy positions, these coding decisions were flagged for review, allowing review and feedback in real time.^[For an example of a dashboard for reviewing coder decisions in real-time, including code to pull and merge data from Google Sheets see https://judgelord.github.io/correspondence/FERC/DOE_FERC-letter-coding.html]
 For example, Figure \@ref(fig:greyhound) shows a suspicious coalition lobbying on the IRS internet gamboling rules that was flagged because one of its members was coded as having been mostly successful while the others were coded as not having their demands met. All coalition members used similar language, requesting that IRS clarify that certain practices were exempt from the regulation. However, while all organizations discussed dog racing, one organization asked that the agency state that "pari-mutuel wagering" was except, which the IRS did, while the others requested that the IRS state that dog racing was exempt, which the IRS did not. Despite the texts being similar, the key phrase--*what* it was that commenters sought exemption for---differed. The commenter requesting an exemption for pari-mutuel wagering was then put into a different lobbying coalition. 
 
 ```{r greyhound, fig.cap= "Incorrectly Labeled Coaltion Identified by Automated Check"}
 knitr::include_graphics(here("figs", "greyhound.png"))
 ```
 
-Additionally, the new information provided by coders allowed constant updates of algorithms that auto-coded organizations and coalitions, as described in Section \@ref(processing). Updated auto-coding automatically re-populated the GoogleSheets, reducing the remaining work for coders. 
+Additionally, the new information provided by coders allowed constant updates of algorithms that auto-coded organizations and coalitions, as described in Section \@ref(processing). Updated auto-coding automatically re-populated the Google Sheets, reducing the remaining work for coders. 
 Similarly, information from ongoing coding improved the selection of informative comments, often reducing the number of remaining comments requiring coding, as described in Section \@ref(select).
 
 # Ittereatve Processing
@@ -440,23 +451,17 @@ Having identified the coalition lobbying on each proposed rule and each organiza
 Hypothesis \@ref(hyp:meditated) posited that most people engage in the policy process due to organized public pressure campaigns. This is overwhelmingly true.
 -->
 Figure
-\@ref(fig:comments-mass) plots the number of comments received on regulations.gov each year from 2005 to 2020. Columns are shaded by whether I have classified each comment as part of a public pressure campaign (a mass comment campaign). Figure \@ref(fig:comments-mass) shows that every year since 2007, the vast majority of
-comments on draft regulations posted to regulations.gov were the result of a public pressure campaign. All other comments (including comments from individuals acting alone and sophisticated comments from companies, governments, and other organizations) make up a small portion of all comments. 
-
-
+\@ref(fig:comments-mass) plots the number of comments received on regulations.gov each year from 2005 to 2020. Columns are shaded by whether I have classified each comment as part of a public pressure campaign (a mass comment campaign). 
+Figure \@ref(fig:comments-mass) shows that every year since 2007, the vast majority of
+comments on draft regulations posted to regulations.gov were the result of a public pressure campaign. 
+All other comments (including comments from individuals acting alone and sophisticated comments from companies, governments, and other organizations) make up a small portion of all comments. 
+Furthermore, the rise in the total number of comments from 2005 to 2013 is much steeper than the rise in the number of rules being published. <!--TODO show this more clearly-->
 
 
 ```{r comments-mass, fig.cap = "Public Comments, 2005-2020", out.width = "85%", fig.show = "hold"}
 knitr::include_graphics(here::here("figs", "comments-mass-1.png"))
 ```
 
-
-Furthermore, the rise in the total number of comments from 2005 to 2013 is much steeper than the rise in the number of rules being published. 
-
-
-<!--
-> TODO show this more clearly
--->
 
 ### Most Comments and Campaigns are Mobilized by Public Interest Coalitions
 
@@ -468,14 +473,12 @@ top10 <- org_counts_summary[1:10,]
 top100 <- org_counts_summary[1:100,]
 ```
 
- 
-
 Public pressure campaigns are almost exclusively organized by coalitions that include groups that engage in sophisticated technical lobbying. 
 <!--
 This supports Hypothesis \@ref(hyp:coalitions). 
 Furthermore, in line with Hypothesis \@ref(hyp:public), nearly all of these top mobilizing organizations lobby together in public interest coalitions, especially on environmental issues. 
 -->
-These coalitions include organizations that engage in sophisticated lobbying. Indeed, many of the most prolific organizers of public pressure campaigns also engage in sophisticated lobbying themselves. Public pressure is a compliment, not an alternative to sophisticated technical lobbying. 
+These coalitions include organizations that engage in sophisticated lobbying. Indeed, many of the most prolific organizers of public pressure campaigns are also among the organizations most frequently engaged in sophisticated lobbying. Public pressure is a compliment, not an alternative to sophisticated technical lobbying.
 
 Table \@ref(tab:toporgs) shows the top organizers of comments posted to regulations.gov.
 The top ten organizations (`r top10$org_name %>% str_c(collapse = ", ")`) mobilized
@@ -502,13 +505,9 @@ org_counts_summary %>%
          full_width = T, font_size = 10)
 ```
 
+The percent of rules on which each organization lobbies with a pressure campaign rather than without one (the "Percent" column in Table \@ref(tab:toporgs)) shows only a few organizations using pressure campaigns the majority of the time they lobby. Most lobbying organizations that lobby in rulemaking rarely use pressure campaigns. The most extreme example is the American Petroleum Institute (API), which lobbied on hundreds of rules between 2005 and 2020, more than most of the other top mobilizing organizations. Yet it almost never uses public pressure campaigns (at least in its own name). While API did sponsor a number of astroturf campaigns by front groups, API almost always lobbied without the aid of a pressure campaign. Almost all of these top mobilizing organizations usually rely on their legal and policy teams alone. The fact that so many of the top mobilizers are also highly sophisticated lobbying organizations like the Sierra Club and API lends support to my argument that public pressure campaigns are one tool that advocacy organizations may use in addition to more insider tactics. 
 
-
-
-The percent of rules on which each organization lobbies with a pressure campaign rather than without one (the "Percent" column in Table \@ref(tab:toporgs)) shows only a few organizations using pressure campaigns the majority of the time they lobby. Most lobbying organizations use pressure campaigns a small percentage of the time they lobby in rulemaking. The most extreme example is the American Petroleum Institute (API), which lobbied on hundreds of rules between 2005 and 2020, more than most of the other top mobilizing organizations. Yet it almost never uses public pressure campaigns (at least in its own name). While API did sponsor a number of astroturf campaigns by front groups, API almost always lobbied without the aid of a pressure campaign. Almost all of these top mobilizing organizations usually rely on their legal and policy teams alone. The fact that so many of the top mobilizers are also highly sophisticated lobbying organizations like the Sierra Club and API lends support to my argument that public pressure campaigns are one tool that advocacy organizations may use in addition to more insider tactics. 
-
-
-The hand-coded sample includes `r nrow(comments_coded)` hand-coded documents representing over `r (sum(comments_coded$comments)/1000000) %>% round(0)` million comments (including both mass comments and the sophisticated comments they support).
+The hand-coded sample includes `r nrow(comments_coded)` hand-coded documents representing over `r (sum(comments_coded$comments)/1000000) %>% round(0)` million comments (including both sophisticated comments and the mass comments the support them).
 
 ```{r data-org-comments}
 comments_coded %>% ungroup() %>% 
@@ -533,13 +532,9 @@ comments_coded %>% ungroup() %>%
   kable3(caption = "A Sample of Hand-coded Public Comments", latex_options = "scale_down")
 ```
 
-
 Table \@ref(tab:data-org-comments) shows a sample of hand-coded public comments. Docket ID is the identifier for each rulemaking. The Organization, Comment Type, and Coalition columns show how coders record the name and type of each organization or elected official, as well as the broader coalition to which they belong. The name assigned to each coalition is usually the name of one of the lead organizations. 
 
 The Position column in Table \@ref(tab:data-org-comments) is a collapsed version of the spatial position-coding described in Section \@ref(spatial). To create a binary measure of support and opposition, I collapse the coding of each comment’s spatial position into a dichotomous indicator of whether they ultimately support or oppose the rule. Finally, Lobbying Success---whether each comment got what it asked for in the change between a draft and final rule---is coded on a five-point scale from 2 to -2. "2" indicates that most of the commenter's requests were met. If the rule moved decidedly in the opposite direction as they would have liked it to move, this is coded as a "-2" (the opposite of total success). To measure these variables at the coalition level, I use the coding assigned to the lead organization or the average across coalition members. Because "lead" organizations are identified based on their leadership role in the coalition and the extent to which they represent the coalition's policy demands, the lead organization's coding is nearly the same as the average across coalition members in all cases.
-
-
-
 
 ```{r org-count}
 orgs <- comments_coded %>% 
@@ -559,7 +554,6 @@ orgs <- comments_coded %>%
 orgs %>%
   kable3(caption = "Organizations by Number of Rules on Which They Commented in the Hand-coded Data")
 ```
-
 
 Table \@ref(tab:org-count) shows the organizations that commented on the most rules in this sample:
 `r nrow(orgs)` organizations lobbied on more than one rule in the hand-coded data, some on as many as `r max(orgs$Rules)` rulemaking dockets. Recall that this sample of rules is weighted toward rulemaking dockets that received more comments. Thus, the organizations lobbying on the most rules are not the same as those in the overall population. For example, recall from Table \@ref(tab:data-org-comments) that the American Petroleum Institute lobbied on nearly 400 rules, whereas the Pew Charitable Trusts lobbied on 120. Pew, however, used a public pressure campaign 5 percent of the time it lobbied, whereas the American Petroleum Institute used a public pressure campaign 0.3 percent of the time it lobbied. Thus, groups like Pew that more often use pressure campaigns are more likely to be lobbying on rules in this sample. While this sampling approach was necessary (a random sample of all rules would yield almost none with a pressure campaign), the statistical results should be interpreted as disproportionately reflecting variation in lobbying success in high-salience and contentious rulemakings.
@@ -628,12 +622,8 @@ comments_coded %>%
 
 Most of these comments belong to lobbying coalitions and are thus not independent observations. When Friends of the Earth and the Sierra Club lobby together on a rule, the success of each depends on the other. Thus, I group comments into coalitions. The hand-coded sample includes `r nrow(coalitions_coded)` "coalitions," `r coalitions_coded %>% filter(coalition_size == 1) %>% nrow()` of which are single-organization "coalitions" (not coalitions), leaving `r coalitions_coded %>% filter(coalition_size > 1) %>% nrow()` true coalitions of multiple organizations lobbying together. 
 
-
-
 Lobbying coalitions range in size from 2 to `r max(coalitions_coded$coalition_size)` organizations. Table \@ref(tab:data-coalition-comments) shows a sample of coded data summarized at the coalition level. Even though the same organization may lead coalitions in multiple rulemakings, each rule's lobbying coalitions are different, so I consider them separate observations. For example, the American Civil Liberties Union (ACLU) led a coalition in 2014 with a small number of organizations and a medium-size pressure campaign in support of a rule requiring additional Equal Employment Opportunity reporting from the Department of Labor's Office of Federal Contract Compliance Programs (OFCCP). The ACLU also led a very different coalition in 2020 with a large number of organizations and a very small public pressure campaign against a rule rolling back regulations on banks published by the Office of the Comptroller of the Currency (OCC).
 <!-- Figure \@ref(fig:hist-coalitions) shows that this sample is fairly balanced between coalitions that succeed and fail to get the changes they seek in the final rule. -->
- 
-
 
 ```{r data-coalition-comments}
 #data-coalition-comments
@@ -671,10 +661,7 @@ comments_coded %>%
          font_size = 10) 
 ```
 
-
-
 Table \@ref(tab:coalition-types) shows the number of coalitions coded as "public interest" and "private interest" by whether the majority of organizations in the coalition are for-profit businesses and trade associations or non-businesses (governments and nonprofits): `r round( sum(coalitions_coded$coalition_business_, na.rm = T)/nrow(coalitions_coded),2 )*100` percent are majority business coalitions. `r round( sum(coalitions_coded$coalition_type == "Public", na.rm = T)/nrow(coalitions_coded),2 )*100` percent are public-interest coalitions. As Table \@ref(tab:coalition-types) shows, the hand-coded "public interest vs. private interest" distinction is highly correlated with the share of businesses in the coalition but not perfectly. These two measures diverge in cases where public interest coalitions mobilize a large number of business allies or where private interest coalitions mobilize a large number of non-business allies. Thus, while the share of businesses and trade associations is more objective, the public-private distinction is likely a better measure of coalition type. <!--I estimate alternative models in Section \@ref(influence-results) with each measure.-->
-
 
 ```{r coalition-types}
 #coalition-types
@@ -853,11 +840,38 @@ Finally, a major advantage of the iterative methods and workflow is that they ar
 Figures \@ref(fig:check-company) and \@ref(fig:check-backslashes) illustrate some advantages of real-time analysis of hand-coded data. Figures \@ref(fig:check-company) show an example of how one might inspect overall patterns among coders. In this example, how many letters to the Federal Energy Regulatory Commission referenced a specific company. Figure \@ref(fig:check-backslashes) shows a more mundane but essential quality check---looking for cases where coders used incorrect special symbols. Project-specific checks like this can be assembled into a dashboard to track and inspect hand-coding progress.^[An example dashboard is available here: https://judgelord.github.io/correspondence/FERC/DOE_FERC-letter-coding.html]
 
 ```{r check-company, fig.cap= "Checking for Disparities Among Coders in Real Time", fig.height=4, fig.width=5.5}
-include_graphics(here("figs", "check_company.png"))
+include_graphics(here("figs", "check-company.png"))
 ```
 
-```{r check-backsashes, fig.cap= "Checking for Incorrect Coding in Real Time", fig.height=4, fig.width=5.5}
-include_graphics(here("figs", "check_backslashes.png"))
+```{r check-backslashes, fig.cap= "Checking for Incorrect Coding in Real Time", fig.height=4, fig.width=5.5}
+include_graphics(here("figs", "check-backslashes.png"))
 ```
 
+
+
+<!-- NOTES 
+Margaret
+You need to lead with the method and use your research as a case study or an example—that means you don’t have to tell us every little thing that you did in your research project, only the details that really underscore the method, it’s nuances, and it’s applicability. YES, CUT EXTRA DETAIL 
+You need to be way more generalizable which will be easier to do if you lead with the method and think about its applicability in other settings first, and then you hone in on the setting you used. GENERALIZE 
+You need to have a section that is devoted to why this is such a useful tool for studying advocacy groups/ in general have a place where you can really emphasize why this tool is not only good for everyone BUT especially the context you selected. Right now you are confusingly going back and forth between these contributions and it is hard to decipher when it should be used for your purposes and when it could and should be used in other contexts with different data/ objectives. WHY IT IS USEFUL IN GENERAL 
+
+SOPHIE
+You need to clarify how you understand the value of hand-coded text data and make an argument for iterating between machine and human approaches in particular. I think this goes very early in an introduction. YES, THE VALUE IS EFFICIENCY 
+
+This should be couched less formally, but it’s essentially stating your philosophy of science. I understand your stance and method as pretty squarely positivist, whereby another researcher following your steps should get the same dataset at the end of the day. NOT POSITIVIST,
+
+But, clarifying this would go far in making the case for iteration and clarifying exactly what all your hard work is aiming for. AIMING FOR A DATASET 
+
+a visual schematic of the entire process, from comment to successful/failed rule would be very helpful… again early. YES
+
+Yet another thing I’d like to see early on is a clear sense of what kind of data or political problems this method is useful for. Is it about the degree of organization / hierarchy in the data structure? Are clear binary outcomes at the final phase important to the method? It’s hard to extrapolate from your case what the universe of potential cases looks like and just how much more can be done with the rules data.
+I think you want to cover your case early on and establish you’ll be returning to it as helpful. The answer to #3 re: universe of potential cases may impact my thoughts here.
+
+
+DEFINE HIGH-INFERENTIAL VALUE
+1. represenative sample
+2. lead org comments (e.g. lead twitter accounts)
+
+
+-->
 
