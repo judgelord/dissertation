@@ -1,0 +1,411 @@
+---
+# knit: ( function(input, ...){rmarkdown::render(input) } )
+# rmarkdown::render("docs/present/methods-pres.Rmd")
+knit: ( function(input, ...){xaringan::infinite_moon_reader(input) } )
+title: "Iterative Human Coding and Computational Text Analysis: Application to Assessing the Effects of Public Pressure on Policy"
+author: 
+ - name: Devin Judge-Lord | Harvard University | DevinJudgeLord@FAS.Harvard.edu
+#logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
+#logoleft_name: https&#58;//www.hks.harvard.edu/sites/default/files/inline-images/huce%20hd%20logo.png
+bibliography: '`r here::here("assets/dissertation.bib")`'
+biblio-style: '`r here::here("assets/apsr.bst")`'
+link-citations: false
+citecolor: cyan
+date: "Paper, slides, & data: [judgelord.github.io/research/methods](https://judgelord.github.io/research/iterative)"
+urlcolor: cyan
+output:   posterdown::posterdown_html
+poster_height:	"38in"
+poster_width:	"54in"
+primary_colour:	"#850704"
+secondary_colour:	"#C5050C"
+accent_colour: "#047985"
+author_textcol: "#ffffff"
+affiliation_textcol: "#ffffff"
+title_textsize: "105pt"
+author_textsize:	"50pt"
+affiliation_textsize:	"0pt"
+body_bgcol:	"#ffffff"	#Colour of the poster main background.
+body_textsize: "45px"	#Size of the main poster body text.
+body_textcol:	"#000000"	#Colour of main text in the body of poster.
+column_numbers:	4 #Number of columns that the poster body has.
+column_margins:	"0.5in"	#Margin spacing for columns.
+columnline_col:	"#047985"	#Colour of the column line dividers.
+columnline_width:	"1mm"	#Width of line between each column.
+columnline_style:	solid	#Style of the column line seperator.
+sectitle_textcol:	"#ffffff"	#Colour of the poster section titles.
+sectitle_textsize:	"65pt"	#Text size of the section titles (H1).
+sectitle2_textsize:	"40pt"	#Text size of the section titles (H2).
+sectitle_bgcol:	"#850704"	#Colour of the section title box.
+sectitle_bordercol:	"#850704"	#Colour of the border around the section title box.
+sectitle_borderwidth:	"2mm"	#Thicknes of the section title box border.
+sectitle_boxshape:	"4mm 0mm"	#Changes the shape of the section title box.
+sectitle2_textcol:	"#047985"	#Color of 2nd level header text.
+link_col:	"#ffffff"	#Colour of other links within the poster.
+# xaringan::moon_reader:
+  #   lib_dir: libs
+  #   mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"
+  #   css: xaringan-themer.css
+  #   nature:
+  #     ratio: '16:10'
+  #     highlightStyle: github
+  #     highlightLines: true
+  #     countIncrementalSlides: false
+---
+
+
+```{r setup, include = FALSE}
+# cache everything 
+knitr::opts_chunk$set(warning = FALSE, 
+                      message = FALSE,
+                      echo = FALSE, 
+                      #fig.path = "Figs/",
+                      fig.topcaption=TRUE,
+                      cache = TRUE, 
+                      fig.align = 'center',
+                      fig.retina = 2,
+                      dpi = 100)
+# Xaringan: https://slides.yihui.name/xaringan/
+library("xaringan")
+library("xaringanthemer")
+library("here")
+library("tidyverse")
+library("magrittr")
+library("knitr")
+library("kableExtra")
+
+
+style_mono_light(base_color = "#3b444b",
+          inverse_link_color	
+ = "#B7E4CF",
+          #background_image = "Figs/ej-superfund-light.jpeg",
+          background_color = "white", #FAF0E6", # linen
+          header_font_google = google_font("PT Sans"), 
+          text_font_google = google_font("Old Standard"), 
+          text_font_size = "29px",
+          padding = "10px",
+          code_font_google = google_font("Inconsolata"), 
+          code_inline_background_color    = "#F5F5F5", 
+          table_row_even_background_color = "#ddede5"#, extra_css = list(".remark-slide-number" = list("display" = "none"))
+ )
+```
+
+```{r, eval = FALSE, include= FALSE}
+pagedown::chrome_print("docs/present/methods-pres.Rmd")
+
+# setup
+devtools::install_github("yihui/xaringan")
+devtools::install_github("gadenbuie/xaringanthemer")
+install.packages("webshot")
+# webshot::install_phantomjs()
+
+library(webshot)
+
+# export to pdf
+file <- here("present/ej-pres.html")
+webshot(file, "ej-pres.pdf")
+```
+
+---
+ 
+Human-coding and computational text analysis are more powerful when combined in an **interactive workflow**. 
+ I offer a suite of **exact methods** that can increase the power of common hand-coding tasks by several orders of magnitude. Human coding can both inform and be aided by rule-based information extraction, iteratively structuring queries on unstructured text.
+
+1. Computational text analysis tools can strategically **select texts for human coders**, including texts representing larger samples and outlier texts of high inferential value.
+2. **Preprocessing documents can speed hand-coding** by extracting features like named entities and key sentences. 
+3. Human and machines can iteratively **tag entities using regex tables** (e.g., identify organizations in documents)
+4. Human and machines can iteratively **group texts by key features** (e.g., identify lobbying coalitions by common policy demands)
+
+Applying this method to public comments on U.S. Federal Agency regulations, a **hand-coded sample of 10,894 hand-coded comments** yields **41 million as-good-as-hand-coded comments** regarding both the organizations that mobilized them and the extent to which policy changed in the direction they sought. This large sample enables new analyses of the relationships between lobbying coalitions, social movements, and policy change.
+
+<!--
+# The Broader Project: Public Pressure
+
+
+Mobilization
+
+
+(grassroots, astroturf, elected officials)
+
+↓
+
+Getting policymakers' attention and framing policy debates
+
+↓
+
+Substantive policy influence
+
+↓
+
+Surviving judicial review
+
+
+
+# 50 million public comments on proposed agency rules
+
+---->
+
+
+---
+
+
+<!--
+# Challenges and Opportunities in Studying Political Texts
+--
+
+--->
+
+
+
+# Hand-coding dynamic data
+
+
+
+Workflow: `googlesheets4`allows analysis and improving data in real time.  For example, in Figure \@ref(fig:datasheet): 
+
+- The "org_name" column is populated with a guess from automated methods. As humans identify new organizations and aliases, other documents with the same entity strings are auto-coded the same way.   
+- As humans identify each organizations' policy "ask," other texts with the same ask are put in the same coalition.   
+- If the organization and coalition of a comment become known, it no longer needs to be coded by hand.
+
+```{r datasheet, fig.show = "hold", out.width = "100%", fig.cap="Example Coded Comments in a Google Sheet", fig.topcaption=TRUE}
+ 
+knitr::include_graphics(here("docs", "figs", "datasheet.png"))
+```
+
+
+<!--
+- 15 coders 
+
+```{r greyhound, fig.cap= "Incorrectly Labeled Coaltion Identified by Automated Check"}
+knitr::include_graphics(here("figs", "greyhound.png"))
+```
+
+--->
+
+---
+
+# Regex tables to tage entities
+
+- **Deductive:** Start with databases of relevant known entities
+- **Inductive:** Add most frequently appearing entities to regex tables 
+- **Iterative:** Add to regex tables as humans identify new entities or new aliases for known entities. Update data to speed hand coding.
+
+<!--### Consolidating entity name variants with regex tables-->
+
+
+```{r regex-crp}
+#CRP data
+here("data", "Lobbbying_Summary.csv") |>
+read_csv() |>
+  group_by(parentName) |>
+  summarize(pattern = str_c(orgName, collapse = "|") ) |>
+  filter(parentName %in% c("Teamsters Union", "3M Co") ) |>
+  rename(Entity = parentName, Pattern = pattern) |>
+  knitr::kable(caption = "A Regex Table Deduced from Center For Responsive Politics Lobbying Data", full_width = T) |>
+  kableExtra::kable_paper()
+```
+
+## SOME TEXT HERE
+
+<!--### Add to regex tables as hand coders identify new aliases-->
+
+```{r, out.width = c("80%", "20%"), fig.cap= 'Iteratively build regex tables. For example, the `legislators` package adds legisaltor name varients (e.g., "AOC") to standard legislator names', fig.show='hold', fig.topcaption=TRUE}
+knitr::include_graphics(here::here("figs", "methods-regex.png")) 
+
+
+knitr::include_graphics(here::here("legislators" , "man", "figures", "logo.png") %>% str_remove("dissertation"))
+
+```
+
+```{r legislators}
+# library(legislators)
+# 
+# members |> 
+#   filter(first_name == "Elizabeth", congress == 117) |> 
+#   select(bioname, pattern) |> 
+#   kable(caption = 'Regex Table from the legislators R Packages, Legislators Named Elizabeth in the 117th Congress', full_width = T)|>
+#   kableExtra::kable_paper()
+```
+
+___
+
+## Results: Who Mobilizes Public Comments?
+
+```{r}
+# code in the top_orgs.R
+load(here("data", "org_counts_summary.Rdata"))
+
+top5 <- org_counts_summary[1:5,] %>% tally(comments)
+top10 <- org_counts_summary[1:10,] %>% tally(comments)
+top100 <- org_counts_summary[1:100,]  %>% tally(comments)
+```
+
+Iteratively linking comments to the organizations that wrote or mobilized them (and thus strings to identify similar documents), I find that a small number of professional advocacy organizations mobilize the vast majority of comments. The top 100 organizations mobilized `r top100 |> prettyNum(big.mark = ",")` comments. The top ten organizations mobilized `r top10 |> prettyNum(big.mark = ",")`.
+
+
+```{r, fig.cap="Most Comments and Campaigns are Mobilized by Public Interest Coalitions", fig.topcaption=TRUE}
+# code in the top_orgs.R
+load(here("data", "org_counts_summary.Rdata"))
+
+top10 <- org_counts_summary[1:10,]
+top100 <- org_counts_summary[1:100,]
+
+# Pretty up for presentation
+org_counts_summary %>%
+  select(org_name, rules, campaigns, percent, comments, average) %>% 
+  rename(Organization = org_name,
+         Comments = comments,
+         `Rules Lobbied On` = rules, 
+         `Pressure Campaigns` = campaigns,
+         `Percent (Campaigns /Rules)` = percent, 
+         `Average per Campaign` = average) %>% 
+  head() |>
+  mutate(Comments = Comments %>% prettyNum(big.mark = ",")) |>
+  #mutate(Organization = Organization %>% 
+           #str_rpl("Natural Resources Defense Council", "NRDC") %>% 
+           #str_rpl("World Wildlife Fund", "WWF") %>% 
+           #str_rpl("Pew Charitable Trusts", "Pew")) %>% 
+  kable(caption = "The Top 5 Organizations Mobilized 20 Million Public Comments 2005-2020",
+         full_width = T, font_size = 10) |>
+  kableExtra::kable_paper()
+```
+
+
+
+
+# Grouping with text reuse
+
+```{r, out.width = c("80%", "20%"), fig.cap= 'Iteratively cluster documents with repeated text', fig.show='hold', fig.topcaption=TRUE}
+knitr::include_graphics(here::here("figs", "polmeth-ngrams.png"))
+
+```
+
+
+
+---
+
+
+## Collapsing form letters with text reuse
+
+
+
+```{r percent-match, fig.show = "hold", out.width = "90%", fig.cap="Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments using a 10-gram Window", fig.topcaption=TRUE}
+
+knitr::include_graphics(here::here("figs", "comment_percent_match_plot.png")  )
+```
+
+
+```{r comments-mass, fig.cap = "Most Comments Result from Public Pressure Campaigns, 2005-2020", out.width = "80%", fig.show = "hold", fig.topcaption=TRUE}
+knitr::include_graphics(here::here("figs", "comments-mass-1.png"))
+```
+
+---
+
+## Iterative grouping with key phrases
+
+1. Humans identify groups (e.g., lobbying coalitions) of selected documents
+2. Humans copy and paste key phrases from text
+3. Machines puts other documents containing those phrases in the coalition
+
+Preprocessing tips:  **Digitizing** allows humans to paste text exactly matching machine-read strings.  **Summaries**  (e.g., `textrank`'s top 3 sentences) speed hand-coding.
+
+
+<!--
+## Hand-coded coalitions and key demands
+
+---
+
+## Iteratively adding texts to groups with text reuse
+
+---
+
+## Selecting Texts of High-inferential Value {#select}
+
+---
+
+## Inferring Lobbying Success From the Success of Others in a Coalition {#success}
+
+### Coding commenter demands
+
+<!--
+## Coding policy positions {#spatial}
+
+
+```{r spatial-coding, fig.cap= "Coding the Spatial Position of Comments on Proposed Policy Changes", fig.height=4, fig.width=5.5}
+include_graphics(here("figs", "spatial-coding-1.png"))
+```
+
+
+
+
+
+---
+
+### Comments from Legislators Correlate with Public Pressure
+
+---
+
+### The Dependent Variable: Lobbying Success
+
+---
+--->
+
+---
+
+## Results: Coalition size and coalition success
+
+```{r coded-coalition-success, out.width = "100%", fig.cap= "Lobbying Success by Number of Supportive Comments", fig.topcaption=TRUE}
+knitr::include_graphics(here::here("figs", "coded-coalition-success-1.png"))
+```
+
+
+
+Public pressure to address climate change and environmental justice movements had large effects on policy documents, but a small number of national advocacy organizations dominate lobbying coalitions. When tribal governments or local groups lobby without the support of national advocacy groups, policymakers typically ignore them.
+
+
+```{r ej-m-PR-ejcomments-agencyFE,  out.width = "100%", fig.topcaption=TRUE}
+knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-1.png")
+```
+
+
+```{r ej-winrates, eval=FALSE}
+load(here::here("data", "winrate.Rdata"))
+winrates %>% 
+  mutate(`EJ Success Rate` = `EJ Success Rate` %>%
+           percent(accuracy = 1) %>% replace_na("-"),
+         `Overall Success Rate` = `Overall Success Rate` %>%
+           percent(accuracy = 1)) %>% 
+  dplyr::select(-`N raising EJ`) %>% #mutate(across(where(is.numeric), pretty_num)  ) %>%
+      knitr::kable(caption = "Lobbying Success by Type of Organization, 2005-2020") %>% 
+  kable_paper() |>
+      kableExtra::kable_styling(position = "center")  #kable3(caption = )
+```
+
+
+
+
+---
+
+# Next steps
+
+- Compare exact entity linking (regex tables) to probabilistic methods (`linkit`, `fastlink`, ML with hand-coded training set)
+- Compare exact grouping (e.g., by policy demands) to supervised probabilistic classifiers/clustering methods
+
+<!--
+An example dashboard is available here: <https://judgelord.github.io/correspondence/FERC/DOE_FERC-letter-coding.html
+
+<!--
+```{r check-company, fig.cap= "Checking for Disparities Among Coders in Real Time", out.width="100%", fig.topcaption=TRUE}
+include_graphics(here("figs", "check-company.png"))
+```
+
+
+```{r check-backslashes, fig.cap= "Checking for Incorrect Coding in Real Time", fig.height=4, fig.width=5.5, fig.topcaption=TRUE}
+include_graphics(here("figs", "check-backslashes.png"))
+```
+--> 
+
+# Refrences 
+
+```{r, include=FALSE}
+knitr::write_bib(c('knitr','rmarkdown','posterdown','pagedown'), 'packages.bib')
+```
