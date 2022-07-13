@@ -765,7 +765,7 @@ knitr::include_graphics("Figs/ej-m-PR-president-median-1.png")
 
 ???
 
-I obtain uncertianty by using indicators rather than fixed effects. 
+I obtain uncertainty by using indicators rather than fixed effects. 
 
 
 ---

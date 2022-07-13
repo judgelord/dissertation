@@ -107,15 +107,15 @@ webshot(file, "ej-pres.pdf")
 
 ---
  
-Human-coding and computational text analysis are more powerful when combined in an **interactive workflow**. 
+Human coding and computational text analysis are more powerful when combined in an **interactive workflow**. 
  I offer a suite of **exact methods** that can increase the power of common hand-coding tasks by several orders of magnitude. Human coding can both inform and be aided by rule-based information extraction, iteratively structuring queries on unstructured text.
 
 1. Computational text analysis tools can strategically **select texts for human coders**, including texts representing larger samples and outlier texts of high inferential value.
 2. **Preprocessing documents can speed hand-coding** by extracting features like named entities and key sentences. 
-3. Human and machines can iteratively **tag entities using regex tables** (e.g., identify organizations in documents)
-4. Human and machines can iteratively **group texts by key features** (e.g., identify lobbying coalitions by common policy demands)
+3. Humans and machines can iteratively **tag entities using regex tables** (e.g., identify organizations in documents)
+4. Humans and machines can iteratively **group texts by key features** (e.g., identify lobbying coalitions by common policy demands)
 
-Applying this method to public comments on U.S. Federal Agency regulations, a **hand-coded sample of 10,894 hand-coded comments** yields **41 million as-good-as-hand-coded comments** regarding both the organizations that mobilized them and the extent to which policy changed in the direction they sought. This large sample enables new analyses of the relationships between lobbying coalitions, social movements, and policy change.
+Applying this method to public comments on U.S. Federal Agency rules, a **hand-coded sample of 10,894 hand-coded comments** yields **41 million as-good-as-hand-coded comments** regarding both the organizations that mobilized them and the extent to which policy changed in the direction they sought. This large sample enables new analyses of lobbying coalitions, social movements, and policy change.
 
 <!--
 # The Broader Project: Public Pressure
@@ -160,10 +160,10 @@ Surviving judicial review
 
 
 
-Workflow: `googlesheets4`allows analysis and improving data in real time.  For example, in Figure \@ref(fig:datasheet): 
+Workflow: `googlesheets4` allows analysis and improving data in real-time. For example, in Figure \@ref(fig:datasheet): 
 
 - The "org_name" column is populated with a guess from automated methods. As humans identify new organizations and aliases, other documents with the same entity strings are auto-coded the same way.   
-- As humans identify each organizations' policy "ask," other texts with the same ask are put in the same coalition.   
+- As humans identify each organization's policy "ask," other texts with the same ask are put in the same coalition.   
 - If the organization and coalition of a comment become known, it no longer needs to be coded by hand.
 
 ```{r datasheet, fig.show = "hold", out.width = "100%", fig.cap="Example Coded Comments in a Google Sheet", fig.topcaption=TRUE}
@@ -183,7 +183,7 @@ knitr::include_graphics(here("figs", "greyhound.png"))
 
 ---
 
-# Regex tables to tage entities
+# Regex tables to tag entities
 
 - **Deductive:** Start with databases of relevant known entities
 - **Inductive:** Add most frequently appearing entities to regex tables 
@@ -303,7 +303,7 @@ knitr::include_graphics(here::here("figs", "comments-mass-1.png"))
 ## Iterative grouping with key phrases
 
 1. Humans identify groups (e.g., lobbying coalitions) of selected documents
-2. Humans copy and paste key phrases from text
+2. Humans copy and paste key phrases
 3. Machines puts other documents containing those phrases in the coalition
 
 Preprocessing tips:  **Digitizing** allows humans to paste text exactly matching machine-read strings.  **Summaries**  (e.g., `textrank`'s top 3 sentences) speed hand-coding.
@@ -359,7 +359,7 @@ knitr::include_graphics(here::here("figs", "coded-coalition-success-1.png"))
 
 
 
-Public pressure to address climate change and environmental justice movements had large effects on policy documents, but a small number of national advocacy organizations dominate lobbying coalitions. When tribal governments or local groups lobby without the support of national advocacy groups, policymakers typically ignore them.
+Public pressure to address climate change and environmental justice movements greatly affected policy documents, but a few national advocacy organizations dominate lobbying coalitions. When tribal governments or local groups lobby without the support of national advocacy groups, policymakers typically ignore them.
 
 
 ```{r ej-m-PR-ejcomments-agencyFE,  out.width = "100%", fig.topcaption=TRUE}
