@@ -228,7 +228,7 @@ read_csv() |>
 
 <!--### Add to regex tables as hand coders identify new aliases-->
 
-**Fig 2:** Iteratively building regex tables. 
+**Fig 2:** Iteratively Building Regex Tables
 
 ```{r, out.width = "100%", fig.show='hold'}
 knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vRSJJgSbMdFtkpJjB94Tw5cmFElhDKrHEkOLaUb5-qFdIY-sQp4qGyC-FZoZ7UmWSLfoMZDueAkemhU/pub?w=752&h=238") 
@@ -311,7 +311,7 @@ org_counts_summary %>%
 
 # Grouping with text reuse
 
-**Fig. 3:**: Iteratively cluster documents with repeated text
+**Fig. 3:**: Iteratively Group Documents
 
 ```{r, out.width = "100%", fig.show='hold'}
 knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vSy9MpvnXV0nbZj4kUPnWC38bwk5xiBXjRiGC3fyrddwoZVT19SmfT4WRr_AvOH5lxeKyrTenqLlKmm/pub?w=953&h=603")
@@ -323,14 +323,14 @@ knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vSy9MpvnXV0
 <!--## Collapsing form letters with text reuse-->
 
 
-**FIg 4:** Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments using a 10-gram Window Function
+**FIg 4:** Identifying Groups of Linked Documents using Text Reuse (a 10-gram Window Function)
 
 ```{r percent-match, fig.show = "hold", out.width = "55%"}
 
 knitr::include_graphics(here::here("figs", "comment_percent_match_plot-2.png")  )
 ```
 
-- A shares no 10-grams with other comments 
+- Comment A shares no 10-grams with the others 
 - B, C, and D share some text (they are part of an organized mass comment campaign) 
 - E and F are the same text that was submitted twice
 
