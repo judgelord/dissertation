@@ -16,6 +16,7 @@ urlcolor: cyan
 output:   posterdown::posterdown_html
 poster_height:	"38in"
 poster_width:	"54in"
+# C5050C Monza (badger red) 850704 Dark Burgundy 798504 Olive 04851A Japanese Laurel 047985 Blue Lagoon
 primary_colour:	"#850704"
 secondary_colour:	"#C5050C"
 accent_colour: "#047985"
@@ -208,7 +209,7 @@ read_csv() |>
 
 <!--### Add to regex tables as hand coders identify new aliases-->
 
-```{r, out.width = c("80%", "20%"), fig.cap= 'Iteratively build regex tables. For example, the `legislators` package adds legisaltor name varients (e.g., "AOC") to standard legislator names', fig.show='hold', fig.topcaption=TRUE}
+```{r, out.width = c("84%", "16%"), fig.cap= 'Iteratively build regex tables. For example, the `legislators` package adds name varients (e.g., "AOC") to standard legislator names', fig.show='hold', fig.topcaption=TRUE}
 knitr::include_graphics(here::here("figs", "methods-regex.png")) 
 
 
@@ -239,7 +240,7 @@ top10 <- org_counts_summary[1:10,] %>% tally(comments)
 top100 <- org_counts_summary[1:100,]  %>% tally(comments)
 ```
 
-Iteratively linking comments to the organizations that wrote or mobilized them (and thus strings to identify similar documents), I find that a small number of professional advocacy organizations mobilize the vast majority of comments. The top 100 organizations mobilized `r top100 |> prettyNum(big.mark = ",")` comments. The top ten organizations mobilized `r top10 |> prettyNum(big.mark = ",")`.
+Iteratively linking comments to the organizations that wrote or mobilized them (and thus strings to identify similar documents), I find that a small number of professional advocacy organizations mobilize the vast majority of comments. Of 58 million comments on regulations.gov, the top 100 organizations mobilized `r top100 |> prettyNum(big.mark = ",")` comments. The top ten organizations mobilized `r top10 |> prettyNum(big.mark = ",")`.
 
 
 ```{r, fig.cap="Most Comments and Campaigns are Mobilized by Public Interest Coalitions", fig.topcaption=TRUE}
@@ -274,7 +275,7 @@ org_counts_summary %>%
 
 # Grouping with text reuse
 
-```{r, out.width = c("80%", "20%"), fig.cap= 'Iteratively cluster documents with repeated text', fig.show='hold', fig.topcaption=TRUE}
+```{r, out.width = "90%", fig.cap= 'Iteratively cluster documents with repeated text', fig.show='hold', fig.topcaption=TRUE}
 knitr::include_graphics(here::here("figs", "polmeth-ngrams.png"))
 
 ```
