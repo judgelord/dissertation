@@ -290,6 +290,8 @@ top100 <- org_counts_summary[1:100,]
 # Pretty up for presentation
 org_counts_summary %>%
   select(org_name, rules, campaigns, percent, comments, average) %>% 
+  mutate(comments = comments %>% prettyNum(big.mark = ","),
+         average = average %>% prettyNum(big.mark = ",")) |>
   rename(Organization = org_name,
          Comments = comments,
          `Rules Lobbied On` = rules, 
@@ -297,7 +299,6 @@ org_counts_summary %>%
          `Percent (Campaigns /Rules)` = percent, 
          `Average per Campaign` = average) %>% 
   head() |>
-  mutate(Comments = Comments %>% prettyNum(big.mark = ",")) |>
   #mutate(Organization = Organization %>% 
            #str_rpl("Natural Resources Defense Council", "NRDC") %>% 
            #str_rpl("World Wildlife Fund", "WWF") %>% 
@@ -356,7 +357,7 @@ Comments that share a 10-gram with 99 or more others are part of a mass comment 
 
 *Preprocessing tip:* 
 <!--**Digitized text** allows humans to paste text exactly matching machine-read strings.  -->
-**Summaries** speed hand-coding (e.g., `textrank`'s top 3 sentences).
+**Summaries** (e.g., `textrank`'s top 3 sentences) speed hand-coding.
 
 
 <!--
