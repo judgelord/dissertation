@@ -127,7 +127,7 @@ table {
 
  
 Human coding and computational text analysis are more powerful when combined. 
-I describe a suite of **exact methods** that can increase the power of common hand-coding tasks. Human coding can both inform and be aided by rule-based information extraction---iteratively structuring queries on unstructured text.
+I show how search and text-reuse tools can aid common hand-coding tasks. Human coding can both inform and be informed by rule-based information extraction---iteratively structuring queries on unstructured text.
 
 1. Text analysis tools can strategically **select texts for human coders**---texts representing larger samples and outlier texts of high inferential value.
 2. **Preprocessing can speed up hand-coding** by extracting features like names and key sentences. 
@@ -465,4 +465,26 @@ knitr::write_bib(c('knitr','rmarkdown','posterdown','pagedown'), 'packages.bib')
 <!--
 TODO 
 Bloomington
+
+
+Topic models also provide helpfuls summary information. Frequent and exclusive words associated with with the topic(s) occuring in the highest proportions in the document may be helpful summary information. 
+
+The results of superivised machine classification may also be helpful. Hummans with basic domain knowledge are well suited to check and correct the results of machine coding. Human coders might dig deeper in to cases where the machine coding looks off (given other available metadata, like associated entities, summaries, or topics). As humans do such a task, they likely learn how the classifier(s) tend to error. Future human and computational attention can then be paid to those cases. 
+
+
+Nothing is langauge dependent. Whereas statistical models of word frequnecies require langague-deendent preprocessing for dimension-reduction [@Lucas2015], regex tables and text reuse are not.
+
+
+# Classification 
+"The tasks of estimating category percentages (quantification) or classifying individ- ual documents (classification) both begin by analyzing a small subset of documents with (usually hand-coded) category labels." [@Jerzak2019]
+
+The brand of linguistics that focuses on the combinations of words we use emphasises the reoccoring nature of phrases. 
+"utterances are formed by repetition, modification, and concatenation of previously-known phrases consisting of more than one word...we speak mostly by stitching together swatches of text that we have heard before"
+[@Becker1975]
+
+nu- merical representation of text documents can have an outsized impact on the results (see Denny and Spirling, 2016; Levy, Goldberg, and Dagan, 2015). 
+
+A corpus may lack textual discrimination regarding word frequencies [@Jerzak2019], but still be classified by phrases long enough that they are highly unlikely to appear by chance. 
+
+Another advangage of key phrases is that it cleanly allows texts to appear in multiple groups. 
 --> 
