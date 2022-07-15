@@ -11,6 +11,8 @@ bibliography: '`r here::here("assets/dissertation.bib")`'
 biblio-style: '`r here::here("assets/apsr.bst")`'
 link_col: white
 date: "Paper, slides, & data: [judgelord.github.io/research/methods](https://judgelord.github.io/research/iterative)"
+titletext_fontfamily: Roboto:wght@100
+font_family: "Roboto:wght@100"
 output:   posterdown::posterdown_html
 poster_height:	"36in"
 poster_width:	"48in"
@@ -66,9 +68,7 @@ knitr::opts_chunk$set(warning = FALSE,
                       fig.retina = 2,
                       dpi = 100)
 
-knit_hooks$set(small.mar = function(before, options, envir) {
-    if (before) par(mar = c(0, 0, 0, 0)) 
-})
+
 
 # Xaringan: https://slides.yihui.name/xaringan/
 library("xaringan")
@@ -127,15 +127,14 @@ table {
 
  
 Human coding and computational text analysis are more powerful when combined. 
-I offer a suite of **exact methods** that can increase the power of common hand-coding tasks by orders of magnitude. Human coding can both inform and be aided by rule-based information extraction, iteratively structuring queries on unstructured text.
+I describe a suite of **exact methods** that can increase the power of common hand-coding tasks. Human coding can both inform and be aided by rule-based information extraction---iteratively structuring queries on unstructured text.
 
 1. Text analysis tools can strategically **select texts for human coders**---texts representing larger samples and outlier texts of high inferential value.
 2. **Preprocessing can speed up hand-coding** by extracting features like names and key sentences. 
 3. Humans and computers can iteratively **tag entities using regex tables** 
-(e.g., identify organizations)
-4. Humans and computers can iteratively **group texts by key features** (e.g., identify lobbying coalitions by common policy demands)
+(e.g., identify organizations) and **group texts by key features** (e.g., identify lobbying coalitions by common policy demands)
 
-Applying this method to public comments on U.S. Federal Agency rules, a **sample of 10,894 hand-coded comments** yields **41 million as-good-as-hand-coded comments** regarding both the organizations that mobilized them and the extent to which policy changed in the direction they sought. This large sample enables new analyses of lobbying coalitions, social movements, and policy change.
+Applying this method to public comments on U.S. federal agency rules, a **sample of 10,894 hand-coded comments** yields **41 million as-good-as-hand-coded comments** regarding both the organizations that mobilized them and the extent to which policy changed in the direction they sought. This large sample enables new analyses of lobbying coalitions, social movements, and policy change.
 
 <!--
 # The Broader Project: Public Pressure
@@ -189,7 +188,7 @@ knitr::include_graphics(here("figs", "greyhound.png"))
 
 Workflow: `googlesheets4` allows analysis and improving data in real-time. For example, in Fig. 1: 
 
-- The "org_name" column is populated with a guess from automated methods. As humans identify new organizations and aliases, other documents with the same entity strings are auto-coded the same way.   
+- The "org_name" column is populated with a guess from automated methods. As humans identify new organizations and aliases, other documents with the same entity strings are auto-coded to match human coding.   
 - As humans identify each organization's policy "ask," other texts with the same ask are put in the same coalition.   
 - If the organization and coalition become known, it no longer needs hand coding.
 
@@ -277,7 +276,7 @@ top100 <- org_counts_summary[1:100,]  %>% tally(comments)
 
 <!--Iteratively linking comments to the organizations that wrote or mobilized them (and thus strings to identify similar documents), I find that a few advocacy organizations mobilize the vast majority of comments. 
 -->
-Of 58 million comments on regulations.gov, the top 100 organizations mobilized `r top100 |> prettyNum(big.mark = ",")` comments. The top ten organizations mobilized `r top10 |> prettyNum(big.mark = ",")`.
+Of 58 million public comments on proposed agency rules, the top 100 organizations mobilized `r top100 |> prettyNum(big.mark = ",")`. The top ten organizations mobilized `r top10 |> prettyNum(big.mark = ",")`.
 
 
 ```{r}
@@ -312,7 +311,7 @@ org_counts_summary %>%
 
 # Grouping with text reuse
 
-**Fig. 3:**: Iteratively Group Documents
+**Fig. 3:** Iteratively Group Documents
 
 ```{r, out.width = "100%", fig.show='hold'}
 knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vSy9MpvnXV0nbZj4kUPnWC38bwk5xiBXjRiGC3fyrddwoZVT19SmfT4WRr_AvOH5lxeKyrTenqLlKmm/pub?w=953&h=603")
@@ -320,11 +319,10 @@ knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vSy9MpvnXV0
 ```
 
 
-
 <!--## Collapsing form letters with text reuse-->
 
 
-**FIg 4:** Identifying Groups of Linked Documents using Text Reuse (a 10-gram Window Function)
+**FIg 4:** Identifying Groups of Linked Documents with Text Reuse (a 10-gram Window Function)
 
 ```{r percent-match, fig.show = "hold", out.width = "55%"}
 
@@ -337,9 +335,9 @@ knitr::include_graphics(here::here("figs", "comment_percent_match_plot-2.png")  
 
 ---
 
-### Results: Most comments result from public pressure campaigns
+### Results: Most public comments result from organized pressure campaigns
 
-**Fig. 5:** Comments Posted to Regulations.gov
+**Fig. 5:** Public Comments on Regulations.gov, 2005-2020
 
 ```{r comments-mass, out.width = "100%", fig.show = "hold"}
 knitr::include_graphics(here::here("figs", "comments-mass-1.png"))
@@ -353,11 +351,11 @@ Comments that share a 10-gram with 99 or more others are part of a mass comment 
 
 1. Humans identify groups of selected documents (e.g., lobbying coalitions)
 2. Humans copy and paste key phrases
-3. Computer puts other documents containing those phrases in the coalition
+3. Computer puts other documents containing those phrases in the same group (coalition)
 
 *Preprocessing tip:* 
 <!--**Digitized text** allows humans to paste text exactly matching machine-read strings.  -->
-**Summaries** (e.g., `textrank`'s top 3 sentences) speed hand-coding.
+**Summaries** speed hand-coding (e.g., use `textrank` to select representative sentences).
 
 
 <!--
@@ -411,7 +409,7 @@ knitr::include_graphics(here::here("figs", "coded-coalition-success-1.png"))
 ```
 
 
-Public pressure on climate and environmental justice greatly affected policy documents, but a few organizations dominate lobbying coalitions. When tribal governments or local groups lobby without the support of national advocacy groups, policymakers typically ignore them.
+Public pressure on climate and environmental justice greatly affected policy documents (Fig. 7), but a few organizations dominate lobbying coalitions (Table 2). When tribal governments or local groups lobby without the support of national advocacy organizations, policymakers typically ignore them.
 
 **Fig. 7:** Policy Text Change by Coalition Size
 
