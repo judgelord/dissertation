@@ -127,14 +127,16 @@ table {
 
  
 Human coding and computational text analysis are more powerful when combined. 
-I show how search and text-reuse tools can aid common hand-coding tasks. Human coding can both inform and be informed by rule-based information extraction---iteratively structuring queries on unstructured text.
+<!--I show how search and text-reuse tools can aid common hand-coding tasks. 
+Human coding can both inform and be informed by rule-based information extraction---iteratively structuring queries on unstructured text.-->
 
 1. Text analysis tools can strategically **select texts for human coders**---texts representing larger samples and outlier texts of high inferential value.
 2. **Preprocessing can speed up hand-coding** by extracting features like names and key sentences. 
 3. Humans and computers can iteratively **tag entities using regex tables** 
-(e.g., identify organizations) and **group texts by key features** (e.g., identify lobbying coalitions by common policy demands)
+<!--(e.g., identify organizations)--> and **group texts by key features** (e.g., identify lobbying coalitions by common policy demands)
 
-Applying this method to public comments on U.S. federal agency rules, a **sample of 10,894 hand-coded comments** yields **41 million as-good-as-hand-coded comments** regarding both the organizations that mobilized them and the extent to which policy changed in the direction they sought. This large sample enables new analyses of lobbying coalitions, social movements, and policy change.
+
+Applying search and text-reuse methods to public comments on U.S. federal agency rules, a **sample of 10,894 hand-coded comments** yields **41 million as-good-as-hand-coded comments** regarding both the organizations that mobilized them and the extent to which policy changed in the direction they sought. <!--This large sample enables new analyses of lobbying coalitions, social movements, and policy change.-->
 
 <!--
 # The Broader Project: Public Pressure
@@ -196,7 +198,7 @@ Workflow: `googlesheets4` allows analysis and improving data in real-time. For e
 
 ```{r datasheet, fig.show = "hold", out.width = "100%"}
  
-knitr::include_graphics(here("docs", "figs", "datasheet.png"))
+knitr::include_graphics(here("figs", "datasheet.png"))
 ```
 
 
@@ -267,7 +269,7 @@ members |>
 
 -->
 
-For example, the `legislators` package adds variants (e.g., "AOC") to standard legislator names.
+For example, the `legislators` package adds variants (e.g., "AOC") to standard legislator names to detect them in messy text.
 
 ---
 
