@@ -213,15 +213,23 @@ knitr::include_graphics(here("docs", "figs", "datasheet.png"))
 #CRP data
 here("data", "Lobbbying_Summary.csv") |>
 read_csv() |>
+  filter(parentName %in% c("Teamsters Union", "3M Co") ) |>
+  filter(!orgName %in% "3M Cogent") |>
+  mutate(orgName = orgName %>% str_replace(".*Teamsters.*", "Teamsters")) |> 
+  distinct(orgName, parentName) |> 
   group_by(parentName) |>
   summarize(pattern = str_c(orgName, collapse = "|") ) |>
-  filter(parentName %in% c("Teamsters Union", "3M Co") ) |>
+  mutate(pattern = pattern %>% str_replace("Teamsters & ", "Teamsters|Teamsters.{1:4}") |>
+           str_replace("Maint ", "Maint[a-z]* ") |>
+           str_replace("Trucking Pension", "(Trucking|Pension)") |>
+           str_replace_all("&|and", "(and|&)") |>
+           str_remove_all(" Div")) |>
   rename(Entity = parentName, Pattern = pattern) |>
-  knitr::kable(caption = "Regex Table Deduced from Center for Responsive Politics Lobbying Data", full_width = T) |>
+  knitr::kable(caption = "Lookup Table Deduced from Center for Responsive Politics Lobbying Data, Collapsed into an Initial Regular Expression Table", full_width = T) |>
   kableExtra::kable_paper()
 ```
 
-- **Inductive:** Add entities that frequently appear in the data to regex tables. 
+- **Inductive:** Add entity strings that frequently appear in the data to regex tables. 
 - **Iterative:** Add to regex tables as humans identify new entities or new aliases for known entities. Update data (Google Sheets) to speed hand coding.
 
 
@@ -307,9 +315,8 @@ org_counts_summary %>%
   kableExtra::kable_paper()
 ```
 
----
 
-# Grouping with text reuse
+# Grouping with text reuse {.mybreak}
 
 **Fig. 3:** Iteratively Group Documents
 
@@ -322,14 +329,14 @@ knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vSy9MpvnXV0
 <!--## Collapsing form letters with text reuse-->
 
 
-**FIg 4:** Identifying Groups of Linked Documents with Text Reuse (a 10-gram Window Function)
+**Fig 4:** Identifying Groups of Linked Documents with Text Reuse (a 10-gram Window Function)
 
 ```{r percent-match, fig.show = "hold", out.width = "55%"}
 
 knitr::include_graphics(here::here("figs", "comment_percent_match_plot-2.png")  )
 ```
 
-- Comment A shares no 10-grams with the others 
+- Document A shares no 10-word phrases with the others 
 - B, C, and D share some text (they are part of an organized mass comment campaign) 
 - E and F are the same text that was submitted twice
 
@@ -400,7 +407,9 @@ include_graphics(here("figs", "spatial-coding-1.png"))
 
 ---
 
-### Results: Coalition size and coalition success
+### Results: Larger coalitions → more likely to win
+
+<!--get desired policy changes-->
 
 **Fig. 6:** Lobbying Success by Campaign Size
 
@@ -466,10 +475,11 @@ knitr::write_bib(c('knitr','rmarkdown','posterdown','pagedown'), 'packages.bib')
 TODO 
 Bloomington
 
+The textrank algorithm creates a bipartite network of sentence pairs that share words and then applies Google Pagerank on the sentence network to rank sentences [@textrank]. This is the summary method I use, in part because many federal agencies used the texrank algorithm to summarize public comments. This means that the sentences chosen by textrank may be especially likely to be seen and quoted by agency officials responding to comments.  
 
 Topic models also provide helpfuls summary information. Frequent and exclusive words associated with with the topic(s) occuring in the highest proportions in the document may be helpful summary information. 
 
-The results of superivised machine classification may also be helpful. Hummans with basic domain knowledge are well suited to check and correct the results of machine coding. Human coders might dig deeper in to cases where the machine coding looks off (given other available metadata, like associated entities, summaries, or topics). As humans do such a task, they likely learn how the classifier(s) tend to error. Future human and computational attention can then be paid to those cases. 
+Similarly, the results of superivised machine classification can also simplify human codeing [@Sebok2021]. For example @Chou2019 use k-means clustering to classify sentences in audit reports and select sentences closted to cluster centroids as summaries for human auditors. Hummans with basic domain knowledge are well suited to check and correct the results of machine coding. Human coders might dig deeper in to cases where the machine coding looks off (given other available metadata, like associated entities, summaries, or topics). As humans do such a task, they likely learn how the classifier(s) tend to error. Future human and computational attention can then be paid to those cases. 
 
 
 Nothing is langauge dependent. Whereas statistical models of word frequnecies require langague-deendent preprocessing for dimension-reduction [@Lucas2015], regex tables and text reuse are not.
