@@ -4,7 +4,7 @@
 knit: ( function(input, ...){xaringan::infinite_moon_reader(input) } )
 title: "Iterative Human Coding and Computational Text Analysis: Assessing the Effects of Public Pressure on Policy"
 author: 
- - name: Devin Judge-Lord | Harvard University | DevinJudgeLord@FAS.Harvard.edu
+ - name: Devin Judge-Lord | DevinJudgeLord@FAS.Harvard.edu
 #logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 #logoleft_name: https&#58;//www.hks.harvard.edu/sites/default/files/inline-images/huce%20hd%20logo.png
 bibliography: '`r here::here("assets/dissertation.bib")`'
@@ -16,7 +16,7 @@ font_family: "Roboto:wght@100"
 output:   posterdown::posterdown_html
 poster_height:	"36in"
 poster_width:	"48in"
-titlebox_height: "10%"
+titlebox_height: "9%"
 # C5050C Monza (badger red) 850704 Dark Burgundy 798504 Olive 04851A Japanese Laurel 047985 Blue Lagoon
 primary_colour:	"#850704"
 secondary_colour:	"#C5050C"
@@ -96,7 +96,6 @@ style_mono_light(base_color = "#3b444b",
 ```
 
 ```{r, eval = FALSE, include= FALSE}
-pagedown::chrome_print("docs/present/methods-pres.Rmd")
 
 # setup
 devtools::install_github("yihui/xaringan")
@@ -107,8 +106,10 @@ install.packages("webshot")
 library(webshot)
 
 # export to pdf
-file <- here("present/ej-pres.html")
-webshot(file, "ej-pres.pdf")
+pagedown::chrome_print("docs/present/methods-pres.Rmd")
+
+file <- here("present/methods-pres.html")
+webshot(file, "methods-pres.pdf")
 ```
 
 <style type="text/css">
@@ -126,21 +127,20 @@ table {
 </style>
 
  
-Human coding and computational text analysis are more powerful when combined. 
+Human coding and computational text analysis are more powerful when combined in an iterative workflow. 
 <!--I show how search and text-reuse tools can aid common hand-coding tasks. 
 Human coding can both inform and be informed by rule-based information extraction---iteratively structuring queries on unstructured text.-->
 
 1. Text analysis tools can strategically **select texts for human coders**---texts representing larger samples and outlier texts of high inferential value.
-2. **Preprocessing can speed up hand-coding** by extracting features like names and key sentences. 
-3. Humans and computers can iteratively **tag entities using regex tables** 
+2. Preprocessing can **speed up hand-coding** by extracting features like names and key sentences. 
+3. Humans and computers can iteratively **tag entities** using regex tables 
 <!--(e.g., identify organizations)--> and **group texts by key features** (e.g., identify lobbying coalitions by common policy demands)
 
 
-Applying search and text-reuse methods to public comments on U.S. federal agency rules, a **sample of 10,894 hand-coded comments** yields **41 million as-good-as-hand-coded comments** regarding both the organizations that mobilized them and the extent to which policy changed in the direction they sought. <!--This large sample enables new analyses of lobbying coalitions, social movements, and policy change.-->
+Applying simple search and text-reuse methods to public comments on U.S. federal agency rules, a **sample of 10,894 hand-coded comments** yields **41 million as-good-as-hand-coded comments** regarding both the organizations that mobilized them and the extent to which policy changed in the direction they sought. <!--This large sample enables new analyses of lobbying coalitions, social movements, and policy change.-->
 
 <!--
 # The Broader Project: Public Pressure
-
 
 Mobilization
 
@@ -166,7 +166,6 @@ Surviving judicial review
 ---->
 
 
----
 
 
 <!--
@@ -174,8 +173,6 @@ Surviving judicial review
 --
 
 --->
-
-
 
 # Hand-coding dynamic data
 
@@ -191,10 +188,10 @@ knitr::include_graphics(here("figs", "greyhound.png"))
 Workflow: `googlesheets4` allows analysis and improving data in real-time. For example, in Fig. 1: 
 
 - The "org_name" column is populated with a guess from automated methods. As humans identify new organizations and aliases, other documents with the same entity strings are auto-coded to match human coding.   
-- As humans identify each organization's policy "ask," other texts with the same ask are put in the same coalition.   
+- As humans identify each organization's policy "ask," other texts with the same ask are put in their coalition.   
 - If the organization and coalition become known, it no longer needs hand coding.
 
-**Fig. 1:** Coded Comments in a Google Sheet
+**Fig. 1:** Coded Public Comments in a Google Sheet
 
 ```{r datasheet, fig.show = "hold", out.width = "100%"}
  
@@ -234,23 +231,22 @@ read_csv() |>
 - **Inductive:** Add entity strings that frequently appear in the data to regex tables. 
 - **Iterative:** Add to regex tables as humans identify new entities or new aliases for known entities. Update data (Google Sheets) to speed hand coding.
 
-
 <!--### Add to regex tables as hand coders identify new aliases-->
 
 **Fig 2:** Iteratively Building Regex Tables
 
 ```{r, out.width = "100%", fig.show='hold'}
-knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vRSJJgSbMdFtkpJjB94Tw5cmFElhDKrHEkOLaUb5-qFdIY-sQp4qGyC-FZoZ7UmWSLfoMZDueAkemhU/pub?w=752&h=238") 
+#knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vRSJJgSbMdFtkpJjB94Tw5cmFElhDKrHEkOLaUb5-qFdIY-sQp4qGyC-FZoZ7UmWSLfoMZDueAkemhU/pub?w=752&h=238") 
 
+knitr::include_graphics(here::here("figs", "methods-regex.png"))
 
 #knitr::include_graphics(here::here("legislators" , "man", "figures", "logo.png") %>% str_remove("dissertation"))
-
 ```
 
 <!--
 The `legislators` package adds name variants (e.g., "Liz Warren") to standard legislator names.
 
-```{r legislators}
+```{r legislators, eval = FALSE}
 library(legislators)
 
 members |>
@@ -271,7 +267,9 @@ members |>
 
 For example, the `legislators` package adds variants (e.g., "AOC") to standard legislator names to detect them in messy text.
 
+
 ---
+
 
 ### Results: Who mobilizes public comments?
 
@@ -298,16 +296,16 @@ top100 <- org_counts_summary[1:100,]
 
 # Pretty up for presentation
 org_counts_summary %>%
-  select(org_name, rules, campaigns, percent, comments, average) %>% 
+  dplyr::select(org_name, rules, campaigns, percent, comments, average) %>% 
   mutate(comments = comments %>% prettyNum(big.mark = ","),
-         average = average %>% prettyNum(big.mark = ",")) |>
+         average = average %>% prettyNum(big.mark = ",")) %>% 
   rename(Organization = org_name,
          Comments = comments,
          `Rules Lobbied On` = rules, 
          `Pressure Campaigns` = campaigns,
          `Percent (Campaigns /Rules)` = percent, 
          `Average per Campaign` = average) %>% 
-  head() |>
+  head() %>% 
   #mutate(Organization = Organization %>% 
            #str_rpl("Natural Resources Defense Council", "NRDC") %>% 
            #str_rpl("World Wildlife Fund", "WWF") %>% 
@@ -323,7 +321,9 @@ org_counts_summary %>%
 **Fig. 3:** Iteratively Group Documents
 
 ```{r, out.width = "100%", fig.show='hold'}
-knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vSy9MpvnXV0nbZj4kUPnWC38bwk5xiBXjRiGC3fyrddwoZVT19SmfT4WRr_AvOH5lxeKyrTenqLlKmm/pub?w=953&h=603")
+#knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vSy9MpvnXV0nbZj4kUPnWC38bwk5xiBXjRiGC3fyrddwoZVT19SmfT4WRr_AvOH5lxeKyrTenqLlKmm/pub?w=953&h=603")
+
+knitr::include_graphics(here::here("figs", "methods-ngrams.png"))
 
 ```
 
