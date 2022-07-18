@@ -188,7 +188,7 @@ knitr::include_graphics(here("figs", "greyhound.png"))
 Workflow: `googlesheets4` allows analysis and improving data in real-time. For example, in Fig. 1: 
 
 - The "org_name" column is populated with a guess from automated methods. As humans identify new organizations and aliases, other documents with the same entity strings are auto-coded to match human coding.   
-- As humans identify each organization's policy "ask," other texts with the same ask are put in their coalition.   
+- As humans identify each organization's policy "ask," other texts with the same ask are put in the same coalition.   
 - If the organization and coalition become known, it no longer needs hand coding.
 
 **Fig. 1:** Coded Public Comments in a Google Sheet
