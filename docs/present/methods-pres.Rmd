@@ -4,14 +4,17 @@
 knit: ( function(input, ...){xaringan::infinite_moon_reader(input) } )
 title: "Iterative Human Coding and Computational Text Analysis: Assessing the Effects of Public Pressure on Policy"
 author: 
- - name: Devin Judge-Lord | DevinJudgeLord@FAS.Harvard.edu
+  - name: "Devin Judge-Lord | Harvard University | DevinJudgeLord@FAS.Harvard.edu"
+    twitter: judgelord
+    email: DevinJudgeLord@FAS.Harvard.edu
 #logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 #logoleft_name: https&#58;//www.hks.harvard.edu/sites/default/files/inline-images/huce%20hd%20logo.png
 bibliography: '`r here::here("assets/dissertation.bib")`'
 biblio-style: '`r here::here("assets/apsr.bst")`'
 link_col: white
 date: "Paper, slides, & data: [judgelord.github.io/research/methods](https://judgelord.github.io/research/iterative)"
-titletext_fontfamily: Roboto:wght@100
+titletext_fontfamily: "Roboto:wght@100"
+middle_fontfamily: "Roboto"
 font_family: "Roboto:wght@100"
 output:   posterdown::posterdown_html
 poster_height:	"36in"
@@ -127,7 +130,7 @@ table {
 </style>
 
  
-Human coding and computational text analysis are more powerful when combined in an iterative workflow. 
+Human coding and computational text analysis are more powerful when combined in an iterative workflow.
 <!--I show how search and text-reuse tools can aid common hand-coding tasks. 
 Human coding can both inform and be informed by rule-based information extraction---iteratively structuring queries on unstructured text.-->
 
@@ -137,7 +140,7 @@ Human coding can both inform and be informed by rule-based information extractio
 <!--(e.g., identify organizations)--> and **group texts by key features** (e.g., identify lobbying coalitions by common policy demands)
 
 
-Applying simple search and text-reuse methods to public comments on U.S. federal agency rules, a **sample of 10,894 hand-coded comments** yields **41 million as-good-as-hand-coded comments** regarding both the organizations that mobilized them and the extent to which policy changed in the direction they sought. <!--This large sample enables new analyses of lobbying coalitions, social movements, and policy change.-->
+Applying simple search and text-reuse methods to public comments on all U.S. federal agency rules, a **sample of 10,894 hand-coded comments** yields **41 million as-good-as-hand-coded comments** regarding both the organizations that mobilized them and the extent to which policy changed in the direction they sought. <!--This large sample enables new analyses of lobbying coalitions, social movements, and policy change.-->
 
 <!--
 # The Broader Project: Public Pressure
@@ -188,7 +191,7 @@ knitr::include_graphics(here("figs", "greyhound.png"))
 Workflow: `googlesheets4` allows analysis and improving data in real-time. For example, in Fig. 1: 
 
 - The "org_name" column is populated with a guess from automated methods. As humans identify new organizations and aliases, other documents with the same entity strings are auto-coded to match human coding.   
-- As humans identify each organization's policy "ask," other texts with the same ask are put in the same coalition.   
+- As humans identify each organization's policy "ask," other texts with the same ask are put in their coalition.   
 - If the organization and coalition become known, it no longer needs hand coding.
 
 **Fig. 1:** Coded Public Comments in a Google Sheet
@@ -228,7 +231,7 @@ read_csv() |>
   kableExtra::kable_paper()
 ```
 
-- **Inductive:** Add entity strings that frequently appear in the data to regex tables. 
+- **Inductive:** Add entity strings that frequently appear in the data to regex tables.  
 - **Iterative:** Add to regex tables as humans identify new entities or new aliases for known entities. Update data (Google Sheets) to speed hand coding.
 
 <!--### Add to regex tables as hand coders identify new aliases-->
@@ -265,8 +268,7 @@ members |>
 
 -->
 
-For example, the `legislators` package adds variants (e.g., "AOC") to standard legislator names to detect them in messy text.
-
+For example, the `legislators` package uses a regex table, adding variants (e.g., "AOC") to standard legislator names to detect them in messy text.
 
 ---
 
@@ -449,7 +451,7 @@ winrates %>%
 
 # Next steps
 
-- Compare exact entity linking (regex tables) to probabilistic methods (`linkit`, `fastlink`, ML with hand-coded training set)
+- Compare exact entity linking (regex tables) to probabilistic methods (`linkit`, `fastlink`, supervised classified with hand-coded training set)
 - Compare exact grouping (e.g., by policy demands) to supervised probabilistic classifiers/clustering
 
 <!--
