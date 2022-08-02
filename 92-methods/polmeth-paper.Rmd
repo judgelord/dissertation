@@ -872,6 +872,9 @@ DEFINE HIGH-INFERENTIAL VALUE
 1. represenative sample
 2. lead org comments (e.g. lead twitter accounts)
 
-
+pretty much 100% of my documents are correctly labeled (and to the extent some are mislabeled, I don’t know because iterating means fixing all known mistakes). The tradeoffs, I think, are scale and cost.
+scale: supervised classifiers pass a probabilistic judgment on all documents (perhaps with a confidence threshold). My deterministic approach is near certain for those classified, but it only classified about 87% (however, the missing documents are likely much less important than the ones I do classify)
+cost: Of documents classified, my approach gets more documents correctly classified but requires a good deal of human “in the loop” time — the challenge with reporting a number like *87%” is that it totally depends on human time allocated to the process. Strategically and iteratively selecting 10k documents is definitely way better than hand-coding a random sample. Such a random sample would be a fairly poor training set for these data that are heavily skewed on unobservables. Perhaps testing against a classifier with a 10k random sample training set is relevant, but that would require creating a new (much worse) training set for that test.
+Also, there is no reason that someone can’t easily use both iteratively. Use the iterative approach to create bigger and better training sets, using a probabilistic classifier to make better and better guesses that humans fix and override.
 -->
 
