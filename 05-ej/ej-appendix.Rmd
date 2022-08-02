@@ -22,7 +22,7 @@ editor_options:
 source(here::here("code", "setup.r"))
 
 knitr::opts_chunk$set(echo = TRUE, 
-                      cache = FALSE, 
+                      cache = TRUE, 
                       fig.width=8.5, 
                       #fig.width = 4,
                       split = T,
@@ -84,171 +84,6 @@ rules %<>% ungroup() %>%
   ))
 ```
 
-### Documents
-
-
-```{r ej-data-documenttype, fig.height=3}
-# ej-data-documenttype
-
-
-# document type over time
-rules %>% 
-  ggplot() + 
-  aes(x = year, fill = document_type) +
-  geom_bar(alpha = .7, position = "dodge") + 
-  labs(y  = "Number of Documents",
-       x = "",
-       fill = "") + 
-  scale_fill_viridis_d(option="cividis", begin = .3, end = .7, direction = -1, ) + 
-  theme(axis.text.x = element_text(angle = 45, vjust = .5),
-        panel.grid.major.x = element_blank(),
-        panel.border = element_blank())
-```
-
-### Draft Rules
-
-
-```{r ej-data-ejpr, fig.height=3}
-# ej-data-ejpr
-
-rules %>% 
-  filter(document_type == "Proposed Rule") %>% 
-  mutate(ej_pr = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
-  count(year, ej_pr) %>% 
-  pivot_wider(values_from = n, ej_pr, id_cols = year) %>% 
-  mutate(sum = `EJ Addressed` + `EJ Not Addressed`,
-         percent = `EJ Addressed` / sum ) %>% 
-  kablebox()
-
-rules %>% 
-  filter(document_type == "Proposed Rule") %>% 
-  mutate(ej_pr = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
-  count(president, ej_pr) %>% 
-  pivot_wider(values_from = n, ej_pr, id_cols = president) %>% 
-  mutate(sum = `EJ Addressed` + `EJ Not Addressed`,
-         percent = `EJ Addressed` / sum ) %>% 
-  kablebox()
-
-# pr over time
-rules %>% 
-  filter(document_type == "Proposed Rule", year > 2004) %>% 
-  mutate(ej_pr = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
-  ggplot() + 
-  aes(x = year, fill = ej_pr) +
-  geom_bar(alpha = .7, position = "dodge") + 
-  labs(y  = "All Proposed Rules",
-       x = "",
-       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
-  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
-    facet_grid(. ~ president2, scales = "free") + 
-  theme(axis.text.x = element_text(angle = 45, vjust = .5),
-        panel.grid.major.x = element_blank(),
-        panel.border = element_blank())
-
-# pr over time, back to 1993
-rules %>% 
-  filter(document_type == "Proposed Rule") %>% 
-  mutate(ej_pr = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
-  ggplot() + 
-  aes(x = year, fill = ej_pr) +
-  geom_bar(alpha = .7, position = "dodge") + 
-  labs(y  = "All Proposed Rules",
-       x = "",
-       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
-  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
-    facet_wrap("president2", nrow = 1, scales = "free") + 
-  theme(axis.text.x = element_text(angle = 45, vjust = .5),
-        panel.grid.major.x = element_blank(),
-        panel.border = element_blank())
-
-# ej_pr over time
-ejPR %>% 
-  filter(!is.na(posted_date)) %>% 
-  mutate(year = str_sub(posted_date,1,4)) %>%
-  ggplot() + 
-  aes(x = year) +
-  geom_bar(alpha = .7, position = "dodge") + 
-  labs(y  = "Proposed Rules\nAddressing Environmental Justice",
-       x = "") + 
-  theme(axis.text.x = element_text(angle = 45, vjust = .5),
-        panel.grid.major.x = element_blank(),
-        panel.border = element_blank())
-```
-
-### Final rules
-
-```{r ej-data-ejfr, fig.height=3}
-#ej-data-ejfr
-
-rules %>% 
-  filter(document_type == "Rule") %>% 
-  mutate(ej_pr = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
-  count(year, ej_pr) %>% 
-  pivot_wider(values_from = n, ej_pr, id_cols = year) %>% 
-  mutate(sum = `EJ Addressed` + `EJ Not Addressed`,
-         percent = `EJ Addressed` / sum ) %>% 
-  kablebox()
-
-rules %>% 
-  filter(document_type == "Rule") %>% 
-  mutate(ej_pr = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
-  count(president, ej_pr) %>% 
-  pivot_wider(values_from = n, ej_pr, id_cols = president) %>% 
-  mutate(sum = `EJ Addressed` + `EJ Not Addressed`,
-         percent = `EJ Addressed` / sum ) %>% 
-  kablebox()
-
-# fr type over time
-rules %>% 
-  filter(document_type == "Rule", year > 2004) %>% 
-  mutate(ej_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed")) %>% 
-  ggplot() + 
-  aes(x = year, fill = ej_fr) +
-  geom_bar(alpha = .7, position = "dodge") + 
-    facet_wrap("president2",nrow = 1, scales = "free_x") + 
-
-  labs(y  = "All Final Rules",
-       x = "",
-       fill = "" ) +# "EJ Addressed\nin Final Rule") + 
-  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
-  theme(axis.text.x = element_text(angle = 45, vjust = .5),
-        panel.grid.major.x = element_blank(),
-        panel.border = element_blank())
-
-
-# fr type over time, back to 1993
-rules %>% 
-  filter(document_type == "Rule") %>% 
-  mutate(ej_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed")) %>% 
-  ggplot() + 
-  aes(x = year, fill = ej_fr) +
-  geom_bar(alpha = .7, position = "dodge") + 
-  labs(y  = "All Final Rules",
-       x = "",
-       fill = "" ) +# "EJ Addressed\nin Final Rule") + 
-  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
-  theme(axis.text.x = element_text(angle = 45, vjust = .5),
-        panel.grid.major.x = element_blank(),
-        panel.border = element_blank())
-
-
-# ej_fr over time
-ejFR %>% 
-  filter(!is.na(posted_date)) %>% 
-  mutate(year = str_sub(posted_date,1,4)) %>%
-  ggplot() + 
-  aes(x = year) +
-  geom_bar(alpha = .7, position = "dodge") + 
-  labs(y  = "Final Rules\nAddressing Environmental Justice",
-       x = "") + 
-  theme(axis.text.x = element_text(angle = 45, vjust = .5),
-        panel.grid.major.x = element_blank(),
-        panel.border = element_blank())
-
-
-
-```
-
 Subsets of data:
 
 ```{r subsets}
@@ -274,6 +109,472 @@ allFR <- rules %>%
 
 ejcomments %>% count(docket_id, number_of_comments_received, sort = T) %>% arrange(-number_of_comments_received) %>% kablebox()
 ```
+
+### Documents
+
+
+```{r ej-data-documenttype, fig.height=3}
+# ej-data-documenttype
+
+
+# document type over time
+rules %>% 
+  ggplot() + 
+  aes(x = year, fill = document_type) +
+  geom_bar(alpha = .7, position = "dodge") + 
+  labs(y  = "Number of Documents",
+       x = "",
+       fill = "") + 
+  scale_fill_viridis_d(option="cividis", begin = .3, end = .7, direction = -1, ) + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank())
+```
+
+### Draft Rules
+
+
+```{r ej-data-ejpr, fig.height=3, fig.width=6}
+# ej-data-ejpr
+
+percent_year <- rules %>% 
+  filter(document_type == "Proposed Rule") %>% 
+  mutate(ej_pr = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
+  count(year, ej_pr) %>% 
+  tidyr::pivot_wider(values_from = n, names_from = ej_pr, id_cols = year) %>% 
+  mutate(sum = `EJ Addressed` + `EJ Not Addressed`,
+         percent = `EJ Addressed` / sum  ,
+         percent = percent(percent, 1)) 
+
+percent_year %>% 
+  kablebox()
+
+
+
+
+
+pr_percent <- rules %>% 
+  mutate(has_final = docket_id %in% allFR$docket_id) %>% 
+  filter(document_type == "Proposed Rule") %>% 
+  mutate(addressed = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
+    left_join(percent_year) 
+
+
+pr_percent %>% 
+  filter(year > 2004) %>% 
+  count(president2, percent, addressed, year) %>% 
+  ggplot() + 
+  aes(x = year, y = n, fill = addressed, color = addressed) +
+  geom_col(alpha = .7, position = "dodge", color = NA) + 
+  geom_text(aes(label = ifelse(addressed == "EJ Not Addressed", percent, NA)), alpha=.7, vjust = 0) + 
+  labs(y  = "All Proposed Rules",
+       x = "",
+       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
+  scale_color_viridis_d(option="plasma", begin = 0, end = .6, direction = -1, guide = "none") + 
+    facet_grid(. ~ president2, scales = "free") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank(),
+        legend.position = c(.1, .9),
+        legend.background = element_blank())
+```
+
+```{r ej-data-ejpr-long, fig.height=3}
+# ej-data-ejpr-long
+# pr over time, back to 1993
+rules %>% 
+  filter(document_type == "Proposed Rule") %>% 
+  mutate(ej_pr = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
+    left_join(percent_year) %>% 
+  count(president2, percent, ej_pr, year) %>% 
+  ggplot() + 
+  aes(x = year, y = n, fill = ej_pr, color = ej_pr) +
+  geom_col(alpha = .7, position = "dodge", color = NA) + 
+  geom_text(aes(label = ifelse(ej_pr == "EJ Not Addressed", percent, NA)), alpha=.7, vjust = 0) + 
+  labs(y  = "All Proposed Rules",
+       x = "",
+       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
+     scale_color_viridis_d(option="plasma", begin = 0, end = .6, direction = -1, guide = "none") + 
+    facet_grid(. ~ president2, scales = "free") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank(),
+        legend.position = c(.1, .9),
+        legend.background = element_blank())
+
+# ej_pr over time
+ejPR %>% 
+  filter(!is.na(posted_date)) %>% 
+  mutate(year = str_sub(posted_date,1,4)) %>%
+  ggplot() + 
+  aes(x = year) +
+  geom_bar(alpha = .7, position = "dodge") + 
+  labs(y  = "Proposed Rules\nAddressing Environmental Justice",
+       x = "") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank())
+```
+
+### Final rules
+
+#### By year 
+
+```{r ej-data-ejfr, fig.height=3}
+#ej-data-ejfr
+
+percent_year <- rules %>% 
+  filter(document_type == "Rule") %>% 
+  mutate(ej_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed")) %>% 
+  count(year, ej_fr) %>% 
+  pivot_wider(values_from = n, names_from =  ej_fr, id_cols = year) %>% 
+  mutate(sum = `EJ Addressed` + `EJ Not Addressed`,
+         percent = `EJ Addressed` / sum,
+         percent = percent(percent, 1),
+         document_type = "Rule")
+
+percent_year %>% 
+  kablebox()
+
+
+
+fr_percent <- rules %>% 
+  mutate(has_pr = docket_id %in% allPR$docket_id) %>% 
+  filter(document_type == "Rule") %>% 
+  mutate(addressed = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed")) %>% 
+  left_join(percent_year) 
+
+
+# fr type over time
+fr_percent %>% 
+  count(president2, percent, addressed, year) %>% 
+  ggplot() + 
+  aes(x = year, y = n, fill = addressed, color = addressed) +
+  geom_col(alpha = .7, position = "dodge", color = NA) + 
+  geom_text(aes(label = ifelse(addressed == "EJ Not Addressed", percent, NA)), alpha=.7, vjust = 0) + 
+  labs(y  = "All Final Rules",
+       x = "",
+       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
+     scale_color_viridis_d(option="plasma", begin = 0, end = .6, direction = -1, guide = "none") + 
+    facet_grid(. ~ president2, scales = "free") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank(),
+        legend.position = c(.1, .9),
+        legend.background = element_blank())
+```
+
+### Draft and final rules
+
+#### By year
+
+```{r ej-data, fig.height=3, fig.width=5}
+# ej-data
+# 1 pr and fr type over time - BLANK
+full_join(pr_percent, fr_percent) %>% 
+  filter(year > 2004) %>% 
+  count(president2, percent,document_type, addressed, year) %>% 
+  ggplot() + 
+  aes(x = year, y = n, fill = addressed, color = addressed) +
+  #geom_col(alpha = .7, position = "dodge", color = NA) + 
+  #geom_text(aes(label = ifelse(addressed != "EJ Not Addressed", percent, NA)), alpha=.7, vjust = -1, hjust = .52, size =2.5) + 
+  labs(y  = "Agency Rules",
+       x = "",
+       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
+     scale_color_viridis_d(option="plasma", begin = 0, end = .6, direction = 1, guide = "none") + 
+    facet_grid(. ~ president2, scales = "free_x"
+               ) + 
+  scale_y_continuous(limits = c(0,2000)) + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank(),
+        legend.position = c(.16, .9),
+        legend.background = element_blank())
+
+# 2 fr type over time
+fr_percent %>% 
+  filter(year > 2004) %>% 
+  count(president2, percent,document_type, addressed, year) %>% 
+  ggplot() + 
+  aes(x = year, y = n, fill = addressed, color = addressed) +
+  geom_col(alpha = .7, position = "dodge", color = NA) + 
+  #geom_text(aes(label = ifelse(addressed != "EJ Not Addressed", percent, NA)), alpha=.7, vjust = -1, hjust = .52, size =2.5) + 
+  labs(y  = "Agency Rules",
+       x = "",
+       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
+     scale_color_viridis_d(option="plasma", begin = 0, end = .6, direction = 1, guide = "none") + 
+    facet_grid(. ~ president2, scales = "free_x"
+               ) + 
+  scale_y_continuous(limits = c(0,2000)) + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank(),
+        legend.position = c(.16, .9),
+        legend.background = element_blank())
+
+
+# 3 pr and fr type over time + percent 
+fr_percent %>% 
+  filter(year > 2004) %>% 
+  count(president2, percent,document_type, addressed, year) %>% 
+  ggplot() + 
+  aes(x = year, y = n, fill = addressed, color = addressed) +
+  geom_col(alpha = .7, position = "dodge", color = NA) + 
+  geom_text(aes(label = ifelse(addressed != "EJ Not Addressed", percent, NA)), alpha=.7, vjust = -1, hjust = .52, size =2.5) + 
+    labs(y  = "Agency Rules",
+       x = "",
+       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
+     scale_color_viridis_d(option="plasma", begin = 0, end = .6, direction = 1, guide = "none") + 
+    facet_grid(. ~ president2, scales = "free_x"
+               ) + 
+  scale_y_continuous(limits = c(0,2000)) + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank(),
+        legend.position = c(.16, .9),
+        legend.background = element_blank())
+
+
+# pr and fr type over time
+full_join(pr_percent, fr_percent) %>% 
+  filter(year > 2004) %>% 
+  count(president2, percent,document_type, addressed, year) %>% 
+  ggplot() + 
+  aes(x = year, y = n, fill = addressed, color = addressed) +
+  geom_col(alpha = .7, position = "dodge", color = NA) + 
+  #geom_text(aes(label = ifelse(addressed != "EJ Not Addressed", percent, NA)), alpha=.7, vjust = -1, hjust = .52, size =2.5) + 
+  labs(y  = "",
+       x = "",
+       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
+     scale_color_viridis_d(option="plasma", begin = 0, end = .6, direction = 1, guide = "none") + 
+    facet_grid(document_type ~ president2, scales = "free_x"
+               ) + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank(),
+        legend.position = c(.16, .9),
+        legend.background = element_blank())
+
+# pr and fr type over time
+full_join(pr_percent, fr_percent) %>% 
+  filter(year > 2004) %>% 
+  count(president2, percent,document_type, addressed, year) %>% 
+  ggplot() + 
+  aes(x = year, y = n, fill = addressed, color = addressed) +
+  geom_col(alpha = .7, position = "dodge", color = NA) + 
+  geom_text(aes(label = ifelse(addressed != "EJ Not Addressed", percent, NA)), alpha=.7, vjust = -1, hjust = .52, size =2.5) + 
+  labs(y  = "",
+       x = "",
+       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
+     scale_color_viridis_d(option="plasma", begin = 0, end = .6, direction = 1, guide = "none") + 
+    facet_grid(document_type ~ president2, scales = "free_x"
+               ) + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank(),
+        legend.position = c(.16, .9),
+        legend.background = element_blank())
+
+# ONLY MATCHED PAIRS 
+full_join(pr_percent %>% filter(has_final), 
+          fr_percent %>% filter(has_pr)) %>% 
+  filter(year > 2004) %>% 
+  count(president2, percent,document_type, addressed, year) %>% 
+  ggplot() + 
+  aes(x = year, y = n, fill = addressed, color = addressed) +
+  geom_col(alpha = .7, position = "dodge", color = NA) + 
+  geom_text(aes(label = ifelse(addressed != "EJ Not Addressed", percent, NA)), alpha=.7, vjust = -1, hjust = .52, size =2.5) + 
+  labs(y  = "Draft and Final Pairs",
+       x = "",
+       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
+     scale_color_viridis_d(option="plasma", begin = 0, end = .6, direction = 1, guide = "none") + 
+    facet_grid(document_type ~ president2, scales = "free_x"
+               ) + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank(),
+        legend.position = c(.16, .9),
+        legend.background = element_blank())
+```
+
+#### By president 
+```{r ej-data-president, fig.height=3, fig.width=5}
+percent_president <- rules %>% #filter(docket_id %in% allPR$docket_id) %>% 
+  filter(document_type == "Proposed Rule") %>% 
+  mutate(ej_pr = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
+  count(president2, ej_pr) %>% 
+  pivot_wider(values_from = n, names_from = ej_pr, id_cols = president2) %>% 
+  mutate(sum = `EJ Addressed` + `EJ Not Addressed`,
+         percent = `EJ Addressed` / sum ,
+         percent = percent(percent, .1)
+         ) 
+
+percent_president %>% 
+  kable (caption = "Proposed rules") %>% 
+  kable_paper()
+
+#FIXME somehow getting multiple percents per president 
+pr_percent_president <- rules %>% 
+  mutate(has_final = docket_id %in% allFR$docket_id) %>% 
+  filter(document_type == "Proposed Rule") %>% 
+  mutate(addressed = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
+    left_join(percent_president) 
+
+
+percent_president <- rules %>% #filter(docket_id %in% allFR$docket_id) %>%
+  mutate(ej_pr = ifelse(ej_pr, "EJ Addressed", "EJ Not Addressed")) %>% 
+  count(president2, ej_pr) %>% 
+  pivot_wider(values_from = n, names_from =  ej_pr, id_cols = president2) %>% 
+  mutate(sum = `EJ Addressed` + `EJ Not Addressed`,
+         percent = `EJ Addressed` / sum ,
+         percent = percent(percent, .1)) 
+
+percent_president %>% 
+  kable (caption = "Final rules") %>% 
+  kable_paper()
+
+
+#FIXME somehow getting multiple percents per president 
+fr_percent_president <- rules %>% 
+  mutate(has_pr = docket_id %in% allPR$docket_id) %>% 
+  filter(document_type == "Rule") %>% 
+  mutate(addressed = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed")) %>% 
+  left_join(percent_president) 
+
+
+# ej-data
+# 1 pr and fr type over time - BLANK
+full_join(pr_percent_president, fr_percent_president) %>% 
+  filter(year > 2004) %>% 
+  ungroup() %>%
+  count(president2, percent,document_type, addressed) %>% 
+  ggplot() + 
+  aes(x = president2, y = n, fill = addressed, color = addressed) +
+  #geom_col(alpha = .7, position = "dodge", color = NA) + 
+  #geom_text(aes(label = ifelse(addressed != "EJ Not Addressed", percent, NA)), alpha=.7, vjust = -1, hjust = .52, size =2.5) + 
+  labs(y  = "Agency Rules",
+       x = "",
+       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
+     scale_color_viridis_d(option="plasma", begin = 0, end = .6, direction = 1, guide = "none") + 
+    facet_grid(. ~ president2, scales = "free_x"
+               ) + 
+  #scale_y_continuous(limits = c(0,2000)) + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank(),
+        legend.position = c(.16, .9),
+        legend.background = element_blank(),
+        axis.text.x.bottom  = element_blank(),
+        axis.ticks.x = element_blank())
+
+
+
+# 2 pr and fr type over time - PRESIDENT 
+full_join(pr_percent_president, 
+          fr_percent_president
+) %>% 
+  filter(year > 2004) %>% 
+  count(president2, percent,document_type, addressed) %>% 
+  ggplot() + 
+  aes(x = president2, y = n, fill = addressed, color = addressed) +
+  geom_col(alpha = .7, position = "dodge", color = NA) + 
+  #geom_text(aes(label = ifelse(addressed != "EJ Not Addressed", percent, NA)), alpha=.7, vjust = -1, hjust = .52, size =2.5) + 
+  labs(y  = "Agency Rules",
+       x = "",
+       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
+     scale_color_viridis_d(option="plasma", begin = 0, end = .6, direction = 1, guide = "none") + 
+    facet_grid(document_type ~ president2, scales = "free_x"
+               ) + 
+  #scale_y_continuous(limits = c(0,2000)) + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank(),
+        legend.position = c(.16, .9),
+        legend.background = element_blank(),
+        axis.text.x.bottom  = element_blank(),
+        axis.ticks.x = element_blank())
+
+# 2 pr and fr type over time - PRESIDENT 
+full_join(pr_percent_president #%>% filter(has_final), 
+          fr_percent_president #%>% filter(has_pr)
+) %>% 
+  filter(year > 2004) %>% 
+  count(president2, percent,document_type, addressed) %>%  #filter(addressed != "EJ Not Addressed")
+  ggplot() + 
+  aes(x = president2, y = n, fill = addressed, color = addressed) +
+  geom_col(alpha = .7, position = "dodge", color = NA) + 
+  geom_text(aes(label = ifelse(addressed != "EJ Not Addressed", percent, NA)), alpha=.7, vjust = -1, hjust = .52) + 
+  labs(y  = "Agency Rules",
+       x = "",
+       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
+     scale_color_viridis_d(option="plasma", begin = 0, end = .6, direction = 1, guide = "none") + 
+    facet_grid(document_type ~ president2, scales = "free_x"
+               ) + 
+  #scale_y_continuous(limits = c(0,2000)) + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank(),
+        legend.position = c(.16, .9),
+        legend.background = element_blank(),
+        axis.text.x.bottom  = element_blank(),
+        axis.ticks.x = element_blank())
+```
+
+```{r ej-data-ejfr-long, fig.height=3}
+
+# fr type over time, back to 1993
+rules %>% 
+  filter(document_type == "Rule") %>% 
+  mutate(ej_fr = ifelse(ej_fr, "EJ Addressed", "EJ Not Addressed")) %>% 
+  left_join(percent_year) %>% 
+  count(president2, percent, ej_fr, year) %>% 
+  ggplot() + 
+  aes(x = year, y = n, fill = ej_fr, color = ej_fr) +
+  geom_col(alpha = .7, position = "dodge", color = NA) + 
+  geom_text(aes(label = ifelse(ej_fr == "EJ Not Addressed", percent, NA)), alpha=.7, vjust = 0) + 
+  labs(y  = "All Final Rules",
+       x = "",
+       fill = "")+ # "EJ Addressed\nin Proposed Rule") + 
+  scale_fill_viridis_d(option="plasma", begin = 0, end = .6, direction = 1) + 
+     scale_color_viridis_d(option="plasma", begin = 0, end = .6, direction = -1, guide = "none") + 
+    facet_grid(. ~ president2, scales = "free") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank(),
+        legend.position = c(.1, .9),
+        legend.background = element_blank())
+
+
+# ej_fr over time
+ejFR %>% 
+  filter(!is.na(posted_date)) %>% 
+  mutate(year = str_sub(posted_date,1,4)) %>%
+  ggplot() + 
+  aes(x = year) +
+  geom_bar(alpha = .7, position = "dodge") + 
+  labs(y  = "Final Rules\nAddressing Environmental Justice",
+       x = "") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .5),
+        panel.grid.major.x = element_blank(),
+        panel.border = element_blank())
+
+
+
+```
+
+
 
 ### Agencies that published at least 1 rule addressing EJ
 
@@ -443,11 +744,41 @@ allFR %>%
 
 
 
-```{r ej-comments,fig.width=6.5, fig.height=4.1}
+```{r ej-comments-added,fig.width=5, fig.height=3.5}
 # ej_comments
-breaks <- c(1996, 2000, 2004, 2006,2008, 2010,2012, 2014, 2016, 2018,2020)
+breaks <- c(1996, 2000, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020)
+
+# COMPARISON 1: no ej vs ej added 
+allFR %>% 
+      filter(ej_pr == F) %>% 
+  filter(president2 %in% c("G.W. Bush 2", "Obama 1", "Obama 2", "Trump")) %>%
+  filter(direct == "Draft Rule Published") %>% 
+  mutate(ej_pr = ifelse(ej_pr, "EJ in Draft & Final", "EJ Only in Final"),
+         ej_pr = ifelse(ej_fr, ej_pr, "No EJ Analysis")) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ")) %>% 
+  ggplot() + 
+  aes(x = year, color = EJ_comment, shape = EJ_comment) + 
+  # plot ej comments on top
+  geom_jitter(alpha = .3, 
+              aes(y = ifelse(ej_comment, NA, comments) ) ) + 
+  geom_jitter(alpha = .3,
+              aes(y = ifelse(ej_comment, comments, NA) ) ) +
+  #geom_jitter(alpha = .3) + 
+  facet_grid(ej_pr ~ president2, scales = "free_x") + 
+  scale_y_log10(labels = scales::comma)  +
+  #scale_x_date(date_labels = "%y") + 
+  labs(x = "",
+       y = "Total Number of Comments per Rule (log scale)",
+       color = "Comments Raised\nEnvironmental\nJustice Concerns",
+       shape = "Comments Raised\nEnvironmental\nJustice Concerns") +
+  #scale_x_discrete(breaks = breaks) + 
+  scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+  theme(axis.text.x = element_text(angle = 45) )
+
+```
 
 
+```{r ej-comments,fig.width=6.5, fig.height=4.1}
 allFR %>% 
   filter(president2 %in% c("G.W. Bush 2", "Obama 1", "Obama 2", "Trump")) %>%
   filter(direct == "Draft Rule Published") %>% 
@@ -2151,11 +2482,11 @@ ejFR %>%
 
 Excerpts from comments mentioning "environmental justice" on proposed rules that did not address environmental justice: 
 ```{r}
-ejcomments %>% 
+ ejcomments %>% 
   filter(docket_id %in% ejFR_PR$docket_id) %>% 
   distinct(docket_id, title, summary) %>%
   group_by(docket_id) %>%
-  slice_sample(n = 2) %>% kablebox()
+  slice_sample(n = 1) %>% kablebox()
 ```
 
 ---
@@ -2213,6 +2544,39 @@ ejFRejPR %<>% filter(!is.na(change)) #TODO investigate NAs
 
 
 save(ejFRejPR, file = here::here("data", "ejFRejPR.Rdata"))
+```
+
+
+```{r ej-comments-change, fig.width=5, fig.height=3.5}
+# ej-comments-change
+breaks <- c(1996, 2000, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020)
+
+# COMPARISON 2: no change vs change 
+ejFRejPR %>% 
+      filter(ej_pr == T, ej_fr == T) %>% 
+  mutate(change = ifelse(change, #FIXME 
+                         "EJ Text Changed", "EJ Text Unchanged")) %>% 
+  filter(president2 %in% c("G.W. Bush 2", "Obama 1", "Obama 2", "Trump")) %>%
+  filter(direct == "Draft Rule Published") %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ")) %>% 
+  ggplot() + 
+  aes(x = year, color = EJ_comment, shape = EJ_comment) + 
+  # plot ej comments on top
+  geom_jitter(alpha = .3, 
+              aes(y = ifelse(ej_comment, NA, comments) ) ) + 
+  geom_jitter(alpha = .3,
+              aes(y = ifelse(ej_comment, comments, NA) ) ) +
+  #geom_jitter(alpha = .3) + 
+  facet_grid(change ~ president2, scales = "free_x") + 
+  scale_y_log10(labels = scales::comma)  +
+  #scale_x_date(date_labels = "%y") + 
+  labs(x = "",
+       y = "Total Number of Comments\nper Rule (log scale)",
+       color = "Comments Raised\nEnvironmental\nJustice Concerns",
+       shape = "Comments Raised\nEnvironmental\nJustice Concerns") +
+  #scale_x_discrete(breaks = breaks) + 
+  scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+  theme(axis.text.x = element_text(angle = 45) )
 ```
 
 Percent where the final rule did change how it addressed EJ
@@ -3576,7 +3940,7 @@ ejcomments %>%
   filter(docket_id %in% ejFRejPR$docket_id) %>% 
   distinct(docket_id, title, summary) %>%
   group_by(docket_id) %>%
-  slice_sample(n = 2) %>% kablebox()
+  slice_sample(n = 1) %>% kablebox()
 ```
 
 ---

@@ -104,6 +104,15 @@ The following chapter is part of a dissertation exploring the effects of public 
 
 # (APPENDIX) Appendix {-} 
 
+Figure \@ref(fig:ej-data-long) shows the full time period for theses data
+
+```{r ej-data-long, fig.cap = "Proposed and Final Rules by Whether they Address Environmental Justice.", out.height = NULL, out.width = "100%", fig.show = "hold"}
+
+knitr::include_graphics(here::here("figs", "ej-data-ejpr-2.png") ) ##  
+
+knitr::include_graphics(here::here("figs", "ej-data-ejfr-2.png") ) ## 
+```
+
 
 ## Descriptives 
 

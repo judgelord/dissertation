@@ -286,7 +286,7 @@ Bureaucracies are specialized institutions built to make and implement certain k
 Information-based formal models [@Libgober2020JOP] imply a competing intuition to Hypothesis \@ref(hyp:ej-receptivity): policymakers familiar with EJ concerns are *least* likely to respond to EJ concerns because they anticipate these concerns---EJ concerns are not novel to them. If so, agencies that rarely consider EJ may be more easily influenced by commenters who present novel information of concerns. These policymakers may be less likely to have preempted EJ critiques in the draft policy.
 
 *Differential Influence*  
-```{hypothesis ej-influencee, echo = TRUE}
+```{hypothesis ej-influence, echo = TRUE}
 Groups with more technical and legal resources are more influential.
 ```
 

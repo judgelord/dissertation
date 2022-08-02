@@ -34,9 +34,7 @@ I collect the text of all draft rules, public comments, and final rules from reg
 
 Despite E.O. 12898, most rules do not address environmental justice. Most draft and final rules (about 90 percent) do not mention "environmental justice." The number of policies that take EJ into account (rather than just mentioning the E.O. 12898) is even lower [@Gauna2001; @Revez2018]. Interestingly, the total number of final rules and the percent of the total addressing EJ have remained relatively stable for the period where regulations.gov data are complete (after 2005). Figure \@ref(fig:ej-data) shows that from 2006 to 2020, these agencies published between 1,300 and 1,885 final rules per year, of which less than 10 percent addressed EJ. 
 
-```{r ej-data, fig.cap = "Proposed and Final Rules by Whether they Address Environmental Justice.", out.height = NULL, out.width = "100%", fig.show = "hold"}
-
-knitr::include_graphics(here::here("figs", "ej-data-ejpr-1.png") ) ##  
+```{r ej-data, fig.cap = "Final Rules by Whether they Address Environmental Justice.", out.height = NULL, out.width = "100%", fig.show = "hold"}
 
 knitr::include_graphics(here::here("figs", "ej-data-ejfr-1.png") ) ## 
 ```
@@ -80,7 +78,7 @@ representative of the groups they claim to represent [@Seifter2016UCLA].
 
 ##### Which Organizations Most Often Raise EJ Concerns?
 
-To explore who raises EJ concerns, I first identify the organization behind each comment through a mix of hand-coding and text analysis. This includes organizational comments on signed letterhead and individuals who use the text of a form letter provided by an organization. I then investigate the top 20 organizations that mobilized the most comments (including form letters and petitions) mentioning "environmental justice" and all organizations that raised EJ concerns on more than one policy. <!--these comments represent XX percent of all comments raising EJ--> 
+To explore who raises EJ concerns, I first identify the organization behind each comment through an iterative process of hand-coding and text analysis. This includes organizational comments on signed letterhead and individuals who use the text of a form letter provided by an organization. I then investigate all organizations that raised EJ concerns on more than one policy. <!--these comments represent XX percent of all comments raising EJ--> 
 
 ```{r ejorgs}
 load(here::here("data", "ejorgs_summary.Rdata"))
@@ -88,53 +86,46 @@ load(here::here("data", "ejorgs_summary.Rdata"))
 #ls()
 ejorgs_summary  %>%
   filter(Organization != "Individual") %>% 
-  kable3(caption = "Organizations Raising Environmental Justice Concerns on the Most Rulemaking Dockets 2005-2020")
+  kable3(caption = "Organizations Raising Environmental Justice Concerns on the Most Rulemaking Dockets 1993-2020")
+
+# the 20 organizations that mobilized the most comments (including form letters and petitions) mentioning "environmental justice" and
 ```
 
-Table \@ref(tab:ejorgs) shows the organizations that raised environmental justice in comments on the most proposed rules between 1993 and 2020. In terms of a total number of comments, the top mobilizer was the Sierra Club, with over 340,000 comments mentioning EJ on dozens of rules. The Sierra Club is a membership organization whose members pay dues, elect the leaders of local chapters and have some say in local advocacy efforts. However, its policy work is directed by a more traditional national advocacy organization funded by donations, including over $174 million from Bloomberg Philanthropies that funded several of the public pressure campaigns in these data. The Sierra Club does have a major program arm dedicated to Environmental Justice that works with local partners "to foster the growth of the environmental justice movement so that oppressed communities will find justice and everyone can experience the benefits of a healthy and sustainable future"
+Table \@ref(tab:ejorgs) shows the organizations that raised environmental justice in comments on the most proposed rules between 1993 and 2020. In terms of a total number of comments, the top mobilizer was the Sierra Club, with over 340,000 comments mentioning EJ on dozens of rules. The Sierra Club is a membership organization whose members pay dues, elect the leaders of local chapters and have some say in local advocacy efforts. However, its policy work is directed by a more traditional national advocacy organization funded by donations, including over $174 million from Bloomberg Philanthropies that funded several of the public pressure campaigns in these data. The Sierra Club has a major program arm dedicated to Environmental Justice that works with local partners "to foster the growth of the environmental justice movement so that oppressed communities will find justice and everyone can experience the benefits of a healthy and sustainable future"
 <!--[@SierraEJ]-->
-The extent to which those individuals have a formal say in the national organization's lobbying decisions varies across campaigns. The National Board of Directors adopted a statement on social justice in 1993 and principles on environmental justice in 2001. The national website contains regular Spanish-language content, demonstrating that the organization makes an effort toward increasing language accessibility. As a federated organization with many local efforts, it is difficult to generalize about second-order representation.
+As a federated organization with many local efforts, it is difficult to generalize about second-order representation.
+The extent to which EJ communities have a formal say in the national organization's lobbying decisions varies across campaigns. The National Board of Directors adopted a statement on social justice in 1993 and principles on environmental justice in 2001. The national website contains regular Spanish-language content, demonstrating that the organization makes an effort toward increasing language accessibility. 
 
 The second most prolific organizer of EJ comments was Earthjustice, with over 175,000 comments on many of the same rules that the Sierra Club lobbied on. Earthjustice is primarily engaged in litigation on
 behalf of environmental causes. Their website boasts 2.2 million
-supporters, but it is not clear who they are or if they play any role in
-the advocacy strategy. A search on the website returns 360 results for
-"Environmental Justice," with the top results from staff biographies
-who work on more local or targeted campaigns, such as environmental conditions
-for the incarcerated. The EJ language used on the
-main page is relatively vague. For example, "We are fighting for a future
-where children can breathe clean air, no matter where they live."
+supporters, but it is not clear who they are or if they play any role in advocacy strategy. A search on the website returns hundreds of results for "Environmental Justice," with the top results from staff biographies who work on more local or targeted campaigns, such as environmental conditions for the incarcerated. <!--The EJ language used on the main page is relatively vague. For example, "We are fighting for a future where children can breathe clean air, no matter where they live."
 <!--[@Earthjustice2017]. -->
 The website contains some Spanish-language content.
-The Natural Resources Defense Council (NRDC) is similar to Earthjustice---a
-national nonprofit funded by donations and focused on litigation---but
-they also lobby and organize public pressure campaigns, including over 160,000 comments mentioning environmental justice. 
+The Natural Resources Defense Council (NRDC) is similar to Earthjustice---a national nonprofit funded by donations and focused on litigation---but they also lobby and organize public pressure campaigns, including over 160,000 comments mentioning environmental justice. 
 
 CREDO Action, PEW, and MoveOn are more generic progressive
 mobilizers who lack a systematic focus on EJ issues,
-but occasionally leverage their vast membership and contact lists to support
-EJ campaigns led by others.
+but occasionally leverage their vast membership and contact lists to support EJ campaigns led by others.
 
 <!-- TODO
 Southern Environmental Law Center
+
 Environmental Defense Fund
+
 Defenders of Wildlife
 
 California Air Resources Board
+
 EPA
 
-The Alliance for Climate Protection is more of an elite political group founded by former Vice President Al Gore. <!-- TODO more-->
+The Alliance for Climate Protection is more of an elite political group founded by former Vice President Al Gore. 
+<!-- TODO more-->
 
-We Act and Communities for a Better Environment both have environmental
-justice in their central mission statement. Community leaders founded We Act in Harlem, New York, to advocate against environmental racism and poor air quality.
+We Act and Communities for a Better Environment both have environmental justice in their central mission statement. Community leaders founded We Act in Harlem, New York, to advocate against environmental racism and poor air quality.
 <!--[@WEACT2017]. -->
 Communities for a Better Environment has projects throughout California but is particularly active in Oakland.
 <!--[@CBECAL2017].-->
-Most of the content of their website is in both English and Spanish. Both
-organizations focus primarily on low-income communities of color and frame their work primarily in terms of race and class. While both organizations participate in national policymaking, WE ACT is more focused on communities in Harlem and New York, whereas Communities for a Better Environment casts a broader frame: "CBE's vision of environmental
-justice is global---that's why the organization continues to participate
-in such international efforts as the Indigenous Environmental Network
-and the Global Week of Action for Climate Justice."
+Most of the content of their website is in both English and Spanish. Both organizations focus primarily on low-income communities of color and frame their work primarily in terms of race and class. While both organizations participate in national policymaking, WE ACT is more focused on communities in Harlem and New York, whereas Communities for a Better Environment casts a broader frame: "CBE's vision of environmental justice is global---that's why the organization continues to participate in such international efforts as the Indigenous Environmental Network and the Global Week of Action for Climate Justice."
 <!--[@CBECAL2017].-->
 
 <!--TODO 
@@ -148,12 +139,7 @@ While not a large portion of EJ comments, private companies repeatedly raise res
 For example, in one comment, the Southern Company wrote:
 
 > People with lower SES are exposed to almost an order of magnitude
-more traffic near their homes (Reynolds et al., 2001), and live closer
-to large industrial sites and are exposed to more industrial air
-pollution (Jerrett et al., 2001). Legitimate health concerns must be
-addressed. But adopting standards with a scientific basis so uncertain
-that health improvement cannot be assured is not sound public health
-policy. ([EPA-HQ-OAR-2004-0018-0211](https://www.regulations.gov/comment/EPA-HQ-OAR-2004-0018-0211))
+more traffic near their homes (Reynolds et al., 2001), and live closer to large industrial sites and are exposed to more industrial air pollution (Jerrett et al., 2001). Legitimate health concerns must be addressed. But adopting standards with a scientific basis so uncertain that health improvement cannot be assured is not sound public health policy. ([EPA-HQ-OAR-2004-0018-0211](https://www.regulations.gov/comment/EPA-HQ-OAR-2004-0018-0211))^[All primary documents cited are available on regulations.gov.]
 
 <!-- alt cite [@Hobson2004]-->
 
@@ -320,7 +306,8 @@ Most frequently, agencies neither responded to comments nor added a 12898 sectio
 
 Where draft rules did address EJ, I assessed whether a rule changed *how* it discussed "environmental justice" between its draft and final publication.^[Occasionally, there is more than one version of a proposed or final rule on a rulemaking docket. Here I opt for an inclusive measure of change that counts change from *any* proposed to *any* final rule. If the change occurred between the first and second draft of a proposed rule, I count it as a change. This best captures the concept of rule change. However, estimates are similar if we only count cases where a change occurred between *every* version of the rule.] 
 When an agency addresses EJ in the draft rule, it is almost always in a section about how it addressed E.O. 12898. In many cases, much of the text of final rules, including 12898 sections, remain exactly the same between draft and final versions. 
-To measure change, I parse draft and final rules into sentences and identify sentences containing the phrase "environmental justice." If an agency leaves these sentences unchanged between the draft and final rule and adds no new sentences mentioning EJ, this suggests that the agency did not engage with comments raising EJ concerns.^[An alternative approach would be to parse documents by section and assess whether E.O.12898 sections are identical. Parsing by sentences has three advantages: it is computationally faster, it avoids problems with section numbering and other frustrations with section matching, and it captures attention to EJ outside of this section, especially in the section responding to comments. If an agency is paying attention to EJ issues, sentence matching will likely detect it. 
+To measure change, I parse draft and final rules into sentences and identify sentences containing the phrase "environmental justice." If an agency leaves these sentences unchanged between the draft and final rule and adds no new sentences mentioning EJ, this suggests that the agency did not engage with comments raising EJ concerns.^[
+An alternative approach would be to parse documents by section and assess whether E.O.12898 sections are identical. Parsing by sentences has three advantages: it is computationally faster, it avoids problems with changes in section numbering and other frustrations with section matching, and it captures attention to EJ outside of the 12898 section, especially in the section responding to comments. If an agency is paying attention to EJ issues, sentence matching will likely detect it. 
 
 ```{asis, echo = book}
 However, other measures, such as the percent of EJ sentences changed, the percent of words in a 12898 section that changed, or the change in topic proportions [@Judge-Lord2017], could be useful in future work.
