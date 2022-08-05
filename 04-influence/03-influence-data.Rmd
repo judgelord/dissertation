@@ -437,7 +437,7 @@ comments_coded %>%
   aes(y = success, x = comments + 1, color = coalition_type) +
   geom_jitter(aes(size = n), alpha = .6) +
   #geom_smooth(se = FALSE) + 
-  labs(size = "Coalition Size\n(number of organizations)",
+  labs(size = "Coalition Size\n(number of\norganizations)",
        color = "Coalition Type",
        x = "Number of Mass Comments per Coalition (log scale)",
        y = "Lobbying Success") + facet_wrap("president") +
