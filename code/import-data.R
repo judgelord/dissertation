@@ -70,83 +70,17 @@ d %>%
   summarise(n = sum(n)) %>% 
   arrange(-n)
 
-
-
-
-# MASS
-mass_raw <- read_sheet_c("1uM69A3MjX4-kHJSP6b5EZ33VKoNjefue3BqXDgLu0cY")
-
-mass <- mass_raw %>% dplyr::select(any_of(c("docket_id", "comment_url", "comment_type", 
-                                     "org_name", "org_name_short","org_type",
-                                     "transparent", "coalition_comment", "coalition_type",	
-                                     "position",	"position_certainty", #"success", 
-                                     "docket_type"))) %>%   
-  mutate(#comments = comments %>% str_squish() %>% as.numeric(),
-         #success = success %>% str_squish()%>% as.numeric(),
-         position = position %>% str_squish() %>% as.numeric(),
-         comment_type = comment_type %>% replace_na("mass"),
-         transparent = transparent %>% replace_na("")) %>%
-  distinct()
-
-
-
-# split back out to one obs per comment
-mass %<>% mutate(comment_url = str_split(comment_url, "\n") ) %>% unnest(comment_url)
-
-mass %<>% unnest(comment_url)
-
-# should be less than 100 or the split did not work
-max(nchar(mass$comment_url), na.rm = T)
-mass %>% filter(is.na(comment_url))
-
-# get id from url 
-mass %<>% mutate(document_id = str_remove_all(comment_url, ".*=|.*/") %>% str_squish()) %>% 
-  # drop url for better merging 
-  dplyr::select(-comment_url)
-
-head(mass$document_id)
-mass %>% filter(is.na(document_id))
-
-# should be ~ 26
-max(nchar(mass$document_id), na.rm = T)
-
-mass %>% arrange(-nchar(document_id)) %>% select(document_id)
-
-# selected coded 
-mass %<>% filter(!is.na(coalition_type) | !is.na(position) | !is.na(org_type))
-
-# remove extra white space
-mass %<>% mutate_all(str_squish)
-
-
-# duplicates 
-mass %>% 
-  count(document_id, docket_id, sort = T) %>% 
-  filter(n>1) %>% 
-  group_by(docket_id) %>% 
-  summarise(n = sum(n),
-            document_id = str_c(document_id, collapse = '  ')) %>% 
-  arrange(-n)
-
-
-#FIXME this overwrites corrections, but the sheet collapses by org type, so corrections are not valid at id level
-mass %<>% left_join(comments_min %>% distinct(id, number_of_comments_received),
-                   by = c( "document_id" = "id"))
-
-mass %<>% distinct()
-# duplicates 
-mass %>% 
-  count(document_id, docket_id, sort = T) %>% 
-  filter(n>1) %>% 
-  group_by(docket_id) %>% 
-  summarise(n = sum(n),
-            document_id = str_c(document_id, collapse = '  ')) %>% 
-  arrange(-n)
-
-# remove extra white space and vonvert to chr
-mass %<>% mutate_all(str_squish)
-
 d %<>% mutate_all(str_squish)
+
+
+# Import mass
+source("code/import-congress.R")
+
+d %<>% full_join(congress %>% filter(docket_type == "Rulemaking"))
+
+# Import Congress 
+# Congress #TODO import congress 1HBjG32qWVdf9YxfGPEJhNmSw65Z9XzPhHdDbLnc3mYc
+source("code/import-congress.R")
 
 # join 
 d %<>% full_join(mass %>% filter(docket_type == "Rulemaking"))
@@ -249,7 +183,7 @@ d %<>% mutate(number_of_comments_received = coalesce(number_of_comments_received
 # check, should be 0 now
 sum(is.na(d$number_of_comments_received))
 
-d %>% filter(is.na(d$number_of_comments_received)) %>% 
+d %>% filter(is.na(number_of_comments_received)) %>% 
   kablebox()
 
 # add dates
@@ -460,10 +394,11 @@ d %>%
 
 d$comments %>% range(na.rm = T)
 
-d %>% filter(comments == 999999) %>% pull(comment_url)
+d %>% filter(comments == 999999) %>% pull(comment_url, document_id)
 
 d %<>% filter(comment_url != "https://www.regulations.gov/comment/FMCSA-1997-2350-23794")
 
+#FIXME THESE ARE FIXED IN THE MASS SHEET AND OTHERS, SO THOSE NUMBERS SHOULD BE USED FIRST 
 d %<>% mutate(comments = ifelse(document_id == "FWS-HQ-IA-2013-0091-1605",
                     1013942,
                     comments))
@@ -636,7 +571,9 @@ comments_coded %<>%
             org_lead = coalition_comment %in% c(org_name, str_to_lower(org_name_short)),
             coalition_leader_success = ifelse(org_lead, success, NA) %>% mean(na.rm = T) %>% coalesce(coalition_success),
             coalition_comments = sum(comments, na.rm = T) - coalition_size, # subtracts coalition size
-         coalition_comment_types = unique(comment_type) %>% discard(is.na) %>% str_c(collapse = ";"),
+         coalition_comment_types = unique(comment_type) %>% 
+           purrr::discard(is.na) %>% #FIXME #FIXED?
+           str_c(collapse = ";"),
          coalition_campaign_ = str_dct(coalition_comment_types, "mass") | coalition_comments > 99,
          coalition_ = coalition_size > 1,
          coalition_business_ = coalition_business/coalition_size > .5) %>%
@@ -718,7 +655,7 @@ comments_coded %<>% mutate(Coalition_campaign = ifelse(coalition_campaign_,
                                                        "Mass comments",
                                                        "No mass comments"))
 
-
+#TODO import congress 1HBjG32qWVdf9YxfGPEJhNmSw65Z9XzPhHdDbLnc3mYc
 
 comments_coded %<>% mutate(Coalition_business = ifelse(coalition_business_, "Business", "Non-business"))
 
