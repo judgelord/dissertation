@@ -190,8 +190,8 @@ winrates %>%
 
 Only law firms were more likely to get their substantive policy demands met when their comments raised EJ concerns. Tribes and Frontline EJ community groups---already the types of organizations least likely to have their substantive demands met (9% and 4%, respectively)---saw none of their substantive demands related to EJ met. NGOs, overall, and environmental groups (a subset of NGOs) were slightly less likely to see their policy demands met when these demands were explicitly linked to EJ. The most successful types of organizations overall---Trade Associations, States, Cities, and Banks---did not use EJ language in the hand-coded sample. 
 Because the EJ demands often oppose the status quo, this aligns with 
-the findings of 
-<!--Chapter \@ref(influence) -->
-and @Baumbartner2009 that advocating for the status quo is one of the strongest predictors of lobbying success.
+
+<!--the findings of Chapter \@ref(influence) and -->
+research showing that advocating for the status quo is one of the strongest predictors of lobbying success [@Baumbartner2009].
 This should not be taken as evidence that tribes and frontline groups are never influential. Rare events---like comments raising EJ concerns on rules that did not address EJ---are not captured by this small sample of rules.
 

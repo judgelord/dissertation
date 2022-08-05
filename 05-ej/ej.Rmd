@@ -54,7 +54,7 @@ header-includes:
  #  - \usepackage{subfig}
 ---
 
-```{r global.options, include=FALSE}
+```{r global.options, include=FALSE, cache=FALSE}
 source(here::here("code", "setup.R"))
        
 options(knitr.graphics.auto_pdf = TRUE)
@@ -103,6 +103,12 @@ The following chapter is part of a dissertation exploring the effects of public 
 
 
 # (APPENDIX) Appendix {-} 
+
+
+```{r child = here::here("05-ej", "ej-tracing.Rmd"), include=TRUE}
+```
+
+\clearpage
 
 Figure \@ref(fig:ej-data-long) shows the full time period for theses data
 

@@ -176,7 +176,7 @@ pr_percent %>%
   theme(axis.text.x = element_text(angle = 45, vjust = .5),
         panel.grid.major.x = element_blank(),
         panel.border = element_blank(),
-        legend.position = c(.1, .9),
+        legend.position = c(.16, .9),
         legend.background = element_blank())
 ```
 
@@ -506,7 +506,7 @@ full_join(pr_percent_president,
         axis.ticks.x = element_blank())
 
 # 2 pr and fr type over time - PRESIDENT 
-full_join(pr_percent_president #%>% filter(has_final), 
+full_join(pr_percent_president, #%>% filter(has_final), 
           fr_percent_president #%>% filter(has_pr)
 ) %>% 
   filter(year > 2004) %>% 
@@ -744,7 +744,7 @@ allFR %>%
 
 
 
-```{r ej-comments-added,fig.width=5, fig.height=3.5}
+```{r ej-comments-added,fig.width=6.5, fig.height=3}
 # ej_comments
 breaks <- c(1996, 2000, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020)
 
@@ -768,7 +768,7 @@ allFR %>%
   scale_y_log10(labels = scales::comma)  +
   #scale_x_date(date_labels = "%y") + 
   labs(x = "",
-       y = "Total Number of Comments per Rule (log scale)",
+       y = "Total Number of Comments\nper Rule (log scale)",
        color = "Comments Raised\nEnvironmental\nJustice Concerns",
        shape = "Comments Raised\nEnvironmental\nJustice Concerns") +
   #scale_x_discrete(breaks = breaks) + 
@@ -2547,7 +2547,7 @@ save(ejFRejPR, file = here::here("data", "ejFRejPR.Rdata"))
 ```
 
 
-```{r ej-comments-change, fig.width=5, fig.height=3.5}
+```{r ej-comments-change, fig.width=6, fig.height=3.5}
 # ej-comments-change
 breaks <- c(1996, 2000, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020)
 
@@ -4110,6 +4110,50 @@ ej_rates <- rules %>%
 
 save(ej_rates, file = here::here("05-ej", "ej_rates.Rdata"))
 ```
+
+---
+
+# Correlation with hand-coding 
+
+```{r}
+load(here::here("data", "comments_coded.Rdata"))
+
+cc <- comments_coded %>% 
+  mutate(ejPR = docket_id %in% ejPR$docket_id,
+         ejFR = docket_id %in% ejFR$docket_id,
+         ejComment = document_id %in% ejcomments$id) %>% 
+  left_join(change %>% dplyr::select(docket_id, change))
+
+
+cc_PR <- filter(cc, !ejPR)
+ccejPR <- filter(cc, ejPR)
+
+
+cc_PR %>% 
+  #filter(ejComment) %>% 
+  ggplot() +
+  aes(x = success, fill = ejFR) + 
+  geom_density()
+
+cc_PR %>% 
+  #filter(ejComment) %>% 
+  ggplot() +
+  aes(x = success, fill = ejFR, color = ejComment) + 
+  geom_histogram() + 
+  facet_grid(ejFR ~ejComment)
+
+
+# DV  = change 
+ccejPR %>% 
+  filter(ejComment) %>% # distinct(docket_id)
+  ggplot() +
+  aes(x = success, fill = change) + 
+  geom_density()
+```
+
+## Across-org model 
+
+## Within-org model
 
 
 ---
