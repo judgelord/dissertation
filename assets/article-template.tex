@@ -272,7 +272,8 @@ $endif$
 \newcommand{\SingleSpacing}{\singlespacing}
 
 % SPACING FOR BLOCK QUOTES 
-\expandafter\def\expandafter\quote\expandafter{\quote\OnehalfSpacing}
+% Causes pandoc error "Loop encountered in expanding macro quote"
+%\expandafter\def\expandafter\quote\expandafter{\quote\OnehalfSpacing}
 
 % FOR KABLEEXTRA 
 \usepackage{booktabs}
