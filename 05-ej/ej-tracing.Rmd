@@ -1,4 +1,4 @@
-### Tracing Ideas Through Rulemaking: Environmental Justice as a Contested Concept {#ej-methods}
+### Environmental Justice as a Contested Concept 
 
 Using an environmental justice frame does not always imply the same communities of concern. Environmental justice emerged from movements against environmental racism, especially the disposal of toxic materials in predominantly Black neighborhoods [@Bullard1993]. However, the term quickly took on other meanings, encompassing various marginalized groups. President Clinton's 1994 Executive Order on Environmental Justice required all parts of the federal government to make "addressing disproportionately high and adverse human health or environmental effects of programs, policies, and activities on minority populations and low-income populations" a core aspect of their mission. This meant considering the disproportionate effects of policies by race and income during rulemaking, thus broadening the scope beyond race.
 
@@ -13,7 +13,7 @@ The central conflict over the role of race in policy analyses is just one of man
 The qualitative reading also confirmed other key assumptions, such as the fact that advocates do, in fact, use "environmental justice" when they raise distributional concerns, even on many rules that are not about issues traditionally considered "environmental."
 
 
-#### The Evolving Distributive Politics of Mercury Pollution
+### The Evolving Distributive Politics of Mercury Pollution {#mercury}
 
 Definitions of the public good and minority rights are
 implicit in most policy documents, including agency rules. The public comment process offers an

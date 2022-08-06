@@ -70,6 +70,11 @@ library(ggplot2); theme_set(theme_bw());
 Replication data are available in SQL and Rdata at https://github.com/judgelord/rulemaking 
 
 ```{r data, fig.height=11, cache=FALSE}
+# load(here::here("data", "rules.Rdata"))
+# 
+# rules_raw <- rules %>% distinct(document_type, docket_id, posted_date, id) %>% 
+#   mutate(document_id = id)
+
 load(here::here("data", "ej_data_clean.Rdata"))
 
 rules %<>% ungroup() %>% 
@@ -106,6 +111,10 @@ allFR <- rules %>%
   # direct to final rules
   mutate(direct = ifelse(docket_id %in% allPR$docket_id, "Draft Rule Published", "Direct to Final Rule"))
 
+# drop non fr
+allFR %<>% filter(!(ej_pr & !ej_fr))
+
+# TODO more work could be done to weed out ANPRMs, SNPRMs, and, most importantly, "final rules" that are not final rules
 
 ejcomments %>% count(docket_id, number_of_comments_received, sort = T) %>% arrange(-number_of_comments_received) %>% kablebox()
 ```
@@ -268,6 +277,8 @@ fr_percent %>%
 ```
 
 ### Draft and final rules
+
+
 
 #### By year
 
@@ -575,7 +586,6 @@ ejFR %>%
 ```
 
 
-
 ### Agencies that published at least 1 rule addressing EJ
 
 Subsetting to agencies that pubished at least one rule explicitly addressing EJ from 1992 through 2020 yields
@@ -621,7 +631,7 @@ allFR %>%
 ### Agencies that received at least 100 unique EJ comments
 
 
-```{r ej-data-agencies100, fig.height=6.5}
+```{r ej-data-agencies100, fig.height=6.7, fig.width=6.5}
 # ej-data-agencies100
 
 col_label = str_wrap('Even at the Environmental Protection Agency (EPA), where most policies are clearly framed as "environmental" issues, only about half of final rules address EJ. Many agencies that make policy with apparent EJ effects almost never address EJ. These include the Fish and Wildlife Service (FWS), Department of Housing and Urban Development (HUD), National Oceanic and Atmospheric Administration (NOAA), Nuclear Regulatory Commission (NRC), and the Office of Surface Mining (OSM). At no agency did a majority of rules address EJ overall. Only in a handful of years at agencies that publish few rules was EJ addressed in most rules. These include the Council on Environmental Quality (CEQ), Army Corps of Engineers (COE), Federal Emergency Management Agency (FEMA), Forest Service (FS), and several Department of Transportation agencies (the Federal Highway Administration (FHWA), Federal Motor Carrier Safety Administration (FMCSA), Federal Railroad Administration (FRA), and Federal Transit Administration (FTA).',100)
@@ -642,7 +652,8 @@ allFR %>%
   labs(fill = "\"Environmental Justice\"\nin Final Rule",
        y = "Number of Rules",
        caption = col_label) + 
-    theme(plot.caption = element_text(hjust = 0)) + # set the left align here
+    theme(legend.position = "bottom",
+      plot.caption = element_text(hjust = 0)) + # set the left align here
   scale_x_discrete(breaks = breaks ) +
   scale_y_continuous(breaks= pretty_breaks())
   # scale_y_continuous(breaks = function(x) if(x<5){seq(ceiling(x[1]), floor(x[2]), by = 1)} else{pretty_breaks()})
@@ -773,7 +784,7 @@ allFR %>%
        shape = "Comments Raised\nEnvironmental\nJustice Concerns") +
   #scale_x_discrete(breaks = breaks) + 
   scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
-  theme(axis.text.x = element_text(angle = 45) )
+  theme(axis.text.x = element_text(angle = 45, hjust =1) )
 
 ```
 
@@ -2547,7 +2558,7 @@ save(ejFRejPR, file = here::here("data", "ejFRejPR.Rdata"))
 ```
 
 
-```{r ej-comments-change, fig.width=6, fig.height=3.5}
+```{r ej-comments-change, fig.width=6.5, fig.height=3.5}
 # ej-comments-change
 breaks <- c(1996, 2000, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020)
 
@@ -2576,7 +2587,7 @@ ejFRejPR %>%
        shape = "Comments Raised\nEnvironmental\nJustice Concerns") +
   #scale_x_discrete(breaks = breaks) + 
   scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
-  theme(axis.text.x = element_text(angle = 45) )
+  theme(axis.text.x = element_text(angle = 45, hjust = 1) )
 ```
 
 Percent where the final rule did change how it addressed EJ
@@ -3944,6 +3955,74 @@ ejcomments %>%
 ```
 
 ---
+
+
+# Pairs
+
+```{r ej-pairs, fig.height=4.9, fig.width=6.8}
+# ej-pairs
+pairs <- rules %>% 
+  group_by(document_type, docket_id) %>% 
+  mutate(max_year = min(year),
+         max_year = ifelse(document_type != "Rule", NA, max_year)) %>% 
+  ungroup() %>% 
+  group_by(docket_id) %>%
+  tidyr::fill(max_year, .direction = c("downup")) %>% # TODO by date not year
+  #left_join(rules_raw) %>% 
+  filter(!(document_type == "Proposed Rule" & year > max_year)) %>%
+  group_by(docket_id, document_type) %>% 
+  slice_head(n = 1) %>%
+  # join in change
+  left_join(change %>% distinct(docket_id, change)) %>% 
+  mutate(ej_added = case_when(
+    ej_fr & !ej_pr ~ "Measure 1:\n EJ Text Added",
+    ej_pr & change ~ "Measure 2:\n EJ Text Changed",
+    ej_pr &!change ~ "Measure 2:\n EJ Text Unchanged",
+    !ej_pr & !ej_fr ~ "Measure 1:\n No EJ Text"
+  ) ) %>% 
+  mutate(study = case_when(
+    ej_fr & !ej_pr ~ "DV = Text Added",
+    ej_pr & change ~ "DV = Text Changed",
+    ej_pr &!change ~ "DV = Text Changed",
+    !ej_pr & !ej_fr ~ "DV = Text Added"
+  ) ) %>% 
+  mutate(ej_doc = case_when(
+    document_type == "Proposed Rule" & ej_pr ~ "EJ Addressed",
+    document_type == "Rule" & ej_fr ~ "EJ Addressed",
+    TRUE ~ "EJ Not Addressed"
+  )) %>% 
+  mutate(ej_change = ifelse(ej_added %in% c("Measure 1:\n EJ Text Added", "Measure 2:\n EJ Text Changed"), "Change", "No Change")) %>% 
+  group_by(docket_id) %>% 
+  mutate(types = unique(document_type) %>% length()) %>% 
+  ungroup()
+           
+           
+pairs  %>% 
+  filter(types > 1) %>%
+  mutate(document_type = document_type %>% 
+           str_replace("Proposed Rule", "Draft") %>% 
+           str_replace("Rule", "Final")) %>% 
+  drop_na(ej_added) %>% 
+  ggplot() + 
+  aes(x = document_type, group = docket_id,
+      #y = posted_date, 
+      y = year) +
+  geom_line(alpha =.7, aes(linetype = ej_change), color = "black") +
+  geom_point(alpha =.7, aes(color = ej_doc, shape = ej_doc)) + 
+  theme_minimal() +
+  facet_wrap("ej_added", nrow = 1) + 
+  labs(y = "", x = "", color = "", linetype = "Dependent\nVariable", shape = "") + 
+  theme(#legend.position = "top",
+        legend.direction = "vertical",
+        axis.text.x = element_text(angle = 45),
+        axis.ticks = element_blank()) + 
+  scale_color_viridis_d(option="plasma", begin = 0, end = .6, direction = 1)
+
+# TODO make sure FR are all after PR 
+# rules %<>% filter()
+```
+
+
 
 ---
 
