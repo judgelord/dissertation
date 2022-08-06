@@ -28,7 +28,7 @@ urlcolor: black
 frontpage: true
 spacing: onehalfspacing
 always_allow_html: true
-keywords: Pressure groups, bureaucratic politics, environmental justice, policy agenda, issue framing, policy change
+keywords: Pressure groups, agency rulemaking, environmental justice, agenda democracy, issue framing, policy change
 wordcount: 11964 #12366 + bib
 output:
     #pandoc("docs/ej.tex", format = "docx")
@@ -86,7 +86,7 @@ The following chapter is part of a dissertation exploring the effects of public 
 ```
 
 
-
+\clearpage
 
 # (APPENDIX) Appendix {-} 
 
@@ -97,7 +97,7 @@ The following chapter is part of a dissertation exploring the effects of public 
 
 \clearpage
 
-Figure \@ref(fig:ej-data-long) shows the full time period for theses data. 
+Figure \@ref(fig:ej-data-long) shows the full time period for these data. 
 
 ```{r ej-data-long, fig.cap = "Proposed and Final Rules by Whether they Address Environmental Justice.", out.height = NULL, out.width = "100%", fig.show = "hold"}
 
@@ -107,7 +107,7 @@ knitr::include_graphics(here::here("figs", "ej-data-ejpr-2.png") ) ##
 ```
 
 
-## Appendix B: Descriptives 
+## Appendix B: Additional Descriptives 
 
 \clearpage
 
@@ -120,7 +120,7 @@ load(here::here("05-ej", "ej_rates.Rdata"))
 
 ej_rates %>% 
   knitr::kable(format = "latex",# "pipe", # "latex"?
-                     caption  = 'Rates of Mentioning "Environmental Jusitce" in Final Rules',
+                     caption  = 'Rates of Mentioning "Environmental Justice" in Final Rules',
                      booktabs = T,
                      #linesep = "\\addlinespace",
                      align = "l") %>%
@@ -183,7 +183,7 @@ include_graphics(here::here("figs", "ejejPR-winrate-1.png"))
 The main models (2 and 4) from Table \@ref(tab:ej-tables) use agency fixed effects and an indicator for whether at least one comment raised EJ concerns. Table \@ref(tab:ej-appendix1) presents roughly the same models to show that results are not driven only by agencies that have little contact with EJ issues or rules that have little to do with EJ issues. 
 Models "2 EPA Only" and "4 EPA Only" are identical to Models 2 and 4 but subset to EPA rules instead of agency fixed effects. 
 Models "2 Mass Only" and "4 Mass Only" are identical to Models 2 and 4 but subset to rules that received over 100 comments.
-Models "2 EJ Only" and "4 EJ Only" are identical to Models 2 and 4, but subset to rules that received at least one comment raising EJ concerns instead of including the indicator. 
+Models "2 EJ Only" and "4 EJ Only" are identical to Models 2 and 4 but subset to rules that received at least one comment raising EJ concerns instead of including the indicator. 
 
 ```{r ej-appendix1, eval=TRUE}
 # app table fixest

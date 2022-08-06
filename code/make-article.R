@@ -24,5 +24,5 @@ article <- here::here(chapter) %>% str_replace("05-ej", "docs")# str_replace(".t
 writeLines(text, article)  
 
 # compile tex
-tinytex::xelatex(article)
+tinytex::xelatex(article, pdf_file = "docs/ej.pdf")
 }
