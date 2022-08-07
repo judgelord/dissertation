@@ -100,6 +100,20 @@ if( knitr:::is_html_output() | knitr::is_latex_output() ){
   output = "flextable"
 } 
 
+# a function to format kables for modelsummary output
+kable_model <- function(x, file = "unnamed"){
+  if( knitr:::is_html_output() | knitr::is_latex_output() ){
+    x %>% row_spec(row = 1, bold = T, hline_after = TRUE) %>% 
+      kable_paper() %>% 
+      kable_styling(font_size = 9, full_width = TRUE, latex_options = c("repeat_header"))
+  } else{
+    x %>% # column widths
+      bold(part = "header") %>% 
+      autofit()
+    }
+}
+
+
 # a function to format kables for different output formats 
 kable2 <- function(x, file = "unnamed"){
   if( knitr:::is_html_output() | knitr::is_latex_output() ){
@@ -107,10 +121,8 @@ kable2 <- function(x, file = "unnamed"){
       kable_paper() %>% 
       kable_styling(font_size = 9, full_width = TRUE, latex_options = c("repeat_header"))
   } else{
-    x %>% # column widths
-      bold(part = "header") %>% 
-      autofit()
-    #kableExtra::as_image(x, width = 6.5, file = paste0("figs/", file, ".png"))
+    x %>%
+      kableExtra::as_image(x, width = 6.5, file = paste0("figs/", file, ".png"))
     }
 }
 

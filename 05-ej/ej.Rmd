@@ -48,7 +48,7 @@ source(here::here("code", "setup.R"))
 
 #knitr::opts_chunk$set(fig.path= "../figs/")
 
-knitr::opts_chunk$set(cache = TRUE)
+knitr::opts_chunk$set(cache = FALSE)
 
 book = FALSE
 ```
