@@ -31,14 +31,14 @@ spacing: onehalfspacing
 always_allow_html: true
 keywords: Pressure groups, agency rulemaking, environmental justice, agenda democracy, issue framing, policy change
 wordcount: 11964 #12366 + bib
-#output: bookdown::word_document2
-output:
-    bookdown::pdf_document2:
-      template: '../assets/article-template.tex'
-      keep_tex: true
-      latex_engine: xelatex
-      citation_package: natbib
-      toc: false
+output: bookdown::word_document2
+# output:
+#     bookdown::pdf_document2:
+#       template: '../assets/article-template.tex'
+#       keep_tex: true
+#       latex_engine: xelatex
+#       citation_package: natbib
+#       toc: false
 ---
 
 ```{r global.options, include=FALSE, cache=FALSE}
@@ -65,6 +65,9 @@ The following chapter is part of a dissertation exploring the effects of public 
 ```
 
 -->
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
 
 
 
@@ -189,9 +192,9 @@ modelsummary::modelsummary( modelsFE1,
                             coef_map = cm,
                             gof_omit = "R.*",
                           add_rows = rowsFE1, 
-                          notes = "") %>% 
-  row_spec(row = 1, bold = T) %>%  
-  kable2(file = "ej-appendix2")
+                          notes = "",
+                          output = output) %>% 
+  kable2(file = "ej-appendix1") 
 ```
 
 
@@ -211,8 +214,8 @@ modelsummary::modelsummary( modelsFE2,
                             coef_map = cm,
                             gof_omit = "R.*",
                           add_rows = rowsFE2, 
-                          notes = "") %>% 
-  row_spec(row = 1, bold = T)  %>%
+                          notes = "",
+                          output = output) %>% 
   kable2(file = "ej-appendix2")
 ```
 
@@ -259,3 +262,7 @@ include_graphics(here::here("figs", "ej-mejPR-ej-ejcomments-1.png"))
 ```
 
 
+# Appendix E: Codebook {#codebook}
+
+```{r child = here::here("99-codebook.md")}
+```

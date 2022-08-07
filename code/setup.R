@@ -54,7 +54,7 @@ knitr::opts_chunk$set(echo = FALSE, # echo = TRUE means that code will show
                       fig.path = "figs/",
                       fig.align ='center',
                       fig.cap = '   ',
-                      fig.retina = 2,
+                      fig.retina = 3,
                       fig.height = 3,
                       fig.width = 7,
                       out.width = "100%",
@@ -88,18 +88,31 @@ kablebox <- . %>%
   kable_styling() %>% 
   scroll_box(height = "400px")
 
+library(flextable)
+
+set_flextable_defaults(
+  font.family = "Arial", font.size = 9, 
+  border.color = "gray")
+
+if( knitr:::is_html_output() | knitr::is_latex_output() ){
+  output = 'kableExtra'
+} else{
+  output = "flextable"
+} 
+
 # a function to format kables for different output formats 
-kable2 <- function(x, file){
-  if(knitr:::is_html_output() | knitr::is_latex_output() ){
+kable2 <- function(x, file = "unnamed"){
+  if( knitr:::is_html_output() | knitr::is_latex_output() ){
       x %>% row_spec(row = 1, bold = T, hline_after = TRUE) %>% 
+      kable_paper() %>% 
       kable_styling(font_size = 9, full_width = TRUE, latex_options = c("repeat_header"))
   } else{
-    kableExtra::as_image(x, width = 6.5, file = paste0("figs/", file, ".png"))
+    x %>% # column widths
+      bold(part = "header") %>% 
+      autofit()
+    #kableExtra::as_image(x, width = 6.5, file = paste0("figs/", file, ".png"))
     }
 }
-
-
-library(flextable)
 
 # A function to trim and format tables for different outputs 
 kable3 <- function(x, 
@@ -115,6 +128,7 @@ kable3 <- function(x,
       slice_head(n = 100) %>%
       mutate(across(where(is.numeric), pretty_num)  ) %>%
       knitr::kable(caption = caption) %>% 
+      kable_paper() %>% 
       kable_styling() %>% 
       scroll_box(height = height)
   } else{

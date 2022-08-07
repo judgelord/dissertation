@@ -61,8 +61,8 @@ modelsummary::modelsummary( modelsFE,
                             coef_map = cm,
                             gof_omit = "R.*",
                           add_rows = rowsFE, 
-                          notes = "") %>% 
-  row_spec(row = 1, bold = T) %>% 
+                          notes = "",
+                          output = output) %>% #as.character()
   kable2(file = "ej-tables") 
 ```
 
