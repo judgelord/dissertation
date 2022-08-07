@@ -2,7 +2,7 @@
 
 <!--TODO 
 I estimate ten topics models 
-then select the topics that are positively correlated with EJ and subset to documents that are (high?) in one or more of those topics. Where one of those topics is prominent (top 50% of document proportions) 
+then select the topics positively correlated with EJ and subset to documents that are (high?) in one or more of those topics. Where one of those topics is prominent (top 50% of document proportions) 
 this addresses historical patterns. Many of these topics are correlated with agency 
 I estimate at least 50 topics to allow for an agency-specific topic. Still, ej-correlated topics are partially topics associated with agencies that address EJ. 
 --> 
@@ -91,7 +91,7 @@ Examining second-order representation is thus required to assess "what contempor
 I examine who is raising EJ concerns in two ways.
 First, I identify the top organizational commenters such as tribes,
 businesses, and nonprofits using EJ language
-and investigate whom these groups represent. I then use a hand-coded sample of 10,000 organizational comments to assess which types of organizations get the substantive policy changes they request when raising EJ concerns.
+and investigate whom these groups represent. I then use a hand-coded sample of 10,000 organizational comments on a random sample of rules to assess which types of organizations get the substantive policy changes they request when raising EJ concerns.
 Second, for comments where commenters signed their name, I compare surnames to their racial and ethnic identity propensities in the U.S. Census. Together these pieces of information allow me to comment on "second-order" representation. This is a proxy for the extent to which public comments are
 representative of the groups they claim to represent [@Seifter2016UCLA].
 
@@ -240,7 +240,8 @@ Most frequently, agencies neither responded to comments nor added a 12898 sectio
 #### Measure 2: Changing Text Addressing EJ in Final Rules
 
 Where draft rules did address EJ, I assessed whether a rule changed *how* it discussed environmental justice between its draft and final publication.^[Occasionally, there is more than one version of a proposed or final rule on a rulemaking docket. Here I opt for an inclusive measure of change that counts change from *any* proposed to *any* final rule. If the change occurred between the first and second draft of a proposed rule, I count it as a change. This best captures the concept of rule change. However, estimates are similar if we only count cases where a change occurred between *every* version of the rule.] 
-When an agency addresses EJ in the draft rule, it is almost always in a section about how it addressed E.O. 12898. In many cases, much of the text of final rules, including 12898 sections, remains exactly the same between draft and final versions. 
+When an agency addresses EJ in the draft rule, it is almost always in a section about how it addressed E.O. 12898.^[E.O. 12898 sections and other text mentioning environmental justice sometimes assert that the policy has no disproportionate impacts on EJ communities. Comments raising environmental justice concerns typically challenge such assertions. If agency officials decline to change their text and add no new sentences about environmental justice, this indicates they likely ignored any comments raising distributive justice claims. If officials change or add language on EJ---even in a revised dismissal of distributive justice claims---it is more likely that they engaged with commenters.] 
+In many cases, much of the text of final rules, including 12898 sections, remains exactly the same between draft and final versions. 
 To measure change, I parse draft and final rules into sentences and identify sentences containing the phrase "environmental justice." If an agency leaves these sentences unchanged between the draft and final rule and adds no new sentences mentioning EJ, this suggests that the agency did not engage with comments raising EJ concerns.^[
 An alternative approach would be to parse documents by section and assess whether E.O.12898 sections are identical. Parsing by sentences has three advantages: it is computationally faster, it avoids problems with changes in section numbering and other frustrations with section matching, and it captures attention to EJ outside of the 12898 section, especially in the section responding to comments. If an agency is paying attention to EJ issues, sentence matching will likely detect it. 
 ```{asis, eval = book, include = book}
