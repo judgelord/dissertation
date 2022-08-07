@@ -186,6 +186,12 @@ winrates %>%
          `Overall Success Rate` = `Overall Success Rate` %>%
            percent(accuracy = 1)) %>% 
   dplyr::select(-`N raising EJ`) %>%
+  # name to nest
+  mutate(`Organization Type` = `Organization Type` %>% 
+           str_replace("(State|Tribe|City)", "Government, \\1") %>% 
+           str_replace("(Religious|Pressure Group|Professional Assn.|University|Environmental Group|Credit Union|Union|Frontline EJ)", "NGO, \\1") %>% 
+           str_replace("(Finance|Law Firm)", "Business, \\1") %>% 
+           str_replace("(NGO$|Business$)", "\\1, Overall")) %>% 
   kable3(caption = "Hand-coded Lobbying Success by Type of Organization, 2005-2020")
 ```
 
