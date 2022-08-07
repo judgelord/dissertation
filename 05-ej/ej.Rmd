@@ -1,4 +1,5 @@
 ---
+# pandoc("docs/ej.tex", format = "docx") # works but no cites
 # rmarkdown::render("05-ej/ej.Rmd")
 knit: ( function(input, ...) {
           rmarkdown::render(input)
@@ -17,7 +18,7 @@ author:
   title: Postdoctoral Fellow, Department of Government, Corresponding Author (DevinJudgeLord@fas.harvard.edu)
   footnote: "I will be grateful for any feedback on this draft: [DevinJudgeLord@fas.harvard.edu](mailto:DevinJudgeLord@fas.harvard.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/ej>. This paper has benefited from comments from Benjamin Márquez, Marcy Shieh, Susan Webb Yackee, Eleanor Neff Powell, David Weimer, Timothy Fraser, Beth Leech, Sophie Jacobson, Margaret Brower, participants at the Junior Americanist Workshop Series,  Harvard American Politics Research Workshop, the University of Mississippi Political Science Research Colloquium, UW-Madison American Politics Workshop, and Association for Environmental Studies and Sciences Conference, research assistance from Hope Karnopp, and funding from the National Science Foundation and American Political Science Association."
   # Additional tables, figures, and replication code are available at <https://judgelord.github.io/dissertation/ej-appendix.html>. 
-date: "06-20-2022" # "`r Sys.Date()`"
+date: "DRAFT" # "06-20-2022" # "`r Sys.Date()`"
 abstract: '`r readLines(here::here("05-ej", "ej-abstract-150.tex"))`'
 #   `r readLines(here::here("05-ej", "ej-abstract.tex"))`
 bibliography: '`r here::here("assets/dissertation.bib")`'
@@ -30,8 +31,8 @@ spacing: onehalfspacing
 always_allow_html: true
 keywords: Pressure groups, agency rulemaking, environmental justice, agenda democracy, issue framing, policy change
 wordcount: 11964 #12366 + bib
+#output: bookdown::word_document2
 output:
-    #pandoc("docs/ej.tex", format = "docx")
     bookdown::pdf_document2:
       template: '../assets/article-template.tex'
       keep_tex: true
@@ -156,11 +157,6 @@ Research agencies, including the Nuclear Regulatory Commission (NRC) and Nationa
 
 \clearpage
 
-### Pairs of Draft and Final Rules
-
-```{r ej-pairs, out.width="100%",  fig.cap = "Draft and Final Rule Pairs"}
-include_graphics(here::here("figs", "ej-pairs-1.png"))
-```
 
 ### Rates of Change With and Without Comments Raising Environmental Justice
 ```{r ej-descriptive, position = "hold", out.width="49%", out.width = "49%", fig.cap = "Rates of Change Between Draft and Final Rule", fig.subcap=c("Proposed Rules with No EJ Text", "Proposed Rules with EJ Tex"), fig.ncol = 2}
@@ -194,7 +190,8 @@ modelsummary::modelsummary( modelsFE1,
                             gof_omit = "R.*",
                           add_rows = rowsFE1, 
                           notes = "") %>% 
-  row_spec(row = 1, bold = T) %>%  kable2(file = "ej-appendix2")
+  row_spec(row = 1, bold = T) %>%  
+  kable2(file = "ej-appendix2")
 ```
 
 

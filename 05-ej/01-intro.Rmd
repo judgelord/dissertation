@@ -6,8 +6,10 @@ The previous chapters focused on the lobbying success of organizations and coali
 
 Political movements like the civil rights and environmental movements have played a critical role in shaping policy agendas and advancing landmark statutes. Likewise, a lack of movement pressure is a leading explanation for the failure of policy efforts to address issues like climate change [@Skocpol2013]. Yet, the effects of movements on policy are difficult to measure and rarely assessed systematically across institutions and over time. This is especially true for policymaking in the bureaucracy, where most U.S. law is now made. Leading models of bureaucratic policymaking have no role for organizations channeling movement demands or mobilizing public pressure. As a result, quantitative scholarship has largely overlooked organized public pressure as a potential force in shaping administrative policy agendas and processes for the thousands of policies that U.S. government agencies make every year. <!--To what extent does movement pressure shape the thousands of policies the U.S. government makes every year?--> 
 
-This chapter develops and tests theories about how organizations channeling movement demands and mobilizing public pressure may shape policymaking. While substantive policy change is often the ultimate aim, shaping how issues are framed can be decisive [@Woodly2015]. For example, marginalized groups or their allies must often get policymakers to see issues in distributive justice terms before their policy demands are perceived as relevant. To do so, groups often mobilize public attention and support for distributive justice claims. However, the organizations mobilizing around distributive justice rhetoric vary in their relationships with the people they claim to represent.
-I focus on these two tactics: efforts to re-frame policy in distributive justice terms and efforts to mobilize large coalitions to demonstrate quantitative relevance. I investigate who is using these tactics and assess their impact on both policy discourse and substantive policy changes---specifically, the words and substantive requirements of agency rules. 
+This chapter develops and tests theories about how organizations channeling movement demands and mobilizing public pressure may shape policymaking. While substantive policy change is often the ultimate aim, shaping how issues are framed can be decisive [@Woodly2015]. For example, marginalized groups or their allies must often get policymakers to see issues in distributive justice terms before their policy demands are perceived as relevant or legitimate. To do so, groups often mobilize public attention and support for distributive justice claims.
+By re-framing policy debates in distributive justice terms and mobilizing around such frames, I argue, movements can reshape policy agendas and policymaking processes.
+However, the organizations mobilizing around distributive justice rhetoric vary in their relationships with the people they claim to represent.
+This chapter focuses on these two tactics: efforts to re-frame policy in distributive justice terms and efforts to mobilize large coalitions to demonstrate quantitative relevance. I investigate who is using these tactics and assess their impact on both policy discourse and substantive policy changes---specifically, the words and substantive requirements of agency rules. 
 
 To examine how <!--movements affect policymaking--> groups shape policy agendas through distributive justice claims-making, I assess the impact of thousands of campaigns linked to the environmental justice movement.
 The environmental justice movement offers a broad but tractable scope for analysis and highlights the distributive politics of agency rulemaking. Environmental justice (EJ) concerns focus on unequal access to healthy environments and protection from harms caused by things like pollution and climate change [@Bullard1993]. The EJ issue frame emerged in local campaigns against toxic waste sites and farmworker exposure to pesticides [@Capek1993] and began appearing in federal policy documents in the 1980s [@GAO1983]. @Taylor2002 describes a fusion of the American Indian Movement, Chicano movement, farmworker movement, civil rights movement, and union organizing: 
@@ -36,14 +38,36 @@ Specifically, I measure change in 13,179 policy processes using the text of draf
 I find that when public comments raise EJ concerns, these concerns are more likely to be addressed in policy documents. The number of comments mobilized (both overall and by EJ advocates specifically) is positively correlated with agencies adding language addressing EJ to policies where the draft policy did not mention EJ. Sections of policies that did address EJ are also more likely to change when comments raise EJ concerns.
 Agencies that most frequently address EJ are also most responsive to comments raising EJ concerns. This finding supports theories of policy receptivity related to the priming power of issue frames [@Entman2007]---agencies house policymakers most familiar with the EJ frame and thus likely to have institutional and cognitive processes primed to be most receptive to EJ concerns.
 
+To pick just one example, consider the case study of mercury regulation. 
+The EPA initially drafted mercury regulations calibrated to protect the average US resident, despite EJ activists calling attention to how mercury affects some communities much more than others---i.e., concerns over distributive justice. 
+After groups representing communities with higher than average exposure to mercury raised distributive justice concerns and mobilized large coalitions, the regulations were eventually revised to better protect populations with high mercury exposure. Appendix \@ref(mercury) traces the evolution of mercury regulations in more detail.
+Tracing the evolution of EJ discourse through sequential policy processes related to regulating mercury pollution shows how mobilizing around distributive justice claims can affect substantive policy. 
+It also shows how issue definitions are hotly contested and rarely addressed by agencies in ways that activists find acceptable. 
+
+<!--Safe Levels of Mercury (For Whom?)
+2002 Draft: Regulated entities + "Other types of entities not listed could also be affected."
+
+2011 Draft: disparate impacts on "vulnerable populations" including "African Americans," "Hispanic," "Native American," and "Other and Multi-racial" groups.
+
+2012 Final Rule: EJ analysis adds "minority, low income, and indigenous."
+
+2020 Rollback: "These communities may experience foregone benefits."
+
+2021 Draft: 2012 Final Rule catagories + "differentiated subsistence fisher populations" + "children exposed prenatally"
+--> 
+
+
+
 The interpretation of the relationship between groups raising distributive justice and policy change depends on who is organizing. Overall, I find that major national advocacy groups are using EJ rhetoric for generic environmental purposes more than the place-based groups that started this movement. In a mix of cooperation and co-option, the "big greens" sometimes deploy their organizing power in partnership with EJ group campaigns and other times merely adopt the rhetoric. <!--Because most public comments using EJ rhetoric are mobilized by national advocacy organizations, the participants do not appear racially diverse.-->
 
-Through a case study of mercury regulation, I show how framing policy debates in distributive justice terms can affect substantive policy. Mercury regulations were initially drafted to protect the average US resident, but after groups representing communities with higher than average exposure to mercury raised distributive justice concerns and mobilized large coalitions, the regulations were eventually revised to better protect high-risk populations.
-However, broader evidence from a set of over 10,000 hand-coded public comments suggests that substantive policy change is rare.
+
+<!--### Hand coded lobbying success --> 
+
+Moreover, broader evidence from a set of over 10,000 hand-coded public comments suggests that substantive policy change is rare and almost entirely associated with the lobbying of national advocacy organizations.
 Hand-coding all commenter demands on a random sample of rulemaking processes, I find that local EJ community groups and tribal governments are among the types of organizations least likely to have their substantive policy demands met. Substantive policy change is much more likely when public interest law organizations raise EJ concerns. The EJ movement has meaningfully shaped policy, but the nature of its effects depends on how advocacy groups with lawyers represent movement demands to policymakers.
 
 Taken together, these findings suggest that public pressure can systematically re-frame policy debates. Demands to address distributive justice issues and the scale of pressure to address those demands are both associated with policymakers adopting distributive justice language. Changes in law, however, do not always flow from getting policymakers to engage with distributive justice claims. Instead, the capacity to mobilize large numbers of people and achieve policy goals lies primarily with large national advocacy organizations. 
-<!-- FIX THESE SENTENCES. 
+<!-- FIX THESE SENTENCES. -->
 
 ## Theory: Distributive Justice Claims as Policy-relevant Information  {#ej-theory}
 

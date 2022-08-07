@@ -24,28 +24,8 @@ Despite this Executive Order, not all draft or final rules address EJ. Those tha
 ```{asis, eval = book, include = book}
 While E.O. 12898 does not itself create a right to sue agencies, courts may strike down rules for failing to comply with procedural requirements of the Administrative Procedure Act (APA) and National Environmental Policy Act (NEPA) if the agency fails to "examine the relevant data" or "consider an important aspect of the problem" (*Motor Vehicle Mfrs. Ass'n v. State Farm Mut. Auto. Ins. Co.*, 1983). This can include an agency's 12898 EJ analysis: "environmental justice analysis can be reviewed under NEPA and the APA" (*Communities Against Runway Expansion, Inc. v. FAA*, 2004). 
 ``` 
-The legal salience of the phrase "environmental justice" means that advocates attempting to frame policies in distributive terms tend to use the phrase, and agencies also tend to use it if they respond to these concerns.
+While there is no formal legal requirement for agencies to comply with E.O. 12898 (and, as Figure \@ref(fig:ej-data)) shows, they rarely do), the legal salience of the phrase "environmental justice" means that advocates attempting to frame policies in distributive terms tend to use this distinctive phrase, and agencies also tend to use it if they respond to these concerns.
 
-
-### Safe Levels of Mercury For Whom? How Distributive Justice Claims Shaped U.S. Mercury Regulation: 
-
-Tracing the evolution of EJ discourse through several policy processes related to regulating mercury pollution shows how distributive justice claims can shape policy. It also shows how the issue definition is hotly contested and rarely addressed by agencies in ways that activists find acceptable. 
-
-<!--Safe Levels of Mercury (For Whom?)
-2002 Draft: Regulated entities + "Other types of entities not listed could also be affected."
-
-2011 Draft: disparate impacts on "vulnerable populations" including "African Americans," "Hispanic," "Native American," and "Other and Multi-racial" groups.
-
-2012 Final Rule: EJ analysis adds "minority, low income, and indigenous."
-
-2020 Rollback: "These communities may experience foregone benefits."
-
-2021 Draft: 2012 Final Rule catagories + "differentiated subsistence fisher populations" + "children exposed prenatally"
---> 
-
-This example shows how distributive justice claims and EJ activist pressure affected how policies addressed EJ in some cases but failed to affect other policies. 
-Regulations on mercury initially focused on protecting the average US resident despite EJ activists calling attention to how mercury affects some communities much more than others---i.e., concerns over distributive justice. 
-After sustained advocacy, new mercury regulations incorporated distributive justice claims and set mercury limits aimed at protecting communities with high mercury exposure. Appendix \@ref(mercury) traces the evolution of mercury regulations in more detail.
 
 ### Data
 
@@ -248,6 +228,13 @@ An alternative approach would be to parse documents by section and assess whethe
 However, other measures, such as the percent of EJ sentences changed, the percent of words in a 12898 section that changed, or the change in topic proportions [@Judge-Lord2017], could be useful in future work.
 ```
 ]
+
+Figure \@ref(fig:ej-pairs) shows the draft and final rule pairs used in each measure---measure 1 leveraging variation in final rules where the draft contained no mention of EJ and measure 2 leveraging variation in the text addressing EJ when the draft did address EJ. 
+
+```{r ej-pairs, out.width="100%",  fig.cap = "Draft and Final Rule Pairs"}
+include_graphics(here::here("figs", "ej-pairs-1.png"))
+```
+
 
 
 <!--
