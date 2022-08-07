@@ -1696,7 +1696,7 @@ predicted %>%
 coord_flip() +
   #facet_wrap("ej_comment", ncol = 1) +
   labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
-       x = 'Share of Rules Mentioning\n"Environmental Justice"',
+       x = 'Share of Prior Rules Mentioning\n"Environmental Justice"',
        color = "",#color = '"Environmental Justice"\nRaised by Comments',
        shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
        title = "Predicted Change in Final Rules")  +
@@ -1762,7 +1762,7 @@ predicted %>%
 coord_flip() +
   #facet_wrap("ej_comment", ncol = 1) +
   labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
-       x = 'Share of Rules Mentioning "Environmental Justice"',
+       x = 'Share of Prior Rules Mentioning "Environmental Justice"',
        color = "",#color = '"Environmental Justice"\nRaised by Comments',
        shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
        title = "Predicted Change in Final Rules")  +

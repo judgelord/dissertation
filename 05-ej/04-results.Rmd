@@ -63,7 +63,7 @@ modelsummary::modelsummary( modelsFE,
                           add_rows = rowsFE, 
                           notes = "",
                           output = output) %>% #as.character()
-  kable2(file = "ej-tables") 
+  kable_model(file = "ej-tables") 
 ```
 
 

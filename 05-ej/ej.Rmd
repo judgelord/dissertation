@@ -31,14 +31,14 @@ spacing: onehalfspacing
 always_allow_html: true
 keywords: Pressure groups, agency rulemaking, environmental justice, agenda democracy, issue framing, policy change
 wordcount: 11964 #12366 + bib
-output: bookdown::word_document2
-# output:
-#     bookdown::pdf_document2:
-#       template: '../assets/article-template.tex'
-#       keep_tex: true
-#       latex_engine: xelatex
-#       citation_package: natbib
-#       toc: false
+output: 
+    bookdown::word_document2: default
+    bookdown::pdf_document2:
+      template: '../assets/article-template.tex'
+      keep_tex: true
+      latex_engine: xelatex
+      citation_package: natbib
+      toc: false
 ---
 
 ```{r global.options, include=FALSE, cache=FALSE}
@@ -194,7 +194,7 @@ modelsummary::modelsummary( modelsFE1,
                           add_rows = rowsFE1, 
                           notes = "",
                           output = output) %>% 
-  kable2(file = "ej-appendix1") 
+  kable_model(file = "ej-appendix1") 
 ```
 
 
@@ -216,7 +216,7 @@ modelsummary::modelsummary( modelsFE2,
                           add_rows = rowsFE2, 
                           notes = "",
                           output = output) %>% 
-  kable2(file = "ej-appendix2")
+  kable_model(file = "ej-appendix2")
 ```
 
 \clearpage

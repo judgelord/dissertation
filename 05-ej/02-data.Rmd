@@ -24,10 +24,10 @@ Despite this Executive Order, not all draft or final rules address EJ. Those tha
 ```{asis, eval = book, include = book}
 While E.O. 12898 does not itself create a right to sue agencies, courts may strike down rules for failing to comply with procedural requirements of the Administrative Procedure Act (APA) and National Environmental Policy Act (NEPA) if the agency fails to "examine the relevant data" or "consider an important aspect of the problem" (*Motor Vehicle Mfrs. Ass'n v. State Farm Mut. Auto. Ins. Co.*, 1983). This can include an agency's 12898 EJ analysis: "environmental justice analysis can be reviewed under NEPA and the APA" (*Communities Against Runway Expansion, Inc. v. FAA*, 2004). 
 ``` 
-While there is no formal legal requirement for agencies to comply with E.O. 12898 (and, as Figure \@ref(fig:ej-data)) shows, they rarely do), the legal salience of the phrase "environmental justice" means that advocates attempting to frame policies in distributive terms tend to use this distinctive phrase, and agencies also tend to use it if they respond to these concerns.
+While there is no formal legal requirement for agencies to comply with E.O. 12898 (and, as Figure \@ref(fig:ej-data) shows, they rarely do), the legal salience of the phrase "environmental justice" means that advocates attempting to frame policies in distributive terms tend to use this distinctive phrase, and agencies also tend to use it if they respond to these concerns.
 
 
-### Data
+### Data: Policy Texts and Public Comments
 
 To examine the impact of EJ activists and public pressure campaigns on policy documents,
 I collect the text of all draft rules, public comments, and final rules from regulations.gov. Then, I select rulemaking documents from agencies that published at least one rule explicitly addressing EJ from 1993 to 2020. This yields 26,670 rulemaking dockets from 40 agencies; 13,179 of these have both a proposed and final rule, allowing me to assess change in relation to comments.^[Some final rules are published without a draft, and some proposed rules are withdrawn or never finalized.<!--Additional descriptives on each type of rule are available in the online appendix.-->]
@@ -229,7 +229,7 @@ However, other measures, such as the percent of EJ sentences changed, the percen
 ```
 ]
 
-Figure \@ref(fig:ej-pairs) shows the draft and final rule pairs used in each measure---measure 1 leveraging variation in final rules where the draft contained no mention of EJ and measure 2 leveraging variation in the text addressing EJ when the draft did address EJ. 
+Figure \@ref(fig:ej-pairs) shows the draft and final rule pairs used in each measure, with Measure 1 leveraging variation in final rules where the draft contained no mention of EJ and Measure 2 leveraging variation in the text addressing EJ when the draft did address EJ. Circles indicate that "environmental justice" appeared in the text. Triangles indicate that it did not. Solid lines indicate change in rule text; dashed lines indicate no change (one and zero, respectively, for the dependent variable). For visual clarity, draft and final rules are grouped by year---each point may represent hundreds of draft or final rules published that year. In the models, the president variable corresponds to the date the final rule is published since this is the administration in power when the decision to change or not change the rule text is finalized.
 
 ```{r ej-pairs, out.width="100%",  fig.cap = "Draft and Final Rule Pairs"}
 include_graphics(here::here("figs", "ej-pairs-1.png"))
