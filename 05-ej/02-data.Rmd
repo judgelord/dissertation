@@ -36,7 +36,7 @@ Despite E.O. 12898, most rules do not address environmental justice. Most draft 
 knitr::include_graphics(here::here("figs", "ej-data-4.png") ) ##
 ```
 
- Figure \@ref(fig:ej-data-agencies100) shows the number of rulemaking dockets over time by whether they ultimately addressed EJ at agencies that either published more than ten rules addressing EJ or received over 100 comments raising EJ concerns. Even at the EPA, where most policies are clearly framed as "environmental" issues, only about half of final rules address EJ. Many agencies that make policies with apparent EJ effects rarely address EJ (e.g., the Office of Surface Mining (OSM) and Pipeline and Hazardous Materials Safety Administration (PHMSA)). At no agency did a majority of rules address EJ overall. Only in a handful of years at agencies that publish few rules was EJ addressed in most rules.
+ Figure \@ref(fig:ej-data-agencies100) shows the number of rulemaking dockets over time by whether they ultimately addressed EJ at agencies that either published more than ten rules addressing EJ or received over 100 comments raising EJ concerns. Even at the EPA, where most policies are clearly framed as "environmental" issues, only about half of final rules address EJ. Many agencies that make policies with apparent EJ effects rarely address EJ (e.g., the Office of Surface Mining [OSM] and Pipeline and Hazardous Materials Safety Administration [PHMSA]). At no agency did a majority of rules address EJ overall. Only in a handful of years at agencies that publish few rules was EJ addressed in most rules.
 
 
 
