@@ -15,7 +15,9 @@ text <- readLines(here::here(chapter)) %>%
   str_replace_all("(in )the previous chapter(s|)", "elsewhere") %>% 
   #TODO MAKE DOUBLE REF 
   str_replace_all("Chapter .ref", "\\\\citet") %>% 
-  str_replace_all("Chapter .ref", "\\\\citet")
+  str_replace_all("Chapter .ref", "\\\\citet")  %>% 
+  # replace "newtheorem{hypothesis}{Hypothesis}[section]"
+  str_replace_all("newtheorem.hypothesis..Hypothesis..section.", "newtheorem{hypothesis}{Hypothesis}")
 
 # make article file path
 article <- here::here(chapter) %>% str_replace("05-ej", "docs")# str_replace(".tex$", "-article.tex") 
