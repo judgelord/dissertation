@@ -683,13 +683,21 @@ exclude: `r short`
 ```{r ej-winrates}
 library(kableExtra)
 library(scales)
+library(tidyverse)
 load(here::here("data", "winrate.Rdata"))
 winrates %>% 
   mutate(`EJ Success Rate` = `EJ Success Rate` %>%
            percent(accuracy = 1) %>% replace_na("-"),
          `Overall Success Rate` = `Overall Success Rate` %>%
            percent(accuracy = 1)) %>% 
-  dplyr::select(-`N raising EJ`) %>% #mutate(across(where(is.numeric), pretty_num)  ) %>%
+  dplyr::select(-`N raising EJ`) %>%
+  # name to nest
+  mutate(`Organization Type` = `Organization Type` %>% 
+           str_replace("(State|Tribe|City)", "Government, \\1") %>% 
+           str_replace("(Religious|Pressure Group|Professional Assn.|University|Environmental Group|Credit Union|Union|Frontline EJ)", "NGO, \\1") %>% 
+           str_replace("(Finance|Law Firm)", "Business, \\1") %>% 
+           str_replace("(NGO$|Business$)", "\\1 (Overall)")) %>% 
+arrange(`Organization Type`) %>% 
       knitr::kable(caption = "") %>% 
       kableExtra::kable_styling(font_size = 22, position = "center")  #kable3(caption = "Hand-coded Lobbying Success by Type of Organization, 2005-2020")
 ```
