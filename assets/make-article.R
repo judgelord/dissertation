@@ -1,5 +1,6 @@
 #chapter <- "05-ej/ej.tex"
 #chapter <- "02-pressure/whyMail.tex"
+#input <- "04-influence/influence.tex"
 
 make_article <- function(input, ...) {
   

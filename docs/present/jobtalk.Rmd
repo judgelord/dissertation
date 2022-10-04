@@ -28,6 +28,7 @@ editor_options:
 ---
 
 
+
 ```{r setup, include = FALSE}
 short = "false"
 exclude_stepwise = "false"
@@ -42,7 +43,12 @@ knitr::opts_chunk$set(warning = FALSE,
                       cache = TRUE, 
                       fig.align = 'center',
                       fig.retina = 2,
-                      dpi = 100)
+                      fig.show="hold",
+                      fig.pos= "htbp",
+                      fig.path = "figs/",
+                      fig.cap = '   ',
+                      out.width = "100%",
+                      out.extra = "")
 
 
 
@@ -56,6 +62,8 @@ library("knitr")
 library("kableExtra")
 
 
+
+
 style_mono_light(base_color = "#3b444b",
           inverse_link_color	
  = "#B7E4CF",
@@ -63,6 +71,8 @@ style_mono_light(base_color = "#3b444b",
           background_color = "white", #FAF0E6", # linen
           header_font_google = google_font("Open Sans"), 
           text_font_google = google_font("Open Sans"), 
+ #text_font_family = "cm-web-fonts",
+ #text_font_url = "https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css",
           text_font_size = "29px",
           padding = "10px",
           code_font_google = google_font("Inconsolata"), 
@@ -117,7 +127,7 @@ I am so grateful to be able to share some of my research with you.
 
 - The paper I am presenting today is a part of a larger BOOK project EXPLORING the impact of public pressure on policymaking in the United States.
 
-The book covers everything from how groups mobilizie people and elected officials, to assessing the substantive policy influence of public pressure campaigns, and then even to assessing the effects of public pressure on judicial review. 
+Chapters of the book cover everything from how groups mobilizie people and elected officials, to assessing the substantive policy influence of public pressure campaigns, and then even to assessing the effects of public pressure on judicial review---whether courts uphold or strike down policies. 
 
 ---
 
@@ -131,7 +141,7 @@ Mobilization
 
 (grassroots, astroturf, elected officials)
 
-↓
+<mark>↓
 
 <mark>Getting policymakers' attention and framing policy debates</mark>
 
@@ -148,9 +158,11 @@ Surviving judicial review
 
 It is a middle step in the causal chain from mobilization to substantive policy influence.
 
-Specifically, I'm going assess the aggregate effects of many linked campaigns on the discourse and issue frames in the policy process---that is, how a movement affects policymakingacross institutions and over time.
+Specifically, I'm going assess the aggregate effects of many linked campaigns on the discourse and issue frames in the policy process---that is, how a movement affects policymaking across institutions and over time.
 
-But before I talk about environmental justice, I first want to start with two broader observations about our democracy that motivatate my work
+The job market paper focus on the effect of campaigns related to the environmental justice movement, and I am also going share additional results from my chapter on the effects campaigns attempting to get the US government to address climate change. 
+
+But before I talk about environmental justice and climate change activism, I first want to start with two broader observations about our American politics and democracy that motivate my work
 
 ---
 
@@ -160,7 +172,9 @@ class: inverse center middle
 
 ???
 
-The first is about the nature of public participation 
+The first is about the nature of public participation. 
+
+When we think about public participation and voice in government, the image that comes to mind might be something like this Norman Rockwell paiting 
 
 ---
 
@@ -171,18 +185,25 @@ background-size: contain
 
 ???
 
-But a fundamental observation from the literature on public participation, going back to Verba and Nie and the vast literature on social movements is that most people particpate when they are mobilized by public pressure campaigns run by organized groups
+Here a man stands up and voices his opinion at a public meeting. From is dress, we are told that he working class, not elite, and yet he is heard. 
+
+But a fundamental observation from the literature on public participation, going back to Verba and Nie and the vast literature on social movements is that most people particpate when they are mobilized by public pressure campaigns run by organized groups.
+
+To be acurate today. Rockwell would need to paint this man and his allies in matching teshirts reading from the script provided by the mobilizing organization. 
 
 ---
 
 class: inverse center middle
 
 
-# Public participation *is mobilized*
+# Public participation 
+# *is mobilized by groups*
 
 ???
 
-When we think about people being mobilized, the image that comes to mind is something like a protest or a march, but Today, instead of standing up at a public meeting, or attending a protest, most public engagment with policymakers increasingly takes place online
+So that is the first observation, that particiaption is mobilized by groups. 
+
+When we think about people being mobilized, the image that comes to mind is something like a protest or a march, 
 
 ---
 
@@ -191,26 +212,67 @@ background-size: cover
 
 ???
 
-Most people engage in policymaking when targeted online by a group like the sierra club, which is one of the largest groups in the US environmental movment. 
+but Today, instead of standing up at a public meeting, or attending a protest, the fast majority of public engagment with policymakers increasingly takes place online
 
-
+Most people engage in policymaking when mobilized online by social media posts, and online ads, and emails like this.
 
 ---
 
 class: inverse center middle
-background-image: url(Figs/sierra.jpeg)
 background-size: contain
 
 
+```{r, out.width = "50%"}
+knitr::include_graphics("Figs/sierra-action.png")
+```
+
+
+???
+Here the Sierra club is mobilizing people to push the Obama administration to strenthen pollution regulations on the oil and gas industry.
+
+
+The sierra club, which is one of the largest groups in the US environmental movment. 
+
+Clicking on "Take action" button it takes you to a website were you can submit a comment on the draft regulations. 
+
+---
+
+class: inverse center middle
+background-size: contain
+
+
+```{r, out.width = "50%"}
+knitr::include_graphics("Figs/sierra-action-trump.png")
+```
+
 ???
 
-Here, we have the modal way that people engage with policymakers---submitting a letter drafted by a large national advocacy group.
+And here the Sierra Club is using the same graphic to mobilize people to write to the Trump administration asking it not to revserse the Obama-era regulations. 
+
+
+And the internet makes it much easier to mobilze large numbers of people to engage in specific policy processes. You can on proposed policies from your phone.
+
+---
+
+class: inverse center middle
+background-size: contain
+
+
+```{r, out.width = "50%"}
+knitr::include_graphics("Figs/sierra.jpeg")
+```
+
+???
+
+And this is really the modal way that people engage with policymakers---submitting a letter drafted by a large national advocacy group.
 
 There is a long tradition of letter writing and petitioning policymakers in the US,
 
 AND NOW, With the internet, social media, and campaign technologies, pressure campaigns are mobilizing millions more people to engage in particular policy fights than ever before. 
 
 But our institutions for incorporating public input on proposed policies are not built for this digital massi mobilzing. At the end, I'll return to what my research says about how we can make government more responsive in the age of digtial campaigns. 
+
+
 
 NOW,  THE FACT that the sierra club is targeting the Environmental Potection Agency, leads me to the second observation about modern American Politics, which comes from a completely different literature.
 
@@ -222,22 +284,30 @@ class: inverse center
 knitr::include_graphics("Figs/congress.png")
 ```
 
-# U.S. law 
+# Law 
 
 
 ???
 When we think of where law is made, we think of Congress. 
 HOWEVER, scholars of the policy process know that MOST US POLICY IS MADE IN THE BUREAUCRACY. 
 
+---
 
-# is *mostly made in the bureaucracy*
+
+class: inverse center
+
+```{r, out.width = "20%"}
+knitr::include_graphics("Figs/congress.png")
+```
 
 
-```{r, agencies, out.width = "20%", fig.show="hold"}
-knitr::include_graphics("Figs/epa-hq.jpeg")
-knitr::include_graphics("Figs/dot-hq.jpeg")
-knitr::include_graphics("Figs/usda-hq.jpeg")
-knitr::include_graphics("Figs/fcc-hq.jpeg")
+# Law 
+
+# *is mostly made in the bureaucracy*
+
+
+```{r,out.width = "20%"}
+knitr::include_graphics(c("Figs/epa-hq.jpeg", "Figs/dot-hq.jpeg","Figs/usda-hq.jpeg", "Figs/fcc-hq.jpeg"))
 ```
 
 ???
@@ -252,33 +322,30 @@ class: inverse center middle
 
 
 ```{r, out.width = "20%"}
-knitr::include_graphics("Figs/sierra.jpeg")
+knitr::include_graphics("Figs/sierra-action.png")
 ```
 
 # Mobilized public pressure 
 # in bureaucracy policymaking
 
-```{r, out.width = "20%", fig.show="hold"}
-knitr::include_graphics("Figs/epa-hq.jpeg")
-knitr::include_graphics("Figs/dot-hq.jpeg")
-knitr::include_graphics("Figs/usda-hq.jpeg")
-knitr::include_graphics("Figs/fcc-hq.jpeg")
+```{r, out.width = "20%"}
+knitr::include_graphics(c("Figs/epa-hq.jpeg", "Figs/dot-hq.jpeg","Figs/usda-hq.jpeg", "Figs/fcc-hq.jpeg"))
 ```
-
 
 ???
 
 Putting these two observations together, I argue that to understand our democracy, we must understand the role of public pressure in bureaucratic policymaking. 
 
-And this is true EVEN WHEN CONGRESS DOES LEGISLATE.
+And, importantly, this is true EVEN WHEN CONGRESS DOES LEGISLATE.
 
-For years, I have presenting this work and posing the question, if Congress Passes GND is passed, 
+For years, I have been working on this, thinking about this question, if Congress Passes landmark legislation like the GND, 
 
 ---
 
-If groups build the power to pass a Green New Deal, 
+#If groups build the power to pass a    
+# Green New Deal, 
 
-what happens when 30+ agencies write the actual policies? 
+#what happens when 30+ agencies write the actual policies? 
 
 ???
 what happens when dozens of agencies then write the implementing rules?
@@ -289,34 +356,49 @@ If groups build the power to pass Build Back Better
 
 ---
 
-If groups build the power to pass ~~a Green New Deal~~  Build Back Better, 
+#If groups build the power to pass   
+#~~a Green New Deal~~    
+#Build Back Better, 
 
-what happens when 30+ agencies write the actual policies? 
+#what happens when 30+ agencies write the actual policies? 
 
 ---
 
-If groups build the power to pass ~~a Green New Deal~~  ~~Build Back Better~~ Inflation Reduction Act, 
+#If groups build the power to pass  
+#~~a Green New Deal~~   
+#~~Build Back Better~~    
+#Inflation Reduction Act, 
 
-what happens when 33 agencies write the actual policies? 
+#what happens when 33 agencies write the actual policies? 
 
 ???
-Or NOW THAT climate groups have pushed through landmark climate policy in the Inflation Reduction Act THAT DOES in fact task 33 agencies with writing rules about how exactly the money will be spent and new regulations. 
+AND NOW THAT climate groups HAVE pushed through landmark climate policy in the Inflation Reduction Act THAT DOES in fact, by my count, task at least 33 agencies with writing rules about how exactly this massive amount of money will be spent AND new regulations requiring companies to use the  technologies funded by the act.
 
-Consider that the Biden Administration has pledged to spend 40% of climate and energy spending, including the IRA and bipartisan infrastructure bill in disadvantaged and EJ communities. Those funding criteria are being developed through agency rulemaking. 
+For example, consider that the Biden Administration has pledged to spend 40% of climate and energy spending, including billions of dollars from IRA and bipartisan infrastructure bill in disadvantaged and EJ communities. Those funding criteria that determine who is eligible are being developed through agency rulemaking. 
 
 ---
 
-### Will organized public pressure carry over to agency policymaking? 
+class: inverse  middle
+
+
+
+# Does public pressure affect bureaucracy policymaking?
+
+
+
 --
 If so, by what mechanisms?
 
 - General level of public attention?
 
+--
+
 - Specific pressure to address issues like climate and environmental justice?
 
-- By targeting more receptive institutions?
 
-- By mobilizing political oversight? 
+--
+
+- By targeting more receptive institutions?
 
 
 ???
@@ -326,45 +408,71 @@ Will organized public pressure carry over to agency policymaking?
 
 - are some institutions more receptive to pressure on EJ than others? 
 
+To preview the rest of the talk
+
 ---
 
-# Preview
+## Preview
 
-### **Data:** 
+### Data:
 
-- Policy demands and lobbying success for 40 million public comments to 40 agencies
-
---
-
-### **Findings:** 
-
-- When activists raise concerns, policy texts change 
-- $\uparrow$ pressure  $\rightsquigarrow$ 	$\uparrow$ change in policy texts
+- Lobbying success for 40 million public comments to 40 agencies on 13,000 policies 1993-2020 (hand-coding $\Longleftrightarrow$ computational text analysis)
 
 ???
-Today, I'm going to show that public pressure can affect the policy process. 
-WHEN groups raise concerns, policy texts change to reflect them. 
-AND when more groups and people are mobilized, the probability that policymakers respond increases
+I used a combination of quantitative and qualitative text analysis to analyze 40 million public comments. Nearly all public comments received on thousands of draft policies by 40 agencies that make policy related to climate and environmental justice. The larger project looks at 161 agencies, but here I focus on agencies that make environmental policy---or more precisely agencies that make policy that is occasionally framed environmental policy.
 
-BUT there are several important caveats. And the caveats are often the most interesting part. 
-The first caveat is that baseline rates of addressing EJ are very low from the Clinton through the Trump administrations. 
 --
-- Policy rarely addresses distributive justice
+
+### Findings:
+
+- Policy rarely addresses environmental justice
 ???
 
 There is a lot of potential for change, which is a tough road for the movement, but helpful for the scientist trying to measure change.
 --
 
+- When activists raise concerns, policy texts change 
+
+???
+
+and when I say policy texts, I mean agency rules
+
+--
+- $\uparrow$ pressure  $\rightsquigarrow$ 	$\uparrow$ change 
+
+???
+
+Today, I'm going to show that public pressure can affect the policy process. 
+WHEN groups raise concerns, policy texts change to reflect them. 
+AND when more groups and people are mobilized, the probability that policymakers respond increases
+
+???
+
+It matters whether policymakers adopt these issue frames because redefining problems can change policymakers calculations, both political and economic. For example, if you make policy about climate change, a whole avelange of new costs and benefits enter the equasion. 
+If activists can get policymakers thinking about DISTRIBUTIE justice---how costs and benefits of policies are unequally distributed---this can change the math as well.
+Issue frames affect cost-benefit analysis
+
+BUT there are several important caveats. And the caveats are often the most interesting part. 
+
+The first caveat is that pressure matters more to more receptive policymakers
+--
 - Responsiveness varies with institutional structure  
 
 ???
-The second caveat is that pressure matters to receptive policymakers--policymakers who are used to thinking about ej at institutions with organizational processes for addressing EJ. 
+-policymakers who are used to thinking about ej at institutions with organizational processes for addressing EJ. 
+
+The second caveat is that these results are driven by historically-White national advocacy organizations advocacy organizations, not tribes or local "frontline" local groups in those "environmental justice communities" that the Biden administration is referencing with the justice 40 initiative
+
+??? 
+
+
 --
-- Climate and environmental justice frames affect cost-benefit analysis
+- Policymakers are more responsive to  historically-White national advocacy organizations advocacy organizations than tribes or local groups.
+
 
 ---
 
-## Policymakers rarely addresses distributive justice, but are more likely to when pressured, especially **receptive policymakers** who have **not already taken a position**.
+exclude: true 
 
 ???
 - With larger EJ coalitions and more public attention, agencies are more likely  📈 to **add** EJ language **where there was none**
@@ -373,12 +481,20 @@ The second caveat is that pressure matters to receptive policymakers--policymake
 
 Third is that the scale of public attention makes policymakers more likely to address EJ when they did not, but higher-salience policies that already addressed EJ are less likely to change. I suspect this is because agency officials have already dotted their i's and crossed their t's in these cases, and there is little room left for policy to move. 
 
---
+---
 
-HOWEVER, groups raising EJ are usually "big green" (White) advocacy organizations.  
---
+class: inverse  middle
 
-- Big greens are much more likely to have their substantive policy demands met than tribes or frontline EJ groups.
+## U.S. federal agencies rarely address environmental justice, but are more likely to when pressured
+--
+, especially receptive policymakers.
+
+???
+
+In a sentence, policymakers, that is people making policy at U.S. federal agencies rarely address environmental justice, but are more likely to when pressured
+
+and furthermore, I'll show that it is receptive policymakers who have not already taken a position
+
 
 ???
 
@@ -409,16 +525,28 @@ The EJ movement began in local resistance to toxic waste in places like the  Alt
 
 # The EJ Frame
 
-- Emerged in local campaigns against toxic waste sites and pesticides
-- Began appearing in federal policy documents in the 1980s
+- Emerged in local campaigns against toxic waste sites and pollution
+
+--
+
 - A fusion of the American Indian Movement, Chicano movement, farmworker movement, civil rights movement, and union organizing
 
-> People of color [raised] social justice concerns such as self-determination, sovereignty, human rights, social inequality, loss of land base, limited access to natural resources, and disproportionate impacts of environmental hazards and linked them with traditional working-class environmental concerns such as worker rights and worker health and safety to develop an environmental justice agenda. (Taylor 2012, p. 1)
+
 
 ???
 
 Dorceta Taylor describes how black-led campaigns like Johnson's fused with the American Indian Movement, Chicano, and farmworker movements and drew on the civil rights and union organizing to push the EJ frame onto the national policy agenda 
-and EJ began appearing in federal documents in the 1980s. 
+
+<!-- People of color [raised] social justice concerns such as self-determination, sovereignty, human rights, social inequality, loss of land base, limited access to natural resources, and disproportionate impacts of environmental hazards and linked them with traditional working-class environmental concerns such as worker rights and worker health and safety
+
+[pause] to develop an environmental justice agenda. (Taylor 2012, p. 1)--->
+
+
+--
+- Began appearing in federal policy documents in the 1980s
+
+???
+and the term began appearing in federal documents in the 1980s. 
 
 My aim add some more systematic quantative data on the broad trends about the influence of EJ movment on the federal policy agenda that Taylor and others have mapped.
 
@@ -429,40 +557,49 @@ exclude: `r short`
 
 ## Do Movements Cause Policy Change?
 
-**Yes.** (Dahl 1956; Lipsky 1968; Piven & Cloward 1977; Tarrow 1994; Andrews 1997; McAdam 1982, 2001; McAdam & Su 2002, McCammon et al. 2011; Cress & Snow 2000; Weldon 2002)
-
-
-
-- **Activists shape parties** (Cohen et al. 2008, Schlozman 2015, Skocpol & Williamson 2016)
-
-
-
-- **Petitioning government builds movements** (Carpenter 2021)
-
-
-
-- **Redistributive policies often require social movements** (Lowi & Nicholson 2015)
-
-
-
-- **Protests affect policy by informing** (Gillion 2013, Gause 2022) **and seed policy agendas** (Wasow 2020)
-
-
-
-- **No movement, no policy** (Skocpol 2013)
+**Yes.** <cite>(Dahl 1956; Lipsky 1968; Piven & Cloward 1977; Tarrow 1994; Andrews 1997; McAdam 1982, 2001; McAdam & Su 2002, McCammon et al. 2011; Cress & Snow 2000; Weldon 2002)
 
 ???
 
 The big question is whether social movements impact policy.
 
 - There is a lot of research on social movements, much of it from sociology, but political scientists tell us that social movements do 
-- shape party agendas
-- that the act of petitioning the government builds power
-- In Lowi's words, "redistributive policies have been associated with social classes and movements from the beginning"--some kinds of policy only come about when groups form and mobilize to affect policy
-- We don't know a lot about policy outcomes, but there is some great work showing specific policy effects of civil rights protests, for example.
-- And as Theda Skocpol found in her study of why climate legislation failed, a movement is often a necessary condition for policy change
 
-Despite excellent recent work (like Dan Gillion and Omar Wa-So's work on civil rights protests, Jamila Michener), there is still demand for a better understanding of the role of social movements in policymaking. 
+--
+
+- **Activists shape parties** (Cohen et al. 2008, Schlozman 2015, Skocpol & Williamson 2016)
+
+???
+- shape party agendas
+
+--
+
+
+- **Petitioning government builds movements** (Carpenter 2021)
+
+???
+- that the act of petitioning the government builds power
+
+--
+
+- **Redistributive policies often require social movements** (Lowi & Nicholson 2015)
+
+???
+- In Lowi's words, "redistributive policies have been associated with social classes and movements from the beginning"--some kinds of policy only come about when groups form and mobilize to affect policy
+
+--
+
+- **Protests affect policy by informing** (Gillion 2013, Gause 2022) **and seed policy agendas** (Wasow 2020)
+
+???
+- We don't know a lot about policy outcomes, but there is some great work showing specific policy effects of civil rights protests, for example. Dan Gillion, LaGina Gause, and Omar Wasow
+
+--
+
+- **No movement, no policy** (Skocpol 2013)
+
+???
+- And as Theda Skocpol found in her study of why climate legislation failed, a movement is often a necessary condition for policy change
 
 ---
 
@@ -474,7 +611,7 @@ Despite excellent recent work (like Dan Gillion and Omar Wa-So's work on civil r
 
 
 ???
-In the paper I note some of the great work in political science studying the impact of social movements on policy change, but much of the systematic work focuses on explaining mobilization. Movement activity and structure are the typical DVs. 
+In the paper I note some of the great work in political science studying the impact of  movements on policy change, but much of the systematic work focuses on explaining mobilization. Movement activity and structure are the typical DVs. 
 
 
 --
@@ -482,11 +619,11 @@ In the paper I note some of the great work in political science studying the imp
 ### My DV: Systematic impact on specific policy documents (**agency rules**)
 
 ???
-I am trying to add to recent work on policy impact by looking systematically at change in very specific policy documents---executive branch agency rules, which now make up 90% of US law; 
+I am trying to add to recent work on policy impact of movements and pressure campaings by looking systematically at change in very specific policy documents---executive branch agency rules, which now make up 90% of US law; 
 
-Whether executive branch agencies are implimenting recent legislation or using authorty of centry-old statutes,  Rulemaking is where the teeth of federal law are forged and reforged over time.
+Whether executive branch agencies are implementing recent legislation or using authorty of centry-old statutes,  Rulemaking is where the teeth of federal law are forged and reforged over time.
 
-So, I'm interested in the extent to which social movements can affect agency rulemaking.
+So, I'm interested in the extent to which movements can affect agency rulemaking.
 
 --
 
@@ -504,6 +641,16 @@ And I'm thinking about social movement impact as the aggregate impact of EJ camp
 
 - Bureaucratic policymaking, especially, is about expertise (Wagner 2010)
 
+???
+
+Everything we know about lobbying, especially lobbying in agency rulemaking, tells us that information is the currency of lobbying. 
+
+Information causes policymakers to change their minds, *especially* when policymakers are experts and lawyers.
+
+Indeed, research, including my own research, elsewhere, shows that business groups dominate lobbying in rulemaking *because* they can generate and provide relevant information. 
+
+Thus far, by "information," scholars generally mean technical and legal information.
+
 --
 
 ### Does *political* information matter?
@@ -515,16 +662,11 @@ And I'm thinking about social movement impact as the aggregate impact of EJ camp
 - Public pressure/attention? (Balla et al. 2020 find that "legal imperatives trump political considerations")
 
 ???
+I ask about the role of a different kind of information---what we might call POLITICAL information, building on Nelson and Yackee's finding that coalition size matters.
 
-Everything we know about lobbying, especially lobbying in agency rulemaking, tells us that information is the currency of lobbying. 
+We might also wonder if groups raising distributive claims would matter (Lowi would say distributions of costs and benefits should matter) 
 
-Information causes policymakers to change their minds, *especially* when policymakers are experts and lawyers.
-
-Indeed, research shows that business groups dominate lobbying in rulemaking *because* they can generate and provide relevant information. 
-
-Thus far, by "information," scholars generally mean technical and legal information.
-
-- I ask about the role of a different kind of information--what we might call political information, building on Nelson and Yackee's finding that coalition size matters, we might also wonder if groups raising distributive claims would matter (Lowi would say so) and whether public pressure or public attention matters. Here scholarship is skeptical. Balla et al. concluded that mass comment campaigns don't matter "legal imperatives trump political considerations." in responding to comments. That technocratic rationality dominates, meaning that political information is not affecting the policy process. I want to test this claim. 
+I'm also curious whether public pressure or public attention matter. Here scholarship is skeptical. Balla et al. concluded that mass comment campaigns don't matter "legal imperatives trump political considerations." in responding to comments. That technocratic rationality dominates, meaning that political information is not affecting the policy process. I want to test this claim. 
 
 When I state my hypotheses, I put them in the direction that EJ campaigns do affect policy, while noting equally powerful intuitions going the other direction. 
 I really think there are good intuitions going both ways. 
@@ -546,9 +688,9 @@ First, we might expect policymakers are more likely to address distributive just
 
 Converely, if bureaucratic policymaking is about "technical expertise"
 
---
+---
 
-### *Repeated Claims (Coalition Size/Pressure) Hypothesis*
+### *Coalition Size Hypothesis*
 
 > Policymakers are more likely to address concerns as more groups raise them.
 
@@ -577,8 +719,7 @@ I really like Brian Libgober's model of how comments inform rulemaking, but it r
 
 ???
 Regarding policy receptivity
-Hilson argues that 
-> "[Political opportunity] must be seen not just in terms of openness (in other words, access to the administration), but also in terms of political receptivity to the claims being made." (Hilson 2002, p. 242)
+Political opportunity my not just be about access to policymakers but also in terms of political receptivity to the claims being made." (Hilson 2002, p. 242)
 
 Cliams may be more impactful when they are more legible to policymakers and fit inside their existing legal narrative and self-concept of what their job is.
 
@@ -775,7 +916,7 @@ I then attach these to lobbying coalitions by hand.
 ---
 
 
-### Data: Comments on Draft Rules
+## Data: Comments on Draft Rules
 
 Of 13,111 relevant agency rules, less than 15% addressed environmental justice, and 8%  addressed climate change, despite growing activist demand.
 
@@ -887,7 +1028,7 @@ exclude: `r exclude_stepwise`
 
 ## Probability of Adding "Environmental Justice" to Policy
 
-```{r ej-m-PR-president-median-2, out.width = "100%"}
+```{r ej-m-PR-president-median-2, out.width = "90%"}
 knitr::include_graphics("Figs/ej-m-PR-president-median-2.png")
 ```
 
@@ -900,7 +1041,7 @@ All of the plots I'll show have predicted probability of change on the x-axis an
 
 ## Probability of Adding "Environmental Justice" to Policy
 
-```{r ej-m-PR-president-median-1, out.width = "100%"} 
+```{r ej-m-PR-president-median-1, out.width = "90%"} 
 
 knitr::include_graphics("Figs/ej-m-PR-president-median-1.png")
 
@@ -911,7 +1052,7 @@ knitr::include_graphics("Figs/ej-m-PR-president-median-1.png")
 
 ## Receptive Policymakers are More Responsive
 
-```{r ej-m-PR-shareI, fig.cap = "", out.width = "100%", fig.show = "hold", fig.subcap=""}
+```{r ej-m-PR-shareI, fig.cap = "", out.width = "90%", fig.show = "hold", fig.subcap=""}
 
 knitr::include_graphics("Figs/ej-m-PR-shareI-1.png")
 
@@ -922,7 +1063,7 @@ knitr::include_graphics("Figs/ej-m-PR-shareI-1.png")
 ## Policymakers Respond to Public Pressure
 
 
-```{r ej-m-PR-comments-agencyFE, out.width = "100%", fig.show = "hold"}
+```{r ej-m-PR-comments-agencyFE, out.width = "90%", fig.show = "hold"}
 
 knitr::include_graphics("Figs/ej-m-PR-comments-agencyFE-1.png")
 
@@ -932,7 +1073,7 @@ knitr::include_graphics("Figs/ej-m-PR-comments-agencyFE-1.png")
 
 ## Policymakers are More Responsive to Larger Coalitions
 
-```{r climate-m-PR-climatecomments-agencyFE,  out.width = "100%"}
+```{r climate-m-PR-climatecomments-agencyFE,  out.width = "90%"}
 
 
 knitr::include_graphics("figs/climate-m-PR-climatecomments-agencyFE-1.png")
@@ -1025,11 +1166,29 @@ These "big greens" are more likely to get substantive policy demands met than Tr
 
 
 
+---
+
+class: inverse center
+
+# The Broader Project: Public Pressure
 
 
+Mobilization
 
 
+(grassroots, astroturf, elected officials)
 
+↓
+
+Getting policymakers' attention and framing policy debates
+
+↓
+
+Substantive policy influence
+
+↓
+
+Surviving judicial review
 
 
 
@@ -1252,10 +1411,12 @@ Human coding can both inform and be informed by rule-based information extractio
 3. Humans and computers can iteratively **tag entities** using regex tables 
 <!--(e.g., identify organizations)--> and **group texts by key features** (e.g., identify lobbying coalitions by common policy demands)
 
+---
 
 Applying simple search and text-reuse methods to public comments on all U.S. federal agency rules, a **sample of 10,894 hand-coded comments** yields **41 million as-good-as-hand-coded comments** regarding both the organizations that mobilized them and the extent to which policy changed in the direction they sought. <!--This large sample enables new analyses of lobbying coalitions, social movements, and policy change.-->
 
 <!--
+
 # The Broader Project: Public Pressure
 
 Mobilization
@@ -1282,17 +1443,12 @@ Surviving judicial review
 ---->
 
 
-
-
-<!--
-# Challenges and Opportunities in Studying Political Texts
---
-
---->
+---
 
 # Hand-coding dynamic data
 
 <!--
+
 - 15 coders 
 
 ```{r greyhound, fig.cap= "Incorrectly Labeled Coalition Identified by Automated Check"}
@@ -1307,6 +1463,8 @@ Workflow: `googlesheets4` allows analysis and improving data in real time. For e
 - As humans identify each organization's policy "ask," other texts with the same ask are put in their coalition.   
 - If the organization and coalition become known, it no longer needs hand coding.
 
+---
+
 **Fig. 1:** Coded Public Comments in a Google Sheet
 
 ```{r datasheet2, fig.show = "hold", out.width = "100%"}
@@ -1314,6 +1472,7 @@ Workflow: `googlesheets4` allows analysis and improving data in real time. For e
 knitr::include_graphics(here("figs", "datasheet.png"))
 ```
 
+---
 
 # Regex tables to tag entities
 
@@ -1344,10 +1503,15 @@ read_csv() |>
   kableExtra::kable_paper()
 ```
 
+---
+
 - **Inductive:** Add entity strings that frequently appear in the data to regex tables.  
 - **Iterative:** Add to regex tables as humans identify new entities or new aliases for known entities. Update data (Google Sheets) to speed hand coding.
 
 <!--### Add to regex tables as hand coders identify new aliases-->
+
+
+---
 
 **Fig 2:** Iteratively Building Regex Tables
 
@@ -1426,7 +1590,7 @@ org_counts_summary %>%
            #str_rpl("World Wildlife Fund", "WWF") %>% 
            #str_rpl("Pew Charitable Trusts", "Pew")) %>% 
   kable(caption = "The Top 5 Organizations Mobilized 20 Million Public Comments",
-         full_width = T, font_size = 55, align= c('l', rep('c', 5))) |>
+         full_width = T, font_size = 5, align= c('l', rep('c', 5))) |>
   kableExtra::kable_paper()
 ```
 
