@@ -26,7 +26,7 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-      slideNumberFormat: "%current%/31"           # 12/42 
+      slideNumberFormat: "%current%/36"           # 12/42 
 editor_options: 
   chunk_output_type: console
 ---
@@ -157,14 +157,14 @@ exclude: true
 
 
 ???
-Broader project here is part of a recent movement to bring back some of EE SchttschNeider's isights about politics as organized conflict over plicy. 
+The broader project is part of a recent movement to bring back some of EE SchttschNeider's insights about politics as organized conflict over policy. 
 
-Antagonists  rarely agree on what the issues are because power is involved in the definition...
+Antagonists rarely agree on what the issues are because power is involved in the definition...
 
 This paper especially builds on the insight that 
-THe ability to affect what politics is about---the terms of the debate---can have major impacts on political outcomes. 
+The ability to affect what politics is about---the terms of the debate---can have major impacts on political outcomes. 
 
-But to ground my larger quantative analysis, I want to start with an example of regulations on Mercury pollution. 
+But to ground my larger quantitative analysis, I want to start with an example of regulations on Mercury pollution. 
 
 ---
 
@@ -173,7 +173,7 @@ But to ground my larger quantative analysis, I want to start with an example of 
 #If groups successfully push Congress to pass the Green New Deal, what happens when 30+ agencies write the actual policies? 
 
 ???
-what happens when dozens of agencies then write the implementing rules?
+What happens when dozens of agencies then write the implementing rules?
 
 And Congress keeps making me change this slide. 
 
@@ -191,9 +191,206 @@ If groups build the power to pass Build Back Better
 # Inflation Reduction Act, what happens when 33 agencies write the actual policies? 
 
 ???
-AND NOW THAT climate groups HAVE pushed through landmark climate policy in the Inflation Reduction Act THAT DOES in fact, by my count, task at least 33 agencies with writing rules about how exactly this massive amount of money will be spent AND new regulations requiring companies to use the  technologies funded by the act.
+AND NOW THAT climate groups HAVE pushed through landmark climate policy in the Inflation Reduction Act THAT DOES, in fact, by my count, task at least 33 agencies with writing rules about how exactly this massive amount of money will be spent AND new regulations requiring companies to use the technologies funded by the act.
 
-For example, consider that the Biden Administration has pledged to spend 40% of climate and energy spending, including billions of dollars from IRA and bipartisan infrastructure bill in disadvantaged and EJ communities. Those funding criteria that determine who is eligible are being developed through agency rulemaking. 
+For example, consider that the Biden Administration has pledged to spend 40% of climate and energy spending, including billions of dollars from IRA and bipartisan infrastructure bills in disadvantaged and EJ communities. Those funding criteria that determine who is eligible are being developed through agency rulemaking. 
+
+---
+
+class: inverse  
+
+
+
+# Does public pressure affect bureaucratic policymaking?
+
+
+
+<!--
+If so, by what mechanisms?
+
+- General level of public attention?
+
+- Specific pressure to address issues like environmental justice?
+
+- By targeting more receptive institutions?
+-->
+
+???
+Will organized public pressure carry over to agency policymaking? 
+
+- If so, what kinds of politics are influential? Is it general attention? Is it specific pressure groups like environmental justice activists?
+
+- are some institutions more receptive to pressure on EJ than others? 
+
+Puzzle: Does public pressure work on specific policies?
+
+Even those made y bureaucrats? 
+
+???
+Bureaucratic policymaking, especially, is about expertise. 
+
+???
+
+All our theories tell us that this probably does not occur, and if it does occur, it should not matter. 
+
+Everything we know about lobbying, especially lobbying in agency rulemaking, tells us that information is the currency of lobbying. 
+
+Information causes policymakers to change their minds, *especially* when policymakers are experts and lawyers.
+
+Indeed, research, including my own research elsewhere, shows that business groups dominate lobbying in rulemaking *because* they can generate and provide relevant information. 
+
+To preview the rest of the talk.
+
+---
+
+layout: true
+
+<div class="my-head"><span>
+Making Policy About Distributive Justice
+<span>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;
+<a href="#toc">Example</a>
+</span>
+</span>
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Theory</a>
+</span>
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Data & Methods</a>
+</span>
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Findings</a>
+</span>
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Conclusion</a>
+</span>
+</div> 
+
+<div class="my-footer"><span>Devin Judge-Lord (Harvard University)&emsp;&emsp;</span></div> 
+
+---
+
+name: preview
+class: inverse
+
+## Preview 
+
+???
+
+So now that I have persuaded you that studying the politics of bureaucratic policymaking is massively important and interesting, I'm putting a roadmap for the rest of the talk on the top of my slides. I'll talk a bit about what we know and what existing theory tells us to expect. 
+Then I'll review the novel data and methods I am bringing to this question
+Then I'll show some of the results and conclude with implications for theory, including implications from the broader project. 
+
+--
+
+<!--
+- [Motivation:](#motivation) 90% of U.S. policy is made by agencies  
+--->
+
+- [Theory:](#theory) Public pressure informs bureaucrats
+--
+
+- [Data:](#data) Change in 13,000 draft and final rule pairs
+--
+$\Longleftarrow$ 40 million public comments
+--
+
+- [Methods:](#methods) Hand-coding $\Longleftrightarrow$ computational text analysis
+
+
+???
+13k policy pairs, for example, the draft and final version of the mercury rule
+
+I used a combination of quantitative and qualitative text analysis to analyze 40 million public comments. Nearly all public comments received on thousands of draft policies by 40 agencies that make policies related to environmental justice. The larger project looks at 161 agencies, but here I focus on agencies that make environmental policy---or, more precisely, agencies that make policy that is occasionally framed as environmental policy.
+
+--
+
+- [Findings](#findings)   
+ - Policy rarely addresses environmental justice
+???
+
+There is a lot of potential for change, which is a tough road for the movement, but helpful for the scientist trying to measure change.
+--
+
+ - When groups raise concerns, policy texts change 
+
+???
+
+And when I say policy texts, I mean agency rules.
+
+--
+ - $\uparrow$ pressure  $\rightsquigarrow$ 	$\uparrow$ change 
+
+???
+
+Today, I'm going to show that public pressure can affect the policy process. 
+WHEN groups raise concerns, policy texts change to reflect them. 
+And when more groups and people are mobilized, the probability that policymakers respond increases.
+
+???
+
+It matters whether policymakers adopt these issue frames because redefining problems can change policymakers' calculations, both political and economic. For example, if you make a policy about climate change, a whole avalanche of new costs and benefits enter the equation. 
+If activists can get policymakers thinking about DISTRIBUTIE justice---how costs and benefits of policies are unequally distributed---this can change the math as well.
+Issue frames affect the cost-benefit analysis.
+
+But there are several important caveats. And the caveats are often the most interesting part. 
+
+The first caveat is that pressure matters more to more receptive policymakers.
+--
+ - Responsiveness varies with institutional structure  
+
+???
+-policymakers who are used to thinking about ej at institutions with organizational processes for addressing EJ. 
+
+The second caveat is that these results are driven by historically-White national advocacy organizations, not tribes or local “frontline” local groups in those "environmental justice communities” that the Biden administration is referencing with the justice 40 initiative.
+
+??? 
+
+
+--
+ - Policymakers are more responsive to national advocacy organizations 
+
+???
+
+It matters who is raising concerns. 
+
+---
+
+class: inverse  middle
+
+## U.S. federal agencies rarely address environmental justice but are more likely to when pressured.
+
+???
+
+In a sentence, policymakers, that is, people making policy at U.S. federal agencies, rarely address environmental justice but are more likely to when pressured.
+
+And furthermore, I'll show that it is receptive policymakers who have not already taken a position.
+
+
+???
+
+Finally, assessing the normative implications requires us to understand who is advocating for whom. In the case of comments on federal agency rules, it is “big green” national advocacy groups that have historically led a White environmental movement. 
+These ”big greens” are more likely to get substantive policy demands met than Tribes and frontline community groups. So, a lot hinges on the extent to which these national organizations represent EJ communities.
+
+
+---
+
+
+layout: true
+
+<div class="my-head"><span>
+Making Policy About Distributive Justice
+</span>
+<span>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;
+<a href="#toc">Example</a>
+</span>
+
+</div> 
+
+<div class="my-footer"><span>Devin Judge-Lord (Harvard University)&emsp;&emsp;</span></div> 
 
 ---
 
@@ -206,11 +403,11 @@ background-size: cover
 ???
 
 
-If you or your partner has been pregnant, you know that you need really careful about fish because mercury pollution accumulates in fish and is really harmful to brain development in fetuses and young kids. 
+If you or your partner has been pregnant, you know that you need to be really careful about fish because mercury pollution accumulates in fish and is really harmful to brain development in fetuses and young kids. 
 
 Coal-fired power plants are the largest source of mercury; they emit 72% of all mercury pollution in the United States. Every state in the country has issued a fish advisory of some type because of unsafe mercury contamination.
 
-So, how did policymakers responded to mercury pollution? 
+So, how did policymakers respond to mercury pollution? 
 
 background-image: url(Figs/brianadams.png)
 background-size: contain
@@ -222,13 +419,13 @@ background-size: contain
 ]
 
 ???
-EPA had to then merely had to fill in little details like questions like who is the public and what is health, what is appripate and necessary? 
+EPA had to then merely had to fill in little details like questions like who is the public and, what is health, what is appropriate and necessary? 
 
 
 AND the Environmental Protection Agency (the EPA) Clinton and GW Bush administrations 
 produced Mercury regulations under the authority of the clean air act.
 
-When an agency does this they most go through a process called rulemaking
+When an agency does this, it must go through a process called rulemaking.
 
 Section 112(n)(1)(A)
 
@@ -278,210 +475,21 @@ https://www.momscleanairforce.org/how-mercury-poisoning-works/
 10,000+ comments
 
 For example, the Alaska Community Action on Toxic wrote
-`“The amount of methyl-mercury and other bioaccumulative chemicals consumed by Alaskans (especially Alaskan Natives) could potentially be much higher than is assumed” - Heather McCausland of the Alaska Community Action on Toxics (ACAT)`
+`“The amount of methyl-mercury and other bioaccumulative chemicals consumed by Alaskans (especially Alaskan Natives) could potentially be much higher than is assumed” - Heather McCausland of the Alaska Community Action on Toxics (ACAT).`
 
-Adovates like Heather were argued that mercury standards that protected the average person in the US did not protect certian minority communites, in this case many native communities who traditionally ate a lot more fish. 
+Advocates like Heather argued that mercury standards that protected the average person in the US did not protect certain minority communites, in this case, many native communities who traditionally ate a lot more fish. 
 
-I grew up in wisconsin, in the center of the great lakes, and despite friday fish fries, these regulations probably protected people in my family, BUT 
+I grew up in Wisconsin, in the center of the great lakes, and despite Friday fish fries, these regulations probably protected people in my family, BUT 
 
-and there is a large Hmong population that came over after the vietnam war, and other commenters raised produced studies that certain southeast asian immigrant populations like the Hmong also ate a lot of freshwater fish and thus had higher rates of Mercury poisning. Similarly the Ojibwe peoples in the great lakes region were had higher rates of mercury poising. 
+And there is a large Hmong population that came over after the Vietnam war, and other commenters raised produced studies that certain southeast Asian immigrant populations like the Hmong also ate a lot of freshwater fish and thus had higher rates of Mercury poisoning. Similarly,  Ojibwe people in the great lakes region had higher rates of mercury poising. 
 
-So after all of this pressure the Bush EPA made changes. [SLIDE]
+So, after all of this pressure, the Bush EPA made changes. [SLIDE]
 
-The Final Rule included a new section on the unequal impacts of mercury pollution. Even half of the cost benefit analysis now talked about how costs of mercury pollution were unequally distributied. This goal of enivonmenal justice was the justification for imposing social costs of power plant regulation. 
+The Final Rule included a new section on the unequal impacts of mercury pollution. Even half of the cost-benefit analysis now talked about how the costs of mercury pollution were unequally distributed. This goal of environmental justice was the justification for imposing social costs of power plant regulation. 
 
-And when the Obama EPA returned to the tooic of mercury pollition, they received half a million comments, many raising environmental justice concerns 
+And when the Obama EPA returned to the topic of mercury pollution, they received half a million comments, many raising environmental justice concerns. 
 
 when the Trump Admin and Biden admin
-
-
----
-
-class: inverse  
-
-
-
-# Does public pressure affect bureaucracy policymaking?
-
-
-
---
-If so, by what mechanisms?
-
-- General level of public attention?
-
---
-
-- Specific pressure to address issues like  environmental justice?
-
-
---
-
-- By targeting more receptive institutions?
-
-
-???
-Will organized public pressure carry over to agency policymaking? 
-
-- If so, what kinds of politics are influential? Is it general attention? Is it specific pressure groups like environmental justice activists?
-
-- are some institutions more receptive to pressure on EJ than others? 
-
-Puzzel: Does public pressure work on specific policies?
-
-Even those made y bureaucrats? 
-
-???
-Bureaucratic policymaking, especially, is about expertise 
-
-???
-
-All our theories tell us that this probably not occure, and if it does occure it should not matter. 
-
-Everything we know about lobbying, especially lobbying in agency rulemaking, tells us that information is the currency of lobbying. 
-
-Information causes policymakers to change their minds, *especially* when policymakers are experts and lawyers.
-
-Indeed, research, including my own research, elsewhere, shows that business groups dominate lobbying in rulemaking *because* they can generate and provide relevant information. 
-
-To preview the rest of the talk
-
----
-
-layout: true
-
-<div class="my-head"><span>
-Making Policy About Distributive Justice
-</span>
-<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-<a href="#toc">Theory</a>
-</span>
-<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-<a href="#toc">Data & Methods</a>
-</span>
-<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-<a href="#toc">Findings</a>
-</span>
-<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-<a href="#toc">Conclusion</a>
-</span>
-</div> 
-
-<div class="my-footer"><span>Devin Judge-Lord (Harvard University)&emsp;&emsp;</span></div> 
-
----
-
-name: preview
-class: inverse
-
-## Preview 
-
-???
-
-So now that I have persuaded you that studying the politics of bureacratic policymaking is massively important and interesting, I'm puttting a roadmap for the rest of the talk on the top of my slides. I'll talk a bit about what we know and what existing theory tells us to expect. 
-Then I'll reveiw the novel data and methods I am brining to this question
-Then I'll show some of the results and conclude with implications for theory, including implications from the broader project. 
-
---
-
-- [Motivation:](#motivation) 90% of U.S. policy is made by agencies  
---
-
-- [Theory:](#theory) Public pressure informs bureaucrats
---
-
-- [Data:](#data) Change in 13,000 draft and final rule pairs $\Longleftarrow$ 40 million public comments
---
-
-- [Methods:](#methods) Hand-coding $\Longleftrightarrow$ computational text analysis
-
-
-???
-13k policy pairs, for example the draft and final verion of the mercury rule
-
-I used a combination of quantitative and qualitative text analysis to analyze 40 million public comments. Nearly all public comments received on thousands of draft policies by 40 agencies that make policy related to  environmental justice. The larger project looks at 161 agencies, but here I focus on agencies that make environmental policy---or more precisely agencies that make policy that is occasionally framed environmental policy.
-
---
-
-- [Findings](#findings)   
- - Policy rarely addresses environmental justice
-???
-
-There is a lot of potential for change, which is a tough road for the movement, but helpful for the scientist trying to measure change.
---
-
- - When groups raise concerns, policy texts change 
-
-???
-
-and when I say policy texts, I mean agency rules
-
---
- - $\uparrow$ pressure  $\rightsquigarrow$ 	$\uparrow$ change 
-
-???
-
-Today, I'm going to show that public pressure can affect the policy process. 
-WHEN groups raise concerns, policy texts change to reflect them. 
-AND when more groups and people are mobilized, the probability that policymakers respond increases
-
-???
-
-It matters whether policymakers adopt these issue frames because redefining problems can change policymakers calculations, both political and economic. For example, if you make policy about climate change, a whole avelange of new costs and benefits enter the equasion. 
-If activists can get policymakers thinking about DISTRIBUTIE justice---how costs and benefits of policies are unequally distributed---this can change the math as well.
-Issue frames affect cost-benefit analysis
-
-BUT there are several important caveats. And the caveats are often the most interesting part. 
-
-The first caveat is that pressure matters more to more receptive policymakers
---
- - Responsiveness varies with institutional structure  
-
-???
--policymakers who are used to thinking about ej at institutions with organizational processes for addressing EJ. 
-
-The second caveat is that these results are driven by historically-White national advocacy organizations advocacy organizations, not tribes or local “frontline” local groups in those "environmental justice communities” that the Biden administration is referencing with the justice 40 initiative
-
-??? 
-
-
---
- - Policymakers are more responsive to national advocacy organizations 
-
-???
-
-It matters who is raising concerns 
-
----
-
-exclude: true 
-
-???
-- With larger EJ coalitions and more public attention, agencies are more likely  📈 to **add** EJ language **where there was none**
-- BUT agencies also anticipate public attention, making **existing** EJ analyses less likely 📉 to **change** on higher-salience rules.
-
-
-Third is that the scale of public attention makes policymakers more likely to address EJ when they did not, but higher-salience policies that already addressed EJ are less likely to change. I suspect this is because agency officials have already dotted their i's and crossed their t's in these cases, and there is little room left for policy to move. 
-
----
-
-class: inverse  middle
-
-## U.S. federal agencies rarely address environmental justice, but are more likely to when pressured
---
-, especially receptive policymakers.
-
-???
-
-In a sentence, policymakers, that is people making policy at U.S. federal agencies rarely address environmental justice, but are more likely to when pressured
-
-and furthermore, I'll show that it is receptive policymakers who have not already taken a position
-
-
-???
-
-Finally, assessing the normative implications requires us to understand who is advocating for whom. In the case of comments on federal agency rules, it is “big green” national advocacy groups that have historically led a very White environmental movement. 
-These ”big greens” are more likely to get substantive policy demands met than Tribes and frontline community groups. So, a lot hinges on the extent to which these national organizations represent EJ communities.
 
 
 ---
@@ -491,21 +499,43 @@ background-image: url(https://assets.nrdc.org/sites/default/files/styles/full_co
 background-size: cover
 
 
-# The Evironmental Justice Frame
+# The Environmental Justice Frame
 
 ???
 
-What is environmental justice and why is the Biden administration requiring 40% of federal spending to be spent in environmenal justice communities? 
+What is environmental justice, and why does the Biden administration require 40% of federal spending to be spent in environmental justice communities? 
 
-The EJ movement began in local resistance to toxic waste in places like the  Alt-geld Gardens housing complex on Chicago's South Side, where activists like Hazel Johnson had been organizing tenants years before a young Barak Obama showed up in 1984. Surrounded by manufacturing and toxic waste dumps, this neighborhood got the nickname “the toxic doughnut” 
+The EJ movement began in local resistance to toxic waste in places like the  Alt-geld Gardens housing complex on Chicago's South Side, where activists like Hazel Johnson had been organizing tenants years before a young Barak Obama showed up in 1984. Surrounded by manufacturing and toxic waste dumps, this neighborhood got the nickname “the toxic doughnut.” 
 
-Dorceta Taylor describes how black-led campaigns like Johnson's fused with the American Indian Movement, Chicano, and farmworker movements and drew on the civil rights and union organizing to push the Evironmental justice frame onto the national policy agenda 
+Dorceta Taylor describes how black-led campaigns like Johnson's fused with the American Indian Movement, Chicano, and farmworker movements and drew on civil rights and union organizing to push the environmental justice frame onto the national policy agenda. 
 
 Began appearing in federal policy documents in the 1980s
 
-My aim add some more systematic quantative data on the broad trends about the influence of EJ movment on the federal policy agenda that Taylor and others have mapped.
+My aim is to add some more systematic quantitative data on the broad trends regarding the influence of the EJ movement on the federal policy agenda that Taylor and others have mapped.
 
 
+--
+
+
+1. Distinct phrase (few false positives) without many synonyms (few false negatives)
+
+--
+
+1. E.O. 12898 "Federal Actions to Address Environmental Justice" (1993)
+
+
+--
+
+Why this matters:
+
+
+- "Environmental" policy is
+ - inconsistently racialized
+ - inconsistently focused on *distributions* of costs and benefits
+
+--
+
+- Reframing policy in distributive justice terms can shape normative, political, and even economic analysis.
 
 ---
 
@@ -551,6 +581,8 @@ exclude: `r short`
 
 ???
 
+There is more about what social movement shot. 
+
 The big question is whether social movements impact policy.
 
 - There is a lot of research on social movements, much of it from sociology, but political scientists tell us that social movements shape policy  
@@ -565,24 +597,19 @@ The big question is whether social movements impact policy.
 --
 
 
-- **Petitioning government builds movements** [(Carpenter 2021)]()
+- **Petitioning government builds movements and policy agendas** [(Carpenter 2021)]()
 
 ???
 - that the act of petitioning the government builds power
 
 -->
 
-- **Redistributive policies often require social movements** (Lowi & Nicholson 2015)
-
-???
-- In Lowi's words, “redistributive policies have been associated with social classes and movements from the beginning”--some kinds of policy only come about when groups form and mobilize to affect policy
-
 --
 
-- **Protests affect policy by informing** [(Gillion 2013, Gause 2022)]() **and seed policy agendas** [(Wasow 2020)]()
+- **Protests inform policymakers and policy agendas** [(Gillion 2013, Gause 2022, Wasow 2020)]()
 
 ???
-- We don't know a lot about policy outcomes, but there is some great work showing specific policy effects of civil rights protests, for example. Dan Gillion, LaGina Gause, and Omar Wasow
+- We don't know a lot about policy outcomes, but there is some great work showing specific policy effects of civil rights protests, for example. Dan Gillion, Latina Gause, and Omar Wasow
 
 --
 
@@ -591,11 +618,16 @@ The big question is whether social movements impact policy.
 ???
 - And as Theda Skocpol found in her study of why climate legislation failed, a movement is often a necessary condition for policy change
 
+- **Redistributive policies often require  movements** (Lowi & Nicholson 2015)
+
+???
+- In Lowi's words, “redistributive policies have been associated with social classes and movements from the beginning”--some kinds of policy only come about when groups form and mobilize to affect policy
+
 ---
 
 
 
-### Scholars focus on the power of *technical* information
+### Scholars of bureaucracy focus on *technical* information
 
 
 ???
@@ -606,7 +638,7 @@ Everything we know about lobbying, especially lobbying in agency rulemaking, tel
 
 Information causes policymakers to change their minds, *especially* when policymakers are experts and lawyers.
 
-Indeed, research, including my own research, elsewhere, shows that business groups dominate lobbying in rulemaking *because* they can generate and provide relevant information. 
+Indeed, research, including my own research elsewhere, shows that business groups dominate lobbying in rulemaking *because* they can generate and provide relevant information. 
 
 Thus far, by “information,” scholars generally mean technical and legal information.
 
@@ -614,13 +646,18 @@ Thus far, by “information,” scholars generally mean technical and legal info
 
 ### Does *political* information matter?
 
-- Who is affected? [(Lowi 1972, Woodly 2015)]()
+- Frames about who is affected? [(Jones & Baumgartner 1991, Lowi 1972, Schneider & Ingram 1993, Woodly 2015)]()
 
-- Coalition size? [(Nelson & Yackee 2012, Dwidar 2021)]()
+- Coalition size? [(Dwidar 2021, Nelson & Yackee 2012)]()
 
 - Public attention? [(Schattschneider 1972 vs. Balla et al. 2020)]()
 
 ???
+
+But none of these papers have XXXX
+
+I am going to test these in a large-scale way.
+
 Lowi TODO 
 
 Coalition size = NUMBER OF GROUPS 
@@ -633,24 +670,24 @@ I ask about the role of a different kind of information---what we might call POL
 
 We might also wonder if groups raising distributive claims would matter (Lowi would say distributions of costs and benefits should matter) 
 
-I'm also curious whether public pressure or public attention matter. Here scholarship is skeptical. Balla et al. concluded that mass comment campaigns don't matter “legal imperatives trump political considerations.” in responding to comments. That technocratic rationality dominates, meaning that political information is not affecting the policy process. I want to test this claim. 
+I'm also curious whether public pressure or public attention matter. Here scholarship is skeptical. Balla et al. concluded that mass comment campaigns don't matter because “legal imperatives trump political considerations.” in responding to comments. That technocratic rationality dominates, meaning that political information is not affecting the policy process. I want to test this claim. 
 
 ---
 
 
-### Scholars focus on the power of *technical* information
+### Scholars of bureaucracy focus on *technical* information
 
 ### Does *political* information matter?
 
 - H1: Policymakers address distributive justices when pressured
 
-- H2: $\uparrow$ Coalition size $\rightarrow$  $\uparrow$ Policy response
+- H2: $\uparrow$ Coalition size (number of groups) $\rightarrow$  $\uparrow$ Policy response
 
 - H3: $\uparrow$ Public attention $\rightarrow$ $\uparrow$ Policy response
 
 --
 
-+ Heterogeneous effects: organization and institution
++ Heterogeneous effects by organization and institution
 
 ---
 
@@ -663,23 +700,20 @@ exclude: true
 
 
 ???
-In the paper I note some of the great work in political science studying the impact of  movements on policy change, but much of the systematic work focuses on explaining mobilization. Movement activity and structure are the typical DVs. 
+In the paper, I note some of the great work in political science studying the impact of movements on policy change, but much of the systematic work focuses on explaining mobilization. Movement activity and structure are the typical DVs. 
 
-
---
-
-### My DV: Change in specific policies (agency rules)
+<!--### My DV: Change in specific policies (agency rules)--> 
 
 ???
-I am trying to add to recent work on policy impact of movements and pressure campaings by looking systematically at change in very specific policy documents
+I am trying to add to recent work on the policy impact of movements and pressure campaigns by looking systematically at change in very specific policy documents.
 
-Whether executive branch agencies are implementing recent legislation or using authorty of centry-old statutes,  Rulemaking is where the teeth of federal law are forged and reforged over time.
+Whether executive branch agencies are implementing recent legislation or using the authority of century-old statutes,  Rulemaking is where the teeth of federal law are forged and reforged over time.
 
 So, I'm interested in the extent to which movements can affect agency rulemaking.
 
 ???
 
-Aggregate impact of environmental justice campaigns across institutions and over time $\rightsquigarrow$ environmental justice movement impact
+The aggregate impact of environmental justice campaigns across institutions and over time $\rightsquigarrow$ environmental justice movement impact
 
 ???
 And I'm thinking about social movement impact as the aggregate impact of EJ campaigns across institutions and over time. 
@@ -715,7 +749,9 @@ name: data
 
 ## ~40,000,000 public comments on these draft rules
 
- - ~4,800,000 (~28,000 unique comments) raise environmental justice concerns
+--
+
+~4,800,000 (~28,000 unique) comments raise environmental justice concerns
 
 
 
@@ -737,9 +773,9 @@ class: inverse  middle
 
 ???
 
-If you remember one thing about the methods here it is that Human coding and computational text analysis are more powerful when combined, and I have several ways of doing that. 
+If you remember, one thing about the methods here is that Human coding and computational text analysis are more powerful when combined, and I have several ways of doing that. 
 
-First, I use something like plagirizm detetction to identify linked sets of documents that indicated that groups of commenters are in a lobbying coalition
+First, I use something like plagiarism detection to identify linked sets of documents that indicate that groups of commenters are in a lobbying coalition.
 
 ---
 
@@ -772,7 +808,7 @@ knitr::include_graphics(here::here("figs", "comment_percent_match_plot-2.png")  
 
 ???
 
-Elsewhere, I used these same methods to assess the change between draft and final rule, and there are tutrials for how to do this on my website. 
+Elsewhere, I used these same methods to assess the change between the draft and final rule, and there are tutorials for how to do this on my website. 
 
 Here is what this looks like on a larger set of comments
 
@@ -790,7 +826,7 @@ knitr::include_graphics("Figs/comment_percent_match_plot.png")
 ???
 
 Using n-gram matching methods similar to plagiarism detection, I collapse form letters and petitions into representative texts. As most comments are form letters, that 5 million collapses to 28 thousand unique texts.
-This figure shows the percent of shared text in a sample of documents.
+This figure shows the percentage of shared text in a sample of documents.
 The black squares on the diagonal show that each comment has a perfect overlap with itself. 
 The block of grey partial matches reflects a public pressure campaign, with a lot of shared 10-grams. 
 I then attach these to lobbying coalitions by hand. 
@@ -799,12 +835,14 @@ I then attach these to lobbying coalitions by hand.
 
 ## Iteratively group commenters into coalitions
 
-```{r, out.width = "65%", fig.show='hold'}
+```{r, out.width = "85%", fig.show='hold'}
 #knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vSy9MpvnXV0nbZj4kUPnWC38bwk5xiBXjRiGC3fyrddwoZVT19SmfT4WRr_AvOH5lxeKyrTenqLlKmm/pub?w=953&h=603")
 
-knitr::include_graphics(here::here("figs", "methods-ngrams.png"))
+knitr::include_graphics("Figs/methods-ngrams-slide.png")
 
 ```
+
+![](https://github.com/judgelord/legislators/man/figures/logo.png)
 
 ---
 
@@ -813,7 +851,7 @@ knitr::include_graphics(here::here("figs", "methods-ngrams.png"))
 ```{r, out.width = "100%", fig.show='hold'}
 #knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vRSJJgSbMdFtkpJjB94Tw5cmFElhDKrHEkOLaUb5-qFdIY-sQp4qGyC-FZoZ7UmWSLfoMZDueAkemhU/pub?w=752&h=238") 
 
-knitr::include_graphics(here::here("figs", "methods-regex.png"))
+knitr::include_graphics("Figs/methods-regex-slide.png")
 
 #knitr::include_graphics(here::here("legislators" , "man", "figures", "logo.png") %>% str_remove("dissertation"))
 ```
@@ -830,7 +868,7 @@ knitr::include_graphics(here::here("figs", "methods-regex.png"))
 
 ### II. Getting substantive policy demands
 
--  Lobbying success for all commenters on 150 rules, 2005-2020
+-  Lobbying success for all commenters on 150 rules
  - 10,894 hand-coded documents
  - 284 coalitions 
  
@@ -890,10 +928,10 @@ However, the conclusions are largely the same if I use a quadradic function inst
 ---
 
 exclude: `r exclude_stepwise`
-class: center
+class: right
 
 
-```{r ej-m-PR-president1, out.width = "50%"}
+```{r ej-m-PR-president1, out.width = "45%"}
 knitr::include_graphics("Figs/ej-m-PR--median-pres-2.png")
 ```
 
@@ -903,76 +941,79 @@ All of the plots I'll show have predicted probability of change on the x-axis an
 
 ---
 
-class: center
+class: right
 exclude: `r exclude_stepwise`
 
 ```{r ej-m-PR-president2, out.width = "45%"}
 knitr::include_graphics("Figs/ej-m-PR--median-pres-1.png")
 ```
 
- [[TABLE]](#table) 
+ $\color{\green}{\checkmark}$ Distributive Justice Claims 📈 + heterogeneous effects [[TABLE]](#table)
 
 ---
 
-class: center
+class: right
 
-```{r ej-m-PR-president-median-1, out.width = "44%"} 
+```{r ej-m-PR-president-median-1, out.width = "45%"} 
 
 knitr::include_graphics("Figs/ej-m-PR-president-median-pres-1.png")
 
 ```
 
- [[TABLE]](#table) 
+ $\color{\green}{\checkmark}$ Distributive Justice Claims 📈 + heterogeneous effects [[TABLE]](#table) 
 
 
 ---
 
-class: center
+class: right
 
-```{r ej-m-PR-shareI1, fig.cap = "", out.width = "44%", fig.show = "hold", fig.subcap=""}
+```{r ej-m-PR-shareI1, fig.cap = "", out.width = "45%", fig.show = "hold", fig.subcap=""}
 
 knitr::include_graphics("Figs/ej-m-PR-shareI-pres-2.png")
 
 ```
 
+ [[TABLE]](#table) 
 
- 
+
 ---
 
-class: center
+class: right
 
-```{r ej-m-PR-shareI2, fig.cap = "", out.width = "44%", fig.show = "hold", fig.subcap=""}
+```{r ej-m-PR-shareI2, fig.cap = "", out.width = "45%", fig.show = "hold", fig.subcap=""}
 
 knitr::include_graphics("Figs/ej-m-PR-shareI-pres-1.png")
 
 ```
 
- [[TABLE]](#table) 
+ $\color{\green}{\checkmark}$ Distributive Justice Claims 📈 + heterogeneous effects [[TABLE]](#table)
  
 ---
 
-class: center
+class: right
 
 
 ```{r coalition1,  out.width = "50%"}
 knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-pres-2.png")
 ```
 
+ [[TABLE]](#table) 
+
+
 ---
 
-class: center
+class: right
 
 
 ```{r coalition2,  out.width = "50%"}
 knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-pres-1.png")
 ```
 
- [[TABLE]](#table) 
-
+ $\color{\green}{\checkmark}$ Coalition size 📈  [[TABLE]](#table)
 
 ---
 
-class: center
+class: right
 
 
 ```{r attention1, out.width = "50%", fig.show = "hold"}
@@ -981,10 +1022,12 @@ knitr::include_graphics("Figs/ej-m-PR-comments-share-pres-2.png")
 
 ```
 
+ [[TABLE]](#table) 
+
 
 ---
 
-class: center
+class: right
 
 
 ```{r attention2, out.width = "50%", fig.show = "hold"}
@@ -993,11 +1036,11 @@ knitr::include_graphics("Figs/ej-m-PR-comments-share-pres-1.png")
 
 ```
 
- [[TABLE]](#table) 
+  Public attention  [[TABLE]](#table) 
 
 ---
 
-class: center
+class: right
 
 ```{r attention3, out.width = "90%", fig.show = "hold"}
 
@@ -1005,8 +1048,8 @@ knitr::include_graphics("Figs/ej-m-PR-comments-share-pres2-1.png")
 
 ```
 
- [[TABLE]](#table) 
-
+$\color{\green}{\checkmark}$     Public attention 📈* *only absent specific pressure  [[TABLE]](#table)
+ 
 ---
 
 name: substantive
@@ -1058,12 +1101,12 @@ Making Policy About Distributive Justice
 | ------------------------------------------ | :--: | 
 | Distributive Justice Claims     | 📈 | 
 | Coalition Size        | 📈 | 
-| General Public Attention               | 📈 | 
+| General Public Attention               | 📈* | 
 | Prior rate                             | 📈 | 
 
-More public pressure $\rightarrow$ agencies are more likely  📈 to add EJ language
+More public pressure $\rightarrow$ agencies are more likely  📈 to add EJ language.
 --
-$\implies$ strong framing effects
+$\implies$ Strong framing effects.
 
 --
 
@@ -1076,16 +1119,14 @@ Replicates with "climate change" [[more]](https://judgelord.github.io/research/c
 class: inverse
 
 
-## Policymakers rarely address  environmental justice
+### U.S. federal agencies rarely address  environmental justice
 --
-, but they are much more likely to do so when pressured
---
-, especially receptive policymakers.
+, but they are much more likely to do so when pressured.
 
 
 --
 
-## National advocacy organizations are more likely to have substantive policy demands met.
+### National advocacy organizations are more likely to have substantive policy demands met.
 
 --
 
@@ -1099,7 +1140,7 @@ class: inverse
 
 ???
 
-Finally, assessing the normative implications requires us to understand who is advocating for whom. In the case of comments on federal agency rules, it is “big green" national advocacy groups that have historically led a very White environmental movement. 
+Finally, assessing the normative implications requires us to understand who is advocating for whom. In the case of comments on federal agency rules, it is “big green" national advocacy groups that have historically led a White environmental movement. 
 These "big greens" are more likely to get substantive policy demands met than Tribes and frontline community groups. So, a lot hinges on the extent to which these national organizations represent EJ communities.
 
 ---
@@ -1290,12 +1331,12 @@ knitr::include_graphics("Figs/ej-comments-1.png")
 I collected all 40 million comments on these draft and final rule pairs. 
 Almost 5 million mentioned EJ.
 
-The top row of plots with the purple border shows proposed rules that did address EJ; I use this set to assess whether EJ language changed between draft and final. 
+The top row of plots with the purple border shows proposed rules that did address EJ; I use this set to assess whether EJ language changed between the draft and the final. 
 
-The lower two rows in the red box show proposed rules that did not address EJ, the middle row shows rules where EJ language was added. 
+The lower two rows in the red box show proposed rules that did not address EJ, and the middle row shows rules where EJ language was added. 
 
 Each point is a rule. 
-Blue ones are ones where commenters raised EJ concerns. 
+Blue ones are the ones where commenters raised EJ concerns. 
 Red ones are where no comments raised EJ concerns.
 Y-axis is the total number of comments the rule received. 
 
@@ -1315,7 +1356,7 @@ knitr::include_graphics("Figs/comment_percent_match_plot.png")
 ???
 
 Using n-gram matching methods similar to plagiarism detection, I collapse form letters and petitions into representative texts. As most comments are form letters, that 5 million collapses to 28 thousand unique texts.
-This figure shows the percent of shared text in a sample of documents.
+This figure shows the percentage of shared text in a sample of documents.
 The black squares on the diagonal show that each comment has a perfect overlap with itself. 
 The block of grey partial matches reflects a public pressure campaign, with a lot of shared 10-grams. 
 I then attach these to lobbying coalitions by hand. 
@@ -1463,7 +1504,7 @@ knitr::include_graphics("figs/cj-data-agencies-2.png")
 
 - 20% <!--, 17,857,018 (421,880 unique)--> raise "climate change"
 
-- 2% <!--, 3,248,697 (2,138 unique)--> also mention environmental justice or cimate justice
+- 2% <!--, 3,248,697 (2,138 unique)--> also mention environmental justice or climate justice
 
 - 82% of all comments raising EJ also mention climate change, but only 14% of **unique** comments raising EJ also mention climate change
 
@@ -1717,7 +1758,7 @@ knitr::include_graphics(here("figs", "greyhound.png"))
 
 --->
 
-Workflow: `googlesheets4` allows analysis and improving data in real time. For example, in Fig. 1: 
+Workflow: `googlesheets4` allows analysis and improving data in real-time. For example, in Fig. 1: 
 
 - The "org_name" column is populated with a guess from automated methods. As humans identify new organizations and aliases, other documents with the same entity strings are auto-coded to match human coding.   
 - As humans identify each organization's policy "ask," other texts with the same ask are put in their coalition.   
@@ -1766,7 +1807,7 @@ read_csv() |>
 ---
 
 - **Inductive:** Add entity strings that frequently appear in the data to regex tables.  
-- **Iterative:** Add to regex tables as humans identify new entities or new aliases for known entities. Update data (Google Sheets) to speed hand coding.
+- **Iterative:** Add to regex tables as humans identify new entities or new aliases for known entities. Update data (Google Sheets) to speed up hand coding.
 
 <!--### Add to regex tables as hand coders identify new aliases-->
 
@@ -2006,24 +2047,24 @@ knitr::write_bib(c('knitr','rmarkdown','posterdown','pagedown'), 'packages.bib')
 TODO 
 Bloomington
 
-The textrank algorithm creates a bipartite network of sentence pairs that share words and then applies Google Pagerank on the sentence network to rank sentences [@textrank]. This is the summary method I use, in part because many federal agencies used the texrank algorithm to summarize public comments. This means that the sentences chosen by textrank may be especially likely to be seen and quoted by agency officials responding to comments.  
+The textrank algorithm creates a bipartite network of sentence pairs that share words and then applies Google Pagerank on the sentence network to rank sentences [@textrank]. This is the summary method I use, in part because many federal agencies used the textrank algorithm to summarize public comments. This means that the sentences chosen by textrank may be especially likely to be seen and quoted by agency officials responding to comments.  
 
-Topic models also provide helpfuls summary information. Frequent and exclusive words associated with with the topic(s) occuring in the highest proportions in the document may be helpful summary information. 
+Topic models also provide helpful summary information. Frequent and exclusive words associated with the topic(s) occurring in the highest proportions in the document may be helpful summary information. 
 
-Similarly, the results of supervised machine classification can also simplify human coding [@Sebok2021]. For example @Chou2019 use k-means clustering to classify sentences in audit reports and select sentences closted to cluster centroids as summaries for human auditors. Humans with basic domain knowledge are well suited to check and correct the results of machine coding. Human coders might dig deeper in to cases where the machine coding looks off (given other available metadata, like associated entities, summaries, or topics). As humans do such a task, they likely learn how the classifier(s) tend to error. Future human and computational attention can then be paid to those cases. 
+Similarly, the results of supervised machine classification can also simplify human coding [@Sebok2021]. For example, @Chou2019 use k-means clustering to classify sentences in audit reports and select sentences close to cluster centroids as summaries for human auditors. Humans with basic domain knowledge are well-suited to check and correct the results of machine coding. Human coders might dig deeper into cases where the machine coding looks off (given other available metadata, like associated entities, summaries, or topics). As humans do such a task, they likely learn how the classifier(s) tend to error. Future human and computational attention can then be paid to those cases. 
 
 
-Nothing is language dependent. Whereas statistical models of word frequencies require language-dependent preprocessing for dimension-reduction [@Lucas2015], regex tables and text reuse are not.
+Nothing is language-dependent. Whereas statistical models of word frequencies require language-dependent preprocessing for dimension reduction [@Lucas2015], regex tables and text reuse are not.
 
 
 # Classification 
 "The tasks of estimating category percentages (quantification) or classifying individual documents (classification) both begin by analyzing a small subset of documents with (usually hand-coded) category labels." [@Jerzak2019]
 
 The brand of linguistics that focuses on the combinations of words we use emphasises the recurring nature of phrases. 
-"utterances are formed by repetition, modification, and concatenation of previously-known phrases consisting of more than one word...we speak mostly by stitching together swatches of text that we have heard before"
+"utterances are formed by repetition, modification, and concatenation of previously-known phrases consisting of more than one word...we speak mostly by stitching together swatches of text that we have heard before."
 [@Becker1975]
 
-nu- merical representation of text documents can have an outsized impact on the results (see Denny and Spirling, 2016; Levy, Goldberg, and Dagan, 2015). 
+Numerical representation of text documents can have an outsized impact on the results (see Denny and Spirling, 2016; Levy, Goldberg, and Dagan, 2015). 
 
 A corpus may lack textual discrimination regarding word frequencies [@Jerzak2019], but still be classified by phrases long enough that they are highly unlikely to appear by chance. 
 
@@ -2062,7 +2103,7 @@ I am so grateful to be able to share some of my research with you.
 
 - The paper I am presenting today is a part of a larger BOOK project EXPLORING the impact of public pressure on policymaking in the United States.
 
-Chapters of the book cover everything from how groups mobilizie people and elected officials, to assessing the substantive policy influence of public pressure campaigns, and then even to assessing the effects of public pressure on judicial review---whether courts uphold or strike down policies. 
+Chapters of the book cover everything from how groups mobilize people and elected officials to assessing the substantive policy influence of public pressure campaigns and then even to assessing the effects of public pressure on judicial review---whether courts uphold or strike down policies. 
 
 ---
 
@@ -2094,7 +2135,7 @@ I am so grateful to be able to share some of my research with you.
 
 - The paper I am presenting today is a part of a larger BOOK project EXPLORING the impact of public pressure on policymaking in the United States.
 
-Chapters of the book cover everything from how groups mobilizie people and elected officials, to assessing the substantive policy influence of public pressure campaigns, and then even to assessing the effects of public pressure on judicial review---whether courts uphold or strike down policies. 
+Chapters of the book cover everything from how groups mobilize people and elected officials, to assessing the substantive policy influence of public pressure campaigns, and then even to assessing the effects of public pressure on judicial review---whether courts uphold or strike down policies. 
 
 ---
 
@@ -2159,16 +2200,16 @@ When we think about voice in government decision, the image that comes to mind m
 ---
 
 class: inverse center middle
-background-image: url(Figs/freedom-of-speech.jpg)
+background-image: URL(Figs/freedom-of-speech.jpg)
 background-size: contain
 
 ???
 
-Here a man stands up and voices his opinion at a public meeting. From is dress, we are told that he working class, not elite, and yet he is heard. 
+Here a man stands up and voices his opinion at a public meeting. From is dress, we are told that he is working class, not elite, and yet he is heard. 
 
-But a fundamental observation from the literature on public participation, going back to Verba and Nie and the vast literature on social movements is that most people particpate when they are mobilized by public pressure campaigns run by organized groups.
+But a fundamental observation from the literature on public participation, going back to Verba and Nie and the vast literature on social movements, is that most people particpate when they are mobilized by public pressure campaigns run by organized groups.
 
-To be acurate today. Rockwell would need to paint this man and his allies in matching teshirts reading from the script provided by the mobilizing organization. 
+To be acurate today. Rockwell would need to paint this man and his allies in matching t-shirts reading from the script provided by the mobilizing organization. 
 
 ---
 
@@ -2225,12 +2266,12 @@ knitr::include_graphics("Figs/sierra-action.png")
 
 
 ???
-Here the Sierra club is mobilizing people to push the Obama administration to strenthen pollution regulations on the oil and gas industry.
+Here the Sierra Club is mobilizing people to push the Obama administration to strenthen pollution regulations on the oil and gas industry.
 
 
 The sierra club, which is one of the largest groups in the US environmental movment. 
 
-Clicking on "Take action" button it takes you to a website were you can submit a comment on the draft regulations. 
+Clicking on "Take action" button it takes you to a website where you can submit a comment on the draft regulations. 
 
 ---
 
@@ -2244,10 +2285,10 @@ knitr::include_graphics("Figs/sierra-action-trump.png")
 
 ???
 
-And here the Sierra Club is using the same graphic to mobilize people to write to the Trump administration asking it not to revserse the Obama-era regulations. 
+And here the Sierra Club is using the same graphic to mobilize people to write to the Trump administration asking it not to reverse the Obama-era regulations. 
 
 
-And the internet makes it much easier to mobilze large numbers of people to engage in specific policy processes. You can on proposed policies from your phone.
+And the internet makes it much easier to mobilize large numbers of people to engage in specific policy processes. You can on proposed policies from your phone.
 
 ---
 
@@ -2267,11 +2308,11 @@ There is a long tradition of letter writing and petitioning policymakers in the 
 
 AND NOW, With the internet, social media, and campaign technologies, pressure campaigns are mobilizing millions more people to engage in particular policy fights than ever before. 
 
-But our institutions for incorporating public input on proposed policies are not built for this digital massi mobilzing. At the end, I'll return to what my research says about how we can make government more responsive in the age of digtial campaigns. 
+But our institutions for incorporating public input on proposed policies are not built for this digital massi mobilizing. At the end, I'll return to what my research says about how we can make government more responsive in the age of digtial campaigns. 
 
 
 
-NOW,  THE FACT that the sierra club is targeting the Environmental Potection Agency, leads me to the second observation about modern American Politics, which comes from a completely different literature.
+NOW,  THE FACT that the sierra club is targeting the Environmental Protection Agency, leads me to the second observation about modern American Politics, which comes from a completely different literature.
 
 When we think of where law is made, we think of Congress. 
 HOWEVER, scholars of the policy process know that MOST US POLICY IS MADE IN THE BUREAUCRACY. 
@@ -2294,7 +2335,7 @@ knitr::include_graphics(c("Figs/epa-hq.jpeg", "Figs/dot-hq.jpeg","Figs/usda-hq.j
 
 This is especially true in some policy areas like  environmental policy, where nearly all of the policy action has been in the agencies for my entire life---regulating under one administration, deregulating under the next---and courts reviewing agency policies. 
 
-The process by which agencies make policy is different than congress.
+The process by which agencies make policy is different than Congress.
 Agency rulemaking---rulemaking is the process by which agencies make binding law---is where most policy fights now take place.
 
 ---
@@ -2467,7 +2508,7 @@ $\Large\color{\red}{\unicode{10007}}$ Con: Bureaucratic policymaking is about "t
 ???
 First, we might expect policymakers are more likely to address distributive justice when groups raise distributive justice concerns.
 
-Converely, if bureaucratic policymaking is about "technical expertise"
+Conversely, if bureaucratic policymaking is about "technical expertise"
 
 ---
 
@@ -2500,9 +2541,9 @@ I really like Brian Libgober's model of how comments inform rulemaking, but it r
 
 ???
 Regarding policy receptivity
-Political opportunity my not just be about access to policymakers but also in terms of political receptivity to the claims being made." (Hilson 2002, p. 242)
+Political opportunity may not just be about access to policymakers but also in terms of political receptivity to the claims being made." (Hilson 2002, p. 242)
 
-Cliams may be more impactful when they are more legible to policymakers and fit inside their existing legal narrative and self-concept of what their job is.
+Claims may be more impactful when they are more legible to policymakers and fit inside their existing legal narrative and self-concept of what their job is.
 
 Other legal scholars and formal models suggest that information should matter most when it is not something policymaker is already thinking about. If they are right, then we should expect the opposite---that activists raising EJ concerns are most influential at agencies that DON'T usually think about EJ---where it presents them with something new.
 
@@ -2524,9 +2565,9 @@ We might expect that policies are more likely to change when there is more overa
 
 On the other hand, if it is easier to lobby out of the public spotlight, we might expect low-salience policies to be more likely to change. 
 
-Balla et al's study of responses to comments in rulemaking suggests a no effect. Llegal scholars tend to see the scale of public attention is just not a legal concern. 
+Balla et al's study of responses to comments in rulemaking suggests a no effect. Legal scholars tend to see the scale of public attention is just not a legal concern. 
 
-And again, formal models don't really have a paremeter for public attention or pressure. 
+And again, formal models don't really have a parameter for public attention or pressure. 
 
 ---
 
