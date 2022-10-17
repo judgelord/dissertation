@@ -26,7 +26,7 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-      slideNumberFormat: "%current%/30"           # 12/42 
+      slideNumberFormat: "%current%/31"           # 12/42 
 editor_options: 
   chunk_output_type: console
 ---
@@ -69,6 +69,8 @@ library("kableExtra")
 
 
 style_mono_light(base_color = "#3b444b",
+          link_color	
+ = "#B7E4CF",
           inverse_link_color	
  = "#B7E4CF",
           #background_image = "Figs/ej-superfund-light.jpeg",
@@ -87,7 +89,7 @@ style_mono_light(base_color = "#3b444b",
           padding = "15px",
           code_font_google = google_font("Inconsolata"), 
           code_inline_background_color    = "#FFFFFF", 
-          table_row_even_background_color = "#ddede5"#, extra_css = list(".remark-slide-number" = list("display" = "none"))
+          #table_row_even_background_color = "grey"#, extra_css = list(".remark-slide-number" = list("display" = "none"))
  )
 ```
 
@@ -112,6 +114,30 @@ file <- here("present/methods-pres.html")
 webshot(file, "methods-pres.pdf")
 ```
 
+
+name: project 
+
+class: inverse center
+
+## The Broader Project: Public Pressure
+
+
+Mobilization
+
+↓
+
+Getting policymakers' attention and framing policy debates
+
+↓
+
+Substantive policy influence
+
+↓
+
+Surviving judicial review
+
+
+---
 layout: true
 
 <div class="my-head"><span>
@@ -124,6 +150,7 @@ Making Policy About Distributive Justice
 ---
 
 class: inverse  middle
+exclude: true
 
 > # "He who determines what politics is about runs the country because the definition of alternatives is the choice of conflicts, and the choice of conflicts allocates power. " - E.E. Schattschneider
 
@@ -138,6 +165,35 @@ This paper especially builds on the insight that
 THe ability to affect what politics is about---the terms of the debate---can have major impacts on political outcomes. 
 
 But to ground my larger quantative analysis, I want to start with an example of regulations on Mercury pollution. 
+
+---
+
+
+
+#If groups successfully push Congress to pass the Green New Deal, what happens when 30+ agencies write the actual policies? 
+
+???
+what happens when dozens of agencies then write the implementing rules?
+
+And Congress keeps making me change this slide. 
+
+If groups build the power to pass Build Back Better
+
+---
+
+#If groups successfully push Congress to pass the ~~Green New Deal~~
+# Build Back Better Act, what happens when 30+ agencies write the actual policies? 
+
+---
+
+#If groups successfully push Congress to pass the ~~Green New Deal~~   
+#~~Build Back Better Act~~
+# Inflation Reduction Act, what happens when 33 agencies write the actual policies? 
+
+???
+AND NOW THAT climate groups HAVE pushed through landmark climate policy in the Inflation Reduction Act THAT DOES in fact, by my count, task at least 33 agencies with writing rules about how exactly this massive amount of money will be spent AND new regulations requiring companies to use the  technologies funded by the act.
+
+For example, consider that the Biden Administration has pledged to spend 40% of climate and energy spending, including billions of dollars from IRA and bipartisan infrastructure bill in disadvantaged and EJ communities. Those funding criteria that determine who is eligible are being developed through agency rulemaking. 
 
 ---
 
@@ -201,7 +257,17 @@ Before the politics of who gets what, there is the politics of who the whos *are
 ]
 
 .pull-right[
-![](Figs/acat.png)
+
+```{r, fig.show = "hold", out.width = c("35%","50%","30%","40%")}
+#, fig.cap="Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments"
+knitr::include_graphics("Figs/acat.png") 
+knitr::include_graphics("Figs/ncai_logo.jpg") 
+knitr::include_graphics("Figs/sierra_logo.png") 
+knitr::include_graphics("Figs/Tom_Allen.jpeg") 
+
+
+```
+
 ]
 
 
@@ -287,32 +353,17 @@ layout: true
 <div class="my-head"><span>
 Making Policy About Distributive Justice
 </span>
-<span>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-Motivation
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Theory</a>
 </span>
-<span>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-Theory
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Data & Methods</a>
 </span>
-<span>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-Data & Methods
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Findings</a>
 </span>
-<span>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-Results
-</span>
-<span>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-Conclusion
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Conclusion</a>
 </span>
 </div> 
 
@@ -321,6 +372,7 @@ Conclusion
 ---
 
 name: preview
+class: inverse
 
 ## Preview 
 
@@ -329,13 +381,20 @@ name: preview
 So now that I have persuaded you that studying the politics of bureacratic policymaking is massively important and interesting, I'm puttting a roadmap for the rest of the talk on the top of my slides. I'll talk a bit about what we know and what existing theory tells us to expect. 
 Then I'll reveiw the novel data and methods I am brining to this question
 Then I'll show some of the results and conclude with implications for theory, including implications from the broader project. 
+
 --
 
-Data & Methods
+- [Motivation:](#motivation) 90% of U.S. policy is made by agencies  
+--
 
-- Change in 13,000 draft and final rule pairs from 40 agencies, 1993-2020
-- 40 million public comments 
- - Hand-coding $\Longleftrightarrow$ computational text analysis
+- [Theory:](#theory) Public pressure informs bureaucrats
+--
+
+- [Data:](#data) Change in 13,000 draft and final rule pairs $\Longleftarrow$ 40 million public comments
+--
+
+- [Methods:](#methods) Hand-coding $\Longleftrightarrow$ computational text analysis
+
 
 ???
 13k policy pairs, for example the draft and final verion of the mercury rule
@@ -344,22 +403,21 @@ I used a combination of quantitative and qualitative text analysis to analyze 40
 
 --
 
-Findings
-
-- Policy rarely addresses environmental justice
+- [Findings](#findings)   
+ - Policy rarely addresses environmental justice
 ???
 
 There is a lot of potential for change, which is a tough road for the movement, but helpful for the scientist trying to measure change.
 --
 
-- When activists raise concerns, policy texts change 
+ - When groups raise concerns, policy texts change 
 
 ???
 
 and when I say policy texts, I mean agency rules
 
 --
-- $\uparrow$ pressure  $\rightsquigarrow$ 	$\uparrow$ change 
+ - $\uparrow$ pressure  $\rightsquigarrow$ 	$\uparrow$ change 
 
 ???
 
@@ -377,7 +435,7 @@ BUT there are several important caveats. And the caveats are often the most inte
 
 The first caveat is that pressure matters more to more receptive policymakers
 --
-- Responsiveness varies with institutional structure  
+ - Responsiveness varies with institutional structure  
 
 ???
 -policymakers who are used to thinking about ej at institutions with organizational processes for addressing EJ. 
@@ -388,7 +446,7 @@ The second caveat is that these results are driven by historically-White nationa
 
 
 --
-- Policymakers are more responsive to national advocacy organizations 
+ - Policymakers are more responsive to national advocacy organizations 
 
 ???
 
@@ -404,17 +462,6 @@ exclude: true
 
 
 Third is that the scale of public attention makes policymakers more likely to address EJ when they did not, but higher-salience policies that already addressed EJ are less likely to change. I suspect this is because agency officials have already dotted their i's and crossed their t's in these cases, and there is little room left for policy to move. 
-
----
-
-layout: true
-
-<div class="my-head"><span>
-Making Policy About Distributive Justice
-</span>
-</div> 
-
-<div class="my-footer"><span>Devin Judge-Lord (Harvard University)&emsp;&emsp;</span></div> 
 
 ---
 
@@ -439,48 +486,6 @@ These ”big greens” are more likely to get substantive policy demands met tha
 
 ---
 
-layout: true
-
-<div class="my-head"><span>
-Making Policy About Distributive Justice
-</span>
-<span>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-Motivation
-</span>
-</div> 
-
-<div class="my-footer"><span>Devin Judge-Lord (Harvard University)&emsp;&emsp;</span></div> 
-
-
----
-
-#If groups successfully push Congress to pass the Green New Deal, what happens when 30+ agencies write the actual policies? 
-
-???
-what happens when dozens of agencies then write the implementing rules?
-
-And Congress keeps making me change this slide. 
-
-If groups build the power to pass Build Back Better
-
----
-
-#If groups successfully push Congress to pass the ~~Green New Deal~~
-# Build Back Better, what happens when 30+ agencies write the actual policies? 
-
----
-
-#If groups successfully push Congress to pass the ~~Green New Deal~~   
-#~~Build Back Better Act~~
-# Inflation Reduction Act, what happens when 33 agencies write the actual policies? 
-
-???
-AND NOW THAT climate groups HAVE pushed through landmark climate policy in the Inflation Reduction Act THAT DOES in fact, by my count, task at least 33 agencies with writing rules about how exactly this massive amount of money will be spent AND new regulations requiring companies to use the  technologies funded by the act.
-
-For example, consider that the Biden Administration has pledged to spend 40% of climate and energy spending, including billions of dollars from IRA and bipartisan infrastructure bill in disadvantaged and EJ communities. Those funding criteria that determine who is eligible are being developed through agency rulemaking. 
-
----
 
 background-image: url(https://assets.nrdc.org/sites/default/files/styles/full_content/public/media-uploads/midwesttoxicdoughnut_25_002chicago_steel_mills-july_1965_vl_2400.jpg?itok=yXMNtQ-Y)
 background-size: cover
@@ -493,22 +498,6 @@ background-size: cover
 What is environmental justice and why is the Biden administration requiring 40% of federal spending to be spent in environmenal justice communities? 
 
 The EJ movement began in local resistance to toxic waste in places like the  Alt-geld Gardens housing complex on Chicago's South Side, where activists like Hazel Johnson had been organizing tenants years before a young Barak Obama showed up in 1984. Surrounded by manufacturing and toxic waste dumps, this neighborhood got the nickname “the toxic doughnut” 
-
-- Emerged in local campaigns against toxic waste sites and pollution
-
-- A fusion of the American Indian Movement, Chicano movement, farmworker movement, civil rights movement, and union organizing
-
-
-
-
----
-
-background-image: url(Figs/DorcetaTaylor.jpeg)
-background-size: contain
-class: inverse
-
-
-???
 
 Dorceta Taylor describes how black-led campaigns like Johnson's fused with the American Indian Movement, Chicano, and farmworker movements and drew on the civil rights and union organizing to push the Evironmental justice frame onto the national policy agenda 
 
@@ -527,7 +516,8 @@ Making Policy About Distributive Justice
 </span>
 <span>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-Theory
+&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Theory</a>
 </span>
 <span>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
@@ -557,7 +547,7 @@ exclude: `r short`
 
 ## Do Movements Cause Policy Change?
 
-**Yes.** (Dahl 1956; Lipsky 1968; Piven & Cloward 1977; Tarrow 1994; Andrews 1997; McAdam 1982, 2001; McAdam & Su 2002, McCammon et al. 2011; Cress & Snow 2000; Weldon 2002)
+**Yes.** [(Dahl 1956; Lipsky 1968; Piven & Cloward 1977; Tarrow 1994; Andrews 1997; McAdam 1982, 2001; McAdam & Su 2002, McCammon et al. 2011; Cress & Snow 2000; Weldon 2002)]()
 
 ???
 
@@ -575,7 +565,7 @@ The big question is whether social movements impact policy.
 --
 
 
-- **Petitioning government builds movements** (Carpenter 2021)
+- **Petitioning government builds movements** [(Carpenter 2021)]()
 
 ???
 - that the act of petitioning the government builds power
@@ -589,14 +579,14 @@ The big question is whether social movements impact policy.
 
 --
 
-- **Protests affect policy by informing** (Gillion 2013, Gause 2022) **and seed policy agendas** (Wasow 2020)
+- **Protests affect policy by informing** [(Gillion 2013, Gause 2022)]() **and seed policy agendas** [(Wasow 2020)]()
 
 ???
 - We don't know a lot about policy outcomes, but there is some great work showing specific policy effects of civil rights protests, for example. Dan Gillion, LaGina Gause, and Omar Wasow
 
 --
 
-- **No movement, no policy** (Skocpol 2013)
+- **No movement, no policy** [(Skocpol 2013)]()
 
 ???
 - And as Theda Skocpol found in her study of why climate legislation failed, a movement is often a necessary condition for policy change
@@ -624,20 +614,43 @@ Thus far, by “information,” scholars generally mean technical and legal info
 
 ### Does *political* information matter?
 
-- Coalition size?
+- Who is affected? [(Lowi 1972, Woodly 2015)]()
 
-- Who is affected?
+- Coalition size? [(Nelson & Yackee 2012, Dwidar 2021)]()
 
-- Public pressure/attention?
+- Public attention? [(Schattschneider 1972 vs. Balla et al. 2020)]()
 
 ???
+Lowi TODO 
+
+Coalition size = NUMBER OF GROUPS 
+
 (Balla et al. 2020 find that “legal imperatives trump political considerations”)
+
+(Jones and Baumgartner 2009)
 
 I ask about the role of a different kind of information---what we might call POLITICAL information, building on Nelson and Yackee's finding that coalition size matters.
 
 We might also wonder if groups raising distributive claims would matter (Lowi would say distributions of costs and benefits should matter) 
 
 I'm also curious whether public pressure or public attention matter. Here scholarship is skeptical. Balla et al. concluded that mass comment campaigns don't matter “legal imperatives trump political considerations.” in responding to comments. That technocratic rationality dominates, meaning that political information is not affecting the policy process. I want to test this claim. 
+
+---
+
+
+### Scholars focus on the power of *technical* information
+
+### Does *political* information matter?
+
+- H1: Policymakers address distributive justices when pressured
+
+- H2: $\uparrow$ Coalition size $\rightarrow$  $\uparrow$ Policy response
+
+- H3: $\uparrow$ Public attention $\rightarrow$ $\uparrow$ Policy response
+
+--
+
++ Heterogeneous effects: organization and institution
 
 ---
 
@@ -655,7 +668,7 @@ In the paper I note some of the great work in political science studying the imp
 
 --
 
-### My DV: Systematic impact on specific policies (**agency rules**)
+### My DV: Change in specific policies (agency rules)
 
 ???
 I am trying to add to recent work on policy impact of movements and pressure campaings by looking systematically at change in very specific policy documents
@@ -684,7 +697,7 @@ Making Policy About Distributive Justice
 <span>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-Data & Methods
+<a href="#toc">Data & Methods</a>
 </span>
 </div> 
 
@@ -698,9 +711,13 @@ name: data
 
 # Data
 
-- ## 13,179 draft and final rule pairs from 40 agencies, 1993-2020
+## 13,179 draft and final rule pairs from 40 agencies, 1993-2020 
 
-- ## ~40,000,000 public comments on these draft rules
+## ~40,000,000 public comments on these draft rules
+
+ - ~4,800,000 (~28,000 unique comments) raise environmental justice concerns
+
+
 
 
 ???
@@ -716,7 +733,7 @@ class: inverse  middle
 
 # Methods
 
-- ## Human coding and computational text analysis are more powerful when combined
+## Hand coding $\Longleftrightarrow$ computational text analysis
 
 ???
 
@@ -726,8 +743,7 @@ First, I use something like plagirizm detetction to identify linked sets of docu
 
 ---
 
-
-### Identify coalitions with text reuse
+## Identify coalitions with text reuse
 
 .pull-left[“…jobs and our economy. <mark>I am also concerned that your proposal allows power plants to buy and sell mercury pollution credits. This</mark> would permit some plants to continue to harm…"]
 
@@ -738,7 +754,7 @@ First, I use something like plagirizm detetction to identify linked sets of docu
 
 <!--## Collapsing form letters with text reuse-->
 
-### Identify coalitions with text reuse
+## Identify coalitions with text reuse
 
 .pull-left[
 - Document A is distinct
@@ -762,6 +778,8 @@ Here is what this looks like on a larger set of comments
 
 ---
 
+exclude: true
+
 ### Identify coalitions with text reuse
 
 ```{r, fig.show = "hold", out.width = "55%"}
@@ -779,7 +797,7 @@ I then attach these to lobbying coalitions by hand.
 
 ---
 
-## Iteratively group documents into coalitions
+## Iteratively group commenters into coalitions
 
 ```{r, out.width = "65%", fig.show='hold'}
 #knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vSy9MpvnXV0nbZj4kUPnWC38bwk5xiBXjRiGC3fyrddwoZVT19SmfT4WRr_AvOH5lxeKyrTenqLlKmm/pub?w=953&h=603")
@@ -807,30 +825,15 @@ knitr::include_graphics(here::here("figs", "methods-regex.png"))
 
 ### I. Getting policymakers' attention/engagement/response
 
-- Adding policy language 
-- Changing policy language
+- Adding policy language (N = 11,315)
+- Changing policy language (N = 1,864)
 
 ### II. Getting substantive policy demands
 
 -  Lobbying success for all commenters on 150 rules, 2005-2020
- - 10,894 hand-coded documents representing over 40 million comments 
+ - 10,894 hand-coded documents
  - 284 coalitions 
-
----
-
-# Measuring influence
-
-### I. Getting policymakers' attention/engagement/response
-
-- <mark> Adding policy language </mark>
-- Changing policy language
-
-### II. Getting substantive policy demands
-
--  Lobbying success for all commenters on 150 rules, 2005-2020
- - 10,894 hand-coded documents representing over 40 million comments 
- - 284 coalitions 
-
+ 
 ---
 
 layout: true
@@ -843,7 +846,7 @@ Making Policy About Distributive Justice
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-Results
+<a href="#toc">Findings</a>
 </span>
 </div> 
 
@@ -867,7 +870,7 @@ Pr(Policy Change | President) ~ Policy Demands  \+ Coalition Size  \+ Public Att
 --
 
 ## (2) Variation within agencies:  
-Pr(Policy Change | President + Agency) ~ Policy Demands  \+  Coalition Size  \+  Public Pressure Campaign
+Pr(Policy Change | President + Agency) ~ Policy Demands  \+  Coalition Size  \+  Public Attention
 
 ???
 Both of my DVs---adding EJ language and changing existing EJ language--are dichotomous, so I m going to use logit regression. 
@@ -876,11 +879,7 @@ The main models use president and agency fixed effects, so I'm focusing on varia
 
 Because log odds coefficients are hard to interpret and because my models have interactions, I am going to skip the regression table and just show you predicted probabilities. 
 
----
 
-background-image: url(Figs/ej-table-paper.png)
-background-size: contain
-background-color: white
 
 ???
 
@@ -891,58 +890,122 @@ However, the conclusions are largely the same if I use a quadradic function inst
 ---
 
 exclude: `r exclude_stepwise`
+class: center
 
-### Probability of Adding "Environmental Justice" to Policy
 
-```{r ej-m-PR-president-median-2, out.width = "90%"}
-knitr::include_graphics("Figs/ej-m-PR-president-median-2.png")
+```{r ej-m-PR-president1, out.width = "50%"}
+knitr::include_graphics("Figs/ej-m-PR--median-pres-2.png")
 ```
 
 ???
 
 All of the plots I'll show have predicted probability of change on the x-axis and some predictors we care about on the y-axis. This one also shows predicted values for two different agencies, the EPA and the PHMSA. 
 
+---
+
+class: center
+exclude: `r exclude_stepwise`
+
+```{r ej-m-PR-president2, out.width = "45%"}
+knitr::include_graphics("Figs/ej-m-PR--median-pres-1.png")
+```
+
+ [[TABLE]](#table) 
 
 ---
 
-### Probability of Adding "Environmental Justice" to Policy
+class: center
 
-```{r ej-m-PR-president-median-1, out.width = "90%"} 
+```{r ej-m-PR-president-median-1, out.width = "44%"} 
 
-knitr::include_graphics("Figs/ej-m-PR-president-median-1.png")
+knitr::include_graphics("Figs/ej-m-PR-president-median-pres-1.png")
+
+```
+
+ [[TABLE]](#table) 
+
+
+---
+
+class: center
+
+```{r ej-m-PR-shareI1, fig.cap = "", out.width = "44%", fig.show = "hold", fig.subcap=""}
+
+knitr::include_graphics("Figs/ej-m-PR-shareI-pres-2.png")
+
+```
+
+
+ 
+---
+
+class: center
+
+```{r ej-m-PR-shareI2, fig.cap = "", out.width = "44%", fig.show = "hold", fig.subcap=""}
+
+knitr::include_graphics("Figs/ej-m-PR-shareI-pres-1.png")
+
+```
+
+ [[TABLE]](#table) 
+ 
+---
+
+class: center
+
+
+```{r coalition1,  out.width = "50%"}
+knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-pres-2.png")
+```
+
+---
+
+class: center
+
+
+```{r coalition2,  out.width = "50%"}
+knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-pres-1.png")
+```
+
+ [[TABLE]](#table) 
+
+
+---
+
+class: center
+
+
+```{r attention1, out.width = "50%", fig.show = "hold"}
+
+knitr::include_graphics("Figs/ej-m-PR-comments-share-pres-2.png")
 
 ```
 
 
 ---
 
-### Receptive Policymakers are More Responsive
+class: center
 
-```{r ej-m-PR-shareI, fig.cap = "", out.width = "90%", fig.show = "hold", fig.subcap=""}
 
-knitr::include_graphics("Figs/ej-m-PR-shareI-1.png")
+```{r attention2, out.width = "50%", fig.show = "hold"}
+
+knitr::include_graphics("Figs/ej-m-PR-comments-share-pres-1.png")
 
 ```
+
+ [[TABLE]](#table) 
 
 ---
 
-### Coalition Size
+class: center
 
-```{r coalition,  out.width = "90%"}
-knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-1.png")
-```
+```{r attention3, out.width = "90%", fig.show = "hold"}
 
----
-
-### Level of Public Attention
-
-
-```{r attention, out.width = "90%", fig.show = "hold"}
-
-knitr::include_graphics("Figs/ej-m-PR-comments-agencyFE-1.png")
+knitr::include_graphics("Figs/ej-m-PR-comments-share-pres2-1.png")
 
 ```
 
+ [[TABLE]](#table) 
 
 ---
 
@@ -956,19 +1019,18 @@ library(scales)
 load(here::here("data", "winrate.Rdata"))
 winrates %>% 
   filter(`Organization Type` %in% c("NGO", "Business", "Trade Association", "Law Firm", "Tribe", "Environmental Group", "Frontline EJ")) %>% 
-  mutate(`Organization Type` = `Organization Type` %>% str_replace("Environmental Group", "NGO-Environmental") %>% str_replace("Frontline EJ", "NGO-Local EJ")) %>% 
+  mutate(`Organization Type` = `Organization Type` %>% str_replace("Environmental Group", "NGO-Environmental") %>% str_replace("Frontline EJ", "NGO-Local EJ") %>% str_replace("Trade Association", "Business Association")) %>% 
   transmute(`Organization Type`= `Organization Type`, N = N,`Success Rate (Overall)` = `Overall Success Rate` %>%
            percent(accuracy = 1),
            `Success Rate (EJ)` = `EJ Success Rate` %>%
            percent(accuracy = 1) %>% replace_na("-"),
         ) %>% 
+  arrange(`Organization Type`) %>% 
   #dplyr::select(-`N raising EJ`) %>% #mutate(across(where(is.numeric), pretty_num)  ) %>%
   kbl(caption = "Hand-coded Lobbying Success by Type of Organization, 2005-2020") %>%
   kable_classic(full_width = F, html_font = "Open Sans")#%>% 
       #kableExtra::kable_styling(font_size = 22, position = "center")  #kable3(caption = "Hand-coded Lobbying Success by Type of Organization, 2005-2020")
 ```
-
----
 
 ---
 
@@ -981,8 +1043,8 @@ Making Policy About Distributive Justice
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-Conclusion
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#conclusion">Conclusion</a>
 </span>
 </div> 
 
@@ -990,25 +1052,22 @@ Conclusion
 
 ---
 
-## Results: To sum up, yes, movements matter
+## To sum up, yes, movements matter
 
-Strong framing effects, but substantive policy change is driven by national advocacy groups.
-
-|                                            | EJ Language |  
+|                                            | Distributive Justice Language |  
 | ------------------------------------------ | :--: | 
-| Distributive Claims (EJ Concerns)     | 📈 | 
-| Coalition Size /  Pressure        | 📈 | 
-|  Policy Receptivity                             | 📈 | 
+| Distributive Justice Claims     | 📈 | 
+| Coalition Size        | 📈 | 
 | General Public Attention               | 📈 | 
+| Prior rate                             | 📈 | 
 
-
-<!--| 📢x✊🏿 Specific (Conditional) Pressure            | 📉 | ❓ | -->
-
-Larger coalitions and more public attention $\rightsquigarrow$ agencies are more likely  📈 to **add** EJ language
+More public pressure $\rightarrow$ agencies are more likely  📈 to add EJ language
+--
+$\implies$ strong framing effects
 
 --
 
-[Replicates with "climate change"](https://judgelord.github.io/research/cj/)
+Replicates with "climate change" [[more]](https://judgelord.github.io/research/cj/)
 
 
 
@@ -1017,7 +1076,7 @@ Larger coalitions and more public attention $\rightsquigarrow$ agencies are more
 class: inverse
 
 
-### Policymakers rarely address  environmental justice
+## Policymakers rarely address  environmental justice
 --
 , but they are much more likely to do so when pressured
 --
@@ -1030,7 +1089,7 @@ class: inverse
 
 --
 
-# Thank you!
+## Thank you!
 
 - Paper, slides, data: [judgelord.github.io](judgelord.github.io/)  
 --
@@ -1050,26 +1109,36 @@ layout: true
 <div class="my-head"><span>
 Making Policy About Distributive Justice
 </span>
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Motivation</a>
+</span>
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Theory</a>
+</span>
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Data & Methods</a>
+</span>
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Findings</a>
+</span>
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Conclusion</a>
+</span>
 <span>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-Extra
+<a href="#toc">Extra</a>
 </span>
 </div> 
 
 <div class="my-footer"><span>Devin Judge-Lord (Harvard University)&emsp;&emsp;</span></div> 
 
-<style>
-.remark-slide-number {
-  display: none;
-}
 
-html {
-  font-size: 28;
-}
-</style>
+
+
+
 
 ---
 
@@ -1081,9 +1150,6 @@ class: inverse center
 
 
 Mobilization
-
-
-(grassroots, astroturf, elected officials)
 
 ↓
 
@@ -1107,21 +1173,11 @@ Surviving judicial review
 
 class: inverse
 
-# Thank you!
 
 
 
-<!--
+# Next 
 
-Questions
-- More or less on mobilization or hand-coded influence? 
-- Aggregate impact of related campaigns $\rightsquigarrow$   social movement impact?
-- Should "climate change" replication be in this paper? 
-- Other discursive terms/movements?
-
--->
-
-Next 
 - [Audit study](): What causes institutional receptivity?
 - [Co-framing](): EJ + “health", "disaster", "climate" & changes in term frequency
 - [Surveys]() to compare comments to public opinion
@@ -1136,7 +1192,6 @@ Is the aggregate influence of related campaigns a defensible working deff of a s
 
 co-framing (Baumgartner and Jones) 
 
-<!--
 Next Steps
 - More on coalition structure and policy success, especially opposing coalitions
 - Better (hand-coded) measures of policy change
@@ -1144,17 +1199,9 @@ Next Steps
 
 Framing 
 - More on how social movements may impact policy. Petitioning and protest? Lobbying?
--->
 
-
-exclude: `r exclude_extra`
-class: inverse center middle 
-
-# Extra Slides
 
 ---
-
-
 
 background-image: url(Figs/brianadams.png)
 background-size: cover
@@ -1187,8 +1234,8 @@ affected."
 
 --
 
-- 2021 Draft: 2012 Final Rule catagories + "differentiated subsistence fisher
-populations" + "children exposed prenatally"
+- 2021 Draft: 2012 Final Rule categories + "differentiated subsistence fisher
+populations" 
 
 
 
@@ -1320,10 +1367,17 @@ Race %>% ggplot() +
   theme(panel.grid.major.y = element_blank())
 ```
 
+---
+
+name: table
+
+background-image: url(Figs/ej-table-paper.png)
+background-size: contain
+background-color: white
 
 ---
 
-## Results: Adding EJ to Policy
+## Adding EJ to Policy
 
 ```{r ej-m-PR-ejcomments-agencyFE,  out.width = "90%"}
 knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-1.png")
@@ -1338,7 +1392,7 @@ knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-1.png")
 
 ---
 
-## Results: Changing Existing EJ Language
+##  Changing Existing EJ Language
 
 ```{r ej-mejPR-ejcomments-agencyFE, out.width = "90%"}
 
@@ -1350,7 +1404,7 @@ knitr::include_graphics("Figs/ej-mejPR-ejcomments-agencyFE-1.png")
 
 ---
 
-## Results: Changing Existing EJ Language
+##  Changing Existing EJ Language
 
 ```{r ej-mejPR-comments, out.width = "90%"}
 
@@ -1363,7 +1417,7 @@ knitr::include_graphics("Figs/ej-mejPR-comments-agencyFE-1.png")
 
 ---
 
-## Results: To sum up, yes, movements matter
+##  To sum up, yes, movements matter
 
 Strong framing effects, but substantive policy change is driven by national advocacy groups.
 
@@ -1468,7 +1522,7 @@ knitr::include_graphics("figs/cj-table.png")
 
 ---
 
-## Results: Adding Climate Change to Policy
+##  Adding Climate Change to Policy
 
 ```{r climate-m-PR-president-median-1, out.width = "60%"}
 #TODO knitr::include_graphics("figs/climate-m-PR-president-median-1.png")
@@ -1478,7 +1532,7 @@ knitr::include_graphics("figs/cj-table.png")
 
 ---
 
-## Results: Adding Climate Justice to Policy
+##  Adding Climate Justice to Policy
 
 ```{r cj-m-PR-president-median-1, out.width = "60%"}
 #TODO knitr::include_graphics("figs/cj-m-PR-president-median-1.png")
@@ -1488,7 +1542,7 @@ knitr::include_graphics("figs/cj-table.png")
 
 ---
 
-## Results: Adding Climate Change to Policy 
+##  Adding Climate Change to Policy 
 
 ```{r climate-m-PR-climatecomments-agencyFE,  out.width = "80%"}
 
@@ -1502,7 +1556,7 @@ knitr::include_graphics("figs/climate-m-PR-climatecomments-agencyFE-1.png")
 
 ---
 
-## Results: Adding Climate Justice to Policy 
+##  Adding Climate Justice to Policy 
 
 ```{r cj-m-PR-cjcomments-agencyFE,  out.width = "80%"}
 
@@ -1533,7 +1587,7 @@ With larger coalitions and more public attention, agencies are more likely  📈
 
 
 
-## Results: Adding Climate Justice issues to Policy
+##  Adding Climate Justice issues to Policy
 
 ```{r cj-m-PR-comments-agencyFE, out.width = "80%", fig.show = "hold"}
 
@@ -1550,7 +1604,7 @@ With larger coalitions and more public attention, agencies are more likely  📈
 
 class: inverse center middle
 
-# Results: Substantive Lobbying Success 
+#  Substantive Lobbying Success 
 
 
 ---
@@ -1756,7 +1810,7 @@ For example, the `legislators` package uses a regex table, adding variants (e.g.
 ---
 
 
-### Results: Who mobilizes public comments?
+###  Who mobilizes public comments?
 
 ```{r}
 # code in the top_orgs.R
@@ -1829,7 +1883,7 @@ knitr::include_graphics(here::here("figs", "comment_percent_match_plot-2.png")  
 
 ---
 
-### Results: Most public comments result from organized pressure campaigns
+###  Most public comments result from organized pressure campaigns
 
 **Fig. 5:** Public Comments on Regulations.gov, 2005-2020
 
