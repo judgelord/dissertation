@@ -70,7 +70,7 @@ library("kableExtra")
 
 style_mono_light(base_color = "#3b444b",
           link_color	
- = "#B7E4CF",
+ = "#92d6b6",
           inverse_link_color	
  = "#B7E4CF",
           #background_image = "Figs/ej-superfund-light.jpeg",
@@ -197,17 +197,12 @@ For example, consider that the Biden Administration has pledged to spend 40% of 
 
 ---
 
-class: inverse  
 
-
-
-# Does public pressure affect bureaucratic policymaking?
-
-
-
-<!--
+# Does public pressure affect bureaucratic policymaking?  
+--
 If so, by what mechanisms?
 
+<!--
 - General level of public attention?
 
 - Specific pressure to address issues like environmental justice?
@@ -355,6 +350,8 @@ The second caveat is that these results are driven by historically-White nationa
 
 It matters who is raising concerns. 
 
+JUST to put all of that into a sentence....[SLIDE]
+
 ---
 
 class: inverse  middle
@@ -364,15 +361,6 @@ class: inverse  middle
 ???
 
 In a sentence, policymakers, that is, people making policy at U.S. federal agencies, rarely address environmental justice but are more likely to when pressured.
-
-And furthermore, I'll show that it is receptive policymakers who have not already taken a position.
-
-
-???
-
-Finally, assessing the normative implications requires us to understand who is advocating for whom. In the case of comments on federal agency rules, it is “big green” national advocacy groups that have historically led a White environmental movement. 
-These ”big greens” are more likely to get substantive policy demands met than Tribes and frontline community groups. So, a lot hinges on the extent to which these national organizations represent EJ communities.
-
 
 ---
 
@@ -432,6 +420,9 @@ Section 112(n)(1)(A)
 
 ---
 
+background-image: url(Figs/brianadams.png)
+background-size: cover
+
 # Safe Levels of Mercury 
 --
 (For Whom?)
@@ -444,11 +435,11 @@ Before the politics of who gets what, there is the politics of who the whos *are
 .pull-left[
 2004 Draft Rule: `“the U.S. population”`
 
-&emsp;&emsp;&emsp;&emsp;`↓`
+&emsp;&emsp;&emsp;&emsp; ↓ 
 
-10,000 comments
+170,000 public comments
 
-&emsp;&emsp;&emsp;&emsp;`↓`
+&emsp;&emsp;&emsp;&emsp; ↓
 
 2005 Final Rule: `Environmental justice for “minority populations”`
 ]
@@ -469,6 +460,8 @@ knitr::include_graphics("Figs/Tom_Allen.jpeg")
 
 
 ???
+
+TOM ALLEN 
 
 https://www.momscleanairforce.org/how-mercury-poisoning-works/
 
@@ -519,23 +512,23 @@ My aim is to add some more systematic quantitative data on the broad trends rega
 
 1. Distinct phrase (few false positives) without many synonyms (few false negatives)
 
---
+<!--
 
 1. E.O. 12898 "Federal Actions to Address Environmental Justice" (1993)
-
+-->
 
 --
 
 Why this matters:
 
 
-- "Environmental" policy is
- - inconsistently racialized
- - inconsistently focused on *distributions* of costs and benefits
+- "Environmental" policy debates are rarely about *distributions* of costs and benefits
+
+???
 
 --
 
-- Reframing policy in distributive justice terms can shape normative, political, and even economic analysis.
+- Reframing policy in distributive justice terms can shape normative, political, and economic analysis.
 
 ---
 
@@ -569,6 +562,27 @@ Making Policy About Distributive Justice
 </div> 
 
 <div class="my-footer"><span>Devin Judge-Lord (Harvard University)&emsp;&emsp;</span></div> 
+
+---
+
+background-image: url(https://assets.nrdc.org/sites/default/files/styles/full_content/public/media-uploads/midwesttoxicdoughnut_25_002chicago_steel_mills-july_1965_vl_2400.jpg?itok=yXMNtQ-Y)
+background-size: cover
+
+class:   middle
+exclude: false
+
+> # "He who determines what politics is about runs the country because the definition of conflicts allocates power. "
+
+.right[
+# - E.E. Schattschneider]
+
+
+???
+
+
+> # "He who determines what politics is about runs the country because the definition of alternatives is the choice of conflicts, and the choice of conflicts allocates power. " - E.E. Schattschneider
+
+
 
 ---
 
@@ -625,7 +639,19 @@ The big question is whether social movements impact policy.
 
 ---
 
+# Does public pressure affect <mark>bureaucratic</mark> policymaking? 
+--
+  If so, by what mechanisms?
 
+<!--
+- General level of public attention?
+
+- Specific pressure to address issues like environmental justice?
+
+- By targeting more receptive institutions?
+-->
+
+---
 
 ### Scholars of bureaucracy focus on *technical* information
 
@@ -679,11 +705,11 @@ I'm also curious whether public pressure or public attention matter. Here schola
 
 ### Does *political* information matter?
 
-- H1: Policymakers address distributive justices when pressured
+- H1: Policymakers address distributive justice when pressured
 
 - H2: $\uparrow$ Coalition size (number of groups) $\rightarrow$  $\uparrow$ Policy response
 
-- H3: $\uparrow$ Public attention $\rightarrow$ $\uparrow$ Policy response
+- H3: $\uparrow$ Public attention (number of comments) $\rightarrow$ $\uparrow$ Policy response
 
 --
 
@@ -751,7 +777,9 @@ name: data
 
 --
 
-~4,800,000 (~28,000 unique) comments raise environmental justice concerns
+~4,800,000 comments raise environmental justice concerns 
+--
+(~28,000 from organizations) 
 
 
 
@@ -792,14 +820,14 @@ First, I use something like plagiarism detection to identify linked sets of docu
 
 ## Identify coalitions with text reuse
 
-.pull-left[
-- Document A is distinct
-- B, C, and D share some text
+.left-column[
+- Document A is unique
+- B, C, and D share text
 - E and F are the same text
 ]
 
-.pull-right[
-```{r percent-method, fig.show = "hold", out.width = "100%"}
+.right-column[
+```{r percent-method, fig.show = "hold", out.width = "75%"}
 
 knitr::include_graphics(here::here("figs", "comment_percent_match_plot-2.png")  )
 ```
@@ -835,25 +863,33 @@ I then attach these to lobbying coalitions by hand.
 
 ## Iteratively group commenters into coalitions
 
-```{r, out.width = "85%", fig.show='hold'}
+```{r, out.width = "90%", fig.show='hold'}
 #knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vSy9MpvnXV0nbZj4kUPnWC38bwk5xiBXjRiGC3fyrddwoZVT19SmfT4WRr_AvOH5lxeKyrTenqLlKmm/pub?w=953&h=603")
 
 knitr::include_graphics("Figs/methods-ngrams-slide.png")
 
 ```
 
-![](https://github.com/judgelord/legislators/man/figures/logo.png)
 
 ---
 
 ## Iteratively link comments to organizations
 
-```{r, out.width = "100%", fig.show='hold'}
+```{r, out.width = "90%", fig.show='hold'}
 #knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vRSJJgSbMdFtkpJjB94Tw5cmFElhDKrHEkOLaUb5-qFdIY-sQp4qGyC-FZoZ7UmWSLfoMZDueAkemhU/pub?w=752&h=238") 
-
 knitr::include_graphics("Figs/methods-regex-slide.png")
 
-#knitr::include_graphics(here::here("legislators" , "man", "figures", "logo.png") %>% str_remove("dissertation"))
+```
+
+
+
+```{r, out.width = "20%", fig.show='hold'}
+
+knitr::include_graphics( "Figs/logo-legislators.png")
+
+knitr::include_graphics("Figs/logo-orgs.png" )
+
+knitr::include_graphics("Figs/logo-regex.png")
 ```
 
 
@@ -896,14 +932,14 @@ Making Policy About Distributive Justice
 
 class:  inverse 
 
-# Model Results 
+# Modeling the probablity of policy change
 
 
 
 --
 
 ## (1) Variation across agencies:  
-Pr(Policy Change | President) ~ Policy Demands  \+ Coalition Size  \+ Public Attention \+ Policymaker (Agency) Receptivity
+Pr(Policy Change | President) ~ Policy Demands  \+ Coalition Size  \+ Public Attention \+ Prior Rate
 
 --
 
@@ -941,18 +977,37 @@ All of the plots I'll show have predicted probability of change on the x-axis an
 
 ---
 
-class: right
 exclude: `r exclude_stepwise`
+class: right
+
+
+.pull-left[
+ $\checkmark$ Environmental Justice Claims + heterogeneous effects
+ ]
+ 
+ .pull-right[
+ [[TABLE]](#table)
+ ]
+
+
 
 ```{r ej-m-PR-president2, out.width = "45%"}
 knitr::include_graphics("Figs/ej-m-PR--median-pres-1.png")
 ```
 
- $\color{\green}{\checkmark}$ Distributive Justice Claims 📈 + heterogeneous effects [[TABLE]](#table)
 
 ---
 
 class: right
+
+
+ .pull-left[  $\checkmark$  Environmental Justice Claims + heterogeneous effects 
+ ]
+ 
+ .pull-right[
+ [[TABLE]](#table)
+ ]
+
 
 ```{r ej-m-PR-president-median-1, out.width = "45%"} 
 
@@ -960,12 +1015,17 @@ knitr::include_graphics("Figs/ej-m-PR-president-median-pres-1.png")
 
 ```
 
- $\color{\green}{\checkmark}$ Distributive Justice Claims 📈 + heterogeneous effects [[TABLE]](#table) 
 
 
 ---
 
 class: right
+
+
+.pull-right[
+ [[TABLE]](#table)
+ ]
+
 
 ```{r ej-m-PR-shareI1, fig.cap = "", out.width = "45%", fig.show = "hold", fig.subcap=""}
 
@@ -973,74 +1033,99 @@ knitr::include_graphics("Figs/ej-m-PR-shareI-pres-2.png")
 
 ```
 
- [[TABLE]](#table) 
 
 
 ---
 
-class: right
-
-```{r ej-m-PR-shareI2, fig.cap = "", out.width = "45%", fig.show = "hold", fig.subcap=""}
+ .left-column[  
+ 
+ $\checkmark$ Environmental justice demands + heterogeneous effects 
+ ]
+ 
+ .right-column[
+```{r ej-m-PR-shareI2, fig.cap = "", out.width = "65%", fig.show = "hold", fig.subcap=""}
 
 knitr::include_graphics("Figs/ej-m-PR-shareI-pres-1.png")
 
 ```
+]
 
- $\color{\green}{\checkmark}$ Distributive Justice Claims 📈 + heterogeneous effects [[TABLE]](#table)
+
+ [[TABLE]](#table)
+
  
 ---
 
-class: right
+
+ .left-column[  
+  Coalition size  
+ ]
 
 
-```{r coalition1,  out.width = "50%"}
+
+.right-column[
+```{r coalition1,  out.width = "75%"}
 knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-pres-2.png")
 ```
+]
 
- [[TABLE]](#table) 
+ [[TABLE]](#table)
+
 
 
 ---
 
-class: right
-
-
-```{r coalition2,  out.width = "50%"}
+.right-column[
+```{r coalition2,  out.width = "75%"}
 knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-pres-1.png")
 ```
 
- $\color{\green}{\checkmark}$ Coalition size 📈  [[TABLE]](#table)
+]
+
+ .left-column[  
+ $\checkmark$  Coalition size  
+ ]
+
+
+[[TABLE]](#table)
 
 ---
 
-class: right
+.left-column[
+Public attention 
+]
 
-
-```{r attention1, out.width = "50%", fig.show = "hold"}
+.right-column[
+```{r attention1, out.width = "75%", fig.show = "hold"}
 
 knitr::include_graphics("Figs/ej-m-PR-comments-share-pres-2.png")
-
 ```
+]
 
  [[TABLE]](#table) 
 
 
 ---
 
-class: right
+.left-column[
+Public attention 
+  ]
+  
 
+.right-column[
 
-```{r attention2, out.width = "50%", fig.show = "hold"}
-
+```{r attention2, out.width = "75%", fig.show = "hold"}
 knitr::include_graphics("Figs/ej-m-PR-comments-share-pres-1.png")
-
 ```
+]
 
-  Public attention  [[TABLE]](#table) 
+  [[TABLE]](#table) 
+
 
 ---
 
-class: right
+$\checkmark$     Public attention (absent specific pressure)
+
 
 ```{r attention3, out.width = "90%", fig.show = "hold"}
 
@@ -1048,30 +1133,53 @@ knitr::include_graphics("Figs/ej-m-PR-comments-share-pres2-1.png")
 
 ```
 
-$\color{\green}{\checkmark}$     Public attention 📈* *only absent specific pressure  [[TABLE]](#table)
- 
+[[TABLE]](#table)
+
+
+
+
 ---
 
 name: substantive
 
-### Getting substantive policy demands
+.left-column[
 
-```{r ej-winrates}
+Who gets their substantive policy demands met?
+
+
+- Trade Associations
+
+- Law Firms & National Advocacy Organizations
+]
+
+.right-column[
+
+```{r substantive, out.width = "85%", fig.show = "hold"}
+
+knitr::include_graphics("Figs/ej-success-table.png")
+
+```
+]
+
+
+```{r ej-winrates, include=FALSE}
 library(kableExtra)
 library(scales)
 load(here::here("data", "winrate.Rdata"))
 winrates %>% 
-  filter(`Organization Type` %in% c("NGO", "Business", "Trade Association", "Law Firm", "Tribe", "Environmental Group", "Frontline EJ")) %>% 
+  filter(`Organization Type` %in% c("NGO", "Business", "Trade Association", "Law Firm", "Tribe", #"Environmental Group", 
+                                    "Frontline EJ")) %>% 
   mutate(`Organization Type` = `Organization Type` %>% str_replace("Environmental Group", "NGO-Environmental") %>% str_replace("Frontline EJ", "NGO-Local EJ") %>% str_replace("Trade Association", "Business Association")) %>% 
   transmute(`Organization Type`= `Organization Type`, N = N,`Success Rate (Overall)` = `Overall Success Rate` %>%
            percent(accuracy = 1),
-           `Success Rate (EJ)` = `EJ Success Rate` %>%
+           `Success Rate (Environmental Justice)` = `EJ Success Rate` %>%
            percent(accuracy = 1) %>% replace_na("-"),
         ) %>% 
   arrange(`Organization Type`) %>% 
   #dplyr::select(-`N raising EJ`) %>% #mutate(across(where(is.numeric), pretty_num)  ) %>%
-  kbl(caption = "Hand-coded Lobbying Success by Type of Organization, 2005-2020") %>%
-  kable_classic(full_width = F, html_font = "Open Sans")#%>% 
+  kbl(csaption = "Hand-coded Lobbying Success by Type of Organization, 2005-2020") %>%
+  kable_classic(full_width = F, html_font = "Open Sans") %>% 
+  kable_styling(bootstrap_options = c("striped", "hover"))
       #kableExtra::kable_styling(font_size = 22, position = "center")  #kable3(caption = "Hand-coded Lobbying Success by Type of Organization, 2005-2020")
 ```
 
@@ -1097,16 +1205,16 @@ Making Policy About Distributive Justice
 
 ## To sum up, yes, movements matter
 
-|                                            | Distributive Justice Language |  
+|                                            | Environmental Justice Language |  
 | ------------------------------------------ | :--: | 
-| Distributive Justice Claims     | 📈 | 
-| Coalition Size        | 📈 | 
-| General Public Attention               | 📈* | 
-| Prior rate                             | 📈 | 
+| Environmental Justice Claims     | $\checkmark$   | 
+| Coalition Size        | $\checkmark$   | 
+| General Public Attention               | $\checkmark$   | 
+| Prior rate                             | $\checkmark$   | 
 
-More public pressure $\rightarrow$ agencies are more likely  📈 to add EJ language.
+More pressure $\rightarrow$ more likely  that environmental justice language is added.
 --
-$\implies$ Strong framing effects.
+$\implies$ Public pressure helps advance issues frames.
 
 --
 
