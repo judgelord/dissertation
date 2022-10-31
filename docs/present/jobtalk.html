@@ -551,7 +551,7 @@ The big question is whether social movements impact policy.
 
 --
 
-- No movement, no policy [(Skocpol 2013)]()
+- No movement, no policy [(Lowi 1972, Skocpol 2013)]()
 
 ???
 - And as Theda Skocpol found in her study of why climate legislation failed, a movement is often a necessary condition for policy change
@@ -602,31 +602,13 @@ Thus far, by “information,” scholars generally mean technical and legal info
 
 ### Does *political* information matter?
 
-- Frames about who is affected? [(Jones &amp; Baumgartner 1991, Lowi 1972, Schneider &amp; Ingram 1993, Woodly 2015)]()
+- Frames about who is affected? [(Schneider &amp; Ingram 1993)]()
 
 - Coalition size? [(Dwidar 2021, Nelson &amp; Yackee 2012)]()
 
-- Public attention? [(Schattschneider 1972)]()
+- Public attention?
 
 ???
-
-But none of these papers have XXXX
-
-I am going to test these in a large-scale way.
-
-Lowi TODO 
-
-Coalition size = NUMBER OF GROUPS 
-
-(Balla et al. 2020 find that “legal imperatives trump political considerations”)
-
-(Jones and Baumgartner 2009)
-
-I ask about the role of a different kind of information---what we might call POLITICAL information, building on Nelson and Yackee's finding that coalition size matters.
-
-We might also wonder if groups raising distributive claims would matter (Lowi would say distributions of costs and benefits should matter) 
-
-I'm also curious whether public pressure or public attention matter. Here scholarship is skeptical. Balla et al. concluded that mass comment campaigns don't matter because “legal imperatives trump political considerations.” in responding to comments. That technocratic rationality dominates, meaning that political information is not affecting the policy process. I want to test this claim. 
 
 ---
 
@@ -1398,6 +1380,7 @@ Of 39,392,957 public comments
 
 ---
 
+exclude: true
 
 ## Lobbying Success by Campaign Size
 
@@ -1546,6 +1529,8 @@ name: cj-data
 
 ---
 
+exclude: true
+
 ## Draft rules that did and did not address EJ/CJ
 
 
@@ -1650,21 +1635,21 @@ name: success-coalition
 
 
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="figs/m-influence.png" alt="   " width="30%"  /&gt;&lt;/div&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="figs/m-influence.png" alt="   " width="25%"  /&gt;&lt;/div&gt;
 
 ---
 
 name: coalition-legislators
 
-.right-column[
+.left-column[
 ## Pressure campaigns mobilize legislators 
 (coalition-level Poisson Regression)
 ]
 
 
-.left-column[
+.right-column[
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="figs/m-congress.png" alt="   " width="50%"  /&gt;&lt;/div&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="figs/m-congress.png" alt="   " width="70%"  /&gt;&lt;/div&gt;
 ]
 
 
@@ -1901,7 +1886,7 @@ Of 58 million public comments on proposed agency rules, the top 100 organization
 **Fig. 5:** Public Comments on Regulations.gov, 2005-2020
 
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="figs/comments-mass-1.png" alt="   " width="100%"  /&gt;&lt;/div&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="figs/comments-mass-1.png" alt="   " width="80%"  /&gt;&lt;/div&gt;
 
 Comments that share a 10-gram with 99 or more others are part of a mass comment campaign.
 
@@ -1920,62 +1905,11 @@ Comments that share a 10-gram with 99 or more others are part of a mass comment 
 ---
 
 
-**Fig. 7:** Policy Text Change by Coalition Size
-
-&lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-m-PR-ejcomments-agencyFE-1.png" alt="   " width="100%"  /&gt;&lt;/div&gt;
-
-
-
-
-
-
-
-
 
 # Next steps
 
 - Compare exact entity linking (regex tables) to probabilistic methods (`linkit`, `fastlink`, supervised classified with hand-coded training set)
 - Compare exact grouping (e.g., by policy demands) to supervised probabilistic classifiers/clustering
-
-
-
-background-image: url(Figs/brianadams.png)
-background-size: cover
-
-
-# Public comments on proposed agency rules
-
-&gt; `"The amount of methyl-mercury and other bioaccumulative chemicals consumed by Alaskans (especially Alaskan Natives) could potentially be much higher than is assumed" - Heather McCausland of the Alaska Community Action on Toxics (ACAT)`
-
----
-
-
-background-image: url(Figs/earthjustice.png)
-background-size: cover
-background-position: bottom
-background-color: white
-
-
-
-
-
-&gt; `"Such an approach ignores the cumulative pollution burdens experienced by environmental justice communities." - Amanda Goodin, Staff Attorney, Earthjustice on behalf of Communities for a Better Environment et al.`
-
----
-
-# Public comments on proposed agency rules
-
-
-&gt; `"Attached are files containing the names of 11,478 individuals who have submitted public comments urging the Bureau of Land Management (BLM) to strengthen the proposed regulations on methane waste and pollution on federal and tribal lands"` 
-
-exclude: false
-
-background-image: url(Figs/clinton-ej.jpg)
-background-size: cover
-
-
-`“Addressing disproportionately high and adverse human health or environmental effects of programs, policies, and activities on minority populations and low-income populations.”`
 
 ---
 
@@ -2028,6 +1962,45 @@ on
 ---
 
 
+background-image: url(Figs/brianadams.png)
+background-size: cover
+
+
+# Public comments on proposed agency rules
+
+&gt; `"The amount of methyl-mercury and other bioaccumulative chemicals consumed by Alaskans (especially Alaskan Natives) could potentially be much higher than is assumed" - Heather McCausland of the Alaska Community Action on Toxics (ACAT)`
+
+---
+
+
+background-image: url(Figs/earthjustice.png)
+background-size: cover
+background-position: bottom
+background-color: white
+
+
+
+
+
+&gt; `"Such an approach ignores the cumulative pollution burdens experienced by environmental justice communities." - Amanda Goodin, Staff Attorney, Earthjustice on behalf of Communities for a Better Environment et al.`
+
+---
+
+# Public comments on proposed agency rules
+
+
+&gt; `"Attached are files containing the names of 11,478 individuals who have submitted public comments urging the Bureau of Land Management (BLM) to strengthen the proposed regulations on methane waste and pollution on federal and tribal lands"` 
+
+exclude: false
+
+background-image: url(Figs/clinton-ej.jpg)
+background-size: cover
+
+
+`“Addressing disproportionately high and adverse human health or environmental effects of programs, policies, and activities on minority populations and low-income populations.”`
+
+
+---
 
 ## Data: Comments on Draft Rules
 
@@ -2144,6 +2117,19 @@ On the other hand, if it is easier to lobby out of the public spotlight, we migh
 Balla et al's study of responses to comments in rulemaking suggests a no effect. Legal scholars tend to see the scale of public attention is just not a legal concern. 
 
 And again, formal models don't really have a parameter for public attention or pressure. 
+
+---
+
+# Appendix Slides 
+1. Data:  [Hand-coded comments](#datasheet) - GIS](#gis) - [Census race](race) - [zip code](#gis)
+2. [Methods]() 
+1. Mobilizing  &lt;!-- Grassroots - Astroturf--&gt; - [members of Congress](#legislators)
+1.  Framing
+  1. EJ: [Mercury rules](#ej-mercury) - Rules [by president](#ej-data-rules) - [By Agency](#ej-data-agencies) - [Data](#ej-data) - [Theory](#ej-hyp) - [Alt Results](#ej-results) - [Tables](#table)
+  2. [Climate](#climate) - [Data](#cj-data) - [Results](#cj-results) - [Tables](#cj-table)
+1. Influence [by campaign type](#success-coalition) - [by legislator support](#coalition-legislators)
+1. [Judicial review](https://judgelord.github.io/research/deference/)
+
 
 ---
 

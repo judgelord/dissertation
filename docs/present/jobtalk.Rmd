@@ -644,7 +644,7 @@ The big question is whether social movements impact policy.
 
 --
 
-- No movement, no policy [(Skocpol 2013)]()
+- No movement, no policy [(Lowi 1972, Skocpol 2013)]()
 
 ???
 - And as Theda Skocpol found in her study of why climate legislation failed, a movement is often a necessary condition for policy change
@@ -695,31 +695,13 @@ Thus far, by “information,” scholars generally mean technical and legal info
 
 ### Does *political* information matter?
 
-- Frames about who is affected? [(Jones & Baumgartner 1991, Lowi 1972, Schneider & Ingram 1993, Woodly 2015)]()
+- Frames about who is affected? [(Schneider & Ingram 1993)]()
 
 - Coalition size? [(Dwidar 2021, Nelson & Yackee 2012)]()
 
-- Public attention? [(Schattschneider 1972)]()
+- Public attention?
 
 ???
-
-But none of these papers have XXXX
-
-I am going to test these in a large-scale way.
-
-Lowi TODO 
-
-Coalition size = NUMBER OF GROUPS 
-
-(Balla et al. 2020 find that “legal imperatives trump political considerations”)
-
-(Jones and Baumgartner 2009)
-
-I ask about the role of a different kind of information---what we might call POLITICAL information, building on Nelson and Yackee's finding that coalition size matters.
-
-We might also wonder if groups raising distributive claims would matter (Lowi would say distributions of costs and benefits should matter) 
-
-I'm also curious whether public pressure or public attention matter. Here scholarship is skeptical. Balla et al. concluded that mass comment campaigns don't matter because “legal imperatives trump political considerations.” in responding to comments. That technocratic rationality dominates, meaning that political information is not affecting the policy process. I want to test this claim. 
 
 ---
 
@@ -1558,6 +1540,7 @@ Of 39,392,957 public comments
 
 ---
 
+exclude: true
 
 ## Lobbying Success by Campaign Size
 
@@ -1730,6 +1713,8 @@ name: cj-data
 
 ---
 
+exclude: true
+
 ## Draft rules that did and did not address EJ/CJ
 
 ```{r cj-comments, out.width = "85%"}
@@ -1852,7 +1837,7 @@ name: success-coalition
 (coalition-level OLS Regression)
 
 
-```{r m-influence, out.width = "30%"}
+```{r m-influence, out.width = "25%"}
 knitr::include_graphics("figs/m-influence.png")
 ```
 
@@ -1860,14 +1845,14 @@ knitr::include_graphics("figs/m-influence.png")
 
 name: coalition-legislators
 
-.right-column[
+.left-column[
 ## Pressure campaigns mobilize legislators 
 (coalition-level Poisson Regression)
 ]
 
 
-.left-column[
-```{r m-congress, out.width = "50%"}
+.right-column[
+```{r m-congress, out.width = "70%"}
 knitr::include_graphics("figs/m-congress.png")
 ```
 ]
@@ -2100,7 +2085,7 @@ org_counts_summary %>%
 
 **Fig. 5:** Public Comments on Regulations.gov, 2005-2020
 
-```{r comments-mass, out.width = "100%", fig.show = "hold"}
+```{r comments-mass, out.width = "80%", fig.show = "hold"}
 knitr::include_graphics("figs/comments-mass-1.png")
 ```
 
@@ -2333,6 +2318,19 @@ On the other hand, if it is easier to lobby out of the public spotlight, we migh
 Balla et al's study of responses to comments in rulemaking suggests a no effect. Legal scholars tend to see the scale of public attention is just not a legal concern. 
 
 And again, formal models don't really have a parameter for public attention or pressure. 
+
+---
+
+# Appendix Slides 
+1. Data:  [Hand-coded comments](#datasheet) - GIS](#gis) - [Census race](race) - [zip code](#gis)
+2. [Methods]() 
+1. Mobilizing  <!-- Grassroots - Astroturf--> - [members of Congress](#legislators)
+1.  Framing
+  1. EJ: [Mercury rules](#ej-mercury) - Rules [by president](#ej-data-rules) - [By Agency](#ej-data-agencies) - [Data](#ej-data) - [Theory](#ej-hyp) - [Alt Results](#ej-results) - [Tables](#table)
+  2. [Climate](#climate) - [Data](#cj-data) - [Results](#cj-results) - [Tables](#cj-table)
+1. Influence [by campaign type](#success-coalition) - [by legislator support](#coalition-legislators)
+1. [Judicial review](https://judgelord.github.io/research/deference/)
+
 
 ---
 
