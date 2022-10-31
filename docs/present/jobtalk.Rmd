@@ -1400,7 +1400,7 @@ Framing
 name: toc
 
 # Appendix Slides 
-1. Data:  [Hand-coded comments](#datasheet)
+1. Data:  [Hand-coded comments](#datasheet) - GIS](#gis) - [Census race](race) - [zip code](#gis)
 2. [Methods]() 
 1. Mobilizing  <!-- Grassroots - Astroturf--> - [members of Congress](#legislators)
 1.  Framing
@@ -1558,7 +1558,7 @@ Of 39,392,957 public comments
 
 ---
 
-exclude: `r short`
+exclude: true
 
 ## Lobbying Success by Campaign Size
 
@@ -1588,16 +1588,20 @@ Race %>% ggplot() +
 name: gis
 
 background-image: URL(Figs/ej-gis.png)
-
+background-size: contain
 
 
 ---
 
-background-image: URL(Figs/ej-gis-zip.png)
+
+```{r ej-gis-hist,  out.width = "80%"}
+knitr::include_graphics("Figs/ej-gis-hist.png")
+```
 
 ---
 
 background-image: URL(Figs/ej-gis-diesel.png)
+background-size: contain
 
 
 ---
@@ -1646,6 +1650,8 @@ knitr::include_graphics("Figs/ej-mejPR-comments-agencyFE-1.png")
 
 ---
 
+exclude: true
+
 ##  To sum up, yes, movements matter
 
 Strong framing effects, but substantive policy change is driven by national advocacy groups.
@@ -1669,7 +1675,7 @@ With larger coalitions and more public attention, agencies are more likely  📈
 
 ---
 
-
+name: cj-data
 
 
 ## Data: 40,139 policy documents (13,111 proposed and final rule pairs) from 46 agencies
@@ -1701,17 +1707,6 @@ knitr::include_graphics("figs/cj-data-agencies-2.png")
 
 ---
 
-name: methods
-
-## Methods: Unique and duplicate comments
-
-
-```{r percent-match, fig.show = "hold", out.width = "60%", fig.cap="Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments"}
-
-knitr::include_graphics("figs/comment_percent_match_plot.png")
-```
-
----
 
 name: datasheet
 
@@ -1745,7 +1740,8 @@ name: cj-data
 
 ---
 
-name: cj-results
+exclude: true
+
 
 
 ##  Adding Climate Change to Policy
@@ -1758,6 +1754,9 @@ name: cj-results
 
 ---
 
+exclude: true
+
+
 ##  Adding Climate Justice to Policy
 
 ```{r cj-m-PR-president-median-1, out.width = "60%"}
@@ -1767,6 +1766,9 @@ name: cj-results
 - ✊🏿 Distributive Information ✅  
 
 ---
+
+name: cj-results
+
 
 ##  Adding Climate Change to Policy 
 
@@ -1782,6 +1784,9 @@ knitr::include_graphics("figs/climate-m-PR-climatecomments-agencyFE-1.png")
 
 ---
 
+exclude: true
+
+
 ##  Adding Climate Justice to Policy 
 
 ```{r cj-m-PR-cjcomments-agencyFE,  out.width = "80%"}
@@ -1796,6 +1801,7 @@ knitr::include_graphics("figs/climate-m-PR-climatecomments-agencyFE-1.png")
 ---
 
 
+exclude: true
 
 
 ##  Adding Climate Justice issues to Policy
@@ -1811,6 +1817,8 @@ knitr::include_graphics("figs/climate-m-PR-climatecomments-agencyFE-1.png")
 <!-- 📢 x ✊🏿 Conditional Public Pressure/Attention ⏪  -->
 
 ---
+
+exclude: true
 
 
 ## To sum up, yes, movements matter (even when victories are rare)
