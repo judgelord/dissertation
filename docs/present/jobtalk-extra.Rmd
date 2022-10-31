@@ -332,3 +332,49 @@ And, importantly, this is true EVEN WHEN CONGRESS DOES LEGISLATE.
 For years, I have been working on this, thinking about this question, if Congress Passes landmark legislation like the GND, 
 
 ---
+
+
+
+
+<!--
+
+## Hand-coded coalitions and key demands
+
+---
+
+## Iteratively adding texts to groups with text reuse
+
+---
+
+## Selecting Texts of High-inferential Value {#select}
+
+---
+
+## Inferring Lobbying Success From the Success of Others in a Coalition {#success}
+
+### Coding commenter demands
+
+<!--
+
+## Coding policy positions {#spatial}
+
+
+```{r spatial-coding, fig.cap= "Coding the Spatial Position of Comments on Proposed Policy Changes", fig.height=4, fig.width=5.5}
+include_graphics(here("figs", "spatial-coding-1.png"))
+```
+
+
+
+
+
+---
+
+### Comments from Legislators Correlate with Public Pressure
+
+---
+
+### The Dependent Variable: Lobbying Success
+
+---
+
+--->

@@ -764,7 +764,7 @@ First, I use something like plagiarism detection to identify linked sets of docu
 
 .right-column[
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="../../figs/comment_percent_match_plot-2.png" alt="   " width="75%"  /&gt;&lt;/div&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="figs/comment_percent_match_plot-2.png" alt="   " width="75%"  /&gt;&lt;/div&gt;
 ]
 
 
@@ -1398,7 +1398,6 @@ Of 39,392,957 public comments
 
 ---
 
-exclude: true
 
 ## Lobbying Success by Campaign Size
 
@@ -1651,7 +1650,7 @@ name: success-coalition
 
 
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="../../figs/m-influence.png" alt="   " width="30%"  /&gt;&lt;/div&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="figs/m-influence.png" alt="   " width="30%"  /&gt;&lt;/div&gt;
 
 ---
 
@@ -1665,7 +1664,7 @@ name: coalition-legislators
 
 .left-column[
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="../../figs/m-congress.png" alt="   " width="50%"  /&gt;&lt;/div&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="figs/m-congress.png" alt="   " width="50%"  /&gt;&lt;/div&gt;
 ]
 
 
@@ -1675,12 +1674,12 @@ name: coalition-legislators
 (within-organization OLS)
 
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="../../figs/m-diffindiff.png" alt="   " width="45%"  /&gt;&lt;/div&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="figs/m-diffindiff.png" alt="   " width="45%"  /&gt;&lt;/div&gt;
 
 
 ---
 
-exclude: false
+exclude: true
 
 # Next steps: methods
 
@@ -1693,6 +1692,8 @@ exclude: false
 
 
 ---
+
+name: methods
  
 Human coding and computational text analysis are more powerful when combined in an iterative workflow.
 &lt;!--I show how search and text-reuse tools can aid common hand-coding tasks. 
@@ -1759,7 +1760,7 @@ Workflow: `googlesheets4` allows analysis and improving data in real-time. For e
 **Fig. 1:** Coded Public Comments in a Google Sheet
 
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="../../figs/datasheet.png" alt="   " width="100%"  /&gt;&lt;/div&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="figs/datasheet.png" alt="   " width="100%"  /&gt;&lt;/div&gt;
 
 ---
 
@@ -1805,7 +1806,7 @@ Workflow: `googlesheets4` allows analysis and improving data in real-time. For e
 **Fig 2:** Iteratively Building Regex Tables
 
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="../../figs/methods-regex.png" alt="   " width="100%"  /&gt;&lt;/div&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="figs/methods-regex.png" alt="   " width="100%"  /&gt;&lt;/div&gt;
 
 ---
 
@@ -1893,26 +1894,6 @@ Of 58 million public comments on proposed agency rules, the top 100 organization
 &lt;/table&gt;
 
 
-# Grouping with text reuse {.mybreak}
-
-**Fig. 3:** Iteratively Group Documents
-
-&lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="../../figs/methods-ngrams.png" alt="   " width="100%"  /&gt;&lt;/div&gt;
-
-
-&lt;!--## Collapsing form letters with text reuse--&gt;
-
-
-**Fig 4:** Identifying Groups of Linked Documents with Text Reuse (a 10-gram Window Function)
-
-&lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="../../figs/comment_percent_match_plot-2.png" alt="   " width="55%"  /&gt;&lt;/div&gt;
-
-- Document A shares no 10-word phrases with the others 
-- B, C, and D share some text (they are part of an organized mass comment campaign) 
-- E and F are the same text that was submitted twice
-
 ---
 
 ###  Most public comments result from organized pressure campaigns
@@ -1920,7 +1901,7 @@ Of 58 million public comments on proposed agency rules, the top 100 organization
 **Fig. 5:** Public Comments on Regulations.gov, 2005-2020
 
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="../../figs/comments-mass-1.png" alt="   " width="100%"  /&gt;&lt;/div&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="figs/comments-mass-1.png" alt="   " width="100%"  /&gt;&lt;/div&gt;
 
 Comments that share a 10-gram with 99 or more others are part of a mass comment campaign.
 
@@ -1936,49 +1917,7 @@ Comments that share a 10-gram with 99 or more others are part of a mass comment 
 &lt;!--**Digitized text** allows humans to paste text exactly matching machine-read strings.  --&gt;
 **Summaries** speed hand-coding (e.g., use `textrank` to select representative sentences).
 
-
-&lt;!--
-
-## Hand-coded coalitions and key demands
-
 ---
-
-## Iteratively adding texts to groups with text reuse
-
----
-
-## Selecting Texts of High-inferential Value {#select}
-
----
-
-## Inferring Lobbying Success From the Success of Others in a Coalition {#success}
-
-### Coding commenter demands
-
-&lt;!--
-
-## Coding policy positions {#spatial}
-
-
-&lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;Coding the Spatial Position of Comments on Proposed Policy Changes&lt;/p&gt;&lt;img src="../../figs/spatial-coding-1.png" alt="Coding the Spatial Position of Comments on Proposed Policy Changes" width="100%"  /&gt;&lt;/div&gt;
-
-
-
-
-
----
-
-### Comments from Legislators Correlate with Public Pressure
-
----
-
-### The Dependent Variable: Lobbying Success
-
----
-
----&gt;
-
 
 
 **Fig. 7:** Policy Text Change by Coalition Size
