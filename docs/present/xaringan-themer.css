@@ -34,19 +34,19 @@
   --header-font-family-fallback: Georgia, serif;
   --code-font-family: Inconsolata;
   --code-font-is-google: 1;
-  --base-font-size: 20px;
-  --text-font-size: 29px;
-  --code-font-size: 0.9rem;
+  --base-font-size: 30px;
+  --text-font-size: 1rem;
+  --code-font-size: 1rem;
   --code-inline-font-size: 1em;
-  --header-h1-font-size: 2.75rem;
-  --header-h2-font-size: 2.25rem;
-  --header-h3-font-size: 1.75rem;
+  --header-h1-font-size: 1.75rem;
+  --header-h2-font-size: 1.5rem;
+  --header-h3-font-size: 1.25rem;
 
   /* Colors */
   --text-color: #292F34;
   --header-color: #3b444b;
-  --background-color: white;
-  --link-color: #3b444b;
+  --background-color: #FFFFFF;
+  --link-color: #92d6b6;
   --text-bold-color: #3b444b;
   --code-highlight-color: rgba(255,255,0,0.5);
   --inverse-text-color: #EBECED;
@@ -56,7 +56,7 @@
   --title-slide-background-color: #3b444b;
   --title-slide-text-color: #EBECED;
   --header-background-color: #3b444b;
-  --header-background-text-color: white;
+  --header-background-text-color: #FFFFFF;
   --base: #3b444b;
   --white: #EBECED;
   --black: #292F34;
@@ -78,8 +78,8 @@ h1, h2, h3 {
 }
 .remark-slide-content {
   background-color: var(--background-color);
-  font-size: 29px;
-  padding: 10px;
+  font-size: 1rem;
+  padding: 15px;
   width: 100%;
   height: 100%;
 }
@@ -101,7 +101,7 @@ h1, h2, h3 {
 .remark-inline-code {
   font-size: var(--code-inline-font-size);
   color: #3b444b;
-  background-color: #F5F5F5;
+  background-color: #FFFFFF;
   padding: 2px;
 }
 .remark-slide-number {
@@ -193,7 +193,7 @@ th, td {
   padding: 5px;
 }
 .remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) {
-  background: #ddede5;
+  background: #D7D9DB;
 }
 table.dataTable tbody {
   background-color: var(--background-color);
@@ -203,7 +203,7 @@ table.dataTable.display tbody tr.odd {
   background-color: var(--background-color);
 }
 table.dataTable.display tbody tr.even {
-  background-color: #ddede5;
+  background-color: #D7D9DB;
 }
 table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.5);
@@ -254,7 +254,7 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   width: 100%;
   background: var(--header-background-color);
   color: var(--header-background-text-color);
-  padding: 2rem 10px 1.5rem 10px;
+  padding: 2rem 15px 1.5rem 15px;
   margin-top: 0;
   box-sizing: border-box;
 }
@@ -292,9 +292,3 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   background-color: var(--black);
 }
 
-
-
-/* Extra CSS */
-.remark-slide-number {
-  display: none;
-}

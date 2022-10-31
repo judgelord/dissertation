@@ -1,0 +1,102 @@
+div.my-header {
+    background-color: #F77A00;
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffb76b), color-stop(0%,#ffa73d), color-stop(0%,#ffffff), color-stop(10%,#ffffff), color-stop(25%,#F77A00), color-stop(100%,#F77A00));
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 30px;
+    width: 100%;
+    text-align: left;
+}
+
+div.my-head {
+    background-color:  #3b444b;
+    position: absolute;
+    top: -10px;
+    left: 0px;
+    height: 40px;
+    width: 100%;
+    opacity: .5;
+}
+
+div.my-head span {
+  font-size: 15pt;
+  margin-top: -7.5px;
+  margin-left: 10px;
+  color: #FFFFFF; /* white */
+  opacity: 1; /* default: 0.5 */
+  position: fixed;
+    top: 10px;
+    left: 0px;
+    height: 30px;
+    width: 100%;
+    text-align: left;
+}
+
+
+
+div.my-footer {
+    background-color:  #3b444b;
+    position: absolute;
+    bottom: -10px;
+    left: 0px;
+    height: 40px;
+    width: 100%;
+    opacity: .5;
+}
+
+div.my-footer span {
+  font-size: 15pt;
+  margin-bottom: -11.6px;
+  margin-left: 10px;
+  color: #FFFFFF; /* white */
+  opacity: 1; /* default: 0.5 */
+  position: fixed;
+    bottom: 10px;
+    left: 0px;
+    height: 30px;
+    width: 100%;
+    text-align: left;
+}
+
+div.back-footer {
+    background-color:  #3b444b;
+    position: absolute;
+    bottom: -10px;
+    left: 0px;
+    height: 40px;
+    width: 100%;
+    opacity: 0
+}
+
+div.back-footer span {
+  font-size: 15pt;
+  margin-bottom: -11.6px;
+  margin-left: 10px;
+  color: #FFFFFF; /* white */
+  opacity: 0; /* default: 0.5 */
+  position: fixed;
+    bottom: 10px;
+    left: 0px;
+    height: 30px;
+    width: 100%;
+    text-align: right;
+}
+
+div.remark-slide-number {
+  font-size: 15pt;
+  margin-bottom: -11.6px;
+  margin-right: 10px;
+  color: #FFFFFF; /* white */
+  opacity: 1; /* default: 0.5 */
+  position: fixed;
+    bottom: 10px;
+    right: 0px;
+    height: 30px;
+    width: 100%;
+    text-align: right;
+}
+
+div.remark-no-slide-number {
+  font-size: 1pt;
+}
