@@ -26,7 +26,7 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-      slideNumberFormat: "%current%/36"           # 12/42 
+      slideNumberFormat: "%current%/40"           # 12/42 
 editor_options: 
   chunk_output_type: console
 ---
@@ -136,6 +136,23 @@ Substantive policy influence
 
 Surviving judicial review
 
+???
+
+If we want to undstand modern democracy 
+
+DEFINE ENVIRONMETNAL JUSTICE
+
+
+part of a large project looking at policymaking across nearly all federal agencies
+
+I am especially interested in environmental policy, where all of the fights have occured in agencies for my entire life 
+AND, if congress does 
+
+---
+
+class: inverse center middle 
+
+#90%
 
 ---
 layout: true
@@ -158,6 +175,9 @@ exclude: true
 
 ???
 The broader project is part of a recent movement to bring back some of EE SchttschNeider's insights about politics as organized conflict over policy. 
+
+Most policy is made in the executive branch 
+don't have roll call votes - so I need to collect a big new data 
 
 Antagonists rarely agree on what the issues are because power is involved in the definition...
 
@@ -212,6 +232,10 @@ If so, by what mechanisms?
 
 ???
 Will organized public pressure carry over to agency policymaking? 
+
+We don't have roll- call votes
+
+but if we want to understand democracy 
 
 - If so, what kinds of politics are influential? Is it general attention? Is it specific pressure groups like environmental justice activists?
 
@@ -269,7 +293,7 @@ Making Policy About Distributive Justice
 name: preview
 class: inverse
 
-## Preview 
+## Preview: The Impact of Environmental Justice Advocacy
 
 ???
 
@@ -444,6 +468,8 @@ Before the politics of who gets what, there is the politics of who the whos *are
 2005 Final Rule: `Environmental justice for “minority populations”`
 ]
 
+--
+
 .pull-right[
 
 ```{r, fig.show = "hold", out.width = c("35%","50%","30%","40%")}
@@ -510,7 +536,7 @@ My aim is to add some more systematic quantitative data on the broad trends rega
 --
 
 
-1. Distinct phrase (few false positives) without many synonyms (few false negatives)
+"Environmental justice" is a distinct phrase (few false positives) without many synonyms (few false negatives)
 
 <!--
 
@@ -571,10 +597,11 @@ background-size: cover
 class:   middle
 exclude: false
 
-> # "He who determines what politics is about runs the country because the definition of conflicts allocates power. "
+> # He who determines what politics is about runs the country because the definition of conflicts allocates power.
 
 .right[
-# - E.E. Schattschneider]
+# - E.E. Schattschneider
+]
 
 
 ???
@@ -589,9 +616,9 @@ exclude: false
 
 exclude: `r short`
 
-## Do Movements Cause Policy Change?
+## Do Movements Shape Policy?
 
-**Yes.** [(Dahl 1956; Lipsky 1968; Piven & Cloward 1977; Tarrow 1994; Andrews 1997; McAdam 1982, 2001; McAdam & Su 2002, McCammon et al. 2011; Cress & Snow 2000; Weldon 2002)]()
+Yes. [(Dahl 1956; Lipsky 1968; Piven & Cloward 1977; Tarrow 1994; Andrews 1997; McAdam 1982, 2001; McAdam & Su 2002, McCammon et al. 2011; Cress & Snow 2000; Weldon 2002)]()
 
 ???
 
@@ -620,14 +647,18 @@ The big question is whether social movements impact policy.
 
 --
 
-- **Protests inform policymakers and policy agendas** [(Gillion 2013, Gause 2022, Wasow 2020)]()
+- Protests inform policymakers and policy agendas [(Gillion 2013, Gause 2022, Wasow 2020)]()
 
 ???
 - We don't know a lot about policy outcomes, but there is some great work showing specific policy effects of civil rights protests, for example. Dan Gillion, Latina Gause, and Omar Wasow
 
 --
 
-- **No movement, no policy** [(Skocpol 2013)]()
+- Movements advance issue frames [(Jones & Baumgartner 1991, Woodly 2015)]()
+
+--
+
+- No movement, no policy [(Skocpol 2013)]()
 
 ???
 - And as Theda Skocpol found in her study of why climate legislation failed, a movement is often a necessary condition for policy change
@@ -639,7 +670,7 @@ The big question is whether social movements impact policy.
 
 ---
 
-# Does public pressure affect <mark>bureaucratic</mark> policymaking? 
+# Does public pressure affect *bureaucratic* policymaking? 
 --
   If so, by what mechanisms?
 
@@ -650,6 +681,10 @@ The big question is whether social movements impact policy.
 
 - By targeting more receptive institutions?
 -->
+
+???
+
+MY DV 
 
 ---
 
@@ -705,15 +740,20 @@ I'm also curious whether public pressure or public attention matter. Here schola
 
 ### Does *political* information matter?
 
-- H1: Policymakers address distributive justice when pressured
-
-- H2: $\uparrow$ Coalition size (number of groups) $\rightarrow$  $\uparrow$ Policy response
-
-- H3: $\uparrow$ Public attention (number of comments) $\rightarrow$ $\uparrow$ Policy response
+- $H_1$: Agencies address distributive justice when groups raise concerns
 
 --
 
-+ Heterogeneous effects by organization and institution
+- $H_2$: Agencies that more frequently address distributive justice are more responsive
+
+--
+
+- $H_3$: $\uparrow$ Coalition size (number of groups) $\rightsquigarrow$   $\uparrow$ Policy response
+
+--
+
+- $H_4$: $\uparrow$ Public attention (number of comments) $\rightsquigarrow$  $\uparrow$ Policy response
+
 
 ---
 
@@ -771,20 +811,20 @@ name: data
 
 # Data
 
-## 13,179 draft and final rule pairs from 40 agencies, 1993-2020 
+## *All* 13,179 draft and final rule pairs from 40 agencies, 1993-2020 
 
 ## ~40,000,000 public comments on these draft rules
 
 --
 
-~4,800,000 comments raise environmental justice concerns 
---
-(~28,000 from organizations) 
+~4,800,000 comments raise environmental justice concerns
 
 
 
 
 ???
+
+We don't have roll call votes 
 
 I collected all 40 million comments on these draft and final rule pairs. 
 Almost 5 million mentioned EJ.
@@ -875,7 +915,7 @@ knitr::include_graphics("Figs/methods-ngrams-slide.png")
 
 ## Iteratively link comments to organizations
 
-```{r, out.width = "90%", fig.show='hold'}
+```{r, out.width = "85%", fig.show='hold'}
 #knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vRSJJgSbMdFtkpJjB94Tw5cmFElhDKrHEkOLaUb5-qFdIY-sQp4qGyC-FZoZ7UmWSLfoMZDueAkemhU/pub?w=752&h=238") 
 knitr::include_graphics("Figs/methods-regex-slide.png")
 
@@ -899,13 +939,16 @@ knitr::include_graphics("Figs/logo-regex.png")
 
 ### I. Getting policymakers' attention/engagement/response
 
-- Adding policy language (N = 11,315)
-- Changing policy language (N = 1,864)
+- Adding policy language (All 11,315 rules)
+- Changing policy language (All 1,864 rules)
 
 ### II. Getting substantive policy demands
 
--  Lobbying success for all commenters on 150 rules
- - 10,894 hand-coded documents
+-  Lobbying success for all commenters on 150 rules (random sample)
+ - 10,894 hand-coded comments
+
+???
+
  - 284 coalitions 
  
 ---
@@ -932,7 +975,7 @@ Making Policy About Distributive Justice
 
 class:  inverse 
 
-# Modeling the probablity of policy change
+# Modeling the probability of policy change
 
 
 
@@ -940,11 +983,13 @@ class:  inverse
 
 ## (1) Variation across agencies:  
 Pr(Policy Change | President) ~ Policy Demands  \+ Coalition Size  \+ Public Attention \+ Prior Rate
+(\+ Interactions) 
 
 --
 
 ## (2) Variation within agencies:  
 Pr(Policy Change | President + Agency) ~ Policy Demands  \+  Coalition Size  \+  Public Attention
+(\+ Interactions)
 
 ???
 Both of my DVs---adding EJ language and changing existing EJ language--are dichotomous, so I m going to use logit regression. 
@@ -964,12 +1009,16 @@ However, the conclusions are largely the same if I use a quadradic function inst
 ---
 
 exclude: `r exclude_stepwise`
-class: right
 
+.left-column[  
+  $H_1$ Agencies respond to environmental justice concerns  ]
+ 
 
-```{r ej-m-PR-president1, out.width = "45%"}
+.right-column[
+```{r ej-m-PR-president1, out.width = "65%"}
 knitr::include_graphics("Figs/ej-m-PR--median-pres-2.png")
 ```
+]
 
 ???
 
@@ -978,60 +1027,57 @@ All of the plots I'll show have predicted probability of change on the x-axis an
 ---
 
 exclude: `r exclude_stepwise`
-class: right
 
 
-.pull-left[
- $\checkmark$ Environmental Justice Claims + heterogeneous effects
+.left-column[
+ $\checkmark$ $H_1$ Agencies respond to environmental justice concerns
  ]
  
- .pull-right[
- [[TABLE]](#table)
- ]
-
-
-
-```{r ej-m-PR-president2, out.width = "45%"}
+.right-column[
+```{r ej-m-PR-president2, out.width = "65%"}
 knitr::include_graphics("Figs/ej-m-PR--median-pres-1.png")
 ```
+]
+
+ [[TABLE]](#table)
 
 
 ---
 
-class: right
 
-
- .pull-left[  $\checkmark$  Environmental Justice Claims + heterogeneous effects 
+.left-column[  
+ $\checkmark$  $H_1$ Agencies respond to environmental justice concerns 
  ]
  
- .pull-right[
- [[TABLE]](#table)
- ]
 
-
-```{r ej-m-PR-president-median-1, out.width = "45%"} 
-
+.right-column[
+```{r ej-m-PR-president-median-1, out.width = "65%"} 
 knitr::include_graphics("Figs/ej-m-PR-president-median-pres-1.png")
-
 ```
+]
+
+ [[TABLE]](#table)
 
 
 
 ---
 
-class: right
-
-
-.pull-right[
- [[TABLE]](#table)
+.left-column[  
+  $H_2$ Agencies that more frequently address environmental justice are more responsive
  ]
 
 
-```{r ej-m-PR-shareI1, fig.cap = "", out.width = "45%", fig.show = "hold", fig.subcap=""}
+
+.right-column[
+```{r ej-m-PR-shareI1, fig.cap = "", out.width = "65%", fig.show = "hold", fig.subcap=""}
 
 knitr::include_graphics("Figs/ej-m-PR-shareI-pres-2.png")
 
 ```
+]
+
+
+ [[TABLE]](#table)
 
 
 
@@ -1039,7 +1085,7 @@ knitr::include_graphics("Figs/ej-m-PR-shareI-pres-2.png")
 
  .left-column[  
  
- $\checkmark$ Environmental justice demands + heterogeneous effects 
+ $\checkmark$ $H_2$ Agencies that more frequently address environmental justice are more responsive
  ]
  
  .right-column[
@@ -1050,15 +1096,13 @@ knitr::include_graphics("Figs/ej-m-PR-shareI-pres-1.png")
 ```
 ]
 
-
  [[TABLE]](#table)
-
  
 ---
 
 
  .left-column[  
-  Coalition size  
+  $H_3$ Agencies respond to larger coalitions?  
  ]
 
 
@@ -1083,7 +1127,7 @@ knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-pres-1.png")
 ]
 
  .left-column[  
- $\checkmark$  Coalition size  
+ $\checkmark$  $H_3$ Agencies respond to larger coalitions  
  ]
 
 
@@ -1092,7 +1136,7 @@ knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-pres-1.png")
 ---
 
 .left-column[
-Public attention 
+$H_4$ Agencies respond to more public attention? 
 ]
 
 .right-column[
@@ -1108,7 +1152,7 @@ knitr::include_graphics("Figs/ej-m-PR-comments-share-pres-2.png")
 ---
 
 .left-column[
-Public attention 
+$H_4$ Agencies respond to more public attention?
   ]
   
 
@@ -1124,7 +1168,7 @@ knitr::include_graphics("Figs/ej-m-PR-comments-share-pres-1.png")
 
 ---
 
-$\checkmark$     Public attention (absent specific pressure)
+$\checkmark$ $H_4$ Agencies respond to more public attention (absent specific pressure)
 
 
 ```{r attention3, out.width = "90%", fig.show = "hold"}
@@ -1134,6 +1178,25 @@ knitr::include_graphics("Figs/ej-m-PR-comments-share-pres2-1.png")
 ```
 
 [[TABLE]](#table)
+
+---
+
+## To sum up, yes, movements matter
+
+|                                            | Environmental Justice Language Added |  
+| ------------------------------------------ | :--: | 
+| Environmental Justice Demands     | $\checkmark$   | 
+| Coalition Size        | $\checkmark$   | 
+| General Public Attention               | $\checkmark$   | 
+| Prior rate                             | $\checkmark$   | 
+
+More pressure $\rightarrow$ more likely  that environmental justice language is added.
+--
+$\implies$ Public pressure helps advance issues frames.
+
+--
+
+Replicates with "climate change" [[more]](https://judgelord.github.io/research/cj/)
 
 
 
@@ -1147,7 +1210,7 @@ name: substantive
 Who gets their substantive policy demands met?
 
 
-- Trade Associations
+- Business Associations
 
 - Law Firms & National Advocacy Organizations
 ]
@@ -1160,6 +1223,12 @@ knitr::include_graphics("Figs/ej-success-table.png")
 
 ```
 ]
+
+???
+
+In line with previous scholarship 
+
+Beyond previous scholarship 
 
 
 ```{r ej-winrates, include=FALSE}
@@ -1192,33 +1261,14 @@ Making Policy About Distributive Justice
 </span>
 <span>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 <a href="#conclusion">Conclusion</a>
 </span>
 </div> 
 
 <div class="my-footer"><span>Devin Judge-Lord (Harvard University)&emsp;&emsp;</span></div> 
-
----
-
-## To sum up, yes, movements matter
-
-|                                            | Environmental Justice Language |  
-| ------------------------------------------ | :--: | 
-| Environmental Justice Claims     | $\checkmark$   | 
-| Coalition Size        | $\checkmark$   | 
-| General Public Attention               | $\checkmark$   | 
-| Prior rate                             | $\checkmark$   | 
-
-More pressure $\rightarrow$ more likely  that environmental justice language is added.
---
-$\implies$ Public pressure helps advance issues frames.
-
---
-
-Replicates with "climate change" [[more]](https://judgelord.github.io/research/cj/)
 
 
 
@@ -1236,54 +1286,12 @@ class: inverse
 
 ### National advocacy organizations are more likely to have substantive policy demands met.
 
---
-
-## Thank you!
-
-- Paper, slides, data: [judgelord.github.io](judgelord.github.io/)  
---
-
-- Rules relevant to climate or environmental justice currently open for comment: [judgelord.github.io/rulemaking/open]( https://judgelord.github.io/rulemaking/open)
 
 
 ???
 
 Finally, assessing the normative implications requires us to understand who is advocating for whom. In the case of comments on federal agency rules, it is “big green" national advocacy groups that have historically led a White environmental movement. 
 These "big greens" are more likely to get substantive policy demands met than Tribes and frontline community groups. So, a lot hinges on the extent to which these national organizations represent EJ communities.
-
----
-
-layout: true
-
-<div class="my-head"><span>
-Making Policy About Distributive Justice
-</span>
-<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-<a href="#toc">Motivation</a>
-</span>
-<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-<a href="#toc">Theory</a>
-</span>
-<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-<a href="#toc">Data & Methods</a>
-</span>
-<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-<a href="#toc">Findings</a>
-</span>
-<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-<a href="#toc">Conclusion</a>
-</span>
-<span>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-<a href="#toc">Extra</a>
-</span>
-</div> 
-
-<div class="my-footer"><span>Devin Judge-Lord (Harvard University)&emsp;&emsp;</span></div> 
-
 
 
 
@@ -1315,6 +1323,50 @@ Surviving judicial review
 
 
 
+---
+
+layout: true
+
+<div class="my-head"><span>
+Making Policy About Distributive Justice
+</span>
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Example</a>
+</span>
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Theory</a>
+</span>
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Data & Methods</a>
+</span>
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Findings</a>
+</span>
+<span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Conclusion</a>
+</span>
+<span>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#toc">Extra</a>
+</span>
+</div> 
+
+<div class="my-footer"><span>Devin Judge-Lord (Harvard University)&emsp;&emsp;</span></div> 
+
+
+---
+
+class: inverse middle
+
+## Thank you!
+
+- Paper, slides, data (Rdata, SQL): [judgelord.github.io](judgelord.github.io/)  
+--
+
+- Rules relevant to climate or environmental justice currently open for comment: [judgelord.github.io/rulemaking/open]( https://judgelord.github.io/rulemaking/open)
 
 
 
@@ -1354,6 +1406,7 @@ Framing
 
 background-image: url(Figs/brianadams.png)
 background-size: cover
+name: ej-mercury
 
 ## Example: Safe Levels of Mercury 
 --
@@ -1400,6 +1453,8 @@ on
 
 ---
 
+name: ej-data-rules
+
 ### Data: 13,179 Draft and Final Rule Pairs* from 40 agencies, 1993-2020
 
 ```{r, fig.show = "hold", out.width = "90%"}
@@ -1412,6 +1467,8 @@ knitr::include_graphics("Figs/ej-data-ejpr-1.png")
 
 ---
 
+name: ej-data-agencies
+
 ### Data: Rates of Addressing Climate & Environmental Justice 2005-2020
 
 ```{r ej-data-agencies, out.width = "80%"}
@@ -1423,6 +1480,7 @@ knitr::include_graphics("Figs/ej-data-ejpr-1.png")
 ---
 
 exclude: `r short`
+name: ej-comments
 
 
 ## Data: ~40,000,000 Public Comments
@@ -1503,6 +1561,7 @@ knitr::include_graphics(here::here("figs", "coded-coalition-success-1.png"))
 ---
 
 exclude: `r short`
+name: race
 
 ## Who does notice and comment rulemaking empower? 
 
@@ -1518,13 +1577,25 @@ Race %>% ggplot() +
 
 ---
 
-name: table
+name: gis
 
-background-image: url(Figs/ej-table-paper.png)
-background-size: contain
-background-color: white
+background-image: URL(Figs/ej-gis.png)
+
 
 ---
+
+background-image: URL(Figs/ej-gis-zip.png)
+
+---
+
+background-image: URL(Figs/ej-gis-diesel.png)
+
+
+---
+
+
+
+
 
 ## Adding EJ to Policy
 
@@ -1662,12 +1733,6 @@ class: inverse middle center
 
 # Results 
 
----
-
-```{r table,  out.width = "80%"}
-
-knitr::include_graphics("figs/cj-table.png")
-```
 
 ---
 
@@ -2679,3 +2744,55 @@ And again, formal models don't really have a parameter for public attention or p
 
 ---
 
+TODO 
+Appendix 
+1. Data 
+  - Hand-coded data
+  - 
+2. Methods
+1. Mobilizing 
+  2. Grassroots 
+  1. Astroturf
+  1. Members of Congress
+1.  Framing
+  1. EJ
+  - [Data](#ej-data)
+  - [Alt Results](#ej-results)
+  - [Tables](#table)
+  2. [Climate]()
+  - [Data](#cj-data)
+  - [Results](#cj-results)
+  - [Tables](#cj-table)
+1. Influence
+ - Lobbying success by campaign type
+ - 
+1. Judicial review
+
+
+---
+
+layout: true
+
+<div class="back-head">
+</div> 
+
+<div class="back-footer"></div> 
+
+
+---
+
+name: table
+
+background-image: url(Figs/ej-table-paper.png)
+background-size: contain
+background-color: white
+
+---
+
+
+
+name: cj-table
+
+background-image: url(Figs/cj-table.png)
+background-size: contain
+background-color: white
