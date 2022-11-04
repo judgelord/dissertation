@@ -814,9 +814,7 @@ name: methods
 
 ???
 
-If you remember, one thing about the methods here is that Human coding and computational text analysis are more powerful when combined, and I have several ways of doing that. 
 
-First, I use something like plagiarism detection to identify linked sets of documents that indicate that groups of commenters are in a lobbying coalition.
 
 ---
 
@@ -842,7 +840,7 @@ First, I use something like plagiarism detection to identify linked sets of docu
 .right-column[
 ```{r percent-method, fig.show = "hold", out.width = "75%"}
 
-knitr::include_graphics("figs/comment_percent_match_plot-2.png")
+knitr::include_graphics("Figs/comment_percent_match_plot-2.png")
 ```
 ]
 
