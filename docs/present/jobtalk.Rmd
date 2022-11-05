@@ -49,7 +49,7 @@ knitr::opts_chunk$set(warning = FALSE,
                       fig.retina = 2,
                       fig.show="hold",
                       fig.pos= "htbp",
-                      fig.path = "figs/",
+                      fig.path = "Figs/",
                       fig.cap = '   ',
                       out.width = "100%",
                       out.extra = "")
@@ -1324,7 +1324,7 @@ layout: true
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-<a href="#thanks">Extra</a>
+<a href="#toc">Extra</a>
 </span>
 </div> 
 
@@ -1380,14 +1380,15 @@ Framing
 ---
 
 name: toc
+class: inverse
 
 # Appendix Slides 
-1. Data:  [Hand-coded comments](#datasheet) - [GIS](#gis) - [Census race](race) - [Zip code](#gis)
-2. [Methods]() 
-1. Mobilizing  <!-- Grassroots - Astroturf--> - [members of Congress](#legislators)
+1. Data:  [Hand-coded comments](#datasheet) - [GIS](#gis) - [Census race](#race) - [Zip code](#gis)
+2. [Methods](#methods) 
+1. Mobilizing - [Organizations](#orgs) - [Mass comments](#mass) <!-- Grassroots - Astroturf--> - [members of Congress](#coalition-legislators)
 1.  Framing
   1. EJ: [Mercury rules](#ej-mercury) - Rules [by president](#ej-data-rules) - [by Agency](#ej-data-agencies) - [Data](#ej-data) - [Theory](#ej-hyp) - [Alt Results](#ej-results) - [Tables](#table)
-  2. [Climate](#climate) - [Data](#cj-data) - [Results](#cj-results) - [Tables](#cj-table)
+  2. Climate Change - [Data](#cj-data) - [Results](#cj-results) - [Tables](#cj-table)
 1. Influence [by campaign type](#success-coalition) - [by legislator support](#coalition-legislators)
 1. [Judicial review](https://judgelord.github.io/research/deference/)
 
@@ -1463,7 +1464,7 @@ name: ej-data-agencies
 
 ```{r ej-data-agencies, out.width = "80%"}
 
-# TODO knitr::include_graphics("Figs/ej-data-agencies-1.png")
+knitr::include_graphics("Figs/ej-data-agencies100-1.png")
 ```
 
 
@@ -1504,7 +1505,7 @@ Y-axis is the total number of comments the rule received.
 ~4,800,000 (~28,000 unique) comments raise EJ concerns
 
 
-```{r, fig.show = "hold", out.width = "50%"}
+```{r, fig.show = "hold", out.width = "45%"}
 #, fig.cap="Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments"
 knitr::include_graphics("Figs/comment_percent_match_plot.png") 
 ```
@@ -1664,14 +1665,14 @@ name: cj-data
 
 ```{r cj-data-agencies100, out.width = "90%"}
 
-# TODO knitr::include_graphics("figs/cj-data-agencies100-2.png")
+# TODO knitr::include_graphics("Figs/cj-data-agencies100-2.png")
 ```
 
 ---
 
 ```{r cj-data-agencies, out.width = "90%"}
 
-knitr::include_graphics("figs/cj-data-agencies-2.png")
+knitr::include_graphics("Figs/cj-data-agencies-2.png")
 ```
 
 ---
@@ -1696,7 +1697,7 @@ name: datasheet
 
 ```{r datasheet, fig.show = "hold", out.width = "100%", fig.cap="Example: Identifying Coalitions by Hand"}
 
-knitr::include_graphics("figs/datasheet.png")
+knitr::include_graphics("Figs/datasheet.png")
 ```
 
 ---
@@ -1708,7 +1709,7 @@ name: cj-data
 
 ```{r climate-comments, out.width = "85%"}
 
-#TODO knitr::include_graphics("figs/climate-comments-1.png")
+knitr::include_graphics("Figs/climate-comments-1.png")
 ```
 
 ---
@@ -1718,7 +1719,7 @@ exclude: true
 ## Draft rules that did and did not address EJ/CJ
 
 ```{r cj-comments, out.width = "85%"}
-#TODO knitr::include_graphics("figs/cj-comments-1.png")
+knitr::include_graphics("Figs/cj-comments-1.png")
 ```
 
 
@@ -1731,7 +1732,7 @@ exclude: true
 ##  Adding Climate Change to Policy
 
 ```{r climate-m-PR-president-median-1, out.width = "60%"}
-#TODO knitr::include_graphics("figs/climate-m-PR-president-median-1.png")
+#TODO knitr::include_graphics("Figs/climate-m-PR-president-median-1.png")
 ```
 
 - 🔬 Scientific Information ✅  
@@ -1744,7 +1745,7 @@ exclude: true
 ##  Adding Climate Justice to Policy
 
 ```{r cj-m-PR-president-median-1, out.width = "60%"}
-#TODO knitr::include_graphics("figs/cj-m-PR-president-median-1.png")
+#TODO knitr::include_graphics("Figs/cj-m-PR-president-median-1.png")
 ```
 
 - ✊🏿 Distributive Information ✅  
@@ -1759,7 +1760,7 @@ name: cj-results
 ```{r climate-m-PR-climatecomments-agencyFE,  out.width = "80%"}
 
 
-knitr::include_graphics("figs/climate-m-PR-climatecomments-agencyFE-1.png")
+knitr::include_graphics("Figs/climate-m-PR-climatecomments-agencyFE-1.png")
 
 ```
 
@@ -1776,7 +1777,7 @@ exclude: true
 ```{r cj-m-PR-cjcomments-agencyFE,  out.width = "80%"}
 
 
-#TODO knitr::include_graphics("figs/cj-m-PR-cj-comments-agencyFE-1.png")
+#TODO knitr::include_graphics("Figs/cj-m-PR-cj-comments-agencyFE-1.png")
 
 ```
 
@@ -1792,7 +1793,7 @@ exclude: true
 
 ```{r cj-m-PR-comments-agencyFE, out.width = "80%", fig.show = "hold"}
 
-#TODO knitr::include_graphics("figs/cj-m-PR-comments-agencyFE-1.png")
+#TODO knitr::include_graphics("Figs/cj-m-PR-comments-agencyFE-1.png")
 
 ```
 
@@ -1838,7 +1839,7 @@ name: success-coalition
 
 
 ```{r m-influence, out.width = "25%"}
-knitr::include_graphics("figs/m-influence.png")
+knitr::include_graphics("Figs/m-influence.png")
 ```
 
 ---
@@ -1853,7 +1854,7 @@ name: coalition-legislators
 
 .right-column[
 ```{r m-congress, out.width = "70%"}
-knitr::include_graphics("figs/m-congress.png")
+knitr::include_graphics("Figs/m-congress.png")
 ```
 ]
 
@@ -1864,7 +1865,7 @@ knitr::include_graphics("figs/m-congress.png")
 (within-organization OLS)
 
 ```{r m-diffindiff, out.width = "45%"}
-knitr::include_graphics("figs/m-diffindiff.png")
+knitr::include_graphics("Figs/m-diffindiff.png")
 ```
 
 
@@ -1953,7 +1954,7 @@ Workflow: `googlesheets4` allows analysis and improving data in real-time. For e
 
 ```{r datasheet2, fig.show = "hold", out.width = "100%"}
  
-knitr::include_graphics("figs/datasheet.png")
+knitr::include_graphics("Figs/datasheet.png")
 ```
 
 ---
@@ -2002,7 +2003,7 @@ read_csv() |>
 ```{r, out.width = "100%", fig.show='hold'}
 #knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vRSJJgSbMdFtkpJjB94Tw5cmFElhDKrHEkOLaUb5-qFdIY-sQp4qGyC-FZoZ7UmWSLfoMZDueAkemhU/pub?w=752&h=238") 
 
-knitr::include_graphics("figs/methods-regex.png")
+knitr::include_graphics("Figs/methods-regex.png")
 
 #knitr::include_graphics(here::here("legislators" , "man", "figures", "logo.png") %>% str_remove("dissertation"))
 ```
@@ -2033,6 +2034,8 @@ For example, the `legislators` package uses a regex table, adding variants (e.g.
 
 ---
 
+name: orgs
+
 
 ###  Who mobilizes public comments?
 
@@ -2047,6 +2050,9 @@ top100 <- org_counts_summary[1:100,]  %>% tally(comments)
 
 <!--Iteratively linking comments to the organizations that wrote or mobilized them (and thus strings to identify similar documents), I find that a few advocacy organizations mobilize the vast majority of comments. 
 -->
+
+---
+
 Of 58 million public comments on proposed agency rules, the top 100 organizations mobilized `r top100 |> prettyNum(big.mark = ",")`. The top ten organizations mobilized `r top10 |> prettyNum(big.mark = ",")`.
 
 
@@ -2081,12 +2087,14 @@ org_counts_summary %>%
 
 ---
 
+name: mass
+
 ###  Most public comments result from organized pressure campaigns
 
 **Fig. 5:** Public Comments on Regulations.gov, 2005-2020
 
 ```{r comments-mass, out.width = "80%", fig.show = "hold"}
-knitr::include_graphics("figs/comments-mass-1.png")
+knitr::include_graphics("Figs/comments-mass-1.png")
 ```
 
 Comments that share a 10-gram with 99 or more others are part of a mass comment campaign.
