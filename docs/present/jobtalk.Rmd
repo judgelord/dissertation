@@ -1050,7 +1050,7 @@ $\implies$ Public pressure helps advance issues frames.
 
 --
 
-Also true for pressure to frame policy as relevant to "climate change" [[more]](https://judgelord.github.io/research/cj/)
+Also true for pressure to frame rules as relevant to climate change [[more]](https://judgelord.github.io/research/cj/)
 
 
 
@@ -1631,9 +1631,6 @@ knitr::include_graphics("Figs/datasheet.png")
 ```
 
 ---
-
-name: cj-data
-
 
 Draft rules that did and did not address climate
 
