@@ -223,11 +223,12 @@ comments_coded %>%
   tally(comments) %>%
   drop_na(comment_type) %>% 
   drop_na(Position) %>% 
+  drop_na(president) %>% 
   full_join(tibble(
     president = c("Obama", "Trump"),
     comment_type = "Corp",
-    Position = c("Supports Rule", "Opposes Rule"), 
-    n = 0)) %>% 
+    Position = c("Supports Rule", "Opposes Rule"),
+    n = 0)) %>%
   ggplot() +
   aes(x = NA , y = n, fill = Position) +
   geom_col(position = "dodge", alpha = .7) + 

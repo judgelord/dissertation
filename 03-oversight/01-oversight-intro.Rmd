@@ -99,22 +99,20 @@ and credit claiming opportunities for their oversight work. In the case of the F
 credit the public support mobilized by public pressure campaigns with the political cover needed to hold course.-->
 Table \@ref(tab:beacon) expands the "fire alarm" model of congressional oversight [@McCubbins1984] to include other ways in which interest groups may affect oversight.
 
-\SingleSpacing
 
-```{r beacon , echo=FALSE, results='asis'}
+```{r beacon , echo=FALSE, results='asis', eval=FALSE }
   cat('Table: (\\#tab:beacon) How Interest Groups and Public Attention and Pressure May Affect Legislator Behavior
   
-  |                           | Legislator Supports Rule        | Legislator Opposes Rule         |   |   |
-|---------------------------|---------------------------------|---------------------------------|---|---|
-| Constituents Support Rule | "Beacon" for credit claiming    | "Warning sign" against engaging |   |   |
+|                           | Legislator Supports Rule        | Legislator Opposes Rule         |
+|---------------------------|---------------------------------|---------------------------------|
+| Constituents Support Rule | "Beacon" for credit claiming    | "Warning sign" against engaging |
 | | | | | | 
-| Constituents Oppose Rule  | "Warning sign" against engaging | "Fire alarm" for oversight      |   |   |
-|                           |                                 |                                 |   |   |
+| Constituents Oppose Rule  | "Warning sign" against engaging | "Fire alarm" for oversight      |
+|                           |                                 |                                 |
 ')
 
 ```
 
-\DefaultSpacing
 
 
 
