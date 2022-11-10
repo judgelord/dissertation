@@ -495,7 +495,7 @@ Yes. [(Dahl 1956; Lipsky 1968; Piven & Cloward 1977; Tarrow 1994; Andrews 1997; 
 --
 
 
-- **Petitioning government builds movements and policy agendas** [(Carpenter 2021)]()
+- **Petitioning builds movements and policy agendas** [(Carpenter 2021)]()
 
 ???
 - that the act of petitioning the government builds power
@@ -1326,23 +1326,75 @@ on
 
 name: ej-data-rules
 
-### Data: 13,179 Draft and Final Rule Pairs* from 40 agencies, 1993-2020
+```{r, fig.show = "hold", out.width = "100%"}
 
-```{r, fig.show = "hold", out.width = "90%"}
+knitr::include_graphics("Figs/ej-data-ejfr-1.png")  
+```
+
+---
+
+```{r, fig.show = "hold", out.width = "100%"}
 
 knitr::include_graphics("Figs/ej-data-ejpr-1.png")  
 ```
 
-*A few rulemaking dockets have more than one draft or final rule.
 
 
 ---
 
+
+```{r, fig.show = "hold", out.width = "90%"}
+
+knitr::include_graphics("Figs/ej-data-1.png")  
+```
+
+
+
+---
+
+
+```{r, fig.show = "hold", out.width = "90%"}
+
+knitr::include_graphics("Figs/ej-data-2.png")  
+```
+
+
+
+---
+
+
+```{r, fig.show = "hold", out.width = "90%"}
+
+knitr::include_graphics("Figs/ej-data-3.png")  
+```
+
+
+
+---
+
+
+```{r, fig.show = "hold", out.width = "90%"}
+
+knitr::include_graphics("Figs/ej-data-4.png")  
+```
+
+---
+
+
+```{r, fig.show = "hold", out.width = "90%"}
+
+knitr::include_graphics("Figs/ej-data-5.png")  
+```
+
+
+
+---
+
+
 name: ej-data-agencies
 
-### Data: Rates of Addressing Climate & Environmental Justice 2005-2020
 
-```{r ej-data-agencies, out.width = "80%"}
+```{r ej-data-agencies, out.width = "95%"}
 
 knitr::include_graphics("Figs/ej-data-agencies100-1.png")
 ```
@@ -1583,7 +1635,7 @@ knitr::include_graphics("Figs/datasheet.png")
 name: cj-data
 
 
-## Draft rules that did and did not address climate
+Draft rules that did and did not address climate
 
 ```{r climate-comments, out.width = "85%"}
 
@@ -1594,7 +1646,7 @@ knitr::include_graphics("Figs/climate-comments-1.png")
 
 exclude: true
 
-## Draft rules that did and did not address EJ/CJ
+Draft rules that did and did not address EJ/CJ
 
 ```{r cj-comments, out.width = "85%"}
 knitr::include_graphics("Figs/cj-comments-1.png")
