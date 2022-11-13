@@ -34,7 +34,7 @@ editor_options:
 
 
 ```{r setup, include = FALSE}
-short = "true"
+short = "false"
 exclude_stepwise = "false"
 exclude_extra = "false"
 
