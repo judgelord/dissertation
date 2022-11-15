@@ -1119,7 +1119,7 @@ Data &amp; Methods: [Sample](#tree) | [Hand-coding](#datasheet) | [Census race](
 Mobilizing: [Organizations](#orgs) | [Mass comments](#mass) &lt;!-- Grassroots|Astroturf--&gt; | [Members of Congress](#coalition-legislators)
 
 Framing: 
-- EJ rules: [by President](#ej-data-rules) | [by Agency](#ej-data-agencies) | [Mercury Rules](#ej-mercury) | [Theory](#ej-hyp) | [Framing](#ej-results) | [Success](#ej-success) | [Tables](#table) 
+- EJ rules: [by President](#ej-data-rules) | [by Agency](#ej-data-agencies) | [Mercury Rules](#ej-mercury-long) | [Theory](#ej-hyp) | [Framing](#ej-results) | [Success](#ej-success) | [Tables](#table) 
 
 ]
   
@@ -1229,7 +1229,7 @@ Surviving judicial review
 
 ---
 
-# Hand-coding dynamic data
+### Hand-coding dynamic data
 
 &lt;!--
 
@@ -1240,7 +1240,7 @@ Surviving judicial review
 
 ---&gt;
 
-Workflow: `googlesheets4` allows analysis and improving data in real time. For example, in Fig. 1: 
+Workflow: `googlesheets4` allows analysis and improving data in real time. For example: 
 
 - The "org_name" column is populated with a guess from automated methods. As humans identify new organizations and aliases, other documents with the same entity strings are auto-coded to match human coding.   
 - As humans identify each organization's policy "ask," other texts with the same ask are put in their coalition.   
@@ -1259,7 +1259,7 @@ Coded Public Comments in a Google Sheet
 
 name: regex
 
-# Regex tables to tag entities
+### Regex tables to tag entities
 
 
 - **Deductive:** Start with databases of known entities.
@@ -1292,7 +1292,7 @@ name: regex
 
 name: entity
 
-# Regex tables to tag entities
+### Regex tables to tag entities
 
 - **Inductive:** Add entity strings that frequently appear in the data to regex tables.  
 - **Iterative:** Add to regex tables as humans identify new entities or new aliases for known entities. Update data (Google Sheets) to speed up hand coding.
@@ -1326,7 +1326,7 @@ class: inverse center middle
 
 background-image: url(Figs/brianadams.png)
 background-size: cover
-name: mercury-long
+name: ej-mercury-long
 
 ### Example: Safe Levels of Mercury (For Whom?)
 
@@ -1467,10 +1467,14 @@ name: ej-data-rules
 
 ---
 
+### Data: Final Rules
+
 &lt;div class="figure" style="text-align: center"&gt;
 &lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-data-ejfr-1.png" alt="   " width="100%"  /&gt;&lt;/div&gt;
 
 ---
+
+### Data: Proposed Rules
 
 &lt;div class="figure" style="text-align: center"&gt;
 &lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-data-ejpr-1.png" alt="   " width="100%"  /&gt;&lt;/div&gt;
@@ -1862,7 +1866,7 @@ name: cj-results
 ###  Adding Climate Change to Policy
 
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/climate-m-PR-president-median-1.png" alt="   " width="60%"  /&gt;&lt;/div&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/climate-m-PR-president-median-1.png" alt="   " width="55%"  /&gt;&lt;/div&gt;
 
 - 🔬 Scientific Information ✅  
 
@@ -2012,6 +2016,7 @@ name: coalition-legislators
 ### Pressure campaigns seem to mobilize legislators 
 
 Coalition-level Poisson model
+([Table](#mediation-table))
 ]
 
 
@@ -2027,8 +2032,8 @@ Coalition-level Poisson model
 ### When organizations mobilize more legislators, they may be more likely to win 
 
 
-Within-organization OLS model
-([Table](#mediation-table), [Cross-sectional version](#success))
+Within-org OLS model
+
 ]
 
 .right-column[
