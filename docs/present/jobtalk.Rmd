@@ -1273,7 +1273,7 @@ class: inverse
 # Appendix Slides 
 .pull-left[
 
-Data & Methods: [Sample](#tree) | [Hand-coding](#datasheet) | [Census race](#race) | [Zip code](#gis) | [GIS](#gis) | [Regex tables](#regex) | [Next steps](#methods-next)
+Data & Methods: [Sample](#tree) | [Hand coding](#datasheet) | [Spatial](#spatial) | [Census race](#race) | [Zip code](#gis) | [GIS](#gis) | [Regex tables](#regex) | [Next steps](#methods-next)
 
 Mobilizing: [Organizations](#orgs) | [Mass comments](#mass) <!-- Grassroots|Astroturf--> | [Members of Congress](#coalition-legislators)
 
@@ -2218,6 +2218,16 @@ knitr::include_graphics("Figs/tree.png")
 
 ---
 
+name: spatial
+
+
+```{r spatial, out.width = "70%"}
+knitr::include_graphics(here::here("figs", "spatial-coding-1.png"))
+```
+
+---
+
+
 
 exclude: true
 
@@ -2226,6 +2236,7 @@ exclude: true
 ```{r coded-coalition-success, out.width = "60%"}
 knitr::include_graphics(here::here("figs", "coded-coalition-success-1.png"))
 ```
+
 
 ---
 
