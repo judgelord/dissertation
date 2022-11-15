@@ -672,7 +672,7 @@ exclude: `r short`
 
 ???
 
-We don't have roll call votes 
+We don't have roll call votes. 
 
 I collected all 40 million comments on these draft and final rule pairs. 
 Almost 5 million mentioned EJ.
@@ -795,8 +795,10 @@ knitr::include_graphics("Figs/logo-regex.png")
 
 ### DV 2: Getting substantive policy demands
 
-Lobbying success for all commenters (random sample of 150 rules $\Rightarrow$ 10,894 hand-coded comments) 
-- 
+Lobbying success for all commenters on a random sample of 150 rules (10,894 hand-coded comments)
+
+2.1 Across 284 coalitions   
+2.2 Within 3,932 organizations
 
 ???
 
@@ -1047,7 +1049,7 @@ name: conclusion
 | General Public Attention               | $\checkmark$   | 
 
 
-More pressure $\rightarrow$ more likely  that environmental justice language is added.
+More pressure $\rightarrow$ more likely that environmental justice language is added.
 --
 $\implies$ Public pressure helps advance issues frames.
 
@@ -1070,6 +1072,9 @@ Who gets their substantive policy demands met?
 - Business Associations
 
 - Law Firms & National Advocacy Organizations
+
+[[see Coalition-level OLS model]](#ej-success)
+
 ]
 
 .right-column[
@@ -1810,7 +1815,7 @@ Coalition size (Nelson and Yackee  2012) & pressure (Gillion 2013; Wasow 2020)
 
 ???
 
-On the one hand we might expect policymakers to respond to the scale of pressure to address EJ.
+On the one hand, we might expect policymakers to respond to the scale of pressure to address EJ.
 
 On the other hand, all of the formal models to date are focused on providing new information. 
 I really like Brian Libgober's model of how comments inform rulemaking, but it relies on telling policymakers something they didn't already know. 
@@ -1846,13 +1851,13 @@ Other legal scholars and formal models suggest that information should matter mo
 
 ???
 
-Finally, there is this debate over whether high or low salience policies are more likely to change. 
+Finally, there is this debate over whether high or low-salience policies are more likely to change. 
 
 We might expect that policies are more likely to change when there is more overall public attention, regardless of pressure to address EJ in particular. 
 
 On the other hand, if it is easier to lobby out of the public spotlight, we might expect low-salience policies to be more likely to change. 
 
-Balla et al's study of responses to comments in rulemaking suggests a null effect. Legal scholars tend to see the scale of public attention is just not a legal concern. 
+Balla et al.'s study of responses to comments in rulemaking suggests a null effect. Legal scholars tend to see the scale of public attention is just not a legal concern. 
 
 And again, formal models don't really have a parameter for public attention or pressure. 
 
@@ -1973,7 +1978,7 @@ name: sips
 
 In response to 421 comments raising climate justice concerns, the final rule added nine paragraphs on environmental justice and a brief mention of climate change: 
 
-> "EPA agrees that climate change is an important issue...Although regulation of greenhouse gases is conducted under separate statutory requirements from regional haze"
+> "EPA agrees that climate change is an important issue...Although regulation of greenhouse gases is conducted under separate statutory requirements from regional haze."
 
 
 <!--, EPA is mindful that this BART determination for NGS is not the only regulatory program that affects this facility and the region."-->
@@ -2038,7 +2043,7 @@ W, also referred to as “GHGRP subpart W”). Pursuant to CAA section 136(g)
 
 ### 2022 EPA Methane Rules 
 
->“The American Lung Association appreciates the agency’s consideration of the hundreds of thousands of comments received for the initial proposal – including from national and state health and medical organizations, more than 300 health professionals and more than 300 individuals. We recommend that EPA require that the oil and gas industry take the strongest steps possible to prevent fugitive emissions of methane and other gases from all operations, including small producing wells, and halt all routine flaring of methane. 
+>“The American Lung Association appreciates the agency’s consideration of the hundreds of thousands of comments received for the initial proposal – including from national and state health and medical organizations, more than 300 health professionals, and more than 300 individuals. We recommend that EPA require that the oil and gas industry take the strongest steps possible to prevent fugitive emissions of methane and other gases from all operations, including small producing wells, and halt all routine flaring of methane. 
 
 >“We thank EPA for their work on proposing stricter methane standards for new and existing oil and gas wells and urge the agency to quickly finalize stronger standards to fully protect health.” - https://www.lung.org/media/press-releases/epa-methane-proposal-statement-2022
 
@@ -2188,7 +2193,7 @@ name: example-demands
 
 ### Example Demands
 
-- Categorically Protect Certain Other Waters including Vernal Pools, Pocosins, Sinkhole Wetlands, Rainwater Basin Wetlands, Sand Hills Wetlands, Playa Lakes, Interdunal Wetlands, Carolina and Delmarva bays, and Other Coastal Plain Depressional Wetlands, and Prairie Potholes. 
+- Categorically Protect Certain Other Waters, including Vernal Pools, Pocosins, Sinkhole Wetlands, Rainwater Basin Wetlands, Sand Hills Wetlands, Playa Lakes, Interdunal Wetlands, Carolina and Delmarva bays, and Other Coastal Plain Depressional Wetlands, and Prairie Potholes. 
 
 - Waters Substantially Affect Interstate Commerce and Should be Categorically Protected
 
@@ -2285,7 +2290,7 @@ name: ej-success
 ### When coalitions mobilize frames, they are more likely to win 
 
 Cross-sectional OLS model of coalition-level lobbying success 
-([Table](#coalition-success-table), [DiD version](#ej-org-success))
+([Rates](#substantive), [Table](#coalition-success-table), [DiD version](#ej-org-success))
 
 ]
 
@@ -2304,7 +2309,7 @@ name: ej-org-success
 ### When organizations mobilize frames, they are more likely to win 
 
 Within-organization OLS model
-([Table](#org-success-table), [Cross-sectional version](#ej-success))
+([Rates](#substantive), [Table](#org-success-table), [Cross-sectional version](#ej-success))
 
 ]
 
