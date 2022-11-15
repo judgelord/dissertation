@@ -2128,7 +2128,7 @@ knitr::include_graphics("Figs/cj-m-PR-cj-comments-agencyFE-1.png")
 
 ```{r climate-m-PR-comments-agencyFE, out.width = "70%", fig.show = "hold"}
 
-knitr::include_graphics("figs/climate-m-PR-comments-agencyFE-1.png")
+knitr::include_graphics("Figs/climate-m-PR-comments-agencyFE-1.png")
 
 ```
 
@@ -2469,14 +2469,27 @@ name: toc2
 class: inverse
 
 # Appendix Slides 
-1. Data:  [Hand-coded comments](#datasheet) - [GIS](#gis) - [Census race](#race) - [Zip code](#gis)
-2. [Methods](#methods) 
-1. Mobilizing - [Organizations](#orgs) - [Mass comments](#mass) <!-- Grassroots - Astroturf--> - [members of Congress](#coalition-legislators)
-1.  Framing
-  1. EJ: [Mercury rules](#ej-mercury) - Rules [by president](#ej-data-rules) - [by Agency](#ej-data-agencies) - [Data](#ej-data) - [Theory](#ej-hyp) - [Alt Results](#ej-results) - [Tables](#table)
-  2. Climate Change - [Data](#cj-data) - [Results](#cj-results) - [Tables](#cj-table)
-1. Influence [by campaign type](#success-coalition) - [by legislator support](#coalition-legislators)
-1. [Judicial review](https://judgelord.github.io/research/deference/)
+.pull-left[
+
+Data & Methods: [Sample](#tree) | [Hand-coding](#datasheet) | [Census race](#race) | [Zip code](#gis) | [GIS](#gis) | [Regex tables](#regex) | [Next steps](#methods-next)
+
+Mobilizing: [Organizations](#orgs) | [Mass comments](#mass) <!-- Grassroots|Astroturf--> | [Members of Congress](#coalition-legislators)
+
+Framing: 
+- EJ rules: [by President](#ej-data-rules) | [by Agency](#ej-data-agencies) | [Mercury Rules](#ej-mercury) | [Theory](#ej-hyp) | [Framing](#ej-results) | [Success](#ej-success) | [Tables](#table) 
+
+]
+  
+.pull-right[
+
+- Climate rules: [SIPs](#sips) | [Methane Rules](#methane) | [Data](#cj-data) | [Results](#cj-results) |  [Tables](#cj-table) | [Paper](https://judgelord.github.io/research/cj/)
+ 
+Influence: [by Campaign Type](#success-coalition) | [by Legislator Support](#coalition-legislators) | [by Coalition](#ej-success) | [by Organization](#ej-org-success) | [Example demands](#example-demands)
+
+Judicial review: [Data](#deference-data) | [Results](#deference-results) | [Table](#deference-table) | [Paper](https://judgelord.github.io/research/deference/)
+
+]
+
 
 
 ---
