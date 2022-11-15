@@ -132,6 +132,210 @@ modelsummary::modelsummary( modelsFE,
 ```
 
 
+```{r mc-success-ej, results=TRUE, eval=TRUE, fig.width = 4.5, fig.height = 3.5}
+#mc-success-ej
+
+load(here::here("data","ej_framed_dockets.Rdata"))
+
+coalitions_coded %<>% 
+  mutate(ej_framed = docket_id %in% ej_framed_dockets)
+  
+  
+
+# coalition success with agency and president FE
+mc1ej <- feols(coalition_success ~ 
+          campaign_*coalition_type*ej_framed + 
+          # campaign_*coalition_business_ +
+          # log(comments + 1)*coalition_type
+          # log(comments + 1)*coalition_business_ + 
+          # comments * coalition_type + 
+          # comments^2 * coalition_type +
+          # comments^2 * coalition_business +
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president, #+ president, 
+        data = coalitions_coded)
+
+mc2ej <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          campaign_*coalition_business_*ej_framed + 
+          coalition_ + log(coalition_size) + 
+          Coalition_Position +
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president, #+ president, 
+        data = coalitions_coded)
+
+mc3ej <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          log(comments + 1)*coalition_type*ej_framed + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president,# + president, 
+        data = coalitions_coded)
+
+mc4ej <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          #campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          log(comments + 1)*coalition_business_*ej_framed + # m4
+          # comments + comments^2 + coalition_type + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president,# + president, 
+        data = coalitions_coded)
+
+mc5ej <- feols(coalition_success ~ 
+          # campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          #FIXME comments100k + comments100k^2 +
+            coalition_type*ej_framed + #m5
+          # comments + comments^2 + coalition_business_ + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president, 
+        data = coalitions_coded)
+
+mc6ej <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          #FIXME comments100k + comments100k^2 +
+            coalition_business_*ej_framed + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed
+          # Agency and president FE 
+          | agency + president, 
+        data = coalitions_coded)
+
+mc6ej <- feols(coalition_success ~ 
+          #campaign_*coalition_type + # m1
+          # campaign_*coalition_business_ + # m2
+          # log(comments + 1)*coalition_type + # m3
+          # log(comments + 1)*coalition_business_ + # m4
+          # comments + comments^2 + coalition_type + #m5
+          #FIXME comments100k + comments100k^2 + coalition_business_*ej_framed + #m6
+          coalition_ + log(coalition_size) + #  coalition_size^2 + 
+          Coalition_Position + 
+          # comment_length + 
+          coalition_unopposed 
+          # Agency and president FE 
+          | agency + president, 
+        data = coalitions_coded %>% filter(agency %in% ej_agencies))
+
+modelsFE <- list(mc1ej, mc2ej, mc3ej, mc4ej, mc5ej, mc6ej)
+
+# paper table fixest
+modelsummary::modelsummary( modelsFE, 
+                            stars = TRUE, 
+                            #coef_map =
+                            coef_rename =  cm,
+                            gof_omit = "R2 .*|IC",
+                          add_rows = rowsFE, 
+                          title = "OLS Models of Coalition-Level Lobbying Success",
+                          notes = "") %>% 
+  kable2(file = "mc-success-ej")
+
+library(tidyr)
+values = coalitions_coded %>% 
+  tidyr::expand(president, 
+         coalition_business_,
+         coalition_unopposed = FALSE,
+         campaign_ = FALSE,
+         ej_framed,
+         coalition_congress = 0,
+         coalition_ = TRUE,
+         coalition_size = 2,
+         Coalition_Position = "Supports Rule",
+         agency = "BSEE")
+
+
+library(marginaleffects)
+mc2ej %>% 
+predictions(newdata = values) %>%
+  filter(president == "Obama", !is.na(coalition_business_)) %>% 
+  mutate(president = as.character(president)) %>%
+  mutate(ej_framed = ifelse(ej_framed, 
+                            "EJ Language Added/Changed", 
+                            "No Change"),
+         coalition_business_ = ifelse(coalition_business_,
+                                      "Regulated\nBusiness\nCoalition",
+                                      "Environmental\nCoalition")
+         ) %>% 
+  #drop_na() %>% 
+  ggplot() + 
+  aes(x = coalition_business_, y = predicted, color = coalition_business_, label = coalition_business_) + 
+  geom_pointrange(aes(ymin = predicted - 1.96*std.error,
+                  ymax = predicted + 1.96*std.error) ) +
+  facet_grid(. ~ ej_framed) +
+  labs(x = "",
+       y = "Predicted Lobbying Success") + 
+  scale_y_continuous(limits = c(-2,2.3), breaks=c(-2,-1,0,1,2), labels = c("Loss (-2)","Moderate\nLoss","Neither\nSuccess\nNor Loss", "Moderate\nSuccess", "Success (2)") ) +
+  theme_minimal() + 
+  theme(legend.position = "none",
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        panel.grid.major.x = element_blank()) + 
+  geom_text(size = 3.3, aes(y = predicted - 1.96*std.error, vjust = 1) )
+
+
+  ggsave(here::here("docs", "present", "Figs", "mc1ej-obama.png"), width = 4.5,
+  height = 3.5, units = "in")
+  
+  mc2ej %>% 
+predictions(newdata = values) %>%
+  filter(president == "Trump", !is.na(coalition_business_)) %>% 
+  mutate(president = as.character(president)) %>%
+  mutate(ej_framed = ifelse(ej_framed, 
+                            "EJ Language Added/Changed", 
+                            "No Change"),
+         coalition_business_ = ifelse(coalition_business_,
+                                      "Regulated\nBusiness\nCoalition",
+                                      "Environmental\nCoalition")
+         ) %>% 
+  #drop_na() %>% 
+  ggplot() + 
+  aes(x = coalition_business_, y = predicted, color = coalition_business_, label = coalition_business_) + 
+  geom_pointrange(aes(ymin = predicted - 1.96*std.error,
+                  ymax = predicted + 1.96*std.error) ) +
+  facet_grid(president ~ ej_framed) +
+  labs(x = "",
+       y = "Predicted Lobbying Success") + 
+  scale_y_continuous(limits = c(-2,2), breaks=c(-2,-1,0,1,2), labels = c("Loss (-2)","Moderate\nLoss","Neither\nSuccess\nNor Loss", "Moderate\nSuccess", "Success (2)") ) +
+  theme_minimal() + 
+  theme(legend.position = "none",
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        panel.grid.major.x = element_blank()) + 
+  geom_text(size = 3.3, aes(y = predicted - 1.96*std.error, vjust = 1) )
+
+  ggsave(here::here("docs", "present", "Figs", "mc1ej-trump.png"), width = 4.5,
+  height = 3.5, units = "in")
+```
+
 Table \@ref(tab:mc-success) shows that the main effect of public pressure campaigns, $\beta_1$, in Model 1 is `r mc1$coefficients[1] %>% round(2)` (S.E. = `r mc1$se[1] %>% round(2)`) on the five-point scale of lobbying success. Because these models include interactions with coalition type, the main effect is the estimated effect for the omitted category. In Model 1, this is the effect of a pressure campaign for a private interest group coalition. For public interest groups, the estimate is $\beta_1 + \beta_6$ = `r (mc1$coefficients[1] + mc1$coefficients[7]) %>% round(2)`, reflecting large negative interaction between indicators for public interest coalitions and pressure campaigns (*Pressure Campaign x Public*).  Estimates are inconsistent across specifications.  
 
 Models 3-6 use continuous measures of the scale of public pressure campaigns. Estimates are inconsistent across specifications, but Models 5 and 6 suggest that the relationship is initially negative and then positive for very large campaigns (the combined effect of the linear and quadratic terms is negative until approximately one million comments). One possible explanation for this result is that only very large campaigns create meaningful information about public demands. In sum, there is little evidence that pressure campaigns (either public or private) increase lobbying success, but there is strong evidence that public interest campaigns are much less successful than private interest campaigns. <!--If anything, there may be an overall negative relationship between campaigns that organize a large number of people and lobbying success.-->
@@ -416,12 +620,14 @@ I now turn from assessing variation *across coalitions* to variation *within org
 Estimates in Models 1 of Table \@ref(tab:mo-success-did) show the results of estimating Equation \@ref(eq:dnd). <!--These results suggest that the organizations were less successful when they mobilized more comments, more successful when they supported the rule, and less successful under President Trump than President Obama. -->
 Model 2 presents results from a similar model with fixed effects for each rule rather than for each agency. Model 3 includes indicator variables for each president interacted with the main variables of interest (whether an organization lobbies with a coalition that mobilizes public pressure and whether an organization lobbies with a public or private interest coalition). 
 
+```{r, cache=FALSE}
+comments_coded %<>% mutate(Organization = org_name,
+                           Docket = docket_id)
+```
+
 
 ```{r mo-success-did, results=TRUE}
 # mo-success-did
-comments_coded %<>% mutate(Organization = org_name,
-                           Docket = docket_id)
-
 mo1 = feols(success ~ campaign_*coalition_type + 
                    coalition_ + 
                    log(coalition_size) + 
@@ -466,6 +672,129 @@ modelsummary(models_o_success,
              add_rows = success_rows3,
              coef_rename = cm,
              title = "Difference-in-Difference Model of Lobbying Success Within Organizations") %>% kable2(file = "mo-success-did")
+```
+
+
+```{r mo-success-did-ej, results=TRUE, eval=TRUE, fig.width = 4.5, fig.height = 3.5}
+comments_coded %<>% 
+  mutate(ej_framed = docket_id %in% ej_framed_dockets)
+
+
+mo1ej = feols(success ~ campaign_ + 
+                ej_framed*business + 
+                   Position 
+                 # fixed effects
+                 | Organization + agency + president,
+               data = comments_coded %>% 
+  filter(comment_type == "Org") %>% 
+  distinct(agency, Organization, Docket, success, Position, coalition_congress, coalition_type,ej_framed,business,
+           coalition_, coalition_size, coalition_comments, president, campaign_) %>% filter(agency %in% ej_agencies) )
+
+mo2ej = feols(success ~ campaign_ + 
+                ej_framed*business + 
+                   coalition_ + 
+                   log(coalition_size) + 
+              coalition_congress+
+                   Position 
+                 # fixed effects
+                 | Organization + agency + president,
+               data = comments_coded %>% 
+  filter(comment_type == "Org") %>% 
+  distinct(agency, Organization, Docket, success, Position, coalition_congress, coalition_type,ej_framed,business,
+           coalition_, coalition_size, coalition_comments, president, campaign_) %>% filter(agency %in% ej_agencies) )
+
+# president dummy 3- way interaction 
+mo3ej = feols(success ~ campaign_  + ej_framed*business*president + 
+                   coalition_ + 
+                   log(coalition_size) + 
+              coalition_congress+
+                   Position 
+                 # fixed effects
+                 | Organization + agency,
+               data = comments_coded %>% 
+  filter(comment_type == "Org") %>% 
+  distinct(agency, Organization, Docket, success, Position, coalition_type, business, coalition_congress, ej_framed,
+           coalition_, coalition_size, coalition_comments, president, campaign_) %>% filter(agency %in% ej_agencies) )
+
+
+
+models_o_success_ej <- list(mo1ej, mo2ej,
+                            mo3ej)
+
+modelsummary(models_o_success_ej, 
+             stars = T, 
+             add_rows = success_rows3,
+             coef_rename = cm,
+             title = "Difference-in-Difference Model of Lobbying Success Within Organizations") %>% kable2(file = "mo-success-did-ej")
+
+library(tidyr)
+values = comments_coded %>% 
+  tidyr::expand(president, 
+         business,
+         campaign_ = FALSE,
+         ej_framed,
+         coalition_congress = 0,
+         coalition_ = TRUE,
+         coalition_size = 2,
+         Position = "Supports Rule",
+         agency = "BSEE",
+         Organization = c("API", "Sierra Club")) %>% 
+  filter(!(Organization == "API" & business == FALSE)) %>% 
+  filter(!(Organization == "Sierra Club" & business == TRUE)) 
+
+#comments_coded %>% filter(str_dct(Organization, "sierra club|api$")) %>% distinct(agency) 
+
+library(marginaleffects)
+mo1ej %>% 
+predictions(newdata = values) %>%
+  filter(president == "Trump") %>% 
+  mutate(president = as.character(president)) %>%
+  mutate(ej_framed = ifelse(ej_framed, "EJ Language Added/Changed", "No Change")) %>% 
+  #drop_na() %>% 
+  ggplot() + 
+  aes(x = Organization, y = predicted, color = Organization, label = Organization) + 
+  geom_pointrange(aes(ymin = predicted - 1.96*std.error,
+                  ymax = predicted + 1.96*std.error) ) +
+  facet_grid(president ~ ej_framed) +
+  labs(x = "",
+       y = "Predicted Lobbying Success") + 
+  scale_y_continuous(limits = c(-3,2), breaks=c(-2,-1,0,1,2), labels = c("Loss (-2)","Moderate\nLoss","Neither\nSuccess\nNor Loss", "Moderate\nSuccess", "Success (2)") ) +
+  theme_minimal() + 
+  theme(legend.position = "none",
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        panel.grid.major.x = element_blank()) + 
+  geom_text(hjust = -.1,vjust = -1, size = 3.3) 
+
+
+  ggsave(here::here("docs", "present", "Figs", "mo1ej-trump.png"), width = 4.5,
+  height = 3.5, units = "in")
+
+# obama only
+mo1ej %>% 
+predictions(newdata = values) %>%
+  filter(president == "Obama") %>% 
+  mutate(president = as.character(president)) %>%
+  mutate(ej_framed = ifelse(ej_framed, "EJ Language Added/Changed", "No Change")) %>% 
+  #drop_na() %>% 
+  ggplot() + 
+  aes(x = Organization, y = predicted, color = Organization, label = Organization) + 
+  geom_pointrange(aes(ymin = predicted - 1.96*std.error,
+                  ymax = predicted + 1.96*std.error) ) +
+  facet_grid(. ~ ej_framed) +
+  labs(x = "",
+       y = "Predicted Lobbying Success") + 
+  scale_y_continuous(limits = c(-2,2), breaks=c(-2,-1,0,1,2), labels = c("Loss (-2)","Moderate\nLoss","Neither\nSuccess\nNor Loss", "Moderate\nSuccess", "Success (2)") ) +
+  theme_minimal() + 
+  theme(legend.position = "none",
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        panel.grid.major.x = element_blank()) + 
+  geom_text(hjust = -.1,vjust = -1, size = 3.3) 
+
+
+  ggsave(here::here("docs", "present", "Figs", "mo1ej-obama.png"), width = 4.5,
+  height = 3.5, units = "in")
 ```
 
 Like the coalition-level models in Table \@ref(tab:mc-success), organizations were more likely to get their desired result when they supported the proposed rule. The effect sizes are smaller in the difference-in-difference specification but significantly different from zero. 
