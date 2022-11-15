@@ -795,8 +795,8 @@ knitr::include_graphics("Figs/logo-regex.png")
 
 ### DV 2: Getting substantive policy demands
 
-Lobbying success for all commenters on 150 rules (random sample)
-- 10,894 hand-coded comments
+Lobbying success for all commenters (random sample of 150 rules $\Rightarrow$ 10,894 hand-coded comments) 
+- 
 
 ???
 
@@ -1325,6 +1325,7 @@ background-size: contain
 ---
 
 name: methods 
+class: inverse center middle
 
 # Methods 
 
@@ -1452,6 +1453,8 @@ read_csv() |>
 ---
 
 name: entity
+
+# Regex tables to tag entities
 
 - **Inductive:** Add entity strings that frequently appear in the data to regex tables.  
 - **Iterative:** Add to regex tables as humans identify new entities or new aliases for known entities. Update data (Google Sheets) to speed up hand coding.
@@ -1603,56 +1606,6 @@ Of 39,392,957 public comments
 
 - 82% of all comments raising EJ also mention climate change, but only 14% of **unique** comments raising EJ also mention climate change
 
----
-
----
-
-background-image: url(Figs/brianadams.png)
-background-size: cover
-name: ej-mercury
-
-### Example: Safe Levels of Mercury 
---
-(For Whom?)
-
-???
-Before the politics of who gets what, there is the politics of who the whos *are*. What are the groups or communities deserving consideration? 
-
-- 2000 Notice: "the U.S. population."
-
---
-
-- 2002 Draft: Regulated entities + "Other types of entities not listed could also be
-affected."
-
---
-
-- 2011 Draft: disparate impacts on "vulnerable populations" including "African Americans," "Hispanic,"
-"Native American," and "Other and Multi-racial" groups.
-
---
-
-- 2012 Final Rule: EJ analysis adds "minority, low income, and indigenous"
---
-
-- 2020 Rollback: "These communities may experience foregone benefits" 
-
---
-
-- 2021 Draft: 2012 Final Rule categories + "differentiated subsistence fisher
-populations" 
-
-
-
-???
-2011 Draft: Five pages of EJ analysis of the disparate impacts
-on
-
-- 2020 Rollback: "While these communities may experience foregone benefits as a result of this action, the potential foregone [health benefits] are small." 
-
-⁉️
-
-30/51 pages in Biden
 
 ---
 
