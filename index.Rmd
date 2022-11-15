@@ -2,7 +2,7 @@
 title: "Public Pressure Campaigns and Bureaucratic Policymaking"
 author: "Devin Judge-Lord"
 abstract: | 
-  '`r readlines(here::here("abstract-proquest.md"))`'
+  '`r readLines(here::here("abstract-proquest.md"))`'
 date: "" #"`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
