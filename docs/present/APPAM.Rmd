@@ -114,6 +114,13 @@ webshot(file, "methods-pres.pdf")
 ```
 
 
+layout: true
+
+<div class="my-footer"><span>Devin Judge-Lord (Harvard University)&emsp;&emsp;</span></div> 
+
+
+---
+
 name: project 
 
 class: inverse center
@@ -584,6 +591,25 @@ Within-org OLS model
 knitr::include_graphics("Figs/m-diffindiff.png")
 ```
 ]
+
+
+---
+
+
+class: inverse
+
+
+### U.S. federal agencies rarely address  environmental justice
+--
+, but they are much more likely to do so when pressured.
+
+--
+
+### National advocacy organizations are more likely to have substantive policy demands met.
+
+--
+
+## Campaigns may have indirect effects via framing and mobilizing congressional oversight.
 
 
 ---
