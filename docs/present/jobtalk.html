@@ -472,7 +472,7 @@ exclude: false
 
 --
 
-- Legibility vs. novelty?
+-  Novelty vs legibility?
 
 --
 - Pressure: 
@@ -698,12 +698,10 @@ Lobbying success for all commenters on a random sample of 150 rules (10,894 hand
 
 name: model
 class:  inverse 
+exclude: true
 
 # Modeling the probability of policy change
 
-
-
---
 
 ###(1) Variation across agencies:  
 Pr(Policy Change | President) ~ Policy Demands  \+ Coalition Size  \+ Public Attention \+ Agency's Prior Rate of Addressing Environmental Justice
@@ -727,22 +725,30 @@ Because log odds coefficients are hard to interpret and because my models have i
 ---
 
 
-### (1) Logit: `\(Y_i = \beta_{1:n} X_{i} + \delta_p + \epsilon_{ip}\)`
+### (1.1a) Logit: `\(Y_i = \beta_{1:n} X_{i} + \delta_p + \epsilon_{ip}\)`
 
 `\(Y_i\)`: the log odds of change in rule `\(i\)` by agency `\(k\)` under president `\(p\)` &lt;!--: `\(log[\frac{P(EJ\ in\ FR)}{1−P(EJ\ in\ FR)}]\)`--&gt;
 
+--
+
 `\(X_{i}\)`: features of rule `\(i\)`
   - whether comments raise environmental justice
-  - the number of organizations raising environmental justice (logged)
-  - the total number of comments (logged) `\(\times\)` whether comments raise environmental justice
+--
+  
   - agency `\(k\)`'s share of prior draft rules mentioning environmental justice 
+--
+  
+  - the number of organizations raising environmental justice (logged)
+--
+  
+  - the total number of comments (logged) `\(\times\)` whether comments raise environmental justice
   
 `\(\delta_p\)`: president fixed effect   
 `\(\epsilon_{ip}\)`: cluster-robust errors by president
 
 ---
 
-### (2) Logit:  `\(Y_i = \beta_{1:n} X_{i} + \gamma_k + \delta_p + \epsilon_{ipk}\)`
+### (1.1b) Logit:  `\(Y_i = \beta_{1:n} X_{i} + \gamma_k + \delta_p + \epsilon_{ipk}\)`
 
 `\(Y_i\)`: the log odds of change in rule `\(i\)` by agency `\(k\)` under president `\(p\)` &lt;!--: `\(log[\frac{P(EJ\ in\ FR)}{1−P(EJ\ in\ FR)}]\)`--&gt;
 
@@ -1170,9 +1176,6 @@ name: president
 &lt;div class="figure" style="text-align: center"&gt;
 &lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-m-PR-president-median-pres-1.png" alt="   " width="65%"  /&gt;&lt;/div&gt;
 ]
-
- [[TABLE]](#table)
-
 
 
 ---
@@ -2131,7 +2134,7 @@ name: example-demands
 
 name: tree 
 
-.left-column[Hand-coded sample]
+.left-column[#Hand-coded sample]
 
 &lt;div class="figure" style="text-align: center"&gt;
 &lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/tree.png" alt="   " width="36%"  /&gt;&lt;/div&gt;
