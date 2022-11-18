@@ -25,7 +25,7 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-      slideNumberFormat: "%current%/40"           # 12/42 
+      slideNumberFormat: "%current%"           # 12/42 
 editor_options: 
   chunk_output_type: console
 ---
