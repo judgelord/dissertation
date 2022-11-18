@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Do Public Pressure Campaigns Influence Bureaucratic Policymaking?</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Devin Judge-Lord   Harvard University" />
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="footer-header.css" type="text/css" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Do Public Pressure Campaigns Influence Bureaucratic Policymaking?
+### Devin Judge-Lord <br> Harvard University
+### Papers, slides, &amp; data: <a href="">judgelord.github.io</a>
+
+---
+
+
+
+
+
+
+
+
+
+name: project 
+
+class: inverse center
+exclude: false
+
+class: inverse center
+
+# The Broader Project: Public Pressure
+
+
+Mobilization
+
+
+(grassroots, astroturf, elected officials)
+
+↓
+
+Getting policymakers' attention and framing policy debates
+
+↓
+
+Substantive policy influence
+
+↓
+
+Surviving judicial review
+
+???
+Hi, my name is Devin Judge-Lord; I'm a postdoc at Harvard Univ.
+I am so grateful to be able to share this with you.
+- My work is at the intersection of two literatures that have not had much contact...On the one hand, social movements and civic engagement have long been a core interest of political scientists. We are highly uncertain about the size of the effects of actions like letter writing, signing petitions, and protests, but there is little doubt that these things matter at a large enough scale.
+- On the other hand, bureaucratic policy processes like agency rulemaking are often discussed as if they operate with technocratic rationality. In a sense, mass politics is missing from a lot of the administrative law literature and even from political science theories and formal models of bureaucratic policymaking. 
+- The paper I am presenting today is a small part of a larger book project: 
+---
+
+class: inverse center
+
+# The Broader Project: Public Pressure
+
+
+Mobilization
+
+↓
+
+&lt;mark&gt;Getting policymakers' attention and framing policy debates&lt;/mark&gt;
+
+↓
+
+&lt;mark&gt;Substantive policy influence&lt;/mark&gt;
+
+↓
+
+Surviving judicial review
+
+
+???
+
+It is a middle step in the causal chain from mobilization to substantive policy influence. 
+As I turn this chapter into an article,
+I am struggling to include just enough and not too much of what comes before and after.
+
+I need enough about mobilization to be clear about who is empowered.
+
+I need enough substantive policy influence, to be honest about the limited power of framing and discourse effects in any one policy fight. 
+But, this paper is really about the aggregate effects of many linked campaigns on the discourse and issue frames in the policy process---that is, how a movement affects policymaking 
+across institutions and over time.
+
+---
+
+
+exclude: false
+
+
+### Scholars of bureaucracy focus on *technical* information
+
+
+???
+- Bureaucratic policymaking, especially, is about expertise (Wagner 2010)
+
+
+Everything we know about lobbying, especially lobbying in agency rulemaking, tells us that information is the currency of lobbying. 
+
+Information causes policymakers to change their minds, *especially* when policymakers are experts and lawyers.
+
+Indeed, research, including my own research elsewhere, shows that business groups dominate lobbying in rulemaking *because* they can generate and provide relevant information. 
+
+Thus far, by “information,” scholars generally mean technical and legal information.
+
+--
+
+exclude: false
+
+
+### How might *political* information matter?
+
+--
+
+- Advancing frames about who is affected?
+
+--
+
+- Legibility vs. novelty?
+
+--
+- Pressure: 
+
+ - Coalition size? [(Dwidar 2021, Nelson &amp; Yackee 2012)]()
+
+ - Public attention?
+
+???
+
+---
+
+class: inverse  middle
+name: data
+
+
+# Data
+
+### *All* 13,179 draft and final rule pairs from 40 agencies, 1993-2020 
+
+### ~40,000,000 public comments on these draft rules
+
+
+
+???
+
+We don't have roll call votes. 
+
+I collected all 40 million comments on these draft and final rule pairs. 
+Almost 5 million mentioned EJ.
+
+28 thousand of these are unique --- This involved some methodological tricks that I will explain in a second, but the major point is that Human coding and computational text analysis are more powerful when combined
+
+
+
+---
+
+# Measuring influence
+
+### DV 1: Getting policymakers' attention/engagement/response
+
+1.1 Adding policy language (All 11,315 rules)   
+1.2 Changing policy language (All 1,864 rules)
+
+### DV 2: Getting substantive policy demands
+
+Lobbying success for all commenters on a random sample of 150 rules (10,894 hand-coded comments)
+
+2.1 Across 284 coalitions   
+2.2 Within 3,932 organizations
+
+???
+
+ - 284 coalitions 
+ 
+---
+
+exclude: false
+name: findings
+
+.left-column[  
+  `\(H_1\)` Agencies respond to environmental justice concerns  ]
+ 
+
+.right-column[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-m-PR--median-pres-2.png" alt="   " width="65%"  /&gt;&lt;/div&gt;
+]
+
+???
+
+All of the plots I'll show have predicted probability of change on the x-axis and some predictors we care about on the y-axis. This one also shows predicted values for two different agencies, the EPA and the PHMSA. 
+
+---
+
+exclude: false
+
+
+.left-column[
+ `\(\checkmark\)` `\(H_1\)` Agencies respond to environmental justice concerns
+ ]
+ 
+.right-column[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-m-PR-median-pres-1.png" alt="   " width="65%"  /&gt;&lt;/div&gt;
+]
+
+ [[TABLE]](#table)
+
+
+---
+
+.left-column[  
+  `\(H_2\)` Agencies that more frequently address environmental justice are more responsive
+ ]
+
+
+
+.right-column[
+&lt;img src="Figs/ej-m-PR-shareI-pres-2.png" width="65%"  style="display: block; margin: auto;" /&gt;
+]
+
+
+ [[TABLE]](#table)
+
+
+
+---
+
+ .left-column[  
+ 
+ `\(\checkmark\)` `\(H_2\)` Agencies that more frequently address environmental justice are more responsive
+ ]
+ 
+ .right-column[
+&lt;img src="Figs/ej-m-PR-shareI-pres-1.png" width="65%"  style="display: block; margin: auto;" /&gt;
+]
+
+ [[TABLE]](#table)
+ 
+---
+
+
+ .left-column[  
+  `\(H_3\)` Agencies respond to larger coalitions?  
+ ]
+
+
+
+.right-column[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-m-PR-ejcomments-agencyFE-pres-2.png" alt="   " width="75%"  /&gt;&lt;/div&gt;
+]
+
+ [[TABLE]](#table)
+
+
+
+---
+
+.right-column[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-m-PR-ejcomments-agencyFE-pres-1.png" alt="   " width="75%"  /&gt;&lt;/div&gt;
+
+]
+
+ .left-column[  
+ `\(\checkmark\)`  `\(H_3\)` Agencies respond to larger coalitions  
+ ]
+
+
+[[TABLE]](#table)
+
+---
+
+.left-column[
+`\(H_4\)` Agencies respond to more public attention? 
+]
+
+.right-column[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-m-PR-comments-share-pres-2.png" alt="   " width="75%"  /&gt;&lt;/div&gt;
+]
+
+ [[TABLE]](#table) 
+
+
+---
+
+.left-column[
+`\(H_4\)` Agencies respond to more public attention?
+  ]
+  
+
+.right-column[
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-m-PR-comments-share-pres-1.png" alt="   " width="75%"  /&gt;&lt;/div&gt;
+]
+
+  [[TABLE]](#table) 
+
+
+---
+
+`\(\checkmark\)` `\(H_4\)` Agencies respond to more public attention (absent specific pressure)
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-m-PR-comments-share-pres2-1.png" alt="   " width="90%"  /&gt;&lt;/div&gt;
+
+[[TABLE]](#table)
+
+---
+
+name: conclusion
+
+## To sum up
+
+|                                            | Environmental Justice Language Added |  
+| ------------------------------------------ | :--: | 
+| Environmental Justice Demands     | `\(\checkmark\)`   | 
+| Prior rate                             | `\(\checkmark\)`   | 
+| Coalition Size        | `\(\checkmark\)`   | 
+| Public Attention               | `\(\checkmark\)`   | 
+
+
+More pressure `\(\rightarrow\)` more likely that environmental justice language is added.
+--
+`\(\implies\)` Public pressure helps advance issues frames.
+
+--
+
+Also true for pressure to frame rules as relevant to climate change. [[more]](#cj-results)
+
+---
+
+name: substantive
+
+.left-column[
+
+DV2: Who gets their substantive policy demands met?
+
+
+- Business Associations
+
+- Law Firms &amp; National Advocacy Organizations
+
+[[see Coalition-level OLS model]](#ej-success)
+
+]
+
+.right-column[
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-success-table.png" alt="   " width="85%"  /&gt;&lt;/div&gt;
+]
+
+???
+
+In line with previous scholarship 
+
+Beyond previous scholarship 
+
+---
+
+
+name: success-models
+
+### (1) Variation across coalitions
+
+Pr(coalition success | agency + president)
+~ coalition + business coalition + coalition size +  supports rule + pressure campaign (+ interactions)
+
+
+### (2) Variation within organizations that lobby on multiple rules
+
+Pr(organization success | organization + agency + president) ~ coalition + business coalition + coalition size +  supports rule + pressure campaign (+ interactions)
+
+---
+
+name: ej-success
+
+.left-column[
+### When coalitions mobilize frames, they are more likely to win 
+
+Cross-sectional OLS model of coalition-level lobbying success 
+([Rates](#substantive), [Table](#coalition-success-table), [DiD version](#ej-org-success))
+
+]
+
+.right-column[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/mc1ej-obama.png" alt="   " width="90%"  /&gt;&lt;/div&gt;
+]
+
+---
+
+name: ej-org-success
+
+.left-column[
+
+### When organizations mobilize frames, they are more likely to win 
+
+Within-organization OLS model
+([Rates](#substantive), [Table](#org-success-table), [Cross-sectional version](#ej-success))
+
+]
+
+.right-column[
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/mo1ej-obama.png" alt="   " width="90%"  /&gt;&lt;/div&gt;
+]
+
+
+---
+
+name: success-coalition
+
+.left-column[
+### Larger coalitions  `\(\rightsquigarrow\)`  more likely to win 
+
+Coalition-level OLS model
+]
+
+ 
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/m-influence.png" alt="   " width="35%"  /&gt;&lt;/div&gt;
+
+---
+
+name: coalition-legislators
+
+.left-column[
+### Pressure campaigns seem to mobilize legislators 
+
+Coalition-level Poisson model
+([Table](#mediation-table))
+]
+
+
+.right-column[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/m-congress.png" alt="   " width="80%"  /&gt;&lt;/div&gt;
+]
+
+---
+
+.left-column[
+### When organizations mobilize more legislators, they may be more likely to win 
+
+
+Within-org OLS model
+
+]
+
+.right-column[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/m-diffindiff.png" alt="   " width="90%"  /&gt;&lt;/div&gt;
+]
+
+
+---
+
+class: inverse middle
+name: thanks
+
+## Thank you!
+
+- Papers, slides, data (Rdata, SQL): [judgelord.github.io](judgelord.github.io/)  
+--
+
+- Rules relevant to climate or environmental justice currently open for comment: [judgelord.github.io/rulemaking/open]( https://judgelord.github.io/rulemaking/open)
+
+
+
+---
+
+class: inverse
+
+# Next 
+
+- [Audit study](): What causes institutional receptivity?
+- [Co-framing](): EJ + “health", "disaster", "climate" &amp; changes in term frequency
+- [Surveys]() to compare comments to public opinion
+- [Lobbying networks]()
+- [Feedback](): The mobilizing and demobilizing effects of the policy process
+
+???
+
+Carving out a paper: More or less on mobilization or hand-coded influence? 
+
+Is the aggregate influence of related campaigns a defensible working deff of a social movement, or is there a better way of talking about this? 
+
+co-framing (Baumgartner and Jones) 
+
+Next Steps
+- More on coalition structure and policy success, especially opposing coalitions
+- Better (hand-coded) measures of policy change
+- Model changes in texts that already discuss climate/EJ/CJ
+
+Framing 
+- More on how social movements may impact policy. Petitioning and protest? Lobbying?
+
+
+---
+
+name: toc
+class: inverse
+
+# Appendix Slides 
+.pull-left[
+
+Data &amp; Methods: [Sample](#tree) | [Hand coding](#datasheet) | [Spatial](#spatial) | [Census race](#race) | [Zip code](#gis) | [GIS](#gis) | [Regex tables](#regex) | [Next steps](#methods-next)
+
+Mobilizing: [Organizations](#orgs) | [Mass comments](#mass) &lt;!-- Grassroots|Astroturf--&gt; | [Members of Congress](#coalition-legislators)
+
+Framing: 
+- EJ rules: [by President](#ej-data-rules) | [by Agency](#ej-data-agencies) | [Mercury Rules](#ej-mercury-long) | [Theory](#ej-hyp) | [Framing](#ej-results) | [Success](#ej-success) | [Tables](#table) 
+
+]
+  
+.pull-right[
+
+- Climate rules: [SIPs](#sips) | [Methane Rules](#methane) | [Data](#cj-data) | [Results](#cj-results) |  [Tables](#cj-table) | [Paper](https://judgelord.github.io/research/cj/)
+ 
+Influence: [Models](#success-models) | [by Campaign Type](#success-coalition) | [by Legislator Support](#coalition-legislators) | [by Coalition](#ej-success) | [by Organization](#ej-org-success) | [Example demands](#example-demands)
+
+Judicial review: [Data](#deference-data) | [Results](#deference-results) | [Table](#deference-table) | [Paper](https://judgelord.github.io/research/deference/)
+
+]
+
+
+---
+
+exclude: false
+name: president 
+
+
+.left-column[  
+ `\(\checkmark\)`  `\(H_1\)` Agencies respond to environmental justice concerns 
+ 
+ 
+(Random effects model)
+ ]
+ 
+
+.right-column[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-m-PR-president-median-pres-1.png" alt="   " width="65%"  /&gt;&lt;/div&gt;
+]
+
+ [[TABLE]](#table)
+
+
+
+---
+
+name: race
+
+### EJ Comments by Census Race
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;Estimated Racial Distribution from Census Surnames of Commenters raising "Environmental Justice" Concerns in Rulemaking&lt;/p&gt;&lt;img src="Figs/ejcommentsbyrace-1.png" alt="Estimated Racial Distribution from Census Surnames of Commenters raising &amp;quot;Environmental Justice&amp;quot; Concerns in Rulemaking" width="40%"  /&gt;&lt;/div&gt;
+
+---
+
+name: gis
+
+background-image: URL(Figs/ej-gis.png)
+background-size: contain
+
+
+---
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-gis-hist.png" alt="   " width="80%"  /&gt;&lt;/div&gt;
+
+---
+
+background-image: URL(Figs/ej-gis-diesel.png)
+background-size: contain
+
+---
+
+name: methods 
+class: inverse center middle
+
+# Methods 
+
+
+
+
+---
+
+Human coding and computational text analysis are more powerful when combined in an iterative workflow.
+&lt;!--I show how search and text-reuse tools can aid common hand-coding tasks. 
+Human coding can both inform and be informed by rule-based information extraction---iteratively structuring queries on unstructured text.--&gt;
+
+1. Text analysis tools can strategically **select texts for human coders**---texts representing larger samples and outlier texts of high inferential value.
+2. Preprocessing can **speed up hand-coding** by extracting features like names and key sentences. 
+3. Humans and computers can iteratively **tag entities** using regex tables 
+&lt;!--(e.g., identify organizations)--&gt; and **group texts by key features** (e.g., identify lobbying coalitions by common policy demands)
+
+---
+
+Applying simple search and text-reuse methods to public comments on all U.S. federal agency rules, a **sample of 10,894 hand-coded comments** yields **41 million as-good-as-hand-coded comments** regarding both the organizations that mobilized them and the extent to which policy changed in the direction they sought. &lt;!--This large sample enables new analyses of lobbying coalitions, social movements, and policy change.--&gt;
+
+&lt;!--
+
+# The Broader Project: Public Pressure
+
+Mobilization
+
+
+(grassroots, astroturf, elected officials)
+
+↓
+
+Getting policymakers' attention and framing policy debates
+
+↓
+
+Substantive policy influence
+
+↓
+
+Surviving judicial review
+
+
+
+# 50 million public comments on proposed agency rules
+
+----&gt;
+
+
+---
+
+### Hand-coding dynamic data
+
+&lt;!--
+
+- 15 coders 
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;Incorrectly Labeled Coalition Identified by Automated Check&lt;/p&gt;&lt;img src="../../figs/greyhound.png" alt="Incorrectly Labeled Coalition Identified by Automated Check" width="100%"  /&gt;&lt;/div&gt;
+
+---&gt;
+
+Workflow: `googlesheets4` allows analysis and improving data in real time. For example: 
+
+- The "org_name" column is populated with a guess from automated methods. As humans identify new organizations and aliases, other documents with the same entity strings are auto-coded to match human coding.   
+- As humans identify each organization's policy "ask," other texts with the same ask are put in their coalition.   
+- If the organization and coalition become known, it no longer needs hand coding.
+
+---
+
+name: datasheet
+
+Coded Public Comments in a Google Sheet
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/datasheet.png" alt="   " width="100%"  /&gt;&lt;/div&gt;
+
+---
+
+
+# Grouping with key phrases
+
+1. Humans identify groups of selected documents (e.g., lobbying coalitions)
+2. Humans copy and paste key phrases
+3. Computer puts other documents containing those phrases in the same group (coalition)
+
+*Preprocessing tip:* 
+&lt;!--**Digitized text** allows humans to paste text exactly matching machine-read strings.  --&gt;
+**Summaries** speed hand-coding (e.g., use `textrank` to select representative sentences).
+
+---
+
+
+name: regex
+
+### Regex tables to tag entities
+
+
+- **Deductive:** Start with databases of known entities.
+
+
+&lt;!--### Consolidating entity name variants with regex tables--&gt;
+
+
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
+&lt;caption&gt;Lookup Table Deduced from Center for Responsive Politics Lobbying Data, Collapsed into an Initial Regular Expression Table&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Entity &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Pattern &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 3M Co &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3M Co|3M Health Information Systems|Ceradyne|Cogent Systems|Hybrivet Systems &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Teamsters Union &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Brotherhood of Locomotive Engineers (and|&amp;amp;) Trainmen|Brotherhood of Maint[a-z]* of Way Employ|Teamsters &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+name: entity
+
+### Regex tables to tag entities
+
+- **Inductive:** Add entity strings that frequently appear in the data to regex tables.  
+- **Iterative:** Add to regex tables as humans identify new entities or new aliases for known entities. Update data (Google Sheets) to speed up hand coding.
+
+&lt;!--### Add to regex tables as hand coders identify new aliases--&gt;
+
+
+**Fig 2:** Iteratively Building Regex Tables
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/methods-regex.png" alt="   " width="100%"  /&gt;&lt;/div&gt;
+
+---
+
+The `legislators` package adds name variants (e.g., "Liz Warren") to standard legislator names.
+
+
+
+
+For example, the `legislators` package uses a regex table, adding variants (e.g., "AOC") to standard legislator names to detect them in messy text.
+
+---
+
+
+name: orgs
+
+
+
+
+&lt;!--Iteratively linking comments to the organizations that wrote or mobilized them (and thus strings to identify similar documents), I find that a few advocacy organizations mobilize the vast majority of comments. 
+--&gt;
+
+
+Of 58 million public comments on proposed agency rules, the top 100 organizations mobilized 43,938,811. The top ten organizations mobilized 25,947,612.
+
+
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
+&lt;caption&gt;The Top 5 Organizations Mobilized 20 Million Public Comments&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Organization &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Rules Lobbied On &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Pressure Campaigns &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Percent (Campaigns /Rules) &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Comments &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Average per Campaign &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NRDC &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 530 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 62 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 11.7% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5,939,264 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 95,795 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Sierra Club &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 591 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 110 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18.6% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5,111,922 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 46,472 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; CREDO &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 90 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 41 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 45.6% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3,019,150 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 73,638 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Environmental Defense Fund &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 111 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 31 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 27.9% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2,849,517 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 91,920 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Center For Biological Diversity &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 572 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 86 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 15.0% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2,815,509 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 32,738 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Earthjustice &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 235 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 59 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 25.1% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2,080,583 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 35,264 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+
+name: mass
+
+###  Most public comments result from organized pressure campaigns
+
+**Fig. 5:** Public Comments on Regulations.gov, 2005-2020
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/comments-mass-1.png" alt="   " width="80%"  /&gt;&lt;/div&gt;
+
+Comments that share a 10-gram with 99 or more others are part of a mass comment campaign.
+
+---
+
+name: methods-next 
+
+### Next steps: 
+
+Methods   
+- Compare exact entity linking (regex tables) to probabilistic methods (`linkit`, `fastlink`, supervised classified with hand-coded training set)
+- Compare exact grouping (e.g., by policy demands) to supervised probabilistic classifiers/clustering
+
+Substantive   
+- Test policy receptivity using rates of addressing Climate and EJ out of sample (direct rules &amp; notices)
+- Better measures of policy change
+- Alternative estimation (hierarchical Bayes)
+- Cumulative effects over time (hazard models)
+- Placebo test? 
+
+
+---
+
+
+class: inverse center middle 
+
+# Environmental Justice 
+
+---
+
+
+background-image: url(Figs/brianadams.png)
+background-size: cover
+name: ej-mercury-long
+
+### Example: Safe Levels of Mercury (For Whom?)
+
+???
+Before the politics of who gets what, there is the politics of who the whos *are*. What are the groups or communities deserving consideration? 
+
+- 2000 Notice: "the U.S. population."
+
+--
+
+- 2002 Draft: Regulated entities + "Other types of entities not listed could also be
+affected."
+
+--
+
+- 2011 Draft: disparate impacts on "vulnerable populations" including "African Americans," "Hispanic,"
+"Native American," and "Other and Multi-racial" groups.
+
+--
+
+- 2012 Final Rule: EJ analysis adds "minority, low income, and indigenous"
+--
+
+- 2020 Rollback: "These communities may experience foregone benefits" 
+
+--
+
+- 2021 Draft: 2012 Final Rule categories + "differentiated subsistence fisher
+populations" + "children exposed prenatally"
+
+
+
+???
+2011 Draft: Five pages of EJ analysis of the disparate impacts
+on
+
+- 2020 Rollback: "While these communities may experience foregone benefits as a result of this action, the potential foregone [health benefits] are small." 
+
+⁉️
+
+30/51 pages in Biden
+
+---
+
+
+background-image: url(Figs/brianadams.png)
+background-size: cover
+
+
+### Public comments on proposed agency rules
+
+&gt; `"The amount of methyl-mercury and other bioaccumulative chemicals consumed by Alaskans (especially Alaskan Natives) could potentially be much higher than is assumed" - Heather McCausland of the Alaska Community Action on Toxics (ACAT)`
+
+---
+
+
+background-image: url(Figs/earthjustice.png)
+background-size: cover
+background-position: bottom
+background-color: white
+
+
+
+
+
+&gt; `"Such an approach ignores the cumulative pollution burdens experienced by environmental justice communities." - Amanda Goodin, Staff Attorney, Earthjustice on behalf of Communities for a Better Environment et al.`
+
+---
+
+### Public comments on proposed agency rules
+
+
+&gt; `"Attached are files containing the names of 11,478 individuals who have submitted public comments urging the Bureau of Land Management (BLM) to strengthen the proposed regulations on methane waste and pollution on federal and tribal lands"` 
+
+---
+
+background-image: url(Figs/Clinton-ej.jpg)
+background-size: cover
+
+
+`“Addressing disproportionately high and adverse human health or environmental effects of programs, policies, and activities on minority populations and low-income populations.”`
+
+
+---
+
+### Data: Comments on Draft Rules
+
+Of 13,111 relevant agency rules, less than 15% addressed environmental justice, and 8%  addressed climate change, despite growing activist demand.
+
+Of 39,392,957 public comments 
+
+- 20% &lt;!--, 17,857,018 (421,880 unique)--&gt; raise "climate change"
+
+- 2% &lt;!--, 3,248,697 (2,138 unique)--&gt; also mention environmental justice or climate justice
+
+- 82% of all comments raising EJ also mention climate change, but only 14% of **unique** comments raising EJ also mention climate change
+
+
+---
+
+name: ej-data-rules
+
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-data-1.png" alt="   " width="90%"  /&gt;&lt;/div&gt;
+
+
+
+---
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-data-2.png" alt="   " width="90%"  /&gt;&lt;/div&gt;
+
+
+
+---
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-data-3.png" alt="   " width="90%"  /&gt;&lt;/div&gt;
+
+
+
+---
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-data-4.png" alt="   " width="90%"  /&gt;&lt;/div&gt;
+
+---
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-data-5.png" alt="   " width="90%"  /&gt;&lt;/div&gt;
+
+
+---
+
+### Data: Final Rules
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-data-ejfr-1.png" alt="   " width="100%"  /&gt;&lt;/div&gt;
+
+---
+
+### Data: Proposed Rules
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-data-ejpr-1.png" alt="   " width="100%"  /&gt;&lt;/div&gt;
+
+---
+
+
+name: ej-data-agencies
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-data-agencies100-1.png" alt="   " width="95%"  /&gt;&lt;/div&gt;
+
+
+---
+
+name: ej-comments
+
+
+### Data: ~40,000,000 Public Comments
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-comments-1.png" alt="   " width="70%"  /&gt;&lt;/div&gt;
+
+
+???
+
+I collected all 40 million comments on these draft and final rule pairs. 
+Almost 5 million mentioned EJ.
+
+The top row of plots with the purple border shows proposed rules that did address EJ; I use this set to assess whether EJ language changed between the draft and the final. 
+
+The lower two rows in the red box show proposed rules that did not address EJ, and the middle row shows rules where EJ language was added. 
+
+Each point is a rule. 
+Blue ones are the ones where commenters raised EJ concerns. 
+Red ones are where no comments raised EJ concerns.
+Y-axis is the total number of comments the rule received. 
+
+---
+
+
+### Data: ~40,000,000 Public Comments
+
+~4,800,000 (~28,000 unique) comments raise EJ concerns
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/comment_percent_match_plot.png" alt="   " width="45%"  /&gt;&lt;/div&gt;
+
+???
+
+Using n-gram matching methods similar to plagiarism detection, I collapse form letters and petitions into representative texts. As most comments are form letters, that 5 million collapses to 28 thousand unique texts.
+This figure shows the percentage of shared text in a sample of documents.
+The black squares on the diagonal show that each comment has a perfect overlap with itself. 
+The block of grey partial matches reflects a public pressure campaign, with a lot of shared 10-grams. 
+I then attach these to lobbying coalitions by hand. 
+
+
+
+---
+
+
+### Data: Comments on Draft Rules
+
+Of 13,111 relevant agency rules, less than 15% addressed environmental justice, and 8%  addressed climate change, despite growing activist demand.
+
+Of 39,392,957 public comments 
+
+- 20% &lt;!--, 17,857,018 (421,880 unique)--&gt; raise "climate change"
+
+- 2% &lt;!--, 3,248,697 (2,138 unique)--&gt; also mention environmental justice or climate justice
+
+- 82% of all comments raising EJ also mention climate change, but only 14% of **unique** comments raising EJ also mention climate change
+
+
+
+---
+
+
+background-image: url(https://assets.nrdc.org/sites/default/files/styles/full_content/public/media-uploads/midwesttoxicdoughnut_25_002chicago_steel_mills-july_1965_vl_2400.jpg?itok=yXMNtQ-Y)
+background-size: cover
+
+
+### Why EJ?
+
+1. Variation in issue framing: "environmental" policy is inconsistently racialized +  inconsistently focused on *distributions* of costs and benefits
+
+1. Distinct phrase (few false positives) without many synonyms (few false negatives)
+
+1. E.O. 12898 "Federal Actions to Address Environmental Justice" (1993)
+
+
+`\(\Rightarrow\)` Administrative Procedures Act lawsuits: 
+&gt; "environmental justice analysis can be reviewed under NEPA and the APA" (*Protect Our Communities Foundation v. Salazar* 2013; *Communities Against Runway Expansion, Inc. v. FAA* 2004)
+
+???
+
+Environmental Justice For All Act (2020) introduced by Senator Harris
+
+The day after Biden's executive order was launched, Rep. Cori Bush (D-MO) and Sens. Tammy Duckworth (D-IL) and Ed Markey (D-MA) introduced the Environmental Justice Mapping and Data Collection Act of 2021, which builds on many of the concepts in the executive order and would create a whole-of-government initiative, including data infrastructure and funding to “identify communities most at risk from environmental injustices.”
+
+---
+
+name: ej-hyp
+
+### *Distributive Claims Hypothesis*: 
+
+&gt; Policymakers are more likely to address distributive justice when groups raise distributive justice concerns.
+
+ `\(\color{\green}{\checkmark}\)` Pro: "norms and values are set communicatively" (Habermas 1996), "identifying interests" shapes policy (Gellhorn 1972)   
+
+`\(\Large\color{\red}{\unicode{10007}}\)` Con: Bureaucratic policymaking is about "technical expertise" (Epstein et al. 2014)
+
+???
+First, we might expect policymakers are more likely to address distributive justice when groups raise distributive justice concerns.
+
+Conversely, if bureaucratic policymaking is about "technical expertise"
+
+---
+
+### *Coalition Size Hypothesis*
+
+&gt; Policymakers are more likely to address concerns as more groups raise them.
+
+✅ :
+Coalition size (Nelson and Yackee  2012) &amp; pressure (Gillion 2013; Wasow 2020)
+
+❌ : "Informational value" (Epstein et al. 2014; Gailmard &amp; Patty 2017; Libgober 2018)
+
+???
+
+On the one hand, we might expect policymakers to respond to the scale of pressure to address EJ.
+
+On the other hand, all of the formal models to date are focused on providing new information. 
+I really like Brian Libgober's model of how comments inform rulemaking, but it relies on telling policymakers something they didn't already know. 
+
+---
+
+### *Policy Receptivity Hypothesis*
+
+&gt; Policymakers that more frequently address certain concerns will be more responsive to groups raising those concerns.
+
+&lt;!-- "Legibility" (Scott 1998), --&gt;
+✅ : "Opportunity structure" (Marks &amp; McAdam 2007; McAdam 2010) "fit inside the legal narrative" (Scott 1998; Deloria 2009; Hilson 2002; Delaney 2017)   
+
+❌ : "New information" Farina (2018)
+
+???
+Regarding policy receptivity
+Political opportunity may not just be about access to policymakers but also in terms of political receptivity to the claims being made." (Hilson 2002, p. 242)
+
+Claims may be more impactful when they are more legible to policymakers and fit inside their existing legal narrative and self-concept of what their job is.
+
+Other legal scholars and formal models suggest that information should matter most when it is not something policymaker is already thinking about. If they are right, then we should expect the opposite---that activists raising EJ concerns are most influential at agencies that DON'T usually think about EJ---where it presents them with something new.
+
+---
+
+### *Public Attention Hypothesis*
+
+&gt; Policies are more likely to change when they receive more public attention (e.g., more public comments).
+
+✅ : Leech (2010)
+
+❌ : Lowery (2013), Balla et al. (2020)
+
+???
+
+Finally, there is this debate over whether high or low-salience policies are more likely to change. 
+
+We might expect that policies are more likely to change when there is more overall public attention, regardless of pressure to address EJ in particular. 
+
+On the other hand, if it is easier to lobby out of the public spotlight, we might expect low-salience policies to be more likely to change. 
+
+Balla et al.'s study of responses to comments in rulemaking suggests a null effect. Legal scholars tend to see the scale of public attention is just not a legal concern. 
+
+And again, formal models don't really have a parameter for public attention or pressure. 
+
+---
+
+name: ej-results
+
+### Adding EJ to Policy
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-m-PR-ejcomments-agencyFE-1.png" alt="   " width="80%"  /&gt;&lt;/div&gt;
+
+- ✊🏿 🔁   Coalition Size 📈 
+
+
+
+- ✊🏿  Distributive Claims 📈 
+- 📢  General Public Pressure/Attention 📈  (when comments don't raise EJ)
+
+---
+
+###  Changing Existing EJ Language by Coalition Size
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-mejPR-ejcomments-agencyFE-1.png" alt="   " width="80%"  /&gt;&lt;/div&gt;
+
+
+- ✊🏿🔁  Coalition Size 📈 
+
+---
+
+###  Changing Existing EJ Language by Attention
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-mejPR-comments-agencyFE-1.png" alt="   " width="80%"  /&gt;&lt;/div&gt;
+
+
+- ✊🏿  Distributive Claims 📈 
+- 📢  General Public Attention 📉 (when comments don't raise EJ)
+
+---
+
+exclude: true
+
+###  To sum up, yes, movements matter
+
+Strong framing effects, but substantive policy change is driven by national advocacy groups.
+
+|                                            | Add EJ Language | Change EJ Language |
+| ------------------------------------------ | :--: | :--: |
+| ✊🏿  Distributive Claims (EJ Concerns)     | 📈 | 📈 |
+| ✊🏿 🔁  Coalition Size /  Pressure        | 📈 | 📈 |
+| 🏛️  Policy Receptivity                             | 📈 | 📈 |
+| 📢  General Public Attention               | 📈 | 📉 |
+
+
+&lt;!--| 📢x✊🏿 Specific (Conditional) Pressure            | 📉 | ❓ | --&gt;
+
+With larger coalitions and more public attention, agencies are more likely  📈 to **add** EJ language **where there was none**, BUT agencies also anticipate public attention, making **existing** EJ analyses less likely 📉 to **change** on higher-salience rules.
+
+--
+
+[Replicates with "climate change"](https://judgelord.github.io/research/cj/)
+
+
+---
+
+name: cj 
+class: inverse center middle
+
+# Climate Change
+
+
+---
+
+name: cj-data
+
+
+### Data: 40,139 policy documents (13,111 proposed and final rule pairs) from 46 agencies
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/cj-data-agencies100-2.png" alt="   " width="90%"  /&gt;&lt;/div&gt;
+
+---
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/cj-data-agencies-2.png" alt="   " width="90%"  /&gt;&lt;/div&gt;
+
+---
+
+### Data: 39,392,957 public comments
+
+- 20% &lt;!--, 17,857,018 (421,880 unique)--&gt; raise "climate change"
+
+- 2% &lt;!--, 3,248,697 (2,138 unique)--&gt; also mention environmental justice or climate justice
+
+- 82% of all comments raising EJ also mention climate change, but only 14% of **unique** comments raising EJ also mention climate change
+
+
+
+---
+
+name: sips 
+
+### Example: EPA responds to comments 
+
+2013 Obama EPA proposed rule: *Air Quality State Implementation Plans; Approvals and Promulgations: Navajo Nation; Regional Haze Requirements for Navajo Generating Station* 
+
+- No mention of climate change, one paragraph on environmental justice.
+
+In response to 421 comments raising climate justice concerns, the final rule added nine paragraphs on environmental justice and a brief mention of climate change: 
+
+&gt; "EPA agrees that climate change is an important issue...Although regulation of greenhouse gases is conducted under separate statutory requirements from regional haze."
+
+
+&lt;!--, EPA is mindful that this BART determination for NGS is not the only regulatory program that affects this facility and the region."--&gt;
+
+---
+
+### Example: EPA ignores comments
+
+2017 Trump EPA proposed rule: *State of Texas, Regional Haze and Interstate Visibility Transport Federal Implementation Plan* makes no mention of climate change. 
+&lt;!--
+ "Texas' participation in the Cross-State Air Pollution Rule’s (CSAPR) trading program for ozone-season NOX qualifies as an alternative to BART. We are approving Texas’ determination that its EGUs are not subject to BART for particulate matter (PM)."
+--&gt;
+A short EJ section mentions only SO2, not NOX or PM.
+
+61 Comments, including EarthJustice et al.: 
+
+&gt; "Climate change may also have an effect on the outdoor air pollutant concentrations, especially ozone."
+
+The final rule makes no mention of climate change and no change to the EJ section.
+
+
+???
+
+[EartheJustice et al.] (https://www.regulations.gov/comment/EPA-R06-OAR-2016-0611-0083)
+
+The EPA believes that this action does not have disproportionately high and adverse human health or environmental effects on minority populations, low-income populations, and/or indigenous peoples, as specified in Executive Order 12898 (59 FR 7629, February 16, 1994). We have determined that this rule will not have disproportionately high and adverse human health or environmental effects on minority or low-income populations because it increases the level of environmental protection for all affected populations without having any disproportionately high and adverse human health or environmental effects on any population, including any minority or low-income population. The rule limits emissions of SO
+
+Bernard, S., Samet, JM, Grambsch, A, Ebi, KL, and Romieu, I, The Potential Impacts of Climate Variability and Change on Air Pollution-Related Health Effects in the United States. Environmental Health Perspectives 2001. 109(Supplement 2): p. 199-209.
+
+
+
+---
+
+name: methane
+
+### 2022 EPA Methane Rules 
+
+&gt; "The Clean Air Act standards in the supplemental proposal will work hand-in-hand with *new
+resources* and programs in the Inflation Reduction Act, which will incentivize early
+implementation of innovative methane reduction technologies and support methane
+mitigation and monitoring activities. These complementary efforts will allow the United
+States to achieve greater methane emissions reductions more quickly.
+
+---
+
+### 2022 EPA Methane Rules 
+
+&gt; The IRA amended the CAA by adding section 136, “Methane Emissions and Waste
+Reduction Incentive Program for Petroleum and Natural Gas Systems.” Under this new section
+of the CAA, subsection 136(c), “Waste Emission Charge,” requires the Administrator to “impose
+and collect a charge on methane emissions that exceed an applicable waste emissions threshold
+under subsection (f) from an owner or operator of an applicable facility that reports more than
+25,000 metric tons of carbon dioxide equivalent of greenhouse gases emitted per year pursuant to
+subpart W of part 98 of title 40, Code of Federal Regulations (40 CFR part 98), regardless of the
+reporting threshold under that subpart.” An “applicable facility” is defined under CAA section
+136(d) by reference to specific industry segments as defined in the Greenhouse Gas Reporting
+Program (GHGRP) petroleum and natural gas systems source category (40 CFR Part 98, subpart
+W, also referred to as “GHGRP subpart W”). Pursuant to CAA section 136(g)
+
+
+---
+
+### 2022 EPA Methane Rules 
+
+&gt;“The American Lung Association appreciates the agency’s consideration of the hundreds of thousands of comments received for the initial proposal – including from national and state health and medical organizations, more than 300 health professionals, and more than 300 individuals. We recommend that EPA require that the oil and gas industry take the strongest steps possible to prevent fugitive emissions of methane and other gases from all operations, including small producing wells, and halt all routine flaring of methane. 
+
+&gt;“We thank EPA for their work on proposing stricter methane standards for new and existing oil and gas wells and urge the agency to quickly finalize stronger standards to fully protect health.” - https://www.lung.org/media/press-releases/epa-methane-proposal-statement-2022
+
+---
+
+### 2022 EPA Methane Rules 
+
+&gt; “API looks forward to reviewing the proposed rule in its entirety and will continue to work with EPA in support of a final rule that is cost-effective, promotes innovation, and creates the regulatory certainty needed for long-term planning
+
+---
+
+name: cj-data
+
+Draft rules that did and did not address climate
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/climate-comments-1.png" alt="   " width="85%"  /&gt;&lt;/div&gt;
+
+---
+
+exclude: true
+
+Draft rules that did and did not address EJ/CJ
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/cj-comments-1.png" alt="   " width="85%"  /&gt;&lt;/div&gt;
+
+
+---
+
+name: cj-results
+
+
+
+###  Adding Climate Change to Policy
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/climate-m-PR-president-median-1.png" alt="   " width="55%"  /&gt;&lt;/div&gt;
+
+- 🔬 Scientific Information ✅  
+
+---
+
+exclude: true
+
+
+###  Adding Climate Justice to Policy
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/cj-m-PR-president-median-1.png" alt="   " width="50%"  /&gt;&lt;/div&gt;
+
+- ✊🏿 Distributive Information ✅  
+
+---
+
+
+
+###  Adding Climate Change to Policy 
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/climate-m-PR-climatecomments-agencyFE-1.png" alt="   " width="70%"  /&gt;&lt;/div&gt;
+
+- 🔬🔁 Coalition Size ✅  
+
+
+---
+
+exclude: false
+
+
+###  Adding Climate Justice to Policy 
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/cj-m-PR-cj-comments-agencyFE-1.png" alt="   " width="70%"  /&gt;&lt;/div&gt;
+
+- ✊🏿🔁 Coalition Size ✅  
+
+---
+
+
+## Results: Adding Climate Change to Policy
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/climate-m-PR-comments-agencyFE-1.png" alt="   " width="70%"  /&gt;&lt;/div&gt;
+
+- 🔬 Scientific Information ✅  
+- 📢 General Public Pressure/Attention ✅  
+
+
+---
+
+
+###  Adding Climate Justice issues to Policy
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/cj-m-PR-comments-agencyFE-1.png" alt="   " width="70%"  /&gt;&lt;/div&gt;
+
+- ✊🏿 Distributive Information ✅  
+- 📢 General Public Pressure/Attention ✅  
+
+---
+
+exclude: true
+
+
+### To sum up, yes, movements matter (even when victories are rare)
+
+|                                            | Add Language
+| ------------------------------------------ | :--: | :--: |
+| 🔬 Scientific Information (Climate Concerns)  | 📈 |
+| ✊🏿 Distributive Information (EJ/CJ Concerns)     | 📈 | 
+| 🔬/✊🏿🔁 Coalition Size           | 📈 | 
+| 🏛️ Policy Receptivity                             | 📈 |
+| 📢 General Level of Public Attention               | 📈 | 
+
+
+&lt;!--| 📢x✊🏿 Specific (Conditional) Pressure            | 📉 | ❓ | --&gt;
+
+With larger coalitions and more public attention, agencies are more likely  📈 to **add**  language **where there was none**&lt;!--, BUT agencies also anticipate public attention, making **existing** EJ analyses less likely 📉 to **change** on higher-salience rules.--&gt;
+
+
+---
+
+
+class: inverse center middle
+name: influence
+
+#  Substantive Lobbying Success 
+
+---
+
+name: example-demands
+
+### Example Demands
+
+- Categorically Protect Certain Other Waters, including Vernal Pools, Pocosins, Sinkhole Wetlands, Rainwater Basin Wetlands, Sand Hills Wetlands, Playa Lakes, Interdunal Wetlands, Carolina and Delmarva bays, and Other Coastal Plain Depressional Wetlands, and Prairie Potholes. 
+
+- Waters Substantially Affect Interstate Commerce and Should be Categorically Protected
+
+- The Rule Should Not Exempt Ditches
+
+- The Rule Should Limit the Current Exemption for Waste Treatment Systems
+
+
+---
+
+name: tree 
+
+.left-column[#Hand-coded sample]
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/tree.png" alt="   " width="36%"  /&gt;&lt;/div&gt;
+
+
+---
+
+name: spatial
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/spatial-coding-1.png" alt="   " width="70%"  /&gt;&lt;/div&gt;
+
+---
+
+
+
+exclude: true
+
+### Lobbying Success by Campaign Size
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="../../figs/coded-coalition-success-1.png" alt="   " width="60%"  /&gt;&lt;/div&gt;
+
+---
+
+name: success-models
+
+### (1) Variation across coalitions
+
+Pr(coalition success | agency + president)
+~ coalition + business coalition + coalition size +  supports rule + pressure campaign (+ interactions)
+
+
+### (2) Variation within organizations that lobby on multiple rules
+
+Pr(organization success | organization + agency + president) ~ coalition + business coalition + coalition size +  supports rule + pressure campaign (+ interactions)
+
+---
+
+### Variation across coalitions (OLS): `\(Y_{i} = \beta_{1:n} X_i +  \gamma_k + \delta_p + \epsilon_{ik}\)`  
+
+`\(Y_i\)` is the success of each coalition `\(i\)`  [-2:2]
+on rule `\(j\)`, by agency `\(k\)` under president `\(p\)`.  
+ 
+  
+`\(X_i\)` includes
+- whether the coalition is more than one organization [0,1]
+- whether the coalition is business-led [0,1]
+- whether the coalition's issue frame was adopted [0,1]
+- the number of organizations in that coalition 
+- whether the coalition supports the proposed rule [0,1]
+- whether the coalition mobilized a pressure campaign  
+
+`\(\gamma_j + \delta_p\)` are fixed effects  
+`\(\epsilon_{ik}\)` errors clustered at agency level
+
+
+???
+As each coalition is unique to a rule, and each rule is unique to an agency and president, `\(y_{ijkp} \equiv y_i\)`   
+
+The dependent variable, `\(Y\)`, is the lobbying success of each coalition. To estimate the relationship between a coalition's lobbying success and the scale of public pressure it mobilizes, I model the success of each coalition `\(i\)` lobbying a rule `\(j\)` published by an agency `\(k\)` under a president `\(p\)`. Each coalition is unique to a rule; each rule is unique to an agency (I assigned joint rules to the lead agency only) and presidential administration. I thus use the simpler notation `\(y_i\)` rather than the equivalent, more specific notation `\(y_{ijkp}\)`. 
+
+The main variable of interest is the total number of form-letter public comments that a lobbying coalition mobilized.
+The base model (Equation \@ref(eq:success)) uses an indicator for whether coalition `\(i\)` used a public pressure campaign, i.e., mobilized mass comments (by definition, more than 99 mass comments). `\(\beta_1\)` estimates the difference in lobbying success when coalition `\(i\)` uses a pressure campaign compared to when it does not. Other models use either the logged number of comments or a quadratic term to account for the different marginal effects of additional public comments for smaller and larger campaigns. 
+
+
+\begin{equation} 
+Y_{i} = \beta_1 \textbf{Pressure campaign}_{i} + \beta_{2:n} X_i +  \gamma_j + \delta_p + \epsilon_{i} (\#eq:success)
+\end{equation} 
+
+
+The base models include agency and president fixed effects ($\gamma_k + \delta_p$) and control for other coalition-level factors that may affect a coalition's lobbying success, `\(X_i\)`. Controls include &lt;!-- of the relative length of the (lead) organizations comment, --&gt;
+whether the coalition is lobbying unopposed, the coalition's size (the number of distinct organizations and elected officials), and the type of coalition (e.g., whether it is a business coalition or a public-interest coalition). `\(\beta_{2:n}\)` are the effects of these other coalition-level factors on lobbying success. I estimate these relationships using OLS regression. &lt;!--I also estimated hand-coded lobbying success with beta regression and ordered logit, which is more appropriate but less interpretable. For the automated measures of lobbying success, I estimate beta regression models with the same variables.--&gt;
+
+
+---
+
+
+name: success-coalition
+
+.left-column[
+### Larger coalitions  `\(\rightsquigarrow\)`  more likely to win 
+
+Coalition-level OLS model
+]
+
+ 
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/m-influence.png" alt="   " width="35%"  /&gt;&lt;/div&gt;
+
+---
+
+name: coalition-legislators
+
+.left-column[
+### Pressure campaigns seem to mobilize legislators 
+
+Coalition-level Poisson model
+([Table](#mediation-table))
+]
+
+
+.right-column[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/m-congress.png" alt="   " width="80%"  /&gt;&lt;/div&gt;
+]
+
+---
+
+### Within organizations (OLS): `\(Y_{ij} = \beta_{1:n} X_{ij} + \alpha_i + \gamma_k + \delta_p + \epsilon_{ij}\)`
+
+`\(Y_i\)`: success of each organization `\(i\)` [-2:2]
+on rule `\(j\)` by agency `\(k\)` under president `\(p\)`.  
+
+`\(X_{ij}\)`: features of organization `\(i\)`'s coalition on for each rule `\(j\)` 
+  - whether the organization is part of a coalition [0,1]
+  - whether their coalition is business-led [0,1]
+  - whether the coalition's issue frame was adopted [0,1]
+  - the number of organizations in their coalition 
+  - whether the coalition supports the proposed rule [0,1]
+  - whether the coalition mobilized public pressure [0,1]   
+  
+`\(\alpha_i + \gamma_j + \delta_p\)`: fixed effects   
+`\(\epsilon_{ij}\)`: errors clustered at the organization level
+
+???
+
+As each rule is unique to an agency and president, `\(y_{ijkp}\)` `\(\equiv\)` `\(y_{ij}\)` 
+
+---
+
+.left-column[
+### When organizations mobilize more legislators, they may be more likely to win 
+
+
+Within-org OLS model
+
+]
+
+.right-column[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/m-diffindiff.png" alt="   " width="90%"  /&gt;&lt;/div&gt;
+]
+
+---
+
+exclude: true
+
+`\(Y_{i} = \beta_1 \textbf{Pressure campaign}_{i} + \beta_{2:n} X_i +  \gamma_j + \delta_p + \epsilon_{i}\)`
+
+
+---
+
+name: ej-success
+
+.left-column[
+### When coalitions mobilize frames, they are more likely to win 
+
+Cross-sectional OLS model of coalition-level lobbying success 
+([Rates](#substantive), [Table](#coalition-success-table), [DiD version](#ej-org-success))
+
+]
+
+.right-column[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/mc1ej-obama.png" alt="   " width="90%"  /&gt;&lt;/div&gt;
+]
+
+---
+
+name: ej-org-success
+
+.left-column[
+
+### When organizations mobilize frames, they are more likely to win 
+
+Within-organization OLS model
+([Rates](#substantive), [Table](#org-success-table), [Cross-sectional version](#ej-success))
+
+]
+
+.right-column[
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/mo1ej-obama.png" alt="   " width="90%"  /&gt;&lt;/div&gt;
+]
+
+---
+
+.left-column[
+### When organizations mobilize frames, they are more likely to win 
+
+
+Within-organization OLS model
+([Table](#org-success-table), [Cross-sectional version](#ej-success))
+]
+
+.right-column[
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/mo1ej-trump.png" alt="   " width="90%"  /&gt;&lt;/div&gt;
+]
+
+---
+
+
+class: inverse middle center
+
+# Judicial Review
+
+---
+
+name: deference-data
+
+# Data
+
+All SCOTUS cases + a random sample of 175 federal circuit court cases that mention "Administrative Law" in the LexisNexis headnotes, 1984-2000.
+- **Ideology:** Justices (Segal-Cover scores) × Policy (Spaeth criteria)
+- Parties, briefs, opinions, outcomes
+
+Draft &amp; final **rules** + **comments** where rule is at issue
+
+
+---
+
+name: deference-results
+
+\#1. Does the policymaking process affect judicial review? 
+
+- ❌ -  expertise
+- ❌ -  accountability 
+- ✅ - participatory/controversial
+- ✅ - deregulatory
+
+
+\#2. Why are policies made through notice and comment more likely to be struck down
+
+- ❌ -  ideological voting 
+- ❌ -  selection from lower courts
+- ✅ -  controversial/salient (but see #1)
+
+???
+
+ \#3. Is/was *Chevron/Mead* a jurisprudential regime?
+
+- The jurisprudential regimes methods debate used 1984-2000 data; **should we revisit? **
+
+---
+
+name: deference-table
+
+background-image: url(Figs/deference-table.png)
+background-size: contain
+background-color: white
+
+---
+
+name: toc2
+class: inverse
+
+# Appendix Slides 
+.pull-left[
+
+Data &amp; Methods: [Sample](#tree) | [Hand-coding](#datasheet) | [Census race](#race) | [Zip code](#gis) | [GIS](#gis) | [Regex tables](#regex) | [Next steps](#methods-next)
+
+Mobilizing: [Organizations](#orgs) | [Mass comments](#mass) &lt;!-- Grassroots|Astroturf--&gt; | [Members of Congress](#coalition-legislators)
+
+Framing: 
+- EJ rules: [by President](#ej-data-rules) | [by Agency](#ej-data-agencies) | [Mercury Rules](#ej-mercury) | [Theory](#ej-hyp) | [Framing](#ej-results) | [Success](#ej-success) | [Tables](#table) 
+
+]
+  
+.pull-right[
+
+- Climate rules: [SIPs](#sips) | [Methane Rules](#methane) | [Data](#cj-data) | [Results](#cj-results) |  [Tables](#cj-table) | [Paper](https://judgelord.github.io/research/cj/)
+ 
+Influence: [by Campaign Type](#success-coalition) | [by Legislator Support](#coalition-legislators) | [by Coalition](#ej-success) | [by Organization](#ej-org-success) | [Example demands](#example-demands)
+
+Judicial review: [Data](#deference-data) | [Results](#deference-results) | [Table](#deference-table) | [Paper](https://judgelord.github.io/research/deference/)
+
+]
+
+
+
+---
+
+
+layout: true
+
+&lt;div class="back-head"&gt;
+&lt;/div&gt; 
+
+&lt;div class="back-footer"&gt;&lt;/div&gt; 
+
+
+---
+
+name: table
+
+background-image: url(Figs/ej-table-paper.png)
+background-size: contain
+background-color: white
+
+---
+
+name: cj-table
+
+background-image: url(Figs/cj-table.png)
+background-size: contain
+background-color: white
+
+---
+
+name: coalition-success-table
+
+background-image: url(Figs/coalition-success-table.png)
+background-size: contain
+background-color: white
+
+---
+
+name: mediation-table
+
+background-image: url(Figs/mediation-table.png)
+background-size: contain
+background-color: white
+
+---
+
+name: org-success-table
+
+background-image: url(Figs/org-success-table.png)
+background-size: contain
+background-color: white
+
+---
+
+name: org-success-table-ej
+
+background-image: url(Figs/org-success-table-ej.png)
+background-size: contain
+background-color: white
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%/40"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
