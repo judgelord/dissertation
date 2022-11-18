@@ -666,7 +666,7 @@ exclude: false
 ## Iteratively link comments to organizations
 
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/methods-regex-slide.png" alt="   " width="85%"  /&gt;&lt;/div&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/methods-regex-slide.png" alt="   " width="75%"  /&gt;&lt;/div&gt;
 
 
 
@@ -696,6 +696,74 @@ Lobbying success for all commenters on a random sample of 150 rules (10,894 hand
  
 ---
 
+name: model
+class:  inverse 
+
+# Modeling the probability of policy change
+
+
+
+--
+
+###(1) Variation across agencies:  
+Pr(Policy Change | President) ~ Policy Demands  \+ Coalition Size  \+ Public Attention \+ Agency's Prior Rate of Addressing Environmental Justice
+(\+ Interactions) 
+
+--
+
+###(2) Variation within agencies:  
+Pr(Policy Change | President &amp; Agency) ~ Policy Demands  \+  Coalition Size  \+  Public Attention
+(\+ Interactions)
+
+
+???
+Both of my DVs---adding EJ language and changing existing EJ language--are dichotomous, so I m going to use logit regression. 
+
+The main models use president and agency fixed effects, so I'm focusing on variation within presidential administrations and within the agency, but I also assess differences across presidents and agencies by estimating the same models with indicators rather than fixed effects.
+
+Because log odds coefficients are hard to interpret and because my models have interactions, I am going to skip the regression table and just show you predicted probabilities. 
+
+
+---
+
+
+### (1) Logit: `\(Y_i = \beta_{1:n} X_{i} + \delta_p + \epsilon_{ip}\)`
+
+`\(Y_i\)`: the log odds of change in rule `\(i\)` by agency `\(k\)` under president `\(p\)` &lt;!--: `\(log[\frac{P(EJ\ in\ FR)}{1−P(EJ\ in\ FR)}]\)`--&gt;
+
+`\(X_{i}\)`: features of rule `\(i\)`
+  - whether comments raise environmental justice
+  - the number of organizations raising environmental justice (logged)
+  - the total number of comments (logged) `\(\times\)` whether comments raise environmental justice
+  - agency `\(k\)`'s share of prior draft rules mentioning environmental justice 
+  
+`\(\delta_p\)`: president fixed effect   
+`\(\epsilon_{ip}\)`: cluster-robust errors by president
+
+---
+
+### (2) Logit:  `\(Y_i = \beta_{1:n} X_{i} + \gamma_k + \delta_p + \epsilon_{ipk}\)`
+
+`\(Y_i\)`: the log odds of change in rule `\(i\)` by agency `\(k\)` under president `\(p\)` &lt;!--: `\(log[\frac{P(EJ\ in\ FR)}{1−P(EJ\ in\ FR)}]\)`--&gt;
+
+`\(X_{i}\)`: features of rule `\(i\)`
+  - whether comments raise environmental justice
+  - the number of organizations raising environmental justice (logged)
+  - the total number of comments (logged) `\(\times\)` whether comments raise environmental justice
+
+`\(\gamma_k + \delta_p\)`: president &amp; agency fixed effects   
+`\(\epsilon_{ipk}\)`: cluster-robust errors  by president &amp; agency
+
+
+
+???
+
+Because I expect decreasing marginal effects of additional comments, both overall (i.e., public attention) and those that mention EJ (coalition size), I use logged values. 
+
+However, the conclusions are largely the same if I use a quadradic function instead. That analysis suggests that medium levels of attention are not so impactful. A small level of attention matters, and then it takes a very large amount of additional pressure to move things, which makes sense. For hypothesis testing, however, all of the effects are in the same direction, so I am going to present predicted probabilities from these models here.
+
+---
+
 layout: true
 
 &lt;div class="my-head"&gt;&lt;span&gt;
@@ -712,45 +780,6 @@ layout: true
 
 &lt;div class="my-footer"&gt;&lt;span&gt;Devin Judge-Lord (Harvard University)&amp;emsp;&amp;emsp;&lt;/span&gt;&lt;/div&gt; 
 
-
----
-
-name: model
-class:  inverse 
-
-# Modeling the probability of policy change
-
-
-
---
-
-###(1) Variation across agencies:  
-Pr(Policy Change | President) ~ Policy Demands  \+ Coalition Size  \+ Public Attention \+ Prior Rate
-(\+ Interactions) 
-
---
-
-###(2) Variation within agencies:  
-Pr(Policy Change | President + Agency) ~ Policy Demands  \+  Coalition Size  \+  Public Attention
-(\+ Interactions)
-
-
-Errors clustered at fixed-effects levels
-
-???
-Both of my DVs---adding EJ language and changing existing EJ language--are dichotomous, so I m going to use logit regression. 
-
-The main models use president and agency fixed effects, so I'm focusing on variation within presidential administrations and within the agency, but I also assess differences across presidents and agencies by estimating the same models with indicators rather than fixed effects.
-
-Because log odds coefficients are hard to interpret and because my models have interactions, I am going to skip the regression table and just show you predicted probabilities. 
-
-
-
-???
-
-Because I expect decreasing marginal effects of additional comments, both overall (i.e., public attention) and those that mention EJ (coalition size), I use logged values. 
-
-However, the conclusions are largely the same if I use a quadradic function instead. That analysis suggests that medium levels of attention are not so impactful. A small level of attention matters, and then it takes a very large amount of additional pressure to move things, which makes sense. For hypothesis testing, however, all of the effects are in the same direction, so I am going to present predicted probabilities from these models here.
 
 ---
 
@@ -785,25 +814,6 @@ exclude: false
 ]
 
  [[TABLE]](#table)
-
-
----
-
-exclude: false
-
-
-.left-column[  
- `\(\checkmark\)`  `\(H_1\)` Agencies respond to environmental justice concerns 
- ]
- 
-
-.right-column[
-&lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-m-PR-president-median-pres-1.png" alt="   " width="65%"  /&gt;&lt;/div&gt;
-]
-
- [[TABLE]](#table)
-
 
 
 ---
@@ -1135,11 +1145,33 @@ Framing:
 
 - Climate rules: [SIPs](#sips) | [Methane Rules](#methane) | [Data](#cj-data) | [Results](#cj-results) |  [Tables](#cj-table) | [Paper](https://judgelord.github.io/research/cj/)
  
-Influence: [by Campaign Type](#success-coalition) | [by Legislator Support](#coalition-legislators) | [by Coalition](#ej-success) | [by Organization](#ej-org-success) | [Example demands](#example-demands)
+Influence: [Models](#success-models) | [by Campaign Type](#success-coalition) | [by Legislator Support](#coalition-legislators) | [by Coalition](#ej-success) | [by Organization](#ej-org-success) | [Example demands](#example-demands)
 
 Judicial review: [Data](#deference-data) | [Results](#deference-results) | [Table](#deference-table) | [Paper](https://judgelord.github.io/research/deference/)
 
 ]
+
+
+---
+
+exclude: false
+name: president 
+
+
+.left-column[  
+ `\(\checkmark\)`  `\(H_1\)` Agencies respond to environmental justice concerns 
+ 
+ 
+(Random effects model)
+ ]
+ 
+
+.right-column[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-m-PR-president-median-pres-1.png" alt="   " width="65%"  /&gt;&lt;/div&gt;
+]
+
+ [[TABLE]](#table)
 
 
 
@@ -1179,17 +1211,6 @@ class: inverse center middle
 # Methods 
 
 
----
-
-name: methods-next 
-
-### Next steps: 
-
-- Test policy receptivity using rates of addressing Climate and EJ out of sample (direct rules &amp; notices)
-- Better measures of policy change
-- Alternative estimation (hierarchical Bayes)
-- Cumulative effects over time (hazard models)
-- Placebo test? 
 
 
 ---
@@ -1265,6 +1286,20 @@ Coded Public Comments in a Google Sheet
 
 ---
 
+
+# Grouping with key phrases
+
+1. Humans identify groups of selected documents (e.g., lobbying coalitions)
+2. Humans copy and paste key phrases
+3. Computer puts other documents containing those phrases in the same group (coalition)
+
+*Preprocessing tip:* 
+&lt;!--**Digitized text** allows humans to paste text exactly matching machine-read strings.  --&gt;
+**Summaries** speed hand-coding (e.g., use `textrank` to select representative sentences).
+
+---
+
+
 name: regex
 
 ### Regex tables to tag entities
@@ -1321,6 +1356,117 @@ The `legislators` package adds name variants (e.g., "Liz Warren") to standard le
 
 
 For example, the `legislators` package uses a regex table, adding variants (e.g., "AOC") to standard legislator names to detect them in messy text.
+
+---
+
+
+name: orgs
+
+
+
+
+&lt;!--Iteratively linking comments to the organizations that wrote or mobilized them (and thus strings to identify similar documents), I find that a few advocacy organizations mobilize the vast majority of comments. 
+--&gt;
+
+
+Of 58 million public comments on proposed agency rules, the top 100 organizations mobilized 43,938,811. The top ten organizations mobilized 25,947,612.
+
+
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
+&lt;caption&gt;The Top 5 Organizations Mobilized 20 Million Public Comments&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Organization &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Rules Lobbied On &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Pressure Campaigns &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Percent (Campaigns /Rules) &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Comments &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Average per Campaign &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NRDC &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 530 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 62 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 11.7% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5,939,264 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 95,795 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Sierra Club &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 591 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 110 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18.6% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5,111,922 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 46,472 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; CREDO &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 90 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 41 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 45.6% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3,019,150 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 73,638 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Environmental Defense Fund &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 111 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 31 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 27.9% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2,849,517 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 91,920 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Center For Biological Diversity &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 572 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 86 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 15.0% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2,815,509 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 32,738 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Earthjustice &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 235 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 59 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 25.1% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2,080,583 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 35,264 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+
+name: mass
+
+###  Most public comments result from organized pressure campaigns
+
+**Fig. 5:** Public Comments on Regulations.gov, 2005-2020
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/comments-mass-1.png" alt="   " width="80%"  /&gt;&lt;/div&gt;
+
+Comments that share a 10-gram with 99 or more others are part of a mass comment campaign.
+
+---
+
+name: methods-next 
+
+### Next steps: 
+
+Methods   
+- Compare exact entity linking (regex tables) to probabilistic methods (`linkit`, `fastlink`, supervised classified with hand-coded training set)
+- Compare exact grouping (e.g., by policy demands) to supervised probabilistic classifiers/clustering
+
+Substantive   
+- Test policy receptivity using rates of addressing Climate and EJ out of sample (direct rules &amp; notices)
+- Better measures of policy change
+- Alternative estimation (hierarchical Bayes)
+- Cumulative effects over time (hazard models)
+- Placebo test? 
+
 
 ---
 
@@ -2010,6 +2156,57 @@ exclude: true
 &lt;div class="figure" style="text-align: center"&gt;
 &lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="../../figs/coded-coalition-success-1.png" alt="   " width="60%"  /&gt;&lt;/div&gt;
 
+---
+
+name: success-models
+
+### (1) Variation across coalitions
+
+Pr(coalition success | agency + president)
+~ coalition + business coalition + coalition size +  supports rule + pressure campaign (+ interactions)
+
+
+### (2) Variation within organizations that lobby on multiple rules
+
+Pr(organization success | organization + agency + president) ~ coalition + business coalition + coalition size +  supports rule + pressure campaign (+ interactions)
+
+---
+
+### Variation across coalitions (OLS): `\(Y_{i} = \beta_{1:n} X_i +  \gamma_k + \delta_p + \epsilon_{ik}\)`  
+
+`\(Y_i\)` is the success of each coalition `\(i\)`  [-2:2]
+on rule `\(j\)`, by agency `\(k\)` under president `\(p\)`.  
+ 
+  
+`\(X_i\)` includes
+- whether the coalition is more than one organization [0,1]
+- whether the coalition is business-led [0,1]
+- whether the coalition's issue frame was adopted [0,1]
+- the number of organizations in that coalition 
+- whether the coalition supports the proposed rule [0,1]
+- whether the coalition mobilized a pressure campaign  
+
+`\(\gamma_j + \delta_p\)` are fixed effects  
+`\(\epsilon_{ik}\)` errors clustered at agency level
+
+
+???
+As each coalition is unique to a rule, and each rule is unique to an agency and president, `\(y_{ijkp} \equiv y_i\)`   
+
+The dependent variable, `\(Y\)`, is the lobbying success of each coalition. To estimate the relationship between a coalition's lobbying success and the scale of public pressure it mobilizes, I model the success of each coalition `\(i\)` lobbying a rule `\(j\)` published by an agency `\(k\)` under a president `\(p\)`. Each coalition is unique to a rule; each rule is unique to an agency (I assigned joint rules to the lead agency only) and presidential administration. I thus use the simpler notation `\(y_i\)` rather than the equivalent, more specific notation `\(y_{ijkp}\)`. 
+
+The main variable of interest is the total number of form-letter public comments that a lobbying coalition mobilized.
+The base model (Equation \@ref(eq:success)) uses an indicator for whether coalition `\(i\)` used a public pressure campaign, i.e., mobilized mass comments (by definition, more than 99 mass comments). `\(\beta_1\)` estimates the difference in lobbying success when coalition `\(i\)` uses a pressure campaign compared to when it does not. Other models use either the logged number of comments or a quadratic term to account for the different marginal effects of additional public comments for smaller and larger campaigns. 
+
+
+\begin{equation} 
+Y_{i} = \beta_1 \textbf{Pressure campaign}_{i} + \beta_{2:n} X_i +  \gamma_j + \delta_p + \epsilon_{i} (\#eq:success)
+\end{equation} 
+
+
+The base models include agency and president fixed effects ($\gamma_k + \delta_p$) and control for other coalition-level factors that may affect a coalition's lobbying success, `\(X_i\)`. Controls include &lt;!-- of the relative length of the (lead) organizations comment, --&gt;
+whether the coalition is lobbying unopposed, the coalition's size (the number of distinct organizations and elected officials), and the type of coalition (e.g., whether it is a business coalition or a public-interest coalition). `\(\beta_{2:n}\)` are the effects of these other coalition-level factors on lobbying success. I estimate these relationships using OLS regression. &lt;!--I also estimated hand-coded lobbying success with beta regression and ordered logit, which is more appropriate but less interpretable. For the automated measures of lobbying success, I estimate beta regression models with the same variables.--&gt;
+
 
 ---
 
@@ -2043,6 +2240,27 @@ Coalition-level Poisson model
 &lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/m-congress.png" alt="   " width="80%"  /&gt;&lt;/div&gt;
 ]
 
+---
+
+### Within organizations (OLS): `\(Y_{ij} = \beta_{1:n} X_{ij} + \alpha_i + \gamma_k + \delta_p + \epsilon_{ij}\)`
+
+`\(Y_i\)`: success of each organization `\(i\)` [-2:2]
+on rule `\(j\)` by agency `\(k\)` under president `\(p\)`.  
+
+`\(X_{ij}\)`: features of organization `\(i\)`'s coalition on for each rule `\(j\)` 
+  - whether the organization is part of a coalition [0,1]
+  - whether their coalition is business-led [0,1]
+  - whether the coalition's issue frame was adopted [0,1]
+  - the number of organizations in their coalition 
+  - whether the coalition supports the proposed rule [0,1]
+  - whether the coalition mobilized public pressure [0,1]   
+  
+`\(\alpha_i + \gamma_j + \delta_p\)`: fixed effects   
+`\(\epsilon_{ij}\)`: errors clustered at the organization level
+
+???
+
+As each rule is unique to an agency and president, `\(y_{ijkp}\)` `\(\equiv\)` `\(y_{ij}\)` 
 
 ---
 
@@ -2120,118 +2338,6 @@ Within-organization OLS model
 
 ---
 
-name: orgs
-
-
-
-
-&lt;!--Iteratively linking comments to the organizations that wrote or mobilized them (and thus strings to identify similar documents), I find that a few advocacy organizations mobilize the vast majority of comments. 
---&gt;
-
-
-Of 58 million public comments on proposed agency rules, the top 100 organizations mobilized 43,938,811. The top ten organizations mobilized 25,947,612.
-
-
-&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
-&lt;caption&gt;The Top 5 Organizations Mobilized 20 Million Public Comments&lt;/caption&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; Organization &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; Rules Lobbied On &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; Pressure Campaigns &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; Percent (Campaigns /Rules) &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; Comments &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; Average per Campaign &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; NRDC &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 530 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 62 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 11.7% &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 5,939,264 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 95,795 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Sierra Club &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 591 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 110 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 18.6% &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 5,111,922 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 46,472 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; CREDO &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 90 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 41 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 45.6% &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 3,019,150 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 73,638 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Environmental Defense Fund &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 111 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 31 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 27.9% &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 2,849,517 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 91,920 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Center For Biological Diversity &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 572 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 86 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 15.0% &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 2,815,509 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 32,738 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Earthjustice &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 235 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 59 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 25.1% &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 2,080,583 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 35,264 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-
----
-
-name: mass
-
-###  Most public comments result from organized pressure campaigns
-
-**Fig. 5:** Public Comments on Regulations.gov, 2005-2020
-
-&lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/comments-mass-1.png" alt="   " width="80%"  /&gt;&lt;/div&gt;
-
-Comments that share a 10-gram with 99 or more others are part of a mass comment campaign.
-
----
-
-# Grouping with key phrases
-
-1. Humans identify groups of selected documents (e.g., lobbying coalitions)
-2. Humans copy and paste key phrases
-3. Computer puts other documents containing those phrases in the same group (coalition)
-
-*Preprocessing tip:* 
-&lt;!--**Digitized text** allows humans to paste text exactly matching machine-read strings.  --&gt;
-**Summaries** speed hand-coding (e.g., use `textrank` to select representative sentences).
-
----
-
-
-
-# Next steps
-
-- Compare exact entity linking (regex tables) to probabilistic methods (`linkit`, `fastlink`, supervised classified with hand-coded training set)
-- Compare exact grouping (e.g., by policy demands) to supervised probabilistic classifiers/clustering
-
----
 
 class: inverse middle center
 
@@ -2377,7 +2483,7 @@ background-color: white
 "highlightStyle": "github",
 "highlightLines": true,
 "countIncrementalSlides": false,
-"slideNumberFormat": "%current%/40"
+"slideNumberFormat": "%current%/41"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
