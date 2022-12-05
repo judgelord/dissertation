@@ -28,13 +28,59 @@ class: center, middle, inverse, title-slide
 
 
 
+layout: true
+
+
+
+&lt;div class="my-footer"&gt;&lt;span&gt;Devin Judge-Lord (Harvard University)&amp;emsp;&amp;emsp;&lt;/span&gt;&lt;/div&gt; 
+
+---
+name: agenda 
+
+class: inverse 
+exclude: false
+
+.pull-left[
+# Bureaucratic policymaking
+
+- &lt;FONT COLOR="#B7E4CF"&gt;Public pressure&lt;FONT COLOR="#ffffff"&gt;
+- Agenda setting
+- Unequal influence
+
+# Representation
+
+- Money in politics
+- Legislator capacity
+- Congressional oversight
+- Constituency service 
+]
+
+.pull-right[
+# Environmental governance
+
+- Regulatory stringency
+- Certification standards 
+- Transnational advocacy
+
+# Text analysis
+
+- Policy change
+- Influence
+- Combining qualitative and computational methods
+
+]
+
+---
 
 name: project 
 
 class: inverse center
 exclude: false
 
-## The Broader Project: Public Pressure
+## Public pressure in bureaucratic policymaking
+
+
+&lt;!--The Broader Project: Public Pressure--&gt;
 
 
 Mobilization
@@ -70,16 +116,7 @@ class: inverse center middle
 #90% of U.S. law is made in the bureaucracy
 
 ---
-layout: true
 
-&lt;div class="my-head"&gt;&lt;span&gt;
-&lt;a href="#toc"&gt;Making Policy About Distributive Justice&lt;/a&gt;
-&lt;/span&gt;
-&lt;/div&gt; 
-
-&lt;div class="my-footer"&gt;&lt;span&gt;Devin Judge-Lord (Harvard University)&amp;emsp;&amp;emsp;&lt;/span&gt;&lt;/div&gt; 
-
----
 
 #If groups successfully push Congress to pass the Green New Deal, what happens when 30+ agencies write the actual policies? 
 
@@ -128,7 +165,8 @@ layout: true
 &lt;span&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
 &lt;a href="#findings"&gt;Findings&lt;/a&gt;
 &lt;/span&gt;
-&lt;span&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+&lt;span&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
 &lt;a href="#conclusion"&gt;Conclusion&lt;/a&gt;
 &lt;/span&gt;
 &lt;/div&gt; 
@@ -743,9 +781,18 @@ Because log odds coefficients are hard to interpret and because my models have i
   
   - the total number of comments (logged) `\(\times\)` whether comments raise environmental justice
   
-`\(\delta_p\)`: president fixed effect   
+`\(\delta_p\)`: president fixed effects   
 `\(\epsilon_{ip}\)`: cluster-robust errors by president
 
+
+???
+
+hereoskedasticity-robust standard-errors (White correction), where it is assumed that the errors are independent but the variance of their generative law may vary.
+
+If vcov = "cluster", then arbitrary correlation of the errors within clusters is accounted for. Same for vcov = "twoway": arbitrary correlation within each of the two clusters is accounted for.
+fixest: sandwich
+
+same as xtreg cluster in stata
 ---
 
 ### (1.1b) Logit:  `\(Y_i = \beta_{1:n} X_{i} + \gamma_k + \delta_p + \epsilon_{ipk}\)`
@@ -990,10 +1037,7 @@ layout: true
 &lt;a href="#toc"&gt;Making Policy About Distributive Justice&lt;/a&gt;
 &lt;/span&gt;
 &lt;span&gt;
-&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
-&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
-&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
-&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
 &lt;a href="#conclusion"&gt;Conclusion&lt;/a&gt;
 &lt;/span&gt;
 &lt;/div&gt; 
@@ -1009,13 +1053,30 @@ class: inverse
 
 ### U.S. federal agencies rarely address  environmental justice
 --
-, but they are much more likely to do so when pressured.
+, but they are much more likely to do so when pressured
+--
+, especially agencies with dedicated staff. 
 
 
 --
 
 ### National advocacy organizations are more likely to have substantive policy demands met.
 
+--
+
+## Implications:
+
+
+- Make it someone's job  
+--
+
+- Consider group representation   
+--
+
+- Hire lawyers  
+--
+
+- Mobilize allies and issue frames 
 
 
 ???
@@ -1072,7 +1133,8 @@ layout: true
 &lt;span&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
 &lt;a href="#findings"&gt;Findings&lt;/a&gt;
 &lt;/span&gt;
-&lt;span&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+&lt;span&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
 &lt;a href="#conclusion"&gt;Conclusion&lt;/a&gt;
 &lt;/span&gt;
 &lt;span&gt;
@@ -1143,7 +1205,7 @@ Data &amp; Methods: [Sample](#tree) | [Hand coding](#datasheet) | [Spatial](#spa
 Mobilizing: [Organizations](#orgs) | [Mass comments](#mass) &lt;!-- Grassroots|Astroturf--&gt; | [Members of Congress](#coalition-legislators)
 
 Framing: 
-- EJ rules: [by President](#ej-data-rules) | [by Agency](#ej-data-agencies) | [Mercury Rules](#ej-mercury-long) | [Theory](#ej-hyp) | [Framing](#ej-results) | [Success](#ej-success) | [Tables](#table) 
+- EJ rules: [by President](#ej-data-rules) | [by Agency](#ej-data-agencies) | [Comments](#ej-comments) |  [Mercury Rules](#ej-mercury-long) | [Theory](#ej-hyp) [Framing](#ej-results) | [Success](#ej-success) | [Tables](#table) | [Paper](https://judgelord.github.io/research/ej/)
 
 ]
   
@@ -1157,25 +1219,6 @@ Judicial review: [Data](#deference-data) | [Results](#deference-results) | [Tabl
 
 ]
 
-
----
-
-exclude: false
-name: president 
-
-
-.left-column[  
- `\(\checkmark\)`  `\(H_1\)` Agencies respond to environmental justice concerns 
- 
- 
-(Random effects model)
- ]
- 
-
-.right-column[
-&lt;div class="figure" style="text-align: center"&gt;
-&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-m-PR-president-median-pres-1.png" alt="   " width="65%"  /&gt;&lt;/div&gt;
-]
 
 
 ---
@@ -1645,6 +1688,25 @@ name: ej-data-agencies
 &lt;div class="figure" style="text-align: center"&gt;
 &lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-data-agencies100-1.png" alt="   " width="95%"  /&gt;&lt;/div&gt;
 
+---
+
+exclude: false
+name: president 
+
+
+.left-column[  
+ `\(\checkmark\)`  `\(H_1\)` Agencies respond to environmental justice concerns 
+ 
+ 
+(Random effects model)
+ ]
+ 
+
+.right-column[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-m-PR-president-median-pres-1.png" alt="   " width="65%"  /&gt;&lt;/div&gt;
+]
+
 
 ---
 
@@ -1815,6 +1877,7 @@ And again, formal models don't really have a parameter for public attention or p
 
 name: ej-results
 
+
 ### Adding EJ to Policy
 
 &lt;div class="figure" style="text-align: center"&gt;
@@ -1822,7 +1885,12 @@ name: ej-results
 
 - ✊🏿 🔁   Coalition Size 📈 
 
+---
 
+### Adding EJ to Policy (EPA rules only)
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/ej-m-PR-epa-1.png" alt="   " width="80%"  /&gt;&lt;/div&gt;
 
 - ✊🏿  Distributive Claims 📈 
 - 📢  General Public Pressure/Attention 📈  (when comments don't raise EJ)
@@ -2214,6 +2282,29 @@ whether the coalition is lobbying unopposed, the coalition's size (the number of
 ---
 
 
+### Within organizations (OLS): `\(Y_{ij} = \beta_{1:n} X_{ij} + \alpha_i + \gamma_k + \delta_p + \epsilon_{ij}\)`
+
+`\(Y_i\)`: success of each organization `\(i\)` [-2:2]
+on rule `\(j\)` by agency `\(k\)` under president `\(p\)`.  
+
+`\(X_{ij}\)`: features of organization `\(i\)`'s coalition on for each rule `\(j\)` 
+  - whether the organization is part of a coalition [0,1]
+  - whether their coalition is business-led [0,1]
+  - whether the coalition's issue frame was adopted [0,1]
+  - the number of organizations in their coalition 
+  - whether the coalition supports the proposed rule [0,1]
+  - whether the coalition mobilized public pressure [0,1]   
+  
+`\(\alpha_i + \gamma_j + \delta_p\)`: fixed effects   
+`\(\epsilon_{ij}\)`: errors clustered at the organization level
+
+???
+
+As each rule is unique to an agency and president, `\(y_{ijkp}\)` `\(\equiv\)` `\(y_{ij}\)` 
+
+---
+
+
 name: success-coalition
 
 .left-column[
@@ -2242,28 +2333,6 @@ Coalition-level Poisson model
 &lt;div class="figure" style="text-align: center"&gt;
 &lt;p class="caption"&gt;   &lt;/p&gt;&lt;img src="Figs/m-congress.png" alt="   " width="80%"  /&gt;&lt;/div&gt;
 ]
-
----
-
-### Within organizations (OLS): `\(Y_{ij} = \beta_{1:n} X_{ij} + \alpha_i + \gamma_k + \delta_p + \epsilon_{ij}\)`
-
-`\(Y_i\)`: success of each organization `\(i\)` [-2:2]
-on rule `\(j\)` by agency `\(k\)` under president `\(p\)`.  
-
-`\(X_{ij}\)`: features of organization `\(i\)`'s coalition on for each rule `\(j\)` 
-  - whether the organization is part of a coalition [0,1]
-  - whether their coalition is business-led [0,1]
-  - whether the coalition's issue frame was adopted [0,1]
-  - the number of organizations in their coalition 
-  - whether the coalition supports the proposed rule [0,1]
-  - whether the coalition mobilized public pressure [0,1]   
-  
-`\(\alpha_i + \gamma_j + \delta_p\)`: fixed effects   
-`\(\epsilon_{ij}\)`: errors clustered at the organization level
-
-???
-
-As each rule is unique to an agency and president, `\(y_{ijkp}\)` `\(\equiv\)` `\(y_{ij}\)` 
 
 ---
 
@@ -2352,7 +2421,7 @@ name: deference-data
 
 # Data
 
-All SCOTUS cases + a random sample of 175 federal circuit court cases that mention "Administrative Law" in the LexisNexis headnotes, 1984-2000.
+All SCOTUS cases + a random sample of 175 federal circuit court cases that mention "Administrative Law" in the LexisNexis headnotes, 1984-2020.
 - **Ideology:** Justices (Segal-Cover scores) × Policy (Spaeth criteria)
 - Parties, briefs, opinions, outcomes
 
@@ -2486,7 +2555,7 @@ background-color: white
 "highlightStyle": "github",
 "highlightLines": true,
 "countIncrementalSlides": false,
-"slideNumberFormat": "%current%/40"
+"slideNumberFormat": "%current%/41"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

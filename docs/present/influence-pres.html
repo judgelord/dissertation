@@ -1,92 +1,29 @@
----
-# TODO add name and email to all slides
-# knit: ( function(input, ...){rmarkdown::render(input) } )
-# rmarkdown::render("docs/present/methods-pres.Rmd")
-knit: ( function(input, ...){xaringan::infinite_moon_reader(input) } )
-title: "Do Public Pressure Campaigns Influence Bureaucratic Policymaking?"
-author: "Devin Judge-Lord <br>  Harvard University"
-bibliography: '`r here::here("assets/dissertation.bib")`'
-biblio-style: '`r here::here("assets/apsr.bst")`'
-link_col: cyan
-date: "Papers, slides, & data:  [judgelord.github.io]()"
-titletext_fontfamily: "Roboto:wght@100"
-middle_fontfamily: "Roboto"
-font_family: "Roboto:wght@100"
-urlcolor: cyan
-output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"
-    css: xaringan-themer.css
-    nature:
-      ratio: '16:10'
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-editor_options: 
-  chunk_output_type: console
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Do Public Pressure Campaigns Influence Bureaucratic Policymaking?</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Devin Judge-Lord   Harvard University" />
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Do Public Pressure Campaigns Influence Bureaucratic Policymaking?
+### Devin Judge-Lord <br> Harvard University
+### Papers, slides, &amp; data: <a href="">judgelord.github.io</a>
+
 ---
 
 
-```{r setup, include = FALSE}
-short = "true"
-exclude_stepwise = "false"
-exclude_extra = "false"
-
-# cache everything 
-knitr::opts_chunk$set(warning = FALSE, 
-                      message = FALSE,
-                      echo = FALSE, 
-                      #fig.path = "Figs/",
-                      fig.topcaption=TRUE,
-                      cache = TRUE, 
-                      fig.align = 'center',
-                      fig.retina = 2,
-                      dpi = 100)
 
 
 
-# Xaringan: https://slides.yihui.name/xaringan/
-library("xaringan")
-library("xaringanthemer")
-library("here")
-library("tidyverse")
-library("magrittr")
-library("knitr")
-library("kableExtra")
 
-
-style_mono_light(base_color = "#3b444b",
-          inverse_link_color	
- = "#B7E4CF",
-          #background_image = "Figs/ej-superfund-light.jpeg",
-          background_color = "white", #FAF0E6", # linen
-          header_font_google = google_font("PT Sans"), 
-          text_font_google = google_font("Old Standard"), 
-          text_font_size = "29px",
-          padding = "10px",
-          code_font_google = google_font("Inconsolata"), 
-          code_inline_background_color    = "#F5F5F5", 
-          table_row_even_background_color = "#ddede5", extra_css = list(".remark-slide-number" = list("display" = "none"))
- )
-```
-
-```{r, eval = FALSE, include= FALSE}
-
-# setup
-devtools::install_github("yihui/xaringan")
-devtools::install_github("gadenbuie/xaringanthemer")
-install.packages("webshot")
-# webshot::install_phantomjs()
-
-library(webshot)
-
-# export to pdf
-pagedown::chrome_print("docs/present/methods-pres.Rmd")
-
-file <- here("present/methods-pres.html")
-webshot(file, "methods-pres.pdf")
-```
 
 
 class: inverse center
@@ -131,11 +68,11 @@ Mobilization
 
 ↓
 
-<mark>Getting policymakers' attention and framing policy debates</mark>
+&lt;mark&gt;Getting policymakers' attention and framing policy debates&lt;/mark&gt;
 
 ↓
 
-<mark>Substantive policy influence</mark>
+&lt;mark&gt;Substantive policy influence&lt;/mark&gt;
 
 ↓
 
@@ -172,11 +109,9 @@ across institutions and over time.
 
 --
 
-**2. Lobbying success:** **No evidence of direct effect** of the scale of public pressure on policy substance. 
+**2. Lobbying success:** **No evidence of direct effect** of public pressure on policy substance. 
 --
-But, pressure has **indirect effects**: 
-- when agencies adopt their *issue frames*, activists are more likely to win  
-- pressure campaigns mobilize *legislators*, and coalitions with more members of Congress are more likely to win.
+But, pressure has **indirect effects**: pressure campaigns mobilize legislators, and coalitions with more members of Congress are more likely to win.
 
 ???
 Today, I'm going to show that public pressure can affect the policy process, but with a lot of caveats. And the caveats are often the most interesting part. 
@@ -239,7 +174,7 @@ This is where I turn to the literature on bureaucratic politics.
 
 - The scale of public pressure? (Schattschneider would say that "expanding the scope of conflict" matters, but Balla et al. [2020] find that "legal imperatives trump political considerations")
 
-- Positions of political principals (McCubbins & Schwartz 1984)
+- Positions of political principals (McCubbins &amp; Schwartz 1984)
 
 - Who is affected? (Lowi would say it should)
 
@@ -262,12 +197,9 @@ These are very much two-tailed tests.
 
 ---
 
-### Data: Rates of Addressing Climate & Environmental Justice 2005-2020
+### Data: Rates of Addressing Climate &amp; Environmental Justice 2005-2020
 
-```{r cj-data-agencies, out.width = "90%"}
-
-knitr::include_graphics("Figs/cj-data-agencies-2.png")
-```
+&lt;img src="Figs/cj-data-agencies-2.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -279,9 +211,9 @@ Of 13,111 relevant agency rules, less than 15% addressed environmental justice, 
 
 Of 39,392,957 public comments 
 
-- 20% <!--, 17,857,018 (421,880 unique)--> raise "climate change"
+- 20% &lt;!--, 17,857,018 (421,880 unique)--&gt; raise "climate change"
 
-- 2% <!--, 3,248,697 (2,138 unique)--> also mention environmental justice or climate justice
+- 2% &lt;!--, 3,248,697 (2,138 unique)--&gt; also mention environmental justice or climate justice
 
 - 82% of all comments raising EJ also mention climate change, but only 14% of **unique** comments raising EJ also mention climate change
 
@@ -381,13 +313,11 @@ However, the conclusions are largely the same if I use a quadradic function inst
 
 ---
 
-exclude: `r exclude_stepwise`
+exclude: false
 
 ## Probability of Adding "Environmental Justice" to Policy
 
-```{r ej-m-PR-president-median-2, out.width = "100%"}
-knitr::include_graphics("Figs/ej-m-PR-president-median-2.png")
-```
+&lt;img src="Figs/ej-m-PR-president-median-2.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 ???
 
@@ -398,44 +328,27 @@ All of the plots I'll show have predicted probability of change on the x-axis an
 
 ## Probability of Adding "Environmental Justice" to Policy
 
-```{r ej-m-PR-president-median-1, out.width = "100%"} 
-
-knitr::include_graphics("Figs/ej-m-PR-president-median-1.png")
-
-```
+&lt;img src="Figs/ej-m-PR-president-median-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 
 ---
 
 ## Receptive Policymakers are More Responsive
 
-```{r ej-m-PR-shareI, fig.cap = "", out.width = "100%", fig.show = "hold", fig.subcap=""}
-
-knitr::include_graphics("Figs/ej-m-PR-shareI-1.png")
-
-```
+&lt;img src="Figs/ej-m-PR-shareI-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ## Policymakers Respond to Public Pressure
 
 
-```{r ej-m-PR-comments-agencyFE, out.width = "100%", fig.show = "hold"}
-
-knitr::include_graphics("Figs/ej-m-PR-comments-agencyFE-1.png")
-
-```
+&lt;img src="Figs/ej-m-PR-comments-agencyFE-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ## Policymakers are More Responsive to Larger Coalitions
 
-```{r climate-m-PR-climatecomments-agencyFE,  out.width = "100%"}
-
-
-knitr::include_graphics("figs/climate-m-PR-climatecomments-agencyFE-1.png")
-
-```
+&lt;img src="figs/climate-m-PR-climatecomments-agencyFE-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -450,27 +363,21 @@ class: inverse center middle
 (coalition-level OLS Regression)
 
 
-```{r m-influence, out.width = "30%"}
-knitr::include_graphics(here::here("figs", "m-influence.png"))
-```
+&lt;img src="../../figs/m-influence.png" width="30%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ## Pressure campaigns mobilize legislators 
 (coalition-level Poisson Regression)
 
-```{r m-congress, out.width = "50%"}
-knitr::include_graphics(here::here("figs", "m-congress.png"))
-```
+&lt;img src="../../figs/m-congress.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ## When organizations mobilize more legislators, they are more likely to win 
 (within-organization OLS)
 
-```{r m-diffindiff, out.width = "50%"}
-knitr::include_graphics(here::here("figs", "m-diffindiff.png"))
-```
+&lt;img src="../../figs/m-diffindiff.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -511,7 +418,7 @@ HOWEVER, groups raising climate and environmental justice are usually "big green
 
 --
 
-*Thank you!* Papers, slides, & data:  [judgelord.github.io]()
+*Thank you!* Papers, slides, &amp; data:  [judgelord.github.io]()
 
 
 ???
@@ -544,19 +451,19 @@ class: inverse
 - Paper, slides, data: [judgelord.github.io](judgelord.github.io/)
 - Rules relevant to climate or environmental justice currently open for comment: [judgelord.github.io/rulemaking/open]( https://judgelord.github.io/rulemaking/open)
 
-<!--
+&lt;!--
 
 Questions
 - More or less on mobilization or hand-coded influence? 
-- Aggregate impact of related campaigns $\rightsquigarrow$   social movement impact?
+- Aggregate impact of related campaigns `\(\rightsquigarrow\)`   social movement impact?
 - Should "climate change" replication be in this paper? 
 - Other discursive terms/movements?
 
--->
+--&gt;
 
 Next 
 - [Audit study](): What causes institutional receptivity?
-- [Co-framing](): EJ + "health", "disaster", "climate" & changes in term frequency
+- [Co-framing](): EJ + "health", "disaster", "climate" &amp; changes in term frequency
 - [Surveys]() to compare comments to public opinion
 - [Lobbying networks]()
 - [Feedback](): The mobilizing and demobilizing effects of the policy process
@@ -569,7 +476,7 @@ Is the aggregate influence of related campaigns a defensible working deff of a s
 
 co-framing (Baumgartner and Jones) 
 
-<!--
+&lt;!--
 Next Steps
 - More on coalition structure and policy success, especially opposing coalitions
 - Better (hand-coded) measures of policy change
@@ -577,10 +484,10 @@ Next Steps
 
 Framing 
 - More on how social movements may impact policy. Petitioning and protest? Lobbying?
--->
+--&gt;
 
 
-exclude: `r exclude_extra`
+exclude: false
 class: inverse center middle 
 
 # Extra Slides
@@ -588,36 +495,130 @@ class: inverse center middle
 ---
 
 
-```{r ej-winrates}
-library(kableExtra)
-library(scales)
-load(here::here("data", "winrate.Rdata"))
-winrates %>% 
-  mutate(`EJ Success Rate` = `EJ Success Rate` %>%
-           percent(accuracy = 1) %>% replace_na("-"),
-         `Overall Success Rate` = `Overall Success Rate` %>%
-           percent(accuracy = 1)) %>% 
-  dplyr::select(-`N raising EJ`) %>% #mutate(across(where(is.numeric), pretty_num)  ) %>%
-      knitr::kable(caption = "") %>% 
-      kableExtra::kable_styling(font_size = 22, position = "center")  #kable3(caption = "Hand-coded Lobbying Success by Type of Organization, 2005-2020")
-```
+&lt;table class="table" style="font-size: 22px; margin-left: auto; margin-right: auto;"&gt;
+&lt;caption style="font-size: initial !important;"&gt;&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Organization Type &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; N &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Overall Success Rate &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; EJ Success Rate &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NGO &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6096 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 27% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 24% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Business &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1911 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 13% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Trade Association &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 894 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 45% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; State &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 294 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 50% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Law Firm &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 288 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 25% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 50% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Religious &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 220 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 24% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Pressure Group &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 182 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 15% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Professional Assn. &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 179 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 33% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Tribe &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 179 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 9% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; University &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 140 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 10% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Environmental Group &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 130 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 18% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 14% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Credit Union &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 103 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 50% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Union &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 88 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 27% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Frontline EJ &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 78 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 4% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Finance &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 33% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; City &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 40% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 
 ---
 
-exclude: `r short`
+exclude: true
 
 ## Lobbying Success by Campaign Size
 
-```{r coded-coalition-success, out.width = "60%"}
-knitr::include_graphics(here::here("figs", "coded-coalition-success-1.png"))
-```
+&lt;img src="../../figs/coded-coalition-success-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ### *Distributive Claims Hypothesis*: 
 
-> Policymakers are more likely to address distributive justice when groups raise distributive justice concerns.
+&gt; Policymakers are more likely to address distributive justice when groups raise distributive justice concerns.
 
 ✅ Pro: "norms and values are set communicatively" (Habermas 1996), and "identifying interests" shapes policy (Gellhorn 1972)   
 
@@ -633,12 +634,12 @@ Conversely, if bureaucratic policymaking is about "technical expertise"
 
 ### *Pressure Hypothesis*
 
-> Policymakers are more likely to address concerns as more groups raise them.
+&gt; Policymakers are more likely to address concerns as more groups raise them.
 
 ✅ :
-Coalition size (Nelson and Yackee  2012) & pressure (Gillion 2013; Wasow 2020)
+Coalition size (Nelson and Yackee  2012) &amp; pressure (Gillion 2013; Wasow 2020)
 
-❌ : "Informational value" (Epstein et al. 2014; Gailmard & Patty 2017; Libgober 2018)
+❌ : "Informational value" (Epstein et al. 2014; Gailmard &amp; Patty 2017; Libgober 2018)
 
 ???
 
@@ -651,17 +652,17 @@ I really like Brian Libgober's model of how comments inform rulemaking, but it r
 
 ### *Policy Receptivity Hypothesis*
 
-> Policymakers that more frequently address certain concerns will be more responsive to groups raising those concerns.
+&gt; Policymakers that more frequently address certain concerns will be more responsive to groups raising those concerns.
 
-<!-- "Legibility" (Scott 1998), -->
-✅ : "Opportunity structure" (Marks & McAdam 2007; McAdam 2010) "fit inside the legal narrative" (Scott 1998; Deloria 2009; Hilson 2002; Delaney 2017)   
+&lt;!-- "Legibility" (Scott 1998), --&gt;
+✅ : "Opportunity structure" (Marks &amp; McAdam 2007; McAdam 2010) "fit inside the legal narrative" (Scott 1998; Deloria 2009; Hilson 2002; Delaney 2017)   
 
 ❌ : "New information" Farina (2018)
 
 ???
 Regarding policy receptivity
 Hilson argues that 
-> "[Political opportunity] must be seen not just in terms of openness (in other words, access to the administration), but also in terms of political receptivity to the claims being made." (Hilson 2002, p. 242)
+&gt; "[Political opportunity] must be seen not just in terms of openness (in other words, access to the administration), but also in terms of political receptivity to the claims being made." (Hilson 2002, p. 242)
 
 Claims may be more impactful when they are more legible to policymakers and fit inside their existing legal narrative and self-concept of what their job is.
 
@@ -672,7 +673,7 @@ Other legal scholars and formal models suggest that information should matter mo
 
 ### *Public Attention Hypothesis*
 
-> Policies are more likely to change when they receive more public attention (e.g., more public comments).
+&gt; Policies are more likely to change when they receive more public attention (e.g., more public comments).
 
 ✅ : Leech (2010)
 
@@ -693,11 +694,11 @@ And again, formal models don't really have a parameter for public attention or p
 SKIPPING 
 *Conditional Attention Hypothesis*
 
-> Policies are more likely to address an issue when they receive more public attention (e.g., more public comments) *and* groups raise that issue.
+&gt; Policies are more likely to address an issue when they receive more public attention (e.g., more public comments) *and* groups raise that issue.
 
 ---
 
-exclude: `r short`
+exclude: true
 
 background-image: url(https://assets.nrdc.org/sites/default/files/styles/full_content/public/media-uploads/midwesttoxicdoughnut_25_002chicago_steel_mills-july_1965_vl_2400.jpg?itok=yXMNtQ-Y)
 background-size: cover
@@ -714,8 +715,8 @@ background-size: cover
 
 ???
 
---> Administrative Procedures Act lawsuits: 
-> "environmental justice analysis can be reviewed under NEPA and the APA" (*Protect Our Communities Foundation v. Salazar* 2013; *Communities Against Runway Expansion, Inc. v. FAA* 2004)
+--&gt; Administrative Procedures Act lawsuits: 
+&gt; "environmental justice analysis can be reviewed under NEPA and the APA" (*Protect Our Communities Foundation v. Salazar* 2013; *Communities Against Runway Expansion, Inc. v. FAA* 2004)
 
 
 Environmental Justice For All Act (2020) introduced by Senator Harris
@@ -724,7 +725,7 @@ The day after Biden's executive order was launched, Rep. Cori Bush (D-MO) and Se
 
 ---
 
-exclude: `r short`
+exclude: true
 
 background-image: url(Figs/clinton-ej.jpg)
 background-size: cover
@@ -787,25 +788,19 @@ EJ on 30/51 pages in Biden rule
 
 13 thousand draft and final rule pairs* from 40 agencies, 1993-2020
 
-```{r ej-data, fig.show = "hold", out.width = "100%"}
-
-knitr::include_graphics("Figs/ej-data-ejpr-1.png")  
-```
+&lt;img src="Figs/ej-data-ejpr-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 *A few rulemaking dockets have more than one draft or final rule.
 
 ---
 
-exclude: `r short`
+exclude: true
 
 
 ## Data: ~42,000,000 Public Comments
 
 
-```{r ej-comments, out.width = "80%"}
-
-knitr::include_graphics("Figs/ej-comments-1.png")
-```
+&lt;img src="Figs/ej-comments-1.png" width="80%" style="display: block; margin: auto;" /&gt;
 
 
 ???
@@ -830,10 +825,8 @@ Y-axis is the total number of comments the rule received.
 ~4,800,000 (~28,000 unique) comments raise EJ concerns
 
 
-```{r percent-match, fig.show = "hold", out.width = "45%", fig.cap="Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments"}
-
-knitr::include_graphics("Figs/comment_percent_match_plot.png") 
-```
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments&lt;/p&gt;&lt;img src="Figs/comment_percent_match_plot.png" alt="Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments" width="45%" /&gt;&lt;/div&gt;
 
 ???
 
@@ -845,30 +838,21 @@ I then attach these to lobbying coalitions by hand.
 
 
 
-exclude: `r short`
+exclude: true
 
 ## Who does notice and comment rulemaking empower? 
 
-```{r ejcommentsbyrace, fig.cap = 'Estimated Racial Distribution from Census Surnames of Commenters raising "Environmental Justice" Concerns in Rulemaking', fig.height = 1.5, fig.width=2, out.width = "40%", fig.show = "hold"}
-load(here::here("data", "ej_race.Rdata"))
-
-Race %>% ggplot() + 
-  aes(y =Race, x = Probability) + 
-  geom_col() +
-  theme_minimal() +
-  theme(panel.grid.major.y = element_blank())
-```
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;Estimated Racial Distribution from Census Surnames of Commenters raising "Environmental Justice" Concerns in Rulemaking&lt;/p&gt;&lt;img src="influence-pres_files/figure-html/ejcommentsbyrace-1.png" alt="Estimated Racial Distribution from Census Surnames of Commenters raising &amp;quot;Environmental Justice&amp;quot; Concerns in Rulemaking" width="40%" /&gt;&lt;/div&gt;
 
 ---
 
-exclude: `r short`
+exclude: true
 
 ## Hand-coded coalitions and policy change
 
-```{r datasheet, fig.show = "hold", out.width = "100%", fig.cap="Example: Identifying Coalitions by Hand"}
-
-knitr::include_graphics("Figs/datasheet.png")
-```
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;Example: Identifying Coalitions by Hand&lt;/p&gt;&lt;img src="Figs/datasheet.png" alt="Example: Identifying Coalitions by Hand" width="100%" /&gt;&lt;/div&gt;
 
 
 ???
@@ -880,9 +864,7 @@ I obtain uncertainty by using indicators rather than fixed effects.
 
 ## Results: Adding EJ to Policy
 
-```{r ej-m-PR-ejcomments-agencyFE,  out.width = "90%"}
-knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-1.png")
-```
+&lt;img src="Figs/ej-m-PR-ejcomments-agencyFE-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 - ✊🏿 🔁   Coalition Size 📈 
 
@@ -895,10 +877,7 @@ knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-1.png")
 
 ## Results: Changing Existing EJ Language
 
-```{r ej-mejPR-ejcomments-agencyFE, out.width = "90%"}
-
-knitr::include_graphics("Figs/ej-mejPR-ejcomments-agencyFE-1.png")
-```
+&lt;img src="Figs/ej-mejPR-ejcomments-agencyFE-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 
 - ✊🏿🔁  Coalition Size 📈 
@@ -907,10 +886,7 @@ knitr::include_graphics("Figs/ej-mejPR-ejcomments-agencyFE-1.png")
 
 ## Results: Changing Existing EJ Language
 
-```{r ej-mejPR-comments, out.width = "90%"}
-
-knitr::include_graphics("Figs/ej-mejPR-comments-agencyFE-1.png")
-```
+&lt;img src="Figs/ej-mejPR-comments-agencyFE-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 
 - ✊🏿  Distributive Claims 📈 
@@ -930,7 +906,7 @@ Strong framing effects, but substantive victories are rare and dominated by surr
 | 📢  General Public Attention               | 📈 | 📉 |
 
 
-<!--| 📢x✊🏿 Specific (Conditional) Pressure            | 📉 | ❓ | -->
+&lt;!--| 📢x✊🏿 Specific (Conditional) Pressure            | 📉 | ❓ | --&gt;
 
 With larger coalitions and more public attention, agencies are more likely  📈 to **add** EJ language **where there was none**, BUT agencies also anticipate public attention, making **existing** EJ analyses less likely 📉 to **change** on higher-salience rules.
 
@@ -950,7 +926,7 @@ With larger coalitions and more public attention, agencies are more likely  📈
 - Began appearing in federal policy documents in the 1980s
 - A fusion of the American Indian Movement, Chicano movement, farmworker movement, civil rights movement, and union organizing
 
-> People of color [raised] social justice concerns such as self-determination, sovereignty, human rights, social inequality, loss of land base, limited access to natural resources, and disproportionate impacts of environmental hazards and linked them with traditional working-class environmental concerns such as worker rights and worker health and safety to develop an environmental justice agenda. (Taylor 2012, p. 1)
+&gt; People of color [raised] social justice concerns such as self-determination, sovereignty, human rights, social inequality, loss of land base, limited access to natural resources, and disproportionate impacts of environmental hazards and linked them with traditional working-class environmental concerns such as worker rights and worker health and safety to develop an environmental justice agenda. (Taylor 2012, p. 1)
 
 ???
 
@@ -962,15 +938,15 @@ My aim is to add some more systematic quantitative data on the broad trends abou
 
 ---
 
-exclude: `r short`
+exclude: true
 
 ## Do Social Movements Cause Policy Change?
 
-**Yes.** (Dahl 1956; Lipsky 1968; Piven & Cloward 1977; Tarrow 1994; Andrews 1997; McAdam 1982, 2001; McAdam & Su 2002, McCammon et al. 2011; Cress & Snow 2000; Weldon 2002)
+**Yes.** (Dahl 1956; Lipsky 1968; Piven &amp; Cloward 1977; Tarrow 1994; Andrews 1997; McAdam 1982, 2001; McAdam &amp; Su 2002, McCammon et al. 2011; Cress &amp; Snow 2000; Weldon 2002)
 
 
 
-- **Activists shape parties** (Cohen et al. 2008, Schlozman 2015, Skocpol & Williamson 2016)
+- **Activists shape parties** (Cohen et al. 2008, Schlozman 2015, Skocpol &amp; Williamson 2016)
 
 
 
@@ -978,7 +954,7 @@ exclude: `r short`
 
 
 
-- **Redistributive policies often require social movements** (Lowi & Nicholson 2015)
+- **Redistributive policies often require social movements** (Lowi &amp; Nicholson 2015)
 
 
 
@@ -1006,7 +982,7 @@ Despite excellent recent work (like Dan Gillion and Omar Wa-So's work on civil r
 
 ## Research tends to explain social movement emergence rather than specific impacts (McAdam 2017) 
 
-- **"limited research on [social movement] influence"** (Andrews & Edwards 2004)
+- **"limited research on [social movement] influence"** (Andrews &amp; Edwards 2004)
 
 - **The DV is rarely specific policy outcomes or systematic impact**
 
@@ -1028,7 +1004,7 @@ So, I'm interested in the extent to which social movements can affect agency rul
 
 --
 
-## Aggregate impact of EJ campaigns across institutions and over time $\rightsquigarrow$ EJ movement impact
+## Aggregate impact of EJ campaigns across institutions and over time `\(\rightsquigarrow\)` EJ movement impact
 
 ???
 And I'm thinking about social movement impact as the aggregate impact of EJ campaigns across institutions and over time. 
@@ -1041,11 +1017,11 @@ Whom does notice and comment rulemaking empower?
 
 ---
 
-exclude: `r exclude_extra`
+exclude: false
 
 # Next steps: methods
 
-- Test policy receptivity using rates of addressing EJ out of sample (direct rules & notices)
+- Test policy receptivity using rates of addressing EJ out of sample (direct rules &amp; notices)
 - Better measures of policy change
 - cor(EJ Language, Lobbying Success)
 - Alternative estimation (hierarchical Bayes)
@@ -1054,25 +1030,19 @@ exclude: `r exclude_extra`
 
 ---
 
-exclude: `r exclude_extra`
+exclude: false
 
 
-### Replication & Extention: Climate Change & Climate Justice 
+### Replication &amp; Extention: Climate Change &amp; Climate Justice 
 
-```{r cj-data-agencies2, out.width = "90%"}
-
-knitr::include_graphics("Figs/cj-data-agencies-2.png")
-```
+&lt;img src="Figs/cj-data-agencies-2.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-exclude: `r exclude_extra`
+exclude: false
 
 
-```{r cj-table2,  out.width = "80%"}
-
-knitr::include_graphics("Figs/cj-table.png")
-```
+&lt;img src="Figs/cj-table.png" width="80%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1084,18 +1054,18 @@ Photo credits:
 ---
  
 Human coding and computational text analysis are more powerful when combined in an iterative workflow.
-<!--I show how search and text-reuse tools can aid common hand-coding tasks. 
-Human coding can both inform and be informed by rule-based information extraction---iteratively structuring queries on unstructured text.-->
+&lt;!--I show how search and text-reuse tools can aid common hand-coding tasks. 
+Human coding can both inform and be informed by rule-based information extraction---iteratively structuring queries on unstructured text.--&gt;
 
 1. Text analysis tools can strategically **select texts for human coders**---texts representing larger samples and outlier texts of high inferential value.
 2. Preprocessing can **speed up hand-coding** by extracting features like names and key sentences. 
 3. Humans and computers can iteratively **tag entities** using regex tables 
-<!--(e.g., identify organizations)--> and **group texts by key features** (e.g., identify lobbying coalitions by common policy demands)
+&lt;!--(e.g., identify organizations)--&gt; and **group texts by key features** (e.g., identify lobbying coalitions by common policy demands)
 
 
-Applying simple search and text-reuse methods to public comments on all U.S. federal agency rules, a **sample of 10,894 hand-coded comments** yields **41 million as-good-as-hand-coded comments** regarding both the organizations that mobilized them and the extent to which policy changed in the direction they sought. <!--This large sample enables new analyses of lobbying coalitions, social movements, and policy change.-->
+Applying simple search and text-reuse methods to public comments on all U.S. federal agency rules, a **sample of 10,894 hand-coded comments** yields **41 million as-good-as-hand-coded comments** regarding both the organizations that mobilized them and the extent to which policy changed in the direction they sought. &lt;!--This large sample enables new analyses of lobbying coalitions, social movements, and policy change.--&gt;
 
-<!--
+&lt;!--
 # The Broader Project: Public Pressure
 
 Mobilization
@@ -1119,27 +1089,26 @@ Surviving judicial review
 
 # 50 million public comments on proposed agency rules
 
----->
+----&gt;
 
 
 
 
-<!--
+&lt;!--
 # Challenges and Opportunities in Studying Political Texts
 --
 
---->
+---&gt;
 
 # Hand-coding dynamic data
 
-<!--
+&lt;!--
 - 15 coders 
 
-```{r greyhound, fig.cap= "Incorrectly Labeled Coalition Identified by Automated Check"}
-knitr::include_graphics(here("figs", "greyhound.png"))
-```
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;Incorrectly Labeled Coalition Identified by Automated Check&lt;/p&gt;&lt;img src="../../figs/greyhound.png" alt="Incorrectly Labeled Coalition Identified by Automated Check" width="690" /&gt;&lt;/div&gt;
 
---->
+---&gt;
 
 Workflow: `googlesheets4` allows analysis and improving data in real time. For example, in Fig. 1: 
 
@@ -1149,10 +1118,7 @@ Workflow: `googlesheets4` allows analysis and improving data in real time. For e
 
 **Fig. 1:** Coded Public Comments in a Google Sheet
 
-```{r datasheet2, fig.show = "hold", out.width = "100%"}
- 
-knitr::include_graphics(here("figs", "datasheet.png"))
-```
+&lt;img src="../../figs/datasheet.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 
 # Regex tables to tag entities
@@ -1161,65 +1127,44 @@ knitr::include_graphics(here("figs", "datasheet.png"))
 - **Deductive:** Start with databases of known entities.
 
 
-<!--### Consolidating entity name variants with regex tables-->
+&lt;!--### Consolidating entity name variants with regex tables--&gt;
 
 
-```{r regex-crp}
-#CRP data
-here("data", "Lobbbying_Summary.csv") |>
-read_csv() |>
-  filter(parentName %in% c("Teamsters Union", "3M Co") ) |>
-  filter(!orgName %in% "3M Cogent") |>
-  mutate(orgName = orgName %>% str_replace(".*Teamsters.*", "Teamsters")) |> 
-  distinct(orgName, parentName) |> 
-  group_by(parentName) |>
-  summarize(pattern = str_c(orgName, collapse = "|") ) |>
-  mutate(pattern = pattern %>% str_replace("Teamsters & ", "Teamsters|Teamsters.{1:4}") |>
-           str_replace("Maint ", "Maint[a-z]* ") |>
-           str_replace("Trucking Pension", "(Trucking|Pension)") |>
-           str_replace_all("&|and", "(and|&)") |>
-           str_remove_all(" Div")) |>
-  rename(Entity = parentName, Pattern = pattern) |>
-  knitr::kable(caption = "Lookup Table Deduced from Center for Responsive Politics Lobbying Data, Collapsed into an Initial Regular Expression Table", full_width = T) |>
-  kableExtra::kable_paper()
-```
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
+&lt;caption&gt;Lookup Table Deduced from Center for Responsive Politics Lobbying Data, Collapsed into an Initial Regular Expression Table&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Entity &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Pattern &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 3M Co &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3M Co|3M Health Information Systems|Ceradyne|Cogent Systems|Hybrivet Systems &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Teamsters Union &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Brotherhood of Locomotive Engineers (and|&amp;amp;) Trainmen|Brotherhood of Maint[a-z]* of Way Employ|Teamsters &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 - **Inductive:** Add entity strings that frequently appear in the data to regex tables.  
 - **Iterative:** Add to regex tables as humans identify new entities or new aliases for known entities. Update data (Google Sheets) to speed hand coding.
 
-<!--### Add to regex tables as hand coders identify new aliases-->
+&lt;!--### Add to regex tables as hand coders identify new aliases--&gt;
 
 **Fig 2:** Iteratively Building Regex Tables
 
-```{r, out.width = "100%", fig.show='hold'}
-#knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vRSJJgSbMdFtkpJjB94Tw5cmFElhDKrHEkOLaUb5-qFdIY-sQp4qGyC-FZoZ7UmWSLfoMZDueAkemhU/pub?w=752&h=238") 
+&lt;img src="../../figs/methods-regex.png" width="100%" style="display: block; margin: auto;" /&gt;
 
-knitr::include_graphics(here::here("figs", "methods-regex.png"))
-
-#knitr::include_graphics(here::here("legislators" , "man", "figures", "logo.png") %>% str_remove("dissertation"))
-```
-
-<!--
+&lt;!--
 The `legislators` package adds name variants (e.g., "Liz Warren") to standard legislator names.
 
-```{r legislators, eval = FALSE}
-library(legislators)
 
-members |>
-  filter(first_name == "Elizabeth", congress == 117) |>
-  select(Entity = bioname, Pattern = pattern) |>
-  mutate(Pattern = Pattern |> 
-           str_replace_all("\\\\b" , "\\\\\\\\b") %>% 
-           str_remove_all("na |\\|herring, e\\\b|\\|herring, elizabeth|\\|liz herring|\\|warren, l\\\\b") %>% 
-           str_replace("representative fletcher\\\\b.\\{1,4\\}tx", "\\|representative fletcher") %>% 
-           #str_replace("fletcher\\|fletcher", "fletcher") %>% 
-           str_replace("senator warren\\\\b.\\{1,4\\}ma", "\\|senator warren") |>
-  str_replace_all("\\\\b", "\\\\\\b") )%>% 
-  kable( caption = 'Regex Table for Legislators Named Elizabeth in the 117th Congress', full_width = T)|>
-  kableExtra::kable_paper()
-```
 
--->
+--&gt;
 
 For example, the `legislators` package uses a regex table, adding variants (e.g., "AOC") to standard legislator names to detect them in messy text.
 
@@ -1228,70 +1173,91 @@ For example, the `legislators` package uses a regex table, adding variants (e.g.
 
 ### Results: Who mobilizes public comments?
 
-```{r}
-# code in the top_orgs.R
-load(here("data", "org_counts_summary.Rdata"))
-
-top5 <- org_counts_summary[1:5,] %>% tally(comments)
-top10 <- org_counts_summary[1:10,] %>% tally(comments)
-top100 <- org_counts_summary[1:100,]  %>% tally(comments)
-```
-
-<!--Iteratively linking comments to the organizations that wrote or mobilized them (and thus strings to identify similar documents), I find that a few advocacy organizations mobilize the vast majority of comments. 
--->
-Of 58 million public comments on proposed agency rules, the top 100 organizations mobilized `r top100 |> prettyNum(big.mark = ",")`. The top ten organizations mobilized `r top10 |> prettyNum(big.mark = ",")`.
 
 
-```{r}
-# code in the top_orgs.R
-load(here("data", "org_counts_summary.Rdata"))
+&lt;!--Iteratively linking comments to the organizations that wrote or mobilized them (and thus strings to identify similar documents), I find that a few advocacy organizations mobilize the vast majority of comments. 
+--&gt;
+Of 58 million public comments on proposed agency rules, the top 100 organizations mobilized 43,938,811. The top ten organizations mobilized 25,947,612.
 
-top10 <- org_counts_summary[1:10,]
-top100 <- org_counts_summary[1:100,]
 
-# Pretty up for presentation
-org_counts_summary %>%
-  dplyr::select(org_name, rules, campaigns, percent, comments, average) %>% 
-  mutate(comments = comments %>% prettyNum(big.mark = ","),
-         average = average %>% prettyNum(big.mark = ",")) %>% 
-  rename(Organization = org_name,
-         Comments = comments,
-         `Rules Lobbied On` = rules, 
-         `Pressure Campaigns` = campaigns,
-         `Percent (Campaigns /Rules)` = percent, 
-         `Average per Campaign` = average) %>% 
-  head() %>% 
-  #mutate(Organization = Organization %>% 
-           #str_rpl("Natural Resources Defense Council", "NRDC") %>% 
-           #str_rpl("World Wildlife Fund", "WWF") %>% 
-           #str_rpl("Pew Charitable Trusts", "Pew")) %>% 
-  kable(caption = "The Top 5 Organizations Mobilized 20 Million Public Comments",
-         full_width = T, font_size = 55, align= c('l', rep('c', 5))) |>
-  kableExtra::kable_paper()
-```
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
+&lt;caption&gt;The Top 5 Organizations Mobilized 20 Million Public Comments&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Organization &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Rules Lobbied On &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Pressure Campaigns &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Percent (Campaigns /Rules) &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Comments &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Average per Campaign &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NRDC &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 530 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 62 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 11.7% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5,939,264 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 95,795 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Sierra Club &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 591 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 110 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18.6% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5,111,922 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 46,472 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; CREDO &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 90 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 41 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 45.6% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3,019,150 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 73,638 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Environmental Defense Fund &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 111 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 31 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 27.9% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2,849,517 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 91,920 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Center For Biological Diversity &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 572 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 86 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 15.0% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2,815,509 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 32,738 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Earthjustice &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 235 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 59 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 25.1% &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2,080,583 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 35,264 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 
 # Grouping with text reuse {.mybreak}
 
 **Fig. 3:** Iteratively Group Documents
 
-```{r, out.width = "100%", fig.show='hold'}
-#knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vSy9MpvnXV0nbZj4kUPnWC38bwk5xiBXjRiGC3fyrddwoZVT19SmfT4WRr_AvOH5lxeKyrTenqLlKmm/pub?w=953&h=603")
-
-knitr::include_graphics(here::here("figs", "methods-ngrams.png"))
-
-```
+&lt;img src="../../figs/methods-ngrams.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 
-<!--## Collapsing form letters with text reuse-->
+&lt;!--## Collapsing form letters with text reuse--&gt;
 
 
 **Fig 4:** Identifying Groups of Linked Documents with Text Reuse (a 10-gram Window Function)
 
-```{r percent-match2, fig.show = "hold", out.width = "55%"}
-
-knitr::include_graphics(here::here("figs", "comment_percent_match_plot-2.png")  )
-```
+&lt;img src="../../figs/comment_percent_match_plot-2.png" width="55%" style="display: block; margin: auto;" /&gt;
 
 - Document A shares no 10-word phrases with the others 
 - B, C, and D share some text (they are part of an organized mass comment campaign) 
@@ -1303,9 +1269,7 @@ knitr::include_graphics(here::here("figs", "comment_percent_match_plot-2.png")  
 
 **Fig. 5:** Public Comments on Regulations.gov, 2005-2020
 
-```{r comments-mass, out.width = "100%", fig.show = "hold"}
-knitr::include_graphics(here::here("figs", "comments-mass-1.png"))
-```
+&lt;img src="../../figs/comments-mass-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 Comments that share a 10-gram with 99 or more others are part of a mass comment campaign.
 
@@ -1318,11 +1282,11 @@ Comments that share a 10-gram with 99 or more others are part of a mass comment 
 3. Computer puts other documents containing those phrases in the same group (coalition)
 
 *Preprocessing tip:* 
-<!--**Digitized text** allows humans to paste text exactly matching machine-read strings.  -->
+&lt;!--**Digitized text** allows humans to paste text exactly matching machine-read strings.  --&gt;
 **Summaries** speed hand-coding (e.g., use `textrank` to select representative sentences).
 
 
-<!--
+&lt;!--
 ## Hand-coded coalitions and key demands
 
 ---
@@ -1339,13 +1303,12 @@ Comments that share a 10-gram with 99 or more others are part of a mass comment 
 
 ### Coding commenter demands
 
-<!--
+&lt;!--
 ## Coding policy positions {#spatial}
 
 
-```{r spatial-coding, fig.cap= "Coding the Spatial Position of Comments on Proposed Policy Changes", fig.height=4, fig.width=5.5}
-include_graphics(here("figs", "spatial-coding-1.png"))
-```
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;Coding the Spatial Position of Comments on Proposed Policy Changes&lt;/p&gt;&lt;img src="../../figs/spatial-coding-1.png" alt="Coding the Spatial Position of Comments on Proposed Policy Changes" width="1521" /&gt;&lt;/div&gt;
 
 
 
@@ -1360,30 +1323,17 @@ include_graphics(here("figs", "spatial-coding-1.png"))
 ### The Dependent Variable: Lobbying Success
 
 ---
---->
+---&gt;
 
 
 
 **Fig. 7:** Policy Text Change by Coalition Size
 
-```{r ej-m-PR-ejcomments-agencyFE2,  out.width = "100%", small.mar = TRUE}
-knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-1.png")
-```
+&lt;img src="Figs/ej-m-PR-ejcomments-agencyFE-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 
 
-```{r ej-winrates2, eval=FALSE}
-load(here::here("data", "winrate.Rdata"))
-winrates %>% 
-  mutate(`EJ Success Rate` = `EJ Success Rate` %>%
-           percent(accuracy = 1) %>% replace_na("-"),
-         `Overall Success Rate` = `Overall Success Rate` %>%
-           percent(accuracy = 1)) %>% 
-  dplyr::select(-`N raising EJ`) %>% #mutate(across(where(is.numeric), pretty_num)  ) %>%
-      knitr::kable(caption = "Lobbying Success by Type of Organization, 2005-2020") %>% 
-  kable_paper() |>
-      kableExtra::kable_styling(position = "center")  #kable3(caption = )
-```
+
 
 
 
@@ -1394,28 +1344,24 @@ winrates %>%
 - Compare exact entity linking (regex tables) to probabilistic methods (`linkit`, `fastlink`, supervised classified with hand-coded training set)
 - Compare exact grouping (e.g., by policy demands) to supervised probabilistic classifiers/clustering
 
-<!--
-An example dashboard is available here: <https://judgelord.github.io/correspondence/FERC/DOE_FERC-letter-coding.html
+&lt;!--
+An example dashboard is available here: &lt;https://judgelord.github.io/correspondence/FERC/DOE_FERC-letter-coding.html
 
-<!--
-```{r check-company, fig.cap= "Checking for Disparities Among Coders in Real Time", out.width="100%"}
-include_graphics(here("figs", "check-company.png"))
-```
+&lt;!--
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;Checking for Disparities Among Coders in Real Time&lt;/p&gt;&lt;img src="../../figs/check-company.png" alt="Checking for Disparities Among Coders in Real Time" width="100%" /&gt;&lt;/div&gt;
 
 
-```{r check-backslashes, fig.cap= "Checking for Incorrect Coding in Real Time", fig.height=4, fig.width=5.5}
-include_graphics(here("figs", "check-backslashes.png"))
-```
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;p class="caption"&gt;Checking for Incorrect Coding in Real Time&lt;/p&gt;&lt;img src="../../figs/check-backslashes.png" alt="Checking for Incorrect Coding in Real Time" width="396" /&gt;&lt;/div&gt;
 
 # References 
 
-```{r, include=FALSE}
-knitr::write_bib(c('knitr','rmarkdown','posterdown','pagedown'), 'packages.bib')
-```
 
 
 
-<!--
+
+&lt;!--
 TODO 
 Bloomington
 
@@ -1441,4 +1387,128 @@ nu- merical representation of text documents can have an outsized impact on the 
 A corpus may lack textual discrimination regarding word frequencies [@Jerzak2019], but still be classified by phrases long enough that they are highly unlikely to appear by chance. 
 
 Another advangage of key phrases is that it cleanly allows texts to appear in multiple groups. 
---> 
+--&gt; 
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:10",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
