@@ -16,10 +16,10 @@ author:
 - name: Devin Judge-Lord
   affiliation: Harvard University
   title: Postdoctoral Fellow, Department of Government, Corresponding Author (DevinJudgeLord@fas.harvard.edu)
-  footnote: "I will be grateful for any feedback on this draft: [DevinJudgeLord@fas.harvard.edu](mailto:DevinJudgeLord@fas.harvard.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/ej>. This paper has benefited from comments from Benjamin Márquez, Marcy Shieh, Susan Webb Yackee, Eleanor Neff Powell, David Weimer, Timothy Fraser, Beth Leech, Sophie Jacobson, Margaret Brower, Daniel Carpenter, participants at the Junior Americanist Workshop Series,  Harvard American Politics Research Workshop, the University of Mississippi Political Science Research Colloquium, UW-Madison American Politics Workshop, and Association for Environmental Studies and Sciences Conference, research assistance from Hope Karnopp, and funding from the National Science Foundation and American Political Science Association."
+  footnote: "I will be grateful for any feedback on this draft: [DevinJudgeLord@fas.harvard.edu](mailto:DevinJudgeLord@fas.harvard.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/ej>. This paper has benefited from comments from Benjamin Márquez, Marcy Shieh, Susan Webb Yackee, Eleanor  Powell, David Weimer, John Hoffman, Kristina Fullerton Rico, Timothy Fraser, Beth Leech, Sophie Jacobson, Margaret Brower, Daniel Carpenter, participants at the Junior Americanist Workshop Series,  Harvard American Politics Research Workshop, the University of Mississippi Political Science Research Colloquium, UW-Madison American Politics Workshop, and Association for Environmental Studies and Sciences Conference, research assistance from Hope Karnopp, and funding from the National Science Foundation and American Political Science Association."
   # Additional tables, figures, and replication code are available at <https://judgelord.github.io/dissertation/ej-appendix.html>. 
 # "`r Sys.Date()`"
-date: '06-22-2022'
+date: '06-23-2022'
 abstract: '`r readLines(here::here("05-ej", "ej-abstract-150.tex"))`'
 #   `r readLines(here::here("05-ej", "ej-abstract.tex"))`
 bibliography: '`r here::here("assets/dissertation.bib")`'
@@ -31,7 +31,8 @@ frontpage: true
 spacing: onehalfspacing
 always_allow_html: true
 keywords: Pressure groups, agency rulemaking, environmental justice, agenda democracy, issue framing, policy change
-wordcount: 11964 #12366 + bib Word Count: 11964
+wordcount: 11964 #12366 + bib 
+warning: "Word Count: 11964"
 output: 
 #    bookdown::word_document2: default
     bookdown::pdf_document2:
