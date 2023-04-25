@@ -18,7 +18,7 @@ output:
     self_contained: true
     footer: These slides available at http://bit.ly/myslides
     lib_dir: libs
-    #mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"
+    mathjax: "default" # "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"
     css: ["footer-header.css", "xaringan-themer.css"]
     nature:
       ratio: '16:9'
