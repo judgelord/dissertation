@@ -25,7 +25,7 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-      slideNumberFormat: "%current%/17"           # 12/42 
+      slideNumberFormat: "%current%/16"           # 12/42 
 editor_options: 
   chunk_output_type: console
 ---
@@ -131,7 +131,7 @@ $\rightarrow$ already [300+ pages of guidance from Treasury](https://arcgis.netl
 "disadvantaged community"   
 $\rightarrow$ "a community that the Secretary determines [is] disadvantaged"
 
-"life cycle emissions" $\rightarrow$ "additional"/"new" generation    
+"life cycle emissions" <!--$\rightarrow$ "additional"/"new" generation -->    
 $\rightarrow$ $0 – ∞ billion for hydrogen
 
 "facility"   
@@ -198,7 +198,6 @@ layout: true
 
 ## When does public pressure affect agency rulemaking? 
 
-Pressure results from **organized campaigns.** 
 
 Campaigns succeed when
 
@@ -248,8 +247,12 @@ top100 <- org_counts_summary[1:100,]  %>% tally(comments)
 <!--Iteratively linking comments to the organizations that wrote or mobilized them (and thus strings to identify similar documents), I find that a few advocacy organizations mobilize the vast majority of comments. 
 -->
 
+### Pressure results from **organized campaigns** 
 
-Of 58 million public comments on proposed agency rules (2005-2020), the top 100 organizations mobilized `r top100 |> prettyNum(big.mark = ",")`. The top ten organizations mobilized `r top10 |> prettyNum(big.mark = ",")`.
+
+Of 58 million public comments on proposed agency rules, 2005-2020.  
+- The top 100 organizations mobilized `r top100 |> prettyNum(big.mark = ",")`
+- The top 10 organizations mobilized `r top10 |> prettyNum(big.mark = ",")`
 
 
 ```{r}
@@ -270,7 +273,8 @@ org_counts_summary %>%
          `Pressure Campaigns` = campaigns,
          `Percent (Campaigns /Rules)` = percent, 
          `Average per Campaign` = average) %>% 
-  select(- `Percent (Campaigns /Rules)` ) %>% 
+  select(- `Percent (Campaigns /Rules)` ,
+         -contains("Campaign")) %>% 
   head() %>% 
   #mutate(Organization = Organization %>% 
            #str_rpl("Natural Resources Defense Council", "NRDC") %>% 
@@ -332,21 +336,6 @@ knitr::include_graphics("Figs/ej-m-PR-shareI-pres-1.png")
 ```
 ]
 
-
----
-
-.right-column[
-```{r,  out.width = "75%"}
-knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-pres-1.png")
-```
-
-]
-
- .left-column[  
-### Agencies respond to larger coalitions demanding attention to EJ
-
-Logit (N = 11,315 rules)
- ]
 
 
 
@@ -455,6 +444,25 @@ class: inverse
 ???
 
 The work that Carrie and Arie do at ELP is really important 
+
+
+---
+
+include: short 
+
+.right-column[
+```{r,  out.width = "75%"}
+knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-pres-1.png")
+```
+
+]
+
+ .left-column[  
+### Agencies respond to larger coalitions demanding attention to EJ
+
+Logit (N = 11,315 rules)
+ ]
+
 
 
 ---
