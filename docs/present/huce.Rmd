@@ -149,8 +149,8 @@ layout: true
 ## Money buys allies in Congress who pressure agencies
 
 ```{r, out.width= c("60%", "40%")}
-knitr::include_graphics("figs/pac_amounts-2.png")
-knitr::include_graphics("figs/full-logit-pro-1.png")
+knitr::include_graphics("Figs/pac_amounts-2.png")
+knitr::include_graphics("Figs/full-logit-pro-1.png")
 ```
 
 ---
@@ -167,8 +167,8 @@ layout: true
 
 
 ```{r, commenters-noncommenters, out.width= c("55%", "45%")}
-knitr::include_graphics("figs/compustat-density-1.png")
-knitr::include_graphics("figs/assets-efficacy-6.png")
+knitr::include_graphics("Figs/compustat-density-1.png")
+knitr::include_graphics("Figs/assets-efficacy-6.png")
 ```
 
 ???
@@ -182,7 +182,7 @@ There may be lessons here for how powerful incumbent interests responding to the
 ## Why? Big companies hire experts and lawyers
 
 ```{r, out.width= "100%"}
-knitr::include_graphics("figs/mediation-4way-acme-1.png")
+knitr::include_graphics("Figs/mediation-4way-acme-1.png")
 ```
 
 
@@ -288,13 +288,13 @@ org_counts_summary %>%
 ### Getting policymakers talking about climate & EJ
 
 ```{r, out.width="90%"}
-knitr::include_graphics("figs/cj-data-agencies100-2.png")
+knitr::include_graphics("Figs/cj-data-agencies100-2.png")
 ```
 
 ---
 
 ```{r, out.width="89%"}
-knitr::include_graphics("figs/cj-data-agencies-2.png")
+knitr::include_graphics("Figs/cj-data-agencies-2.png")
 ```
 
 ---
