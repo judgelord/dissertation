@@ -106,7 +106,7 @@ layout: true
 
 - Policy fights don't end with legislation
 
-- But, agency policymaking is technocratic, hostile terrain for mass politics and activism
+- But agency policymaking is technocratic, hostile terrain for mass politics and activism
 
 
 ???
@@ -132,17 +132,17 @@ $\rightarrow$ already [300+ pages of guidance from Treasury](https://arcgis.netl
 $\rightarrow$ "a community that the Secretary determines [is] disadvantaged"
 
 "life cycle emissions" $\rightarrow$ "additional"/"new" generation    
-$\rightarrow$ $0 - ∞ billion for hydrogen
+$\rightarrow$ $0 – ∞ billion for hydrogen
 
 "facility"   
-$\rightarrow$  0 - massive reductions in methane 
+$\rightarrow$  0 – massive reductions in methane 
 
 
 ---
 
 layout: true
 
-<div class="my-footer"><span>Devin Judge-Lord&emsp;&emsp;(Results from Powel, Judge-Lord, & Grimmer 2023)</span></div> 
+<div class="my-footer"><span>Devin Judge-Lord&emsp;&emsp;(Results from Powell, Judge-Lord, & Grimmer 2023)</span></div> 
 
 ---
 
@@ -179,7 +179,9 @@ There may be lessons here for how powerful incumbent interests responding to the
 
 ---
 
-## Why? Big companies hire experts and lawyers
+## Why? 
+
+### $\rightarrow$ Big companies hire experts and lawyers
 
 ```{r, out.width= "100%"}
 knitr::include_graphics("Figs/mediation-4way-acme-1.png")
@@ -247,7 +249,7 @@ top100 <- org_counts_summary[1:100,]  %>% tally(comments)
 -->
 
 
-Of 58 million public comments on proposed agency rules, the top 100 organizations mobilized `r top100 |> prettyNum(big.mark = ",")`. The top ten organizations mobilized `r top10 |> prettyNum(big.mark = ",")`.
+Of 58 million public comments on proposed agency rules (2005-2020), the top 100 organizations mobilized `r top100 |> prettyNum(big.mark = ",")`. The top ten organizations mobilized `r top10 |> prettyNum(big.mark = ",")`.
 
 
 ```{r}
@@ -274,7 +276,7 @@ org_counts_summary %>%
            #str_rpl("Natural Resources Defense Council", "NRDC") %>% 
            #str_rpl("World Wildlife Fund", "WWF") %>% 
            #str_rpl("Pew Charitable Trusts", "Pew")) %>% 
-  kable(caption = "The Top 5 Organizations Mobilized 20 Million Public Comments",
+  kable(caption = "",
          full_width = T, font_size = 20, align= c('l', rep('c', 5))) |>
   #kableExtra::kable_paper() %>% 
   kable_classic(full_width = F, html_font = "Open Sans") %>% 
@@ -303,7 +305,7 @@ knitr::include_graphics("Figs/cj-data-agencies-2.png")
 
 From 2005 to 2020
 
-- 8% of relevant agency rules addressed climate change, 15% address EJ 
+- 8% of relevant agency rules addressed climate change, 15% mentioned EJ 
 
 - 20% of all public comments mentioned climate change, 12% mentioned EJ 
 
