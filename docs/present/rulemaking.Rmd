@@ -3,12 +3,13 @@
 # knit: ( function(input, ...){rmarkdown::render(input) } )
 # rmarkdown::render("docs/present/methods-pres.Rmd")
 knit: ( function(input, ...){xaringan::infinite_moon_reader(input) } )
-title: "Money, Expertise, Public Pressure, and Democratic Capacity in Federal Agencies"
-# author: "Devin Judge-Lord <br>  Harvard University"
+title: Rulemaking
+subtitle: "Money, Expertise, Public Pressure, and Democratic Capacity in Federal Agencies"
+author: "Devin Judge-Lord"
 bibliography: '`r here::here("assets/dissertation.bib")`'
 biblio-style: '`r here::here("assets/apsr.bst")`'
 link_col: cyan
-date: "judgelord.github.io/HUCE"
+date: "Guest lecture for PP320"
 titletext_fontfamily: "Roboto:wght@100"
 middle_fontfamily: "Roboto"
 font_family: "Roboto:wght@100"
@@ -25,7 +26,7 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-      slideNumberFormat: "%current%/16"           # 12/42 
+      slideNumberFormat: "%current%"           # 12/42 
 editor_options: 
   chunk_output_type: console
 ---
@@ -52,45 +53,8 @@ knitr::opts_chunk$set(warning = FALSE,
                       fig.cap = '   ',
                       out.width = "100%",
                       out.extra = "")
-
-
-
-# Xaringan: https://slides.yihui.name/xaringan/
-library("xaringan")
-library("xaringanthemer")
-library("here")
-library("tidyverse")
-library("magrittr")
-library("knitr")
-library("kableExtra")
-
-
-
-
-style_mono_light(base_color = "#236D94",# "#3b444b",
-          link_color	
- = "#247980" ,# "#92d6b6",
-          inverse_link_color	
- = "B7E4CF", # "#751B55", ##B7E4CF",
-          #background_image = "Figs/ej-superfund-light.jpeg",
-          background_color = "#FFFFFF", #FAF0E6", # linen
-          header_background_content_padding_top = "7rem",
- header_font_google = google_font("Open Sans"), 
-          text_font_google = google_font("Open Sans"), 
- #text_font_family = "cm-web-fonts",
- #text_font_url = "https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css",
-          base_font_size = "30px",
-  text_font_size = "1rem",
- code_font_size = "1rem",
- header_h1_font_size = "1.75rem",
-  header_h2_font_size = "1.5rem",
-  header_h3_font_size = "1.25rem",
-          padding = "15px",
-          code_font_google = google_font("Inconsolata"), 
-          code_inline_background_color    = "#FFFFFF", 
-          #table_row_even_background_color = "grey"#, extra_css = list(".remark-slide-number" = list("display" = "none"))
- )
 ```
+
 
 layout: true
 
@@ -98,7 +62,210 @@ layout: true
 
 ---
 
-## Motivation
+## Types of policy
+
+**statutes**: Laws made by the legislature and signed by the executive, generally codified into *The U.S. Code (e.g., Title 5 U.S. Code § 706)* or state codes. 
+
+--
+
+[**executive orders**](https://theconversation.com/what-is-an-executive-order-and-why-dont-presidents-use-them-all-the-time-150896): Presidential directives to agencies.
+
+--
+
+**administrative rules**: Often called regulations, but also include funding criteria, deregulatory policy, and many other kinds of policy. They usually have the force of law, are published in the *Federal Register (FR)*, and are codified in the *Code of Federal Regulations (CFR)*  (unlike informal *agency guidance*).
+
+--
+
+**case law**: Policy made as a result of judicial decisions. "Judgements" in cases stating an "*interpretation*" of a constitution, law, or rule that influences future decisions, called *legal precedent.*
+
+---
+
+## Inputs to executive-branch policymaking
+
+Congressional oversight
+
+- Statutory deadlines, reporting requirements, or budget restrictions, the threat of repeal under the Congressional Review Act 
+- CRS, CBO, GAO, Inspectors General, etc. 
+- [Hearings](Clinton Lewis Selin 2014) and [direct correspondence with legislators](https://judgelord.github.io/correspondence)  
+
+  
+Whitehouse oversight over the *career civil service*
+
+- Executive orders
+- Appoint and remove agency heads. 
+- Executive Office of the President OMB/OIRA Review  
+
+---
+
+## More inputs to executive-branch policymaking
+
+Public comments on proposed agency rules 
+
+  - Experts  
+  - [Public pressure campaigns](https://judgelord.github.io/dissertation/present/whyMail-APW.html#1) 
+  - [other interest group lobbying coalitions](https://www.niskanencenter.org/how-bureaucrats-make-good-policy/) 
+
+
+Judicial oversight
+
+- Judicial review
+   - May be sparked by citizen suits
+   - May result in court-imposed deadlines
+
+---
+
+background-image: url(Figs/mercury.jpeg)
+background-size: cover
+name: example
+
+--
+
+.pull-left[
+# `1990 Clean Air Act: EPA shall regulate as “appropriate and necessary” for public health`
+]
+
+???
+
+
+Section 112(n)(1)(A)
+
+
+---
+
+background-image: url(Figs/brianadams.png)
+background-size: cover
+
+# Safe Levels of Mercury 
+--
+(For Whom?)
+
+???
+Before the politics of who gets what, there is the politics of who the whos *are*. What are the groups or communities deserving consideration? 
+
+--
+
+.pull-left[
+2004 Draft Rule: `“the U.S. population”`
+
+&emsp;&emsp;&emsp;&emsp; ↓ 
+
+170,000 public comments
+
+&emsp;&emsp;&emsp;&emsp; ↓
+
+2005 Final Rule: `Environmental justice for “minority populations”`
+]
+
+--
+
+.pull-right[
+
+```{r, fig.show = "hold", out.width = c("35%","50%","30%","40%")}
+#, fig.cap="Example: Identifying Coalitions by the Percent of Matching Text in a Sample of Public Comments"
+knitr::include_graphics("Figs/acat.png") 
+knitr::include_graphics("Figs/ncai_logo.jpg") 
+knitr::include_graphics("Figs/sierra_logo.png") 
+knitr::include_graphics("Figs/Tom_Allen.jpeg") 
+
+
+```
+
+]
+
+
+???
+
+TOM ALLEN 
+
+ Mercury standards that protected the average person in the US did not protect certain minority communities, in this case, many native communities who traditionally ate a lot more fish. 
+
+I grew up in Wisconsin, in the center of the great lakes, and despite Friday fish fries, these regulations probably protected people in my family, BUT 
+
+And there is a large Hmong population that came over after the Vietnam war, and other commenters raised produced studies that certain southeast Asian immigrant populations like the Hmong also ate a lot of freshwater fish and thus had higher rates of Mercury poisoning. Similarly,  Ojibwe people in the great lakes region had higher rates of mercury poising. 
+
+---
+
+
+background-image: url(Figs/brianadams.png)
+background-size: cover
+name: ej-mercury-long
+
+
+- 2000 Notice: "the U.S. population."
+
+--
+
+- 2004 Draft: Regulated entities + "Other types of entities not listed could also be
+affected."
+
+--
+
+- 2011 Draft: disparate impacts on "vulnerable populations" including "African Americans," "Hispanic,"
+"Native American," and "Other and Multi-racial" groups.
+
+--
+
+- 2012 Final Rule: EJ analysis adds "minority, low income, and indigenous"
+--
+
+- 2020 Rollback: "These communities may experience foregone benefits" 
+
+--
+
+- 2021 Draft: 2012 Final Rule categories + "differentiated subsistence fisher
+populations" + "children exposed prenatally"
+
+
+
+???
+2011 Draft: Five pages of EJ analysis of the disparate impacts
+on
+
+- 2020 Rollback: "While these communities may experience foregone benefits as a result of this action, the potential foregone [health benefits] are small." 
+
+⁉️
+
+30/51 pages in Biden
+
+---
+
+
+background-image: url(Figs/brianadams.png)
+background-size: cover
+
+
+### Public comments on proposed agency rules
+
+> `"The amount of methyl-mercury and other bioaccumulative chemicals consumed by Alaskans (especially Alaskan Natives) could potentially be much higher than is assumed" - Heather McCausland of the Alaska Community Action on Toxics (ACAT)`
+
+---
+
+
+background-image: url(Figs/earthjustice.png)
+background-size: cover
+background-position: bottom
+background-color: white
+
+
+
+
+
+> `"Such an approach ignores the cumulative pollution burdens experienced by environmental justice communities." - Amanda Goodin, Staff Attorney, Earthjustice on behalf of Communities for a Better Environment et al.`
+
+---
+
+background-image: url(https://www.sierraclub.org/sites/www.sierraclub.org/files/styles/sierra_full_page_width/public/sierra/articles/big/SIERRA%20March%20Big%20Javier%20WB.jpg.webp?itok=F4EVr755
+background-size: cover
+background-position: bottom
+background-color: white
+
+
+> `"Attached are files containing the names of 11,478 individuals who have submitted public comments urging the Bureau of Land Management (BLM) to strengthen the proposed regulations on methane waste and pollution on federal and tribal lands"` 
+
+---
+
+
+## Motivation for my research
 
 - Large majorities want stronger environmental policy
 
@@ -125,7 +292,7 @@ As a political scientist, I take a more empirical large-scale quantitative appro
 
 ---
 
-## The IRA fight isn't over 
+## For example, the Inflation Reduction Act fight isn't over 
 
 "energy community".  
 $\rightarrow$ already [300+ pages of guidance from Treasury](https://arcgis.netl.doe.gov/portal/apps/experiencebuilder/experience/?id=a2ce47d4721a477a8701bd0e08495e1d) &  [maps from DOE](https://energycommunities.gov/energy-community-tax-credit-bonus/)
@@ -236,6 +403,7 @@ Framing values-based decisions as scientific may hurt more than it helps.
 
 name: orgs
 
+
 Pressure results from **organized campaigns**. Of 58 million public comments on proposed agency rules, 2005-2020    
 - The top 100 organizations mobilized 43,938,811
 - The top 10 organizations mobilized 25,947,612
@@ -279,8 +447,28 @@ From 2005 to 2020
 
 - Responsiveness is surprisingly stable across administrations but varies wildly across agencies
 
+---
+
+include: short 
+
+.right-column[
+```{r,  out.width = "75%"}
+knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-pres-1.png")
+```
+
+]
+
+ .left-column[  
+### Agencies respond to larger coalitions demanding attention to EJ
+
+Logit (N = 11,315 rules)
+ ]
+
+
+
 
 ---
+
 
  .left-column[  
 ### Agencies that more often address EJ are more responsive to comments demanding attention to EJ
@@ -299,24 +487,6 @@ knitr::include_graphics("Figs/ej-m-PR-shareI-pres-1.png")
 ]
 
 
-
-
----
-
-include: short 
-
-.right-column[
-```{r,  out.width = "75%"}
-knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-pres-1.png")
-```
-
-]
-
- .left-column[  
-### Agencies respond to larger coalitions demanding attention to EJ
-
-Logit (N = 11,315 rules)
- ]
 
 
 ---
@@ -384,6 +554,7 @@ In line with previous scholarship
 
 Beyond previous scholarship 
 
+
 ---
 
 class: inverse
@@ -395,10 +566,3 @@ class: inverse
 - Make it easy to show support
 - Hire lawyers
 - Mobilize elected allies and issue frames
-
-
-???
-
-The work that Carrie and Arie do at ELP is really important 
-
-
