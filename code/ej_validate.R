@@ -1,6 +1,10 @@
+source("code/setup.R")
 
 # load coded data
 load(here::here("data", "comments_coded.Rdata"))
+load(here::here("data", "ejcommentsnew.Rdata"))
+ejcomments <- ejcommentsnew
+
 
 comments_coded %<>% rename(success1 = sucess1)
 
@@ -60,6 +64,8 @@ comments_coded_ej <- comments_coded %>%
                 -submitter_name) %>% 
   inner_join(ejcomments)
 
+ejcomments %<>% mutate(docket_id = id %>% str_remove("-[09]*$"))
+
 ejFRejPRchange <- ejFRejPR %>% filter(change)
 
 
@@ -79,6 +85,11 @@ d <- comments_coded_ej %>%
   rename(success = value)
 
  d <- comments_coded_ej
+ 
+ 
+ 
+ 
+ 
 
 dejpr <- d %>% filter(ejPR)
 d_pr <- d %>% filter(!ejPR) 

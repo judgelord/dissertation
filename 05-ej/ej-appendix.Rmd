@@ -22,7 +22,7 @@ editor_options:
 source(here::here("code", "setup.r"))
 
 knitr::opts_chunk$set(echo = TRUE, 
-                      cache = TRUE, 
+                      cache = FALSE, 
                       fig.width=8.5, 
                       #fig.width = 4,
                       split = T,
@@ -596,10 +596,10 @@ Subsetting to agencies that pubished at least one rule explicitly addressing EJ 
 
 
 ```{r ej-data-agencies}
-share <- allFR %>%
-  distinct(ej_fr, docket_id, agency) %>% 
+share <- allPR %>%
+  distinct(ej_pr, docket_id, agency) %>% 
   group_by(agency) %>% 
-  summarise(agency_ej_share = sum(ej_fr)/ n() )  %>% 
+  summarise(agency_ej_share = sum(ej_pr)/ n() )  %>% 
   arrange(-agency_ej_share) 
   
   share %>% 
@@ -1087,10 +1087,217 @@ m_PRFE <- feglm(ej_fr ~ ej_comment*log(comments+1) +
 modelsummary(m_PRFE, stars = T)
 ```
 
+
+With the median number of comments on Proposed Rules that did not address EJ, `r median(ejFR_PR$comments)` comments:
+
+For presentation
+
+```{r ej-m-PR-median-pres, fig.width=3, fig.height=3}
+# ej-m-PR-president-median
+
+# A data frame of values at which to estimate probabilities:
+values <- ejFR_PR %>% 
+  tidyr::expand(ej_comment = T,
+         #ej_comments = median(ej_comments) %>% round(),
+         ej_comments_unique = median(ej_comments_unique) %>% round(),
+         comments = #c(min(comments),
+                      median(comments) %>% round(),
+                      #max(comments)),
+         president = "Obama",
+         agency = c("EPA", "PHMSA")) %>% 
+  mutate(ej_comments_unique = as.numeric(ej_comment))
+
+predicted <- predictions(m_PR_pres,
+                         newdata = values) %>% 
+  mutate(.fitted = predicted,
+         .se.fit = std.error) %>% 
+  left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>% 
+           str_c(", N = ", n_ej_comment))
+
+
+predicted %<>%
+  mutate(agency = agency %>% 
+           str_replace("EPA" , "Environmental Protection Agency") %>% 
+           str_replace("PHMSA", "Pipeline & Hazardous Materials\nSafety Administration"))
+
+# As a plot
+p <- predicted %>% 
+  ggplot() + 
+  aes(x = president, y = .fitted, shape = EJ_comment, color = EJ_comment) + 
+  geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
+                  ymax = .fitted + 1.96*.se.fit), alpha = .7, position = position_dodge(width = 0.40) )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+  coord_flip() +
+  facet_wrap("agency", ncol = 1) +
+  labs(y = 'Responsiveness', 
+       x = "",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
+       title = "") + 
+  theme_minimal() + 
+  theme(axis.text.y = element_blank(),
+        #axis.ticks.y = element_blank(),
+    legend.position = "none",
+        panel.grid.major.y = element_blank())+
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma")  + ylim(0,1) 
+
+p 
+
+p$layers[1] <- NULL
+
+p + ylim(0,1) 
+
+### VERSION 2 WITH AGENCY INDICATORS 
+
+predicted <- predictions(m_PRa,
+                         newdata = values) %>% 
+  mutate(.fitted = predicted,
+         .se.fit = std.error) %>% 
+  left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>% 
+           str_c(", N = ", n_ej_comment))
+
+
+predicted %<>%
+  mutate(agency = agency %>% 
+           str_replace("EPA" , "Environmental Protection Agency") %>% 
+           str_replace("PHMSA", "Pipeline & Hazardous Materials\nSafety Administration"))
+
+
+
+# As a plot
+predicted %>% 
+  ggplot() + 
+  aes(x = president, y = .fitted, shape = EJ_comment, color = EJ_comment) + 
+  geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
+                  ymax = .fitted + 1.96*.se.fit), alpha = .7, position = position_dodge(width = 0.40) )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+  coord_flip() +
+  facet_wrap("agency", ncol = 1) +
+  labs(y = 'Responsiveness', 
+       x = "",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
+       title = "") + 
+  theme_minimal() + 
+  theme(axis.text.y = element_blank(),
+        #axis.ticks.y = element_blank(),
+    legend.position = "none",
+        panel.grid.major.y = element_blank())+
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") # +ylim(0,1) 
+
+
+```
+
 ### Predicted Probabilities by President
 
 
 With the median number of comments on Proposed Rules that did not address EJ, `r median(ejFR_PR$comments)` comments:
+
+For presentation
+
+```{r ej-m-PR-president-median-pres, fig.width=3, fig.height=3}
+# ej-m-PR-president-median-pres 
+
+# A data frame of values at which to estimate probabilities:
+values <- ejFR_PR %>% 
+  tidyr::expand(ej_comment = TRUE,
+         #ej_comments = median(ej_comments) %>% round(),
+         ej_comments_unique = median(ej_comments_unique) %>% round(),
+         comments = #c(min(comments),
+                      median(comments) %>% round(),
+                      #max(comments)),
+         president,
+         agency = c("EPA", "PHMSA")) %>% 
+  mutate(ej_comments_unique = as.numeric(ej_comment))
+
+predicted <- predictions(m_PR_pres,
+                         newdata = values) %>% 
+  mutate(.fitted = predicted,
+         .se.fit = std.error) %>% 
+  left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>% 
+           str_c(", N = ", n_ej_comment))
+
+
+predicted %<>%
+  mutate(agency = agency %>% 
+           str_replace("EPA" , "Environmental Protection Agency") %>% 
+           str_replace("PHMSA", "Pipeline & Hazardous Materials\nSafety Administration"))
+
+# As a plot
+p <- predicted %>% 
+  ggplot() + 
+  aes(x = president, y = .fitted, shape = EJ_comment, color = EJ_comment) + 
+  geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
+                  ymax = .fitted + 1.96*.se.fit), alpha = .7, position = position_dodge(width = 0.40) )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+  coord_flip() +
+  facet_wrap("agency", ncol = 1) +
+  labs(y = 'Responsiveness', 
+       x = "",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
+       title = "") + 
+  theme_minimal() + 
+  theme(#axis.text.y = element_blank(),
+        #axis.ticks.y = element_blank(),
+    # text = element_text(family = "Open Sans"),
+    legend.position = "none", 
+        panel.grid.major.y = element_blank())+
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma")  + ylim(0,1) 
+
+p
+
+### VERSION 2 WITH AGENCY INDICATORS 
+
+predicted <- predictions(m_PRa,
+                         newdata = values) %>% 
+  mutate(.fitted = predicted,
+         .se.fit = std.error) %>% 
+  left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>% 
+           str_c(", N = ", n_ej_comment))
+
+
+predicted %<>%
+  mutate(agency = agency %>% 
+           str_replace("EPA" , "Environmental Protection Agency") %>% 
+           str_replace("PHMSA", "Pipeline & Hazardous Materials\nSafety Administration"))
+
+
+
+# As a plot
+predicted %>% 
+  ggplot() + 
+  aes(x = president, y = .fitted, shape = EJ_comment, color = EJ_comment) + 
+  geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
+                  ymax = .fitted + 1.96*.se.fit), alpha = .7, position = position_dodge(width = 0.40) )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+  coord_flip() +
+  facet_wrap("agency", ncol = 1) +
+  labs(y = 'Responsiveness', 
+       x = "",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments', 
+       title = "") + 
+  theme_minimal() + 
+  theme(#axis.text.y = element_blank(),
+        #axis.ticks.y = element_blank(),
+    legend.position = "none",
+        panel.grid.major.y = element_blank())+
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") # +ylim(0,1) 
+
+p 
+
+p$layers[1] <- NULL
+
+p + ylim(0,1) 
+
+```
+
+---
 
 ```{r ej-m-PR-president-median, fig.width=6, fig.height=3}
 # ej-m-PR-president-median
@@ -1143,11 +1350,6 @@ p <- predicted %>%
 
 p 
 
-p$layers[1] <- NULL
-
-
-p
-
 ### VERSION 2 WITH AGENCY INDICATORS 
 
 predicted <- predictions(m_PRa,
@@ -1188,6 +1390,8 @@ predicted %>%
 
 
 ```
+
+
 
 ---
 
@@ -1238,6 +1442,63 @@ predicted %>%
     scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
   ylim(0,1) 
 ```
+
+
+---
+
+## By total number of comments
+
+For presentation
+
+```{r ej-m-PR-comments-pres, fig.width=3, fig.height=2.5}
+# ej-m-PR-comments-pres 
+
+# A data frame of values at which to estimate probabilities:
+values <- ejFR_PR %>% 
+  tidyr::expand(comments =  c(1, 10,100,1000,10000),
+         ej_comment,
+         ej_comments_unique = median(ej_comments_unique) %>% round(),
+         president = "Obama")
+
+predicted <- augment(m_PR,  
+                     type.predict = "response",
+                     newdata = values,
+                     se_fit = TRUE
+                     )  %>% 
+  left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
+
+
+# As a plot
+p <-predicted %>%
+  filter(comments<10001) %>% 
+  ggplot() + 
+  aes(x = factor(comments), 
+      y = .fitted, 
+      shape = EJ_comment,
+      color = EJ_comment) + 
+  geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
+                  ymax = .fitted + 1.96*.se.fit), alpha = .7 , position = position_dodge(width = 0.40)  )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+  coord_flip() +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+#facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Responsiveness', 
+       x = "Public Attention \n (Number of Comments)",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "")  +
+  theme(panel.border  = element_blank(),
+        legend.position = "none",
+        panel.grid.major.y = element_blank()) 
+
+p 
+
+p$layers[1] <- NULL
+
+p + ylim(0,1) 
+```
+
 
 ---
 
@@ -1484,6 +1745,118 @@ coord_flip() +
 
 (as well as President FE)
 
+
+For presentation
+```{r ej-m-PR-comments-share-pres, fig.width=3, fig.height=2.5}
+# ej-m-PR-comments-share-pres 
+
+
+# agencies with variation on DV
+# ejFR_PR %<>% group_by(agency) %>% mutate(dv_var = ej_fr %>% unique() %>% length()) %>% ungroup() %>% filter(dv_var > 1)
+
+m_PR_share <- feglm (ej_fr ~ ej_comment*log(comments+1) + 
+                          log(ej_comments_unique+1) +
+                       agency_ej_share
+                        | president , 
+                     #se = "twoway",
+           data = ejFR_PR, 
+             family=binomial(link="logit"))
+
+m_PR_share2 <- feglm (ej_fr ~ ej_comment*comments + 
+                          ej_comment*comments^2 + 
+                          ej_comments_unique + 
+                          ej_comments_unique^2 +
+                           agency_ej_share 
+                        | president, 
+                        #se = "twoway",
+           data = ejFR_PR %>% mutate(comments = comments/1000), 
+             family=binomial(link="logit"))
+
+
+# A data frame of values at which to estimate probabilities:
+values <- ejFR_PR %>% 
+  tidyr::expand(comments = c(1, 10,100,1000,10000),
+         ej_comment,
+         ej_comments_unique = median(ej_comments_unique) %>% round(),
+         president = "Obama",
+         agency_ej_share = 0.41,
+         agency = "EPA") %>% 
+  mutate(ej_comments_unique = as.numeric(ej_comment)) 
+
+
+
+predicted <- predictions(m_PR_share,
+                         newdata = values)
+
+predicted %<>% 
+  left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%  
+           str_c("\n     (N = ", pretty_num(n_ej_comment)," Rules)"))
+
+
+# As a plot
+p <- predicted %>%
+  # make responsiveness 
+  mutate(predicted = predicted - lag(predicted)) %>% 
+  filter(comments<10001, ej_comment) %>% 
+  ggplot() + 
+  aes(x = factor(comments), 
+      y = predicted, 
+      shape = EJ_comment,
+      color = EJ_comment) + 
+  geom_pointrange(aes(ymin = predicted - 1.96*std.error,
+                  ymax = predicted + 1.96*std.error), alpha = .7 , position = position_dodge(width = 0.40)  )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+    scale_y_continuous(breaks = c(0, .25, .5,.75, 1)) +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+coord_flip() +
+  #facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Responsiveness', 
+       x = "Public Attention\n(Number of Comments)",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "")  +
+  theme(panel.border  = element_blank(),
+        legend.position = "none",
+        panel.grid.major.y = element_blank())
+
+p 
+
+p$layers[1] <- NULL
+
+p + ylim(0,1) 
+```
+
+```{r ej-m-PR-comments-share-pres2, fig.width=5, fig.height=2.5}
+# As a plot
+p <- predicted %>%
+  filter(comments<10001) %>% 
+  ggplot() + 
+  aes(x = factor(comments), 
+      y = predicted, 
+      shape = EJ_comment,
+      color = EJ_comment) + 
+  geom_pointrange(aes(ymin = predicted - 1.96*std.error,
+                  ymax = predicted + 1.96*std.error), alpha = .7 , position = position_dodge(width = 0.40)  )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+    scale_y_continuous(breaks = c(0, .25, .5,.75, 1)) +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+coord_flip() +
+  #facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
+       x = "Public Attention\n(Number of Comments)",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "")  +
+  theme(panel.border  = element_blank(),
+        panel.grid.major.y = element_blank())
+
+p
+
+```
+
+
+For paper 
 ```{r ej-m-PR-comments-share, fig.width=6, fig.height=2.5}
 # ej-m-PR-comments-share
 
@@ -1705,6 +2078,60 @@ coord_flip() +
         panel.grid.minor.y = element_blank()) + ylim(c(0,1))
 ```
 
+For presentation 
+```{r ej-m-PR-shareI-pres, fig.width=3, fig.height=3}
+# ej-m-PR-shareI-pres  
+
+# As a plot
+p <- predicted %>%
+  filter(ej_comment) %>% 
+  ggplot() + 
+  aes(x = agency_ej_share, 
+      y = predicted, 
+      shape = EJ_comment,
+      color = EJ_comment,
+      label = agency) + 
+  geom_pointrange(aes(ymin = predicted - 1.96*std.error,
+                  ymax = predicted + 1.96*std.error), alpha = .7 , 
+                  position = position_dodge(width = 0.010)  )  + 
+  geom_text(check_overlap = T, 
+            size = 3,
+            color = "gray", 
+            hjust = "left",
+            #y = .7,
+            aes(y = ifelse(agency %in% #share$agency,
+                             c("FEMA", "EPA" , "PHMSA", "BOEM",  "DOE", "PHMSA", "BLM", "USDA",  #"OSM",  "DOT",
+                               "COE"), 
+                predicted + 1.96*std.error + .05, NA))
+            ) + 
+  geom_hline(yintercept = 0, linetype = 2) + scale_x_continuous()+#labels = scales::percent) +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+coord_flip() +
+  #facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Responsiveness', 
+       x = 'Share of Prior Rules',
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "")  +
+  theme(panel.border  = element_blank(),
+        legend.position = "none",
+        #panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank()) + ylim(c(0,1))
+
+p 
+
+p$layers[1] <- NULL
+p$layers[1] <- NULL
+
+
+p + ylim(0,1) 
+```
+
+---
+
+Coalition size with share interaction 
+
+
 
 ```{r ej-m-PR-shareI-ejcomments, fig.width=6, fig.height=2.5}
 # ej-m-PR-ejcomments-shareI
@@ -1762,7 +2189,7 @@ predicted %>%
 coord_flip() +
   #facet_wrap("ej_comment", ncol = 1) +
   labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
-       x = 'Share of Prior Rules Mentioning "Environmental Justice"',
+       x = 'Coalition Size',
        color = "",#color = '"Environmental Justice"\nRaised by Comments',
        shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
        title = "Predicted Change in Final Rules")  +
@@ -1775,6 +2202,9 @@ coord_flip() +
 ### with Agency Fixed Effects 
 
 (as well as President FE)
+
+
+
 
 Two versions of this plot with different x-axes scale
 
@@ -1819,7 +2249,8 @@ predicted <- predictions(m_PR_agencyFE,
 
 predicted %<>% 
   left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
-  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment))
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             
+           str_c("\n     (N = ", n_ej_comment, " Rules)"))
 
 # As a plot
 predicted %>%
@@ -1868,7 +2299,135 @@ coord_flip() +
         panel.grid.major.y = element_blank()) + ylim(c(0,1))
 ```
 
+For presentation
 
+```{r ej-m-PR-comments-agencyFE-pres, fig.width=3, fig.height=2.5}
+# ej-m-PR-comments-agencyFE-pres
+# As a plot
+p <- predicted %>%
+  mutate(predicted = predicted -lag(predicted)) %>% 
+  filter(comments<10001, ej_comment) %>% 
+  ggplot() + 
+  aes(x = factor(comments), 
+      y = predicted, 
+      shape = EJ_comment,
+      color = EJ_comment) + 
+  geom_pointrange(aes(ymin = predicted - 1.96*std.error,
+                  ymax = predicted + 1.96*std.error), alpha = .7 , position = position_dodge(width = 0.40)  )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+    # scale_y_continuous(breaks = c(0, .25, .5,.75, 1)) +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+coord_flip() +
+  #facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Responsiveness', 
+       x = "Public Attention\n(Number of Comments)",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "")  +
+  theme(panel.border  = element_blank(),
+        legend.position = "none",
+        panel.grid.major.y = element_blank()) #+ ylim(c(0,1))
+
+p 
+
+p$layers[1] <- NULL
+
+p + ylim(0,1) 
+```
+
+
+```{r ej-m-PR-comments-agencyFE-pres2, fig.width=5, fig.height=2.5}
+# As a plot
+predicted %>%
+  filter(comments<10001) %>% 
+  ggplot() + 
+  aes(x = factor(comments), 
+      y = predicted, 
+      shape = EJ_comment,
+      color = EJ_comment) + 
+  geom_pointrange(aes(ymin = predicted - 1.96*std.error,
+                  ymax = predicted + 1.96*std.error), alpha = .7 , position = position_dodge(width = 0.40)  )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+    # scale_y_continuous(breaks = c(0, .25, .5,.75, 1)) +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+coord_flip() +
+  #facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Probability that "Environmental Justice"\nis Added to Final Rule', 
+       x = "Public Attention\n(Number of Comments)",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "")  +
+  theme(panel.border  = element_blank(),
+        panel.grid.major.y = element_blank()) #+ ylim(c(0,1))
+```
+
+---
+
+For presentation 
+
+```{r ej-m-PR-ejcomments-agencyFE-pres, fig.width=3, fig.height=2.5}
+# ej-m-PR-ejcomments-agencyFE-pres 
+
+
+# A data frame of values at which to estimate probabilities:
+values <- ejFR_PR %>% 
+  tidyr::expand(ej_comments_unique = c(1, 10,100),
+         ej_comment = TRUE,
+         comments = median(comments) %>% round(),
+         president = "Obama",
+         agency = "EPA") %>% 
+  # set all comments to be EJ comments (we can't have one overall comment and 100 ej comments)
+  mutate(comments = ej_comments_unique)
+
+
+
+predicted <- broom::augment(m_PR_agency,  
+                     type.predict = "response",
+                     newdata = values,
+                     se_fit = TRUE
+                     )  
+
+
+predicted <- predictions(m_PR_agencyFE,
+                         newdata = values) %>% 
+  rename(.fitted = predicted, 
+         .se.fit = std.error)
+
+predicted %<>% 
+  left_join(ejFR_PR %>% count(ej_comment, name = "n_ej_comment") ) %>% 
+  mutate(EJ_comment = ifelse(ej_comment, "Comments Address EJ", "No Comments Address EJ") %>%             str_c(", N = ", n_ej_comment)) 
+
+# As a plot
+p <- predicted %>%
+  ggplot() + 
+  aes(x = factor(ej_comments_unique), 
+      y = .fitted, 
+      shape = EJ_comment,
+      color = EJ_comment) + 
+  geom_pointrange(aes(ymin = .fitted - 1.96*.se.fit,
+                  ymax = .fitted + 1.96*.se.fit), alpha = .7 , position = position_dodge(width = 0.40)  )  + 
+  geom_hline(yintercept = 0, linetype = 2) +
+  scale_y_continuous(breaks = c(0, .25, .5,.75, 1)) +
+    scale_color_viridis_d(begin = 0, end = .6, option = "plasma") +
+coord_flip() +
+  #facet_wrap("ej_comment", ncol = 1) +
+  labs(y = 'Responsiveness', 
+       x = "Coalition Size",
+       color = "",#color = '"Environmental Justice"\nRaised by Comments',
+       shape = "",#shape = '"Environmental Justice"\nRaised by Comments',
+       title = "")  +
+  theme(panel.border  = element_blank(),
+        legend.position = "none",
+        panel.grid.major.y = element_blank()) 
+
+p 
+
+p$layers[1] <- NULL
+
+p + ylim(0,1) 
+```
+
+For paper 
 ```{r ej-m-PR-ejcomments-agencyFE, fig.width=6, fig.height=2.5}
 # ej-m-PR-ejcomments-agencyFE
 

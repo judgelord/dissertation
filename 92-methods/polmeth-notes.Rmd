@@ -1,0 +1,87 @@
+# Proceedure
+
+
+## Identifying organizations with dynamic regex tables 
+
+I leverage an iterative process of computational text analysis and hand-coding to attribute comments to the organizations, campaigns, and broader coalitions that mobilized them. 
+I thus attribute each comment to both the organization behind it (its author if submitted by the organization or the mobilizing organization for form letters). I also identify comments submitted by elected officials, with special attention to members of the U.S. Congress.
+
+### Initial regex tables 
+
+Prior to and during hand-coding, I attempt to identify the organization(s) that submitted or mobilized each comment by extracting the names of organizations and elected officials from the text of each comment. For comments that do not include the name of an organization or elected official, human coders used an internet search on portions of the comment's text. This often identified the organization that provided the model letter text.
+
+
+Initial regex tables can be developed inducatively and deductively. 
+
+Building regex tables inductively involves construcing from scratch tables of known entities found the data. Building regex tables deductively involves using existing databases of organizations (e.g., organizations in the Center for Responsive Politics data) as search patterns. There are advantags and disadvantages to both approaches. When confronting an unknown population of potential entities, researchers will want to do both. When the full population of entities is known (e.g., searching a database of congressional letters for members of congress) a deductive approach is sufficient. 
+
+Inductively, I started with the metadata field for comment author's organization and then used entities from the text when this filed was empty or useless (as it was for large sections of these data).  
+Where metadata existed for commenting organizations, I first cleaned up strings by remeoving extra white space prefixes (e.g. ".* on behalf of"), and suffixes (e.g., ", LLC"). I then counted the frequency of all of the strings appearking in this field. Many of the most frequent strings were aliases for the same organizations. These multiuple alieses was the start of the inductive regex table. Using the inductive regex table to replace all strings with known organizations, I began the work of itteratively consolidating the list of most frequent commenters from the top (most frequent) down until every string that appeared more than 100 times was attached to a known organzation or coded as useless (e.g. "anonomous"). 
+
+I repeated this inductive process for comments that lacked useful metadata but turning to entities extracted from the text 
+
+
+### Iterative and-coded and adding to regex tables 
+
+For the sample of comments that were hand coded, coders were provided both the orginal metadata, and the "best guess" organization from the initial inductive and deductive regex tables described above. Coders identified organizations where no etity was identified and occassionally corrected the method. For example the where the initial inductive method coded "Earthjustice on behalf of Alabama River Association" as "Alabama River Association," hand-coders corrected this to Earthjustice, the main mobilizing organzation responsible for the comment. "Earthjustice on behalf of Alabama River Association" was then added to the regex table such that any future occurances would be codded as "Earthjustice." 
+
+Hand coders also identfied many organizations and varations of organization names that were not in the top 100 most frequent commenters or one one of the existing databases.
+As additional organizations were identified by hand, they were added to the regex tables. 
+
+
+
+
+
+## Identifying coalitions with text reuse 
+
+
+### Collapsing form letters with text reuse
+
+I first identify comments that share text. I find that a 10-word (10-gram) phrase repeated across more than a few comments is always either text copied from the proposed policy or language inspired or provided by an organized campaign. Thus, for each comment text, I first remove all 10-word phrases that appear in the proposed rule (including the preamble and call for comments). Then, I identify all comments that share ten-word phrases with 99 or more other comments. Finally, I collapse these form letter comments into one representative document for hand-coding. Text reuse thus allows me to code one sample document that is valid for all commenters using the same form letter.
+
+### Hand-coded coalitions and key demands
+
+
+
+### Itteratively adding coalition members with text reuse
+
+As hand-coders added strings representing key policy demands, these bits of text provided an additional way to computationally identify coalitions. Because even sophisticated organizations collaborate on talking points and key policy demands, comments that shared these strings indicated a lobying coalition. All other comments sharing these policy asks were thus automatically added to the coalition. This was especially helpful for astroturf groups that provide model public comments while obscuring their identities, especially the fact that they are centrally organized by the same lobbying firm.
+
+
+## Selecting texts of high-inferential value 
+
+Beyond speeding up the process of identifing organizations and coalitions, the mix of hand-coding and computational methods described above enables a sampling approach that can provide much greater leverage than a random sample. When confronted with more observations than can reasonablly be hand-coded, researchers often opt for a random sample, with the intent that their conclusions will be representative. In many populations, especially samples heavily skewed to one side on a key dimension, a random sample may miss imporant but sparse observatoins. For example, public interest groups frequently mobilize thousands of public comments while the major regulated industry only submits one. A random sample of comment on the Trump Adminisration's Affordable Clean Energy Rule, for example, would almost gaurenteed to be 100% form-letter comments from environmentalists. This is deceptive in two ways. First, unless one happened to draw one of the few comments from environmetnal lawyers, one might conclude that the environmentalists generally lacked sophsticated policy demands. Second, unless one happed to draw the single comment from the American Petrolium Institute or a handfull of other industry groups, one might erronisouly concluded that regulated industry was absent. In fact, regulated industry was much more successful in having their demands met than the environmental groups. 
+
+Instead of a random sample, I seek samples that represent key dimensions of variation in two ways: representative texts and key outlier texts. 
+
+First, as discussed above, I use text reuse to identify coalitions and then select only one representative document for hand codeing. Because 99% of comments are form letterrs, collapsing form letters alone reduces the data by two orders of magnituded. 
+When the same organization mobilizes around more than one form letters, we can further collapse these form letters campaigns. 
+
+Second, I select outlier texts of high inferential values. Having auto-coded a large number of organizations, I used organization metadata to ensure that at least one comment from different organzation type is coded. Even if regulated industry only submits one comment, this approach gaurentees that it will be coded, thus enabling analysis of whose lobbying affects rules, even when the key texts might otherwise be lost in overwhelming volumes of text data.
+Futher, I screen documents for rare characteristics that indicated potentially important outlier observations. These include comments that are particularly long, sophisticated, from a known list of often influential organizations (e.g., the U.S. Chamber of Commerce or members of Congress), or that contain a large number of file attacuments (often scientific reports backing up their data.) A tiny percentage of public comments meet these criteria, but nearly all of the most influential comments meet these criteria. 
+Moreover, nearly all of the lead mobilizing groups---groups like Earthjustice and the Sierra Club---also submit long technical comments. Theoretically, the impact of any public pressure campaign should be ultimately be observed in the impact of the technical comments of the mobilizers of public pressure. 
+
+
+Rarely are there more than a hunderd sophisticated comments on a given rule, even rules that recieve over a million comments. Thus, the combined effect of employing these methods is to reduce the number of comments by up to four orders of magnitude on the most challenging rules (from one million to one hundred). 
+
+As hand-coding progresses, the number of comments selected for coding changes, often decreasing.
+
+I then identify the main substantive comment submitted by each organization's staff or lawyers, which are usually much longer than supporting comments like form letters.
+
+
+
+## Inferring lobbying success from the success of others in a coalition 
+
+Comments selected for hand-coding are coded for their level of lobbying success. The extent to which the change between the draft and final rule aligned with their demands. The level of alignment between policy demands and policy outcomes is a standard approach for assessing lobbying success with these kinds of observational data [@YackeeJOP2006].
+
+My approach to measuring lobbying success starts with policy demands raised in comments. The dimensions of conflict on which I judge lobbying success are those issues identified by commenters. Unlike other studies, the issues I use to assess lobbying success do not come from first reading the policy or of any a priori concept of what each policy fight is about. Instead, I read the change between the draft and final rule with an eye for alignment with commenters' requests (including requests that specific parts of the draft policy do not change.)
+
+Using commenter requests to identify the dimensions of the conflict has advantages and disadvantages. Compared to other potential measures of success, it is more likely to focus on things that commenters care about and miss policy issues that other, non-commenting segments of the public might care about.
+
+
+
+
+
+
+
+
