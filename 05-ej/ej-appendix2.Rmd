@@ -1,0 +1,111 @@
+---
+#rmarkdown::render("05-ej/ej-appendix2.Rmd")
+title: "The Environmental Justice Movement's Impact in Agency Rulemaking"
+subtitle: "Appendix 2 and Replication Code" 
+author: "Devin Judge-Lord"
+output:
+    # pdf_document:
+    #   toc: true
+    #   keep_tex: true
+    html_document:
+      highlight: zenburn
+      toc: true
+      toc_float: true
+      code_folding: hide
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r global.options, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      cache = FALSE, 
+                      fig.width=8.5, 
+                      split = T,
+                      fig.align = 'center', 
+                      fig.path='../figs/',
+                      warning=FALSE, 
+                      message=FALSE)
+
+library(modelsummary)
+library(marginaleffects)
+
+library(fixest)
+library(tidyverse)
+library(broom)
+library(magrittr)
+library(tidytext)
+library(knitr)
+library(kableExtra)
+
+select <- . %>% dplyr::select()
+
+library(ggplot2); theme_set(theme_bw());
+  options(
+    ggplot2.continuous.color = "viridis",
+    ggplot2.continuous.fill = "viridis"
+  )
+  scale_color_discrete <- function(...){
+    scale_color_viridis_d(..., direction = -1, 
+                          begin = 0, end = .6, option = "plasma")}
+  scale_fill_discrete <- function(...){
+    scale_fill_viridis_d(..., direction = -1, 
+                         begin = 0, end = .6, option = "plasma")}
+  
+  scale_color_continuous <- function(...){
+    scale_color_viridis_c(..., direction = -1, 
+                          option = "plasma")}
+  scale_fill_continuous <- function(...){
+    scale_fill_viridis_c(..., direction = -1, 
+                         option = "plasma")}
+  
+  
+kablebox <- . %>% 
+  head(100) %>% 
+  knitr::kable(digits = 3) %>% 
+  kable_styling() %>% 
+  scroll_box(height = "400px")
+```
+
+
+
+# Data 
+
+## Auto-coded
+
+```{r ej-data}
+
+
+```
+
+
+## Hand-coded 
+
+```{r influence}
+
+```
+
+
+# Validation 
+
+## Response vs. Success
+
+
+```{r ej-validation}
+
+
+```
+
+
+# Lobbying success 
+
+EJ comments as predictors of success
+
+##  EJ success vs non-EJ success
+
+
+## EJ success by organization type
+
+
+
+
