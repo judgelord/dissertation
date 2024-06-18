@@ -23,7 +23,7 @@ nonblind: true
 runningauthor: Judge-Lord
 author:
   - name: "Devin Judge-Lord"
-    thanks: "I am greatful for comments from attendees at PolMeth 2022 on an earlier [poster-version](https://judgelord.github.io/research/iterative/) of this paper. Support for this project includes the APSA DDRIG (NSF Grant #2000500). The most recent draft is available at [judgelord.github.io/research/iterative](https://judgelord.github.io/dissertation/polmeth-paper.pdf)"
+    thanks: "I am grateful for comments from attendees at PolMeth 2022 on an earlier [poster-version](https://judgelord.github.io/research/iterative/) of this paper. Support for this project includes the APSA DDRIG (NSF Grant #2000500). The most recent draft is available at [judgelord.github.io/research/iterative](https://judgelord.github.io/dissertation/polmeth-paper.pdf)"
     affiliations:  
      - name: University of Michigan
        #department: Ford School of Public Policy
@@ -31,7 +31,7 @@ author:
     attributes:
       corresponding: true
 thanks: |
-    I am greatful for comments from attendees at PolMeth 2022 on an earlier [poster-version](https://judgelord.github.io/research/iterative/) of this paper. Support for this project includes the APSA DDRIG (NSF Grant #2000500). The most recent draft is available at [judgelord.github.io/research/iterative](https://judgelord.github.io/dissertation/polmeth-paper.pdf)
+    I am grateful for comments from attendees at PolMeth 2022 on an earlier [poster-version](https://judgelord.github.io/research/iterative/) of this paper. Support for this project includes the APSA DDRIG (NSF Grant #2000500). The most recent draft is available at [judgelord.github.io/research/iterative](https://judgelord.github.io/dissertation/polmeth-paper.pdf)
 bibliography: "../assets/dissertation.bib"
 execute:
   echo: false
