@@ -17,7 +17,7 @@ The base model (Equation \@ref(eq:success)) uses an indicator for whether coalit
 
 
 \begin{equation} 
-Y_{i} = \beta_1 \textbf{Pressure campaign}_{i} + \beta_{2:n} X_i +  \gamma_j + \delta_p + \epsilon_{i} (\#eq:success)
+Y_{i} = \beta_1 \textbf{Pressure campaign}_{i} + \beta_{2:n} X_i +  \gamma_k + \delta_p + \epsilon_{i} (\#eq:success)
 \end{equation} 
 
 

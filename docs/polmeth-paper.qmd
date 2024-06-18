@@ -1,5 +1,5 @@
 ---
-title: "Iterative Hand-Coding and Computational Text Analysis: Evidence from Public Comments in US Federal Agency Rulemaking"
+title: "Iterative Hand-Coding and Computational Text Analysis: Application to  Public Comments in US Federal Agency Rulemaking"
 #subtitle: "Application to Assessing the Effects of Public Pressure on Policy"
 runningtitle: "Iterative Hand-Coding and Computational Text Analysis"
 title-meta: "Iterative Hand-Coding and Computational Text Analysis"
@@ -374,7 +374,7 @@ When actors sign onto the same comment, it is clear that they are
 lobbying together. However, various businesses, advocacy groups, and
 citizens often comment separately, even when they are aligned. Text reuse (using the same ten-word phrases) captures this alignment. When individuals use identical wording, I interpret that to mean they're endorsing the same policy position as part of a lobbying coalition.
 
-@fig-percent-match) shows the percent of shared text for a sample of 50 comments on the Consumer Financial Protection Bureau's 2016 Rule regulating Payday Loans. Comments are arranged by the document identifier assigned by regulations.gov on both axes. 
+@fig-percent-match shows the percent of shared text for a sample of 50 comments on the Consumer Financial Protection Bureau's 2016 Rule regulating Payday Loans. Comments are arranged by the document identifier assigned by regulations.gov on both axes. 
 The black on the diagonal indicates that each document has a perfect overlap with itself. Black squares off the diagonal indicate additional pairs of identical documents. For example, 100 percent of the words from Comment 95976 are part of some tengram that also appears in 95977 because the exact same comment was uploaded twice. 
 The cluster of grey tiles indicates a coalition of commenters using some identical text.
 Comments [91130](https://www.regulations.gov/document?D=CFPB-2016-0025-91130) through [91156](https://www.regulations.gov/document?D=CFPB-2016-0025-91154) are all partial or exact matches. All are part of a mass comment campaign by Access Financial. The percentage of identical text is lower than in many mass-comment campaigns because these are hand-written comments, but the n-gram method still picks up overlap in the OCRed text in the header and footer. Tengrams that appear in 100 or more comments indicate a mass comment campaign. Some agencies use similar "de-duping" software [@Rinfret2021] and only provide a representative sample comment. In these cases, my linking method assumes that the example comment is representative, and I link these comments to others based on the text of the sample comment provided.
@@ -1000,7 +1000,7 @@ When asked to return policy demands in a comment, GPT generally returned plasubl
 
 GPT generally failed to capture changes to the draft and final rules. When asked to identify changes, GPT always returned a description of changes that mirrored those highlighted by the agency in the final rule preamble and did not detect changes that were not mentioned in the preamble.
 
-Because GPT relied on the agency's description of changes between the draft and final rule, the results for commentate success were, at best, related to how the agency discussed the contentment's concerns. More often, GPT results for commenter success were not based on the change between the draft and final rule but just on the relationship between the words in the comment and the words in the final rule. GPT returned high values of success when commenters requests were mirrored in the final rule (even if that language already existed in the draft rule) and low values of success when the commenter used wording that differed from the wording of the final rule (even where the agency made changes in response to the commenter's demands). 
+Because GPT relied on the agency's description of changes between the draft and final rule, the results for comment success were, at best, related to how the agency discussed the contentment's concerns. More often, GPT results for commenter success were not based on the change between the draft and final rule but just on the relationship between the words in the comment and the words in the final rule. GPT returned high values of success when commenters requests were mirrored in the final rule (even if that language already existed in the draft rule) and low values of success when the commenter used wording that differed from the wording of the final rule (even where the agency made changes in response to the commenter's demands). 
 
 
 
