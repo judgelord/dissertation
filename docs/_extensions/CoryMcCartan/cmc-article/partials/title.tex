@@ -17,9 +17,9 @@ $if(journal.blinded)$
 $else$
 \author{$for(by-author)$
 \textbf{$it.name.literal$}$if(it.attributes.corresponding)$\footnote{
-To whom correspondence should be addressed.
+Comments welcome:
 $if(it.email)$
-Email: \texttt{\href{mailto:$it.email$}{$it.email$}}.
+\texttt{\href{mailto:$it.email$}{$it.email$}}.
 $endif$
 $if(it.url)$
 Website: \url{$it.url$}.
