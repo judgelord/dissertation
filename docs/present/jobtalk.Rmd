@@ -129,15 +129,14 @@ exclude: `r short`
 .pull-left[
 # Bureaucratic policymaking
 
-- <FONT COLOR="#B7E4CF">Public pressure<FONT COLOR="#ffffff">
+- <FONT COLOR="#B7E4CF">Public pressure ←<FONT COLOR="#ffffff">
 - Agenda setting
 - Unequal influence
 
-# Representation
+# Policy oversight
 
-- Money in politics
 - Legislator capacity
-- Congressional oversight
+- Money in politics
 - Constituency service 
 ]
 
@@ -163,7 +162,7 @@ name: project
 class: inverse center
 exclude: `r short`
 
-## Public pressure in bureaucratic policymaking
+## [Public pressure]() in bureaucratic policymaking
 
 
 <!--The Broader Project: Public Pressure-->
