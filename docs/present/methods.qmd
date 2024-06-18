@@ -1,0 +1,535 @@
+---
+title: "Iterative Hand-Coding and Computational Text Analysis"
+subtitle: "Application to Public Comments in US Federal Agency Rulemaking"
+format: 
+  revealjs:
+      incremental: true  
+      slide-number: true
+      center-title-slide: false
+      preview-links: true
+      theme: [default, michigan]
+      footer:  "Devin Judge-Lord (judgelor@umich.edu)"
+      fontsize: "30px"
+      title-slide-attributes:
+        data-background-image: "figs/comment_percent_match_plot-1-cover.png"
+        data-background-size: cover
+        data-background-opacity: "0.3"
+---
+
+
+```{r setup}
+library("here")
+library("tidyverse")
+library("magrittr")
+library("knitr")
+library("kableExtra")
+```
+
+### Data: 
+
+58 million public comments proposed rules on regulations.gov
+
+### Methods: 
+
+Hand coding $\Longleftrightarrow$ computational text analysis
+
+---
+ 
+### Human coding and computational text analysis are more powerful when combined in an iterative workflow:
+<!--I show how search and text-reuse tools can aid common hand-coding tasks. 
+Human coding can both inform and be informed by rule-based information extraction---iteratively structuring queries on unstructured text.-->
+
+1. Text analysis tools can strategically `select texts for human coders`---texts representing larger samples and outlier texts of high inferential value.
+2. Preprocessing can `speed up hand-coding` by extracting features like names and key sentences.
+3. Humans and computers can iteratively `tag entities` using regex tables
+<!--(e.g., identify organizations)--> and `group texts by key features` (e.g., identify lobbying coalitions by common policy demands)
+
+---
+
+A **sample of 13,000 hand-coded comments** yields 41 million `as-good-as-hand-coded` comments regarding both the `organizations` that mobilized them and the extent to which `policy changed` in the direction they sought. <!--This large sample enables new analyses of lobbying coalitions, social movements, and policy change.-->
+
+<!--
+## Challenges and Opportunities in Studying Political Texts
+--
+
+--->
+
+## Hand-coding dynamic data
+
+<!--
+- 15 coders 
+
+```{r greyhound, fig.cap= "Incorrectly Labeled Coalition Identified by Automated Check"}
+knitr::include_graphics(here("figs", "greyhound.png"))
+```
+
+--->
+
+
+```{r datasheet, fig.show = "hold", out.width = "100%"}
+#| fig-cap: "Coded Public Comments in a Google Sheet"
+knitr::include_graphics(here("figs", "datasheet.png"))
+```
+
+---
+
+Workflow: `googlesheets4` allows analysis and improving data in real-time: 
+
+- The "org_name" column is populated with a guess from automated methods. As humans identify new organizations and aliases, other comments with the same entity strings are auto-coded to match human coding.   
+- As humans identify each organization's policy "ask," other texts with the same ask are put in their coalition.   
+- If the organization and coalition become known, it no longer needs hand coding.
+
+
+
+## Link comments to organizations 
+
+```{r, out.width = "100%", fig.show='hold'}
+#knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vRSJJgSbMdFtkpJjB94Tw5cmFElhDKrHEkOLaUb5-qFdIY-sQp4qGyC-FZoZ7UmWSLfoMZDueAkemhU/pub?w=752&h=238") 
+knitr::include_graphics("Figs/methods-regex-slide.png")
+
+```
+
+
+
+```{r, out.width = "20%", fig.show='hold'}
+#| fig-show: hold
+#| out-width: 60%
+#| layout-ncol: 3
+
+
+knitr::include_graphics( "Figs/logo-legislators.png")
+
+knitr::include_graphics("Figs/logo-orgs.png" )
+
+knitr::include_graphics("Figs/logo-regex.png")
+```
+
+---
+
+## Link comments to organizations 
+
+
+- `Deductive:` Start with databases of known entities.
+
+
+<!--### Consolidating entity name variants with regex tables-->
+
+
+```{r regex-crp}
+#CRP data
+here("data", "Lobbbying_Summary.csv") |>
+read_csv() |>
+  filter(parentName %in% c("Teamsters Union", "3M Co") ) |>
+  filter(!orgName %in% "3M Cogent") |>
+  mutate(orgName = orgName %>% str_replace(".*Teamsters.*", "Teamsters")) |> 
+  distinct(orgName, parentName) |> 
+  group_by(parentName) |>
+  summarize(pattern = str_c(orgName, collapse = "|") ) |>
+  mutate(pattern = pattern %>% str_replace("Teamsters & ", "Teamsters|Teamsters.{1:4}") |>
+           str_replace("Maint ", "Maint[a-z]* ") |>
+           str_replace("Trucking Pension", "(Trucking|Pension)") |>
+           str_replace_all("&|and", "(and|&)") |>
+           str_remove_all(" Div")) |>
+  rename(Entity = parentName, Pattern = pattern) |>
+  knitr::kable(caption = "Lookup Table from Lobbying Data", full_width = T) |>
+  kableExtra::kable_paper()
+```
+
+- `Inductive:` Add entity strings that frequently appear in the data to regex tables.  
+- `Iterative:` Add to regex tables as humans identify new entities or new aliases. Update data (Google Sheets) to speed hand coding.
+
+<!--### Add to regex tables as hand coders identify new aliases-->
+
+
+
+<!--
+
+Iteratively Building Regex Tables
+
+```{r, out.width = "100%", fig.show='hold'}
+#knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vRSJJgSbMdFtkpJjB94Tw5cmFElhDKrHEkOLaUb5-qFdIY-sQp4qGyC-FZoZ7UmWSLfoMZDueAkemhU/pub?w=752&h=238") 
+
+knitr::include_graphics(here::here("figs", "methods-regex.png"))
+
+#knitr::include_graphics(here::here("legislators", "man", "figures", "logo.png") %>% str_remove("dissertation"))
+```
+
+<!--
+The `legislators` package adds name variants (e.g., "Liz Warren") to standard legislator names.
+
+```{r legislators, eval = FALSE}
+library(legislators)
+
+members |>
+  filter(first_name == "Elizabeth", congress == 117) |>
+  select(Entity = bioname, Pattern = pattern) |>
+  mutate(Pattern = Pattern |> 
+           str_replace_all("\\\\b" , "\\\\\\\\b") %>% 
+           str_remove_all("na |\\|herring, e\\\b|\\|herring, elizabeth|\\|liz herring|\\|warren, l\\\\b") %>% 
+           str_replace("representative fletcher\\\\b.\\{1,4\\}tx", "\\|representative fletcher") %>% 
+           #str_replace("fletcher\\|fletcher", "fletcher") %>% 
+           str_replace("senator warren\\\\b.\\{1,4\\}ma", "\\|senator warren") |>
+  str_replace_all("\\\\b", "\\\\\\b") )%>% 
+  kable( caption = 'Regex Table for Legislators Named Elizabeth in the 117th Congress', full_width = T)|>
+  kableExtra::kable_paper()
+```
+
+
+
+For example, the `legislators` package uses a regex table, adding variants (e.g., "AOC") to standard legislator names to detect them in messy text.
+
+-->
+
+
+
+
+
+
+## Identify coalitions with text reuse
+
+:::: {.columns}
+
+
+::: {.column width="50%"}
+“…jobs and our economy. <mark>I am also concerned that your proposal allows power plants to buy and sell mercury pollution credits. This</mark> would permit some plants to continue to harm…"
+:::
+
+
+::: {.column width="50%"}
+“...pollutants like dioxin. <mark> I am also concerned that your proposal allows power plants to buy and sell mercury pollution credits. This  </mark>kind of market-based mechanism to reduce ..."
+:::
+
+:::
+
+
+<!--## Collapsing form letters with text reuse-->
+
+## Identify coalitions with text reuse
+
+:::: {.columns}
+
+::: {.column width="40%"}
+- Document A is unique
+- B, C, and D share text
+- E and F are the same text
+:::
+
+::: {.column width="60%"}
+```{r percent-method, fig.show = "hold", out.width = "100%"}
+#| out-width: 100%
+knitr::include_graphics("Figs/comment_percent_match_plot-2.png")
+```
+:::
+
+:::
+
+
+::: {.notes}
+
+Elsewhere, I used these same methods to assess the change between the draft and final rule, and there are tutorials for how to do this on my website. 
+
+Here is what this looks like on a larger set of comments
+
+Using n-gram matching methods similar to plagiarism detection, I collapse form letters and petitions into representative texts. As most comments are form letters, that 5 million collapses to 28 thousand unique texts.
+This figure shows the percentage of shared text in a sample of comments.
+The black squares on the diagonal show that each comment has a perfect overlap with itself. 
+The block of grey partial matches reflects a public pressure campaign, with a lot of shared 10-grams. 
+I then attach these to lobbying coalitions by hand. 
+
+:::
+
+---
+
+```{r percent-method-1, fig.show = "hold", out.width = "100%"}
+#| out-width: 100%
+knitr::include_graphics("Figs/comment_percent_match_plot.png")
+```
+
+---
+
+
+## Iteratively group commenters into coalitions
+
+1. Humans identify groups of selected comments (e.g., lobbying coalitions)
+2. Humans copy and paste key phrases
+3. Computer puts other comments containing those phrases in the same group (coalition)
+
+::: {.incremental}
+- *Preprocessing tip:* 
+<!--**Digitized text** allows humans to paste text exactly matching machine-read strings.  -->
+**Summaries** speed hand-coding (e.g., use `textrank` to select representative sentences).
+:::
+
+
+## Iteratively group commenters into coalitions
+
+```{r, out.width = "90%", fig.show='hold'}
+#knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vSy9MpvnXV0nbZj4kUPnWC38bwk5xiBXjRiGC3fyrddwoZVT19SmfT4WRr_AvOH5lxeKyrTenqLlKmm/pub?w=953&h=603")
+
+knitr::include_graphics("Figs/methods-ngrams-slide.png")
+
+```
+
+
+
+
+<!--
+### Hand-coded coalitions and key demands
+
+---
+
+### Iteratively adding texts to groups with text reuse
+
+---
+
+### Selecting Texts of High-inferential Value {#select}
+
+---
+
+### Inferring Lobbying Success From the Success of Others in a Coalition {#success}
+
+#### Coding commenter demands
+
+<!--
+### Coding policy positions {#spatial}
+
+
+```{r spatial-coding, fig.cap= "Coding the Spatial Position of Comments on Proposed Policy Changes", fig.height=4, fig.width=5.5}
+include_graphics(here("figs", "spatial-coding-1.png"))
+```
+
+
+
+--->
+
+
+##  Results: Most public comments result from organized pressure campaigns
+
+
+```{r comments-mass, out.width = "100%", fig.show = "hold"}
+#| label: comments-mass
+#| out-width: 100%
+knitr::include_graphics(here::here("figs", "comments-mass-1.png"))
+```
+
+
+"Mass" comments share a 10-gram with 99+ other comments.
+
+---
+
+
+<!--
+### Results: Who mobilizes public comments?
+
+```{r}
+# code in the top_orgs.R
+load(here("data", "org_counts_summary.Rdata"))
+
+top5 <- org_counts_summary[1:5,] %>% tally(comments)
+top10 <- org_counts_summary[1:10,] %>% tally(comments)
+top100 <- org_counts_summary[1:100,]  %>% tally(comments)
+```
+
+<!--Iteratively linking comments to the organizations that wrote or mobilized them (and thus strings to identify similar comments), I find that a few advocacy organizations mobilize the vast majority of comments. 
+-->
+
+<!---
+
+Of 58 million public comments on proposed agency rules, the top 100 organizations mobilized `r top100 |> prettyNum(big.mark = ",")`. The top ten organizations mobilized `r top10 |> prettyNum(big.mark = ",")`.
+
+
+```{r}
+# code in the top_orgs.R
+load(here("data", "org_counts_summary.Rdata"))
+
+top10 <- org_counts_summary[1:10,]
+top100 <- org_counts_summary[1:100,]
+
+# Pretty up for presentation
+org_counts_summary %>%
+  dplyr::select(org_name, rules, campaigns, percent, comments, average) %>% 
+  mutate(comments = comments %>% prettyNum(big.mark = ","),
+         average = average %>% prettyNum(big.mark = ",")) %>% 
+  rename(Organization = org_name,
+         Comments = comments,
+         `Rules Lobbied On` = rules, 
+         `Pressure Campaigns` = campaigns,
+         `Percent (Campaigns /Rules)` = percent, 
+         `Average per Campaign` = average) %>% 
+  head() %>% 
+  #mutate(Organization = Organization %>% 
+           #str_rpl("Natural Resources Defense Council", "NRDC") %>% 
+           #str_rpl("World Wildlife Fund", "WWF") %>% 
+           #str_rpl("Pew Charitable Trusts", "Pew")) %>% 
+  kable(caption = "The Top 5 Organizations Mobilized 20 Million Public Comments",
+         full_width = T, font_size = 55, align= c('l', rep('c', 5))) |>
+  kableExtra::kable_paper()
+```
+
+
+-->
+
+
+<!---
+
+#### Comments from Legislators Correlate with Public Pressure
+
+-->
+
+
+Pressure results from `organized campaigns`. Of 58 million public comments on proposed agency rules, 2005-2020    
+
+::: {.nonincremental}
+
+- The top 100 organizations mobilized 44 million 
+- The top 10 organizations mobilized 26 million 
+::: 
+
+::: aside
+Organization | Rules Lobbied On | Comments
+:---- | ---- | ----:
+NRDC | 530 | 5,939,264 
+Sierra Club | 591 | 5,111,922 
+CREDO  | 90  | 3,019,150 
+Environmental Defense Fund  | 111 | 2,849,517 
+Center For Biological Diversity | 572 | 2,815,509 
+Earthjustice  | 235  | 2,080,583 
+:::
+
+---
+
+:::: {.columns}  
+
+::: {.column width="30%"}
+
+### Who gets their substantive policy demands met?
+
+::: {.nonincremental}
+
+- Business Associations
+- Law Firms & National Advocacy Organizations
+:::
+
+:::
+
+::: {.column width="70%"}
+
+```{r substantive, out.width = "85%", fig.show = "hold"}
+
+knitr::include_graphics("Figs/ej-success-table.png")
+
+```
+:::
+
+::::
+
+---
+
+## Larger coalitions → more likely to win
+
+<!--get desired policy changes-->
+
+Lobbying Success by Campaign Size
+
+```{r coded-coalition-success, out.width = "100%"}
+knitr::include_graphics(here::here("figs", "coded-coalition-success-1.png"))
+```
+
+::: {.notes}
+
+Public pressure on climate and environmental justice greatly affected policy documents (Fig. 7), but a few organizations dominate lobbying coalitions (Table 2). When tribal governments or local groups lobby without the support of national advocacy organizations, policymakers typically ignore them.
+
+:::
+
+## Larger coalitions → more likely to win
+
+
+Policy Text Change by Coalition Size
+
+```{r ej-m-PR-ejcomments-agencyFE,  out.width = "100%", small.mar = TRUE}
+knitr::include_graphics("Figs/ej-m-PR-ejcomments-agencyFE-1.png")
+```
+
+
+---
+
+```{r ej-winrates, eval=FALSE}
+load(here::here("data", "winrate.Rdata"))
+winrates %>% 
+  mutate(`EJ Success Rate` = `EJ Success Rate` %>%
+           percent(accuracy = 1) %>% replace_na("-"),
+         `Overall Success Rate` = `Overall Success Rate` %>%
+           percent(accuracy = 1)) %>% 
+  dplyr::select(-`N raising EJ`) %>% #mutate(across(where(is.numeric), pretty_num)  ) %>%
+      knitr::kable(caption = "Lobbying Success by Type of Organization, 2005-2020") %>% 
+  kable_paper() |>
+      kableExtra::kable_styling(position = "center")  #kable3(caption = )
+```
+
+
+
+
+
+## Next steps
+
+- Compare exact entity linking (regex tables) to probabilistic methods (linkit, fastlink, supervised classifiers, zero & one-shot LLM prompts)
+- Compare exact grouping (e.g., by policy demands) to supervised classifiers & one-shot LLM prompts.
+
+. . .
+
+Preliminary results for GPT-4:
+
+- organizations and their types  $\color{\green}{\checkmark}$
+- support for a proposed rule ¯\\\_(ツ)_/¯ 
+- changes from a draft to final rule  $\color{\red}{✗}$
+- lobbying successes not highlighted in rule preamble $\color{\red}{✗}$
+
+
+<!--
+An example dashboard is available here: <https://judgelord.github.io/correspondence/FERC/DOE_FERC-letter-coding.html
+
+<!--
+```{r check-company, fig.cap= "Checking for Disparities Among Coders in Real Time", out.width="100%"}
+include_graphics(here("figs", "check-company.png"))
+```
+
+
+```{r check-backslashes, fig.cap= "Checking for Incorrect Coding in Real Time", fig.height=4, fig.width=5.5}
+include_graphics(here("figs", "check-backslashes.png"))
+```
+
+## References 
+
+
+
+
+<!--
+The textrank algorithm creates a bipartite network of sentence pairs that share words and then applies Google Pagerank on the sentence network to rank sentences [@textrank]. This is the summary method I use, in part because many federal agencies used the texrank algorithm to summarize public comments. This means that the sentences chosen by textrank may be especially likely to be seen and quoted by agency officials responding to comments.  
+
+Topic models also provide helpfuls summary information. Frequent and exclusive words associated with with the topic(s) occuring in the highest proportions in the document may be helpful summary information. 
+
+Similarly, the results of supervised machine classification can also simplify human coding [@Sebok2021]. For example, @Chou2019 use k-means clustering to classify sentences in audit reports and select sentences closted to cluster centroids as summaries for human auditors. Humans with basic domain knowledge are well-suited to check and correct the results of machine coding. Human coders might dig deeper into cases where the machine coding looks off (given other available metadata, like associated entities, summaries, or topics). As humans do such a task, they likely learn how the classifier(s) tend to error. Future human and computational attention can then be paid to those cases. 
+
+
+Nothing is language-dependent. Whereas statistical models of word frequencies require language-dependent preprocessing for dimension reduction [@Lucas2015], regex tables and text reuse do not.
+
+
+## Classification 
+"The tasks of estimating category percentages (quantification) or classifying individual documents (classification) both begin by analyzing a small subset of documents with (usually hand-coded) category labels." [@Jerzak2019]
+
+The brand of linguistics that focuses on the combinations of words we use emphasizes the recurring nature of phrases. 
+"utterances are formed by repetition, modification, and concatenation of previously-known phrases consisting of more than one word...we speak mostly by stitching together swatches of text that we have heard before"
+[@Becker1975].
+
+Numerical representation of text documents can have an outsized impact on the results (see Denny and Spirling, 2016; Levy, Goldberg, and Dagan, 2015). 
+
+A corpus may lack textual discrimination regarding word frequencies [@Jerzak2019] but still be classified by phrases long enough that they are highly unlikely to appear by chance. 
+
+Another advantage of key phrases is that it cleanly allows texts to appear in multiple groups. 
+--> 
+
+## Thank you!
+
+### $\longrightarrow$ [judgelord.github.io/research/iterative](https://judgelord.github.io/research/iterative/)
+
+
