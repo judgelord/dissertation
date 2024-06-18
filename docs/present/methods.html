@@ -326,7 +326,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="figs/comment_percent_match_plot-1-cover.png" data-background-opacity="0.3" data-background-size="cover" class="quarto-title-block">
+<section id="title-slide" data-background-image="figs/comment_percent_match_plot-1-cover.png" data-background-opacity="0.3" data-background-size="cover" class="quarto-title-block center">
   <h1 class="title">Iterative Hand-Coding and Computational Text Analysis</h1>
   <p class="subtitle">Application to Public Comments in US Federal Agency Rulemaking</p>
 
@@ -337,7 +337,7 @@
 <section class="slide level2">
 
 <h3 id="data">Data:</h3>
-<p>58 million public comments proposed rules on regulations.gov</p>
+<p>58 million public comments on proposed rules, via regulations.gov</p>
 <h3 id="methods">Methods:</h3>
 <p>Hand coding <span class="math inline">\(\Longleftrightarrow\)</span> computational text analysis</p>
 </section>
@@ -347,22 +347,19 @@
 <!--I show how search and text-reuse tools can aid common hand-coding tasks. 
 Human coding can both inform and be informed by rule-based information extraction---iteratively structuring queries on unstructured text.-->
 <ol type="1">
-<li class="fragment">Text analysis tools can strategically <code>select texts for human coders</code>—texts representing larger samples and outlier texts of high inferential value.</li>
-<li class="fragment">Preprocessing can <code>speed up hand-coding</code> by extracting features like names and key sentences.</li>
-<li class="fragment">Humans and computers can iteratively <code>tag entities</code> using regex tables <!--(e.g., identify organizations)--> and <code>group texts by key features</code> (e.g., identify lobbying coalitions by common policy demands)</li>
+<li class="fragment">Text analysis tools can strategically <a href="">select texts for human coders</a>—texts representing larger samples and outlier texts of high inferential value.</li>
+<li class="fragment">Preprocessing can <a href="">speed up hand-coding</a> by extracting features like names and key sentences.</li>
+<li class="fragment">Humans and computers can iteratively <a href="">tag entities</a> using regex tables <!--(e.g., identify organizations)--> and <a href="">group texts by key features</a> (e.g., identify lobbying coalitions by common policy demands)</li>
 </ol>
 </section>
 <section class="slide level2">
 
-<p>A <strong>sample of 13,000 hand-coded comments</strong> yields 41 million <code>as-good-as-hand-coded</code> comments regarding both the <code>organizations</code> that mobilized them and the extent to which <code>policy changed</code> in the direction they sought. <!--This large sample enables new analyses of lobbying coalitions, social movements, and policy change.--></p>
+<p>A <strong>sample of 13,000 hand-coded comments</strong> yields 41 million <a href="">as-good-as-hand-coded</a> comments regarding both the <a href="">organizations</a> that mobilized them and the extent to which <a href="">policy changed</a> in the direction they sought. <!--This large sample enables new analyses of lobbying coalitions, social movements, and policy change.--></p>
 <!--
 ## Challenges and Opportunities in Studying Political Texts
 --
 
 --->
-</section>
-<section id="hand-coding-dynamic-data" class="slide level2">
-<h2>Hand-coding dynamic data</h2>
 <!--
 - 15 coders 
 
@@ -375,8 +372,25 @@ Human coding can both inform and be informed by rule-based information extractio
 
 
 --->
+</section>
+<section class="slide level2">
 
-<img data-src="../../figs/datasheet.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption">Coded Public Comments in a Google Sheet</p></section>
+<div class="columns">
+<div class="column" style="width:25%;">
+<p>Hand-coding dynamic data with Google Sheets</p>
+</div><div class="column" style="width:75%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="../../figs/datasheet.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section class="slide level2">
 
 <p>Workflow: <code>googlesheets4</code> allows analysis and improving data in real-time:</p>
@@ -416,7 +430,7 @@ Human coding can both inform and be informed by rule-based information extractio
 <section id="link-comments-to-organizations-1" class="slide level2">
 <h2>Link comments to organizations</h2>
 <ul>
-<li class="fragment"><code>Deductive:</code> Start with databases of known entities.</li>
+<li class="fragment"><a href="">Deductive:</a> Start with databases of known entities.</li>
 </ul>
 <!--### Consolidating entity name variants with regex tables-->
 <div class="cell">
@@ -447,9 +461,9 @@ Human coding can both inform and be informed by rule-based information extractio
 </div>
 </div>
 <ul>
-<li class="fragment"><code>Inductive:</code> Add entity strings that frequently appear in the data to regex tables.<br>
+<li class="fragment"><a href="">Inductive:</a> Add entity strings that frequently appear in the data to regex tables.<br>
 </li>
-<li class="fragment"><code>Iterative:</code> Add to regex tables as humans identify new entities or new aliases. Update data (Google Sheets) to speed hand coding.</li>
+<li class="fragment"><a href="">Iterative:</a> Add to regex tables as humans identify new entities or new aliases. Update data (Google Sheets) to speed hand coding.</li>
 </ul>
 <!--### Add to regex tables as hand coders identify new aliases-->
 <!--
@@ -689,11 +703,11 @@ Of 58 million public comments on proposed agency rules, the top 100 organization
 #### Comments from Legislators Correlate with Public Pressure
 
 -->
-<p>Pressure results from <code>organized campaigns</code>. Of 58 million public comments on proposed agency rules, 2005-2020</p>
+<p>Pressure results from <a href="">organized campaigns</a>. Of 58 million public comments on proposed agency rules, 2005-2020</p>
 <div>
 <ul>
-<li>The top 100 organizations mobilized 44 million</li>
-<li>The top 10 organizations mobilized 26 million</li>
+<li>The top 100 organizations mobilized <a href="">44 million</a></li>
+<li>The top 10 organizations mobilized <a href="">26 million</a></li>
 </ul>
 </div>
 
@@ -744,7 +758,7 @@ Of 58 million public comments on proposed agency rules, the top 100 organization
 
 <div class="columns">
 <div class="column" style="width:30%;">
-<h3 id="who-gets-their-substantive-policy-demands-met">Who gets their substantive policy demands met?</h3>
+<h3 id="who-gets-their-substantive-policy-demands-met">Who gets their <a href="">substantive</a> policy demands met?</h3>
 <div>
 <ul>
 <li>Business Associations</li>
@@ -856,7 +870,7 @@ Another advantage of key phrases is that it cleanly allows texts to appear in mu
 <h3 id="longrightarrow-judgelord.github.ioresearchiterative"><span class="math inline">\(\longrightarrow\)</span> <a href="https://judgelord.github.io/research/iterative/">judgelord.github.io/research/iterative</a></h3>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
-<p>Devin Judge-Lord (judgelor@umich.edu)</p>
+<p>Devin Judge-Lord &lt;<a href="mailto:judgelor@umich.edu" class="email">judgelor@umich.edu</a>&gt;</p>
 </div>
 </div>
 </section>

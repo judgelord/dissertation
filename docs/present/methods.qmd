@@ -5,10 +5,10 @@ format:
   revealjs:
       incremental: true  
       slide-number: true
-      center-title-slide: false
+      #center-title-slide: false
       preview-links: true
       theme: [default, michigan]
-      footer:  "Devin Judge-Lord (judgelor@umich.edu)"
+      footer:  "Devin Judge-Lord <<judgelor@umich.edu>>"
       fontsize: "30px"
       title-slide-attributes:
         data-background-image: "figs/comment_percent_match_plot-1-cover.png"
@@ -27,7 +27,7 @@ library("kableExtra")
 
 ### Data: 
 
-58 million public comments proposed rules on regulations.gov
+58 million public comments on proposed rules, via regulations.gov
 
 ### Methods: 
 
@@ -39,22 +39,20 @@ Hand coding $\Longleftrightarrow$ computational text analysis
 <!--I show how search and text-reuse tools can aid common hand-coding tasks. 
 Human coding can both inform and be informed by rule-based information extraction---iteratively structuring queries on unstructured text.-->
 
-1. Text analysis tools can strategically `select texts for human coders`---texts representing larger samples and outlier texts of high inferential value.
-2. Preprocessing can `speed up hand-coding` by extracting features like names and key sentences.
-3. Humans and computers can iteratively `tag entities` using regex tables
-<!--(e.g., identify organizations)--> and `group texts by key features` (e.g., identify lobbying coalitions by common policy demands)
+1. Text analysis tools can strategically [select texts for human coders]()---texts representing larger samples and outlier texts of high inferential value.
+2. Preprocessing can [speed up hand-coding]() by extracting features like names and key sentences.
+3. Humans and computers can iteratively [tag entities]() using regex tables
+<!--(e.g., identify organizations)--> and [group texts by key features]() (e.g., identify lobbying coalitions by common policy demands)
 
 ---
 
-A **sample of 13,000 hand-coded comments** yields 41 million `as-good-as-hand-coded` comments regarding both the `organizations` that mobilized them and the extent to which `policy changed` in the direction they sought. <!--This large sample enables new analyses of lobbying coalitions, social movements, and policy change.-->
+A **sample of 13,000 hand-coded comments** yields 41 million [as-good-as-hand-coded]() comments regarding both the [organizations]() that mobilized them and the extent to which [policy changed]() in the direction they sought. <!--This large sample enables new analyses of lobbying coalitions, social movements, and policy change.-->
 
 <!--
 ## Challenges and Opportunities in Studying Political Texts
 --
 
 --->
-
-## Hand-coding dynamic data
 
 <!--
 - 15 coders 
@@ -66,10 +64,23 @@ knitr::include_graphics(here("figs", "greyhound.png"))
 --->
 
 
+---
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+Hand-coding dynamic data with Google Sheets
+
+:::
+
+::: {.column width="75%"}
 ```{r datasheet, fig.show = "hold", out.width = "100%"}
-#| fig-cap: "Coded Public Comments in a Google Sheet"
 knitr::include_graphics(here("figs", "datasheet.png"))
 ```
+:::
+
+::::
 
 ---
 
@@ -109,7 +120,7 @@ knitr::include_graphics("Figs/logo-regex.png")
 ## Link comments to organizations 
 
 
-- `Deductive:` Start with databases of known entities.
+- [Deductive:]() Start with databases of known entities.
 
 
 <!--### Consolidating entity name variants with regex tables-->
@@ -135,8 +146,8 @@ read_csv() |>
   kableExtra::kable_paper()
 ```
 
-- `Inductive:` Add entity strings that frequently appear in the data to regex tables.  
-- `Iterative:` Add to regex tables as humans identify new entities or new aliases. Update data (Google Sheets) to speed hand coding.
+- [Inductive:]() Add entity strings that frequently appear in the data to regex tables.  
+- [Iterative:]() Add to regex tables as humans identify new entities or new aliases. Update data (Google Sheets) to speed hand coding.
 
 <!--### Add to regex tables as hand coders identify new aliases-->
 
@@ -377,12 +388,12 @@ org_counts_summary %>%
 -->
 
 
-Pressure results from `organized campaigns`. Of 58 million public comments on proposed agency rules, 2005-2020    
+Pressure results from [organized campaigns](). Of 58 million public comments on proposed agency rules, 2005-2020    
 
 ::: {.nonincremental}
 
-- The top 100 organizations mobilized 44 million 
-- The top 10 organizations mobilized 26 million 
+- The top 100 organizations mobilized [44 million]()
+- The top 10 organizations mobilized [26 million]()
 ::: 
 
 ::: aside
@@ -402,7 +413,7 @@ Earthjustice  | 235  | 2,080,583
 
 ::: {.column width="30%"}
 
-### Who gets their substantive policy demands met?
+### Who gets their [substantive]() policy demands met?
 
 ::: {.nonincremental}
 
