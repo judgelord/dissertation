@@ -21,8 +21,11 @@ number-sections: true
 cap-location: top
 nonblind: false
 runningauthor: Judge-Lord
-thanks: |
-    I am greatful for comments from attendees at PolMeth 2022 on an earlier [poster-version](https://judgelord.github.io/research/iterative/) of this paper. Support for this project includes the APSA DDRIG (NSF Grant #2000500). The most recent draft is available at [judgelord.github.io/research/iterative](https://judgelord.github.io/dissertation/polmeth-paper.pdf)
+author:
+  - name: Devin Judge-Lord
+      affiliations: " University of Michigan"
+      email: "judgelor@umich.edu"
+      thanks: "I am greatful for comments from attendees at PolMeth 2022 on an earlier [poster-version](https://judgelord.github.io/research/iterative/) of this paper. Support for this project includes the APSA DDRIG (NSF Grant #2000500). The most recent draft is available at [judgelord.github.io/research/iterative](https://judgelord.github.io/dissertation/polmeth-paper.pdf)"
 bibliography: "../assets/dissertation.bib"
 execute:
   echo: false
