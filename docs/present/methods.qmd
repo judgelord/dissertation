@@ -58,7 +58,7 @@ A **sample of 13,000 hand-coded comments** yields 41 million [as-good-as-hand-co
 - 15 coders 
 
 ```{r greyhound, fig.cap= "Incorrectly Labeled Coalition Identified by Automated Check"}
-knitr::include_graphics(here("figs", "greyhound.png"))
+#knitr::include_graphics("Figs/greyhound.png")
 ```
 
 --->
@@ -76,7 +76,7 @@ Hand-coding dynamic data with Google Sheets
 
 ::: {.column width="75%"}
 ```{r datasheet, fig.show = "hold", out.width = "100%"}
-knitr::include_graphics(here("figs", "datasheet.png"))
+knitr::include_graphics("Figs/datasheet.png")
 ```
 :::
 
@@ -97,7 +97,6 @@ Workflow: `googlesheets4` allows analysis and improving data in real-time:
 ```{r, out.width = "100%", fig.show='hold'}
 #knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vRSJJgSbMdFtkpJjB94Tw5cmFElhDKrHEkOLaUb5-qFdIY-sQp4qGyC-FZoZ7UmWSLfoMZDueAkemhU/pub?w=752&h=238") 
 knitr::include_graphics("Figs/methods-regex-slide.png")
-
 ```
 
 
@@ -160,9 +159,9 @@ Iteratively Building Regex Tables
 ```{r, out.width = "100%", fig.show='hold'}
 #knitr::include_graphics("https://docs.google.com/drawings/d/e/2PACX-1vRSJJgSbMdFtkpJjB94Tw5cmFElhDKrHEkOLaUb5-qFdIY-sQp4qGyC-FZoZ7UmWSLfoMZDueAkemhU/pub?w=752&h=238") 
 
-knitr::include_graphics(here::here("figs", "methods-regex.png"))
+knitr::include_graphics("Figs/methods-regex.png")
 
-#knitr::include_graphics(here::here("legislators", "man", "figures", "logo.png") %>% str_remove("dissertation"))
+#knitr::include_graphics(here::here("legislators", "man", "figures", "logo.png") %>% str_remove("dissertation")
 ```
 
 <!--
@@ -306,7 +305,7 @@ knitr::include_graphics("Figs/methods-ngrams-slide.png")
 
 
 ```{r spatial-coding, fig.cap= "Coding the Spatial Position of Comments on Proposed Policy Changes", fig.height=4, fig.width=5.5}
-include_graphics(here("figs", "spatial-coding-1.png"))
+include_graphics("Figs/spatial-coding-1.png")
 ```
 
 
@@ -320,7 +319,7 @@ include_graphics(here("figs", "spatial-coding-1.png"))
 ```{r comments-mass, out.width = "100%", fig.show = "hold"}
 #| label: comments-mass
 #| out-width: 100%
-knitr::include_graphics(here::here("figs", "comments-mass-1.png"))
+knitr::include_graphics("Figs/comments-mass-1.png")
 ```
 
 
@@ -443,7 +442,7 @@ knitr::include_graphics("Figs/ej-success-table.png")
 Lobbying Success by Campaign Size
 
 ```{r coded-coalition-success, out.width = "100%"}
-knitr::include_graphics(here::here("figs", "coded-coalition-success-1.png"))
+knitr::include_graphics("Figs/coded-coalition-success-1.png")
 ```
 
 ::: {.notes}
@@ -501,12 +500,12 @@ An example dashboard is available here: <https://judgelord.github.io/corresponde
 
 <!--
 ```{r check-company, fig.cap= "Checking for Disparities Among Coders in Real Time", out.width="100%"}
-include_graphics(here("figs", "check-company.png"))
+#include_graphics("Figs/check-company.png")
 ```
 
 
 ```{r check-backslashes, fig.cap= "Checking for Incorrect Coding in Real Time", fig.height=4, fig.width=5.5}
-include_graphics(here("figs", "check-backslashes.png"))
+#include_graphics("Figs/check-backslashes.png")
 ```
 
 ## References 
