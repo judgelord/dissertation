@@ -4,7 +4,7 @@
 $doc-class.tex()$
 
 
-\usepackage{mathtools}
+%\usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
@@ -22,10 +22,10 @@ $endif$
   \usepackage[$if(fontenc)$$fontenc$$else$OT1,T1$endif$]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
-  $if(font-serif-cochineal)$
-  \usepackage[p,osf,swashQ]{cochineal}
-  \usepackage[cochineal,vvarbb]{newtxmath}
-  $else$
+  % $if(font-serif-cochineal)$
+  % \usepackage[p,osf,swashQ]{cochineal}
+  % \usepackage[cochineal,vvarbb]{newtxmath}
+  % $else$
   \usepackage{newpxtext}
   \usepackage{mathpazo}
   $endif$

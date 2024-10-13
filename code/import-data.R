@@ -35,7 +35,7 @@ d1 <- read_sheet_c(s[1,])
 d <- map_dfr(s$id, possibly(read_sheet_c, otherwise = head(d1)))
 
 # FAILED TO IMPORT? OR BAD ID
-fails <- s$name[!s$name %>% str_remove("_.*") %in% d$docket_id]
+fails <- s$name[!s$name %>% str_remove_all("Copy of |_.*") %in% d$docket_id]
 fails 
 # in case some fail, try again?
 if(length(fails) > 0){
@@ -45,7 +45,7 @@ d %<>% full_join(d2) %>% distinct()
 }
 
 # STILL FAILED TO IMPORT? OR BAD ID
-s$name[!s$name %>% str_remove("_.*") %in% d$docket_id]
+s$name[!s$name %>% str_remove_all("Copy of |_.*") %in% d$docket_id]
 
 # remove extra white space
 d %<>% mutate_all(str_squish)
@@ -124,7 +124,7 @@ d %>% filter(is.na(docket_id))
 
 d %>% filter(!source == "mass", !docket_id %in% str_remove(s$name,"_.*")) %>% distinct(docket_id)
 
-str_remove(s$name,"_.*")
+str_remove_all(s$name, "Copy of |_.*")
 
 # inspect 
 d %>% filter(str_dct(coalition_comment, "greyhound")) %>% pull(success)
