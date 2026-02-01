@@ -14,12 +14,12 @@ subtitle: The Environmental Justice Movement's Impact on Agency Rulemaking
 runningauthor: Judge-Lord
 author:
 - name: Devin Judge-Lord
-  affiliation: Harvard University
-  title: Postdoctoral Fellow, Department of Government, Corresponding Author (DevinJudgeLord@fas.harvard.edu)
-  footnote: "I will be grateful for any feedback on this draft: [DevinJudgeLord@fas.harvard.edu](mailto:DevinJudgeLord@fas.harvard.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/ej>. This paper has benefited from comments from Benjamin Márquez, Marcy Shieh, Susan Webb Yackee, Eleanor  Powell, David Weimer, John Hoffman, Kristina Fullerton Rico, Timothy Fraser, Beth Leech, Sophie Jacobson, Margaret Brower, Daniel Carpenter, participants at the Junior Americanist Workshop Series,  Harvard American Politics Research Workshop, the University of Mississippi Political Science Research Colloquium, UW-Madison American Politics Workshop, and Association for Environmental Studies and Sciences Conference, research assistance from Hope Karnopp, and funding from the National Science Foundation and American Political Science Association."
+  affiliation: University of Michigan
+  #title: Postdoctoral Fellow, Department of Government, Corresponding Author (DevinJudgeLord@fas.harvard.edu)
+  footnote: "I will be grateful for any feedback on this draft: [judgelor@umichedu](mailto:judgelor@umich.edu). Slides and the most recent draft are available at <https://judgelord.github.io/research/ej>. This paper has benefited from comments from Benjamin Márquez, Marcy Shieh, Susan Webb Yackee, Eleanor  Powell, David Weimer, John Hoffman, Kristina Fullerton Rico, Timothy Fraser, Beth Leech, Sophie Jacobson, Margaret Brower, Daniel Carpenter, participants at the Junior Americanist Workshop Series,  Harvard American Politics Research Workshop, the University of Mississippi Political Science Research Colloquium, UW-Madison American Politics Workshop, and Association for Environmental Studies and Sciences Conference, research assistance from Hope Karnopp, and funding from the National Science Foundation and American Political Science Association."
   # Additional tables, figures, and replication code are available at <https://judgelord.github.io/dissertation/ej-appendix.html>. 
 # "`r Sys.Date()`"
-date: '06-23-2022'
+#date: '06-23-2022'
 abstract: '`r readLines(here::here("05-ej", "ej-abstract-150.tex"))`'
 #   `r readLines(here::here("05-ej", "ej-abstract.tex"))`
 bibliography: '`r here::here("assets/dissertation.bib")`'
