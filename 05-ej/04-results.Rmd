@@ -180,7 +180,7 @@ knitr::include_graphics(here::here("figs", "ej-mejPR-ejcomments-agencyFE-1.png")
 
 ### Substantive Policy Change and Lobbying Success
 
-The statistical analyses above measure agency responses to a particular issue frame over time. How does this relate to substantive policy change in particular rulemakings? Using a hand-coded sample of over 10,000 comments---all comments from organizations with concrete policy demands on a random sample of 150 agency rules from 2005 to 2020, Table \@ref(tab:ej-winrates) shows relative rates of lobbying success for different types of organizations. "Overall Success Rate" shows the share of cases that changed between draft and final as each type of commenter requested. "EJ Success Rate" shows the share of cases that changed as the commenter requested when comments included the phrase "environmental justice." Some organization types --- including frontline EJ community groups, universities, religious groups, professional associations, environmental groups, and pressure groups --- are subsets of the broad "NGO" category. Trade associations, while technically nonprofits, are not included in the NGO category.  
+The statistical analyses above measure agency responses to a particular issue frame over time. How does this relate to substantive policy change in particular rulemakings? Using a hand-coded sample of over 10,000 comments---all comments from organizations with concrete policy demands on a random sample of 150 agency rules from 2005 to 2024, Table \@ref(tab:ej-winrates) shows relative rates of lobbying success for different types of organizations. "Overall Success Rate" shows the share of cases that changed between draft and final as each type of commenter requested. "EJ Success Rate" shows the share of cases that changed as the commenter requested when comments included the phrase "environmental justice." Some organization types --- including frontline EJ community groups, universities, religious groups, professional associations, environmental groups, and pressure groups --- are subsets of the broad "NGO" category. Trade associations, while technically nonprofits, are not included in the NGO category.  
 
 ```{r ej-winrates}
 load(here::here("data", "winrate.Rdata"))
@@ -197,7 +197,7 @@ winrates %>%
            str_replace("(Finance|Law Firm)", "Business, \\1") %>% 
            str_replace("(NGO$|Business$)", "\\1 (Overall)")) %>% 
 arrange(`Organization Type`) %>% 
-  kable3(caption = "Hand-coded Lobbying Success by Type of Organization, 2005-2020")
+  kable3(caption = "Hand-coded Lobbying Success by Type of Organization, 2005-2024")
 ```
 
 Only law firms were more likely to get their substantive policy demands met when their comments raised EJ concerns. Tribes and Frontline EJ community groups---already the types of organizations least likely to have their substantive demands met (9% and 4%, respectively)---saw none of their substantive demands related to EJ met. NGOs, overall, and environmental groups (a subset of NGOs) were slightly less likely to see their policy demands met when these demands were explicitly linked to EJ. The most successful types of organizations overall---Trade Associations, States, Cities, and Banks---did not use EJ language in the hand-coded sample. 
